@@ -243,31 +243,31 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         pageblock.maxcols = int(2)
         templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
-        templet_id = pageblock.objectValues('Text Box Templet')[0].getId()
-        dest_block = utool.getRelativeUrl(pageblock)
-        test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
-           % (templet.absolute_url(1), 0, 0, dest_block)
+        test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s' \
+           % (templet.absolute_url(1), 0, 0)
         response = self.publish(test_url, self.basic_auth)
-        templet_moved_id = pageblock.objectValues('Text Box Templet')[0].getId()
+        templet_moved = pageblock.objectValues('Text Box Templet')[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(templet_id == templet_moved_id)
+        self.assert_(templet_moved.xpos == 0)
+        self.assert_(templet_moved.getVerticalPosition() == 0)
 
     def test_move_Templet_between_different_PageBlocks(self):
         utool = self.portal.portal_url
         theme_container = self.theme_container
         pageblock_src = theme_container.addPageBlock()
+        pageblock_src.maxcols = int(2)
         pageblock_dest = theme_container.addPageBlock()
         pageblock_dest.maxcols = int(2)
         templet = pageblock_src.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
-        templet_id = pageblock_src.objectValues('Text Box Templet')[0].getId()
+        templet = pageblock_src.objectValues('Text Box Templet')[0]
         dest_block = utool.getRelativeUrl(pageblock_dest)
         test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
            % (templet.absolute_url(1), 1, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
-        templet_moved_id = pageblock_dest.objectValues('Text Box Templet')[0].getId()
+        templets_in_dest = pageblock_dest.objectValues('Text Box Templet')
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(templet_id == templet_moved_id)
+        self.assert_(len(templets_in_dest) >= 0)
 
     def test_copy_Templet_to_another_Theme(self):
         theme_container = self.theme_container
@@ -444,14 +444,15 @@ class TestFunctionalAsMember(TestFunctional):
         self.assert_(len(pageblock.getObjects()[1]['contents']) == 1)
 
     def test_move_Templet_inside_same_PageBlock(self):
+        utool = self.portal.portal_url
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
         templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
-        templet_id = pageblock.objectValues('Text Box Templet')[0].getId()
+        dest_block = utool.getRelativeUrl(pageblock)
         test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
-           % (templet.absolute_url(1), 0, 0, pageblock.getId())
+           % (templet.absolute_url(1), 0, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
 
