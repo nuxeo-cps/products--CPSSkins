@@ -11,6 +11,8 @@ content = context.addContent(**kw)
 if content is None:
     return
 
+tmtool.clearViewMode('scrollx', 'scrolly')
+
 url = content.absolute_url() + '/edit_form'
 
 default_styles = {}
