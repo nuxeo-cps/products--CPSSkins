@@ -2087,6 +2087,10 @@ msgid "description_delete_unused_portlets"
 msgstr ""
 
 
+msgid "description_portlets_visible_from"
+msgstr ""
+
+
 msgid "description_unused_boxes"
 msgstr "Unsichtbare Boxen weil ihr Slot nicht im aktuellen Thema enthalten ist"
 
@@ -2096,10 +2100,6 @@ msgstr "Unbenutzte Boxen gelöscht"
 
 
 msgid "description_unused_portlets"
-msgstr ""
-
-
-msgid "description_visible_portlets_from"
 msgstr ""
 
 

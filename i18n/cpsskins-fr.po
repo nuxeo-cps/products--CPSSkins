@@ -2089,6 +2089,10 @@ msgid "description_delete_unused_portlets"
 msgstr "Supprimer les portlets inutilisés"
 
 
+msgid "description_portlets_visible_from"
+msgstr "Portlets visible à partir de"
+
+
 msgid "description_unused_boxes"
 msgstr "Ces boîtes sont invisibles car leur groupe ne fait pas partie de ce thème"
 
@@ -2099,10 +2103,6 @@ msgstr "Les boîtes inutilisées ont été supprimées."
 
 msgid "description_unused_portlets"
 msgstr "Ces portlets sont invisibles car leur groupe ne fait pas partie de ce thème"
-
-
-msgid "description_visible_portlets_from"
-msgstr "Portlets visibles à partir de"
 
 
 msgid "heading_portlet_manage_form"

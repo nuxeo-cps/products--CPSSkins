@@ -2090,6 +2090,10 @@ msgid "description_delete_unused_portlets"
 msgstr ""
 
 
+msgid "description_portlets_visible_from"
+msgstr ""
+
+
 msgid "description_unused_boxes"
 msgstr "Caixas que estão invisíveis porque seus encaixes não estão neste tema"
 
@@ -2099,10 +2103,6 @@ msgstr "Caixas não utilizadas removidas"
 
 
 msgid "description_unused_portlets"
-msgstr ""
-
-
-msgid "description_visible_portlets_from"
 msgstr ""
 
 

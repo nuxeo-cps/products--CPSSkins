@@ -2089,6 +2089,10 @@ msgid "description_delete_unused_portlets"
 msgstr ""
 
 
+msgid "description_portlets_visible_from"
+msgstr ""
+
+
 msgid "description_unused_boxes"
 msgstr "Ramki niewidoczne poniewa¿ bie¿±cy slot nie wystêpuje w tym motywie"
 
@@ -2098,10 +2102,6 @@ msgstr "Nieu¿ywane ramki skasowano"
 
 
 msgid "description_unused_portlets"
-msgstr ""
-
-
-msgid "description_visible_portlets_from"
 msgstr ""
 
 

@@ -1588,7 +1588,7 @@ msgstr ""
 msgid "heading_portlet_manage_form"
 msgstr ""
 
-msgid "description_visible_portlets_from"
+msgid "description_portlets_visible_from"
 msgstr ""
 
 msgid "description_confirm_delete_portlet"
