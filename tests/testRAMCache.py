@@ -83,6 +83,7 @@ class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
         last_cleanup2 = cache.getLastCleanup(id=templet_path)
         time.sleep(0.1)
         templet.render_cache()
+        time.sleep(0.1)
         last_cleanup3 = cache.getLastCleanup(id=templet_path)
         self.assert_(last_cleanup2 == last_cleanup1)
         self.assert_(last_cleanup3 > last_cleanup2)
