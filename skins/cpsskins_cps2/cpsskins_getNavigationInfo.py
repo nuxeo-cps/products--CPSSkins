@@ -85,10 +85,10 @@ else:
     if total_level != 1:
         hierlist = [h for h in hierlist
             if (h['rurl'] + '/').startswith(path + '/') ]
-     if len(path_list) <= total_level or \
-         not (path + '/').startswith(base_parent_path):
-         hierlist = []
-         current_hier = None
+    if len(path_list) <= total_level or \
+        not (path + '/').startswith(base_parent_path):
+        hierlist = []
+        current_hier = None
 
 create_url = ''
 folder_title = ''
