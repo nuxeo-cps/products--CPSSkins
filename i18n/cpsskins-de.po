@@ -155,10 +155,6 @@ msgid "_Box color_"
 msgstr "Farbe einer Portal Box"
 
 
-msgid "_Box group_"
-msgstr "Gruppe einer Portal Box"
-
-
 msgid "_Box layout_"
 msgstr "Layout einer Portal Box"
 
@@ -1155,6 +1151,10 @@ msgid "_Simulate this URL ..._"
 msgstr "URL simulieren ..."
 
 
+msgid "_Slot name_"
+msgstr ""
+
+
 msgid "_Start string_"
 msgstr "Start Text"
 
@@ -2021,6 +2021,10 @@ msgstr "Suche"
 
 msgid "_searchbox_templet_description_"
 msgstr "eine Box mit einem Eingabefeld zum Durchsuchen der Site"
+
+
+msgid "_select this slot_"
+msgstr ""
 
 
 msgid "_selected_tab_"

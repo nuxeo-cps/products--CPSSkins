@@ -155,10 +155,6 @@ msgid "_Box color_"
 msgstr "Colore della casella"
 
 
-msgid "_Box group_"
-msgstr "Gruppo delle caselle"
-
-
 msgid "_Box layout_"
 msgstr "Aspetto della casella"
 
@@ -1155,6 +1151,10 @@ msgid "_Simulate this URL ..._"
 msgstr "Simula questo percorso ..."
 
 
+msgid "_Slot name_"
+msgstr ""
+
+
 msgid "_Start string_"
 msgstr "Marcatore di inizio stringa"
 
@@ -2021,6 +2021,10 @@ msgstr "Ricerca"
 
 msgid "_searchbox_templet_description_"
 msgstr "una casella contenente un campo che permette di effettuare delle ricerche degli oggetti presenti nel portale."
+
+
+msgid "_select this slot_"
+msgstr ""
 
 
 msgid "_selected_tab_"

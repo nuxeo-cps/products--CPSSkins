@@ -155,10 +155,6 @@ msgid "_Box color_"
 msgstr ""
 
 
-msgid "_Box group_"
-msgstr ""
-
-
 msgid "_Box layout_"
 msgstr ""
 
@@ -1155,6 +1151,10 @@ msgid "_Simulate this URL ..._"
 msgstr ""
 
 
+msgid "_Slot name_"
+msgstr ""
+
+
 msgid "_Start string_"
 msgstr ""
 
@@ -2020,6 +2020,10 @@ msgstr "Sök"
 
 
 msgid "_searchbox_templet_description_"
+msgstr ""
+
+
+msgid "_select this slot_"
 msgstr ""
 
 

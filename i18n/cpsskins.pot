@@ -52,7 +52,7 @@ msgstr ""
 msgid "_Area shape_"
 msgstr ""
 
-msgid "_Box group_"
+msgid "_Slot name_"
 msgstr ""
 
 msgid "_Box color_"
@@ -1570,3 +1570,5 @@ msgstr ""
 msgid "_option_docinfo_created_by_"
 msgstr ""
 
+msgid "_select this slot_"
+msgstr ""

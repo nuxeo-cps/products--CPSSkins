@@ -157,10 +157,6 @@ msgid "_Box color_"
 msgstr "Kolor ramki"
 
 
-msgid "_Box group_"
-msgstr "Grupa ramki portalu"
-
-
 msgid "_Box layout_"
 msgstr "Styl ramki portalu"
 
@@ -1157,6 +1153,10 @@ msgid "_Simulate this URL ..._"
 msgstr "Symuluj ten URL ..."
 
 
+msgid "_Slot name_"
+msgstr ""
+
+
 msgid "_Start string_"
 msgstr "Pocz±tek znaków"
 
@@ -2023,6 +2023,10 @@ msgstr "Szukaj"
 
 msgid "_searchbox_templet_description_"
 msgstr "ramka z polem do wpisywania i wyszukiwania"
+
+
+msgid "_select this slot_"
+msgstr ""
 
 
 msgid "_selected_tab_"

@@ -155,10 +155,6 @@ msgid "_Box color_"
 msgstr "Couleur de la boîte"
 
 
-msgid "_Box group_"
-msgstr "Groupe de boîtes"
-
-
 msgid "_Box layout_"
 msgstr "Mise en forme de la boîte"
 
@@ -1157,6 +1153,10 @@ msgid "_Simulate this URL ..._"
 msgstr "Simuler cette URL ..."
 
 
+msgid "_Slot name_"
+msgstr "Nom du slot"
+
+
 msgid "_Start string_"
 msgstr "Marqueur de début"
 
@@ -2023,6 +2023,10 @@ msgstr "Recherche"
 
 msgid "_searchbox_templet_description_"
 msgstr "une boîte avec un champ pour faire une recherche dans le site."
+
+
+msgid "_select this slot_"
+msgstr "sélectionner ce slot"
 
 
 msgid "_selected_tab_"
