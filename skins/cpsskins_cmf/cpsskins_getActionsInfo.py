@@ -21,7 +21,7 @@ if custom_action_categories:
 actions = REQUEST.get('cpsskins_cmfactions', None)
 if actions is None:
     if context_obj is None:
-        context_obj = context.REQUEST.get('context_obj', context)
+        context_obj = context
     actions = context.portal_actions.listFilteredActionsFor(context_obj)
 
 actioninfo = []

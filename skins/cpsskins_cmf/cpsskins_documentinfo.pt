@@ -1,6 +1,6 @@
 <tal:block i18n:domain="cpsskins"
 define="mcat python: request.get('cpsskins_mcat'); 
-        context_obj python: request.get('context_obj', here);
+        context_obj nocall:options/context_obj;
 	content python: here.content">
   <tal:block condition="python: content == 'title'">
     <tal:block i18n:translate=""

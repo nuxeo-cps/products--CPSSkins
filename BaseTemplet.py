@@ -501,12 +501,12 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
             verifyThemePerms(self)
 
     security.declarePublic('getVisibility')
-    def getVisibility(self, REQUEST=None):
+    def getVisibility(self, REQUEST=None, **kw):
         """Returns True if the Templet is visible."""
 
         if self.closed:
             return None
-        return getObjectVisibility(self, REQUEST)
+        return getObjectVisibility(self, REQUEST=REQUEST, **kw)
 
     security.declarePublic('getApplicableStyles')
     def getApplicableStyles(self):

@@ -1,6 +1,6 @@
 <div 
 tal:define="mcat python: request.get('cpsskins_mcat'); 
-            context_obj python: request.get('context_obj');
+            context_obj nocall:options/context_obj;
             show_icon python: here.show_icon;
             separator_start python: here.separator_start;
             separator_end python: here.separator_end;

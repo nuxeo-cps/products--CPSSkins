@@ -1,5 +1,5 @@
 <div style="text-align: left" i18n:domain="plone"
-tal:define="context_obj python: request.get('cpsskins_obj');
+tal:define="context_obj nocall:options/context_obj;
             content python: here.content"
  tal:attributes="class python: 'PortalTab%s' % here.portaltabstyle">
  <tal:block condition="python: content == 'folders'">

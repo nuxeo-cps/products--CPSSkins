@@ -30,7 +30,6 @@
           cpsskins_language here/cpsskins_getCurrentLang;
           context_rurl request/form/context_rurl|nothing;
           context_obj python: here.cpsskins_getContextObj(context_rurl);
-          dummy python: request.set('context_obj', context_obj);
           mcat python: here.cpsskins_getlocalizer();
           dummy python: request.set('cpsskins_language', cpsskins_language);
           dummy python: request.set('cpsskins_mcat', mcat)">
@@ -87,7 +86,7 @@
                     <div
                     tal:define="templet_title python: templet.title;
                                 templet_here python: templet == here;
-		                visible python: templet.getVisibility(REQUEST=request); 
+		                visible python: templet.getVisibility(REQUEST=request, context_obj=context_obj); 
 				render_templet python: not layout_edit_mode and not special_templet; 
                                 render_as_title python: layout_edit_mode and not ismaincontent and not render_templet;
                                 boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'TempletBoxBodyLayout' or 'TempletBoxBody'; 

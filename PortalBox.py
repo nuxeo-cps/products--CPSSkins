@@ -296,7 +296,7 @@ class PortalBox(BaseTemplet):
                 title = mcat(title)
 
         elif title_source == 'Workflow state':
-            context_obj = REQUEST.get('context_obj')
+            context_obj = kw.get('context_obj')
             if context_obj is not None:
                 wtool = getToolByName(self, 'portal_workflow')
                 title = wtool.getInfoFor(context_obj, 'review_state','')

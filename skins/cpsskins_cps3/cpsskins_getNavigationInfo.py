@@ -1,4 +1,4 @@
-##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None
+##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, context_obj=None
 
 if base_path is None:
     return
@@ -39,12 +39,11 @@ else:
 REQUEST = context.REQUEST
 
 parent_url = ''
-context_obj = REQUEST.get('context_obj', None)
-if context_obj is not None:
-    here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
-else:
+
+if context_obj is None:
     return
 
+here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
 here_rurl_slash = here_rurl + '/'
 
 parent_url = here_rurl

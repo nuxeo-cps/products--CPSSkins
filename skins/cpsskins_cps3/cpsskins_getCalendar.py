@@ -1,8 +1,11 @@
+##parameters=context_obj=None
 
 from DateTime import DateTime
 
 REQUEST=context.REQUEST
-context_obj = REQUEST.get('context_obj', context)
+if context_obj is None
+    return
+
 context_url = context_obj.absolute_url()
 portal_calendar = context.portal_calendar
 

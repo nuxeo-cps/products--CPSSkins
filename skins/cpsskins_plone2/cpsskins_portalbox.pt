@@ -1,5 +1,5 @@
 <tal:block i18n:domain="plone"
-define="context_obj python: request.get('cpsskins_obj');
+define="context_obj nocall:options/context_obj;
         base_url here/cpsskins_getBaseUrl;
         orientation python: here.orientation;
         menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
@@ -11,7 +11,7 @@ define="context_obj python: request.get('cpsskins_obj');
                        base python: here.base;
                        show_docs python: here.show_docs;
                        base_path python: here.base_path;
-                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path);
+                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, context_obj=context_obj);
                        menuentries navigationinfo/menuentries|nothing;
                        create_url navigationinfo/create_url|nothing; i18n python: here.folder_items_i18n"
                condition="python: menuentries or create_url">

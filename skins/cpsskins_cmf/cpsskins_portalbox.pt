@@ -1,5 +1,5 @@
 <tal:block define="mcat python: request.get('cpsskins_mcat');
-                   context_obj python: request.get('context_obj');
+                   context_obj nocall:options/context_obj;
                    base_url python: request.get('cpsskins_base_url', '');
                    orientation python: here.orientation;
                    menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
@@ -12,7 +12,7 @@
                        show_docs python: here.show_docs;
                        display_hidden_folders python: here.display_hidden_folders;
                        base_path python: here.base_path;
-                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders); 
+                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders, context_obj=context_obj); 
                        menuentries navigationinfo/menuentries|nothing;
                        create_url navigationinfo/create_url|nothing;
                        i18n python: here.folder_items_i18n"

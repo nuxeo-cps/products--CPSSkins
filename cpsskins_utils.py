@@ -240,7 +240,7 @@ def detectPortalType(self):
     return portal_type
 
 
-def getObjectVisibility(self, REQUEST):
+def getObjectVisibility(self, REQUEST=None, **kw):
     """ Return 1 if the object if visible """
 
     lang_list = self.languages
@@ -298,7 +298,7 @@ def getObjectVisibility(self, REQUEST):
 
         # real URL
         if rurl is None:
-            url_obj = REQUEST.get('context_obj', None)
+            url_obj = kw.get('context_obj')
             if url_obj is not None:
                 url = utool.getRelativeContentURL(url_obj)
                 if url:

@@ -1,4 +1,4 @@
-##parameters=level=None, base=None, show_docs=None, base_path='/', max_results=None,  **kw
+##parameters=level=None, base=None, show_docs=None, base_path='/', max_results=None, context_obj=None, **kw
 
 REQUEST=context.REQUEST
 
@@ -27,7 +27,6 @@ portal_root = utool.getPortalObject()
 if portal_url != '/':
     portal_url = '/' + portal_url
 
-context_obj = REQUEST.get('context_obj', None)
 if context_obj is None:
     return
 

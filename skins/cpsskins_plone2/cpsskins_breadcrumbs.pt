@@ -1,5 +1,5 @@
 <div i18n:domain="plone"
-tal:define="context_obj python: request.get('context_obj');
+tal:define="context_obj nocall:options/context_obj;
             base_url python: request.get('cpsskins_base_url', '');
             show_icon python: here.show_icon;
             separator_start python: here.separator_start;

@@ -1,4 +1,4 @@
-##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, REQUEST=None
+##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, context_obj=None
 
 if base_path is None:
     return
@@ -17,10 +17,9 @@ if base is None:
 from Products.CPSNavigation.CPSNavigation import CPSNavigation
 utool = context.portal_url
 
-if REQUEST is None:
-    REQUEST = context.REQUEST
-
-context_obj = REQUEST.get('context_obj', None)
+REQUEST = context.REQUEST
+if context_obj is None:
+    return
 
 nav = CPSNavigation(root_uid=base,
                     current_uid=utool.getRelativeUrl(context_obj),

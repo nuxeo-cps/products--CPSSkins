@@ -11,7 +11,7 @@
   &nbsp;&nbsp;
   <a href="" i18n:translate=""
    tal:define="title string:_See the error log_;
-               context_obj python: request.get('context_obj', here.portal_url.getPortalObject());
+               context_obj nocall:options/context_obj;
                context_rurl python: context_obj.absolute_url(1)"
    tal:condition="python: context_obj != here"
    tal:attributes="href string: ${here/absolute_url}/render?context_rurl=/$context_rurl" 

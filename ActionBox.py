@@ -153,7 +153,7 @@ class ActionBox(BaseTemplet):
         return actions
 
     security.declarePublic('getActionsIconInfo')
-    def getActionsIconInfo(self, REQUEST=None):           
+    def getActionsIconInfo(self, REQUEST=None, **kw):           
         """Returns actions icon information"""
 
         if REQUEST is None:
@@ -163,7 +163,7 @@ class ActionBox(BaseTemplet):
 
         actions = REQUEST.get('cpsskins_cmfactions', None)
         if actions is None:
-            context_obj = REQUEST.get('context_obj', self)
+            context_obj = kw.get('context_obj')
             actions = atool.listFilteredActionsFor(context_obj)
 
         actions_to_display = self.actions_to_display

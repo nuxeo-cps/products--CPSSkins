@@ -1,4 +1,4 @@
-##parameters=level=None, base=None, show_docs=None, base_path=None, max_results=None, **kw
+##parameters=level=None, base=None, show_docs=None, base_path=None, max_results=None, context_obj=None, **kw
 
 REQUEST=context.REQUEST
 
@@ -56,12 +56,10 @@ hierlist = hier_base.getHierarchyList()
 hierlist = [h for h in hierlist if h['depth'] == total_level]
 hierlist = [h for h in hierlist if (h['rurl'] +'/').startswith(base_parent_path)]
 
-context_obj = REQUEST.get('context_obj', None)
-
-if context_obj is not None:
-    current_path =  '/' + utool.getRelativeUrl(context_obj)
-else:
+if context_obj is None:
     return
+
+current_path =  '/' + utool.getRelativeUrl(context_obj)
 
 munge_url = REQUEST.get('munge_absolute_url', context, None)
 if len(munge_url) > 1:
