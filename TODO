@@ -13,3 +13,8 @@ of TABLEs whenever possible. The use cases are:
   - page blocks with only one column
   - page blocks with fixed columns widths
 
+2005-02-31:
+
+- use another CSS layout for rendering rounded boxes.
+  this method uses only 2 images and makes it possible to draw box borders
+  http://www.456bereastreet.com/lab/teaser/flexible/
