@@ -3,7 +3,9 @@
    tal:define="ypos portlet/getOrder;
                portlet_id portlet/getId;
                portlet_url portlet/getURL;
+               portlet_depth portlet/getDepth;
                portlet_title portlet/title_or_id;
+               portlet_folder portlet/getLocalFolder;
                portlet_rurl portlet/getRelativeUrl;
                fti portlet/getTypeInfo;
                portlet_type fti/title_or_id;
@@ -11,30 +13,37 @@
    tal:attributes="portlet_rurl portlet_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group">
-    <div class="PortletBoxDest" 
-      tal:attributes="dest_slot group;
+    <div class="PortletBoxDest"
+      tal:define="rel_depth python: here_depth - portlet_depth;
+                  thickness python: test(rel_depth < 3, 3 - rel_depth, 1)" 
+      tal:attributes="style string:border-width:1px ${thickness}px ${thickness}px 1px;
+                      dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
         <tal:block content="portlet_title" />
         <a href=""
         tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
-          <img border="0" width="12" height="12"
+          <img border="0" width="12" height="12" alt=""
           tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
         </a>
         <a href=""
         tal:attributes="href string:${here/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
-          <img border="0" width="12" height="12"
+          <img border="0" width="12" height="12" alt=""
           tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
         </a>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
                      src_slot group">
-        <img width="16" height="16" 
+        <img width="16" height="16" alt=""
          tal:condition="portlet_icon"
-         tal:attributes="src string:${portal_url}/$portlet_icon" />
+         tal:attributes="src string:${portal_url}/${portlet_icon}" />
         <strong tal:content="structure python: cpsmcat(portlet_type)" />
+        <p>
+        <tal:block i18n:translate="listingheader_location" />:
+        <tal:block content="python: '/' + portlet_folder.absolute_url(1)" />
+        </p>
       </div>
     </div>
   </div>

@@ -21,7 +21,9 @@
     <metal:main fill-slot="main">
       <tal:block define="tmtool here/portal_themes;
                          ptltool nocall:here/portal_cpsportlets;
-                         portal_url here/portal_url">
+                         utool nocall:here/portal_url;
+                         portal_url here/portal_url;
+                         here_depth python: len(utool.getRelativeContentPath(here))">
         <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
           <table cellpadding="0" cellspacing="3" width="100%">
             <tr valign="top"

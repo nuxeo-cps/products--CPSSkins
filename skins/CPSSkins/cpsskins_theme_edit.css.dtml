@@ -618,7 +618,6 @@ border: 1px solid #c90;
 -moz-border-radius: 5px;
 }
 
-
 input.ThemeDefault {
 background: url(<dtml-var portal_url>/cpsskins_images/theme_default.png); 
 background-repeat: no-repeat;
@@ -628,7 +627,6 @@ background-color: #f0f0f0;
 border: 1px solid #ccc;
 -moz-border-radius: 5px;
 }
-
 
 input.InvalidateCache {
 background: url(<dtml-var portal_url>/cpsskins_images/invalidate_cache.png); 
@@ -667,22 +665,23 @@ font: 10px Verdana, Arial, Sans-Serif;
 }
 
 .BoxGroupBoxTitle {
-background-color: #ccc; 
-font-weight: bold;  
+background-color: #ccc;
+font-weight: bold;
 padding: 2px;
 }
 
 .BoxGroupBoxBody {
 background-color: #f6f6f6; 
-padding: 2px;              
-}                          
-             
+padding: 2px;
+margin: 0px;
+}
+
 .BoxGroupBoundingBox {
-border: 1px solid #999; 
+border: 1px solid #999;
 margin-bottom: 10px;
 background-color: #ffc;
 }
- 
+
 .TempletBox {
 padding: 2px;
 color: Black;
