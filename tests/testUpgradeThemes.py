@@ -48,8 +48,10 @@ class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
             tmtool.manage_exportObject(theme_name)
 
             theme.setAsDefault()
-            # compare the new file and the old file
-            self.assert_(theme.render(shield=0, context_obj=self.portal))
+            theme_id, page_id = tmtool.getEffectiveThemeAndPageName()
+            page = theme.getPageContainer(page=page_id)
+            self.assert_(theme.render(
+                shield=0, context_obj=self.portal, theme=theme_id, page=page))
 
     local_home = os.path.join(os.curdir, 'data')
     export_dir = os.path.join(local_home, 'export')
