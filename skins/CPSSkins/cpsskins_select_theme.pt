@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html tal:define="base_url python: request.get('cpsskins_base_url', '')">
+<html i18n:domain="cpsskins"
+ tal:define="tmtool here/portal_themes;
+             mcat python: request.get('cpsskins_mcat');
+             base_url python: request.get('cpsskins_base_url', '')">
   <head>
     <link rel="Stylesheet" type="text/css"
     tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
-    <link rel="Stylesheet" type="text/css"
-    tal:attributes="href string:${theme_container/absolute_url}/renderCSS" />
+    <script type="text/javascript" 
+    tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
   </head>
   <body
    tal:define="prop request/form/prop|nothing;
@@ -13,10 +16,18 @@
       <a tal:define="number repeat/theme/number"
        tal:attributes="href string:javascript:selectTheme('$number', '$prop')">
         <div style="width: 250px"
-         tal:define="preview theme/preview">
+         tal:define="preview theme/preview|nothing">
           <h1 tal:content="theme/title" />
-          <img tal:condition="preview"
+          <img tal:condition="preview" width="200px" height="160px"
            tal:attributes="src string:${theme/absolute_url}/thumbnails/${preview}" />
+          <div class="thumbnail" style="width: 200px; height: 160px"
+           tal:condition="not:preview">
+            <br/>
+            <br/>
+            <br/>
+            <span tal:define="title string:_No preview_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title" />
+          </div>
         </div>
       </a>
     </div>

@@ -1704,3 +1704,6 @@ msgstr ""
 
 msgid "_Columns_"
 msgstr ""
+
+msgid "_No preview_"
+msgstr ""

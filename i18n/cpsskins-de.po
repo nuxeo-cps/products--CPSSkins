@@ -979,6 +979,10 @@ msgid "_No items published since your last log-in_"
 msgstr "Seit der letzen Anmeldung wurde nichts publiziert"
 
 
+msgid "_No preview_"
+msgstr ""
+
+
 msgid "_Not available in layout mode_"
 msgstr ""
 

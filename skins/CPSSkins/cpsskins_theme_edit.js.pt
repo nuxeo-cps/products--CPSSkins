@@ -38,9 +38,9 @@ function selectPalette(value, textfield_id) {
     self.close;
 }
 
-function selectTheme(value, textfield_id) {
-    opener.value = value;
-    opener.textfield_restart(textfield_id);
+function selectTheme(value, select_id) {
+    opener.style = value;
+    opener.selection_restart(select_id);
     self.close;
 }
 
