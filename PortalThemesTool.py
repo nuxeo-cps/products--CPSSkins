@@ -210,8 +210,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 theme_name = path[p+1]
                 theme_container = self.getThemeContainer(theme=theme_name)
                 return theme_container     
-        o = object.aq_inner.aq_explicit
-        if getattr(o, 'isportaltheme', 0):
+        if getattr(object.aq_inner.aq_explicit, 'isportaltheme', 0):
             return object
         return None
 
@@ -264,9 +263,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return None
 
         for obj in palettes_dir.objectValues():
-            if getattr(obj.aq_inner.aq_explicit, 'meta_type', None) == category:
-                title_list.append(obj.title)
-                object_list.append(obj)
+            if getattr(aq_base(obj), 'meta_type', None) != category:
+                continue
+            title_list.append(obj.title)
+            object_list.append(obj)
 
         palette['title'] = title_list
         palette['object'] = object_list
@@ -741,7 +741,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         # the object is a style
         # remove the references
-        if getattr(object.aq_inner.aq_explicit, 'isportalstyle', 0):
+        if getattr(aq_base(object), 'isportalstyle', 0):
             object.findParents(newtitle='')
 
         mtool = getToolByName(self, 'portal_membership')
@@ -758,7 +758,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             If 'empty' is set to 1, the theme will be empty, 
             otherwise a minimal theme will be created.
         """
-        
+
         id = kw.get('id', 'PortalTheme')
         new_id = getFreeId(self, try_id=id)
         cpsskins = self.manage_addProduct['CPSSkins']

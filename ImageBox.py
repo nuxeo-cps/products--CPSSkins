@@ -181,7 +181,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
                     self.manage_delObjects(img_id)
                 cmfdefault = self.manage_addProduct['CMFDefault']
                 cmfdefault.manage_addContent(id=img_id, type='Portal Image')
-                img = getattr(self.aq_inner.aq_explicit, img_id, None)
+                img = getattr(aq_base(self), img_id, None)
                 img.manage_upload(file)
         self.expireCache()
 

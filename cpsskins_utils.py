@@ -109,7 +109,7 @@ def renderMeth(self, render_variable, **kw):
     """Renders a method (the value of 'render_variable')"""
 
     rendered = None
-    actionid = getattr(self.aq_inner.aq_explicit, render_variable, None)
+    actionid = getattr(aq_base(self), render_variable, None)
     if actionid is None:
         return None
     meth = getattr(self, actionid, None)

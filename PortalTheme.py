@@ -370,8 +370,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
             else:
                 folder = getattr(self.aq_inner.aq_explicit, themefolder)
-                f = folder.aq_inner.aq_explicit
-                if getattr(f, 'isthemefolder', 0):
+                if getattr(aq_base(folder), 'isthemefolder', 0):
                     continue
 
                 self.manage_renameObjects([themefolder], [backupid])
@@ -386,41 +385,41 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         # move disallowed objects to lost+found
         for (id, o) in self.objectItems():
-            o = o.aq_inner.aq_explicit
-            if getattr(o, 'isportalpageblock', 0):
+            if getattr(aq_base(o), 'isportalpageblock', 0):
                 continue
-            if getattr(o, 'isthemefolder', 0):
+            if getattr(aq_base(o), 'isthemefolder', 0):
                 continue
             moveToLostAndFound(self, o)
-        
+
         for obj in self.getPageBlocks():
             obj.rebuild(**kw)
-        
+
         for obj in self.findStyles():
             obj.rebuild(**kw)
 
         styles_dir = self.getStylesFolder()
         for (id, obj) in styles_dir.objectItems():
-            obj = obj.aq_inner.aq_explicit
-            if isBroken(obj):
+            if isBroken(aq_base(obj)):
                 styles_dir.manage_delObjects(id)
                 continue
-            if getattr(obj, 'isportalstyle', 0):
+            if getattr(aq_base(obj), 'isportalstyle', 0):
                 continue
             moveToLostAndFound(self, obj)
 
         palettes_dir = self.getPalettesFolder()
         for (id, obj) in palettes_dir.objectItems():
-            obj = obj.aq_inner.aq_explicit
-            if isBroken(obj):
+            if isBroken(aq_base(obj)):
                 palettes_dir.manage_delObjects(id)
                 continue
-            if getattr(obj, 'isportalpalette', 0):
+            if getattr(aq_base(obj), 'isportalpalette', 0):
                 continue
             moveToLostAndFound(self, obj)
 
+        ids = self.objectIds()
         for themefolder in themefolders:
-            obj = getattr(self.aq_inner.aq_explicit, themefolder, None)
+            if themefolder not in ids:
+                continue
+            obj = getattr(self, themefolder, None)
             if obj is not None and setperms:
                 verifyThemePerms(obj)
 
@@ -487,8 +486,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 return None
             css = ''
             for obj in styles_dir.objectValues():
-                o = obj.aq_inner.aq_explicit
-                if getattr(o, 'isportalstyle', 0):
+                if getattr(aq_base(obj), 'isportalstyle', 0):
                     css += obj.render(**kw)
             css = css_slimmer(css)
             cache.setEntry(index, css)
@@ -609,22 +607,20 @@ class PortalTheme(ThemeFolder, StylableContent):
         id = 'styles'
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_inner.aq_explicit
-            if not getattr(f, 'isthemefolder', 0):
+            if not getattr(aq_base(folder), 'isthemefolder', 0):
                 return None
         return getattr(self, id, None)
 
     security.declarePublic('getPalettesFolder')
     def getPalettesFolder(self):
-        """                 
-        Returns the palettes folder object 
-        """                 
-                            
+        """
+        Returns the palettes folder object
+        """
+
         id = 'palettes'
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_inner.aq_explicit
-            if not getattr(f, 'isthemefolder', 0):
+            if not getattr(aq_base(folder), 'isthemefolder', 0):
                 return None 
         return getattr(self, id, None)
 
@@ -632,7 +628,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     def getDefaultStyle(self, meta_type=None):
         """ Gets the default style name by type
         """
- 
+
         styles = self.getStyles(meta_type=meta_type) 
         for style in styles:
             if style.isDefaultStyle():
@@ -649,7 +645,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         exists = 0
         if folder is not None:
-            if getattr(folder.aq_inner.aq_explicit, 'isthemefolder', 0):
+            if getattr(aq_base(folder), 'isthemefolder', 0):
                 exists = 1 
         if not exists and create:
             self.invokeFactory('Theme Folder', id)
@@ -666,8 +662,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         id = category
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_inner.aq_explicit
-            if not getattr(f, 'isthemefolder', 0):
+            if not getattr(aq_base(folder), 'isthemefolder', 0):
                 return None
         return getattr(self, id, None)
 
@@ -680,16 +675,15 @@ class PortalTheme(ThemeFolder, StylableContent):
         styles_dir = self.getStylesFolder()
         list = []
         for (id, o) in styles_dir.objectItems():
-            o = o.aq_inner.aq_explicit
-            if not getattr(o, 'isportalstyle', 0):
+            if not getattr(aq_base(o), 'isportalstyle', 0):
                 continue
 
             if title is not None:
-                if getattr(o, 'title', None) != title:
+                if getattr(aq_base(o), 'title', None) != title:
                     continue
 
             if meta_type is not None:
-                if getattr(o, 'meta_type', None) != meta_type:
+                if getattr(aq_base(o), 'meta_type', None) != meta_type:
                     continue
 
             list.append(o)
@@ -719,7 +713,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         if meta_type is None:
             return None
         for style in self.findStyles(meta_type=meta_type):
-            if style.aq_inner.aq_explicit.isDefaultStyle():
+            if style.isDefaultStyle():
                 return style
         return None
 
@@ -731,7 +725,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         if meta_type is None:
             return None
- 
+
         groups = []
         props = []
         for style in self.findStyles(meta_type=meta_type):
@@ -757,10 +751,10 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         list = []
         for templet in self.getTemplets():
-            templet = templet.aq_inner.aq_explicit
-            if templet.isCacheable():
-                if not getattr(templet, 'cacheable', 0):
-                    list.append(templet)
+            if not templet.isCacheable():
+                continue
+            if not getattr(templet, 'cacheable', 0):
+                list.append(templet)
         return list
 
     security.declareProtected(ManageThemes, 'addPageBlock')
@@ -784,7 +778,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
         Add a Portal Palette. Returns the Portal Palette's id
         """
-      
+
         type_name = kw.get('type_name', None)
         if type_name is None:
             return None
@@ -943,7 +937,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         cmfdefault = images_dir.manage_addProduct['CMFDefault']
         cmfdefault.manage_addContent(id=id, type='Portal Image')
 
-        img = getattr(images_dir, id, None)
+        img = getattr(images_dir.aq_inner.aq_explicit, id, None)
         kw['id'] = id
         self.editPortalImage(**kw)
         img.manage_changeProperties(title=title)
@@ -959,9 +953,10 @@ class PortalTheme(ThemeFolder, StylableContent):
         stylesfolder = self.getStylesFolder()
         list = []
         for style in stylesfolder.objectValues():
-            if hasattr(style.aq_inner.aq_explicit, 'isOrphan'):
-                if style.isOrphan():
-                    list.append(style)
+            if getattr(aq_base(style), 'isOrphan', None) is None:
+                continue
+            if style.isOrphan():
+                list.append(style)
         return list
 
     security.declareProtected(ManageThemes, 'getTemplets')
@@ -1013,17 +1008,17 @@ class PortalTheme(ThemeFolder, StylableContent):
             if maxcols is not None:
                 maxcols = int(maxcols)
             for obj in pageblock.objectValues():
-                o = obj.aq_inner.aq_explicit
-                if getattr(o, 'isportaltemplet', 0):
-                    if obj.closed:
-                        invisible_templets.append(obj)
-                        continue
-                    if pageblock_closed:
-                        invisible_templets.append(obj)
-                        continue
-                    xpos = getattr(obj, 'xpos', None)
-                    if xpos is not None and xpos >= maxcols:
-                        invisible_templets.append(obj)
+                if not getattr(aq_base(obj), 'isportaltemplet', 0):
+                    continue
+                if obj.closed:
+                    invisible_templets.append(obj)
+                    continue
+                if pageblock_closed:
+                    invisible_templets.append(obj)
+                    continue
+                xpos = getattr(obj, 'xpos', None)
+                if xpos is not None and xpos >= maxcols:
+                    invisible_templets.append(obj)
         return invisible_templets
 
     #

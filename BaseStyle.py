@@ -23,6 +23,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass, DTMLFile
+from Acquisition import aq_base
 from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
@@ -237,8 +238,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
         for obj in theme_container.getPageBlocks():
             # page blocks
-            obj = obj.aq_inner.aq_explicit
-            for pm in obj.propertyMap():
+            for pm in aq_base(obj).propertyMap():
                 if pm.get('style') != meta_type:
                     continue
                 style_type = pm.get('id')
@@ -253,8 +253,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
             # cell blocks
             for obj2 in obj.objectValues():
-                obj2 = obj2.aq_inner.aq_explicit
-                for pm in obj2.propertyMap():
+                for pm in aq_base(obj2).propertyMap():
                     if pm.get('style') != meta_type:
                         continue
                     style_type = pm.get('id')
@@ -271,7 +270,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             if pm.get('style') != meta_type:
                 continue
             style_type = pm.get('id')
-            style = getattr(theme_container, style_type, None)
+            style = getattr(theme_container.aq_inner.aq_explicit, style_type, None)
             if style != style_title:
                 continue
             rebuild_properties(theme_container)

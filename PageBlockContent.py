@@ -72,13 +72,15 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportaltemplet', 0) or \
-               getattr(o, 'iscellblock', 0):
-                if obj.xpos == self.xpos:
-                    pos = obj.getVerticalPosition()
-                    if pos > newpos and pos < this_pos:
-                        newpos = pos
+            o = aq_base(obj)
+            if not (getattr(o, 'isportaltemplet', 0) or \
+                    getattr(o, 'iscellblock', 0)):
+                continue
+            if obj.xpos != self.xpos:
+                continue
+            pos = obj.getVerticalPosition()
+            if pos > newpos and pos < this_pos:
+                newpos = pos
         return newpos
 
     security.declarePublic('movedown_pos')
@@ -89,14 +91,16 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportaltemplet', 0) or \
-               getattr(o, 'iscellblock', 0):
-                if obj.xpos == self.xpos:
-                    pos = obj.getVerticalPosition()
-                    if  pos > this_pos:
-                        newpos = pos
-                        break
+            o = aq_base(obj)
+            if not (getattr(o, 'isportaltemplet', 0) or \
+                    getattr(o, 'iscellblock', 0)):
+                continue
+            if obj.xpos != self.xpos:
+                continue
+            pos = obj.getVerticalPosition()
+            if  pos > this_pos:
+                newpos = pos
+                break
         return newpos
 
     security.declarePublic('can_toggle')
@@ -125,13 +129,15 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         # otherwise find a templet above it
         this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportaltemplet', 0) or \
-                getattr(o, 'iscellblock', 0):
-                if obj.xpos == self.xpos:
-                    pos = obj.getVerticalPosition()
-                    if pos < this_pos:
-                        return 1
+            o = aq_base(obj)
+            if not (getattr(o, 'isportaltemplet', 0) or \
+                    getattr(o, 'iscellblock', 0)):
+                continue
+            if obj.xpos != self.xpos:
+                continue
+            pos = obj.getVerticalPosition()
+            if pos < this_pos:
+                return 1
         return None
 
     security.declarePublic('can_movedown')
@@ -145,13 +151,15 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         container = self.aq_parent
         this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
-            o =  obj.aq_inner.aq_explicit
-            if getattr(o, 'isportaltemplet', 0) or \
-               getattr(o, 'iscellblock', 0):
-                if obj.xpos == self.xpos:
-                    pos = obj.getVerticalPosition()
-                    if pos > this_pos:
-                        return 1
+            o = aq_base(obj)
+            if not (getattr(o, 'isportaltemplet', 0) or \
+                    getattr(o, 'iscellblock', 0)):
+                continue
+            if obj.xpos != self.xpos:
+                continue
+            pos = obj.getVerticalPosition()
+            if pos > this_pos:
+                return 1
         return None
 
     security.declarePublic('can_moveright')
@@ -188,7 +196,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         src_ypos = self.getVerticalPosition()
         newid = getFreeId(container)
         container.manage_clone(self, newid)
-        newobj  = getattr(container, newid, None)
+        newobj = getattr(container, newid, None)
         container.move_object_to_position(newobj.getId(), src_ypos + 1)
 
         # if the Templet is a portlet box create a new Templet

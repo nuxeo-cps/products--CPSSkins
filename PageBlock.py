@@ -27,6 +27,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_base
 from OFS.Folder import Folder
 
 from Products.CMFCore.CMFCorePermissions import View
@@ -188,17 +189,16 @@ class PageBlock(ThemeFolder, StylableContent):
             verifyThemePerms(self)
 
         for (id, o) in self.objectItems():
-            o = o.aq_inner.aq_explicit
-            if isBroken(o):
+            if isBroken(aq_base(o)):
                 self.manage_delObjects(id)
                 continue
-            if getattr(o, 'isportaltemplet', 0):
+            if getattr(aq_base(o), 'isportaltemplet', 0):
                 o.rebuild(**kw)
                 continue
-            if getattr(o, 'iscellmodifier', 0):
+            if getattr(aq_base(o), 'iscellmodifier', 0):
                 o.rebuild(**kw)
                 continue
-            if getattr(o, 'iscellblock', 0):
+            if getattr(aq_base(o), 'iscellblock', 0):
                 o.rebuild(**kw)
                 continue
             moveToLostAndFound(self, o)
@@ -366,38 +366,41 @@ class PageBlock(ThemeFolder, StylableContent):
             cellvisibility[col] = 1
 
         for obj in self.objectValues():
-            xpos = getattr(obj, 'xpos', 0)
+            o = aq_base(obj)
+            xpos = getattr(o, 'xpos', 0)
             if xpos and xpos >= maxcols:
                 continue
-            if getattr(obj, 'iscellhider', 0):
+            if getattr(o, 'iscellhider', 0):
                 cellvisibility[xpos] = obj.getVisibility(**kw)
                 cellhider[xpos] = obj
                 continue
 
             if cellvisibility[xpos] or edit:
-                if getattr(obj, 'isportaltemplet', 0):
+                if getattr(o, 'isportaltemplet', 0):
                     if obj.getVisibility(**kw) or edit:
                         contents[xpos].append(obj)
                         continue
 
-                if getattr(obj, 'iscellblock', 0):
+                if getattr(o, 'iscellblock', 0):
                     contents[xpos].append(obj)
                     continue
 
-                if getattr(obj, 'iscellsizer', 0):
+                if getattr(o, 'iscellsizer', 0):
                     cellsizer[xpos] = obj
                     continue
 
-                if getattr(obj, 'iscellstyler', 0):
+                if getattr(o, 'iscellstyler', 0):
                     cellstyler[xpos] = obj
 
         for col in range(maxcols):
-            if edit or cellvisibility[col]:
-                objects[col] = {'contents': contents[col], 
-                                'cellsizer': cellsizer[col], 
-                                'cellstyler': cellstyler[col],
-                                'cellhider': cellhider[col],
-                               }
+            if not (edit or cellvisibility[col]):
+                continue
+            objects[col] = {
+                'contents': contents[col],
+                'cellsizer': cellsizer[col],
+                'cellstyler': cellstyler[col],
+                'cellhider': cellhider[col],
+                }
         return objects
 
     security.declarePublic('getTemplets')
@@ -406,7 +409,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         templets = []
         for obj in self.objectValues():
-            o = obj.aq_inner.aq_explicit
+            o = aq_base(obj)
             if getattr(o, 'isportaltemplet', 0):
                 templets.append(obj)
             if getattr(o, 'iscellblock', 0):
@@ -443,11 +446,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """ Can the page block be deleted ?
             Not if it contains a 'main content' templet
         """
-           
-        for obj in self.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'ismaincontent', 0):
-                return None
+
         return 1
 
     security.declareProtected(ManageThemes, 'toggle')
@@ -519,8 +518,7 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportalpageblock', 0):
+            if getattr(aq_base(obj), 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos < this_pos:
                     return 1
@@ -535,8 +533,7 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportalpageblock', 0):
+            if getattr(aq_base(obj), 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos > this_pos:
                     return 1
@@ -552,8 +549,7 @@ class PageBlock(ThemeFolder, StylableContent):
         this_pos = container.get_object_position(self.getId())
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportalpageblock', 0):
+            if getattr(aq_base(obj), 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos > newpos and pos < this_pos:
                     newpos = pos
@@ -571,11 +567,11 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportalpageblock', 0):
-                pos = container.get_object_position(obj.getId())
-                if pos > this_pos:
-                    return pos
+            if not getattr(aq_base(obj), 'isportalpageblock', 0):
+                continue
+            pos = container.get_object_position(obj.getId())
+            if pos > this_pos:
+                return pos
         return None
 
     security.declareProtected(ManageThemes, 'edit_form')

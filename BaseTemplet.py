@@ -790,13 +790,12 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     def render_js(self, **kw):
         """Renders the javascript code used by the Templet."""
 
-        if hasattr(self.aq_inner.aq_explicit, 'javascript_render_action'):
-            actionid = self.javascript_render_action
-            meth = getattr(self, actionid, None)
-            if meth is not None:
-                rendered = apply(meth, (), kw)
-                return rendered  
-        return ''
+        if getattr(aq_base(self), 'javascript_render_action', None) is None:
+            return ''
+        meth = getattr(self, self.javascript_render_action, None)
+        if meth is not None:
+            rendered = apply(meth, (), kw)
+            return rendered  
 
     security.declarePublic('render_css')
     def render_css(self, **kw):

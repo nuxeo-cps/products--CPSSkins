@@ -25,7 +25,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_parent, aq_inner
+from Acquisition import aq_parent, aq_inner, aq_base
 from OFS.Folder import Folder
 
 from Products.CMFCore.CMFCorePermissions import View
@@ -236,14 +236,13 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             verifyThemePerms(self)
 
         for (id, obj) in self.objectItems():
-            o = obj.aq_inner.aq_explicit
-            if isBroken(obj):
+            if isBroken(aq_base(obj)):
                 self.manage_delObjects(id)
                 continue
-            if getattr(o, 'isportaltemplet', 0):
+            if getattr(aq_base(obj), 'isportaltemplet', 0):
                 obj.rebuild(**kw)
                 continue
-            if getattr(o, 'iscellmodifier', 0):
+            if getattr(aq_base(obj), 'iscellmodifier', 0):
                 obj.rebuild(**kw)
                 continue
             moveToLostAndFound(self, obj)
@@ -272,7 +271,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             cellsizer[col] = None
 
         for obj in self.objectValues():
-            o = obj.aq_inner.aq_explicit
+            o = aq_base(obj)
             xpos = getattr(o, 'xpos', 0)
             if xpos and xpos >= maxcols:
                 continue
@@ -297,8 +296,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         """
         templets = []
         for obj in self.objectValues():
-            o = obj.aq_inner.aq_explicit
-            if getattr(o, 'isportaltemplet', 0):
+            if getattr(aq_base(obj), 'isportaltemplet', 0):
                 templets.append(obj)
         return templets
 
