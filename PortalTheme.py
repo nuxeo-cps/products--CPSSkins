@@ -438,7 +438,6 @@ class PortalTheme(ThemeFolder):
 
         if REQUEST is not None:
             kw.update(REQUEST.form)
-            REQUEST.RESPONSE.setHeader('Content-Type', 'text/javascript')
 
         cache = self.getJSCache(create=1)
         index = tuple(kw.items())

@@ -1,3 +1,8 @@
+##parameters=REQUEST=None
+
+if REQUEST is not None:
+    REQUEST.RESPONSE.setHeader('Content-Type', 'text/javascript')
+
 js = context.renderJS()
 
 # CPS Portlets
