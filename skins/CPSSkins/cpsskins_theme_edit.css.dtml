@@ -800,7 +800,11 @@ border: 1px solid #ccc;
 background-color: #f3f3f6;
 }
 
-.PortletsFullscreen {
+.PortletPreview {
+border: 1px solid Black;
+padding: 1em;
+display: block;
+background-color: White;
 }
 
 .PortletsPanelSelector {

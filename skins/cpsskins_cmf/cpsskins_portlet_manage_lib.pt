@@ -317,6 +317,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
             <em tal:content="structure python: cpsmcat(portlet_type)" />.
             <span tal:content="portlet/description" />
           </p>
+          <div class="PortletPreview"
+           tal:content="structure python: portlet.render_cache(context_obj=here)" />
         </div>
       </div>
     </tal:block>
