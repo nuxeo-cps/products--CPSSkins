@@ -581,7 +581,7 @@
   </tal:block>
 </metal:block>
 
-<metal:block define-macro="theme_exporter" i18n:domain="cpsskins" tal:define="
+<metal:block define-macro="theme_exporter" tal:define="
   io_tool here/portal_io|nothing">
   <tal:block condition="io_tool">
     <tal:block define="exporter string:CPSSkinsExporter;
@@ -590,7 +590,7 @@
                condition="python: exporter in exporters">
       <h2 class="fancy" tal:define="title string:_XML export_"
        tal:content="python: mcat and mcat(title) or title"
-       i18n:translate="" />
+       i18n:translate="" i18n:domain="cpsskins" />
       <form method="post" action="." enctype="multipart/form-data">
         <input type="text" name="export_file_name"
          tal:attributes="value string:${current_theme}.zip" />
@@ -604,13 +604,13 @@
   </tal:block>
   <h2 class="fancy" tal:define="title string:_zexp export_"
    tal:content="python: mcat and mcat(title) or title"
-   i18n:translate="" />
+   i18n:translate="" i18n:domain="cpsskins" />
   <form action=""
    tal:attributes="action string:${theme_container_url}/manage_exportObject">
     <input type="hidden" name="download" value="1" />
     <input type="submit" class="ExportTheme"
      tal:define="title string:_button_export_theme_"
-     i18n:attributes="value"
+     i18n:attributes="value" i18n:domain="cpsskins"
      tal:attributes="value python: mcat and mcat(title) or title" />
   </form>
 </metal:block>
