@@ -25,7 +25,10 @@ class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         for theme_name, theme_id in getThemes().items():
             # remove existing themes
             ids = tmtool.objectIds()
-            tmtool.manage_delObjects(ids)
+            if theme_name in ids: 
+                tmtool.manage_delObjects(theme_name)
+            if theme_id in ids: 
+                tmtool.manage_delObjects(theme_id)
 
             # import the theme from ../Install
             install_dir = os.path.abspath('../Install')
