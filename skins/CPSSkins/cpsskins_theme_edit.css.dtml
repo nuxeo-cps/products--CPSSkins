@@ -173,7 +173,9 @@
 .context-menu-submenu li ul {
   display: none;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #000;
+  border-top: 3px solid #669;
+  margin-top: 3px;
   background-color: #eee;
   width: 150px;
 }
@@ -181,10 +183,10 @@
 .context-menu-submenu li > ul {
   top: auto;
   left: auto;
-  margin: -1.5em 0 0 100px;
+  margin: -1.8em 0 0 120px;
 }
 
-.context-menu-submenu li:hover ul, .context-menu-submenu li.over ul {
+.context-menu-submenu li:hover ul, .context-menu-submenu li.sfhover ul {
   display: block;
 }
 

@@ -1995,6 +1995,10 @@ msgid "_menu_Portal Tab Style_"
 msgstr ""
 
 
+msgid "_menu_Set alignment_"
+msgstr ""
+
+
 msgid "_menu_Set style_"
 msgstr ""
 

@@ -575,6 +575,9 @@ msgstr ""
 msgid "_menu_Set style_"
 msgstr ""
 
+msgid "_menu_Set alignment_"
+msgstr ""
+
 msgid "_menu_Portal Box Color_"
 msgstr ""
 

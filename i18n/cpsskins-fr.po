@@ -1973,6 +1973,10 @@ msgid "_menu_Portal Tab Style_"
 msgstr "Style d'onglets"
 
 
+msgid "_menu_Set alignment_"
+msgstr "Aligner"
+
+
 msgid "_menu_Set style_"
 msgstr "Styliser"
 

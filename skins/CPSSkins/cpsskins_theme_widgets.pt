@@ -214,20 +214,9 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          define="title string:_menu_Duplicate_"
          content="python: mcat and mcat(title) or title" />
     </div>
-    <div class="context-menu-item" 
-     tal:define="msg string:_confirm delete_;
-                 msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg"
-     tal:attributes="onmouseup python:'Choice_action(\'delete\', \'%s\')' % msg"
-         filter="pd_selected_item">
-       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
-       <tal:block i18n:translate="" 
-         define="title string:_menu_Delete_"
-         content="python: mcat and mcat(title) or title" />
-    </div>
     <div class="separator"></div>
     <div class="context-menu-submenu">
-      <ul id="set_style">
+      <ul id="nav">
         <li>
           <div class="context-menu-item">
             <img width="16" height="16" 
@@ -255,36 +244,62 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
       </ul>
     </div>
     <div class="separator"></div>
-    <div class="context-menu-item" onmouseup="Choice_align('left')"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('left') >= 0)">
-      <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_left.png" />
-      <tal:block i18n:translate="" 
-         define="title string:_menu_Align left_"
-         content="python: mcat and mcat(title) or title" />
+    <div class="context-menu-submenu">
+      <ul id="nav">
+        <li>
+          <div class="context-menu-item">
+            <img width="16" height="16" 
+             tal:attributes="src string:${base_url}cpsskins_images/set_style-16.png" />
+            <tal:block i18n:translate=""
+             define="title string:_menu_Set alignment_"
+             content="python: mcat and mcat(title) or title" /> ...
+          </div>
+          <ul>
+            <li class="context-menu-item" onmouseup="Choice_align('left')"
+             tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('left') >= 0)">
+              <img width="16" height="16" 
+               tal:attributes="src string:${base_url}cpsskins_images/align_left.png" />
+              <tal:block i18n:translate="" 
+               define="title string:_menu_Align left_"
+               content="python: mcat and mcat(title) or title" />
+            </li>
+            <li class="context-menu-item" onmouseup="Choice_align('center')"
+             tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('center') >= 0)">
+              <img width="16" height="16" 
+               tal:attributes="src string:${base_url}cpsskins_images/align_center.png" />
+              <tal:block i18n:translate="" 
+               define="title string:_menu_Align center_"
+               content="python: mcat and mcat(title) or title" />
+            </li>
+            <li class="context-menu-item" onmouseup="Choice_align('right')"
+             tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('right') >= 0)">
+              <img width="16" height="16" 
+               tal:attributes="src string:${base_url}cpsskins_images/align_right.png" />
+              <tal:block i18n:translate="" 
+               define="title string:_menu_Align right_"
+               content="python: mcat and mcat(title) or title" />
+            </li>
+            <li class="context-menu-item" onmouseup="Choice_align('justify')"
+             tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('justify') >= 0)">
+              <img width="16" height="16" 
+               tal:attributes="src string:${base_url}cpsskins_images/align_justify.png" />
+              <tal:block i18n:translate="" 
+               define="title string:_menu_Align justify_"
+               content="python: mcat and mcat(title) or title" />
+            </li>
+          </ul>
+        </ul>
     </div>
-    <div class="context-menu-item" onmouseup="Choice_align('center')"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('center') >= 0)">
+    <div class="separator"></div>
+    <div class="context-menu-item" 
+     tal:define="msg string:_confirm delete_;
+                 msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg"
+     tal:attributes="onmouseup python:'Choice_action(\'delete\', \'%s\')' % msg"
+         filter="pd_selected_item">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_center.png" />
+         tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
        <tal:block i18n:translate="" 
-         define="title string:_menu_Align center_"
-         content="python: mcat and mcat(title) or title" />
-    </div>
-    <div class="context-menu-item" onmouseup="Choice_align('right')"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('right') >= 0)">
-       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_right.png" />
-      <tal:block i18n:translate="" 
-         define="title string:_menu_Align right_"
-         content="python: mcat and mcat(title) or title" />
-    </div>
-    <div class="context-menu-item" onmouseup="Choice_align('justify')"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('justify') >= 0)">
-       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_justify.png" />
-      <tal:block i18n:translate="" 
-         define="title string:_menu_Align justify_"
+         define="title string:_menu_Delete_"
          content="python: mcat and mcat(title) or title" />
     </div>
   </div>
