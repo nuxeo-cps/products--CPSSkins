@@ -431,15 +431,14 @@ class PortalTheme(ThemeFolder, StylableContent):
         return self.objectValues('Theme Page')
 
     security.declarePublic('getPageContainer')
-    def getPageContainer(self, page=None):
-        """ return a page by id"""
-
-        if page is None:
-            return None
+    def getPageContainer(self, page=''):
+        """Return a page by id
+        Return the default page otherwise
+        """
         for page_container in self.getPages():
             if page_container.getId() == page:
                 return page_container
-        return None
+        return self.getDefaultPage()
 
     security.declarePublic('getDefaultPage')
     def getDefaultPage(self):
