@@ -5,7 +5,7 @@
   theme_renderer theme_container/theme_renderer;
   macroless python: theme_renderer == 'macroless'">
 
-<tal:block condition="macroless">
+<tal:block condition="macroless"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <metal:block use-macro="here/cpsskins_main_template_macroless/macros/master" />
 </tal:block>
 
