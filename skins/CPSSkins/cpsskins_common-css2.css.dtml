@@ -62,7 +62,6 @@ input.SearchBox {
 
 .cpsskinsTab .body ul li a {
   display: inline;
-  white-space: nowrap;
 }
 
 /* Buttons (min/max/close/edit) */
