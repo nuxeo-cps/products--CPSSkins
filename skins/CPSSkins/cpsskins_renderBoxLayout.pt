@@ -1,6 +1,6 @@
 <tal:block define="title options/title;
                    body options/body;
-                   portlet nocall:options/portlet;
+                   portlet nocall:options/portlet|nothing;
                    boxedit options/boxedit|nothing;
                    macro_path options/macro_path|nothing"
        tal:condition="macro_path">
