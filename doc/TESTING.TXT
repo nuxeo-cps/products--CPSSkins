@@ -1,63 +1,62 @@
+TESTING
+=======
 
+Running CPS3 unit tests on top of CPSSkins
+------------------------------------------
+If you are using a version of CPS earlier than cvs 2004-08-05
+apply the following patch: CPSSkins/Misc/CPSTestCase.py.diff ::
 
-* Running CPS3 unit tests on top of CPSSkins:
+ $ cd Products/CPSDefault/tests
+ $ patch -p0 < CPSTestCase.py.diff
+ $ CPSSKINS_TARGET=CPS3 python runalltests.py
 
-  If you are using a version of CPS earlier than cvs 2004-08-05
-  apply the following patch: CPSSkins/Misc/CPSTestCase.py.diff 
+Running Plone2 unit tests on top of CPSSkins
+--------------------------------------------
+Apply the following patch: CPSSkins/Misc/PloneTestCase.py.diff ::
 
-  $ cd Products/CPSDefault/tests
-  $ patch -p0 < CPSTestCase.py.diff
-  $ CPSSKINS_TARGET=CPS3 python runalltests.py
+ $ cd Products/CMFPlone/tests
+ $ patch -p0 < PloneTestCase.py.diff
+ $ CPSSKINS_TARGET=Plone2 python runalltests.py
 
+Running CPSSkins unit tests under CPS3 ::
 
-* Running Plone2 unit tests on top of CPSSkins:
+ $ CPSSKINS_TARGET=CPS3 python runalltests.py
 
-  Apply the following patch: CPSSkins/Misc/PloneTestCase.py.diff 
+Running CPSSkins unit tests under Plone2 ::
 
-  $ cd Products/CMFPlone/tests
-  $ patch -p0 < PloneTestCase.py.diff
-  $ CPSSKINS_TARGET=Plone2 python runalltests.py
+ $ CPSSKINS_TARGET=Plone2 python runalltests.py
 
+Running CPSSkins unit tests under CMF ::
 
-* Running CPSSkins unit tests under CPS3:
+ $ CPSSKINS_TARGET=CMF python runalltests.py
 
-  $ CPSSKINS_TARGET=CPS3 python runalltests.py
+ZChecker
+--------
+http://cvs.sourceforge.net/viewcvs.py/collective/ZChecker/
 
+To run the ZChecker on the skins, simply install ZChecker under 
+the Products directory. 
 
-* Running CPSSkins unit tests under Plone2:
+Memory leaks:
+-------------
+To check for the presence of memory leaks in CPSSkins ::
 
-  $ CPSSKINS_TARGET=Plone2 python runalltests.py
+ - run inside the Zope instance directory the following command ::
 
-
-* Running CPSSkins unit tests under CMF:
-
-  $ CPSSKINS_TARGET=CMF python runalltests.py
-
-
-* ZChecker:
-  http://cvs.sourceforge.net/viewcvs.py/collective/ZChecker/
-
-  To run the ZChecker on the skins, simply install ZChecker under 
-  the Products directory. 
-
-
-* Memory leaks:
-  To check for the presence of memory leaks in CPSSkins:
-
-  - run inside the Zope instance directory the following command:
   $ watch ps v `cat var/Z2.pid`
 
-  - in another terminal run:
+ - in another terminal run ::
+
   $ ab2 -n 1000 https://localhost:8080/yoursite/some/url
 
-  ('ab2' is a benchmarking tool included in the Apache distribution)
-  In the output of the 'ps' command look for the field called 'RSS' 
-  that displays the amount of resident RAM used by the python process
-  associated to Zope. Watch how the memory usage evolves.
+('ab2' is a benchmarking tool included in the Apache distribution)
+In the output of the 'ps' command look for the field called 'RSS' 
+that displays the amount of resident RAM used by the python process
+associated to Zope. Watch how the memory usage evolves.
 
-  When the site is accessed with 'ab2' the amount of RAM should
-  eventually stabilize around a certain value (typically 50-60 Mb)
-  and stay on that value if there is no memory leak.
+When the site is accessed with 'ab2' the amount of RAM should
+eventually stabilize around a certain value (typically 50-60 Mb)
+and stay on that value if there is no memory leak.
 
-  Perform the same tests without CPSSkins in order to better identify 
-  the origin of the leak.
+Perform the same tests without CPSSkins in order to better identify 
+the origin of the leak.

@@ -1,35 +1,47 @@
 
 How to internationalize entries in the selection or multi selection lists.
 
+- 'i18n'
 
-- 'i18n' 
   type: boolean
+
   default: 0
+
   explanation: if 'i18n' is set the entries in the selection list will be 
   translated using Localizer / Translation service. msgids are computed
   on the basis of the list values returned by the 'select_variable'.
 
 - 'i18n_prefix'
+
   type: string
+
   default: '_'
+
   explanation: the 'i18n_prefix' is prepended to select entries.
   (e.g. if 'i18n_prefix' is '_option_' 'xxx' becomes 'msgid "_option_xxx"')
 
 - 'i18n_suffix'
+
   type: string
+
   default: '_'
+
   explanation: the 'i18n_prefix' is appended to select entries.
   (e.g.  if 'i18n_prefix' is '_title' 'xxx' becomes 'msgid "xxx_title"')
 
 - 'i18n_default_domain'
+
   type: boolean
+
   default: 0
 
   if 'i18n_default_domain' is true the default message catalogue will be used 
   instead of the 'cpsskins' message catalogue.
 
 - 'i18n_transform'
+
   type: string
+
   default: ''
   
   if 'i18n_transform' contains the name of a method, the entry titles will
@@ -39,7 +51,7 @@ How to internationalize entries in the selection or multi selection lists.
 
 Example:
 
-  if 'def LifetimeList()' returns ['10', '20', '30'] 
+ if 'def LifetimeList()' returns ['10', '20', '30'] ::
 
   _properties = (
      {'id': 'cache_lifetime', 
@@ -52,8 +64,10 @@ Example:
      }
   )
 
-  msgids will be: '_option_lifetime_10_' 
-                  '_option_lifetime_20_'
-                  '_option_lifetime_30_'
+ msgids will be:
+
+  - '_option_lifetime_10_' 
+  - '_option_lifetime_20_'
+  - '_option_lifetime_30_'
 
   ( 'i18n_suffix' is '_' by default )
