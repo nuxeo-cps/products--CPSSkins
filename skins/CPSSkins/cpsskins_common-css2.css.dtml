@@ -40,6 +40,18 @@ input.SearchBox {
   border: 1px solid #b0b0b0;
 }
 
+/* backward compatibility with CPS 3.2 */
+.menu, .menu li, .menu a, .menu li:hover, .menu a:hover {
+  float: none;
+  background: none;
+  border: none;
+  white-space: normal;
+}
+
+.menu li a:hover {
+  color: inherit;
+}
+
 /* Portal boxes */
 
 /* Standard vertical layout */
