@@ -637,8 +637,11 @@ def update(self):
     skinstool.default_skin = 'CPSSkins'
 
     pr(" Resetting the skin cache")
-    portal.clearCurrentSkin()
-    portal.setupCurrentSkin()
+    try:
+        portal.clearCurrentSkin()
+        portal.setupCurrentSkin()
+    except AttributeError:
+        pass
 
     pr_h3("Purging the RAM cache")
     tmtool.manage_clearCaches()
