@@ -2,6 +2,8 @@
 # CPSTestCase
 #
 
+import time
+
 import os, tempfile
 from Testing import ZopeTestCase
 
@@ -23,49 +25,28 @@ ZopeTestCase.installProduct('NuxUserGroups', quiet=1)
 ZopeTestCase.installProduct('TranslationService', quiet=1)
 ZopeTestCase.installProduct('SiteAccess', quiet=1)
 
-# CPSWorkflow
-try: ZopeTestCase.installProduct('CPSWorkflow', quiet=1)
-except: pass
-
-# XXX: these products should (and used to be) be optional, but they aren't
-# right now.
 ZopeTestCase.installProduct('CPSForum', quiet=1)
 ZopeTestCase.installProduct('CPSSubscriptions', quiet=1)
 ZopeTestCase.installProduct('CPSSchemas', quiet=1)
 ZopeTestCase.installProduct('CPSDocument', quiet=1)
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
-ZopeTestCase.installProduct('CPSWiki', quiet=1)
 ZopeTestCase.installProduct('Epoz', quiet=1)
 
-# Optional products
-try: ZopeTestCase.installProduct('NuxMetaDirectories', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSRSS', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSChat', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSCalendar', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSMailingLists', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSCollector', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSMailBoxer', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSPortlets', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSNewsLetters', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSNavigation', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('CPSUserFolder', quiet=1)
-except: pass
+# other products
+for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
+                'CPSRSS', 'CPSChat', 'CPSCalendar',
+                'CPSMailingLists', 'CPSCollector',
+                'CPSMailBoxer', 'CPSPortlets', 'CPSNewsLetters',
+                'CPSNavigation', 'CPSUserFolder', 'CPSWiki'):
+    try:
+        ZopeTestCase.installProduct(product, quiet=1)
+    except:
+        pass
 
 
 from AccessControl.SecurityManagement \
     import newSecurityManager, noSecurityManager
 
-import time
 
 # The folowing are patches needed because Localizer doesn't work
 # well within ZTC
@@ -86,13 +67,29 @@ except ImportError:
 else:
     has_cpsportlets = 1
 
-# Dummy portal_catalog.
+from AccessControl.SecurityManagement \
+    import newSecurityManager, noSecurityManager
+from AccessControl import ClassSecurityInfo
+from Globals import InitializeClass
+
+# This one is needed by ProxyTool.
+def get_selected_language(self):
+    """ """
+    return self._default_language
+
+from Products.Localizer.Localizer import Localizer
+Localizer.get_selected_language = get_selected_language
+
 from OFS.SimpleItem import SimpleItem
 class DummyTranslationService(SimpleItem):
     meta_type = 'Translation Service'
     id = 'translation_service'
+
     def translate(self, domain, msgid, *args, **kw):
         return msgid
+
+    def __call__(self, *args, **kw):
+        return self.translate('default', *args, **kw)
 
     def getDomainInfo(self):
         return [(None, 'Localizer/default')]
@@ -100,9 +97,24 @@ class DummyTranslationService(SimpleItem):
     def manage_addDomainInfo(self, domain, path, REQUEST=None, **kw):
         pass
 
-# Dummy MessageCatalog
-class DummyMessageCatalog:
+    def getDefaultLanguage(self):
+        return 'en'
+
+    def getSelectedLanguage(self):
+        return 'en'
+
+class DummyMessageCatalog(SimpleItem):
+    security = ClassSecurityInfo()
     def __call__(self, message, *args, **kw):
+        #return self.gettext(self, message, lang, args, kw)
+        return message
+
+    security.declarePublic('gettext')
+    def gettext(self, message, lang=None, *args, **kw):
+        if message == 'words_meaningless' and lang == 'en':
+            message = "a the this these those of am is are has have or and i maybe perhaps"
+        elif message == 'words_meaningless' and lang == 'fr':
+            message = "un une le la les l de des ces est sont a ont ou et je voici"
         return message
 
     def get_selected_language(self):
@@ -110,13 +122,15 @@ class DummyMessageCatalog:
         return 'fr'
 
     def get_languages(self):
-        return ['en', 'fr']
+        return ['en', 'fr', 'de']
 
     def manage_import(self, *args, **kw):
         pass
 
     def wl_isLocked(self):
         return None # = False
+
+InitializeClass(DummyMessageCatalog)
 
 
 from StringIO import StringIO
@@ -138,40 +152,16 @@ def LocalizerStringIO_getvalue(self):
 LocalizerStringIO.write = LocalizerStringIO_write
 LocalizerStringIO.getvalue = LocalizerStringIO_getvalue
 
-
 class CPSTestCase(ZopeTestCase.PortalTestCase):
+    def setUp(self):
+        ZopeTestCase.PortalTestCase.setUp(self)
 
-    def isValidXML(self, xml):
-        filename = tempfile.mktemp()
-        fd = open(filename, "wc")
-        fd.write(xml)
-        fd.close()
-        status = os.system("xmllint --noout %s" % filename)
-        os.unlink(filename)
-        return status == 0
-
-    # XXX: unfortunately, the W3C checker sometime fails for no apparent
-    # reason.
-    def isValidCSS(self, css):
-        """Check if <css> is valid CSS2 using W3C css-checker"""
-
-        import urllib2, urllib, re
-        CHECKER_URL = 'http://jigsaw.w3.org/css-validator/validator'
-        data = urllib.urlencode({
-            'text': css,
-            'warning': '1',
-            'profile': 'css2',
-            'usermedium': 'all',
-        })
-        url = urllib2.urlopen(CHECKER_URL + '?' + data)
-        result = url.read()
-
-        is_valid = not re.search('<div id="errors">', result)
-        # debug
-        if not is_valid:
-            print result
-        return is_valid
-
+        # Some skins need sessions (not sure if it's a good thing).
+        # Localizer too.
+        # Both lines below are needed.
+        SESSION = {}
+        self.portal.REQUEST['SESSION'] = SESSION
+        self.portal.REQUEST.SESSION = SESSION
 
 class CPSInstaller:
     def __init__(self, app, quiet=0):
@@ -221,6 +211,9 @@ class CPSInstaller:
     # Change translation_service to DummyTranslationService
     def fixupTranslationServices(self, portal_id):
         portal = getattr(self.app, portal_id)
+        # XXX don't know why we use a fake translation service
+        # we only need to add getSelectedLanguage and getLanguage methods
+        # to TranslationService.Domain.DummyDomain to use the real one
         portal.translation_service = DummyTranslationService()
         localizer = portal.Localizer
         for domain in localizer.objectIds():
