@@ -28,12 +28,6 @@
       <div tal:attributes="class slot_class">
       <div class="title BoxGroupBoxTitle"
        tal:condition="editable" style="display:block; padding-right: 0">
-        <a style="float:right"  href=""
-        tal:attributes="href string:${base_url}${portlet_folder_rurl}/cpsskins_delete_portlet?portlet_id=$portlet_id&amp;redirect_url=$folder_url; 
-                        onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
-          <img src="" border="0" width="12" height="12" alt=""
-          tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
-        </a>
         <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
          tal:content="portlet/title_or_id" href="javascript:void(0)"/>
       </div>
