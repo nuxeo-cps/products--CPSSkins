@@ -73,8 +73,7 @@ function Choice_edit() {
   if (pd_selected_item == null) 
      return;
   portlet_url = pd_selected_item.getAttribute('portlet_url');
-  portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
-  window.location = portlet_url + '/edit_form';
+  newWindow(portlet_url + '/edit_form');
 }
 
 function Choice_insert() {

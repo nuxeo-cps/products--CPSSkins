@@ -33,9 +33,8 @@
           <img border="0" width="12" height="12" alt=""
           tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
         </a>
-        <a tal:attributes="href string:${base_url}${portlet_rurl}/cpsskins_portlet_edit">
-          <tal:block content="portlet_title" />
-        </a>
+        <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
+         tal:content="portlet/title_or_id" href="javascript:void(0)"/>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="portlet_id portlet_id;
@@ -258,8 +257,8 @@
                              dest_ypos python: ypos and ypos or 0">
               <div class="PortletInfo"
                tal:attributes="style python: selected and 'border-style: dashed' or ''">
-                <a tal:content="portlet/title_or_id"
-                 tal:attributes="href string:${portlet/absolute_url}/edit_form" />
+                <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
+                tal:content="portlet/title_or_id" href="javascript:void(0)"/>
                 (<span tal:content="group" />)
                 <p>
                   <img width="16" height="16" alt=""
@@ -304,8 +303,8 @@
                        src_slot group">
         <div class="PortletInfo"
          tal:attributes="style python: selected and 'border-style: dashed' or ''">
-          <a tal:content="portlet/title_or_id"
-           tal:attributes="href string:${portlet/absolute_url}/edit_form" />
+          <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
+           tal:content="portlet/title_or_id" href="javascript:void(0)"/>
           <p>
             <img width="16" height="16" alt=""
              tal:condition="portlet_icon"
