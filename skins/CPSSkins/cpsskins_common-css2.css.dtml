@@ -122,6 +122,11 @@ input.SearchBox {
 }
 /* End IE5-Mac hack */
 
+/* IE fix */
+.cpsskinsTabs li a {
+  width: 100%;
+}
+
 /* Drop-down menus */
 
 .cpsskinsTabs li ul {
