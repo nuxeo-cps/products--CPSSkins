@@ -256,7 +256,7 @@
               <td>
                 <a href="javascript:void(0)"
                  tal:attributes="onClick onclick_string"
-                 tal:content="python: image.title_or_id()" />
+                 tal:content="imageid" />
               </td>
               <td tal:content="string:${image/size} bytes" />              
               <td tal:content="string:${image/width}x${image/height} px" />
