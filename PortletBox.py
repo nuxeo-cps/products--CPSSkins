@@ -229,7 +229,8 @@ class PortletBox(BaseTemplet):
         if ptltool is None:
             return index
         portlet = ptltool.getPortletById(portlet_id)
-        index += portlet.getCacheIndex()
+        if portlet is not None:
+            index += portlet.getCacheIndex()
         return index
 
 InitializeClass(PortletBox)
