@@ -293,7 +293,7 @@ msgstr ""
 msgid "_BoxTitle border style_"
 msgstr ""
 
-msgid "_BoxTitle font weight_"
+msgid "_BoxTitle font_"
 msgstr ""
 
 msgid "_BoxTitle border width_"

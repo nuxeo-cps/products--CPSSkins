@@ -56,10 +56,10 @@ class PortalBoxShape(BaseStyle):
     security = ClassSecurityInfo()
 
     _properties = BaseStyle._properties + (
-        {'id': 'BoxTitle_font_weight', 
+        {'id': 'BoxTitle_font', 
          'type': 'string', 
          'mode': 'w', 
-         'label': 'BoxTitle font weight', 
+         'label': 'BoxTitle font', 
          'category':'box title'
         },
         {'id': 'BoxTitle_border_style', 
@@ -166,7 +166,7 @@ class PortalBoxShape(BaseStyle):
                  BoxTitle_border_width = '1px',
                  BoxTitle_padding = '0em 1.2em 0em 0.9em',
                  BoxTitle_display = 'inline-block',
-                 BoxTitle_font_weight = 'normal',
+                 BoxTitle_font = '12px arial, sans-serif',
                  BoxBody_border_style = 'none solid solid none', 
                  BoxBody_border_width = '1px',
                  BoxBody_padding = '0.5em 0.5em 0.5em 0.5em',
@@ -184,7 +184,7 @@ class PortalBoxShape(BaseStyle):
         self.BoxTitle_border_width = BoxTitle_border_width
         self.BoxTitle_padding = BoxTitle_padding
         self.BoxTitle_display = BoxTitle_display
-        self.BoxTitle_font_weight = BoxTitle_font_weight
+        self.BoxTitle_font = BoxTitle_font
         self.BoxBody_border_style = BoxBody_border_style
         self.BoxBody_border_width = BoxBody_border_width
         self.BoxBody_padding = BoxBody_padding

@@ -323,8 +323,8 @@ msgid "_BoxTitle font color_"
 msgstr "Box title font color"
 
 
-msgid "_BoxTitle font weight_"
-msgstr "Box title font weight"
+msgid "_BoxTitle font_"
+msgstr "Box title font"
 
 
 msgid "_BoxTitle padding_"

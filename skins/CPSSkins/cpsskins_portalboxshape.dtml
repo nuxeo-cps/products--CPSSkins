@@ -12,8 +12,8 @@
 <dtml-if BoxTitle_display>
   display: <dtml-var BoxTitle_display>;
 </dtml-if>
-<dtml-if BoxTitle_font_weight>
-  font-weight: <dtml-var BoxTitle_font_weight>;
+<dtml-if BoxTitle_font>
+  font: <dtml-var BoxTitle_font>;
 </dtml-if>
 }
 

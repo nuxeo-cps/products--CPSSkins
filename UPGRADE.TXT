@@ -17,3 +17,11 @@ How to update CPSSkins (in case a product was installed after CPSSkins)
   - Locate the script called 'cpsskinsupdate' and click on it.
   - Then click on the 'Test' tab.
 
+
+UPGRADING from CPSSkins 2.2 to 2.3
+
+* in the Portal Box Shape style the 'font weight' property has been replaced
+  with 'font'.
+
+  Instead of 'normal' or 'bold' use for instance:
+  '10pt bold Arial'
