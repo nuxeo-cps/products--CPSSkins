@@ -74,6 +74,6 @@
         </tal:block>
       <br style="clear:left" />
     </div>
-    <div style="clear:left" />
+    <div style="clear:left"></div>
   </tal:block>
 </metal:block>
