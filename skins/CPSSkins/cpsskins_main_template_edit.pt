@@ -32,8 +32,8 @@
           mixed_edit_mode python: edit_mode == 'mixed'; 
           wysiwyg_edit_mode python: edit_mode == 'wysiwyg';
           edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
-	  marginleft python: align in ['right', 'center'] and 'auto' or '0px'; 
-          marginright python: align in ['left', 'center'] and 'auto' or '0px'; 
+	  marginleft python: align == 'left' and '0px' or 'auto'; 
+          marginright python: align == 'right' and '0px' or 'auto'; 
 	  pageblock_style python: 'margin-left:%s;; margin-right:%s;;' % (marginleft, marginright);
           cpsskins_language here/cpsskins_getCurrentLang;
           mcat python: here.cpsskins_getlocalizer();
@@ -66,15 +66,11 @@
             <td valign="top"
              tal:define="templets_in_xpos python: objects_in_xpos['templets'];
                          cellsize python: objects_in_xpos['cellsizer'];
-                         cellstyle python: objects_in_xpos['cellstyler'];
-                         cellwidth python: cellsize and cellsize.cellwidth or None;
-                         cellclass python: cellstyle and 'Shape%s Color%s' % (cellstyle.shape, cellstyle.color) or None"
-             tal:attributes="class cellclass; 
-                             width cellwidth">
+                         cellstyle python: objects_in_xpos['cellstyler']"
+             tal:attributes="class python: pageblock.getCSSAreaClass(); 
+                             width python: cellsize and cellsize.cellwidth or None">
               <metal:block define-slot="cell_top"
                tal:replace="nothing"></metal:block>
-              <tal:block condition="not:templets_in_xpos" 
-                         content="structure string:&nbsp;" />
               <tal:block repeat="templet templets_in_xpos">
                 <metal:block define-slot="templet_titlebar"
                  tal:replace="nothing"></metal:block>
