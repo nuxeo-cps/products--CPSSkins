@@ -4,9 +4,9 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName(context_obj=context)
+theme = tmtool.getRequestedThemeName()
 theme_container = tmtool.getThemeContainer(theme)
-page = theme_container.getRequestedPageName(context_obj=context)
+page = theme_container.getRequestedPageName()
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
@@ -24,7 +24,7 @@ dest_theme_container = tmtool.getThemeContainer(dest_theme)
 
 # if the destination page is not specified choose the requested page
 if dest_page is None:
-    dest_page = dest_theme_container.getRequestedPageName(context_obj=context)
+    dest_page = dest_theme_container.getRequestedPageName()
 
 # content will be duplicated
 if dest_theme != theme or dest_page != page:
