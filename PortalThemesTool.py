@@ -1205,10 +1205,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return self.manage_configureOptions(manage_tabs_message='Settings updated')
 
     security.declareProtected(ManageThemes, 'manage_setAccessKey')
-    def manage_setAccessKey(self, accesskey=DEFAULT_ACCESSKEY, REQUEST=None):
+    def manage_setAccessKey(self, accesskey='', REQUEST=None):
         """Set the access key"""
 
-        self.accesskey = accesskey
+        if accesskey == '':
+            return
+        self.accesskey = str(accesskey)[0]
         if REQUEST is not None:
             return self.manage_configureOptions(manage_tabs_message='Settings updated')
 
