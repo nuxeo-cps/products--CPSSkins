@@ -1121,7 +1121,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             self.invalidateCacheEntriesById(orphan)
 
         if REQUEST is not None:
-            REQUEST.RESPONSE.redirect(REQUEST['HTTP_REFERER'])
+            REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_RAMCache')
 
     security.declareProtected('Manage Themes', 'manage_clearCache')
     def manage_clearCache(self, REQUEST=None):
@@ -1130,7 +1130,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         self.clearCache()
 
         if REQUEST is not None:
-            REQUEST.RESPONSE.redirect(REQUEST['HTTP_REFERER'])
+            REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_RAMCache')
 
     security.declareProtected('Manage Themes', 'invalidateCacheEntriesById')
     def invalidateCacheEntriesById(self, obid=None, REQUEST=None):

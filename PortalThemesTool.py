@@ -777,7 +777,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             theme.clearCache()
 
         if REQUEST is not None:
-            REQUEST.RESPONSE.redirect(REQUEST['HTTP_REFERER'])
+            REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_RAMCaches')
 
     security.declareProtected(ManageThemes, 'getCachesSize')
     def getCachesSize(self):
