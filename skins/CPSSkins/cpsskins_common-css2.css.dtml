@@ -121,6 +121,22 @@ input.SearchBox {
 }
 /* End IE5-Mac hack */
 
+/* Drop-down menus */
+
+.cpsskinsTabs li ul {
+  display: none;
+  position: absolute; 
+  left: 0;
+}
+
+.cpsskinsTabs li > ul {
+  top: auto;
+  left: auto;
+}
+
+.cpsskinsTabs li:hover ul, .cpsskinsTabs li.over ul {
+  display: block;
+}
 
 /* Box corners */
 .cpsskinsBoxCorners .rbtop div {
