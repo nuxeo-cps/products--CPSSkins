@@ -64,14 +64,9 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </tal:block>
     &nbsp;
     <a tal:attributes="href url;
-      class python: panel in ['theme', 'theme_optimizer', 'cache_manager'] and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme;
-                title string:_Theme_" i18n:translate=""
-    tal:content="python:mcat and mcat(title) or title" />
-    <a tal:attributes="href url;
-                    class python: panel=='styles' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=styles;
-                title string:_Styles_" i18n:translate=""
+                    class python: panel=='palettes' and 'selected' or ''"
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=palettes;
+                title string:_Palettes_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href url;
                     class python: panel=='images' and 'selected' or ''"
@@ -79,9 +74,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
                 title string:_Images_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href url;
-                    class python: panel=='palettes' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=palettes;
-                title string:_Palettes_" i18n:translate=""
+                    class python: panel=='styles' and 'selected' or ''"
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=styles;
+                title string:_Styles_" i18n:translate=""
+    tal:content="python:mcat and mcat(title) or title" />
+    <a tal:attributes="href url;
+      class python: panel in ['theme', 'theme_optimizer', 'cache_manager'] and 'selected' or ''"
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme;
+                title string:_Theme_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a tal:attributes="href url;
