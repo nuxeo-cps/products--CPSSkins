@@ -102,7 +102,7 @@ class PortletBox(BaseTemplet):
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
         """ is portal templet """
-           
+
         return self.isportaltemplet
 
     security.declarePublic('isPortletBox')
@@ -110,7 +110,7 @@ class PortletBox(BaseTemplet):
         """ is portlet box """
 
         return self.isportletbox
-           
+
     security.declareProtected(ManageThemes, 'edit')
     def edit(self, **kw):
         """
@@ -129,20 +129,17 @@ class PortletBox(BaseTemplet):
                 # Create a global portlet on the fly and associate
                 # the portlet id to this portlet box.
                 if self.getPortletId() is None:
-                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type, 
-                                                       isglobal=1)
+                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type) 
                     if portlet_id is not None:
                         kw.update({'portlet_id': portlet_id}) 
 
                 # Modify an existing portlet:
                 elif portlet_type != ptype_id:
                     old_portlet_id = self.getPortletId()
-                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type, 
-                                                       isglobal=1)
+                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type)
                     if portlet_id is not None:
                         kw.update({'portlet_id': portlet_id}) 
-                    res = ptltool.deletePortlet(portlet_id=old_portlet_id, 
-                                                isglobal=1)
+                    res = ptltool.deletePortlet(portlet_id=old_portlet_id)
                     if res:
                         # XXX: what to do?
                         pass
