@@ -318,29 +318,29 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_Calendar_Templet(self):
         if 'portal_calendar' in self.portal.objectIds():
-           pageblock = self.pageblock
-           templet = pageblock.addContent(type_name='Calendar Templet')
-           self.assertEquals('Calendar Templet', getattr(templet, 'title'))
-           self.assert_(templet.aq_explicit.isPortalTemplet())
-           self.assertEquals(templet.getApplicableStyles(),
-               [{'meta_type': 'Font Color', 'id': 'fontcolor'},
-                {'meta_type': 'Font Shape', 'id': 'fontshape'},
-                {'meta_type': 'Area Shape', 'id': 'shape'},
-                {'meta_type': 'Area Color', 'id': 'color'},
-                {'meta_type': 'Form Style', 'id': 'formstyle'},
-                {'meta_type': 'Calendar Style', 'id': 'calendar_style'},
-               ])
-           templet.render(context_obj=self.portal)
-           templet.show_month = 0
-           templet.render(context_obj=self.portal)
-           templet.show_year = 0
-           templet.render(context_obj=self.portal)
-           templet.show_weekdays = 0
-           templet.render(context_obj=self.portal)
-           templet.show_weekdays = 0
-           templet.render(context_obj=self.portal)
-           templet.show_preview = 0
-           templet.render(context_obj=self.portal)
+            pageblock = self.pageblock
+            templet = pageblock.addContent(type_name='Calendar Templet')
+            self.assertEquals('Calendar Templet', getattr(templet, 'title'))
+            self.assert_(templet.aq_explicit.isPortalTemplet())
+            self.assertEquals(templet.getApplicableStyles(),
+                [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+                 {'meta_type': 'Font Shape', 'id': 'fontshape'},
+                 {'meta_type': 'Area Shape', 'id': 'shape'},
+                 {'meta_type': 'Area Color', 'id': 'color'},
+                 {'meta_type': 'Form Style', 'id': 'formstyle'},
+                 {'meta_type': 'Calendar Style', 'id': 'calendar_style'},
+                ])
+            templet.render(context_obj=self.portal)
+            templet.show_month = 0
+            templet.render(context_obj=self.portal)
+            templet.show_year = 0
+            templet.render(context_obj=self.portal)
+            templet.show_weekdays = 0
+            templet.render(context_obj=self.portal)
+            templet.show_weekdays = 0
+            templet.render(context_obj=self.portal)
+            templet.show_preview = 0
+            templet.render(context_obj=self.portal)
 
 
     def test_Templet_alignment(self):

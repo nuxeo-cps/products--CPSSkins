@@ -52,10 +52,10 @@ def get_selected_language(self):
 
 localizer = 1
 try:
-   from Products.Localizer.Localizer import Localizer
-   Localizer.get_selected_language = get_selected_language
-except:
-   localizer = 0
+    from Products.Localizer.Localizer import Localizer
+    Localizer.get_selected_language = get_selected_language
+except ImportError:
+    localizer = 0
 
 # Dummy portal_catalog.
 
@@ -88,39 +88,39 @@ target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
 # CMF (CMFTestCase.CMFTestCase)
 if target == 'CMF':
-   import CMFTestCase
-   sourceskin = 'Basic'
+    import CMFTestCase
+    sourceskin = 'Basic'
 
-   class CPSSkinsTestCase(CMFTestCase.CMFTestCase):
-       '''Base test case for CPSSkins testing under CMF
-       '''
+    class CPSSkinsTestCase(CMFTestCase.CMFTestCase):
+        '''Base test case for CPSSkins testing under CMF
+        '''
 
 # CPS2 (NuxCPS.CPSTestCase)
 if target == 'CPS2':
-   import CPS2TestCase
-   sourceskin = 'Basic'
+    import CPS2TestCase
+    sourceskin = 'Basic'
 
-   class CPSSkinsTestCase(CPS2TestCase.CPSTestCase):
-       '''Base test case for CPSSkins testing under CPS2
-       '''
+    class CPSSkinsTestCase(CPS2TestCase.CPSTestCase):
+        '''Base test case for CPSSkins testing under CPS2
+        '''
 
 # CPS3 (CPSDefault.CPSTestCase)
 if target == 'CPS3':
-   import CPS3TestCase
-   sourceskin = 'Basic'
+    import CPS3TestCase
+    sourceskin = 'Basic'
 
-   class CPSSkinsTestCase(CPS3TestCase.CPSTestCase):
-       '''Base test case for CPSSkins testing under CPS3
-       '''
+    class CPSSkinsTestCase(CPS3TestCase.CPSTestCase):
+        '''Base test case for CPSSkins testing under CPS3
+        '''
 
 # Plone2 (CMFPlone.PloneTestCase)
 if target == 'Plone2':
-   import Plone2TestCase
-   sourceskin = 'Plone Default'
+    import Plone2TestCase
+    sourceskin = 'Plone Default'
 
-   class CPSSkinsTestCase(Plone2TestCase.PloneTestCase):
-       '''Base test case for CPSSkins testing under Plone2
-       '''
+    class CPSSkinsTestCase(Plone2TestCase.PloneTestCase):
+        '''Base test case for CPSSkins testing under Plone2
+        '''
 
 quiet = 0
 class CPSSkinsInstaller:
@@ -171,8 +171,8 @@ class CPSSkinsInstaller:
             ZopeTestCase._print('Installing CPSSkins test themes ...\n')
         zexpdir = os.path.join(os.curdir, 'data')
         for themeid in ['theme1', 'empty']:
-           zexppath  = os.path.join(zexpdir, '%s.zexp' % themeid)
-           ZopeTestCase.utils.importObjectFromFile(tmtool, zexppath)
+            zexppath  = os.path.join(zexpdir, '%s.zexp' % themeid)
+            ZopeTestCase.utils.importObjectFromFile(tmtool, zexppath)
 
     # remove ignored exceptions
     def fixupErrorLog(self, portal_id):
@@ -236,25 +236,25 @@ def setupTestUsers(app, portal_id):
 # Install
 
 if target == 'CMF':
-   portal_id='cmf'
-   CMFTestCase.setupCMFSite()
-   CMFTestCase.setupCMFSkins()
-   app = ZopeTestCase.app()
+    portal_id='cmf'
+    CMFTestCase.setupCMFSite()
+    CMFTestCase.setupCMFSkins()
+    app = ZopeTestCase.app()
 
 if target == 'CPS2':
-   portal_id='portal'
-   CPS2TestCase.setupCPSSite()
-   app = ZopeTestCase.app()
+    portal_id='portal'
+    CPS2TestCase.setupCPSSite()
+    app = ZopeTestCase.app()
 
 if target == 'CPS3':
-   portal_id='portal'
-   CPS3TestCase.setupPortal()
-   app = ZopeTestCase.app()
+    portal_id='portal'
+    CPS3TestCase.setupPortal()
+    app = ZopeTestCase.app()
 
 if target == 'Plone2':
-   portal_id='portal'
-   app = ZopeTestCase.app()
-   Plone2TestCase.setupPloneSite(app)
+    portal_id='portal'
+    app = ZopeTestCase.app()
+    Plone2TestCase.setupPloneSite(app)
 
 setupTestUsers(app, portal_id)
 ZopeTestCase.utils.setupCoreSessions(app)

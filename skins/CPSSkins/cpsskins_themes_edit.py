@@ -34,7 +34,7 @@ for theme_id in themes_to_delete:
 theme_container = tmtool.getThemeContainer(theme=default_theme)
 
 if REQUEST is not None:
-     url = context.portal_url() + '/cpsskins_theme_manage_form'
-     if default_theme:
-         tmtool.setViewMode(theme=default_theme)
-     REQUEST.RESPONSE.redirect(url)
+    url = context.portal_url() + '/cpsskins_theme_manage_form'
+    if default_theme:
+        tmtool.setViewMode(theme=default_theme)
+    REQUEST.RESPONSE.redirect(url)

@@ -41,9 +41,9 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']
         for obj in theme.objectValues():
-           self.assertEquals(
-               tmtool.getPortalThemeRoot(object=obj),
-               tmtool['theme1'])
+            self.assertEquals(
+                tmtool.getPortalThemeRoot(object=obj),
+                tmtool['theme1'])
 
     def test_getThemes(self):
         tmtool = self.portal.portal_themes
@@ -53,8 +53,8 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_getThemeContainer(self):
         tmtool = self.portal.portal_themes
         for themeid in ['theme1', 'empty']:
-           self.assertEquals(
-               tmtool.getThemeContainer(theme=themeid).getId(), themeid)
+            self.assertEquals(
+                tmtool.getThemeContainer(theme=themeid).getId(), themeid)
 
     def test_getThemeContainer_parent(self):
         tmtool = self.portal.portal_themes
@@ -64,39 +64,38 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']
         for obj in theme.objectValues():
-           self.assertEquals(tmtool.findStylesFor(
-               category='Area Color', object=obj)['title'],
-               ['AreaColor4', 'AreaColor1', 'AreaColor2', 'AreaColor3',
-               'AreaColor5', 'AreaColor', 'AreaColor6', 'AreaColor7',
-               'AreaColor8'])
-           self.assertEquals(tmtool.findStylesFor(
-               category='Area Shape', object=obj)['title'],
-               ['AreaShape1', 'AreaShape2', 'AreaShape', 'AreaShape3',
-                'AreaShape4', 'AreaShape5'])
-           self.assertEquals(tmtool.findStylesFor(
-               category='Portal Box Color', object=obj)['title'],
-               ['PortalBoxColor2'])
-           self.assertEquals(tmtool.findStylesFor(
-               category='Portal Box Shape', object=obj)['title'],
-               ['PortalBoxShape1'])
-           self.assertEquals(tmtool.findStylesFor(
-               category='Font Color', object=obj)['title'],
-               ['FontColor1', 'FontColor2'])
-           self.assertEquals(tmtool.findStylesFor(
-               category='Font Shape', object=obj)['title'],
-               ['FontShape1'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Area Color', object=obj)['title'],
+                ['AreaColor4', 'AreaColor1', 'AreaColor2', 'AreaColor3',
+                 'AreaColor5', 'AreaColor', 'AreaColor6', 'AreaColor7',
+                 'AreaColor8'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Area Shape', object=obj)['title'],
+                ['AreaShape1', 'AreaShape2', 'AreaShape', 'AreaShape3',
+                 'AreaShape4', 'AreaShape5'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Portal Box Color', object=obj)['title'],
+                ['PortalBoxColor2'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Portal Box Shape', object=obj)['title'],
+                ['PortalBoxShape1'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Font Color', object=obj)['title'],
+                ['FontColor1', 'FontColor2'])
+            self.assertEquals(tmtool.findStylesFor(
+                category='Font Shape', object=obj)['title'],
+                ['FontShape1'])
 
     def test_listPalettes(self):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']
         for obj in theme.objectValues():
-           self.assertEquals(tmtool.listPalettes(
-               category='Palette Color', object=obj)['title'],
-               ['PaletteColor1', 'PaletteColor2'])
-           self.assertEquals(tmtool.listPalettes(
-               category='Palette Border', object=obj)['title'],
-               ['PaletteBorder1', 'PaletteBorder2'])
-
+            self.assertEquals(tmtool.listPalettes(
+                category='Palette Color', object=obj)['title'],
+                ['PaletteColor1', 'PaletteColor2'])
+            self.assertEquals(tmtool.listPalettes(
+                category='Palette Border', object=obj)['title'],
+                ['PaletteBorder1', 'PaletteBorder2'])
 
 def test_suite():
     suite = unittest.TestSuite()

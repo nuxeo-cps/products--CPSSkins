@@ -3,17 +3,17 @@
 REQUEST=context.REQUEST
 
 if level is None:
-   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
+    return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 if show_docs is None:
-   show_docs = 0
+    show_docs = 0
 else:
-   show_docs=int(show_docs)
+    show_docs=int(show_docs)
 
 try:
-   level = int(level)
+    level = int(level)
 except ValueError:
-   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
+    return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 utool = context.portal_url
 mtool = context.portal_membership
@@ -25,7 +25,7 @@ if portal_url != '/':
     portal_url = '/' + portal_url
 
 if context_obj is None:
-   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
+    return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 here_rurl =  '/' + utool.getRelativeUrl(context_obj)
 current_path = here_rurl

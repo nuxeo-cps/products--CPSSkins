@@ -708,12 +708,12 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                     index_string = md5.new(str(actions)).hexdigest()
                     current_url = REQUEST.get('cpsskins_url')
                     for actions_by_cat in actions:
-                         for ac in actions_by_cat:
-                             ac_url = ac['url'].strip()
-                             if ac_url != current_url:
-                                  continue
-                             index_string += ac_url
-                             break
+                        for ac in actions_by_cat:
+                            ac_url = ac['url'].strip()
+                            if ac_url != current_url:
+                                continue
+                            index_string += ac_url
+                            break
 
             # Workflow actions
             elif param == 'wf_actions':

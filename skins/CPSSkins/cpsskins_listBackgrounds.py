@@ -12,8 +12,8 @@ if images_dir is None:
 
 images = ['']
 for obj in images_dir.objectValues():
-       content_type = getattr(obj, 'content_type', None)
-       if content_type in allowed_content_types:
-           images.append(obj.getId())
+    content_type = getattr(obj, 'content_type', None)
+    if content_type in allowed_content_types:
+        images.append(obj.getId())
 
 return images

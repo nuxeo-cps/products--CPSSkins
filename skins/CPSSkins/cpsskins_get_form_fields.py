@@ -18,12 +18,12 @@ for propid in context.propertyIds():
     field['visible'] = 1
     if visibility is not None:
         if hasattr(context, visibility):
-           visible_meth = getattr(context, visibility)
-           try:
-              is_visible = apply(visible_meth, ())
-           except TypeError:
-              is_visible = 0
-           field['visible'] = is_visible
+            visible_meth = getattr(context, visibility)
+            try:
+                is_visible = apply(visible_meth, ())
+            except TypeError:
+                is_visible = 0
+            field['visible'] = is_visible
 
     for obj in prop_map:
         if obj['id'] == propid:
@@ -66,7 +66,7 @@ for propid in context.propertyIds():
         ftype = 'lines'
         value = ''
         if prop is None:
-           continue
+            continue
         for i in prop:
             value = value + '\n' + i
         rows = 2

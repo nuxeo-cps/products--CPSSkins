@@ -9,18 +9,18 @@ if base_path is None:
 # 'rebuild theme' method.
 l = len(base_path)
 if base_path[l-1:l] != '/':
-   base_path = base_path + '/'
+    base_path = base_path + '/'
 # end backward compatibility code
 
 delta = len(base_path.split('/')) -3
 rel_level = level
 if delta > 0:
-   rel_level = level + delta
+    rel_level = level + delta
 
 if show_docs is None:
-   show_docs = 0
+    show_docs = 0
 else:
-   show_docs=int(show_docs)
+    show_docs=int(show_docs)
 
 if base is None:
     return {'menuentries': [],
@@ -96,7 +96,7 @@ if rel_level > 0 and base_create_obj is not None:
 if rel_level > 1 and \
    (rel_level > len(path_list)-1  or \
    not here_rurl.startswith(base_path)):
-      create_url = ''
+    create_url = ''
 
 if base_create_obj:
     folder_title = base_create_obj.Title()

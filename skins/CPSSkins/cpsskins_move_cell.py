@@ -8,4 +8,4 @@ context.moveCell(xpos=xpos, dir=dir)
 url = REQUEST['HTTP_REFERER']
 
 if REQUEST is not None:
-   REQUEST.RESPONSE.redirect(url)
+    REQUEST.RESPONSE.redirect(url)

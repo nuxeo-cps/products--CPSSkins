@@ -4,9 +4,9 @@ if base_path is None:
     return
 
 if show_docs is None:
-   show_docs = 0
+    show_docs = 0
 else:
-   show_docs=int(show_docs)
+    show_docs=int(show_docs)
 
 if base is None:
     return
@@ -18,10 +18,11 @@ REQUEST = context.REQUEST
 if context_obj is None:
     return
 
-nav = CPSNavigation(root_uid=base,
-                    current_uid=utool.getRelativeUrl(context_obj),
-                    context=context_obj,
-                    request_form=REQUEST.form)
+nav = CPSNavigation(
+    root_uid=base,
+    current_uid=utool.getRelativeUrl(context_obj),
+    context=context_obj,
+    request_form=REQUEST.form)
 
 menuentries = []
 current_object = None
@@ -33,11 +34,11 @@ for node in nav.getTree():
     object = node['object']
 
     if node.get('is_current'):
-       folder_title = object['title_or_id']
+        folder_title = object['title_or_id']
 
     if node_level == int(level) -1:
-       if node['state'] == 'open':
-           current_object = object
+        if node['state'] == 'open':
+            current_object = object
 
     if node_level != level:
         continue
@@ -53,8 +54,7 @@ for node in nav.getTree():
          'icon': '', #XXX
          'folderish': 1, #XXX
          'selected': node.get('is_open'),
-        }
-    )
+        })
 
 create_url = ''
 if current_object is not None:

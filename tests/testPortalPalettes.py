@@ -11,7 +11,7 @@ class TestPortalPalettes(CPSSkinsTestCase.CPSSkinsTestCase):
     def afterSetUp(self):
         tmtool = self.portal.portal_themes
         if 'PortalTheme' in tmtool.objectIds():
-           tmtool.manage_delObjects(['PortalTheme'])
+            tmtool.manage_delObjects(['PortalTheme'])
         self.theme_container = tmtool.addPortalTheme(empty=1)
 
     def test_addPortalPalette_Color(self):

@@ -79,11 +79,11 @@ Localizer.get_selected_language = get_selected_language
 
 # CPSPortlets
 try:
-   from Products.CPSPortlets import CPSPortlet
+    from Products.CPSPortlets import CPSPortlet
 except ImportError:
-   has_cpsportlets = 0
+    has_cpsportlets = 0
 else:
-   has_cpsportlets = 1
+    has_cpsportlets = 1
 
 # Dummy portal_catalog.
 from OFS.SimpleItem import SimpleItem

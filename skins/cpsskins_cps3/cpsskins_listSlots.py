@@ -7,9 +7,9 @@ if getattr(context, 'portal_cpsportlets', None) is not None:
 # CPS3 Boxes
 if getattr(context, 'portal_boxes', None) is not None:
     for slot in context.getBoxSlots() + ('closed',):
-       if slot in list:
-           continue
-       list.append(slot)
+        if slot in list:
+            continue
+        list.append(slot)
 
     # remove hardcoded slot names
     for pseudo_slot in ('folder_view', 'center'):

@@ -1,11 +1,11 @@
 ##parameters=str=None
 
 if str is None:
-   return
+    return
 
 try:
-   v = int(str)
+    v = int(str)
 except ValueError:
-   return
+    return
 
 return v

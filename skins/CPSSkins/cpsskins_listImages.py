@@ -1,14 +1,13 @@
 ##parameters=imagecat=None
 
 if imagecat not in context.cpsskins_listImageCategories():
-   return
+    return []
 
 list = []
 tmtool = context.portal_themes
 ttool = context.portal_types
 
 allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
-
 view_mode = tmtool.getViewMode()
 theme = view_mode.get('theme')
 theme_container = tmtool.getThemeContainer(theme=theme)

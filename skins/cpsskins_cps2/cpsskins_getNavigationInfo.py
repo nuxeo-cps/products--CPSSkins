@@ -62,10 +62,10 @@ current_path =  '/' + utool.getRelativeUrl(context_obj)
 
 munge_url = REQUEST.get('munge_absolute_url', context, None)
 if len(munge_url) > 1:
-   hier_url = munge_url[1]
-   portal_path = context.portal_url.getPortalPath()
-   portal_path_length = len(portal_path.split('/'))
-   current_path = '/' + '/'.join(hier_url[portal_path_length:-1])
+    hier_url = munge_url[1]
+    portal_path = context.portal_url.getPortalPath()
+    portal_path_length = len(portal_path.split('/'))
+    current_path = '/' + '/'.join(hier_url[portal_path_length:-1])
 
 path_list = current_path.split('/')
 path = '/'.join(path_list[0:total_level + 1])
@@ -78,12 +78,15 @@ else:
     current_hier = context.restrictedTraverse(portal_url + path, default=None)
 
 if level == 0:
-     hierlist = [h for h in hierlist if (h['rurl'] + '/').startswith(base_parent_path) ]
-     current_hier = context.restrictedTraverse(portal_url + base_parent_path)
+    hierlist = [h for h in hierlist
+        if (h['rurl'] + '/').startswith(base_parent_path) ]
+    current_hier = context.restrictedTraverse(portal_url + base_parent_path)
 else:
-     if total_level != 1:
-         hierlist = [h for h in hierlist if (h['rurl'] + '/').startswith(path + '/') ]
-     if len(path_list) <= total_level  or not (path + '/').startswith(base_parent_path):
+    if total_level != 1:
+        hierlist = [h for h in hierlist
+            if (h['rurl'] + '/').startswith(path + '/') ]
+     if len(path_list) <= total_level or \
+         not (path + '/').startswith(base_parent_path):
          hierlist = []
          current_hier = None
 
@@ -98,38 +101,37 @@ can_create = mtool.checkPermission('Add Hierarchy Level', current_hier)
 if current_hier is not None:
     ti =  current_hier.getTypeInfo()
     if ti is not None:
-       is_hierarchy = ( ti.getId() == 'Reviewed Hierarchy Level' )
-       current_url = current_hier.absolute_url()
-       if is_hierarchy:
-           if can_create:
-               create_url = current_url + '/folder_invoke_factory?type_name=Reviewed+Hierarchy+Level'
+        is_hierarchy = ( ti.getId() == 'Reviewed Hierarchy Level' )
+        current_url = current_hier.absolute_url()
+        if is_hierarchy:
+            if can_create:
+                create_url = current_url + '/folder_invoke_factory?type_name=Reviewed+Hierarchy+Level'
 
-           if show_docs==1:
-              documents = current_hier.queryCatalog()
-              for brain in documents:
-                 d = context.cpsdocument_info_get(brain=brain, mcat=mcat)
-                 obj = brain.getObject()
+            if show_docs==1:
+                documents = current_hier.queryCatalog()
+                for brain in documents:
+                    d = context.cpsdocument_info_get(brain=brain, mcat=mcat)
+                    obj = brain.getObject()
 
-                 url = current_url + '/' + d['id']
-                 hier_rurl =  '/' + utool.getRelativeUrl(current_hier) + '/'
-                 if not (hier_rurl + '/').startswith(base_path):
-                    continue
-                 if context_obj.absolute_url() == url:
-                    selected = 1
-                 else:
-                    selected = 0
+                    url = current_url + '/' + d['id']
+                    hier_rurl =  '/' + utool.getRelativeUrl(current_hier) + '/'
+                    if not (hier_rurl + '/').startswith(base_path):
+                        continue
+                    if context_obj.absolute_url() == url:
+                        selected = 1
+                    else:
+                        selected = 0
 
-                 doc = {
-                         'title' : d['title'],
-                         'id' : d['id'],
-                         'url' : url + '/view',
-                         'selected' : selected,
-                         'icon' : d['icon'],
-                         'folderish' : 0,
-                       }
+                    doc = {
+                        'title' : d['title'],
+                        'id' : d['id'],
+                        'url' : url + '/view',
+                        'selected' : selected,
+                        'icon' : d['icon'],
+                        'folderish' : 0,
+                        }
 
-                 pubinfos.append(doc)
-
+                    pubinfos.append(doc)
 
 hierarchies = []
 if max_results is not None:

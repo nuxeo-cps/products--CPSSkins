@@ -1,10 +1,10 @@
 ##parameters=state=None, REQUEST=None
 
 if state is None:
-   return
+    return
 
 context.setState(state=state)
 
 if REQUEST is not None:
-   url = REQUEST['HTTP_REFERER']
-   REQUEST.RESPONSE.redirect(url)
+    url = REQUEST['HTTP_REFERER']
+    REQUEST.RESPONSE.redirect(url)

@@ -41,5 +41,5 @@ box = context.restrictedTraverse(portal_path + box_url)
 box.edit(box_url=box_url, slot=dest_slot, order=dest_ypos)
 
 if REQUEST is not None:
-     url = context.absolute_url() + '/box_manage_form'
-     REQUEST.RESPONSE.redirect(url)
+    url = context.absolute_url() + '/box_manage_form'
+    REQUEST.RESPONSE.redirect(url)

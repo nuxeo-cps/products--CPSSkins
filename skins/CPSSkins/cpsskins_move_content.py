@@ -47,7 +47,7 @@ if dest_theme != src_theme or dest_page != src_page:
         styles = tmtool.findStylesFor(category=category['meta_type'], \
                                       object=context, title=style)
         if len(styles) > 0:
-           if len(styles['object']) > 0:
+            if len(styles['object']) > 0:
                 style_to_copy = styles['object'][0]
                 newstyle = style_to_copy.copy_to_theme(dest_theme)
                 prop_dict = {style_propid:newstyle.getTitle()}

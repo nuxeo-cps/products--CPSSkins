@@ -57,8 +57,8 @@ if templets_to_delete:
     for templet_path in templets_to_delete:
         templet = context.restrictedTraverse(templet_path, default=None)
         if templet is not None:
-             pageblock = templet.getContainer()
-             pageblock.manage_delObjects([templet.getId()])
+            pageblock = templet.getContainer()
+            pageblock.manage_delObjects([templet.getId()])
 
 #
 # Templets to cache

@@ -25,7 +25,7 @@ def analyseContent(data, filesize):
         compressed=0
     # Version 6 or greater ZLIB compressed flash file
     elif ((str(data[:3]) == 'CWS') or (str(data[:3]) == 'FWC')):
-    	compressed=1
+        compressed=1
     else:
         raise "Content error","This does not appear to be an SWF file!"
 

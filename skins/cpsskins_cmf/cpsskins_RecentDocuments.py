@@ -3,7 +3,7 @@ mtool = context.portal_membership
 catalog = context.portal_catalog
 
 if mtool.isAnonymousUser():
-   return
+    return []
 
 recent=[]
 

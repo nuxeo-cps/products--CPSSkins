@@ -1,7 +1,7 @@
 ##parameters=obj=None, context_obj=None
 
 if obj is None:
-   return
+    return
 
 REQUEST = context.REQUEST
 tmtool = context.portal_themes
@@ -15,7 +15,7 @@ invisible_actions = obj.invisible_actions
 categories = action_categories[:]
 if custom_action_categories:
     if custom_action_categories[0] != '':
-       categories += custom_action_categories
+        categories += custom_action_categories
 
 actions = REQUEST.get('cpsskins_cmfactions', None)
 if actions is None:
@@ -30,9 +30,9 @@ for category in categories:
     actions_by_cat = actions.get(category, [])
 
     if firstcat:
-       newcat = 0
+        newcat = 0
     elif one_action_is_visible:
-       newcat = 1
+        newcat = 1
     one_action_is_visible = 0
     for action in actions_by_cat:
         action_id = action.get('id')

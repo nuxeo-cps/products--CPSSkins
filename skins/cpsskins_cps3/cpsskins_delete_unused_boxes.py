@@ -13,7 +13,7 @@ for hidden_slot in hidden_slots:
         box_container.manage_delObjects([box_obj.getId()])
 
 if REQUEST is not None:
-     url = context.absolute_url() + \
-           '/box_manage_form?portal_status_message=' + \
-           'description_unused_boxes_deleted'
-     REQUEST.RESPONSE.redirect(url)
+    url = context.absolute_url() + \
+         '/box_manage_form?portal_status_message=' + \
+         'description_unused_boxes_deleted'
+    REQUEST.RESPONSE.redirect(url)
