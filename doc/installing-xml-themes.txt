@@ -1,0 +1,35 @@
+
+Concept code showing how to install themes saved in XML format
+from the filesystem (requires CPSIO >= 0.3.0)
+
+- 'filepath' is the path to the file on the local filesystem.
+- 'filename' is the file's name (e.g. 'theme.zip').
+
+
+sample code ::
+
+    from Products.CMFCore.utils import getToolByName
+    from ZPublisher.HTTPRequest import FileUpload
+
+    class DummyFileUpload:
+        def __init__(self, **kw):
+            for k, v in kw.items():
+                setattr(self, k, v)
+
+    class Installer:
+        """ a product installer """
+
+        def installTheme(self, filepath='', filename=''):
+            """Install a theme (XML)
+            """
+            tmtool = getToolByName(self, 'portal_themes')
+
+            fs = DummyFileUpload(
+                file=open(filepath, 'r'),
+                headers={'Content-Type': 'application/zip'},
+                filename=filename)
+
+            tmtool.manage_xmlImport(
+                FileUpload(fs),
+                options=['import_overwrite'])
+
