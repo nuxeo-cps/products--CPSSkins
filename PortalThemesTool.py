@@ -404,7 +404,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         obj = context
         bmf = None
         while 1:
-            if obj.isPrincipiaFolderish:
+            if obj.isPrincipiaFolderish and \
+                not obj.getId().startswith('.'):
                 bmf = obj
                 break
             parent = aq_parent(aq_inner(obj))
