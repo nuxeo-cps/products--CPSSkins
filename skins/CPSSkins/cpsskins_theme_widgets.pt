@@ -24,13 +24,13 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           </td>
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
-            <div class="contentDest" tal:attributes="dest_theme theme_id">
-              <div class="ContextualMenu"
-               tal:attributes="themeid python: not we_are_here and theme_id or None;
+            <div class="ContextualMenu"
+             tal:attributes="themeid python: not we_are_here and theme_id or None;
                                icon python: '/' + theme.getIcon();
                                title theme_title;
                                contenturl theme_url;
                                styles python:''">
+              <div class="contentDest" tal:attributes="dest_theme theme_id">
                 <a interactive="1" tal:attributes="
                    href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
                    style style">

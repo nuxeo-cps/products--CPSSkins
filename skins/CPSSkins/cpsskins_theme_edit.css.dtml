@@ -179,6 +179,7 @@ div.floatingHeader {
   background: #aaaaaa;
   height: 6.7em;
   border-bottom: 1px solid #333;
+  z-index: +10;
 }
 
 .floatingHeader .contentbox {
@@ -252,7 +253,12 @@ div.simulate_hierarchies {
   margin-bottom: 3px;
   margin-top: 0px;
   text-align: center;
-  padding-top: 8px;
+  padding-top: 10px;
+}
+
+.themeTabs .ContextualMenu, .themeTabs .ContextualMenu_highlighted {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .themeTabs img {
