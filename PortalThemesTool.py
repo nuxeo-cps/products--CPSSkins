@@ -1006,7 +1006,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         rendered = ''
 
-        if actions is None:
+        if not actions:
             atool = getToolByName(self, 'portal_actions')
             actions = atool.listFilteredActionsFor(self)
 
