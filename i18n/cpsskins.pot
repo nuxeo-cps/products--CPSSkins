@@ -566,6 +566,9 @@ msgstr ""
 msgid "_menu_Insert_"
 msgstr ""
 
+msgid "_menu_Manage_"
+msgstr ""
+
 msgid "_menu_Copy_"
 msgstr ""
 

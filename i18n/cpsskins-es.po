@@ -2023,6 +2023,10 @@ msgid "_menu_Insert_"
 msgstr "Insertar"
 
 
+msgid "_menu_Manage_"
+msgstr ""
+
+
 msgid "_menu_Paste_"
 msgstr ""
 

@@ -33,6 +33,7 @@ tal:define="themes tmtool/getThemes;
               <span class="ContextualMenu"
                tal:attributes="themeid python: not we_are_here and theme_id or None;
                                icon python: '/' + theme.getIcon();
+                               istheme python: 1;
                                title theme_title;
                                contenturl theme_url;
                                notdefault python: not theme.isDefaultTheme() or None;
@@ -187,6 +188,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          tal:attributes="src string:${base_url}cpsskins_images/edit-16.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Edit_"
+         content="python: mcat and mcat(title) or title" /> ...
+    </div>
+    <div class="context-menu-item" onmouseup="Choice_action('manage_theme')"
+    tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('istheme')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/manage-16.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Manage_"
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_edit_layout()"

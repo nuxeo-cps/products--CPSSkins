@@ -1999,6 +1999,10 @@ msgid "_menu_Insert_"
 msgstr "Lägga till"
 
 
+msgid "_menu_Manage_"
+msgstr ""
+
+
 msgid "_menu_Paste_"
 msgstr ""
 

@@ -2001,6 +2001,10 @@ msgid "_menu_Insert_"
 msgstr "Wstaw"
 
 
+msgid "_menu_Manage_"
+msgstr ""
+
+
 msgid "_menu_Paste_"
 msgstr ""
 

@@ -22,6 +22,10 @@ elif action == 'set_default':
     tmtool.setViewMode(theme=context.getId())
     url = context.portal_url() + '/cpsskins_theme_manage_form'
 
+elif action == 'manage_theme':
+    tmtool.setViewMode(theme=context.getId(), themes_panel='theme')
+    url = context.portal_url() + '/cpsskins_theme_manage_form'
+
 if action == 'delete':
     tmtool.delObject(context)
     tmtool.clearViewMode('selected_content')

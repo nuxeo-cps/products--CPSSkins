@@ -2001,6 +2001,10 @@ msgid "_menu_Insert_"
 msgstr "Insérer"
 
 
+msgid "_menu_Manage_"
+msgstr "Gérer"
+
+
 msgid "_menu_Paste_"
 msgstr "Coller"
 
