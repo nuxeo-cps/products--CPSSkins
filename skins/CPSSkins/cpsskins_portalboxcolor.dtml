@@ -97,4 +97,11 @@ padding-left: <dtml-var "_.int(width)+4">px !important;
 }
 </dtml-if>
 
+<dtml-if expr="BoxBody_menuin_icon or BoxBody_menuout_icon">
+.BoxColor&dtml-title; .body ul li a.noicon {
+background-image: none;
+padding-left: 2px !important;
+}
+</dtml-if>
+
 </dtml-let>
