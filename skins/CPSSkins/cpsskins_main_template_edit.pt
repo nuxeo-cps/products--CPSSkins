@@ -51,12 +51,9 @@
                 maxcols python: pageblock['maxcols']; 
                 block_id python: pageblock['id'];
                 block_rurl python: utool.getRelativeUrl(pageblock);
-                block_url python: base_url + block_rurl;
-                height python: pageblock['height'];
-                height_style python: height and 'height:%s' % height or ''"
+                block_url python: base_url + block_rurl"
     tal:condition="python: (not closed and maxcols)"
-    tal:attributes="width python: pageblock['width']; 
-                    style string:$pageblock_style $height_style;
+    tal:attributes="style python: pageblock.getCSSLayoutStyle(pageblock_style);
                     class python: pageblock.getCSSAreaClass();
                     summary python: pageblock['title']">
       <tr>

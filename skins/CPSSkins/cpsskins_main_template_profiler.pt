@@ -39,11 +39,8 @@
       <b tal:define="title python: pageblock.title"
          tal:replace="python:CPSSkins_bmt_mark('--------- [%s] %s ' % (title, '-' *(37-len(title))))" />
       <table cellpadding="0" cellspacing="0"
-      tal:define="maxcols python: pageblock['maxcols']; 
-                  height python: pageblock['height'];
-                  height_style python: height and 'height:%s' % height or ''"
-      tal:attributes="width python: pageblock['width'];
-                      style string:$pageblock_style $height_style;
+      tal:define="maxcols python: pageblock['maxcols']"
+      tal:attributes="style python: pageblock.getCSSLayoutStyle(pageblock_style);
                       class python: pageblock.getCSSAreaClass();
                       summary python: pageblock['title']">
         <tr>

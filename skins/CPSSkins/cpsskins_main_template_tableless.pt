@@ -24,12 +24,8 @@
                      dummy python: request.set('cpsskins_mcat', mcat)"
    tal:repeat="pageblock python: page_container.getPageBlocks()">
     <div
-    tal:define="maxcols python: pageblock['maxcols']; 
-                height python: pageblock['height'];
-                width python: pageblock['width'];
-                height_style python: height and 'height:%s;;' % height or None;
-                width_style python: width and 'width:%s;;' % width or None"
-    tal:attributes="style string:$pageblock_style $width_style $height_style;
+    tal:define="maxcols python: pageblock['maxcols']"
+    tal:attributes="style python:pageblock.getCSSLayoutStyle(pageblock_style);
                     class python:pageblock.getCSSAreaClass()">
         <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
                    repeat="x_pos python: range(int(maxcols))">

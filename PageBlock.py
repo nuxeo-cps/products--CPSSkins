@@ -192,6 +192,19 @@ class PageBlock(ThemeFolder, StylableContent):
             areaclass.append('color%s' % color)
         return ' '.join(areaclass)
 
+    security.declarePublic('getCSSLayoutStyle')
+    def getCSSLayoutStyle(self, layout_style=''):
+        """Returns the CSS area style for this Page Block.
+        """
+        css = layout_style
+        height = self.height
+        if height:
+            css += 'height:%s;' % height
+        width = self.width
+        if width:
+            css += 'width:%s;' % width
+        return css
+
     #
     # Rendering
     #
@@ -203,21 +216,15 @@ class PageBlock(ThemeFolder, StylableContent):
 
         layout_style = kw.get('layout_style')
         if layout_style is None:
-            layout_style = self.getCSSLayoutStyle()
-        width = self.width
-        height = self.height
+            page_container = self.getContainer()
+            layout_style = page_container.getCSSLayoutStyle()
 
         rendered = []
         table_tag = []
+        table_tag.append('class="%s"' % self.getCSSAreaClass())
         if layout_style:
-            table_tag.append('class="%s"' % self.getCSSAreaClass())
-        if height:
-            layout_style += ';height: %s' % height
-        if layout_style:
-            table_tag.append('style="%s"' % layout_style)
-        if width:
-            table_tag.append('width="%s"' % width)
-
+            table_tag.append('style="%s"' % \
+                self.getCSSLayoutStyle(layout_style))
         rendered_append = rendered.append
         rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % \
             " ".join(table_tag))
