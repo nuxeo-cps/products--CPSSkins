@@ -7,10 +7,15 @@ if REQUEST is None:
     REQUEST = context.REQUEST
 kw.update(REQUEST.form)
 
-theme = kw.get('theme')
 # get the current theme
+theme = kw.get('theme')
 if theme is None:
     theme = tmtool.getRequestedThemeName(context=context)
+
+# vertical scroll position
+scrolly = kw.get('scrolly')
+if scrolly is not None:
+    tmtool.setViewMode(scrolly=scrolly)
 
 # set the current theme
 tmtool.setViewMode(theme=theme)

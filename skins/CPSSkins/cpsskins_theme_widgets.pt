@@ -24,7 +24,8 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="ContentDest" tal:attributes="dest_theme theme_id">
               <a 
-              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id; style style"
+              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id&scrolly=0;
+                              style style"
               tal:content="theme_title" />
               <img width="16" height="16" border="0" tal:condition="python: theme_id in externalthemes"
               tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
