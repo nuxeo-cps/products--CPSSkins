@@ -11,8 +11,13 @@ if cellsizer is None:
 if theme is None:
     theme = tmtool.getDefaultThemeName()
 
+# scroll position
+scrollx = kw.get('scrollx', '0')
+scrolly = kw.get('scrolly', '0')
+
 url = cellsizer.absolute_url() + '/edit_form' + \
-     '?theme=' + theme + "&edit_mode=" + edit_mode
+     '?theme=' + theme + "&edit_mode=" + edit_mode + \
+     '&scrollx=' + scrollx + '&scrolly=' + scrolly
 
 if REQUEST is None:
     return cellsizer
