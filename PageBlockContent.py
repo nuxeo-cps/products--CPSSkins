@@ -54,6 +54,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
         if self.can_moveleft():
            return self.xpos -1 
+        return None
 
     security.declarePublic('moveright_pos')
     def moveright_pos(self):
@@ -61,6 +62,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
         if self.can_moveright():
             return self.xpos + 1
+        return None
 
     security.declarePublic('moveup_pos')
     def moveup_pos(self):
@@ -103,6 +105,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
         if hasattr(self, 'closed'):
             return 1
+        return None
 
     security.declarePublic('can_delete')
     def can_delete(self):
@@ -129,6 +132,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                    pos = obj.getVerticalPosition()
                    if pos < this_pos:
                        return 1
+        return None
 
     security.declarePublic('can_movedown')
     def can_movedown(self):
@@ -148,6 +152,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                     pos = obj.getVerticalPosition()
                     if pos > this_pos:
                         return 1
+        return None
 
     security.declarePublic('can_moveright')
     def can_moveright(self):
@@ -159,6 +164,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             return None
         if self.xpos < maxcols -1 :
             return 1
+        return None
 
     security.declarePublic('can_moveleft')
     def can_moveleft(self):
@@ -166,18 +172,18 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
         if self.xpos > 0:
             return 1
+        return None
 
     security.declareProtected(ManageThemes, 'toggle')
     def toggle(self):
         """Opens or closes the Templet."""
-        
+
         self.closed = not self.closed
 
     security.declareProtected(ManageThemes, 'duplicate')
     def duplicate(self):
         """Duplicates a Templet."""
-        
-        tmtool = getToolByName(self, 'portal_themes')
+
         container = self.aq_parent
         src_ypos = self.getVerticalPosition()
         newid = getFreeId(container)
@@ -210,9 +216,9 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         utool = getToolByName(self, 'portal_url')
 
         if xpos is None:
-            return
+            return None
         if ypos is None:
-            return
+            return None
 
         current_xpos = self.xpos
         new_xpos = int(xpos)
@@ -228,7 +234,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         if dest_block == src_block and \
                         int(xpos) == current_xpos and \
                         int(ypos) == current_ypos:
-            return
+            return None
 
         dest_container = self.unrestrictedTraverse(dest_block, default=None)
 
@@ -243,11 +249,12 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             dest_container.move_object_to_position(new_id, newpos)
             content = getattr(dest_container, new_id, None)
             if content is None:
-                return
+                return None
             src_container.manage_delObjects([self.getId()])
             verifyThemePerms(content)
             content.expireCache()
             return content
+        return None
 
     security.declareProtected(ManageThemes, 'copy_to_theme')
     def copy_to_theme(self, dest_theme=None, REQUEST=None):
@@ -258,17 +265,19 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
         tmtool = getToolByName(self, 'portal_themes')
         if dest_theme is None:
-            return
+            return None
         container = self.aq_parent
         dest_theme_container = tmtool.getThemeContainer(theme=dest_theme)
         if dest_theme_container is None:
-            return
-        
+            return None
+
+        dest_container = None
         pageblocks = dest_theme_container.getPageBlocks()
         if pageblocks:
             dest_container = pageblocks[0]
         else:
-            return
+            # XXX create a page block in the destination theme
+            return None
 
         cookie = container.manage_copyObjects(self.getId(), REQUEST=REQUEST)
         res = dest_container.manage_pasteObjects(cookie) 
@@ -287,29 +296,26 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Moves the templet into a direction
            Returns the instance of the moved object
         """
-  
-        tmtool = getToolByName(self, 'portal_themes')
+
+        templet = self
         container = self.aq_parent 
         if direction == 'left' and self.can_moveleft():
             self.xpos = self.moveleft_pos()
-            templet = self
- 
+
         if direction == 'right' and self.can_moveright():
             self.xpos = self.moveright_pos()
-            templet = self
 
         if direction == 'up' and self.can_moveup():
             newpos = self.moveup_pos()
             if newpos >= 0:
                 container.move_object_to_position(self.getId(), newpos)
-                templet = self
             else:
                 cookie = container.manage_cutObjects(self.getId(), 
                                                      REQUEST=REQUEST)
                 pos =  container.moveup_pos()
                 theme_container = container.aq_parent
                 for obj in theme_container.objectValues():
-                    if obj.getVerticalPosition() == pos:
+                    if theme_container.get_object_position(obj.getId()) == pos:
                         obj.manage_pasteObjects(cookie)
                         maxcols = getattr(obj, 'maxcols', None)
                         if maxcols is not None and self.xpos > maxcols-1:
@@ -320,14 +326,13 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             newpos = self.movedown_pos()
             if newpos >= 0:
                 container.move_object_to_position(self.getId(), newpos)
-                templet = self
             else:
                 cookie = container.manage_cutObjects(self.getId(), 
                                                      REQUEST=REQUEST)
                 pos =  container.movedown_pos()
                 theme_container = container.aq_parent
                 for obj in theme_container.objectValues():
-                    if obj.getVerticalPosition() == pos:
+                    if theme_container.get_object_position(obj.getId()) == pos:
                         obj.manage_pasteObjects(cookie)
                         newobj =  getattr(obj, self.getId(), None) 
                         obj.move_object_to_position(newobj.getId(), int(0))
@@ -375,7 +380,6 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def change_alignment(self, alignment=None):
         """Aligns the templet."""
 
-        tmtool = getToolByName(self, 'portal_themes')
         if alignment in ['left', 'center', 'right']:
             self.set_property('align', alignment)
         self.expireCache()
