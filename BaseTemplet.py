@@ -457,13 +457,12 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """
 
         areaclass = ''
-        color = self.color
-        shape = self.shape
-        fontcolor = self.fontcolor
-        fontshape = self.fontshape
-        formstyle = self.formstyle
 
         try:
+            color = self.color
+            fontcolor = self.fontcolor
+            fontshape = self.fontshape
+
             if color:
                 areaclass += 'Color%s ' % color
             if fontcolor:
@@ -472,6 +471,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                 areaclass += 'FontShape%s ' % fontshape
 
             if level == 2:
+                shape = self.shape
+                formstyle = self.formstyle
+
                 if shape:
                     areaclass += 'Shape%s ' % shape
                 if formstyle:
@@ -491,10 +493,11 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """
 
         boxclass = ''
-        boxcolor = self.boxcolor
-        boxshape = self.boxshape
 
         try:
+            boxcolor = self.boxcolor
+            boxshape = self.boxshape
+
             if boxcolor:
                 boxclass += 'BoxColor%s ' % boxcolor
             if boxshape:
