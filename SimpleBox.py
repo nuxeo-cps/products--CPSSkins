@@ -39,11 +39,8 @@ BOX_LAYOUTS = {
 'no_frames': """<div class="title" style="border: none">%s</div>
 <div class="body" style="border: none">%s</div>""",
 # rounded box
-'rounded_box': """<div class="roundedBox">
-<div class="ul"></div><div class="ur"></div>
-<div class="body" style="border: none">%s</div>
-<div class="ll"></div><div class="lr"></div>
-</div>""",
+'rounded_box': """<div class="rbtop"><div></div></div>
+<div class="rbcontent">%s</div><div class="rbbot"><div></div></div>""",
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -54,6 +51,53 @@ class SimpleBox:
     """
 
     security = ClassSecurityInfo()
+
+    _properties = (
+       {'id': 'boxshape', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Box shape', 
+        'select_variable': 'BoxShapesList', 
+        'category': 'style', 
+        'style': 'Portal Box Shape'
+       },
+       {'id': 'boxcolor', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Box color', 
+        'select_variable': 'BoxColorsList', 
+        'category': 'style', 
+        'style': 'Portal Box Color'
+       },
+       {'id': 'boxcorners', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Box corners', 
+        'select_variable': 'BoxCornersList', 
+        'category': 'style', 
+        'style': 'Box Corners'
+       },
+       {'id': 'boxlayout', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Box layout', 
+        'category': 'layout', 
+        'select_variable': 'BoxLayoutList',
+        'i18n': 1,
+        'i18n_prefix': '_option_',
+       },
+    )
+
+    def __init__(self,
+                 boxshape='',
+                 boxcolor='',
+                 boxcorners='',
+                 boxlayout = 'standard',
+                 **kw):
+        self.boxshape = boxshape
+        self.boxcolor = boxcolor
+        self.boxcorners = boxcorners
+        self.boxlayout = boxlayout
 
     #
     # Rendering
@@ -87,5 +131,31 @@ class SimpleBox:
                                                  macro_path=macro_path,
                                                  **kw)
         return rendered
+
+    security.declarePublic('getCSSBoxClass')
+    def getCSSBoxClass(self):
+        """Return the CSS box class for this Templet.
+        """
+
+        boxclass = []
+        try:
+            boxcolor = self.boxcolor
+            boxshape = self.boxshape
+            boxcorners = self.boxcorners
+            if boxcolor:
+                boxclass.append('BoxColor%s' % boxcolor)
+            if boxshape:
+                boxclass.append('BoxShape%s' % boxshape)
+            if boxcorners:
+                boxclass.append('BoxCorners%s' % boxcorners)
+
+        # rebuild the templet if some attributes are missing.
+        # a simple page reload will display the correct results.
+        except AttributeError:
+            self.rebuild()
+
+        if boxclass:
+            return ' '.join(boxclass)
+        return ''
 
 InitializeClass(SimpleBox)

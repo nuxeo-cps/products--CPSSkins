@@ -1,0 +1,26 @@
+<dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)">
+.BoxCorners&dtml-title; {
+border: 1px solid &dtml-border_color;;
+}
+.BoxCorners&dtml-title; .rbtop div {
+background: url(/&dtml-theme_url;/backgrounds/&dtml-TopLeft_bg_image;) no-repeat top left;
+}
+.BoxCorners&dtml-title; .rbtop {
+background: url(/&dtml-theme_url;/backgrounds/&dtml-TopRight_bg_image;) no-repeat top right;
+}
+.BoxCorners&dtml-title; .rbbot div {
+background: url(/&dtml-theme_url;/backgrounds/&dtml-BottomLeft_bg_image;) no-repeat bottom left;
+}
+.BoxCorners&dtml-title; .rbbot {
+background: url(/&dtml-theme_url;/backgrounds/&dtml-BottomRight_bg_image;) no-repeat bottom right;
+}
+.BoxCorners&dtml-title; .rbtop div,
+.BoxCorners&dtml-title; .rbtop,
+.BoxCorners&dtml-title; .rbbot div,
+.BoxCorners&dtml-title; .rbbot {
+width: 100%;
+height: 7px;
+font-size: 1px;
+}
+.BoxCorners&dtml-title; .rbcontent  { margin: 0 7px; }
+</dtml-let>

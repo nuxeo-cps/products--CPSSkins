@@ -75,6 +75,12 @@ class StylableContent:
 
         return getStyleList(self, 'Portal Box Color')
 
+    security.declarePublic('BoxCornersList')
+    def BoxCornersList(self):           
+        """ Returns a list of Box Corner styles"""
+
+        return getStyleList(self, 'Box Corners')
+
     security.declarePublic('PortalTabStylesList')
     def PortalTabStylesList(self):           
         """ Returns a list of Portal Tab styles"""

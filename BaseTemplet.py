@@ -486,29 +486,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             return ' '.join(areaclass)
         return ''
 
-    security.declarePublic('getCSSBoxClass')
-    def getCSSBoxClass(self):
-        """Return the CSS box class for this Templet.
-        """
-
-        boxclass = []
-        try:
-            boxcolor = self.boxcolor
-            boxshape = self.boxshape
-            if boxcolor:
-                boxclass.append('BoxColor%s' % boxcolor)
-            if boxshape:
-                boxclass.append('BoxShape%s' % boxshape)
-
-        # rebuild the templet if some attributes are missing.
-        # a simple page reload will display the correct results.
-        except AttributeError:
-            self.rebuild()
-
-        if boxclass:
-            return ' '.join(boxclass)
-        return ''
-
     security.declarePublic('VisibilityList')
     def VisibilityList(self):
         """Returns a list of visibility criteria."""

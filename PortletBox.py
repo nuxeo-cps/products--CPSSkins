@@ -64,7 +64,8 @@ class PortletBox(BaseTemplet, SimpleBox):
                           'action': 'manage_templetPreview'}, )
                      )
 
-    _properties = BaseTemplet._properties + (
+    _properties = BaseTemplet._properties + \
+                  SimpleBox._properties + (
         {'id': 'portlet_id', 
          'type': 'selection', 
          'mode': 'w', 
@@ -84,46 +85,16 @@ class PortletBox(BaseTemplet, SimpleBox):
          'i18n_default_domain': 1,
          'i18n_transform': 'getPortletTypeTitle',
         },
-        {'id': 'boxshape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box shape', 
-         'select_variable': 'BoxShapesList', 
-         'category': 'style', 
-         'style': 'Portal Box Shape'
-        },
-        {'id': 'boxcolor', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box color', 
-         'select_variable': 'BoxColorsList', 
-         'category': 'style', 
-         'style': 'Portal Box Color'
-        },
-        {'id': 'boxlayout', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box layout', 
-         'category': 'layout', 
-         'select_variable': 'BoxLayoutList',
-         'i18n': 1,
-         'i18n_prefix': '_option_',
-        },
     )
 
     def __init__(self, id, 
                  portlet_id = None, 
                  portlet_type = None,
-                 boxshape = 'LightSkins', 
-                 boxcolor = 'Gray', 
-                 boxlayout = 'standard',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
+        apply(SimpleBox.__init__, (self, id), kw)
         self.portlet_id = portlet_id
         self.portlet_type = portlet_type
-        self.boxshape = boxshape
-        self.boxcolor = boxcolor
-        self.boxlayout = boxlayout
 
     security.declarePublic('isCacheable')
     def isCacheable(self):

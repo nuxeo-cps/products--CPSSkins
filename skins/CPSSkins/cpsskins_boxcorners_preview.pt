@@ -1,0 +1,14 @@
+<table cellpadding="3" cellspacing="0" summary="">
+  <tr>
+    <td>
+      <div style="padding: 4px; text-align: left; background-color: #eeeeee;">
+        <div style="width: 140px; border-color: black;"
+        tal:attributes="class string:BoxCorners${here/title}">
+
+<div class="rbtop"><div></div></div>
+<div class="rbcontent">123 12 31 23 123</div><div class="rbbot"><div></div></div></div>
+
+      </div>
+    </td>
+  </tr>
+</table>

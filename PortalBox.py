@@ -58,7 +58,8 @@ class PortalBox(BaseTemplet, SimpleBox):
 
     security = ClassSecurityInfo()
 
-    _properties = BaseTemplet._properties + (
+    _properties = BaseTemplet._properties + \
+                  SimpleBox._properties + (
        {'id': 'title_source', 
         'type': 'selection', 
          'mode': 'w', 
@@ -140,15 +141,6 @@ class PortalBox(BaseTemplet, SimpleBox):
         'select_variable': 'PathsList', 
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'boxlayout', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box layout', 
-        'category': 'layout', 
-        'select_variable': 'BoxLayoutList',
-        'i18n': 1,
-        'i18n_prefix': '_option_',
-       },
        {'id': 'action_categories', 
         'type': 'multiple selection', 
         'mode': 'w', 
@@ -180,22 +172,6 @@ class PortalBox(BaseTemplet, SimpleBox):
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
-       {'id': 'boxshape', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box shape', 
-        'select_variable': 'BoxShapesList', 
-        'category': 'style', 
-        'style': 'Portal Box Shape'
-       },
-       {'id': 'boxcolor', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box color', 
-        'select_variable': 'BoxColorsList', 
-        'category': 'style', 
-        'style': 'Portal Box Color'
-       },
        {'id': 'info', 
         'type': 'text', 
         'mode': 'w', 
@@ -217,15 +193,13 @@ class PortalBox(BaseTemplet, SimpleBox):
                  invisible_actions = ['view',],
                  base_path = '/',
                  orientation = 'vertical',
-                 boxshape = '', 
-                 boxcolor = '', 
                  info = 'Info here',
                  base = [],
-                 boxlayout = 'standard',
                  folder_items_i18n = 0,
                  box_title_i18n = 0,
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
+        apply(SimpleBox.__init__, (self, id), kw)
         self.content = content
         self.level = level
         self.show_action_icons = show_action_icons
@@ -237,11 +211,8 @@ class PortalBox(BaseTemplet, SimpleBox):
         self.custom_action_categories = custom_action_categories
         self.invisible_actions = invisible_actions
         self.orientation = orientation
-        self.boxshape = boxshape
-        self.boxcolor = boxcolor
         self.info = info
         self.base = base
-        self.boxlayout = boxlayout
         self.folder_items_i18n = folder_items_i18n
         self.box_title_i18n = box_title_i18n
 
@@ -405,12 +376,6 @@ class PortalBox(BaseTemplet, SimpleBox):
         list = ['horizontal', 'vertical']
         return list  
 
-    security.declarePublic('BoxLayoutList')
-    def BoxLayoutList(self):           
-        """ Returns a list of orientations for this Templet"""
-
-        return self.cpsskins_listBoxLayouts('PortalBox')
-
 
     security.declarePublic('getI18nProperties')
     def getI18nProperties(self):
@@ -492,6 +457,12 @@ class PortalBox(BaseTemplet, SimpleBox):
             state = REQUEST.cookies.get(cookie_name, None)
             return state
         return None
+
+    security.declarePublic('BoxLayoutList')
+    def BoxLayoutList(self):           
+        """ Returns a list of orientations for this Templet"""
+
+        return self.cpsskins_listBoxLayouts('PortalBox')
 
 InitializeClass(PortalBox)
 

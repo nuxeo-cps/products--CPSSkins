@@ -71,6 +71,7 @@ import CollapsibleMenuStyle
 import CalendarStyle
 import PortalTabStyle
 import FormStyle
+import BoxCorners
 
 this_module = sys.modules[__name__]
 
@@ -122,6 +123,7 @@ styleClasses = (
     CalendarStyle.CalendarStyle,
     PortalTabStyle.PortalTabStyle,
     FormStyle.FormStyle,
+    BoxCorners.BoxCorners,
 )
                  
 paletteClasses = (
@@ -165,6 +167,7 @@ contentConstructors = (
     CalendarStyle.addCalendarStyle,
     PortalTabStyle.addPortalTabStyle,
     FormStyle.addFormStyle,
+    BoxCorners.addBoxCorners,
 )
 
 fti = (
@@ -203,6 +206,7 @@ fti = (
     CalendarStyle.factory_type_information +
     PortalTabStyle.factory_type_information +
     FormStyle.factory_type_information +
+    BoxCorners.factory_type_information +
     ())
 
 contentClasses = portalthemeClasses + \
@@ -281,6 +285,7 @@ def initialize(registrar):
         (AreaShape.AreaShape, 'area_shape.png'),
         (PortalBoxColor.PortalBoxColor, 'box_color.png'),
         (PortalBoxShape.PortalBoxShape, 'box_shape.png'),
+        (BoxCorners.BoxCorners, 'box_corners.png'),
         (FontColor.FontColor, 'fontcolor.png'),
         (FontShape.FontShape, 'fontshape.png'),
         (CollapsibleMenuStyle.CollapsibleMenuStyle, 'collapsiblemenu_style.png'),
