@@ -886,16 +886,7 @@ class PortalTheme(ThemeFolder):
         Returns a Templet by its physical path.
         """
 
-        if templet_path is None:
-            return None
-
-        path = '/'.join(templet_path)
-        try:
-            templet = self.unrestrictedTraverse(path)
-        except KeyError:
-            return None
-        else:
-            return templet
+        return self.unrestrictedTraverse(templet_path, default=None)
 
     security.declareProtected(ManageThemes, 'getI18nTemplets')
     def getI18nTemplets(self, **kw):
