@@ -39,13 +39,10 @@
                  actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
      tal:condition="actioninfos">
       <tal:block repeat="actioninfo actioninfos">
-        <li tal:define="we_are_here python: actioninfo['we_are_here']; 
-                        title python: actioninfo['title'];  
+        <li tal:define="title python: actioninfo['title'];  
                         url python: actioninfo['url']; 
-                        class python: actioninfo['class']; 
-                        newcat python: actioninfo['newcat']; 
-                        itemclass python: we_are_here and 'selected' or None"
-          tal:attributes="class python:itemclass">
+                        class python: actioninfo['class']"
+          tal:attributes="class class">
         <a href="" i18n:translate="" tal:attributes="href url" tal:content="title" /></li>
       </tal:block>
     </ul>

@@ -48,9 +48,9 @@ for category in categories:
                 we_are_here = 1
 
             if we_are_here:
-                menuclass = 'menuin'
+                menuclass = 'selected'
             else:
-                menuclass = 'menuout'
+                menuclass = None
 
             actioninfo.append({
                 'we_are_here': we_are_here,
