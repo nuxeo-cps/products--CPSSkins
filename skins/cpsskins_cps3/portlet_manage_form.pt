@@ -1,0 +1,105 @@
+<metal:html>
+  <metal:body use-macro="here/main_template/macros/master">
+    <metal:head fill-slot="head_slot">
+      <style type="text/css" media="all"
+       tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
+      <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+      <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
+    </metal:head> 
+    <metal:header fill-slot="header"
+    tal:define="global context_urlc python:here.getContextUrl(utool=utool, concat=1)">
+      <tal:security condition="python:not checkPerm('Manage Portlets', here)">
+        <tal:redirect define="response request/RESPONSE; 
+                              dummy python:response.redirect(context_url)" />
+      </tal:security>
+      <h2 i18n:translate="heading_portlet_manage_form">Portlet
+      management</h2>
+      <p i18n:translate="">description_visible_portlet_from 
+      <span i18n:name="context_url"
+      tal:content="context_url" /></p>
+    </metal:header>
+    <metal:main fill-slot="main">
+      <tal:block define="tmtool here/portal_themes;
+                         ptltool here/portal_cpsportlets;
+                         portal_url here/portal_url">
+        <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
+          <table cellpadding="0" cellspacing="3" width="100%">
+            <tr valign="top"
+            tal:define="objects python: block.getObjects(REQUEST=request); 
+                        maxcols block/maxcols|nothing">
+              <tal:block condition="maxcols"
+              repeat="x_pos python: range(int(maxcols))">
+                <tal:block define="objects_in_xpos python: objects.get(x_pos, None);
+                                   templets_in_xpos python: objects_in_xpos['templets'];
+                                   cellsize python: objects_in_xpos['cellsizer'];
+                                   cellwidth cellsize/cellwidth|nothing"
+                           condition="templets_in_xpos">
+                  <td tal:attributes="width cellwidth">
+                    <tal:block repeat="templet templets_in_xpos">
+                      <div tal:content="templet/title"
+                      class="TempletBox"
+                      tal:condition="templet/aq_explicit/isPortalBox|nothing" />
+                      <tal:block condition="templet/aq_explicit/isPortalBoxGroup|nothing"
+                                 define="group templet/box_group|nothing">
+                        <div class="BoxGroupBoundingBox">
+                          <div i18n:translate=""
+                          tal:content="group"
+                          class="BoxGroupBoxSlotTitle" />
+                          <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group)">
+                            <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
+                            <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
+                          </tal:block>
+                        </div>
+                      </tal:block>
+                    </tal:block>
+                  </td>
+                </tal:block>
+              </tal:block>
+            </tr>
+          </table>
+        </tal:block>
+
+        <h3 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h3>
+        <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
+        <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+               condition="hidden_slots">
+        <p style="text-align: right">
+        <a
+           i18n:translate="description_delete_unused_portlets" 
+           i18n:domain="cpsskins" 
+           tal:attributes="href string:${context_urlc}/cpsskins_delete_unused_portlets?theme=$current_theme;
+                          onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )" >Delete unused box</a>
+        </p>
+        <table cellpadding="0" cellspacing="3">
+          <tr>
+             <td valign="top" tal:repeat="hidden_slot hidden_slots">
+                <div class="BoxGroupBoundingBox" 
+                  tal:define="group hidden_slot">
+                  <div i18n:translate=""
+                       tal:content="string:label_${hidden_slot}"
+                       class="BoxGroupBoxSlotTitleHidden">
+                  </div>
+                  <tal:block define="portlets python:ptltool.getPortlets(here)">
+                    <tal:block repeat="portlet portlets">
+                      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
+                    </tal:block>
+                    <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
+                  </tal:block>
+                </div>
+             </td>
+          </tr>
+        </table>
+        </tal:block>
+      </tal:block>
+    <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
+
+    <!-- Begin pdlib footer -->
+    <div id="drag-feedback-box"></div>
+      <script type="text/javascript"><!-- 
+      pd_setupPage();
+      // --></script>
+    <!-- End pdlib footer -->
+
+    </metal:main>
+  </metal:body>
+</metal:html>

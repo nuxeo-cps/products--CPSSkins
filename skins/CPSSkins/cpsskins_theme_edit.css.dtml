@@ -693,6 +693,7 @@ background: #f6f6f9;
 margin-bottom: 7px;
 }
 
+/* Portal Boxes */
 .PortalBoxDest, .PortalBoxDest_highlighted {
 border: 1px solid #666;
 font: 11px Verdana, Arial, Sans-Serif;
@@ -702,6 +703,15 @@ font: 11px Verdana, Arial, Sans-Serif;
 border-color: red;
 }
 
+/* Portlet Boxes */
+.PortletBoxDest, .PortletBoxDest_highlighted {
+border: 1px solid #666;
+font: 11px Verdana, Arial, Sans-Serif;
+}
+
+.PortletDest_highlighted {
+border-color: red;
+}
 
 .TableFrame {
 border: 1px #ccc solid;

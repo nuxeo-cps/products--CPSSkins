@@ -1,0 +1,37 @@
+<metal:block define-macro="box">
+  <div class="BoxGroupBoxSlot PortletBoxDrag">
+    <div class="PortletBoxDest" 
+      tal:attributes="dest_slot group">
+    <div class="BoxGroupBoxTitle">
+      <tal:block content="portlet/getId" />
+    </div>
+    <div class="BoxGroupBoxBody PortletBoxEditMenu">
+    </div>
+  </div>
+</metal:block>
+
+<metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
+  tal:define="portal_url here/portal_url">
+  <div id="choice-context-menu" class="context-menu">
+    <div class="context-menu-header" class="context-menu">
+      <tal:block i18n:translate="menu_insert_portlet">Insert a portlet here</tal:block>
+    </div>
+  </div>
+</metal:block>
+
+<metal:block define-macro="empty_slot">
+  <div class="PortletBoxDest" style="margin:4px"
+   tal:condition="python:len(portlets) == 0"
+   tal:attributes="dest_slot group; 
+   dest_ypos python: 0">
+    <div class="PortletBoxEditMenu" style="padding: 20px"
+     tal:attributes="src_ypos python: 0;
+                     src_slot group">&nbsp;</div>
+  </div>
+</metal:block>
+
+<metal:block define-macro="box_slot">
+    <tal:block repeat="portlet portlets">
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
+    </tal:block>
+</metal:block>
