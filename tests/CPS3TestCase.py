@@ -34,6 +34,7 @@ ZopeTestCase.installProduct('CPSSubscriptions', quiet=1)
 ZopeTestCase.installProduct('CPSSchemas', quiet=1)
 ZopeTestCase.installProduct('CPSDocument', quiet=1)
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
+ZopeTestCase.installProduct('CPSWiki', quiet=1)
 ZopeTestCase.installProduct('Epoz', quiet=1)
 
 # Optional products
