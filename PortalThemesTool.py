@@ -760,6 +760,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         container = object.aq_parent
         theme_container = self.getPortalThemeRoot(object)
 
+        # the object is a style
+        # remove the references
+        if getattr(object.aq_explicit, 'isportalstyle', 0):
+            object.findParents(newtitle='')
+
         mtool = getToolByName(self, 'portal_membership')
         if not mtool.checkPermission(ManageThemes, container):
             raise Unauthorized
