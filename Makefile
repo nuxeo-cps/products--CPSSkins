@@ -10,7 +10,9 @@ doc:
 
 clean:
 	find . -name '*~' | xargs rm -f
-	find . -name '*pyc' | xargs rm -f
+	find . -name '*.pyc' | xargs rm -f
+	find . -name '*.swp' | xargs rm -f
+	find . -name '*.cln' | xargs rm -f
 	find . -name '.log' | xargs rm -f
 	rm -rf doc/api
 
