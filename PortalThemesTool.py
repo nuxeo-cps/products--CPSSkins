@@ -953,8 +953,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         return DEFAULT_ACCESSKEY
 
-    security.declarePrivate('_getAccessKey')
-    def _getAccessKey(self):
+    security.declarePublic('getAccessKey')
+    def getAccessKey(self):
         """Return the value of the key used to access the tool
         """
 
@@ -985,7 +985,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         else:
             return rendered
 
-        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'], self._getAccessKey())
+        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'], self.getAccessKey())
         return rendered
 
     #

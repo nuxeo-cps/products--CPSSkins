@@ -142,7 +142,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
        tal:define="title string:_ZMI_" i18n:translate="" 
        tal:content="python:mcat and mcat(title) or title" />
     <a class="exit"
-       tal:attributes="href string:${theme_container_url}/cpsskins_exit"
+       tal:attributes="href string:${theme_container_url}/cpsskins_exit;
+                       accesskey tmtool/getAccessKey"
        tal:define="title string:_Exit_" i18n:translate=""
        tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
