@@ -16,7 +16,9 @@
                   portal_path python: utool.getPortalPath();
                   clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + clipboard, default=None) or nothing;
                   cpsmcat python: tmtool.getTranslationService(cat='default');
-                  checkPerm nocall:mtool/checkPermission">
+                  checkPerm nocall:mtool/checkPermission;
+                  context_url python: base_url + utool.getRelativeUrl(here);
+                  context_editable python: checkPerm('Manage Portlets', here);">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <head>
   <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/head" />

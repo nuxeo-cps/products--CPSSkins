@@ -95,9 +95,9 @@ function Choice_duplicate() {
   if (pd_selected_item == null) 
      return;
   portlet_id = pd_selected_item.getAttribute('portlet_id');
-  portlet_folder = pd_selected_item.getAttribute('portlet_folder');
   folder_url = pd_selected_item.getAttribute('folder_url');
-  window.location = portlet_folder + '/cpsskins_duplicate_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
+  portlet_folder_url = pd_selected_item.getAttribute('portlet_folder_url');
+  window.location = portlet_folder_url + '/cpsskins_duplicate_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
 }
 
 function Choice_copy_to_clipboard() {
@@ -114,8 +114,8 @@ function Choice_paste_from_clipboard() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  here_url = pd_selected_item.getAttribute('here_url');
-  new_url = here_url + '/cpsskins_paste_from_clipboard';
+  folder_url = pd_selected_item.getAttribute('folder_url');
+  new_url = folder_url + '/cpsskins_paste_from_clipboard';
   new_url = new_url + '?dest_ypos=' + dest_ypos;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
   window.location = new_url;
@@ -127,8 +127,8 @@ function Choice_insert() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  here_url = pd_selected_item.getAttribute('here_url');
-  newWindow(here_url + '/cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
+  folder_url = pd_selected_item.getAttribute('folder_url');
+  newWindow(folder_url + '/cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
 }
 
 function Choice_delete() {
@@ -136,9 +136,9 @@ function Choice_delete() {
   if (pd_selected_item == null) 
      return;
   portlet_id = pd_selected_item.getAttribute('portlet_id');
-  portlet_folder = pd_selected_item.getAttribute('portlet_folder');
+  portlet_folder_url = pd_selected_item.getAttribute('portlet_folder_url');
   folder_url = pd_selected_item.getAttribute('folder_url');
-  window.location = portlet_folder + '/cpsskins_delete_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
+  window.location = portlet_folder_url + '/cpsskins_delete_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
 }
 
 /* setup */

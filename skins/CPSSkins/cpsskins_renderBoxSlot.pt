@@ -7,14 +7,14 @@
              fti slot/getTypeInfo;
              slot_icon fti/getIcon|nothing;
              context_obj nocall:options/context_obj;
-             here_url python: context_obj.absolute_url(1)">
+             folder_url python: context_obj.absolute_url(1)">
   <div class="portletSlotTitle" tal:content="slot_title" />
   <div class="portletBoxDest"
    tal:attributes="dest_slot slot_id;
                    dest_ypos python: 0">
     <div class="portletBoxEditMenu"
      tal:attributes="icon slot_icon;
-                     portlet_folder here_url;
+                     folder_url folder_url;
                      folder_editable folder_editable;
                      title slot_title;
                      src_ypos python: 0;
