@@ -783,7 +783,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     # RAM Cache
     #
     security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
+    def getCacheIndex(self, REQUEST=None, **kw):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
 
@@ -845,15 +845,15 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         return rendered
 
     security.declarePublic('render_cache')
-    def render_cache(self, shield=0, theme=None, **kw):
+    def render_cache(self, shield=0, **kw):
         """Renders the cached version of the templet."""
         
         if not self.cacheable:
-            rendered = self.render(shield=shield)
+            rendered = self.render(shield=shield, **kw)
         else:
             now = time.time()
             templet_path = self.getPhysicalPath()
-            index = (templet_path, ) + self.getCacheIndex()
+            index = (templet_path, ) + self.getCacheIndex(**kw)
             cache = self.getTempletCache(create=1)
             last_cleanup = cache.getLastCleanup(id=templet_path)
             lifetime = getattr(self, 'cache_lifetime', 60)
@@ -870,7 +870,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                 cache.delEntries(templet_path)
 
             if rendered is None:
-                rendered = self.render(shield=shield)
+                rendered = self.render(shield=shield, **kw)
                 cache.setEntry(index, rendered)
 
         return rendered
