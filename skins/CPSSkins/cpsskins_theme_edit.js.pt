@@ -33,7 +33,7 @@ function newWindow(url) {
 
 /* Scrolling */
 function scrollToCoordinates(x,y) {
-  if (x > 0 or y > 0)
+  if (x > 0 || y > 0)
     window.scrollTo(x,y);
 }
 
