@@ -1,10 +1,12 @@
-<div class="BoxGroupBoundingBox">
+<div class="BoxGroupBoundingBox"
+ style="padding:0;margin:0">
   <div class="PortletBoxDest"
    tal:define="slot nocall:options/slot;
                slot_title slot/title;
+               slot_id slot/getSlot;
                fti slot/getTypeInfo;
                slot_icon fti/getIcon|nothing"
-   tal:attributes="dest_slot slot_title; 
+   tal:attributes="dest_slot slot_id;
                    dest_ypos python: 0">
     <div class="BoxGroupBoxSlotTitle" tal:content="slot_title" />
     <div class="PortletBoxEditMenu" style="padding: 20px"
@@ -12,7 +14,7 @@
                      icon slot_icon;
                      title slot_title;
                      src_ypos python: 0;
-                     src_slot slot_title">
+                     src_slot slot_id">
     </div>
   </div>
 </div>

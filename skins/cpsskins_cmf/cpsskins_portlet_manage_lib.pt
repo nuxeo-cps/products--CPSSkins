@@ -255,7 +255,6 @@
                            src_slot group">
             <div class="PortletBoxDest"
              tal:attributes="dest_rurl portlet_folder_rurl;
-                             dest_slot group;
                              dest_ypos python: ypos and ypos or 0">
               <div class="PortletInfo"
                tal:attributes="style python: selected and 'border-style: dashed' or ''">
