@@ -807,6 +807,20 @@ background-color: #f3f3f6;
 float: left;
 }
 
+.PortletSlotFrame {
+padding:0;
+margin:0;
+border: 1px dotted black;
+}
+
+.PortletSlotTitle {
+padding-left: 0.5em;
+padding-right: 0.5em;
+border: 1px solid black;
+display: inline;
+background-color: #ffffcc
+}
+
 .TableFrame {
 border: 1px #ccc solid;
 background-color: #f3f3f6;
