@@ -447,6 +447,7 @@ div.simulate_hierarchies {
   color: #000;
   border-left: 8px solid #fc0;
   padding: 2px 2px 2px 10px;
+  margin: 1em 0 1em 0;
 }
 
 .editForm h2.fancy {
@@ -459,6 +460,11 @@ div.simulate_hierarchies {
   background: url(<dtml-var base_url>cpsskins_images/h2-bg.png); 
   background-repeat: repeat-y; 
   background-position: left;
+  margin: 1.5em 0 1em 0;
+}
+
+.editForm h3.fancy {
+  margin: 1.5em 0 0.6em 0;
 }
 
 .stylePreview {

@@ -560,7 +560,7 @@
         <tal:block repeat="pageblock python: page_container.getPageBlocks()">
           <tr clss="tableHeader">
             <td colspan="4">
-              <h3 tal:content="pageblock/title_or_id" />
+              <h3 class="fancy" tal:content="pageblock/title_or_id" />
             </td>
           </tr>
           <tal:block define="objects python: pageblock.getObjects();
@@ -685,7 +685,8 @@
         <input type="hidden" name="page" value="" 
          tal:attributes="value current_page" />
         <tal:block tal:condition="unused_styles">
-          <h3 tal:define="title string:_Styles_"
+          <h3 class="fancy"
+          tal:define="title string:_Styles_"
           tal:content="python: mcat and mcat(title) or title"
           i18n:translate="" />
           <p tal:define="title string:_These styles are not used and can be deleted:_"
@@ -766,7 +767,8 @@
         </tal:block>
 
         <tal:block condition="i18n_templets">
-          <h3 tal:define="title string:_Translations_"
+          <h3 class="fancy"
+           tal:define="title string:_Translations_"
            tal:content="python: mcat and mcat(title) or title"
           i18n:translate="" />
           <p tal:define="title string:_Only select items that are supposed to get translated:_"
@@ -804,7 +806,8 @@
         </tal:block>
 
         <tal:block condition="invisible_templets">
-          <h3 tal:define="title string:_Templets_"
+          <h3 class="fancy" 
+           tal:define="title string:_Templets_"
            tal:content="python: mcat and mcat(title) or title"
           i18n:translate="" />
           <p tal:define="title string:_These Templets are invisible and can be deleted:_"
@@ -837,7 +840,8 @@
         </tal:block>
 
         <tal:block condition="uncached_templets">
-          <h3 tal:define="title string:_Templets_"
+          <h3 class="fancy"
+           tal:define="title string:_Templets_"
            tal:content="python: mcat and mcat(title) or title"
           i18n:translate="" />
           <p tal:define="title string:_These Templets could be cached in memory for faster rendering:_"
