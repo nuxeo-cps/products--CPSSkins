@@ -162,7 +162,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getViewMode(self):
         """ Gets the current view mode """
 
-        return self.REQUEST.SESSION.get(VIEW_MODE_SESSION_KEY, {})
+        session = self.REQUEST.SESSION
+        if session.has_key(VIEW_MODE_SESSION_KEY):
+            return session[VIEW_MODE_SESSION_KEY]
+        return {}
 
     security.declarePublic('setViewMode')
     def setViewMode(self, reload=0, **kw):
