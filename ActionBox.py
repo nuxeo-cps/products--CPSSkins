@@ -151,11 +151,10 @@ class ActionBox(BaseTemplet):
         return actions
 
     security.declarePublic('getActionsIconInfo')
-    def getActionsIconInfo(self, REQUEST=None, **kw):           
+    def getActionsIconInfo(self, **kw):           
         """Returns actions icon information"""
 
-        if REQUEST is None:
-            return
+        REQUEST = self.REQUEST
         atool = getToolByName(self, 'portal_actions')
         tmtool = getToolByName(self, 'portal_themes')
 

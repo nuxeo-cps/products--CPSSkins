@@ -1,5 +1,5 @@
 
-if not hasattr(context, 'portal_actionicons'):
+if not getattr(context, 'portal_actionicons', None):
     return []
 
 aitool = context.portal_actionicons

@@ -1,6 +1,7 @@
 <tal:block i18n:domain="plone"
 define="portal_url here/portal_url;
-        actionicons python: here.getActionsIconInfo(REQUEST=request);
+        context_obj nocall:options/context_obj;
+        actionicons python: here.getActionsIconInfo(context_obj=context_obj);
         style python: here.style; 
         orientation python: here.orientation;
         show_icons python: style in ['icons only', 'text and icons']; 
