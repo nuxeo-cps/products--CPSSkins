@@ -24,7 +24,7 @@ dest_theme_container = tmtool.getThemeContainer(dest_theme)
 
 # if the destination page is not specified choose the requested page
 if dest_page is None:
-    dest_page = dest_theme_container.getRequestedPageName()
+    dest_page = dest_theme_container.getRequestedPageName(editing=1)
 
 # content will be duplicated
 if dest_theme != theme or dest_page != page:
