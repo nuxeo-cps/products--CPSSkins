@@ -150,7 +150,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     def __init__(self, id, 
                  title = '',
                  xpos = 0,
-                 maxcols = 1,
+                 maxcols = 2,
                  height = '', 
                  color = '',
                  shape = '',
