@@ -28,8 +28,21 @@ from AccessControl import ClassSecurityInfo
 from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
-
 from cpsskins_utils import html_slimmer
+
+BOX_LAYOUTS = {
+# standard box
+'standard': """<div class="title">%s</div><div class="body">%s</div>""",
+# one frame
+'one_frame': """<div class="body"><h4>%s</h4><br/>%s</div>""",
+# no title no frame
+'notitle_noframe': """<div class="body" style="border: none">%s</div>""",
+# no title
+'notitle': """<div class="body">%s</div>""",
+# no frame
+'noframe': """<div class="title" style="border: none">%s</div>
+<div class="body" style="border: none">%s</div>""",
+}
 
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
@@ -217,9 +230,6 @@ class PortalBoxGroup(BaseTemplet):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlets = ptltool.getPortlets(context, slot)
 
-        shield = 0
-        all_rendered = ''
-
         boxlayout = self.boxlayout
         if boxlayout == '':
             boxlayout = 'standard'
@@ -230,40 +240,53 @@ class PortalBoxGroup(BaseTemplet):
         boxclass = self.getCSSBoxClass()
         boxstyle = self.getCSSBoxLayoutStyle()
 
-        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+        renderBoxLayout = self.renderBoxLayout
+
+        all_rendered = ''
+        for portlet in portlets:
+            # add the box frame
+            all_rendered += '<div style="%s"><div class="%s">' % \
+                             (boxstyle, boxclass)
+            rendered = portlet.render_cache(**kw)
+            # add the box decoration
+            all_rendered += renderBoxLayout(boxlayout=boxlayout,
+                                            title=portlet.title,
+                                            body=html_slimmer(rendered),
+                                            portlet=portlet,
+                                           )
+            all_rendered += '</div></div>'
+
+        # draw a slot in edit mode
+        if boxedit:
+            all_rendered = self.cpsskins_renderBoxSlot(slot=self, 
+                                                       rendered=all_rendered)
+        return all_rendered
+
+    security.declarePublic('renderBoxLayout')
+    def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
+        """Render the box layout.
+        """
+        if boxlayout == 'standard': 
+            return BOX_LAYOUTS['standard'] % (title, body)
+        elif boxlayout == 'one_frame':
+            return BOX_LAYOUTS['one_frame'] % (title, body)
+        elif boxlayout == 'notitle':
+            return BOX_LAYOUTS['notitle'] % body
+        elif boxlayout == 'noframe':
+            return BOX_LAYOUTS['noframe'] % (title, body)
+        elif boxlayout == 'notitle_noframe':
+            return BOX_LAYOUTS['notitle_noframe'] % body
+
+        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' %\
                                              boxlayout, default=None)
         if macro_path is None:
             return ''
 
-        for portlet in portlets:
-            rendered = ''
-            # crash shield
-            if shield:
-                try:
-                    rendered = portlet.render_cache(**kw)
-                # could be anything
-                except:
-                    rendered = self.cpsskins_brokentemplet()
-            else:
-                rendered = portlet.render_cache(**kw)
-
-            title = portlet.title
-            body = html_slimmer(rendered)
-
-            # add the box decoration
-            rendered = self.cpsskins_renderPortletBox(title=title,
-                                                      body=body,
-                                                      boxclass=boxclass,
-                                                      boxstyle=boxstyle,
-                                                      macro_path=macro_path,
-                                                      portlet=portlet,
-                                                      **kw)
-            all_rendered += rendered
-
-        # draw an empty slot in edit mode
-        if boxedit:
-            all_rendered = self.cpsskins_renderBoxSlot(slot=self, rendered=all_rendered)
-        return all_rendered
+        rendered = self.cpsskins_renderBoxLayout(title=title,
+                                                 body=body,
+                                                 macro_path=macro_path,
+                                                 **kw)
+        return rendered
 
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, **kw):
