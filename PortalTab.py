@@ -188,7 +188,7 @@ class PortalTab(BaseTemplet):
             params.append('lang')
 
         if content == 'folders':
-            params.append('object:path')
+            params.extend(['object:path', 'baseurl'])
 
         if content == 'actions':
             categories = self.action_categories + self.custom_action_categories

@@ -292,7 +292,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         if content in ['folders', 'related', 'recent',
                        'events', 'login', 'pending'] \
            or title_source in ['Workflow state', 'Username']:
-            params.append('user')
+            params.extend(['user', 'baseurl'])
 
         if content in ['folders', 'about', 'related']:
             params.append('object:path')
