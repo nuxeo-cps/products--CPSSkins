@@ -22,7 +22,7 @@
         tal:attributes="value slot" />
         <input type="hidden" name="order"
         tal:attributes="value order" />
-        <input type="string" name="title"
+        <input type="string" name="Title"
         tal:attributes="value ptype_id" />
         <input type="submit" class="mainbutton"
         i18n:attributes="value" tal:define="title string:_button_create_"
