@@ -33,30 +33,30 @@
 </dtml-if>
 }
 
-<dtml-var class> .body ul.cpsskinsMenu li a {
 <dtml-if BoxBody_menuout_border_color>
-  border-color: <dtml-var BoxBody_menuout_border_color>;
-</dtml-if>
-}
-
-<dtml-var class> .body ul.cpsskinsMenu li.selected a {
-<dtml-if BoxBody_menuin_border_color>
-  border-color: <dtml-var BoxBody_menuin_border_color>;
-</dtml-if>
-}
-
 <dtml-var class> .body ul.cpsskinsMenu li a {
-<dtml-if BoxBody_menuout_color>
-  background-color: <dtml-var BoxBody_menuout_color>;
-</dtml-if>
+  border-color: <dtml-var BoxBody_menuout_border_color>;
 }
+</dtml-if>
 
+<dtml-if BoxBody_menuin_border_color>
+<dtml-var class> .body ul.cpsskinsMenu li.selected a {
+  border-color: <dtml-var BoxBody_menuin_border_color>;
+}
+</dtml-if>
+
+<dtml-if BoxBody_menuout_color>
+<dtml-var class> .body ul.cpsskinsMenu li a {
+  background-color: <dtml-var BoxBody_menuout_color>;
+}
+</dtml-if>
+
+<dtml-if BoxBody_menuin_color>
 <dtml-var class> .body ul.cpsskinsMenu li a:hover,
 <dtml-var class> .body ul.cpsskinsMenu li.selected a {
-<dtml-if BoxBody_menuin_color>
   background-color: <dtml-var BoxBody_menuin_color>;
-</dtml-if>
 }
+</dtml-if>
 
 <dtml-if BoxBody_menuout_icon>
 <dtml-var class> .body ul.cpsskinsMenu li a {
