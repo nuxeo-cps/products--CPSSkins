@@ -158,7 +158,7 @@ class ThemeFolder(PortalFolder):
                 if getattr(aq_base(obj), 'isportalstyle', 0):
                     title = obj.getTitle()
                     newtitle = getFreeTitle(container, title, obj.meta_type)
-                    obj.edit(title=newtitle)
+                    obj.manage_changeProperties(**{'title': newtitle})
 
         RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
