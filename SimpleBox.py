@@ -117,7 +117,7 @@ class SimpleBox:
             return BOX_LAYOUTS['one_frame'] % (title, body)
         elif boxlayout == 'notitle':
             return BOX_LAYOUTS['notitle'] % body
-        elif boxlayout == 'noframe':
+        elif boxlayout == 'no_frames':
             return BOX_LAYOUTS['no_frames'] % (title, body)
         elif boxlayout == 'notitle_noframe':
             return BOX_LAYOUTS['notitle_noframe'] % body
