@@ -849,10 +849,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getTranslationService(self, root=0, cat=''):
         """Return the translation service
         """
-        portal_messages = getToolByName(self, 'portal_messages', None)
-        if portal_messages is not None:
-            return portal_messages
-
         # CMF / Plone1 / CPS3
         localizer = getToolByName(self, 'Localizer', None)
         if localizer is not None:
@@ -865,6 +861,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             ts = getToolByName(self, 'translation_service', None)
             if ts is None:
                 return getattr(localizer, 'default', None)
+
+        # CPS2
+        portal_messages = getToolByName(self, 'portal_messages', None)
+        if portal_messages is not None:
+            return portal_messages
+
         return None
 
     #
