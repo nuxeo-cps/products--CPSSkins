@@ -836,12 +836,6 @@
 
 <metal:block define-macro="manage_themes" i18n:domain="cpsskins">
   <div style="padding-top: 10px">
-    <form name="rebuildtheme" action="" style="float: left; padding: 3px"
-     tal:attributes="action string:${theme_container_url}/cpsskins_rebuildtheme">
-      <input type="submit" class="rebuildTheme"
-       i18n:attributes="value" 
-       tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
-    </form>
     <form name="optimizetheme" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">
       <input type="hidden" name="reload" value="1" />
@@ -861,6 +855,12 @@
        tal:define="title string:_button_cache_manager_"
        i18n:attributes="value" 
        tal:attributes="value python: mcat and mcat(title) or title" />
+    </form>
+    <form name="rebuildtheme" action="" style="float: left; padding: 3px"
+     tal:attributes="action string:${theme_container_url}/cpsskins_rebuildtheme">
+      <input type="submit" class="rebuildTheme"
+       i18n:attributes="value" 
+       tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
     </form>
     <form name="exporttheme" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">

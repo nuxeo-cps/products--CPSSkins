@@ -849,7 +849,7 @@ input.optimizeTheme {
   background-repeat: no-repeat;
   background-position: 2px 50%;
   padding: 6px 10px 6px 30px;
-  background-color: #fc6 !important;
+  background-color: #fd0 !important;
   border: 1px solid #c90 !important;
   -moz-border-radius: 5px;
   color: #000 !important;
@@ -860,7 +860,7 @@ input.cacheManager {
   background-repeat: no-repeat;
   background-position: 2px 50%;
   padding: 6px 10px 6px 30px;
-  background-color: #fc6 !important;
+  background-color: #fd0 !important;
   border: 1px solid #c90 !important;
   -moz-border-radius: 5px;
   color: #000 !important;
