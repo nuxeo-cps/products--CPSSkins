@@ -33,33 +33,33 @@
 </dtml-if>
 }
 
-<dtml-var class> .body ul li a {
+<dtml-var class> .body ul.menu li a {
 <dtml-if BoxBody_menuout_border_color>
   border-color: <dtml-var BoxBody_menuout_border_color>;
 </dtml-if>
 }
 
-<dtml-var class> .body ul li.selected a {
+<dtml-var class> .body ul.menu li.selected a {
 <dtml-if BoxBody_menuin_border_color>
   border-color: <dtml-var BoxBody_menuin_border_color>;
 </dtml-if>
 }
 
-<dtml-var class> .body ul li a {
+<dtml-var class> .body ul.menu li a {
 <dtml-if BoxBody_menuout_color>
   background-color: <dtml-var BoxBody_menuout_color>;
 </dtml-if>
 }
 
-<dtml-var class> .body ul li a:hover,
-<dtml-var class> .body ul li.selected a {
+<dtml-var class> .body ul.menu li a:hover,
+<dtml-var class> .body ul.menu li.selected a {
 <dtml-if BoxBody_menuin_color>
   background-color: <dtml-var BoxBody_menuin_color>;
 </dtml-if>
 }
 
 <dtml-if BoxBody_menuout_icon>
-<dtml-var class> .body ul li a {
+<dtml-var class> .body ul.menu li a {
 <dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
 <dtml-let url="absolute_url(relative=1)">
@@ -71,7 +71,7 @@
 } </dtml-if>
 
 <dtml-if BoxBody_menuin_icon>
-<dtml-var class> .body ul li.selected a {
+<dtml-var class> .body ul.menu li.selected a {
 <dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
 <dtml-let url="absolute_url(relative=1)">

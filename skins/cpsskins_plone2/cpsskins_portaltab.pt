@@ -12,7 +12,7 @@ tal:define="context_obj nocall:options/context_obj;
           create_url navigationinfo/create_url|nothing;
           i18n python: here.folder_items_i18n"
   condition="python: menuentries or create_url">
-    <ul>
+    <ul class="menu">
       <tal:block condition="i18n" repeat="menuentry menuentries">
         <tal:block
         define="item_url python: menuentry['url']; 
@@ -54,7 +54,7 @@ tal:define="context_obj nocall:options/context_obj;
   define="wtool here/portal_workflow; 
           actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
   condition="actioninfos">
-    <ul>
+    <ul class="menu">
       <tal:block repeat="actioninfo actioninfos">
          <tal:block define="title python: actioninfo['title'];
                             url python: actioninfo['url'];
@@ -69,4 +69,4 @@ tal:define="context_obj nocall:options/context_obj;
   </tal:block>
  </tal:block>
 </div>
-<div style="clear:left" />
+<div style="clear:left"></div>

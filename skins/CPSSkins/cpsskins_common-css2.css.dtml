@@ -43,7 +43,7 @@ input.SearchBox {
 /* Portal boxes */
 
 /* Standard vertical layout */
-.cpsskinsBox ul, .cpsskinsBox ul li {
+.cpsskinsBox ul.menu, .cpsskinsBox ul.menu li {
   margin: 0px;
   padding: 0px;
   line-height: normal;
@@ -51,19 +51,19 @@ input.SearchBox {
   display: inline;
 }
 
-.cpsskinsBox ul li a {
+.cpsskinsBox ul.menu li a {
   display: block;
   background-repeat: no-repeat;
   background-position: left top;
 }
 
-.cpsskinsBox ul li a.noicon {
+.cpsskinsBox ul.menu li a.noicon {
   background-image: none;
   padding-left: 2px !important;
 }
 
 /* horizontal layout (tabs) */
-.cpsskinsTab ul, .cpsskinsTab ul li {
+.cpsskinsTab ul.menu, .cpsskinsTab ul.menu li {
   margin: 0px;
   padding: 0px;
   line-height: normal;
@@ -71,7 +71,7 @@ input.SearchBox {
   display: inline;
 }
 
-.cpsskinsTab ul li a {
+.cpsskinsTab ul.menu li a {
   display: inline;
   background-repeat: no-repeat;
   background-position: left center;

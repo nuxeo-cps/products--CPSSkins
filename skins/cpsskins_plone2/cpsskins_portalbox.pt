@@ -3,7 +3,7 @@
                    base_url python: request.get('cpsskins_base_url', '');
                    content python: here.content">
   <tal:block condition="python: content == 'folders'">
-    <ul
+    <ul class="menu"
      tal:define="level python: here.level;
                  base python: here.base;
                  show_docs python: here.show_docs;
@@ -34,7 +34,7 @@
   </tal:block>
 
   <tal:block condition="python: content == 'actions'">
-    <ul
+    <ul class="menu"
      tal:define="wtool here/portal_workflow;
                  actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
      tal:condition="actioninfos">
