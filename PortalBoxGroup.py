@@ -187,7 +187,7 @@ class PortalBoxGroup(BaseTemplet):
         return css
 
     security.declarePublic('getCSSBoxStyle')
-    def getCSSBoxStyle(self):
+    def getCSSBoxLayoutStyle(self):
         """Returns the CSS layout style for boxes inside this slot."""
 
         css = ''
@@ -223,7 +223,7 @@ class PortalBoxGroup(BaseTemplet):
             boxlayout = 'portlet_edit'
 
         boxclass = self.getCSSBoxClass()
-        boxstyle = self.getCSSBoxStyle()
+        boxstyle = self.getCSSBoxLayoutStyle()
 
         macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
                                              boxlayout, default=None)

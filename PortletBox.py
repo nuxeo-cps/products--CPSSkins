@@ -238,6 +238,22 @@ class PortletBox(BaseTemplet):
             return ptltool.listPortletTypes()
 
     #
+    # CSS
+    #
+    def getCSSBoxLayoutStyle(self):
+        """Returns the CSS layout style for boxes inside this slot."""
+
+        css = ''
+        padding = self.padding
+
+        if padding:
+            if padding not in ('0', '0pt', '0in', '0pc', '0mm',
+                               '0cm', '0px', '0em', '0ex'):
+                css += 'padding:%s;' % padding
+
+        if css:
+            return css
+    #
     # Rendering.
     #
     security.declarePublic('render')
@@ -249,6 +265,18 @@ class PortletBox(BaseTemplet):
             return ''
         portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
+
+        boxlayout = self.boxlayout
+        if kw.get('boxedit'):
+            boxlayout = 'portlet_edit'
+
+        boxclass = self.getCSSBoxClass()
+        boxstyle = self.getCSSBoxLayoutStyle()
+
+        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+                                             boxlayout, default=None)
+        if macro_path is None:
+            return ''
 
         rendered = ''
         if portlet is not None:
@@ -263,7 +291,10 @@ class PortletBox(BaseTemplet):
                 rendered = portlet.render(**kw)
             # add the box decoration$
             rendered = self.cpsskins_renderPortletBox(portlet=portlet,
-                                               rendered=rendered)
+                                                      boxclass=boxclass,
+                                                      boxstyle=boxstyle,
+                                                      macro_path=macro_path,
+                                                      rendered=rendered)
         return rendered
 
     #
