@@ -76,6 +76,10 @@ msgid "_Add a column_"
 msgstr "Manampy colonne"
 
 
+msgid "_Add a theme_"
+msgstr ""
+
+
 msgid "_Add an image_"
 msgstr "Manampy sary"
 
@@ -1100,6 +1104,10 @@ msgstr ""
 
 msgid "_Other styles_"
 msgstr "Styles hafa"
+
+
+msgid "_Other themes_"
+msgstr ""
 
 
 msgid "_P_font_"

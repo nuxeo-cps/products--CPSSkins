@@ -1925,3 +1925,9 @@ msgstr ""
 
 msgid "_Select a theme to manage_"
 msgstr ""
+
+msgid "_Add a theme_"
+msgstr ""
+
+msgid "_Other themes_"
+msgstr ""

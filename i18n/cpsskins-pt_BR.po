@@ -68,6 +68,10 @@ msgid "_Add a column_"
 msgstr "Adicionar uma coluna"
 
 
+msgid "_Add a theme_"
+msgstr ""
+
+
 msgid "_Add an image_"
 msgstr "Adicionar uma imagem"
 
@@ -1092,6 +1096,10 @@ msgstr ""
 
 msgid "_Other styles_"
 msgstr "Outros estilos"
+
+
+msgid "_Other themes_"
+msgstr ""
 
 
 msgid "_P_font_"

@@ -460,18 +460,30 @@
           tal:attributes="value python:mcat and mcat(title) or title" />
         </div>
       </form>
+
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_upload" />
+
+      <h2 class="fancy" tal:define="title string:_Add a theme_"
+      tal:content="python: mcat and mcat(title) or title"
+      i18n:translate="" />
       <div class="addItem">
         <form action="cpsskins_theme_add" method="get">
           <input type="image" type="submit" 
            tal:attributes="src string:${base_url}cpsskins_images/img_addtheme.png" />
         </form>
       </div>
-      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_upload" />
+</metal:block>
+
+<metal:block define-macro="other_themes" i18n:domain="cpsskins">
+  <a tal:attributes="href string:${tmtool_url}/setViewMode?themes_panel=themes_manager&amp;reload=1"
+   i18n:translate="" class="linkUp"
+   tal:define="title string:_Other themes_"
+   tal:content="python: mcat and mcat(title) or title" />
 </metal:block>
 
 <metal:block define-macro="cache_manager" i18n:domain="cpsskins">
     <h2 class="fancy" tal:define="title string:_Cache manager_"
-     tal:content="python: mcat and mcat(title) or title"
+    tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
 
     <form action="manage_clearCache"
@@ -807,7 +819,6 @@
             </tal:block>
           </table>
         </tal:block>
-
         <div class="formSubmit">
           <input type="submit" class="mainbutton"
           i18n:attributes="value" 
