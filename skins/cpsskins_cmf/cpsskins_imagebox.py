@@ -24,8 +24,8 @@ img_url = base_url + context.portal_url.getRelativeUrl(img)
 if context.use_internal_link:
     link = base_url
     internal_link = context.internal_link
-    if internal_link != '/':
-        link += internal_link
+    if internal_link:
+        link += internal_link[1:]
 else:
     link = context.link
 
