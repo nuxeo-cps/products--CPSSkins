@@ -5,7 +5,6 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 action = kw.get('action', None)
 
-return kw
 url_obj = None
 
 if theme is None:
