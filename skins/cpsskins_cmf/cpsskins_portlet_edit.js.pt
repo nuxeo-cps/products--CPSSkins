@@ -90,6 +90,16 @@ function Choice_edit() {
   newWindow(portlet_url + '/edit_form');
 }
 
+function Choice_duplicate() {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  portlet_id = pd_selected_item.getAttribute('portlet_id');
+  portlet_folder = pd_selected_item.getAttribute('portlet_folder');
+  folder_url = pd_selected_item.getAttribute('folder_url');
+  window.location = portlet_folder + '/cpsskins_duplicate_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
+}
+
 function Choice_copy_to_clipboard() {
   pd_hideContextMenu();
   if (pd_selected_item == null) 

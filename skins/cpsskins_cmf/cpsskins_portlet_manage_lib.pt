@@ -132,6 +132,14 @@
          define="title string:_menu_Paste_"
          content="python: mcat and mcat(title) or title" />
     </div>
+    <div class="context-menu-item" onmouseup="Choice_duplicate()"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/duplicate-16.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Duplicate_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
     <div class="context-menu-item" onmouseup="Choice_insert()"
          filter="pd_selected_item">
        <img width="16" height="16" 
