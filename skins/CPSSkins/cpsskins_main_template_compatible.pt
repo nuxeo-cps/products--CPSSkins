@@ -1,7 +1,6 @@
 <metal:block define-macro="head" 
   tal:define="base_url python: request.get('cpsskins_base_url', '');
-              tmtool here/portal_themes;
-              theme_url theme_container/absolute_url">
+              theme_url python: base_url + utool.getRelativeUrl(theme_container)">
   <meta name="generator" content="CPSSkins 2.3" />
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
@@ -13,7 +12,7 @@
     a {text-decoration: none; }
   </style>
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${here/absolute_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
 </metal:block>
 <metal:block define-macro="main"
   tal:define="context_rurl request/form/context_rurl|nothing;
