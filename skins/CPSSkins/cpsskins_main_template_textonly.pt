@@ -1,5 +1,5 @@
 <metal:block define-macro="head">
-  <meta name="generator" content="CPSSkins 2.0" />
+  <meta name="generator" content="CPSSkins 2.3" />
 </metal:block>
 <metal:block define-macro="main"
  tal:define="context_rurl python: '/' + utool.getRelativeUrl(here);

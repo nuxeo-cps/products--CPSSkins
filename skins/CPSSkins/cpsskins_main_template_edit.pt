@@ -34,7 +34,9 @@
           edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
 	  marginleft python: align in ['right', 'center'] and 'auto' or '0px'; 
           marginright python: align in ['left', 'center'] and 'auto' or '0px'; 
+          cpsskins_language here/cpsskins_getCurrentLang;
           mcat python: here.cpsskins_getlocalizer();
+          dummy python: request.set('cpsskins_language', cpsskins_language);
           dummy python: request.set('cpsskins_mcat', mcat)">
   <metal:block define-slot="page_top" tal:replace="nothing">
   </metal:block>
