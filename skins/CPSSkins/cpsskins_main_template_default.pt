@@ -56,13 +56,15 @@
              tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;   
                              width python: cellsize and cellsize.cellwidth or None">
               <tal:block repeat="templet templets_in_xpos">
-                <div tal:define="isRenderable python: templet.isRenderable()"
+                <div tal:define="isRenderable python: templet.isRenderable();
+                                 rendered python: isRenderable and templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit)"
+                     tal:condition="rendered"
                      tal:attributes="align python: templet.align;
                                      style python: 'padding:%s' % templet.margin">
                   <div tal:attributes="class python: templet.getCSSAreaClass(level=2);
                                        style python: templet.getCSSLayoutStyle()">
-                    <tal:block condition="isRenderable"
-                     content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit)" />
+                    <tal:block condition="rendered"
+                     content="structure rendered" />
                     <tal:block condition="not:isRenderable">
                       <tal:block condition="templet/isMainContent|nothing">
                         <metal:block define-slot="maincontent" />
