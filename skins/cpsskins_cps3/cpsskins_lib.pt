@@ -19,7 +19,7 @@
     </tal:block>
 
     <!-- Portlets -->
-    <tal:block content="structure python: templet.render(shield=1, context=here)" />
+    <tal:block content="structure python: templet.render_cache(shield=1, context=here)" />
 
   </tal:block>
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"

@@ -177,6 +177,25 @@ class PortalBoxGroup(BaseTemplet):
 
         return all_rendered
 
+    #
+    # RAM Cache
+    #
+    security.declarePublic('getCacheIndex')
+    def getCacheIndex(self, REQUEST=None, **kw):
+        """Returns the RAM cache index as a tuple (var1, var2, ...)
+        """
+       
+        slot = self.getSlot()
+        context = kw.get('context')
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        portlets = ptltool.getPortlets(context, slot)
+
+        # compute the total index by aggregating all portlet cache indexes.
+        index = ()
+        for portlet in portlets:
+            index += (portlet.getId(),) + portlet.getCacheIndex()
+        return index
+
 InitializeClass(PortalBoxGroup)
 
 def addPortalBoxGroup(dispatcher, id, REQUEST=None, **kw):
