@@ -1600,5 +1600,5 @@ msgstr ""
 msgid "_option_min_max_"
 msgstr ""
 
-msgid "_option_min_max_close"
+msgid "_option_min_max_close_"
 msgstr ""

@@ -1893,8 +1893,8 @@ msgid "_option_min_max_"
 msgstr "Boîte min/max"
 
 
-msgid "_option_min_max_close"
-msgstr ""
+msgid "_option_min_max_close_"
+msgstr "Boîte min/max/fermeture"
 
 
 msgid "_option_no_frames_"
@@ -2098,7 +2098,7 @@ msgstr "Supprimer les portlets inutilisés"
 
 
 msgid "description_portlets_visible_from"
-msgstr "Portlets visible à partir de"
+msgstr "Portlets visibles à partir de"
 
 
 msgid "description_unused_boxes"
