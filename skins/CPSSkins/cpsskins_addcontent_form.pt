@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html i18n:domain="cpsskins" tal:define="
   tmtool here/portal_themes;
+  ttool here/portal_types;
   base_url python:here.cpsskins_getBaseUrl();
   mcat python: tmtool.getTranslationService();
   pss modules/Products/PythonScripts/standard;
@@ -16,6 +17,17 @@
   tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
 </head>
 <body>
+  <div class="objectInfo" tal:condition="type_name"
+   tal:define="ti python: ttool.getTypeInfo(type_name)">
+    <img width="16" height="16" alt=""
+     tal:attributes="src string:${base_url}${ti/getIcon}" />
+    <strong tal:define="title ti/Title"
+            tal:content="python: mcat and mcat(title) or title"
+            i18n:translate="" />
+    (<tal:block define="title ti/description"
+     content="python: mcat and mcat(title) or title"
+     i18n:translate="" />)
+  </div>
   <div class="editForm">
     <h1 i18n:translate=""
     tal:define="title string:_Add_a_new_Templet_"
