@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Default messages\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2005-02-22 19:46+0100\n"
+"PO-Revision-Date: 2005-02-27 15:50+0100\n"
 "Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
 "Language-Team: sv <>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Is-Fallback-For: sv-fi\n"
 
 msgid "_(default style)_"
-msgstr "(default style)"
+msgstr "(default stil)"
 
 
 msgid "_A active_"
@@ -136,7 +136,7 @@ msgstr "Bildposition"
 
 
 msgid "_Area background repeat_"
-msgstr "Repetera bilden"
+msgstr "Bakgrundsbild upprepning"
 
 
 msgid "_Area border color_"
@@ -188,15 +188,15 @@ msgstr "Ramstil"
 
 
 msgid "_Bottom border color_"
-msgstr "ramfärg (nedre kant)"
+msgstr "Ramfärg (nedre kant)"
 
 
 msgid "_Bottom left image_"
-msgstr "bakgrundsbild (sydvästra hörn)"
+msgstr "Bakgrundsbild (sydvästra hörn)"
 
 
 msgid "_Bottom right image_"
-msgstr "bakgrundsbild (sydöstra hörn)"
+msgstr "Bakgrundsbild (sydöstra hörn)"
 
 
 msgid "_Box Corners_"
@@ -405,7 +405,7 @@ msgstr "Cellblock"
 
 # , fuzzy
 msgid "_Cell Hider_"
-msgstr "Cell Hider"
+msgstr "Cell borttagare"
 
 
 # , fuzzy
@@ -427,17 +427,17 @@ msgstr "Marginal"
 
 # , fuzzy
 msgid "_Collapsible Menu Style_"
-msgstr "Fällbar meny format"
+msgstr "Dynamisk meny stil"
 
 
 # , fuzzy
 msgid "_Collapsible Menu Templet_"
-msgstr "Fällbar meny"
+msgstr "Dynamisk meny"
 
 
 # , fuzzy
 msgid "_Collapsible menu_"
-msgstr "Fällbar meny"
+msgstr "Dynamisk meny"
 
 
 msgid "_Color_"
@@ -493,15 +493,15 @@ msgstr "December"
 
 
 msgid "_Default page_"
-msgstr "Standardsida"
+msgstr "Default sida"
 
 
 msgid "_Default theme_"
-msgstr "Standardtema"
+msgstr "Default tema"
 
 
 msgid "_Default_font_"
-msgstr "Standardfont"
+msgstr "Default font"
 
 
 msgid "_Delete Templet?_"
@@ -534,7 +534,7 @@ msgstr "Ta bort denna stil, är du säker?"
 
 # , fuzzy
 msgid "_Depth level_"
-msgstr "*Relative depth level"
+msgstr "Djupnivå"
 
 
 msgid "_Description_"
@@ -543,7 +543,7 @@ msgstr "Beskrivning"
 
 # , fuzzy
 msgid "_Destination_slot_"
-msgstr "*Destinations slot"
+msgstr "Destinations slot"
 
 
 msgid "_Display a contextual icon_"
@@ -639,11 +639,11 @@ msgstr "Februari"
 
 
 msgid "_Flash Box Templet_"
-msgstr "Flash-ruta Templet"
+msgstr "Flash-animering"
 
 
 msgid "_Flash box_"
-msgstr "Flash-ruta"
+msgstr "Flash-animering"
 
 
 msgid "_Flash caption_"
@@ -651,11 +651,11 @@ msgstr "Flash-rubrik"
 
 
 msgid "_Flash movie height_"
-msgstr "Flash-film höjd"
+msgstr "Flash-animering höjd"
 
 
 msgid "_Flash movie width_"
-msgstr "Flash-film bredd"
+msgstr "Flash-animering bredd"
 
 
 msgid "_Font Color_"
@@ -899,7 +899,7 @@ msgstr "Ikonstorlek"
 
 
 msgid "_Image Box Templet_"
-msgstr "Templet bildruta"
+msgstr "Bildruta"
 
 
 msgid "_Image box_"
@@ -980,12 +980,12 @@ msgstr "Länk (http://, mailto: ...)"
 
 # , fuzzy
 msgid "_List orientation_"
-msgstr "*List orientation"
+msgstr "Orientering lista"
 
 
 # , fuzzy
 msgid "_Location_"
-msgstr "*Location"
+msgstr "Placering"
 
 
 msgid "_Log in_"
@@ -997,7 +997,7 @@ msgstr "Utan macros"
 
 
 msgid "_Main Content Templet_"
-msgstr "Templet huvudinnehåll"
+msgstr "Huvudinnehåll"
 
 
 msgid "_Main content_"
@@ -1218,7 +1218,7 @@ msgstr "Rutfärg"
 
 # , fuzzy
 msgid "_Portal box title source_"
-msgstr "*Portal box title source"
+msgstr "Titelvisning"
 
 
 msgid "_Portal box_"
@@ -1342,7 +1342,7 @@ msgstr "Visa månad"
 
 
 msgid "_Show preview_"
-msgstr "*Visa förhandsvisa"
+msgstr "Visa förhandsvy"
 
 
 msgid "_Show weekdays_"
@@ -1454,7 +1454,7 @@ msgstr "Templets"
 
 
 msgid "_Text Box Templet_"
-msgstr "Textrute Templet"
+msgstr "Textruta"
 
 
 msgid "_Text box_"
@@ -1479,7 +1479,7 @@ msgstr "Språken på vilka det är synligt"
 
 # , fuzzy
 msgid "_The visibility paths_"
-msgstr "*The visibility paths"
+msgstr "Synlighetsområde (sökvägar)"
 
 
 msgid "_Theme Chooser Templet_"
@@ -1520,7 +1520,7 @@ msgstr "Tema"
 
 # , fuzzy
 msgid "_Theme_rebuilt_"
-msgstr "*Theme rebuilt"
+msgstr "Tema återskapat"
 
 
 msgid "_Themes manager_"
@@ -1548,7 +1548,7 @@ msgstr "Stilen används redan av"
 
 
 msgid "_This style will be used by default_"
-msgstr "Denna stil kommer att användas som standard"
+msgstr "Denna stil kommer att användas som default"
 
 
 msgid "_This theme is completely optimized_"
@@ -1561,7 +1561,7 @@ msgstr "Titel"
 
 # , fuzzy
 msgid "_Today border color_"
-msgstr "*Today border color"
+msgstr "Ramfärg (dagen) "
 
 
 msgid "_Top left image_"
@@ -1613,7 +1613,7 @@ msgstr "Översätt rut-titel"
 
 
 msgid "_Translate the breadcrumbs_"
-msgstr "Översätt brödsmulor"
+msgstr "Översätt breadcrumbs"
 
 
 msgid "_Translate the image_"
@@ -1641,7 +1641,7 @@ msgstr "Använd cachen?"
 
 
 msgid "_Use this as the default style_"
-msgstr "Använd denna som standardstil"
+msgstr "Använd denna som defaultstil"
 
 
 msgid "_Username_"
@@ -1825,7 +1825,7 @@ msgstr "Återskapa detta tema"
 
 
 msgid "_button_set_theme_as_default_"
-msgstr "Sätt tema som standard"
+msgstr "Sätt tema som default"
 
 
 msgid "_button_upload_flashfile_"
@@ -1865,7 +1865,7 @@ msgstr "en Cell Stilsättare modifierar stilen på en cell."
 
 
 msgid "_clipboard_"
-msgstr "*Klippbord"
+msgstr "Urklipp"
 
 
 msgid "_collapsiblemenu_style_"
@@ -1897,7 +1897,7 @@ msgstr "Dagar"
 
 
 msgid "_default tab_"
-msgstr "Standard tabb"
+msgstr "Default tabb"
 
 
 msgid "_dimensions_"
@@ -1934,7 +1934,7 @@ msgstr "Fontstil"
 
 # , fuzzy
 msgid "_fontshape_description_"
-msgstr "*this style defines font sizes, links and decoration styles."
+msgstr "denna stil definierar stilar för teckensnitt och länkar"
 
 
 msgid "_formstyle_description_"
@@ -2087,7 +2087,7 @@ msgstr "Sätt stilar"
 
 
 msgid "_menu_Set_as_default_"
-msgstr "Sätt som standard"
+msgstr "Sätt som default"
 
 
 msgid "_mixed mode_"
@@ -2156,11 +2156,11 @@ msgstr "Kompatibel NS4"
 
 # , fuzzy
 msgid "_option_debug_"
-msgstr "*Debug mode"
+msgstr "Debugläge"
 
 
 msgid "_option_default_"
-msgstr "Standard"
+msgstr "Default"
 
 
 msgid "_option_docinfo_created_by_"
@@ -2177,12 +2177,12 @@ msgstr "Titel dokument"
 
 # , fuzzy
 msgid "_option_drawer_"
-msgstr "*Drawer box"
+msgstr "Fällbar ruta"
 
 
 # , fuzzy
 msgid "_option_drawer_notitle_"
-msgstr "*Drawer box without title"
+msgstr "Fällbar ruta utan titel"
 
 
 msgid "_option_dropdown list_"
@@ -2335,7 +2335,7 @@ msgstr "Väntande dokument"
 
 # , fuzzy
 msgid "_option_plain text_"
-msgstr "*Enkel text"
+msgstr "Oformatterad text"
 
 
 msgid "_option_plain_"
@@ -2344,7 +2344,7 @@ msgstr "Plain"
 
 # , fuzzy
 msgid "_option_profiler_"
-msgstr "*Profiler"
+msgstr "Profiler"
 
 
 msgid "_option_recent_"
@@ -2443,17 +2443,17 @@ msgstr "Dessa palett poster definierar färger använda i olika stilar"
 
 # , fuzzy
 msgid "_portalbox_templet_description_"
-msgstr "*a generic box that displays actions, folders, an about box, a login box, an info box, etc."
+msgstr "en box som visa kommandon, mappar, en loginruta, en textruta, mm.."
 
 
 # , fuzzy
 msgid "_portalboxgroup_templet_description_"
-msgstr "*a slot containing a group of boxes or portlets."
+msgstr "en slot som innehåller flera boxar eller portlets"
 
 
 # , fuzzy
 msgid "_portaltab_templet_description_"
-msgstr "*horizontal tabs displaying folders, actions, etc."
+msgstr "tabbar som visar mappar, kommandon, mm."
 
 
 msgid "_portaltabstyle_"
@@ -2466,11 +2466,11 @@ msgstr "Denna stil definierar utseende på tabbar"
 
 # , fuzzy
 msgid "_portaltheme_description_"
-msgstr "*ett portaltema ändrar utseende och layout på portalen. Temats layout består av horisontella sidblock."
+msgstr "ett portaltema ändrar utseende och layout på portalen. Temats layout består av horisontella sidblock."
 
 
 msgid "_portletbox_templet_description_"
-msgstr "En ruta som innehåller en portlet."
+msgstr "en ruta som innehåller en portlet."
 
 
 msgid "_preview_"
@@ -2502,7 +2502,7 @@ msgstr "Vald tabb"
 
 
 msgid "_set as default style_"
-msgstr "sätt som standardstil"
+msgstr "sätt som defaultstil"
 
 
 msgid "_shape_"
@@ -2583,7 +2583,7 @@ msgstr "Portlets synliga från"
 
 # , fuzzy
 msgid "description_unused_boxes"
-msgstr "*Boxes that are invisible because their slot is not in this theme"
+msgstr "Boxar som är osynliga pga att deras slot inte används i detta tema."
 
 
 msgid "description_unused_boxes_deleted"
@@ -2592,7 +2592,7 @@ msgstr "Ej använda rutor borttagna"
 
 # , fuzzy
 msgid "description_unused_portlets"
-msgstr "*Portlets that are invisible because their slot is not in this theme"
+msgstr "Portlets som är osynliga pga att deras slot inte används i detta tema."
 
 
 msgid "heading_portlet_browser_by_topic"
@@ -2625,12 +2625,12 @@ msgstr "Infoga en portlet ..."
 
 # , fuzzy
 msgid "portlet_browser_panel"
-msgstr "*Portlet browser"
+msgstr "Portlet väljare"
 
 
 # , fuzzy
 msgid "portlet_slots_panel"
-msgstr "*Portlet slots"
+msgstr "Portlet slots"
 
 
 msgid "psm_image_uploaded"
