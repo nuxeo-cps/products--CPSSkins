@@ -12,7 +12,7 @@ params = {}
 # get the current theme
 theme = kw.get('theme')
 if theme is None:
-    theme = tmtool.getRequestedThemeName(context_obj=context)
+    theme = tmtool.getRequestedThemeName()
 # set the current theme
 params['theme'] = theme
 

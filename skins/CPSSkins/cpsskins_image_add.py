@@ -5,7 +5,7 @@ if REQUEST is not None:
 
 tmtool = context.portal_themes
 
-theme = tmtool.getRequestedThemeName(context_obj=context)
+theme = tmtool.getRequestedThemeName()
 theme_container = tmtool.getThemeContainer(theme=theme)
 if theme_container is None:
     return
