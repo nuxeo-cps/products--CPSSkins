@@ -6,6 +6,10 @@
 <dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
 </dtml-let>
 
+body {
+  font-size: 100%;
+}
+
 div p {
   margin: 0px;
   padding: 0px;
