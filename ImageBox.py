@@ -49,7 +49,7 @@ factory_type_information = (
     },
 )
 
-class ImageBox(Image, ThemeFolder, BaseTemplet):
+class ImageBox(ThemeFolder, Image, BaseTemplet):
     """
     Image Box Templet.
     """
