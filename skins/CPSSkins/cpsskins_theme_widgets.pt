@@ -49,6 +49,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
             view_mode tmtool/getViewMode;
             edit_mode view_mode/edit_mode|nothing;
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
+            tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
             checkPerm nocall: mtool/checkPermission;
             can_manage python: checkPerm('Manage portal', here);
 	    cat request/cat|string:general">
@@ -56,9 +57,9 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url string:${tmtool/absolute_url}/setViewMode?edit_mode=$section;
+      tal:define="url string:${tmtool_url}/setViewMode?edit_mode=$section;
                   title python:'_%s mode_' % section" i18n:translate=""
-       tal:attributes="href url ; class python: edit_mode == section and 'selected' or '' ;"
+       tal:attributes="href url; class python: edit_mode == section and 'selected' or None;"
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
     &nbsp;
@@ -90,7 +91,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a tal:condition="can_manage" 
-       tal:attributes="href string:${tmtool/absolute_url}/manage_main"
+       tal:attributes="href string:${tmtool_url}/manage_main"
        tal:define="title string:_ZMI_" i18n:translate="" 
        tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href string:${theme_container_url}/cpsskins_exit"
