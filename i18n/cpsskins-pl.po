@@ -869,6 +869,10 @@ msgid "_Hide title_"
 msgstr "Ukryj temat"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+
 msgid "_Hierarchy base_"
 msgstr "Baza hierarchii"
 
@@ -1251,6 +1255,10 @@ msgstr "Usuñ kolumnê"
 
 msgid "_Repeat string_"
 msgstr "Powtórzony ci±g znaków"
+
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
 
 
 msgid "_Right-side image_"

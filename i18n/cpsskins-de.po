@@ -867,6 +867,10 @@ msgid "_Hide title_"
 msgstr "Titel verstecken"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+
 msgid "_Hierarchy base_"
 msgstr "Hierarchie-Basis"
 
@@ -1249,6 +1253,10 @@ msgstr "Spalte entfernen"
 
 msgid "_Repeat string_"
 msgstr "Wiederholungstext"
+
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
 
 
 msgid "_Right-side image_"

@@ -870,6 +870,10 @@ msgid "_Hide title_"
 msgstr "Ocultar título"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+
 msgid "_Hierarchy base_"
 msgstr "Base da hierarquia"
 
@@ -1252,6 +1256,10 @@ msgstr "Remover uma coluna"
 
 msgid "_Repeat string_"
 msgstr "Repetir a string"
+
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
 
 
 msgid "_Right-side image_"

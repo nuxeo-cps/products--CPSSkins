@@ -1961,3 +1961,9 @@ msgstr ""
 
 msgid "_Destination_slot_"
 msgstr ""
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
+
+msgid "_Hide_overriden_portlets_"
+msgstr ""

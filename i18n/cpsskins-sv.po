@@ -867,6 +867,10 @@ msgid "_Hide title_"
 msgstr "Göm titeln"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+
 msgid "_Hierarchy base_"
 msgstr ""
 
@@ -1248,6 +1252,10 @@ msgstr "Ta bort kolumnen"
 
 
 msgid "_Repeat string_"
+msgstr ""
+
+
+msgid "_Reveal_overriden_portlets_"
 msgstr ""
 
 

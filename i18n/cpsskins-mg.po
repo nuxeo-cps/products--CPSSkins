@@ -876,6 +876,10 @@ msgid "_Hide title_"
 msgstr "Afenina ny lohateny"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+
 msgid "_Hierarchy base_"
 msgstr "Base des rubriques"
 
@@ -1260,6 +1264,10 @@ msgstr "Vonoina ny colonne"
 
 msgid "_Repeat string_"
 msgstr "Mpanasaraka"
+
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
 
 
 msgid "_Right-side image_"

@@ -190,7 +190,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         mtool = getToolByName(self, 'portal_membership')
         checkPerm = mtool.checkPermission
-        portlets = ptltool.getPortlets(context, slot)
+        portlets = ptltool.getPortlets(context, slot, **kw)
 
         boxedit = kw.get('boxedit')
         boxlayout = self.boxlayout

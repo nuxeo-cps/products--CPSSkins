@@ -48,9 +48,9 @@
   <div class="editSpace">
     <tal:block condition="python: panel in ['site_structure', 'portlet_slots', 'wysiwyg']">
       <metal:block
-       use-macro="here/cpsskins_portlet_manage_lib/macros/breadcrumbs" />
-      <metal:block
        use-macro="here/cpsskins_portlet_manage_lib/macros/override_control" />
+      <metal:block
+       use-macro="here/cpsskins_portlet_manage_lib/macros/breadcrumbs" />
     </tal:block>
 
     <tal:block condition="wysiwyg">

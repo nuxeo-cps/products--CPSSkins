@@ -867,6 +867,10 @@ msgid "_Hide title_"
 msgstr "Cacher le titre"
 
 
+msgid "_Hide_overriden_portlets_"
+msgstr "Dissimuler les portlets surchargés"
+
+
 msgid "_Hierarchy base_"
 msgstr "Base des rubriques"
 
@@ -1251,6 +1255,10 @@ msgstr "Supprimer une colonne"
 
 msgid "_Repeat string_"
 msgstr "Séparateur"
+
+
+msgid "_Reveal_overriden_portlets_"
+msgstr "Réveler les portlets surchargés"
 
 
 msgid "_Right-side image_"
