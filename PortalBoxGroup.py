@@ -205,6 +205,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         all_rendered = []
         for portlet in portlets:
+            kw['portlet'] = portlet
             # render the box body
             if render_esi:
                 rendered = portlet.render_esi(**kw)
@@ -222,14 +223,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             # add the box decoration
             rendered = renderBoxLayout(boxlayout=boxlayout,
                                        title=portlet.title,
-                                       body=rendered,
-                                       portlet=portlet, **kw)
+                                       body=rendered, **kw)
             if boxedit:
                 kw['editable'] = checkPerm('Manage Portlets', portlet)
                 # wrap the edition markup around the box in edit mode
                 rendered = renderBoxLayout(boxlayout='portlet_edit',
                                            body=rendered,
-                                           portlet=portlet, **kw)
+                                           **kw)
             all_rendered.extend(rendered)
             # close the box frame
             all_rendered.extend('</div></div>')
