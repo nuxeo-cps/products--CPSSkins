@@ -131,6 +131,10 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
        tal:attributes="href url; class python: panel == section and 'selected' or None;"
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
+    &nbsp;
+    <a tal:attributes="href string:${here_url}"
+       tal:define="title string:_Exit_" i18n:translate=""
+       tal:content="python:mcat and mcat(title) or title" />
  </div>
 </metal:block>
 
@@ -139,14 +143,25 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     tal:define="view_mode python: tmtool.getViewMode();
                 clipboard view_mode/clipboard|nothing"
     tal:condition="clipboard">
-    <div class="title" i18n:translate=""
+    <div i18n:translate=""
      tal:define="title string:_clipboard_"
      tal:content="python: mcat and mcat(title) or title" />
     <div tal:define="portal_path python: utool.getPortalPath();
                      portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None)">
-      <img src="" width="16" height="16" alt="" align="middle"
-       tal:attributes="src portlet/getIcon" />
-      <span tal:content="portlet/title_or_id" />
+      <div class="PortletBoxDrag"
+       tal:define="ypos portlet/getOrder;
+                   portlet_folder portlet/getLocalFolder;
+                   portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+                   portlet_rurl portlet/getRelativeUrl;
+                   portlet_depth portlet/getDepth"
+       tal:attributes="portlet_rurl portlet_rurl;
+                       src_rurl portlet_folder_rurl;
+                       src_ypos python: ypos and ypos or 0;
+                       src_slot portlet/getSlot;">
+        <img src="" width="16" height="16" alt="" align="middle"
+         tal:attributes="src portlet/getIcon" />
+        <span tal:content="portlet/title_or_id" />
+      </div>
     </div>
   </div>
 </metal:block>
