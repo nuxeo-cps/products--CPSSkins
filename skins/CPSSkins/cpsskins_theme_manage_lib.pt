@@ -1,10 +1,9 @@
 
 <metal:block define-macro="theme_upload"
-  tal:define="io_tool here/portal_io|nothing">
+ tal:define="io_tool here/portal_io|nothing">
   <h2 class="fancy" tal:define="title string:_Import a theme_" 
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" i18n:domain="cpsskins" />
-
   <tal:block condition="nocall:io_tool">
     <tal:block define="importer string:CPSSkinsImporter;
                        importers io_tool/listImportModules;
@@ -13,15 +12,16 @@
       <h3 class="fancy" tal:define="title string:_XML format_"
        tal:content="python: mcat and mcat(title) or title"
        i18n:translate="" i18n:domain="cpsskins" />
-      <form method="post" action="." enctype="multipart/form-data">
+      <form tal:attributes="action string:${here_url}/cpsskins_cpsio_importer"
+       method="post" enctype="multipart/form-data" i18n:domain="cpsskins">
         <label for="overwrite"
          i18n:translate="cpsio_label_cpsskins_overwrite">Overwrite existing theme in case of conflict</label>
         <input id="overwrite" type="checkbox" name="import_overwrite" /><br/>
-        <input type="text" name="import_file_name"
-         tal:attributes="value string:.zip" />
-        <input type="submit" name="cpsskins_cpsio_importer:method"
-         class="standalone" value="cpsio_button_import"
-         i18n:attributes="value" />
+        <input type="file" name="import_file_name" />
+        <input type="submit" class="mainbutton"
+        i18n:attributes="value"
+        tal:define="title string:_button_import_theme_"
+        tal:attributes="value python: mcat and mcat(title) or title" /><br/>
       </form>
     </tal:block>
   </tal:block>

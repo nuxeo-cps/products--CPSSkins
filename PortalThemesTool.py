@@ -24,7 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 import os
 import md5
-from os.path import join, isfile
+from os.path import basename, join, isfile
 from urllib import urlopen
 from DateTime import DateTime
 
@@ -45,7 +45,8 @@ from Products.CMFCore.utils import getToolByName
 from ThemeFolder import ThemeFolder
 from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import getFreeId
-import QuickImporter
+from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
+                          _writeFileInImportDirectory
 
 CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
 CPSSKINS_LOCAL_THEME_ID = '.cpsskins_theme'
@@ -895,8 +896,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declareProtected(ManageThemes, 'importTheme')
     def importTheme(self, file=None, REQUEST=None):
-        """ Imports a theme from a .zexp file
-            Returns the its id
+        """Import a theme from a .zexp file.
+        Return its id
         """
 
         if file is None:
@@ -906,7 +907,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if tmp_dir is None:
             return None
 
-        QuickImporter.manage_doQuickImport(
+        manage_doQuickImport(
             tmp_dir,
             file,
             set_owner=0,
@@ -922,6 +923,33 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         self.manage_pasteObjects(cookie)
         self.manage_delObjects(tmp_dir.getId())
         return new_id
+
+    security.declareProtected(ManageThemes, 'manage_xmlImport')
+    def manage_xmlImport(self, file, options, REQUEST=None):
+        """Import a theme from a zip file in XML format (CPSIO)
+        """
+
+        psm = ''
+        io_tool = getToolByName(self, 'portal_io', None)
+        if io_tool is None:
+            return
+
+        utool = getToolByName(self, 'portal_url')
+        portal = utool.getPortalObject()
+
+        filename = basename(file.filename)
+        _writeFileInImportDirectory(file, filename)
+
+        importer = io_tool.getImportPlugin('CPSSkinsImporter', portal)
+        try:
+            importer.setOptions(filename, options=options)
+            importer.importFile()
+            importer.finalize()
+            psm = 'cpsio_psm_import_successful'
+        except (ValueError, IOError), err:
+            psm = err
+        _deleteFileInImportDirectory(filename)
+        return psm
 
     security.declareProtected(ManageThemes, 'manage_rebuild')
     def manage_rebuild(self, REQUEST=None, **kw):
