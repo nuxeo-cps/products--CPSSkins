@@ -32,7 +32,6 @@ from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
 from ZODB.PersistentList import PersistentList
 from Acquisition import aq_base, aq_parent, aq_inner
-
 from types import StringType, TupleType
 
 from Products.CMFCore.ActionProviderBase import ActionProviderBase
@@ -520,8 +519,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declarePublic('getThemes')
     def getThemes(self):
-        """Gets the list of global themes ('default', 'printable', ... )
-           returns a list of names.
+        """Gets the list of themes as objects.
         """
      
         themes_container = self.getThemeContainer(parent=1)
@@ -531,6 +529,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
            theme_list = themes_container.objectValues('Portal Theme')
 
         return theme_list
+
+    security.declarePublic('getThemeNames')
+    def getThemeNames(self):
+        """Gets the list of themes by theme id.
+        """
+
+        return [t.getId() for t in self.getThemes()]
 
     security.declarePublic('getIconFor')
     def getIconFor(self, category, id):
@@ -647,6 +652,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             size += theme.getCacheSize()
         return size
 
+    #
+    # Theme management
+    #
     security.declareProtected(ManageThemes, 'importTheme')
     def importTheme(self, file=None, REQUEST=None):
         """ Imports a theme from a .zexp file
@@ -656,9 +664,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if file is None:
             return
 
-        tmp_id = getFreeId(self, try_id='tmp')
-        self.invokeFactory('Theme Folder', id=tmp_id)
-        tmp_dir = getattr(self.aq_explicit, tmp_id, None)
+        tmp_dir = self._getTemporaryThemeFolder()
         if tmp_dir is None:
            return 
 
@@ -671,11 +677,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         theme_id = tmp_dir.objectIds()[0]
         new_id = getFreeId(self, try_id=theme_id)
         if new_id != theme_id: 
-           tmp_dir.manage_renameObjects([theme_id], [new_id])
+            tmp_dir.manage_renameObjects([theme_id], [new_id])
 
         cookie = tmp_dir.manage_cutObjects([new_id])
         self.manage_pasteObjects(cookie)
-        self.manage_delObjects(tmp_id)
+        self.manage_delObjects(tmp_dir.getId())
         return new_id
 
     security.declareProtected(ManageThemes, 'manage_rebuild')
@@ -871,9 +877,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         writefile.write(zexp_data)
         writefile.close()
         
-        tmp_id = getFreeId(self, try_id='tmp')
-        self.invokeFactory('Theme Folder', id=tmp_id)
-        tmp_dir = getattr(self.aq_explicit, tmp_id, None)
+        tmp_dir = self._getTemporaryThemeFolder()
         if tmp_dir is None:
            return None
 
@@ -887,7 +891,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         cookie = tmp_dir.manage_cutObjects([themeid])
         self.manage_pasteObjects(cookie)
-        self.manage_delObjects(tmp_id)
+        self.manage_delObjects(tmp_dir.getId())
 
         if isfile(filepath):
             os.remove(filepath)
@@ -966,5 +970,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         self.manage_updateExternalThemes(force=1)
         return self.manage_externalThemes(themeid='', themeurl='', \
                     manage_tabs_message='Themes have been updated')
+
+    #
+    # Private
+    #
+    security.declarePrivate('_getTemporaryThemeFolder')
+    def _getTemporaryThemeFolder(self):
+        """ Creates a temporary theme folder
+        """
+        tmp_id = getFreeId(self, try_id='tmp')
+        self.invokeFactory('Theme Folder', id=tmp_id)
+        return getattr(self, tmp_id, None)
 
 InitializeClass(PortalThemesTool)
