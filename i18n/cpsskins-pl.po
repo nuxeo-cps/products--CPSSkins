@@ -385,6 +385,10 @@ msgid "_Cell width_"
 msgstr "Szeroko¶æ komórki"
 
 
+msgid "_Cellblock margin_"
+msgstr ""
+
+
 msgid "_Click here to edit the Main Content Templet_"
 msgstr "Edytuj g³ówny szablon tre¶ci"
 

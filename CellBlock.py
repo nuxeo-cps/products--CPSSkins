@@ -107,13 +107,13 @@ class CellBlock(ThemeFolder, PageBlockContent):
          'type': 'string', 
          'mode': 'w', 
          'label': 'Height', 
-         'category': 'general'
+         'category': 'layout'
         },
         {'id': 'maxcols', 
          'type': 'int', 
          'mode': 'w', 
          'label': 'Number of columns', 
-         'category': 'general'
+         'category': 'layout'
         },
         {'id': 'shape', 
          'type': 'selection', 
@@ -121,7 +121,7 @@ class CellBlock(ThemeFolder, PageBlockContent):
          'label': 'Shape', 
          'select_variable': 'AreaShapesList', 
          'style': 'Area Shape', 
-         'category' : 'general'
+         'category' : 'style'
         },
         {'id': 'color', 
          'type': 'selection', 
@@ -129,7 +129,13 @@ class CellBlock(ThemeFolder, PageBlockContent):
          'label': 'Color', 
          'select_variable': 'AreaColorsList', 
          'style': 'Area Color', 
-         'category' : 'general'
+         'category' : 'style'
+        },
+        {'id': 'margin', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'Cellblock margin',  
+         'category': 'layout',
         },
       )
 
@@ -140,6 +146,7 @@ class CellBlock(ThemeFolder, PageBlockContent):
                  height = '', 
                  color = '',
                  shape = '',
+                 margin = '',
                  **kw):
         self.id = id
         self.title = title
@@ -148,6 +155,7 @@ class CellBlock(ThemeFolder, PageBlockContent):
         self.height = height
         self.color = color
         self.shape = shape
+        self.margin = margin
 
     security.declarePublic('isCellBlock')
     def isCellBlock(self):

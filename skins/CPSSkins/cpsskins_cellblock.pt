@@ -5,8 +5,9 @@
              maxcols python: context['maxcols']"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
-                 class python: context.getCSSAreaClass(level=2)">
-  <tr tal:attributes="style python: context.getCSSLayoutStyle()">
+                 class python: context.getCSSAreaClass(level=2);
+                 style python: context.getCSSLayoutStyle()">
+  <tr>
     <tal:block define="objects python: context.getObjects(REQUEST=request)"
                repeat="x_pos python: range(int(maxcols))">
       <tal:block 

@@ -383,6 +383,10 @@ msgid "_Cell width_"
 msgstr "Cell width"
 
 
+msgid "_Cellblock margin_"
+msgstr "Margin"
+
+
 msgid "_Click here to edit the Main Content Templet_"
 msgstr "Click here to edit the Main Content Templet"
 
@@ -1292,23 +1296,23 @@ msgstr "Tab width"
 
 
 msgid "_Templet color_"
-msgstr "Templet color"
+msgstr "Color"
 
 
 msgid "_Templet height_"
-msgstr "Templet height"
+msgstr "Height"
 
 
 msgid "_Templet margin_"
-msgstr "Templet margin"
+msgstr "Margin"
 
 
 msgid "_Templet padding_"
-msgstr "Templet padding"
+msgstr "Padding"
 
 
 msgid "_Templet shape_"
-msgstr "Templet shape"
+msgstr "Shape"
 
 
 msgid "_Templets_"

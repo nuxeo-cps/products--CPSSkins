@@ -383,6 +383,10 @@ msgid "_Cell width_"
 msgstr "Largeur de la cellule"
 
 
+msgid "_Cellblock margin_"
+msgstr "Marges"
+
+
 msgid "_Click here to edit the Main Content Templet_"
 msgstr "Cliquer ici pour éditer le Templet de la région principale"
 

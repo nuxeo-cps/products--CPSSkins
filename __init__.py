@@ -30,8 +30,10 @@ from PortalThemesTool import PortalThemesTool
 import PortalTheme
 import ThemeFolder
 
-# Templets
 import PageBlock
+import CellBlock
+
+# Templets
 import MainContent
 import SearchBox
 import Breadcrumbs
@@ -78,7 +80,8 @@ portalthemeClasses = (
 )
 
 pageblockClasses = (
-    PageBlock.PageBlock, 
+    PageBlock.PageBlock,
+    CellBlock.CellBlock,
 )
 
 templetClasses = (
@@ -127,6 +130,7 @@ paletteClasses = (
 contentConstructors = (
     PortalTheme.addPortalTheme,
     PageBlock.addPageBlock,
+    CellBlock.addCellBlock,
     MainContent.addMainContent,
     SearchBox.addSearchBox,
     ActionBox.addActionBox,
@@ -164,6 +168,7 @@ contentConstructors = (
 fti = (
     PortalTheme.factory_type_information +
     PageBlock.factory_type_information +
+    CellBlock.factory_type_information +
     MainContent.factory_type_information +
     SearchBox.factory_type_information +
     ActionBox.factory_type_information +
@@ -250,6 +255,7 @@ def initialize(registrar):
         (PortalTheme.PortalTheme, 'portaltheme.gif'),
         (ThemeFolder.ThemeFolder, 'themefolder.gif'),
         (PageBlock.PageBlock, 'pageblock.gif'),
+        (CellBlock.CellBlock, 'cellblock.gif'),
         (MainContent.MainContent, 'maincontent_templet.gif'),
         (TextBox.TextBox, 'textbox_templet.gif'),
         (ImageBox.ImageBox, 'imagebox_templet.gif'),
