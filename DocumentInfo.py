@@ -82,7 +82,7 @@ class DocumentInfo(BaseTemplet):
     def getCacheParams(self):
         """Return a list of cache parameters"
         """
-        params = ['lang', 'folder']
+        params = ['lang', 'object:path']
         return params
 
     security.declarePublic('ContentList')

@@ -878,10 +878,29 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
+        def getOptions(param):
+             """extract cache parameter options
+             """
+             res = []
+             opts = param.split(':')[1].split(',')
+             for opt in opts:
+                 if opt[0] == '(' and opt[-1] == ')':
+                     opt = getattr(self, opt[1:-1], None)
+                     if opt is None:
+                         continue
+                     if isinstance(opt, ListType) or\
+                        isinstance(opt, TupleType):
+                         res.extend(opt)
+                         continue
+                 res.append(str(opt))
+             return res
+
+        context = kw.get('context_obj')
         params = self.getCacheParams()
         index = ()
         for param in params:
             index_string = ''
+            prefix = param
 
             # current user
             if param == 'user':
@@ -902,6 +921,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                     index_string = md5.new(str(cmf_actions)).hexdigest()
 
             elif param.startswith('actions:'):
+                prefix = 'actions'
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
                 if cmf_actions:
                     categories = param.split(':')[1].split(',')
@@ -916,10 +936,21 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                 if wf_actions is not None:
                     index_string = md5.new(str(wf_actions)).hexdigest()
 
-            # current folder
-            elif param == 'folder':
-                context = kw.get('context_obj')
-                index_string = context.absolute_url(1)
+            # current object
+            elif param.startswith('object:'):
+                opts = getOptions(param)
+                index_string = ''
+                prefix = 'object'
+                for opt in opts:
+                    # object's published path
+                    # including the method used to access the object
+                    index_string += '_' + opt + ':'
+                    if opt == 'published_path':
+                        index_string += REQUEST.get('PATH_TRANSLATED')
+
+                    # object's physical path
+                    if opt == 'path':
+                        index_string += '/'.join(context.getPhysicalPath())
 
             # box state
             elif param == 'boxstate':
@@ -950,7 +981,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                     index_string = year
 
             if index_string:
-                index += (param + '_' + index_string,)
+                index += (prefix + '_' + index_string,)
 
         # custom cache index
         # this is where we obtain the portlets cache index

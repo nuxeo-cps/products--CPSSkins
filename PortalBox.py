@@ -279,7 +279,7 @@ class PortalBox(BaseTemplet):
             params.append('user')
 
         if content in ['folders', 'about', 'related']:
-            params.append('folder')
+            params.append('object:path')
 
         if content == 'actions':
             categories = self.action_categories + self.custom_action_categories
