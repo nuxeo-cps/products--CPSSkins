@@ -56,8 +56,6 @@ class PortletBox(BaseTemplet):
 
     isportletbox = 1
 
-    render_action = 'cpsskins_portletbox'
-
     security = ClassSecurityInfo()
 
     manage_options = ( PropertyManager.manage_options     # Properties
@@ -77,10 +75,13 @@ class PortletBox(BaseTemplet):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Portlet type', 
-        'select_variable': 'cpsskins_listPortletTypes',
+        'select_variable': 'PortletTypesList',
         'category': 'general',
         'i18n': 1,
-        'i18n_use_original_label': 1,
+        'i18n_prefix': '',
+        'i18n_suffix': '',
+        'i18n_default_domain': 1,
+        'i18n_transform': 'getPortletTypeTitle',
        },
     )
 
@@ -97,15 +98,6 @@ class PortletBox(BaseTemplet):
         """ Returns true if the Templet can be cached in RAM """
 
         return 1
-
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-       
-        # XXX: additional information should be obtained from the portlet.
-        # 
-        index = (self.boxid, )
-        return index
 
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
@@ -130,29 +122,52 @@ class PortletBox(BaseTemplet):
         if portlet_type is not None:
             ptype_id = self.getPortletType()
 
-            # XXX CPS3 specific - should it be here?
-            ptltool = getToolByName(self, 'portal_cpsportlets')
+            # CPSPortlets
+            ptltool = getToolByName(self, 'portal_cpsportlets', None)
+            if ptltool is not None:
 
-            # Create a global portlet on the fly and associate
-            # the portlet id to this portlet box.
-            if self.getPortletId() is None:
-                portlet_id = ptltool.createPortlet(ptype_id=portlet_type, isglobal=1)
-                if portlet_id is not None:
-                    kw.update({'portlet_id': portlet_id}) 
+                # Create a global portlet on the fly and associate
+                # the portlet id to this portlet box.
+                if self.getPortletId() is None:
+                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type, 
+                                                       isglobal=1)
+                    if portlet_id is not None:
+                        kw.update({'portlet_id': portlet_id}) 
 
-            # Modify an existing portlet:
-            elif portlet_type != ptype_id:
-                old_portlet_id = self.getPortletId()
-                portlet_id = ptltool.createPortlet(ptype_id=portlet_type, isglobal=1)
-                if portlet_id is not None:
-                    kw.update({'portlet_id': portlet_id}) 
-                res = ptltool.deletePortlet(portlet_id=old_portlet_id, isglobal=1)
-                if res:
-                    # XXX: what to do?
-                    pass
+                # Modify an existing portlet:
+                elif portlet_type != ptype_id:
+                    old_portlet_id = self.getPortletId()
+                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type, 
+                                                       isglobal=1)
+                    if portlet_id is not None:
+                        kw.update({'portlet_id': portlet_id}) 
+                    res = ptltool.deletePortlet(portlet_id=old_portlet_id, 
+                                                isglobal=1)
+                    if res:
+                        # XXX: what to do?
+                        pass
 
         self.manage_changeProperties(**kw)
         self.expireCache()
+
+    # 
+    # Properties
+    # 
+    security.declarePublic('getPortletTypeTitle')
+    def getPortletTypeTitle(self, ptype=None):
+        """Returns the title associated to a given type
+           or the portal type id if the title is empty.
+        """
+
+        ttool = getToolByName(self, 'portal_types')
+        if ptype is None:
+            return
+
+        title = ''
+        fti = ttool.getTypeInfo(ptype)
+        if fti is not None:
+            title = fti.title_or_id()
+        return title
 
     #
     # Portlet interface.
@@ -167,17 +182,45 @@ class PortletBox(BaseTemplet):
     def getPortletType(self):
         """Returns the portal type of the associated portlet."""
 
-        return None
         return getattr(self, 'portlet_type', None)
 
+    security.declarePublic('PortletTypesList')
+    def PortletTypesList(self):
+        """Returns the list of available portlets types."""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            return ptltool.listPortletTypes()
+
+    #
+    # Rendering.
+    #
+    security.declarePublic('render')
+    def render(self, shield=0):
+        """Renders the templet."""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return ''
+        portlet_id = self.getPortletId()
+        portlet = ptltool.getPortletById(portlet_id)
+
+        rendered = ''
+        if portlet is not None:
+            rendered = portlet.render(proxy=portlet) 
+        return rendered
+
+    #
     # RAM Cache
     #
     security.declarePublic('getCacheIndex')
     def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
+        """Returns the RAM cache index as a tuple (var1, var2, ...)
+        """
        
-        index = ()
-        # XXX to connect to CPSPortlets
+        # XXX: additional cache index information should be obtained
+        # from the portlet
+        index = (self.getPortletId(), )
         return index
 
 

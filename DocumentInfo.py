@@ -60,7 +60,9 @@ class DocumentInfo(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Content', 
-         'select_variable': 'ContentList'
+         'select_variable': 'ContentList',
+         'i18n': 1,
+         'i18n_prefix': '_option_docinfo_',
         },
     )
 

@@ -73,6 +73,7 @@ class ActionBox(BaseTemplet):
          'select_variable': 'StyleList', 
          'category': 'layout',
          'i18n': 1, 
+         'i18n_prefix': '_option_',
         },
         {'id': 'orientation', 
          'type': 'selection', 
@@ -82,6 +83,7 @@ class ActionBox(BaseTemplet):
          'category': 'layout',
          'default': 'vertical',
          'i18n': 1, 
+         'i18n_prefix': '_option_',
         },
     )
 

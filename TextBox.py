@@ -70,6 +70,7 @@ class TextBox(BaseTemplet):
          'select_variable': 'TextFormatList',
          'default': 'html',
          'i18n': 1,
+         'i18n_prefix': '_option_',
         },
         {'id': 'i18n', 
          'type': 'boolean', 

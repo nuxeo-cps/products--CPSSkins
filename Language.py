@@ -61,6 +61,7 @@ class Language(BaseTemplet):
          'label': 'Appearance', 
          'select_variable': 'StyleList',
          'i18n': 1,
+         'i18n_prefix': '_option_',
         },
         {'id': 'hide_current_lang', 
          'type': 'boolean', 

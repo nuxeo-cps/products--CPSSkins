@@ -88,6 +88,7 @@ class PortalBoxShape(BaseStyle):
          'select_variable': 'DisplayStylesList', 
          'category': 'box title',
          'i18n': 1,
+         'i18n_prefix': '_option_',
         },
         {'id': 'BoxBody_border_style', 
          'type': 'string', 

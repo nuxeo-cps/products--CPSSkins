@@ -61,7 +61,8 @@ class SearchBox(BaseTemplet):
          'label': 'Style', 
          'select_variable': 'StyleList',
          'i18n': 1, 
-         'i18n_prefix': 'searchbox'},
+         'i18n_prefix': '_option_searchbox_'
+        },
     )
 
     def __init__(self, id, 

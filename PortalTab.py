@@ -65,6 +65,7 @@ class PortalTab(BaseTemplet):
         'select_variable': 'ContentList', 
         'category': 'general',
         'i18n': 1,
+        'i18n_prefix': '_option_',
        },
        {'id': 'show_docs', 
         'type': 'boolean', 

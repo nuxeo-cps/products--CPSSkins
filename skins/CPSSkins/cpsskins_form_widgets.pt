@@ -1,4 +1,4 @@
-<metal:block define-macro="generic_edit" i18n:domain="cpsskins">
+<metal:block define-macro="generic_edit">
   <metal:block use-macro="here/cpsskins_form_widgets/macros/form">
     <metal:block fill-slot="content"
     tal:define="object_url here/absolute_url;
@@ -12,10 +12,10 @@
                            image field/image|nothing; 
                            value field/value|nothing;
                            style field/style;
-                           i18n field/i18n|nothing"
+                           i18n field/i18n"
                    condition="visible">
           <metal:block use-macro="here/cpsskins_form_widgets/macros/form_property">
-            <metal:block fill-slot="title" i18n:translate=""
+            <metal:block fill-slot="title" i18n:translate="" i18n:domain="cpsskins"
             tal:define="title python: '_%s_' % description"
             tal:content="python: mcat and mcat(title) or title">
             description</metal:block>
@@ -24,7 +24,7 @@
                 <textarea name="text:text" rows="5" cols="50"
                 wrap="soft"
                 tal:attributes="name string:${id}:text; rows field/rows|default; cols field/cols|default;"
-                          tal:content="value">content</textarea>
+                tal:content="value">content</textarea>
               </tal:block>
               <input tal:condition="python: ftype == 'text'"
               type="type" name="name" value="value"
@@ -44,14 +44,17 @@
                   tal:attributes="value item_id; selected python: item_id == value">
                     <tal:block condition="i18n"
                     i18n:translate=""
-                    tal:define="i18n_prefix field/i18n_prefix;
-                                i18n_use_original_label field/i18n_use_original_label;
-                                i18n_prefix python: i18n_prefix and i18n_prefix + '_' or '';
-                                i18n_title string:_option_${i18n_prefix}${item_title}_;
-                                i18n_title python: i18n_use_original_label and item_title or i18n_title;"
-                    tal:content="python: mcat and mcat(i18n_title) or i18n_title" />
-                    <tal:block condition="not:i18n"
-                    tal:content="item_title" />
+                    tal:define="i18n_default_domain field/i18n_default_domain;
+                                i18n_transform field/i18n_transform;
+                                item_title python: i18n_transform and getattr(context, i18n_transform)(item_title) or item_title;
+                                i18n_title string:${field/i18n_prefix}${item_title}${field/i18n_suffix}">
+                      <tal:block condition="i18n_default_domain" 
+                      content="python: mcat and mcat(i18n_title) or i18n_title" />
+                      <tal:block condition="not:i18n_default_domain" 
+                      i18n:domain="cpsskins"
+                      content="python: mcat and mcat(i18n_title) or i18n_title" />
+                    </tal:block>
+                    <tal:block condition="not:i18n" tal:content="item_title" />
                   </option>
                 </tal:block>
               </select>
@@ -80,7 +83,7 @@
                 tal:attributes="onClick string:newWindow('cpsskins_select_image?prop=$id&image=$image');
                                 src string:${portal_url}/cpsskins_images/select_icon.gif"
                      border="0" />
-                <a i18n:attributes="title" 
+                <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit images_"
                  tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&theme=$current_theme&edit_mode=$edit_mode&current_image=$value;
                             title python: mcat and mcat(title) or title">
@@ -94,7 +97,7 @@
                 tal:attributes="onClick string:newWindow('cpsskins_select_style?prop=$id&style=$style');
                                 src string:${portal_url}/cpsskins_images/select_icon.gif"
                      border="0" />
-                <a i18n:attributes="title"
+                <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit styles_"
                  tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&theme=$current_theme&edit_mode=$edit_mode&current_style=$value;
                             title python: mcat and mcat(title) or title">
@@ -114,8 +117,16 @@
                                   selected python: value and value != '[]' and item_id and item_id in value">
                     <tal:block condition="i18n"
                     i18n:translate=""
-                    tal:define="i18n_title string:_option_${item_title}_"
-                    tal:content="python: mcat and mcat(i18n_title) or i18n_title" />
+                    tal:define="i18n_default_domain field/i18n_default_domain;
+                                i18n_transform field/i18n_transform;
+                                item_title python: i18n_transform and getattr(context, i18n_transform)(item_title) or item_title;
+                                i18n_title string:${field/i18n_prefix}${item_title}${field/i18n_suffix}">
+                      <tal:block condition="i18n_default_domain" 
+                      content="python: mcat and mcat(i18n_title) or i18n_title" />
+                      <tal:block condition="not:i18n_default_domain" 
+                      i18n:domain="cpsskins"
+                      content="python: mcat and mcat(i18n_title) or i18n_title" />
+                    </tal:block>
                     <tal:block condition="not:i18n"
                     tal:content="item_title" />
                   </option>
@@ -173,7 +184,7 @@ tal:define="this_url request/URL;
                      url python: stylecat and url + '&style=' + stylecat or url;
                      title python: '_%s_' % section"
          tal:attributes="href url; class python: cat == section and 'selected' or None"
-         i18n:translate=""
+         i18n:translate="" 
          tal:content="python: mcat and mcat(title) or title" />
     </tal:block>
   </div>

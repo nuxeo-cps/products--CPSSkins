@@ -170,7 +170,9 @@ class PortalTheme(ThemeFolder):
          'mode': 'w', 
          'label': 'Align', 
          'select_variable': 'AlignList', 
-         'category': 'layout'
+         'category': 'layout',
+         'i18n': 1,
+         'i18n_prefix': '_option_',
         },
         {'id': 'color', 
          'type': 'selection', 
@@ -195,6 +197,7 @@ class PortalTheme(ThemeFolder):
          'select_variable' : 'listThemeRenderers',  
          'category': 'general',
          'i18n': 1, 
+         'i18n_prefix': '_option_',
         },
         {'id': 'author', 
          'type': 'text', 
