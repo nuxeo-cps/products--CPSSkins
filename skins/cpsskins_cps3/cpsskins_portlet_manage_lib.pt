@@ -1,21 +1,30 @@
 <metal:block define-macro="box">
   <div class="BoxGroupBoxSlot PortletBoxDrag"
-   tal:define="ypos portlet/getOrder"
-   tal:attributes="src_ypos python: ypos and ypos or 0;
+   tal:define="ypos portlet/getOrder;
+               portlet_url portlet/getURL;
+               fti portlet/getTypeInfo;
+               portlet_title fti/title_or_id;
+               portlet_icon fti/getIcon"
+   tal:attributes="portlet_rurl portlet/getRelativeUrl;
+                   src_ypos python: ypos and ypos or 0;
                    src_slot group">
     <div class="PortletBoxDest" 
-      tal:attributes="portlet_url portlet/getURL;
-                      dest_slot group;
+      tal:attributes="dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
-        id: <tal:block content="portlet/getId" /><br/>
+        <a href=""
+        tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
+          <img border="0" width="12" height="12"
+          tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
+        </a>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
                      src_slot group">
-        url: <tal:block content="portlet/getURL" /><br/>
-        slot: <tal:block content="portlet/getSlot" /><br/>
-        order: <tal:block content="portlet/getOrder" /><br/>
+        <img width="16" height="16" 
+         tal:condition="portlet_icon"
+         tal:attributes="src string:${portal_url}/$portlet_icon" />
+        <strong tal:content="structure python: cpsmcat(portlet_title)" />
       </div>
     </div>
   </div>

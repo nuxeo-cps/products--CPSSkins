@@ -1,7 +1,9 @@
-##parameters=portlet_url=None, src_ypos=None, dest_ypos=None, src_slot=None, dest_slot=None, REQUEST=None
+##parameters=portlet_rurl=None, src_ypos=None, dest_ypos=None, src_slot=None, dest_slot=None, REQUEST=None
 
 dest_ypos = int(dest_ypos)
 src_ypos = int(src_ypos)
+
+portal_path = context.portal_url.getPortalPath() + '/'
 
 ptltool = context.portal_cpsportlets
 portlets = ptltool.getPortlets(context=context, slot=dest_slot)
@@ -28,7 +30,7 @@ else:
             portlet.setOrder(new_ypos)
             new_ypos += 10
 
-portlet = context.restrictedTraverse(portlet_url)
+portlet = context.restrictedTraverse(portal_path + portlet_rurl)
 if portlet is not None:
     portlet.setSlot(dest_slot)
     portlet.setOrder(dest_ypos)

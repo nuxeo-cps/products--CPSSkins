@@ -24,10 +24,10 @@ function PortletBox_move(selected_items, target_node) {
      return;
   dest_slot = dest.getAttribute('dest_slot');
   dest_ypos = dest.getAttribute('dest_ypos');
-  portlet_url = pd_selected_item.getAttribute('portlet_url');
+  portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
   src_ypos = pd_selected_item.getAttribute('src_ypos');
   src_slot = pd_selected_item.getAttribute('src_slot');
-  window.location = 'cpsskins_move_portletbox?portlet_url=' + portlet_url + '&src_ypos=' + src_ypos + '&dest_ypos=' + dest_ypos + '&dest_slot=' + dest_slot + '&src_slot=' + src_slot;
+  window.location = 'cpsskins_move_portletbox?portlet_rurl=' + portlet_rurl + '&src_ypos=' + src_ypos + '&dest_ypos=' + dest_ypos + '&dest_slot=' + dest_slot + '&src_slot=' + src_slot;
 }
 
 function Choice_insert(portlet_type) {
