@@ -1719,3 +1719,6 @@ msgstr ""
 
 msgid "_This style is used by:_"
 msgstr ""
+
+msgid "_Add_a_portlet_"
+msgstr ""

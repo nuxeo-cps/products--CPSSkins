@@ -75,6 +75,10 @@ msgid "_Add_a_new_Templet_"
 msgstr "Add a new Templet"
 
 
+msgid "_Add_a_portlet_"
+msgstr "Add a portlet"
+
+
 msgid "_Align_"
 msgstr "Align"
 

@@ -76,6 +76,10 @@ msgid "_Add_a_new_Templet_"
 msgstr "Adicionar um novo Modelo"
 
 
+msgid "_Add_a_portlet_"
+msgstr ""
+
+
 msgid "_Align_"
 msgstr "Alinhar"
 

@@ -223,7 +223,8 @@ class PortalBoxGroup(BaseTemplet):
         boxlayout = self.boxlayout
         if boxlayout == '':
             boxlayout = 'standard'
-        if kw.get('boxedit'):
+        boxedit = kw.get('boxedit')
+        if boxedit:
             boxlayout = 'portlet_edit'
 
         boxclass = self.getCSSBoxClass()
@@ -258,6 +259,12 @@ class PortalBoxGroup(BaseTemplet):
                                                       portlet=portlet,
                                                       **kw)
             all_rendered += rendered
+
+        # draw an empty slot in edit mode
+        if boxedit:
+            if len(portlets) == 0:
+                all_rendered = self.cpsskins_renderBoxSlot(slot_id=self.id,
+                                                           slot_title=self.title)
         return all_rendered
 
     security.declarePublic('render_cache')

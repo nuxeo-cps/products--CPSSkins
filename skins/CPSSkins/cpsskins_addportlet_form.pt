@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<metal:block use-macro="here/main_template/macros/master" i18n:domain="cpsskins">
+<metal:block use-macro="here/main_template/macros/master" i18n:domain="cpsskins"
+ tal:define="global boxedit python:1">
       <metal:block fill-slot="main"
     tal:define="pss modules/Products/PythonScripts/standard;
                 order request/form/order|python:0; 
