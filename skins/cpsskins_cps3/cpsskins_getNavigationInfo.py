@@ -123,15 +123,17 @@ if base_create_obj:
 
 # tree root
 if rel_level == 0:
-    base_obj_rpath = utool.getRelativeUrl(base_obj_as_proxy)
-    menuentries = [
-        {'title': base_obj_as_proxy.title_or_id(),
-         'id': base_obj_as_proxy.id,
-         'url': base_url + base_obj_rpath,
-         'selected': here_rurl_slash.startswith('/' + base_obj_rpath + '/'),
-         'icon': base_obj_as_proxy.getIcon(relative_to_portal=1),
-         'folderish': 1, }
-    ]
+    checkPerm = context.portal_membership.checkPermission
+    if checkPerm('List folder contents', base_obj_as_proxy):
+        base_obj_rpath = utool.getRelativeUrl(base_obj_as_proxy)
+        menuentries = [
+            {'title': base_obj_as_proxy.title_or_id(),
+             'id': base_obj_as_proxy.id,
+             'url': base_url + base_obj_rpath,
+             'selected': here_rurl_slash.startswith('/' + base_obj_rpath + '/'),
+             'icon': base_obj_as_proxy.getIcon(relative_to_portal=1),
+             'folderish': 1, }
+        ]
 
 return { 'menuentries' : menuentries, 
          'create_url' : create_url,
