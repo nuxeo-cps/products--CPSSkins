@@ -19,7 +19,7 @@ if len(mystyle_objs) == 0:
 
 oldstyle = context.getStyle(meta_type=meta_type)
 if oldstyle is None:
-    oldstyle = mystyle_objs[0]
+    oldstyle = theme_container.addPortalStyle(type_name=meta_type)
 
 parents = oldstyle.findParents()
 style = oldstyle
