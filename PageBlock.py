@@ -386,6 +386,20 @@ class PageBlock(ThemeFolder):
                                }
         return objects
 
+    #
+    # CSS
+    #
+    security.declarePublic('getCSSAreaClass')
+    def getCSSAreaClass(self):
+        """Returns the CSS area class for this Page Block."""
+
+        areaclass = None
+        shape = self.shape
+        color = self.color
+        if shape and color:
+            areaclass = 'Shape%s Color%s' % (shape, color)
+        return areaclass
+
     security.declarePublic('getApplicableStyles')
     def getApplicableStyles(self):
         """ Returns the styles by meta type that are 

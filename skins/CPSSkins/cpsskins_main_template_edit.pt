@@ -34,6 +34,7 @@
           edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
 	  marginleft python: align in ['right', 'center'] and 'auto' or '0px'; 
           marginright python: align in ['left', 'center'] and 'auto' or '0px'; 
+	  pageblock_style python: 'margin-left:%s;; margin-right:%s;;' % (marginleft, marginright);
           cpsskins_language here/cpsskins_getCurrentLang;
           mcat python: here.cpsskins_getlocalizer();
           dummy python: request.set('cpsskins_language', cpsskins_language);
@@ -47,17 +48,13 @@
     <table border="0" cellpadding="0" cellspacing="0"
     tal:define="closed python: pageblock['closed'];		 
                 maxcols python: pageblock['maxcols']; 
-                pageblock_shape python: pageblock['shape']; 
-                pageblock_color python: pageblock['color']; 
                 pageblock_id python: pageblock['id'];
                 height python: pageblock['height'];
-                height_style python: height and 'height:%s' % height or ''; 
-                shape_class python: pageblock_shape and 'Shape%s' % pageblock_shape or ''; 
-	        color_class python: pageblock_color and 'Color%s' % pageblock_color or '';"
+                height_style python: height and 'height:%s' % height or ''"
     tal:condition="python: (not closed and maxcols)"
     tal:attributes="width python: pageblock['width']; 
-	            style python: 'margin-left:%s;; margin-right:%s;; %s' % (marginleft, marginright, height_style);
-	            class python: '%s %s' % (shape_class, color_class);
+		    style string:$pageblock_style $height_style;
+		    class python: pageblock.getCSSAreaClass();
                     summary python: pageblock['title']">
       <tr>
         <tal:block
