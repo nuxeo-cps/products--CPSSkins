@@ -224,8 +224,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          define="title string:_menu_Duplicate_"
          content="python: mcat and mcat(title) or title" />
     </div>
-    <div class="separator"></div>
-    <div class="context-menu-submenu">
+    <div class="context-menu-submenu"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('styles')">
       <ul>
         <li onmouseover="javascript:show('style-submenu');hide('align-submenu')">
           <div class="context-menu-item">
@@ -253,8 +253,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
         </li>
       </ul>
     </div>
-    <div class="separator"></div>
-    <div class="context-menu-submenu">
+    <div class="context-menu-submenu"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable')">
       <ul>
         <li onmouseover="javascript:show('align-submenu');hide('style-submenu')">
           <div class="context-menu-item">
@@ -300,7 +300,6 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
           </ul>
         </ul>
     </div>
-    <div class="separator"></div>
     <div class="context-menu-item" 
      tal:define="msg string:_confirm delete_;
                  msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg"
