@@ -221,9 +221,9 @@ def detectPortalType(self):
         return 'CPS2'
 
     # CPS3
-    if hasattr(portal, 'cps_version'):
-        if portal.cps_version.startswith('CPS3'):
-            return 'CPS3'
+    cps_version = portal.getProperty('cps_version', '')
+    if cps_version.startswith('CPS3'):
+        return 'CPS3'
 
     if meta_type == 'CPSDefault Site':
         return 'CPS3'
