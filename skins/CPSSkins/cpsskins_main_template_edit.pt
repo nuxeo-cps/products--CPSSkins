@@ -32,7 +32,7 @@
   <metal:block define-slot="page_top" tal:replace="nothing">
   </metal:block>
   <tal:block 
-  repeat="pageblock python: theme_container.getPageBlocks()">
+  repeat="pageblock python: theme_container.getPageBlocks(edit=1)">
     <metal:block define-slot="pageblock_titlebar"
     tal:replace="nothing"></metal:block>
     <table border="0" cellpadding="0" cellspacing="0" summary=""

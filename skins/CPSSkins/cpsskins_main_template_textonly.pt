@@ -6,43 +6,40 @@
              context_obj python: here.cpsskins_getContextObj(context_rurl);
              dummy python: request.set('cpsskins_mcat', mcat)"
  tal:repeat="pageblock python: theme_container.getPageBlocks()">
-  <tal:block define="closed python: pageblock['closed'];
-                     maxcols python: pageblock['maxcols']"
-   condition="python: (not closed and maxcols)">
-    <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
+  <tal:block define="maxcols python: pageblock['maxcols'];
+                     objects python: pageblock.getObjects(context_obj=context_obj)"
      repeat="x_pos python: range(int(maxcols))">
-      <tal:block define="objects_in_xpos python: objects.get(x_pos, None)"
-       condition="objects_in_xpos">
-        <tal:block define="contents_in_xpos python: objects_in_xpos['contents']">
-          <tal:block repeat="content contents_in_xpos">
-            <tal:block
-             define="isRenderable python: content.isRenderable();
-                     rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, textonly=1) or None;
-                     display_title content/display_title_in_text_mode|nothing;
-                     hidden_in_text_mode content/hidden_in_text_mode|nothing"
-             condition="python: not hidden_in_text_mode and (rendered or not isRenderable)">
-              <tal:block 
-               define="content_title content/title|nothing"
-               condition="python: content_title and display_title">
-                <h2 tal:content="structure python:mcat and mcat(content_title) or content_title" 
-                 i18n:translate="" />
+    <tal:block define="objects_in_xpos python: objects.get(x_pos, None)"
+     condition="objects_in_xpos">
+      <tal:block define="contents_in_xpos python: objects_in_xpos['contents']">
+        <tal:block repeat="content contents_in_xpos">
+          <tal:block
+           define="isRenderable python: content.isRenderable();
+                   rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, textonly=1) or None;
+                   display_title content/display_title_in_text_mode|nothing;
+                   hidden_in_text_mode content/hidden_in_text_mode|nothing"
+           condition="python: not hidden_in_text_mode and (rendered or not isRenderable)">
+            <tal:block 
+             define="content_title content/title|nothing"
+             condition="python: content_title and display_title">
+              <h2 tal:content="structure python:mcat and mcat(content_title) or content_title" 
+               i18n:translate="" />
+            </tal:block>
+            <tal:block condition="isRenderable"
+             content="structure rendered" />
+            <tal:block condition="not:isRenderable">
+              <tal:block condition="content/isMainContent|nothing">
+                <metal:block define-slot="maincontent" />
               </tal:block>
-              <tal:block condition="isRenderable"
-               content="structure rendered" />
-              <tal:block condition="not:isRenderable">
-                <tal:block condition="content/isMainContent|nothing">
-                  <metal:block define-slot="maincontent" />
-                </tal:block>
-                <tal:block condition="content/isPortalBoxGroup|nothing">
-                  <tal:block define="render_box python:1;
-                                     box_group content/box_group|nothing">
-                    <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
-                  </tal:block>
+              <tal:block condition="content/isPortalBoxGroup|nothing">
+                <tal:block define="render_box python:1;
+                                   box_group content/box_group|nothing">
+                  <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
                 </tal:block>
               </tal:block>
             </tal:block>
-          </tal:block>                               
-        </tal:block>
+          </tal:block>
+        </tal:block>                               
       </tal:block>
     </tal:block>
   </tal:block>

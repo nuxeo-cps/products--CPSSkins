@@ -21,11 +21,9 @@
               dummy python: request.set('cpsskins_mcat', mcat)"
     tal:repeat="pageblock python: theme_container.getPageBlocks()">
       <table cellpadding="0" cellspacing="0" summary=""
-      tal:define="closed python: pageblock['closed'];
-	          maxcols python: pageblock['maxcols']; 
+      tal:define="maxcols python: pageblock['maxcols']; 
                   height python: pageblock['height'];
                   height_style python: height and 'height:%s' % height or ''"
-      tal:condition="python: (not closed and maxcols)"
       tal:attributes="width python: pageblock['width'];
 		      style string:$pageblock_style $height_style;
 		      class python: pageblock.getCSSAreaClass();

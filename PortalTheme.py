@@ -573,10 +573,14 @@ class PortalTheme(ThemeFolder, StylableContent):
     # Theme objects
     #
     security.declarePublic('getPageBlocks')
-    def getPageBlocks(self):
+    def getPageBlocks(self, edit=0):
         """ returns a list of page blocks sorted by ypos"""
 
-        return self.objectValues('Page Block')
+        pageblocks = self.objectValues('Page Block')
+        if edit:
+            return pageblocks
+        return [p for p in pageblocks if not p.closed and p.maxcols]
+
 
     security.declarePublic('getSlots')
     def getSlots(self):
