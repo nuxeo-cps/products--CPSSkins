@@ -709,26 +709,24 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         icons = {}
         actionicons = getToolByName(self, 'portal_actionicons', None)
-        if actionicons:
+        if actionicons is not None:
             for action in actions:
                 if action.find(':') == -1:
                     continue
                 category, id = action.split(':')
                 try:
                     icon_path = actionicons.getActionIcon(category, id)
-                    try:
-                        iconobj = self.restrictedTraverse(icon_path)
-                    except:
-                        continue
-                    icon = icons.setdefault( (category, id),
-                               {'path': icon_path, 
-                                'url': iconobj.absolute_url(),
-                                'width': iconobj.width,
-                                'height': iconobj.height,
-                                }
-                    )
-                except:
-                    pass
+                except KeyError:
+                    continue
+                iconobj = self.unrestrictedTraverse(icon_path, default=None)
+                if iconobj is None:
+                    continue
+                icon = icons.setdefault((category, id), {
+                    'path': icon_path, 
+                    'url': iconobj.absolute_url(),
+                    'width': iconobj.width,
+                    'height': iconobj.height,
+                    })
         return icons
 
     security.declareProtected(ManageThemes, 'delObject')
