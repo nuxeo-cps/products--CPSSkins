@@ -34,7 +34,7 @@
 
 <body tal:attributes="
   onload string:javascript:scrollToCoordinates(${scrollx},${scrolly});
-  class string:color${page_container/color}">
+  class python: page_container and 'color%s' % page_container.color or None">
   <div class="floatingHeader">
    <metal:block use-macro="here/cpsskins_theme_widgets/macros/navigate" />
    <tal:block define=" display_url_simulation python: panel != 'layout'"
