@@ -226,7 +226,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </div>
     <div class="separator"></div>
     <div class="context-menu-submenu">
-      <ul id="nav">
+      <ul onmouseover="javascript:toggle('style-submenu')"
+          onmouseout="javascript:toggle('style-submenu')">
         <li>
           <div class="context-menu-item">
             <img width="16" height="16" 
@@ -235,7 +236,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
              define="title string:_menu_Edit styles_"
              content="python: mcat and mcat(title) or title" /> ...
           </div>
-          <ul>
+          <ul id="style-submenu">
             <tal:block repeat="style tmtool/listStyleTypes">
               <li tal:define="style_type style/Metatype|nothing;
                               style_icon style/getIcon|nothing;"
@@ -255,7 +256,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </div>
     <div class="separator"></div>
     <div class="context-menu-submenu">
-      <ul id="nav">
+      <ul onmouseover="javascript:toggle('align-submenu')"
+          onmouseout="javascript:toggle('align-submenu')">
         <li>
           <div class="context-menu-item">
             <img width="16" height="16" 
@@ -264,7 +266,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
              define="title string:_menu_Set alignment_"
              content="python: mcat and mcat(title) or title" /> ...
           </div>
-          <ul>
+          <ul id="align-submenu">
             <li class="context-menu-item" onmouseup="Choice_align('left')"
              tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('left') >= 0)">
               <img width="16" height="16" 
