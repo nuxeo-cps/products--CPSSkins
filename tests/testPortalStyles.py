@@ -122,6 +122,18 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
             self.assert_(s.render())
             self.assert_(s.preview())
 
+    def test_addPortalStyle_FormStyle(self):
+        theme_container = self.theme_container
+        theme_container.addPortalStyle(type_name='Form Style')
+        theme_container.addPortalStyle(type_name='Form Style')
+        styles = theme_container['styles'].objectValues()
+        stylenames = [getattr(s,'title') for s in styles]
+        self.assertEquals(['FormStyle', 'FormStyle1'], stylenames)
+        for s in theme_container['styles'].objectValues():
+            self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.render())
+            self.assert_(s.preview())
+
     def test_rename_style(self):
         theme_container = self.theme_container
         style1 = theme_container.addPortalStyle(type_name='Font Shape')
