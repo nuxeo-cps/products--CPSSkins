@@ -3,12 +3,12 @@ i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr>
     <td>
-      <div style="text-align: left"
-      tal:attributes="class string:PortalTab${here/title} box">
+      <div
+      tal:attributes="class string:PortalTab${here/title} cpsskinsRoundedTabs">
         <ul>
           <tal:block repeat="entry python: range(1, 4)">
-            <li tal:define="state python: entry == 3 and 'in' or 'out'"
-                tal:attributes="class string:submenu${state}">
+            <li tal:define="itemclass python: entry == 3 and 'selected' or None"
+                tal:attributes="class itemclass">
               <a href="">
                 <tal:block define="title string:_Menu entry_"
                 content="python: mcat and mcat(title) or title"
@@ -19,7 +19,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
           </tal:block>
         </ul>
       </div>
-      <div style="clear:left" ></div>
+      <br style="clear:left" />
     </td>
   </tr>
 </table>

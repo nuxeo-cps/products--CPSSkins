@@ -4,29 +4,16 @@
 background:url(/&dtml-theme_url;/backgrounds/&dtml-Tabs_bg_image;) bottom repeat-x;
 }
 </dtml-if>
-.PortalTab&dtml-title; ul {
-margin:0;
-padding:0;
-width: 100%;
-list-style-image:none;
-line-height: 100%;
-}
 .PortalTab&dtml-title; ul li {
-list-style-type:none;
-float:left;
-overflow:visible;
-white-space:nowrap;
 <dtml-if Tab_width>
 width: &dtml-Tab_width;;
 </dtml-if>
 margin:0 &dtml-HorizontalMargin; 0 0;
-padding:0;
 }
 .PortalTab&dtml-title; li a {
-display:block;
 padding:&dtml-VerticalPadding; &dtml-HorizontalPadding; &dtml-VerticalPadding; &dtml-HorizontalPadding;;
 }
-.PortalTab&dtml-title; li.menuout {
+.PortalTab&dtml-title; li {
 <dtml-if Tab_right_bg_image>
 background:url(/&dtml-theme_url;/backgrounds/&dtml-Tab_right_bg_image;) right top no-repeat;
 </dtml-if>
@@ -35,11 +22,11 @@ border-bottom:1px solid &dtml-Tab_bottom_border_color;;
 </dtml-if>
 }
 <dtml-if Tab_left_bg_image>
-.PortalTab&dtml-title; li.menuout a {
-background:url(/&dtml-theme_url;/backgrounds/&dtml-Tab_left_bg_image;) left top no-repeat;;
+.PortalTab&dtml-title; li a {
+background:url(/&dtml-theme_url;/backgrounds/&dtml-Tab_left_bg_image;) left top no-repeat;
 }
 </dtml-if>
-.PortalTab&dtml-title; li.menuin {
+.PortalTab&dtml-title; li.selected {
 <dtml-if TabIn_right_bg_image>
 background:url(/&dtml-theme_url;/backgrounds/&dtml-TabIn_right_bg_image;) right top no-repeat;
 </dtml-if>
@@ -48,7 +35,7 @@ border-bottom:1px solid &dtml-TabIn_bottom_border_color;;
 </dtml-if>
 }
 <dtml-if TabIn_left_bg_image>
-.PortalTab&dtml-title; li.menuin a {
+.PortalTab&dtml-title; li.selected a {
 background:url(/&dtml-theme_url;/backgrounds/&dtml-TabIn_left_bg_image;) left top no-repeat;
 }
 </dtml-if>

@@ -1,13 +1,13 @@
-<div style="text-align: left" i18n:domain="plone"
+<div i18n:domain="plone"
 tal:define="context_obj nocall:options/context_obj;
             content python: here.content"
- tal:attributes="class python: 'PortalTab%s' % here.portaltabstyle">
+ tal:attributes="class string:PortalTab${here/portaltabstyle} cpsskinsRoundedTabs">
  <tal:block condition="python: content == 'folders'">
    <tal:block define="level python: here.level;
           base python: here.base;
           show_docs python: here.show_docs;
           base_path python: here.base_path;
-          navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path);
+          navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, context_obj=context_obj);
           menuentries navigationinfo/menuentries|nothing; 
           create_url navigationinfo/create_url|nothing;
           i18n python: here.folder_items_i18n"
@@ -15,39 +15,40 @@ tal:define="context_obj nocall:options/context_obj;
     <ul>
       <tal:block condition="i18n" repeat="menuentry menuentries">
         <tal:block
-        define="menu_url python: menuentry['url']; 
-                menu_selected python: menuentry['selected'];
-                menu_title python: menuentry['title'];
-                menuclass python: menu_selected and 'menuin' or 'menuout'">
-          <li tal:attributes="class menuclass">
-            <a tal:attributes="href menu_url"
-               i18n:translate="" tal:content="structure menu_title" />
+        define="item_url python: menuentry['url']; 
+                item_selected python: menuentry['selected'];
+                item_title python: menuentry['title'];
+                itemclass python: item_selected and 'selected' or None">
+          <li tal:attributes="class itemclass">
+            <a tal:attributes="href item_url"
+               i18n:translate="" tal:content="structure item_title" />
           </li>
         </tal:block>
       </tal:block>
       <tal:block condition="not:i18n" repeat="menuentry menuentries">
         <tal:block
-        define="menu_url python: menuentry['url']; 
-                menu_selected python: menuentry['selected'];
-                menu_title python: menuentry['title'];
-                menuclass python: menu_selected and 'menuin' or 'menuout'">
-          <li tal:attributes="class menuclass">
-            <a tal:attributes="href menu_url"
-               tal:content="structure menu_title" />
+        define="item_url python: menuentry['url']; 
+                item_selected python: menuentry['selected'];
+                item_title python: menuentry['title'];
+                itemclass python: item_selected and 'selected' or None">
+          <li tal:attributes="class itemclass">
+            <a tal:attributes="href item_url"
+               tal:content="structure item_title" />
           </li>
         </tal:block>
       </tal:block>
-      <tal:block define="url create_url|nothing" tal:condition="url">
+      <tal:block define="show_add_items here/show_add_items;
+                         url create_url|nothing" 
+                 condition="python: url and show_add_items">
         <li>
-          <a class="addmenu" tal:attributes="href url">
-             &nbsp;+&nbsp;
-          </a>
+          <a tal:attributes="href url"
+           tal:content="structure string:&nbsp;+&nbsp;" />
         </li>
       </tal:block>
     </ul>
-    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
+
  <tal:block condition="python: content == 'actions'">
   <tal:block
   define="wtool here/portal_workflow; 
@@ -65,7 +66,7 @@ tal:define="context_obj nocall:options/context_obj;
          </tal:block>
       </tal:block>
     </ul>
-    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
 </div>
+<br style="clear:left" />
