@@ -78,3 +78,25 @@ RAM cache:
   and the complexity of the portlet (typically 0.01s) which highly increases
   CPU availability.
 
+
+Management screens:
+
+- Global portlets are managed directly in CPSSkins like any other Templet
+  using the WYSIWYG editor (drag-and-drop, contextual menus, style
+  management, etc.).
+  An extra tab called 'Portlet' is displayed in the Templet's edit form.
+
+- Local portlets are managed in a portlet management screen similar to CPS3's
+  box management form with support for drag-and-drop, contextual menus, etc. 
+  This screen is available outside the theme editor to users who may manage
+  portlets in their home folder or inside group folders, etc.
+  It is kept separate from the box management screen of CPS3 and existing boxes
+  will coexist with portlets by sharing the same slots if necessary to allow 
+  for a smooth transition from CPS3 boxes to CPS portlets.
+
+
+Slot names.
+
+- Slot names are no longer predetermined. New names can be added arbitrarily
+  but existing CPS3 boxes can only be displayed inside the standard slots 
+  ('left', 'right', 'top', ...)
