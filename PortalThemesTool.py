@@ -1269,12 +1269,23 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if REQUEST is not None:
             form.update(REQUEST.form)
 
+        err = ''
         for k, v in form.items():
             if k.startswith('update_'):
                 index = int(k[len('update_'):])
                 meth = form['method_%s' % index].strip()
-                theme_page = form['theme_%s' % index].strip()
+                theme = form['theme_%s' % index].strip()
+                theme_container = self.getThemeContainer(theme=theme)
+                if theme_container.getId() != theme:
+                    err = "WARNING: Theme '%s' not found" % theme
+                    continue
                 page = form['page_%s' % index].strip()
+                page_container = theme_container.getPageContainer(page=page)
+                if page_container is None and page != '':
+                    err = "WARNING: Page '%s' not found in the '%s' theme" \
+                          % (page, theme)
+                    page = ''
+                theme_page = theme
                 if page:
                     theme_page += '+' + page
                 self.method_themes[meth] = theme_page
@@ -1285,7 +1296,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 del self.method_themes[meth]
 
         if REQUEST is not None:
-            return self.manage_methodThemes(manage_tabs_message='Settings updated')
+            return self.manage_methodThemes(
+                manage_tabs_message='Settings updated. %s' % err)
 
     security.declareProtected(ManageThemes, 'hasExternalEditor')
     def hasExternalEditor(self):
