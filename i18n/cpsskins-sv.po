@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CPSSkins 2.2\n"
+"Project-Id-Version: Default messages\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2004-07-28 00:41+0100\n"
+"PO-Revision-Date: 2004-01-08 02:00+CET\n"
 "Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
 "Language-Team: sv <>\n"
 "MIME-Version: 1.0\n"
@@ -16,51 +16,51 @@ msgstr ""
 "X-Is-Fallback-For: sv-fi\n"
 
 msgid "_(default style)_"
-msgstr ""
+msgstr "(default style)"
 
 
 msgid "_A active_"
-msgstr ""
+msgstr "Färg aktiv länk"
 
 
 msgid "_A hover_"
-msgstr ""
+msgstr "Färg svävande länk"
 
 
 msgid "_A link_"
-msgstr ""
+msgstr "Länkfärg"
 
 
 msgid "_A visited_"
-msgstr ""
+msgstr "Färg besökt länk"
 
 
 msgid "_A_active_decoration_"
-msgstr ""
+msgstr "Dekoration aktiv länk"
 
 
 msgid "_A_hover_decoration_"
-msgstr ""
+msgstr "Dekoration svävande länk"
 
 
 msgid "_A_link_decoration_"
-msgstr ""
+msgstr "Dekoration länk"
 
 
 msgid "_A_visited_decoration_"
-msgstr ""
+msgstr "Dekoration besökt länk"
 
 
 msgid "_Action Box Templet_"
-msgstr ""
+msgstr "Kommando box"
 
 
 msgid "_Action box_"
-msgstr ""
+msgstr "Handlingsruta"
 
 
 msgid "_Action categories_"
-msgstr ""
+msgstr "Handlingskategorier"
 
 
 msgid "_Add a column_"
@@ -68,35 +68,35 @@ msgstr "Lägg till en kolumn"
 
 
 msgid "_Add a theme_"
-msgstr ""
+msgstr "Lägg till ett tema "
 
 
 msgid "_Add an image_"
-msgstr "Lägga till en bild"
+msgstr "Lägg till en bild"
 
 
 msgid "_Add content_"
-msgstr ""
+msgstr "Lägg till innehåll"
 
 
 msgid "_Add_a_new_Templet_"
-msgstr ""
+msgstr "Lägg till en ny Templet"
 
 
 msgid "_Add_a_new_palette_entry_"
-msgstr ""
+msgstr "Lägg till ny palett post"
 
 
 msgid "_Add_a_new_style_"
-msgstr ""
+msgstr "Lägg till ny stil "
 
 
 msgid "_Add_a_portlet_"
-msgstr ""
+msgstr "Lägg till en portlet"
 
 
 msgid "_Align_"
-msgstr ""
+msgstr "Justera"
 
 
 msgid "_Appearance_"
@@ -108,63 +108,63 @@ msgstr "April"
 
 
 msgid "_Area Color_"
-msgstr ""
+msgstr "Färg yta"
 
 
 msgid "_Area Shape_"
-msgstr ""
+msgstr "Form på yta"
 
 
 msgid "_Area active background color_"
-msgstr ""
+msgstr "Aktiv bakgrundsfärg"
 
 
 msgid "_Area active border color_"
-msgstr ""
+msgstr "Aktiv ramfärg"
 
 
 msgid "_Area background color_"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 
 msgid "_Area background image_"
-msgstr ""
+msgstr "Bakgrundsbild"
 
 
 msgid "_Area background position_"
-msgstr ""
+msgstr "Bildposition"
 
 
 msgid "_Area background repeat_"
-msgstr ""
+msgstr "Repetera bilden"
 
 
 msgid "_Area border color_"
-msgstr ""
+msgstr "Ramfärg"
 
 
 msgid "_Area border style_"
-msgstr ""
+msgstr "Ramformat"
 
 
 msgid "_Area border width_"
-msgstr ""
+msgstr "Ramtjocklek"
 
 
 msgid "_Area color_"
-msgstr ""
+msgstr "Färg yta"
 
 
 msgid "_Area font color_"
-msgstr ""
+msgstr "Färg font "
 
 
 msgid "_Area shape_"
-msgstr ""
+msgstr "Form på yta"
 
 
 msgid "_Area text transform_"
-msgstr ""
+msgstr "Texttransformation"
 
 
 msgid "_August_"
@@ -172,199 +172,199 @@ msgstr "Augusti"
 
 
 msgid "_Author_"
-msgstr "Upphovsman"
+msgstr "Författare"
 
 
 msgid "_Background image_"
-msgstr ""
+msgstr "Bakgrundsbild"
 
 
 msgid "_Base path_"
-msgstr ""
+msgstr "Rotmapp"
 
 
 msgid "_Border style_"
-msgstr ""
+msgstr "Ramstil "
 
 
 msgid "_Bottom border color_"
-msgstr ""
+msgstr "ramfärg (nedre kant)"
 
 
 msgid "_Bottom left image_"
-msgstr ""
+msgstr "bakgrundsbild (sydvästra hörn)"
 
 
 msgid "_Bottom right image_"
-msgstr ""
+msgstr "bakgrundsbild (sydöstra hörn)"
 
 
 msgid "_Box Corners_"
-msgstr ""
+msgstr "Runda hörn"
 
 
 msgid "_Box color_"
-msgstr ""
+msgstr "Färg portalruta"
 
 
 msgid "_Box corners_"
-msgstr ""
+msgstr "Runda hörn"
 
 
 msgid "_Box layout_"
-msgstr ""
+msgstr "Layout portalruta"
 
 
 msgid "_Box orientation_"
-msgstr ""
+msgstr "Orientering portalruta"
 
 
 msgid "_Box shape_"
-msgstr ""
+msgstr "Form portalruta"
 
 
 msgid "_BoxBody background color_"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 
 msgid "_BoxBody background image_"
-msgstr ""
+msgstr "Bakgrundsbild"
 
 
 msgid "_BoxBody border color_"
-msgstr ""
+msgstr "Ramfärg"
 
 
 msgid "_BoxBody border style_"
-msgstr ""
+msgstr "Ramformat"
 
 
 msgid "_BoxBody border width_"
-msgstr ""
+msgstr "Ramtjocklek"
 
 
 msgid "_BoxBody menuin border color_"
-msgstr ""
+msgstr "Ramfärg"
 
 
 msgid "_BoxBody menuin border style_"
-msgstr ""
+msgstr "Ramformat"
 
 
 msgid "_BoxBody menuin border width_"
-msgstr ""
+msgstr "Ramtjocklek"
 
 
 msgid "_BoxBody menuin color_"
-msgstr ""
+msgstr "Färg"
 
 
 msgid "_BoxBody menuin icon_"
-msgstr ""
+msgstr "Ikon"
 
 
 msgid "_BoxBody menuin margin_"
-msgstr ""
+msgstr "Marginal"
 
 
 msgid "_BoxBody menuin padding_"
-msgstr ""
+msgstr "Fyllning"
 
 
 msgid "_BoxBody menuout border color_"
-msgstr ""
+msgstr "Ramfärg"
 
 
 msgid "_BoxBody menuout border style_"
-msgstr ""
+msgstr "Ramformat"
 
 
 msgid "_BoxBody menuout border width_"
-msgstr ""
+msgstr "Ramtjocklek"
 
 
 msgid "_BoxBody menuout color_"
-msgstr ""
+msgstr "Färg"
 
 
 msgid "_BoxBody menuout icon_"
-msgstr ""
+msgstr "Ikon"
 
 
 msgid "_BoxBody menuout margin_"
-msgstr ""
+msgstr "Marginal"
 
 
 msgid "_BoxBody menuout padding_"
-msgstr ""
+msgstr "Fyllning"
 
 
 msgid "_BoxBody padding_"
-msgstr ""
+msgstr "Fyllning"
 
 
 msgid "_BoxBody text align_"
-msgstr ""
+msgstr "Textjustering"
 
 
 msgid "_BoxTitle background color_"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 
 msgid "_BoxTitle background image_"
-msgstr ""
+msgstr "Bakgrundsbild"
 
 
 msgid "_BoxTitle border color_"
-msgstr ""
+msgstr "Ramfärg"
 
 
 msgid "_BoxTitle border style_"
-msgstr ""
+msgstr "Ramformat"
 
 
 msgid "_BoxTitle border width_"
-msgstr ""
+msgstr "Ramtjocklek"
 
 
 msgid "_BoxTitle display_"
-msgstr ""
+msgstr "Visa"
 
 
 msgid "_BoxTitle font color_"
-msgstr ""
+msgstr "Färg font"
 
 
 msgid "_BoxTitle font_"
-msgstr ""
+msgstr "Font"
 
 
 msgid "_BoxTitle padding_"
-msgstr ""
+msgstr "Fyllning"
 
 
 msgid "_BoxTitle text align_"
-msgstr ""
+msgstr "Textjustering"
 
 
 msgid "_Breadcrumbs Templet_"
-msgstr ""
+msgstr "Templet brödsmulor"
 
 
 msgid "_Breadcrumbs_"
-msgstr ""
+msgstr "Brödsmulor"
 
 
 msgid "_Broken Templet!_"
-msgstr ""
+msgstr "Trasig Templet!"
 
 
 msgid "_Cache effectivity_"
-msgstr ""
+msgstr "Effektivitet"
 
 
 msgid "_Cache lifetime_"
-msgstr ""
+msgstr "Livslängd"
 
 
 msgid "_Cache manager_"
@@ -372,67 +372,72 @@ msgstr "Cache-hantering"
 
 
 msgid "_Cache parameters updated_"
-msgstr ""
+msgstr "Cache-parametrar uppdaterade"
 
 
 msgid "_Cacheable in RAM_"
-msgstr ""
+msgstr "Cachas i minne?"
 
 
 msgid "_Cacheable?_"
-msgstr "Cachad?"
+msgstr "Cachas i minne?"
 
 
 msgid "_Caching_"
-msgstr ""
+msgstr "Cachning"
 
 
 msgid "_Calendar Style_"
-msgstr ""
+msgstr "Kalenderformat"
 
 
 msgid "_Calendar Templet_"
-msgstr ""
+msgstr "Kalender"
 
 
 msgid "_Calendar_"
-msgstr ""
+msgstr "Kalender"
 
 
 msgid "_Cell Block_"
-msgstr ""
+msgstr "Cellblock"
 
 
+# , fuzzy
 msgid "_Cell Hider_"
-msgstr ""
+msgstr "Cell Hider"
 
 
+# , fuzzy
 msgid "_Cell Sizer_"
-msgstr ""
+msgstr "Cell Sizer"
 
 
 msgid "_Cell Styler_"
-msgstr ""
+msgstr "Cellformatterare"
 
 
 msgid "_Cell width_"
-msgstr ""
+msgstr "Cellbredd"
 
 
 msgid "_Cellblock margin_"
-msgstr ""
+msgstr "Marginal"
 
 
+# , fuzzy
 msgid "_Collapsible Menu Style_"
-msgstr ""
+msgstr "Fällbar meny format"
 
 
+# , fuzzy
 msgid "_Collapsible Menu Templet_"
-msgstr ""
+msgstr "Fällbar meny"
 
 
+# , fuzzy
 msgid "_Collapsible menu_"
-msgstr ""
+msgstr "Fällbar meny "
 
 
 msgid "_Color_"
@@ -440,7 +445,7 @@ msgstr "Färg"
 
 
 msgid "_Columns_"
-msgstr ""
+msgstr "Kolumner"
 
 
 msgid "_Content_"
@@ -448,19 +453,19 @@ msgstr "Innehåll"
 
 
 msgid "_Copy_"
-msgstr ""
+msgstr "Kopiera"
 
 
 msgid "_Copyright_"
-msgstr "Upphovsrätt"
+msgstr "Copyright"
 
 
 msgid "_Create a copy_"
-msgstr ""
+msgstr "Skapa kopia"
 
 
 msgid "_Created by:_"
-msgstr "Skapat av:"
+msgstr "Skapad av:"
 
 
 msgid "_Creator_"
@@ -468,19 +473,19 @@ msgstr ""
 
 
 msgid "_Custom action categories_"
-msgstr ""
+msgstr "Särkilda kommando kategorier"
 
 
 msgid "_Cut_"
-msgstr ""
+msgstr "Klipp ut"
 
 
 msgid "_Days background color_"
-msgstr ""
+msgstr "Bakgrundsfärg dagar"
 
 
 msgid "_Days font color_"
-msgstr ""
+msgstr "Fontfärg dagar"
 
 
 msgid "_December_"
@@ -488,83 +493,85 @@ msgstr "December"
 
 
 msgid "_Default page_"
-msgstr ""
+msgstr "Standardsida"
 
 
 msgid "_Default theme_"
-msgstr ""
+msgstr "Standardtema"
 
 
 msgid "_Default_font_"
-msgstr ""
+msgstr "Standardfont"
 
 
 msgid "_Delete Templet?_"
-msgstr ""
+msgstr "Ta bort Templet?"
 
 
 msgid "_Delete style?_"
-msgstr ""
+msgstr "Ta bort format?"
 
 
 msgid "_Delete theme?_"
-msgstr ""
+msgstr "Ta bort tema?"
 
 
 msgid "_Delete_"
-msgstr "Ta bort"
+msgstr "Ta bort "
 
 
 msgid "_Deleting this image, are you sure?_"
-msgstr ""
+msgstr "Ta bort denna bild, är du säker?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
-msgstr ""
+msgstr "Ta bort denna palett post, är du säker?"
 
 
 msgid "_Deleting this style, are you sure?_"
-msgstr ""
+msgstr "Ta bort detta format, är du säker?"
 
 
+# , fuzzy
 msgid "_Depth level_"
-msgstr ""
+msgstr "*Relative depth level"
 
 
 msgid "_Description_"
-msgstr ""
+msgstr "Beskrivning"
 
 
+# , fuzzy
 msgid "_Destination_slot_"
-msgstr ""
+msgstr "*Destinations slot"
 
 
 msgid "_Display a contextual icon_"
-msgstr ""
+msgstr "Visa en kontextuell ikon"
 
 
 msgid "_Display hidden folders_"
-msgstr ""
+msgstr "Visa dolda mappar"
 
 
 msgid "_Display title in text mode_"
-msgstr "Visa titeln också i textmod"
+msgstr "Visa titel i textläge "
 
 
 msgid "_Document Info Templet_"
-msgstr ""
+msgstr "Dokumentinformations Templet"
 
 
 msgid "_Document info_"
-msgstr ""
+msgstr "Dokumentinformation"
 
 
 msgid "_ESI fragment_"
-msgstr ""
+msgstr "ESI fragment (Edge Sides Includes)"
 
 
 msgid "_ESI_"
-msgstr ""
+msgstr "ESI"
 
 
 msgid "_Edit images_"
@@ -572,27 +579,27 @@ msgstr "Redigera bilder"
 
 
 msgid "_Edit palettes_"
-msgstr ""
+msgstr "Redigera paletter"
 
 
 msgid "_Edit styles_"
-msgstr "Redigera stiler"
+msgstr "Redigera format "
 
 
 msgid "_Edit the current style_"
-msgstr ""
+msgstr "Redigera aktuellt format "
 
 
 msgid "_Edit the page_"
-msgstr ""
+msgstr "Redigera sidan "
 
 
 msgid "_Edit the theme_"
-msgstr ""
+msgstr "Redigera temat"
 
 
 msgid "_Edit this page block_"
-msgstr ""
+msgstr "Redigera detta sidblock"
 
 
 msgid "_Edit_"
@@ -600,27 +607,27 @@ msgstr "Redigera"
 
 
 msgid "_Elements_"
-msgstr ""
+msgstr "Element"
 
 
 msgid "_Enable ESI_"
-msgstr ""
+msgstr "Aktivera ESI (Edge Side Includes)"
 
 
 msgid "_End string_"
-msgstr ""
+msgstr "Slutsträng"
 
 
 msgid "_Event background color_"
-msgstr ""
+msgstr "Bakgrundsfärg händelse"
 
 
 msgid "_Event border color_"
-msgstr ""
+msgstr "Ramfärg händelse"
 
 
 msgid "_Event font color_"
-msgstr ""
+msgstr "Fontfärg händelse"
 
 
 msgid "_Exit_"
@@ -628,43 +635,43 @@ msgstr "Avsluta"
 
 
 msgid "_February_"
-msgstr ""
+msgstr "Februari"
 
 
 msgid "_Flash Box Templet_"
-msgstr ""
+msgstr "Flash-ruta Templet"
 
 
 msgid "_Flash box_"
-msgstr ""
+msgstr "Flash-ruta"
 
 
 msgid "_Flash caption_"
-msgstr ""
+msgstr "Flash-rubrik"
 
 
 msgid "_Flash movie height_"
-msgstr ""
+msgstr "Flash-film höjd"
 
 
 msgid "_Flash movie width_"
-msgstr ""
+msgstr "Flash-film bredd"
 
 
 msgid "_Font Color_"
-msgstr ""
+msgstr "Fontfärg "
 
 
 msgid "_Font Shape_"
-msgstr ""
+msgstr "Fontform "
 
 
 msgid "_Font color_"
-msgstr "Font color"
+msgstr "Fontfärg "
 
 
 msgid "_Font shape_"
-msgstr ""
+msgstr "Fontform"
 
 
 msgid "_Forgot your password?_"
@@ -672,19 +679,19 @@ msgstr "Glömt ditt lösenord?"
 
 
 msgid "_Form Style_"
-msgstr ""
+msgstr "Formulärformat"
 
 
 msgid "_Form padding_"
-msgstr ""
+msgstr "Formulärruta fyllning"
 
 
 msgid "_Form style_"
-msgstr ""
+msgstr "Formulärformat"
 
 
 msgid "_Form_"
-msgstr ""
+msgstr "Formulär"
 
 
 msgid "_Fr_"
@@ -692,7 +699,7 @@ msgstr "Fr"
 
 
 msgid "_Guest_"
-msgstr ""
+msgstr "Gäst"
 
 
 msgid "_H1_"
@@ -700,35 +707,35 @@ msgstr "H1"
 
 
 msgid "_H1_bg_color_"
-msgstr ""
+msgstr "H1 bakgrundsfärg"
 
 
 msgid "_H1_border_color_"
-msgstr ""
+msgstr "H1 ramfärg"
 
 
 msgid "_H1_border_style_"
-msgstr ""
+msgstr "H1 ramformat"
 
 
 msgid "_H1_border_width_"
-msgstr ""
+msgstr "H1 ramtjocklek"
 
 
 msgid "_H1_font_"
-msgstr ""
+msgstr "H1 font"
 
 
 msgid "_H1_font_color_"
-msgstr ""
+msgstr "H1 fontfärg"
 
 
 msgid "_H1_margin_"
-msgstr ""
+msgstr "H1 marginal"
 
 
 msgid "_H1_padding_"
-msgstr ""
+msgstr "H1 fyllning"
 
 
 msgid "_H2_"
@@ -736,35 +743,35 @@ msgstr "H2"
 
 
 msgid "_H2_bg_color_"
-msgstr ""
+msgstr "H2 bakgrundsfärg"
 
 
 msgid "_H2_border_color_"
-msgstr ""
+msgstr "H2 ramfärg"
 
 
 msgid "_H2_border_style_"
-msgstr ""
+msgstr "H2 ramformat"
 
 
 msgid "_H2_border_width_"
-msgstr ""
+msgstr "H2 ramtjocklek"
 
 
 msgid "_H2_font_"
-msgstr ""
+msgstr "H2 font"
 
 
 msgid "_H2_font_color_"
-msgstr ""
+msgstr "H2 fontfärg"
 
 
 msgid "_H2_margin_"
-msgstr ""
+msgstr "H2 marginal"
 
 
 msgid "_H2_padding_"
-msgstr ""
+msgstr "H2 fylllning"
 
 
 msgid "_H3_"
@@ -772,35 +779,35 @@ msgstr "H3"
 
 
 msgid "_H3_bg_color_"
-msgstr ""
+msgstr "H3 bakgrundsfärg"
 
 
 msgid "_H3_border_color_"
-msgstr ""
+msgstr "H3 ramfärg"
 
 
 msgid "_H3_border_style_"
-msgstr ""
+msgstr "H3 ramformat"
 
 
 msgid "_H3_border_width_"
-msgstr ""
+msgstr "H3 ramtjocklek"
 
 
 msgid "_H3_font_"
-msgstr ""
+msgstr "H3 font"
 
 
 msgid "_H3_font_color_"
-msgstr ""
+msgstr "H3 fontfärg"
 
 
 msgid "_H3_margin_"
-msgstr ""
+msgstr "H3 marginal"
 
 
 msgid "_H3_padding_"
-msgstr ""
+msgstr "H3 fyllning"
 
 
 msgid "_H456_"
@@ -808,43 +815,43 @@ msgstr "H4, H5, H6"
 
 
 msgid "_H456_bg_color_"
-msgstr ""
+msgstr "H3, H4, H5 bakgrundsfärg"
 
 
 msgid "_H456_border_color_"
-msgstr ""
+msgstr "H4, H5, H6 ramfärg "
 
 
 msgid "_H456_border_style_"
-msgstr ""
+msgstr "H4, H5, H6 ramformat"
 
 
 msgid "_H456_border_width_"
-msgstr ""
+msgstr "H4, H5, H6 ramtjocklek"
 
 
 msgid "_H456_font_"
-msgstr ""
+msgstr "H4, H5, H6 font"
 
 
 msgid "_H456_font_color_"
-msgstr ""
+msgstr "H4, H5, H6 fontfärg "
 
 
 msgid "_H456_margin_"
-msgstr ""
+msgstr "H4, H5, H6 marginal"
 
 
 msgid "_H456_padding_"
-msgstr ""
+msgstr "H4, H5, H6 fyllning"
 
 
 msgid "_Header background color_"
-msgstr ""
+msgstr "Bakgrundsfärg rubrik"
 
 
 msgid "_Header font color_"
-msgstr ""
+msgstr "Fontfärg rubrik"
 
 
 msgid "_Height_"
@@ -852,55 +859,55 @@ msgstr "Höjd"
 
 
 msgid "_Hidden in text mode_"
-msgstr "Osynlig i textmod"
+msgstr "Dold i textläge "
 
 
 msgid "_Hide current language_"
-msgstr ""
+msgstr "Dölj aktuellt språk"
 
 
 msgid "_Hide this cell_"
-msgstr ""
+msgstr "Dölj denna cell"
 
 
 msgid "_Hide title_"
-msgstr "Göm titeln"
+msgstr "Dölj titel "
 
 
 msgid "_Hide_overriden_portlets_"
-msgstr ""
+msgstr "Dölj åsidosatta Portlets"
 
 
 msgid "_Hierarchy base_"
-msgstr ""
+msgstr "Rotmapp"
 
 
 msgid "_Horizontal alignment_"
-msgstr ""
+msgstr "Horisontell justering"
 
 
 msgid "_Horizontal margin_"
-msgstr ""
+msgstr "Horisontell marginal"
 
 
 msgid "_Horizontal padding_"
-msgstr ""
+msgstr "Horisontell fyllning"
 
 
 msgid "_Icon size_"
-msgstr ""
+msgstr "Ikonstorlek"
 
 
 msgid "_Image Box Templet_"
-msgstr ""
+msgstr "Templet bildruta"
 
 
 msgid "_Image box_"
-msgstr ""
+msgstr "Bildruta"
 
 
 msgid "_Image caption_"
-msgstr ""
+msgstr "Bildrubrik"
 
 
 msgid "_Images_"
@@ -908,7 +915,7 @@ msgstr "Bilder"
 
 
 msgid "_Import a theme_"
-msgstr ""
+msgstr "Importera ett tema"
 
 
 msgid "_Info text_"
@@ -916,19 +923,19 @@ msgstr "Informationstext"
 
 
 msgid "_Insert a Templet here_"
-msgstr ""
+msgstr "Sätt in en Templet här"
 
 
 msgid "_Insert a page block_"
-msgstr "I"
+msgstr "Sätt in ett sidblock "
 
 
 msgid "_Internal link_"
-msgstr "Intern länk"
+msgstr "Interna länkar"
 
 
 msgid "_Invisible actions_"
-msgstr "Osynliga kommandon"
+msgstr "Osynliga kommando-ID"
 
 
 msgid "_January_"
@@ -944,15 +951,15 @@ msgstr "Juni"
 
 
 msgid "_KB_"
-msgstr "KB"
+msgstr "KBytes"
 
 
 msgid "_Language Templet_"
-msgstr ""
+msgstr "Språk Templet"
 
 
 msgid "_Language selector_"
-msgstr ""
+msgstr "Språkväljare"
 
 
 msgid "_Last modified:_"
@@ -960,7 +967,7 @@ msgstr "Senast ändrad:"
 
 
 msgid "_Left-side image_"
-msgstr ""
+msgstr "Vänsterställd bild"
 
 
 msgid "_License_"
@@ -971,12 +978,14 @@ msgid "_Link (http://, mailto: ...)_"
 msgstr "Länk (http://, mailto: ...)"
 
 
+# , fuzzy
 msgid "_List orientation_"
-msgstr ""
+msgstr "*List orientation"
 
 
+# , fuzzy
 msgid "_Location_"
-msgstr ""
+msgstr "*Location"
 
 
 msgid "_Log in_"
@@ -984,19 +993,19 @@ msgstr "Logga in"
 
 
 msgid "_Macroless_"
-msgstr ""
+msgstr "Utan macros"
 
 
 msgid "_Main Content Templet_"
-msgstr ""
+msgstr "Templet huvudinnehåll"
 
 
 msgid "_Main content_"
-msgstr ""
+msgstr "Huvudinnehåll "
 
 
 msgid "_Manage_"
-msgstr ""
+msgstr "Hantera"
 
 
 msgid "_March_"
@@ -1004,11 +1013,11 @@ msgstr "Mars"
 
 
 msgid "_Margin_"
-msgstr ""
+msgstr "Marginal"
 
 
 msgid "_Maximum number of items_"
-msgstr ""
+msgstr "Maximalt antal poster "
 
 
 msgid "_May_"
@@ -1016,23 +1025,23 @@ msgstr "Maj"
 
 
 msgid "_Memory usage_"
-msgstr ""
+msgstr "Minnesanvändning"
 
 
 msgid "_Menu entry_"
-msgstr ""
+msgstr "Menypost"
 
 
 msgid "_Menu title_"
-msgstr ""
+msgstr "Menytitel "
 
 
 msgid "_Merge this style?_"
-msgstr ""
+msgstr "Slå samman?"
 
 
 msgid "_Minimize / Maximize_"
-msgstr ""
+msgstr "Minimera / Maximera"
 
 
 msgid "_Mo_"
@@ -1040,7 +1049,7 @@ msgstr "Må"
 
 
 msgid "_Month_"
-msgstr ""
+msgstr "Månad"
 
 
 msgid "_More ..._"
@@ -1060,27 +1069,27 @@ msgstr "Flytta till höger"
 
 
 msgid "_Move this cell to the left_"
-msgstr ""
+msgstr "Flytta denna cell till vänster"
 
 
 msgid "_Move this cell to the right_"
-msgstr ""
+msgstr "Flytta denna cell till höger"
 
 
 msgid "_Move up_"
-msgstr "Flytta upp"
+msgstr "Flytta upp "
 
 
 msgid "_No items published since your last log-in_"
-msgstr "Ingenting har publicerats sedan din senaste inloggning"
+msgstr "Inga poster publicerade sedan senaste inloggning"
 
 
 msgid "_No preview_"
-msgstr ""
+msgstr "Ingen förhandsvisning"
 
 
 msgid "_Not available in layout mode_"
-msgstr ""
+msgstr "Ej tillgänglig i layoutläge"
 
 
 msgid "_November_"
@@ -1096,59 +1105,59 @@ msgstr "Oktober"
 
 
 msgid "_Only select items that are supposed to get translated:_"
-msgstr ""
+msgstr "Välj endast poster som ska översättas:"
 
 
 msgid "_Other categories_"
-msgstr ""
+msgstr "Övriga kategorier "
 
 
 msgid "_Other images_"
-msgstr "Andra bilder"
+msgstr "Övriga bilder"
 
 
 msgid "_Other palettes_"
-msgstr "Andra paletter"
+msgstr "Övriga paletter "
 
 
 msgid "_Other portlets_"
-msgstr ""
+msgstr "Övriga portlets"
 
 
 msgid "_Other styles_"
-msgstr "Andra stiler"
+msgstr "Övriga format "
 
 
 msgid "_Other themes_"
-msgstr ""
+msgstr "Övriga teman "
 
 
 msgid "_P_font_"
-msgstr ""
+msgstr "Styckets font"
 
 
 msgid "_P_padding_"
-msgstr ""
+msgstr "Styckefyllnad "
 
 
 msgid "_Page Block_"
-msgstr ""
+msgstr "Sidblock"
 
 
 msgid "_Page renderer_"
-msgstr ""
+msgstr "Sido-renderare "
 
 
 msgid "_Palette Border_"
-msgstr ""
+msgstr "Ramar "
 
 
 msgid "_Palette Color_"
-msgstr ""
+msgstr "Färger"
 
 
 msgid "_Palettes_"
-msgstr ""
+msgstr "Paletter"
 
 
 msgid "_Password_"
@@ -1156,115 +1165,116 @@ msgstr "Lösenord"
 
 
 msgid "_Paste_"
-msgstr ""
+msgstr "Klistra in"
 
 
 msgid "_Portal Box Color_"
-msgstr ""
+msgstr "Rutfärg"
 
 
 msgid "_Portal Box Group Templet_"
-msgstr ""
+msgstr "Slot"
 
 
 msgid "_Portal Box Shape_"
-msgstr ""
+msgstr "Rutform"
 
 
 msgid "_Portal Box Templet_"
-msgstr ""
+msgstr "Box"
 
 
 msgid "_Portal Tab Style_"
-msgstr ""
+msgstr "Tabbar (format)"
 
 
 msgid "_Portal Tab Templet_"
-msgstr ""
+msgstr "Tabbar"
 
 
 msgid "_Portal Tab_"
-msgstr ""
+msgstr "Tabb"
 
 
 msgid "_Portal Theme_"
-msgstr ""
+msgstr "Mall"
 
 
 msgid "_Portal box color_"
-msgstr ""
+msgstr "Rutfärg"
 
 
 msgid "_Portal box content_"
-msgstr ""
+msgstr "Rut"
 
 
 msgid "_Portal box group_"
-msgstr ""
+msgstr "Slot"
 
 
 msgid "_Portal box shape_"
-msgstr ""
+msgstr "Rutfärg"
 
 
+# , fuzzy
 msgid "_Portal box title source_"
-msgstr ""
+msgstr "*Portal box title source"
 
 
 msgid "_Portal box_"
-msgstr ""
+msgstr "Box"
 
 
 msgid "_Portlet Box Templet_"
-msgstr ""
+msgstr "Box"
 
 
 msgid "_Portlet type_"
-msgstr ""
+msgstr "Portlet-typ"
 
 
 msgid "_Portlet_"
-msgstr ""
+msgstr "Portlet"
 
 
 msgid "_Preview background color_"
-msgstr ""
+msgstr "Bakgrundsfärg (popupruta)"
 
 
 msgid "_Preview border color_"
-msgstr ""
+msgstr "Ramfärg (popupruta)"
 
 
 msgid "_Preview font color_"
-msgstr ""
+msgstr "Fontfärg (popupruta)"
 
 
 msgid "_Preview_"
-msgstr ""
+msgstr "Popupruta"
 
 
 msgid "_Read more_"
-msgstr "Läs mer &gt;&gt;"
+msgstr "Läs mer"
 
 
 msgid "_Remove a column_"
-msgstr "Ta bort kolumnen"
+msgstr "Ta bort en kolumn"
 
 
 msgid "_Repeat string_"
-msgstr ""
+msgstr "Avskiljare"
 
 
 msgid "_Reveal_overriden_portlets_"
-msgstr ""
+msgstr "Visa åsidosatta Portlets"
 
 
 msgid "_Right-side image_"
-msgstr ""
+msgstr "Högerställd bild"
 
 
 msgid "_STRONG_font_"
-msgstr ""
+msgstr "STRONG typsnitt"
 
 
 msgid "_Sa_"
@@ -1272,27 +1282,27 @@ msgstr "Lö"
 
 
 msgid "_Search Box Templet_"
-msgstr ""
+msgstr "Sökruta"
 
 
 msgid "_Search box_"
-msgstr ""
+msgstr "Sökruta"
 
 
 msgid "_See the error log_"
-msgstr ""
+msgstr "Se fel-loggen"
 
 
 msgid "_Select a style_"
-msgstr ""
+msgstr "Välj ett format"
 
 
 msgid "_Select a theme to manage_"
-msgstr ""
+msgstr "Välj ett tema att hantera"
 
 
 msgid "_Selectable themes_"
-msgstr ""
+msgstr "Valbara teman "
 
 
 msgid "_September_"
@@ -1300,7 +1310,7 @@ msgstr "September"
 
 
 msgid "_Set the size of this cell_"
-msgstr ""
+msgstr "Sätt storlek på denna cell"
 
 
 msgid "_Shape_"
@@ -1308,15 +1318,15 @@ msgstr "Form"
 
 
 msgid "_Shortcut icon_"
-msgstr ""
+msgstr "Genvägsikon"
 
 
 msgid "_Show action icons_"
-msgstr ""
+msgstr "Visa handlingsikoner"
 
 
 msgid "_Show add items_"
-msgstr ""
+msgstr "Visa en knapp för att lägga till nya poster"
 
 
 msgid "_Show all categories_"
@@ -1324,51 +1334,51 @@ msgstr "Visa alla kategorier"
 
 
 msgid "_Show documents in folders_"
-msgstr "Visa dokumenten i mappen"
+msgstr "Visa dokument i mappar "
 
 
 msgid "_Show month_"
-msgstr ""
+msgstr "Visa månad"
 
 
 msgid "_Show preview_"
-msgstr ""
+msgstr "*Visa förhandsvisa"
 
 
 msgid "_Show weekdays_"
-msgstr ""
+msgstr "Visa veckodagar "
 
 
 msgid "_Show year_"
-msgstr ""
+msgstr "Visa år"
 
 
 msgid "_Simulate this URL ..._"
-msgstr ""
+msgstr "Simulera denna URL ..."
 
 
 msgid "_Slot name_"
-msgstr ""
+msgstr "Slot namn"
 
 
 msgid "_Some items can be pasted here_"
-msgstr ""
+msgstr "Vissa poster kan klistras in här"
 
 
 msgid "_Start string_"
-msgstr ""
+msgstr "Startsträng"
 
 
 msgid "_Style_"
-msgstr "Stil"
+msgstr "Format"
 
 
 msgid "_Styles_"
-msgstr "Stiler"
+msgstr "Format"
 
 
 msgid "_Stylize this cell_"
-msgstr ""
+msgstr "Formattera denna cell"
 
 
 msgid "_Su_"
@@ -1376,43 +1386,43 @@ msgstr "Sö"
 
 
 msgid "_Sub-menu background color_"
-msgstr ""
+msgstr "Bakgrundsfärg undermeny"
 
 
 msgid "_Sub-menu border color_"
-msgstr ""
+msgstr "Ramfärg undermeny"
 
 
 msgid "_Sub-menu border style_"
-msgstr ""
+msgstr "Ramformat undermeny"
 
 
 msgid "_Sub-menu font color_"
-msgstr ""
+msgstr "Fontfärg undermeny "
 
 
 msgid "_Sub-menu font_"
-msgstr ""
+msgstr "Font undermeny"
 
 
 msgid "_Sub-menu hover background color_"
-msgstr ""
+msgstr "Under-meny svävande bakgrundsfärg "
 
 
 msgid "_Sub-menu hover font color_"
-msgstr ""
+msgstr "Under-meny svävande font-färg"
 
 
 msgid "_Sub-menu items width_"
-msgstr ""
+msgstr "Bredd poster undermeny "
 
 
 msgid "_Tab style_"
-msgstr ""
+msgstr "Tabbformat"
 
 
 msgid "_Tab width_"
-msgstr ""
+msgstr "Tabb-bredd"
 
 
 msgid "_Tableless_"
@@ -1420,39 +1430,39 @@ msgstr ""
 
 
 msgid "_Templet color_"
-msgstr ""
+msgstr "Färg yta "
 
 
 msgid "_Templet height_"
-msgstr ""
+msgstr "Höjd"
 
 
 msgid "_Templet margin_"
-msgstr ""
+msgstr "Marginal"
 
 
 msgid "_Templet padding_"
-msgstr ""
+msgstr "Fyllning"
 
 
 msgid "_Templet shape_"
-msgstr ""
+msgstr "Form yta"
 
 
 msgid "_Templets_"
-msgstr ""
+msgstr "Templets"
 
 
 msgid "_Text Box Templet_"
-msgstr ""
+msgstr "Textrute Templet"
 
 
 msgid "_Text box_"
-msgstr ""
+msgstr "Textruta"
 
 
 msgid "_Text format_"
-msgstr ""
+msgstr "Textformat"
 
 
 msgid "_Th_"
@@ -1460,159 +1470,162 @@ msgstr "To"
 
 
 msgid "_The benchmark timer is not installed_"
-msgstr ""
+msgstr "Refernstimern är ej installerad"
 
 
 msgid "_The languages in which it is visible_"
-msgstr ""
+msgstr "Språken på vilka det är synligt"
 
 
+# , fuzzy
 msgid "_The visibility paths_"
-msgstr ""
+msgstr "*The visibility paths"
 
 
 msgid "_Theme Chooser Templet_"
-msgstr ""
+msgstr "Temaväljar Templet"
 
 
 msgid "_Theme Page_"
-msgstr ""
+msgstr "Temasida"
 
 
 msgid "_Theme chooser_"
-msgstr ""
+msgstr "Temaväljare"
 
 
 msgid "_Theme editor_"
-msgstr ""
+msgstr "Temaredigerare "
 
 
 msgid "_Theme export_"
-msgstr ""
+msgstr "Temaexport"
 
 
 msgid "_Theme name_"
-msgstr ""
+msgstr "Temanamn"
 
 
 msgid "_Theme optimizer_"
-msgstr ""
+msgstr "Temaoptimerare"
 
 
 msgid "_Theme renderer_"
-msgstr ""
+msgstr "Renderare tema "
 
 
 msgid "_Theme_"
-msgstr ""
+msgstr "Tema"
 
 
+# , fuzzy
 msgid "_Theme_rebuilt_"
-msgstr ""
+msgstr "*Theme rebuilt"
 
 
 msgid "_Themes manager_"
-msgstr ""
+msgstr "Tema hanterare"
 
 
 msgid "_These Templets are invisible and can be deleted:_"
-msgstr ""
+msgstr "Dessa Templets är osynliga och kan tas bort:"
 
 
 msgid "_These Templets could be cached in memory for faster rendering:_"
-msgstr ""
+msgstr "Dessa Templets kan lagras i minnet för snabbare rendering:"
 
 
 msgid "_These styles are identical and can be merged together:_"
-msgstr ""
+msgstr "Dessa format är identiska och kan sammanslås:"
 
 
 msgid "_These styles are not used and can be deleted:_"
-msgstr ""
+msgstr "Dessa format används ej och kan raderas:"
 
 
 msgid "_This style is already used by_"
-msgstr ""
+msgstr "Formatet används redan av "
 
 
 msgid "_This style will be used by default_"
-msgstr ""
+msgstr "Detta format kommer att användas som standard"
 
 
 msgid "_This theme is completely optimized_"
-msgstr ""
+msgstr "Detta tema är fullständigt optimerat"
 
 
 msgid "_Title_"
 msgstr "Titel"
 
 
+# , fuzzy
 msgid "_Today border color_"
-msgstr ""
+msgstr "*Today border color"
 
 
 msgid "_Top left image_"
-msgstr ""
+msgstr "Toppbild vänster"
 
 
 msgid "_Top menu background color_"
-msgstr ""
+msgstr "Bakgrundsfärg toppmeny"
 
 
 msgid "_Top menu border color_"
-msgstr ""
+msgstr "Ramfärg toppmeny"
 
 
 msgid "_Top menu border style_"
-msgstr ""
+msgstr "Ramformat toppmeny"
 
 
 msgid "_Top menu font color_"
-msgstr ""
+msgstr "Fontfärg toppmeny"
 
 
 msgid "_Top menu font_"
-msgstr ""
+msgstr "Font toppmeny "
 
 
 msgid "_Top menu hover background color_"
-msgstr ""
+msgstr "Topp-meny svävande bakgrundsfärg"
 
 
 msgid "_Top menu hover font color_"
-msgstr ""
+msgstr "Topp-meny svävande font-färg "
 
 
 msgid "_Top menu items width_"
-msgstr ""
+msgstr "Bredd på poster i toppmeny "
 
 
 msgid "_Top right image_"
-msgstr ""
+msgstr "Toppbild höger"
 
 
 msgid "_Translate folder items_"
-msgstr ""
+msgstr "Översätt mapp-poster"
 
 
 msgid "_Translate the box title_"
-msgstr ""
+msgstr "Översätt rut-titel "
 
 
 msgid "_Translate the breadcrumbs_"
-msgstr ""
+msgstr "Översätt brödsmulor"
 
 
 msgid "_Translate the image_"
-msgstr ""
+msgstr "Översätt bilden"
 
 
 msgid "_Translate the text_"
-msgstr ""
+msgstr "Översätt texten"
 
 
 msgid "_Translations_"
-msgstr ""
+msgstr "Översättningar"
 
 
 msgid "_Tu_"
@@ -1620,31 +1633,31 @@ msgstr "Ti"
 
 
 msgid "_Use internal link?_"
-msgstr "Använd en intern länk?"
+msgstr "Använd intern länk?"
 
 
 msgid "_Use the cache?_"
-msgstr ""
+msgstr "Använd cachen?"
 
 
 msgid "_Use this as the default style_"
-msgstr ""
+msgstr "Använd detta som standardformat"
 
 
 msgid "_Username_"
-msgstr ""
+msgstr "Namn"
 
 
 msgid "_Value_"
-msgstr ""
+msgstr "Värde"
 
 
 msgid "_Vertical padding_"
-msgstr ""
+msgstr "Vertikal fyllning"
 
 
 msgid "_Visibility criteria_"
-msgstr "Visibility criteria"
+msgstr "Synlighetskriterier"
 
 
 msgid "_We_"
@@ -1652,39 +1665,39 @@ msgstr "On"
 
 
 msgid "_Weekdays background color_"
-msgstr ""
+msgstr "Bakgrundsfärg veckodagar"
 
 
 msgid "_Weekdays border color_"
-msgstr ""
+msgstr "Ramfärg veckodagar"
 
 
 msgid "_Weekdays font color_"
-msgstr ""
+msgstr "Fontfärg veckodagar"
 
 
 msgid "_Width_"
-msgstr "Bredden"
+msgstr "Bredd"
 
 
 msgid "_XML export_"
-msgstr ""
+msgstr "Exportera i XML-format"
 
 
 msgid "_XML format_"
-msgstr ""
+msgstr "XML-format"
 
 
 msgid "_Year_"
-msgstr ""
+msgstr "År"
 
 
 msgid "_You can drop a Portlet into this area_"
-msgstr ""
+msgstr "Du kan dra en Portlet till denna yta"
 
 
 msgid "_You can drop a Templet into this area_"
-msgstr ""
+msgstr "Du kan dra en Templet till denna yta"
 
 
 msgid "_Your text_"
@@ -1696,79 +1709,79 @@ msgstr "ZMI"
 
 
 msgid "_about_"
-msgstr ""
+msgstr "Om"
 
 
 msgid "_actionbox_templet_description_"
-msgstr "En verktygslåda med kommando som ikoner"
+msgstr "Ett verktygsfält innehållande handlings-knappar med ikoner"
 
 
 msgid "_actions_"
-msgstr "Kommandon"
+msgstr "Handlingar"
 
 
 msgid "_areacolor_description_"
-msgstr ""
+msgstr "Detta format definierar bakgrund, ram och textfärg för en yta."
 
 
 msgid "_areashape_description_"
-msgstr ""
+msgstr "Detta format definierar ramformat och tjocklek för en yta. "
 
 
 msgid "_back_"
-msgstr ""
+msgstr "tillbaka"
 
 
 msgid "_backgrounds_"
-msgstr "Bakgrundsbilder"
+msgstr "Bakgrunder"
 
 
 msgid "_box body_"
-msgstr ""
+msgstr "Brödtext"
 
 
 msgid "_box title_"
-msgstr ""
+msgstr "Titel"
 
 
 msgid "_boxcolor_"
-msgstr ""
+msgstr "Färg portalruta"
 
 
 msgid "_boxcolor_description_"
-msgstr ""
+msgstr "detta format definierar färg på portalrutor"
 
 
 msgid "_boxcorners_description_"
-msgstr ""
+msgstr "detta format definierar utseende på hörn för ruta"
 
 
 msgid "_boxshape_"
-msgstr ""
+msgstr "Portal box shape"
 
 
 msgid "_boxshape_description_"
-msgstr ""
+msgstr "detta format definierar form på portalrutor"
 
 
 msgid "_breadcrumbs_templet_description_"
-msgstr "hjälpmedel att se var i strukturen man befinner sig - en klickbar uppräkning av de länkar som leder till den sida som visas,"
+msgstr "ett navigationsspår från toppnivån på webbplatsen till aktuell sida "
 
 
 msgid "_button_cache_manager_"
-msgstr ""
+msgstr "Cache hanterare"
 
 
 msgid "_button_clear_the_cache_"
-msgstr ""
+msgstr "Rensa cachen "
 
 
 msgid "_button_close_"
-msgstr ""
+msgstr "Stäng"
 
 
 msgid "_button_create_"
-msgstr "Skapa"
+msgstr "Skapa "
 
 
 msgid "_button_delete_"
@@ -1776,19 +1789,19 @@ msgstr "Ta bort"
 
 
 msgid "_button_export_theme_"
-msgstr "Exportera den grafiska profilen"
+msgstr "Exportera detta tema"
 
 
 msgid "_button_fullscreen_"
-msgstr ""
+msgstr "Fullskärm"
 
 
 msgid "_button_import_theme_"
-msgstr "Importera en grafisk profil"
+msgstr "Importera tema "
 
 
 msgid "_button_import_themes_"
-msgstr "Importera grafiska profiler"
+msgstr "Importera teman "
 
 
 msgid "_button_local_roles_"
@@ -1800,75 +1813,75 @@ msgstr "Ändra"
 
 
 msgid "_button_normal_mode_"
-msgstr ""
+msgstr "Normalt läge"
 
 
 msgid "_button_optimize_theme_"
-msgstr "Optimera den grafiska profilen"
+msgstr "Optimera detta tema"
 
 
 msgid "_button_rebuild_theme_"
-msgstr ""
+msgstr "Återskapa detta tema"
 
 
 msgid "_button_set_theme_as_default_"
-msgstr ""
+msgstr "Sätt tema som standard"
 
 
 msgid "_button_upload_flashfile_"
-msgstr ""
+msgstr "Ladda upp flash-fil"
 
 
 msgid "_button_upload_image_"
-msgstr "Ladda upp bilden"
+msgstr "Ladda upp bild"
 
 
 msgid "_calendar_style_"
-msgstr ""
+msgstr "Kalenderformat "
 
 
 msgid "_calendar_templet_description_"
-msgstr ""
+msgstr "en kalender med månatliga händelser "
 
 
 msgid "_calendarstyle_description_"
-msgstr ""
+msgstr "detta format definierar kalenderns visuella utseende"
 
 
 msgid "_cellblock_description_"
-msgstr ""
+msgstr "ett Cellblock kan visa flera Templets horisontalt inuti ett Sidblock. "
 
 
 msgid "_cellhider_description_"
-msgstr ""
+msgstr "en Cell Hider kontrollerar synlighet för en cell."
 
 
 msgid "_cellsizer_description_"
-msgstr ""
+msgstr "en Cell Sizer sätter bredden på en cell."
 
 
 msgid "_cellstyler_description_"
-msgstr ""
+msgstr "en Cell Formatterare modifierar formatet på en cell."
 
 
 msgid "_clipboard_"
-msgstr ""
+msgstr "*Klippbord"
 
 
 msgid "_collapsiblemenu_style_"
-msgstr ""
+msgstr "*Fällbar meny format"
 
 
 msgid "_collapsiblemenu_templet_description_"
-msgstr ""
+msgstr "a collapsible menu that shows folder items"
 
 
 msgid "_collapsiblemenustyle_description_"
-msgstr ""
+msgstr "this style defines the visual appearance of collapsible menus."
 
 
 msgid "_color_"
-msgstr ""
+msgstr "Färger yta"
 
 
 msgid "_colors_"
@@ -1876,31 +1889,31 @@ msgstr "Färger"
 
 
 msgid "_confirm delete_"
-msgstr ""
+msgstr "Tar bort, är du säker?"
 
 
 msgid "_days_"
-msgstr ""
+msgstr "Dagar"
 
 
 msgid "_default tab_"
-msgstr ""
+msgstr "Standard tabb"
 
 
 msgid "_dimensions_"
-msgstr ""
+msgstr "Dimensioner"
 
 
 msgid "_documentinfo_templet_description_"
-msgstr "Information om dokumentet, dvs. titeln, den tiden när det ändrades senast, författaren, etc... "
+msgstr "information om aktuellt dokument, d.v.s. dess titel, senast ändrad, författare etc. "
 
 
 msgid "_edit online_"
-msgstr ""
+msgstr "redigera online"
 
 
 msgid "_flashbox_templet_description_"
-msgstr "En Macromedia Flash(tm) box med beskrivning under"
+msgstr "En Macromedia Flash(tm)-ruta med en rubrik"
 
 
 msgid "_folders_"
@@ -1908,31 +1921,33 @@ msgstr "Mappar"
 
 
 msgid "_fontcolor_"
-msgstr ""
+msgstr "Fontfärg "
 
 
 msgid "_fontcolor_description_"
-msgstr ""
+msgstr "detta format definierar font, länk och dekorationsfärger. "
 
 
 msgid "_fontshape_"
-msgstr ""
+msgstr "Fontformat"
 
 
+# , fuzzy
 msgid "_fontshape_description_"
-msgstr ""
+msgstr "*this style defines font sizes, links and decoration styles."
 
 
 msgid "_formstyle_description_"
-msgstr ""
+msgstr "detta format definierar utseende på formulär och formulärelement. "
 
 
+# , fuzzy
 msgid "_general_"
 msgstr "Allmänt"
 
 
 msgid "_header_"
-msgstr ""
+msgstr "Rubrik"
 
 
 msgid "_icons_"
@@ -1940,7 +1955,7 @@ msgstr "Ikoner"
 
 
 msgid "_imagebox_templet_description_"
-msgstr "En box med bild och beskrivning under"
+msgstr "en bild med en länk och bildtext"
 
 
 msgid "_info_"
@@ -1952,7 +1967,7 @@ msgstr "En språkväljare"
 
 
 msgid "_layout mode_"
-msgstr ""
+msgstr "Layout-läge"
 
 
 msgid "_layout_"
@@ -1960,51 +1975,51 @@ msgstr "Layout"
 
 
 msgid "_maincontent_templet_description_"
-msgstr "Huvud delen där alla dokument visas."
+msgstr "yta för huvudinnehåll där dokument visas"
 
 
 msgid "_menu item_"
-msgstr ""
+msgstr "Meny-post"
 
 
 msgid "_menu_Align center_"
-msgstr ""
+msgstr "Center-justerad"
 
 
 msgid "_menu_Align justify_"
-msgstr ""
+msgstr "Justerad"
 
 
 msgid "_menu_Align left_"
-msgstr ""
+msgstr "Vänster-justerad"
 
 
 msgid "_menu_Align right_"
-msgstr ""
+msgstr "Höger-justerad"
 
 
 msgid "_menu_Area Color_"
-msgstr ""
+msgstr "Färg yta"
 
 
 msgid "_menu_Area Shape_"
-msgstr ""
+msgstr "Form yta"
 
 
 msgid "_menu_Box Corners_"
-msgstr ""
+msgstr "Hörn ruta"
 
 
 msgid "_menu_Calendar Style_"
-msgstr ""
+msgstr "Kalenderformat"
 
 
 msgid "_menu_Collapsible Menu Style_"
-msgstr ""
+msgstr "*Fällbar meny format"
 
 
 msgid "_menu_Copy_"
-msgstr ""
+msgstr "Kopiera"
 
 
 msgid "_menu_Delete_"
@@ -2016,7 +2031,7 @@ msgstr "Duplicera"
 
 
 msgid "_menu_Edit styles_"
-msgstr ""
+msgstr "Redigera format "
 
 
 msgid "_menu_Edit_"
@@ -2024,435 +2039,446 @@ msgstr "Redigera"
 
 
 msgid "_menu_Font Color_"
-msgstr ""
+msgstr "Fontfärg "
 
 
 msgid "_menu_Font Shape_"
-msgstr ""
+msgstr "Fontformat"
 
 
 msgid "_menu_Form Style_"
-msgstr ""
+msgstr "Formulärformat "
 
 
 msgid "_menu_Insert_"
-msgstr "Lägga till"
+msgstr "Infoga "
 
 
 msgid "_menu_Manage_"
-msgstr ""
+msgstr "Hantera"
 
 
 msgid "_menu_Paste_"
-msgstr ""
+msgstr "Klista in "
 
 
 msgid "_menu_Portal Box Color_"
-msgstr ""
+msgstr "Färg ruta "
 
 
 msgid "_menu_Portal Box Shape_"
-msgstr ""
+msgstr "Form ruta "
 
 
 msgid "_menu_Portal Tab Style_"
-msgstr ""
+msgstr "Format tabb"
 
 
 msgid "_menu_Set alignment_"
-msgstr ""
+msgstr "Sätt justering "
 
 
 msgid "_menu_Set layout_"
-msgstr ""
+msgstr "Sätt layout"
 
 
 msgid "_menu_Set styles_"
-msgstr ""
+msgstr "Sätt format "
 
 
 msgid "_menu_Set_as_default_"
-msgstr ""
+msgstr "Sätt som standard"
 
 
 msgid "_mixed mode_"
-msgstr ""
+msgstr "Mixat läge "
 
 
 msgid "_option_Folder title_"
-msgstr ""
+msgstr "Titel mapp"
 
 
 msgid "_option_Templet title_"
-msgstr ""
+msgstr "Titel Templet"
 
 
 msgid "_option_Username_"
-msgstr ""
+msgstr "Användarnamn "
 
 
 msgid "_option_Workflow state_"
-msgstr ""
+msgstr "Status Arbetsyta "
 
 
 msgid "_option_about_"
-msgstr ""
+msgstr "Om detta objekt "
 
 
 msgid "_option_actions_"
-msgstr ""
+msgstr "Handlingar portal"
 
 
 msgid "_option_always_"
-msgstr ""
+msgstr "Alltid"
 
 
 msgid "_option_automatic_"
-msgstr ""
+msgstr "Automatisk kontroll"
 
 
 msgid "_option_bg_no-repeat_"
-msgstr ""
+msgstr "Upprepa inte "
 
 
 msgid "_option_bg_repeat-x_"
-msgstr ""
+msgstr "Horisontellt"
 
 
 msgid "_option_bg_repeat-y_"
-msgstr ""
+msgstr "Vertikalt "
 
 
 msgid "_option_bg_repeat_"
-msgstr ""
+msgstr "Täck ytan "
 
 
 msgid "_option_block_"
-msgstr ""
+msgstr "Bredd ruta"
 
 
 msgid "_option_center_"
-msgstr ""
+msgstr "Centrera "
 
 
 msgid "_option_compatible_"
-msgstr ""
+msgstr "Kompatibel NS4"
 
 
+# , fuzzy
 msgid "_option_debug_"
-msgstr ""
+msgstr "*Debug mode"
 
 
 msgid "_option_default_"
-msgstr ""
+msgstr "Standard"
 
 
 msgid "_option_docinfo_created_by_"
-msgstr ""
+msgstr "Skapad av ... "
 
 
 msgid "_option_docinfo_last_modified_"
-msgstr ""
+msgstr "Senast ändrad "
 
 
 msgid "_option_docinfo_title_"
-msgstr ""
+msgstr "Titel dokument "
 
 
+# , fuzzy
 msgid "_option_drawer_"
-msgstr ""
+msgstr "*Drawer box"
 
 
+# , fuzzy
 msgid "_option_drawer_notitle_"
-msgstr ""
+msgstr "*Drawer box without title"
 
 
 msgid "_option_dropdown list_"
-msgstr ""
+msgstr "Rullgardinslista"
 
 
 msgid "_option_events_"
-msgstr ""
+msgstr "Kommande händelser"
 
 
 msgid "_option_everywhere_except_in_"
-msgstr ""
+msgstr "Överallt utom i ... "
 
 
 msgid "_option_flags_"
-msgstr ""
+msgstr "Flaggor land"
 
 
 msgid "_option_folders_"
-msgstr ""
+msgstr "Mappar portal"
 
 
 msgid "_option_horizontal_"
-msgstr ""
+msgstr "Horisontell"
 
 
 msgid "_option_horizontal_menu_"
-msgstr ""
+msgstr "Horisontell meny"
 
 
 msgid "_option_html_"
-msgstr ""
+msgstr "HTML"
 
 
 msgid "_option_icons only_"
-msgstr ""
+msgstr "Endast ikoner"
 
 
 msgid "_option_if_anonymous_"
-msgstr ""
+msgstr "Om anonym"
 
 
 msgid "_option_if_authenticated_"
-msgstr ""
+msgstr "Om verifierad "
 
 
 msgid "_option_if_secure_connection_"
-msgstr ""
+msgstr "Om säker uppkoppling"
 
 
 msgid "_option_info_"
-msgstr ""
+msgstr "Informationsruta"
 
 
 msgid "_option_inline_"
-msgstr ""
+msgstr "Bredd titel "
 
 
 msgid "_option_justify_"
-msgstr ""
+msgstr "Justera"
 
 
 msgid "_option_language names_"
-msgstr ""
+msgstr "Namn språk "
 
 
 msgid "_option_language_"
-msgstr ""
+msgstr "Språkväljare"
 
 
 msgid "_option_left_"
-msgstr ""
+msgstr "Vänster"
 
 
 msgid "_option_lifetime_10_"
-msgstr ""
+msgstr "10 sekunder"
 
 
 msgid "_option_lifetime_1800_"
-msgstr ""
+msgstr "30 minuter"
 
 
 msgid "_option_lifetime_300_"
-msgstr ""
+msgstr "5 minuter"
 
 
 msgid "_option_lifetime_30_"
-msgstr ""
+msgstr "30 sekunder"
 
 
 msgid "_option_lifetime_3600_"
-msgstr ""
+msgstr "1 timme"
 
 
 msgid "_option_lifetime_600_"
-msgstr ""
+msgstr "10 minuter"
 
 
 msgid "_option_lifetime_60_"
-msgstr ""
+msgstr "1 minut"
 
 
 msgid "_option_lifetime_900_"
-msgstr ""
+msgstr "15 minuter"
 
 
 msgid "_option_login_"
-msgstr ""
+msgstr "Inloggningsformulär"
 
 
 msgid "_option_macroless_"
-msgstr ""
+msgstr "Utan macron"
 
 
 msgid "_option_min_max_"
-msgstr ""
+msgstr "Min/max-ruta"
 
 
 msgid "_option_min_max_close_"
-msgstr ""
+msgstr "Min/max/stäng-ruta"
 
 
 msgid "_option_min_max_edit_close_"
-msgstr ""
+msgstr "Min/max/redigera/stäng-ruta"
 
 
 msgid "_option_no_frames_"
-msgstr ""
+msgstr "Inga ramar"
 
 
 msgid "_option_notitle_"
-msgstr ""
+msgstr "Ramruta utan titel "
 
 
 msgid "_option_notitle_noframe_"
-msgstr ""
+msgstr "Ingen ram ingen titel"
 
 
 msgid "_option_one_frame_"
-msgstr ""
+msgstr "Ramruta "
 
 
 msgid "_option_only_in_"
-msgstr ""
+msgstr "Endast i ... "
 
 
 msgid "_option_pending_"
-msgstr ""
+msgstr "Väntande dokument "
 
 
+# , fuzzy
 msgid "_option_plain text_"
-msgstr ""
+msgstr "*Enkel text"
 
 
 msgid "_option_plain_"
-msgstr ""
+msgstr "Plain"
 
 
+# , fuzzy
 msgid "_option_profiler_"
-msgstr ""
+msgstr "*Profiler"
 
 
 msgid "_option_recent_"
-msgstr ""
+msgstr "Nyaste artiklar"
 
 
 msgid "_option_related_"
-msgstr ""
+msgstr "Besläktade dokument"
 
 
 msgid "_option_right_"
-msgstr ""
+msgstr "Höger"
 
 
 msgid "_option_rounded_box_"
-msgstr ""
+msgstr "Rundad ruta "
 
 
 msgid "_option_rounded_box_notitle_"
-msgstr ""
+msgstr "Rundad ruta utan titel "
 
 
 msgid "_option_searchbox_advanced_"
-msgstr ""
+msgstr "Avancerad"
 
 
 msgid "_option_searchbox_compact_"
-msgstr ""
+msgstr "Kompakt "
 
 
 msgid "_option_standard_"
-msgstr ""
+msgstr "Standardruta "
 
 
 msgid "_option_starting_from_"
-msgstr ""
+msgstr "Börja från ... "
 
 
 msgid "_option_stx_"
-msgstr ""
+msgstr "Strukturerad text"
 
 
 msgid "_option_tableless_"
-msgstr ""
+msgstr "Utan tabeller "
 
 
 msgid "_option_text and icons_"
-msgstr ""
+msgstr "Text och ikoner"
 
 
 msgid "_option_text only_"
-msgstr ""
+msgstr "Endast text"
 
 
 msgid "_option_text_transform_capitalize_"
-msgstr ""
+msgstr "Stor Bokstav På Varje Ord"
 
 
 msgid "_option_text_transform_lowercase_"
-msgstr ""
+msgstr "gör text till små bokstäver"
 
 
 msgid "_option_text_transform_none_"
-msgstr ""
+msgstr "Ingen transformation"
 
 
 msgid "_option_text_transform_uppercase_"
-msgstr ""
+msgstr "GÖR TEXT TILL STORA BOKSTÄVER"
 
 
 msgid "_option_textonly_"
-msgstr ""
+msgstr "Endast text"
 
 
 msgid "_option_up_till_"
-msgstr ""
+msgstr "Upp till ..."
 
 
 msgid "_option_vertical_"
-msgstr ""
+msgstr "Vertikal"
 
 
 msgid "_pageblock_description_"
-msgstr ""
+msgstr "ett Sidblock består av Celler (kolumner). Utseendet på en Cell kan ändras genom att använda Cell Format, Cell Sizers och Cell Hiders. "
 
 
+# , fuzzy
 msgid "_paletteborder_description_"
-msgstr ""
+msgstr "*dessa palett poster definierar formen på ramar använda i format. "
 
 
+# , fuzzy
 msgid "_palettecolor_description_"
-msgstr ""
+msgstr "*dessa palett poster definierar färger använda i format. "
 
 
+# , fuzzy
 msgid "_portalbox_templet_description_"
-msgstr ""
+msgstr "*a generic box that displays actions, folders, an about box, a login box, an info box, etc."
 
 
+# , fuzzy
 msgid "_portalboxgroup_templet_description_"
-msgstr ""
+msgstr "*a slot containing a group of boxes or portlets."
 
 
+# , fuzzy
 msgid "_portaltab_templet_description_"
-msgstr ""
+msgstr "*horizontal tabs displaying folders, actions, etc."
 
 
 msgid "_portaltabstyle_"
-msgstr ""
+msgstr "Format portaltabb"
 
 
 msgid "_portaltabstyle_description_"
-msgstr ""
+msgstr "detta format definierar utseende på portaltabbar "
 
 
+# , fuzzy
 msgid "_portaltheme_description_"
-msgstr ""
+msgstr "*ett portaltema ändrar utseende och layout på portalen. Temats layout består av horisontella sidblock. "
 
 
 msgid "_portletbox_templet_description_"
-msgstr ""
+msgstr "En ruta som innehåller en portlet. "
 
 
 msgid "_preview_"
-msgstr ""
+msgstr "Förhandsvisa"
 
 
 msgid "_searchbox_Advanced_search"
-msgstr "Avanceräd sökning"
+msgstr "Avancerad sökning"
 
 
 msgid "_searchbox_Search_"
@@ -2460,165 +2486,169 @@ msgstr "Sök"
 
 
 msgid "_searchbox_templet_description_"
-msgstr ""
+msgstr "en ruta med inmatningsfält för att söka på webbplatsen"
 
 
 msgid "_select this slot_"
-msgstr ""
+msgstr "Välj denna slot"
 
 
 msgid "_selected menu item_"
-msgstr ""
+msgstr "Vald menypost"
 
 
 msgid "_selected tab_"
-msgstr ""
+msgstr "Vald tabb"
 
 
 msgid "_set as default style_"
-msgstr ""
+msgstr "sätt som standardformat"
 
 
 msgid "_shape_"
-msgstr ""
+msgstr "Form yta "
 
 
 msgid "_size_"
-msgstr ""
+msgstr "Storlek"
 
 
 msgid "_style_"
-msgstr "Stil"
+msgstr "Format"
 
 
 msgid "_submenu_"
-msgstr ""
+msgstr "Undermeny "
 
 
 msgid "_submenus_"
-msgstr ""
+msgstr "Undermenyer"
 
 
 msgid "_textbox_templet_description_"
-msgstr ""
+msgstr "En textbox som visar enkel text eller HTML"
 
 
 msgid "_themechooser_templet_description_"
-msgstr ""
+msgstr "en temaväljare för besökare (cookies måste aktiveras)"
 
 
 msgid "_themepage_description_"
-msgstr ""
+msgstr "en temasida består av sidblock staplade på varandra. "
 
 
 msgid "_thumbnails_"
-msgstr ""
+msgstr "Miniatyrbilder"
 
 
 msgid "_topmenu_"
-msgstr ""
+msgstr "Toppmeny"
 
 
 msgid "_visibility_"
-msgstr ""
+msgstr "Synlighet"
 
 
 msgid "_wysiwyg mode_"
-msgstr "WYSIWYG"
+msgstr "WYSIWYG läge"
 
 
 msgid "_zexp export_"
-msgstr ""
+msgstr "Exportera i .zexp format"
 
 
 msgid "_zexp format_"
-msgstr ""
+msgstr "zexp format"
 
 
 msgid "description_confirm_delete_portlet"
-msgstr ""
+msgstr "Tar bort denna portlet, är du säker?"
 
 
 msgid "description_confirm_delete_unused_portlets"
-msgstr ""
+msgstr "Tar bort alla ej använda portlets, är du säker?"
 
 
 msgid "description_delete_unused_boxes"
-msgstr ""
+msgstr "Ta bort ej använda rutor "
 
 
 msgid "description_delete_unused_portlets"
-msgstr ""
+msgstr "Ta bort ej använda portlets "
 
 
 msgid "description_portlets_visible_from"
-msgstr ""
+msgstr "Portlets synliga från "
 
 
+# , fuzzy
 msgid "description_unused_boxes"
-msgstr ""
+msgstr "*Boxes that are invisible because their slot is not in this theme"
 
 
 msgid "description_unused_boxes_deleted"
-msgstr ""
+msgstr "Ej använda rutor borttagna "
 
 
+# , fuzzy
 msgid "description_unused_portlets"
-msgstr ""
+msgstr "*Portlets that are invisible because their slot is not in this theme"
 
 
 msgid "heading_portlet_browser_by_topic"
-msgstr ""
+msgstr "Efter ämne "
 
 
 msgid "heading_portlet_browser_by_type"
-msgstr ""
+msgstr "Efter typ"
 
 
 msgid "heading_portlet_manage_form"
-msgstr ""
+msgstr "Hantering portlets "
 
 
 msgid "heading_unused_boxes"
-msgstr ""
+msgstr "Ej använda rutor "
 
 
 msgid "heading_unused_portlets"
-msgstr ""
+msgstr "Ej använda portlets "
 
 
 msgid "menu_insert_box"
-msgstr ""
+msgstr "Infoga en ruta ... "
 
 
 msgid "menu_insert_portlet"
-msgstr ""
+msgstr "Infoga en portlet ..."
 
 
+# , fuzzy
 msgid "portlet_browser_panel"
-msgstr ""
+msgstr "*Portlet browser"
 
 
+# , fuzzy
 msgid "portlet_slots_panel"
-msgstr ""
+msgstr "*Portlet slots"
 
 
 msgid "psm_image_uploaded"
-msgstr ""
+msgstr "Bild uppladdad"
 
 
 msgid "psm_portlet_deleted"
-msgstr ""
+msgstr "Portlet raderad. "
 
 
 msgid "site_structure_panel"
-msgstr ""
+msgstr "Struktur webbplats"
 
 
 msgid "unused_portlets_panel"
-msgstr ""
+msgstr "Ej använda portlets "
 
 
 msgid "wysiwyg_panel"
-msgstr ""
+msgstr "WYSIWYG"
 
