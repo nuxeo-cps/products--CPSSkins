@@ -1,0 +1,18 @@
+CPSSkins Documentation
+=========================
+
+General Documentation
+---------------------
+- `Description <DESCRIPTION.html>`_
+- `Running benchmarks <BENCHMARKING.html>`_
+- `Running tests <TESTING.html>`_
+
+Internals
+---------
+- `Integration with CPS3 <CPS3-Integration.html>`_
+- `I18n <i18n.html>`_
+- `Naming conventions <naming-conventions.html>`_
+
+Misc
+----
+- `tidy configuration <tidy.conf>`_
