@@ -78,12 +78,12 @@ function move(selected_items, target_node) {
   ypos = dest.getAttribute('ypos');
   if (ypos == null) ypos = 0;
   dest_theme = dest.getAttribute('dest_theme');
-  dest_pageblock = dest.getAttribute('dest_pageblock');
+  dest_block = dest.getAttribute('dest_block');
   new_url = pd_selected_item.getAttribute('contenturl');
   new_url = new_url + '/cpsskins_move_content?'
   new_url = new_url + 'ypos=' + ypos;
   if (xpos != null) new_url = new_url + '&xpos=' + xpos;
-  if (dest_pageblock != null) new_url = new_url + '&dest_pageblock=' + dest_pageblock;
+  if (dest_block != null) new_url = new_url + '&dest_block=' + dest_block;
   if (dest_theme != null) new_url = new_url + '&dest_theme=' + dest_theme;
   window.location = new_url
 }

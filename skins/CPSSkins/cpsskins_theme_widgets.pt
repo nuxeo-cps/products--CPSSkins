@@ -304,7 +304,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   <div class="TempletAddButton" 
    tal:attributes="xpos x_pos; 
                    ypos ypos;  
-                   dest_pageblock pageblock_id">
+                   dest_block pageblock_rurl">
     <a i18n:attributes="title"
     tal:define="title string:_Insert a Templet here_"
     tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&content_ypos=$ypos;
@@ -374,6 +374,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 <!-- Page Blocks -->
 <metal:block define-macro="pageblock_titlebar" i18n:domain="cpsskins"
 tal:define="pageblock_id pageblock/getId;
+            pageblock_rurl python: utool.getRelativeUrl(pageblock);
             pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
 	    closed pageblock/closed|nothing;
             stylecat request/form/style|nothing">
@@ -658,7 +659,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
    tal:attributes="xpos x_pos; 
                    ypos python: 0;
                    title python: mcat and mcat(title) or title;
-                   dest_pageblock pageblock_id;
+                   dest_block pageblock_rurl;
                    pageblock_url pageblock_url">
   </div>
 </metal:block>

@@ -753,7 +753,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return theme
         pageblock = theme.addPageBlock()
         if pageblock is not None:
-           maincontent = pageblock.addTemplet(type_name='Main Content Templet')
+           maincontent = pageblock.addContent(type_name='Main Content Templet')
         pageblock.edit(maxcols=int(3))
         maincontent.edit(xpos=int(1))
         col1 = pageblock.addCellSizer(xpos=int(0))

@@ -9,7 +9,7 @@ theme = tmtool.getRequestedThemeName(context=context)
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
 direction = kw.get('direction', None)
-dest_pageblock = kw.get('dest_pageblock', None)
+dest_block = kw.get('dest_block', None)
 dest_theme = kw.get('dest_theme', None)
 
 if dest_theme and dest_theme != theme:
@@ -30,7 +30,7 @@ else:
     if direction:
         newobj = context.move(direction=direction)
     else:
-        newobj = context.move_to_pageblock(dest_pageblock, xpos, ypos)
+        newobj = context.move_to_block(content=context, dest_block=dest_block, xpos=xpos, ypos=ypos)
 
 if newobj is None:
     return

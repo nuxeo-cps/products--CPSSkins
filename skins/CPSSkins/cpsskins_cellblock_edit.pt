@@ -5,6 +5,8 @@
              boxedit options/boxedit|nothing;
              context_obj nocall:options/context_obj;
              maxcols python: context['maxcols'];
+             cellblock_rurl python: utool.getRelativeUrl(context);
+             cellblock_url context/absolute_url;
              base_url python: request.get('cpsskins_base_url', '')"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
@@ -17,18 +19,15 @@
        define="objects_in_xpos python: objects.get(x_pos, None)">
         <td valign="top"
          tal:define="contents_in_xpos python: objects_in_xpos['contents']">
-
-  <div class="ContentDest" i18n:attributes="title"
-   style="border: 1px dashed red; padding: 8px"
-   tal:condition="not:contents_in_xpos"
-   tal:define="title string:_You can drop a Templet into this area_"
-   tal:attributes="xpos x_pos; 
-                   ypos python: 0;
-                   title python: mcat and mcat(title) or title;
-                   ">
-  </div>
-
-
+          <div class="ContentDest" i18n:attributes="title"
+           style="border: 1px dashed red; padding: 8px"
+           tal:condition="not:contents_in_xpos"
+           tal:define="title string:_You can drop a Templet into this area_"
+           tal:attributes="xpos x_pos; 
+                           ypos python: 0;
+                           title python: mcat and mcat(title) or title;
+                           dest_block cellblock_rurl">
+          </div>
           <tal:block condition="contents_in_xpos"
            repeat="content contents_in_xpos">
             <div class="ContentBoxDrag"
@@ -43,7 +42,8 @@
                                  style python: 'padding:%s' % content.margin">
               <div class="ContentDest"
                tal:attributes="xpos x_pos;
-                               ypos ypos">
+                               ypos ypos;
+                               dest_block cellblock_rurl">
                 <div
                  tal:attributes="class python: content.getCSSAreaClass(level=2);
                                  style python: content.getCSSLayoutStyle()"

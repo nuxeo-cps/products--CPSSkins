@@ -49,7 +49,8 @@
     tal:define="closed python: pageblock['closed'];		 
                 maxcols python: pageblock['maxcols']; 
                 pageblock_id python: pageblock['id'];
-                pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
+                pageblock_rurl python: utool.getRelativeUrl(pageblock);
+                pageblock_url python: base_url + pageblock_rurl;
                 height python: pageblock['height'];
                 height_style python: height and 'height:%s' % height or ''"
     tal:condition="python: (not closed and maxcols)"
@@ -89,7 +90,7 @@
                                        ypos ypos; 
                                        pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
                                        class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'ContentDest' or '';
-                                       dest_pageblock pageblock_id">
+                                       dest_block pageblock_rurl">
                     <div
                     tal:define="content_title python: content.title;
                                 content_here python: content == here;
