@@ -315,7 +315,7 @@ class PortalBox(BaseTemplet):
     def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
         """Render the box layout.
         """
-        if boxlayout == 'standard': 
+        if boxlayout == 'standard' or boxlayout == '': 
             return BOX_LAYOUTS['standard'] % (title, body)
         elif boxlayout == 'one_frame':
             return BOX_LAYOUTS['one_frame'] % (title, body)

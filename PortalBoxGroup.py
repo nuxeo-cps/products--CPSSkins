@@ -230,9 +230,6 @@ class PortalBoxGroup(BaseTemplet):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlets = ptltool.getPortlets(context, slot)
 
-        boxlayout = self.boxlayout
-        if boxlayout == '':
-            boxlayout = 'standard'
         boxedit = kw.get('boxedit')
         if boxedit:
             boxlayout = 'portlet_edit'
@@ -249,7 +246,7 @@ class PortalBoxGroup(BaseTemplet):
                              (boxstyle, boxclass)
             rendered = portlet.render_cache(**kw)
             # add the box decoration
-            all_rendered += renderBoxLayout(boxlayout=boxlayout,
+            all_rendered += renderBoxLayout(boxlayout=self.boxlayout,
                                             title=portlet.title,
                                             body=html_slimmer(rendered),
                                             portlet=portlet,
@@ -266,7 +263,7 @@ class PortalBoxGroup(BaseTemplet):
     def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
         """Render the box layout.
         """
-        if boxlayout == 'standard': 
+        if boxlayout == 'standard' or boxlayout == '': 
             return BOX_LAYOUTS['standard'] % (title, body)
         elif boxlayout == 'one_frame':
             return BOX_LAYOUTS['one_frame'] % (title, body)
