@@ -252,8 +252,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <div class="navSubFolders"
    tal:define="contents python: ptltool.getFolders(context=bmf)"
    tal:condition="contents">
-    <form tal:condition="python: len(contents) &gt;= 5"
-     action="cpsskins_url_redirect" method="get">
+    <form action="cpsskins_url_redirect" method="get">
       <select name="url" onChange="submit()">
         <option value="">...</option>
         <tal:block repeat="content contents">
@@ -263,21 +262,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         </tal:block>
       </select>
     </form>
-    <tal:block condition="python: len(contents) &lt; 5">
-      <tal:block repeat="content contents">
-        <span class="portletBoxDest"
-         tal:define="rpath python: utool.getRelativeUrl(content)"
-         tal:attributes="insert_url python: base_url + rpath;
-                         dest_rurl rpath;
-                         redirect_rurl rpath;
-                         title content/title;
-                         dest_ypos python: 0">
-          <a href="" 
-           tal:attributes="href string:${base_url}${rpath}/portlet_manage_form"
-           tal:content="content/id" />
-        </span>
-      </tal:block>
-    </tal:block>
   </div>
   <div class="navBreadCrumbs">
     <span class="portletBoxDest"
