@@ -5,15 +5,18 @@ if REQUEST is not None:
 
 tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName(context_obj=context)
+theme_container = tmtool.getThemeContainer(theme=theme)
+page = theme_container.getRequestedPageName(context_obj=context)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
 direction = kw.get('direction', None)
 dest_block = kw.get('dest_block', None)
-dest_theme = kw.get('dest_theme', None)
-dest_page = kw.get('dest_page', None)
+dest_theme = kw.get('dest_theme', theme)
+dest_page = kw.get('dest_page', page)
 
-if dest_theme and dest_theme != theme:
+if dest_theme and dest_theme != theme or \
+   dest_page and dest_page != page:
     dest_theme_container = tmtool.getThemeContainer(dest_theme)
     if dest_page is None:
         dest_page = dest_theme_container.getRequestedPageName(context_obj=context)
@@ -31,8 +34,8 @@ if dest_theme and dest_theme != theme:
                 newstyle = style_to_copy.copy_to_theme(dest_theme)
                 prop_dict = {style_propid:newstyle.getTitle()}
                 newobj.edit(**prop_dict)
-    theme = dest_theme
-    tmtool.setViewMode(theme=theme)
+    # switch to the destination theme and page
+    tmtool.setViewMode(theme=dest_theme, page=dest_page)
 else:
     if direction:
         newobj = context.move(direction=direction)

@@ -274,18 +274,17 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         if dest_theme is None:
             return None
         container = self.getContainer()
-        dest_theme_container = tmtool.getThemeContainer(theme=dest_theme)
+        dest_theme_container = tmtool.getThemeContainer(dest_theme)
         if dest_theme_container is None:
             return None
 
         dest_container = None
-        page_container = dest_theme_container.getPageContainer(dest_page)
-        pageblocks = page_container.getPageBlocks()
+        dest_page_container = dest_theme_container.getPageContainer(dest_page)
+        pageblocks = dest_page_container.getPageBlocks()
         if pageblocks:
             dest_container = pageblocks[0]
         else:
-            # XXX create a page block in the destination theme
-            return None
+            dest_container = dest_page_container.addPageBlock()
 
         cookie = container.manage_copyObjects(self.getId(), REQUEST=REQUEST)
         res = dest_container.manage_pasteObjects(cookie) 
