@@ -250,6 +250,27 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         self.assert_(getattr(templet_copied, 'text_format'), 
                      getattr(templet, 'text_format'))
 
+    def test_copy_Templet_to_another_Page(self):
+        tmtool = self.portal.portal_themes
+        utool = self.portal.portal_url
+        pageblock = self.pageblock
+        dest_page_container = self.theme_container.addThemePage()
+        templet = pageblock.addContent(type_name='Text Box Templet')
+        templet.xpos = int(0)
+        test_url = '/%s/cpsskins_move_content' % templet.absolute_url(1)
+        test_url += '?dest_page=%s' % dest_page_container.getId()
+        response = self.publish(test_url, self.basic_auth)
+        templet_copied = dest_page_container.getTemplets()[0]
+        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assert_(getattr(templet_copied, 'title'), 
+                     getattr(templet, 'title'))
+        self.assert_(getattr(templet_copied, 'align'), 
+                     getattr(templet, 'align'))
+        self.assert_(getattr(templet_copied, 'text'), 
+                     getattr(templet, 'text'))
+        self.assert_(getattr(templet_copied, 'text_format'), 
+                     getattr(templet, 'text_format'))
+
     # Contextual menu
     def test_duplicate_Templet(self):
         pageblock = self.pageblock
@@ -413,6 +434,23 @@ class TestFunctionalAsMember(TestFunctional):
            % (0, dest_theme_container.getId())
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+
+    def test_copy_Templet_to_another_Page(self):
+        tmtool = self.portal.portal_themes
+        utool = self.portal.portal_url
+        pageblock = self.pageblock
+        dest_page_container = self.theme_container.addThemePage()
+        templet = pageblock.addContent(type_name='Text Box Templet')
+        templet.xpos = int(0)
+        test_url = '/%s/cpsskins_move_content' % templet.absolute_url(1)
+        test_url += '?dest_page=%s' % dest_page_container.getId()
+        response = self.publish(test_url, self.basic_auth)
+        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+
+    # Contextual menu
+    def test_duplicate_Templet(self):
+        pageblock = self.pageblock
+        templet = pageblock.addContent(type_name='Text Box Templet')
 
     def test_addPageBlock_at_the_top(self):
         test_url = '/%s/cpsskins_pageblock_add?pageblock_ypos=%s' % \
