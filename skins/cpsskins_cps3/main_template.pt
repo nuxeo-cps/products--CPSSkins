@@ -1,12 +1,12 @@
 <metal:block define-macro="master"
   tal:define="showthirdcol showthirdcol|python:1;
               emptybody emptybody|request/emptybody|nothing;
-	      utool nocall:here/portal_url; 
-	      atool here/portal_actions; 
-	      mtool here/portal_membership; 
-	      ttool here/portal_trees; 
-	      wtool here/portal_workflow; 
-	      btool here/portal_boxes; 
+              utool nocall:here/portal_url; 
+              atool here/portal_actions; 
+              mtool here/portal_membership; 
+              ttool here/portal_trees; 
+              wtool here/portal_workflow; 
+              btool here/portal_boxes; 
               context_url python:here.getContextUrl(utool=utool); 
               base_url python:here.getBaseUrl(utool=utool); 
               here_url here/absolute_url;
@@ -22,6 +22,8 @@
               cpsmcat nocall:here/Localizer/default; 
               locale here/Localizer/get_selected_language;
               in_ws here/isInWorkspace;
+              cpsskins_theme python: getattr(here, 'cpsskins_theme', None); 
+              dummy python: request.set('cpsskins_theme', cpsskins_theme);
               dummy python: request.set('cpsskins_cmfactions', actions);
 ">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

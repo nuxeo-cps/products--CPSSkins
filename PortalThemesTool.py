@@ -337,6 +337,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if hasattr(REQUEST, 'theme'):
             return REQUEST.form['theme']
 
+        if hasattr(REQUEST, 'cpsskins_theme'):
+            return REQUEST['cpsskins_theme']
+
         if hasattr(REQUEST, CPSSKINS_THEME_COOKIE_NAME):
             return REQUEST.cookies[CPSSKINS_THEME_COOKIE_NAME]
 
