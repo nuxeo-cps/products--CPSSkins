@@ -186,7 +186,7 @@ class ThemeFolder(PortalFolder):
             if item.meta_type == meta_type]
         if len(pastableItems) < len(items):
             pastableItems = []
-         return pastableItems
+        return pastableItems
 
 
 InitializeClass(ThemeFolder)
