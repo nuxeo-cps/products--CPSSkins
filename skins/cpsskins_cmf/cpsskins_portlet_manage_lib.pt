@@ -22,6 +22,7 @@
     <div class="portletBoxDest"
      tal:define="box_style python: box_selected and 'border: 1px dashed Black' or 'border: none'"
       tal:attributes="style box_style;
+                      insert_url folder_url;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div tal:attributes="class slot_class">
@@ -36,6 +37,7 @@
                        portlet_rurl portlet_rurl;
                        portlet_folder_url string:${base_url}${portlet_folder_rurl};
                        folder_url folder_url;
+                       insert_url folder_url;
                        folder_editable folder_editable;
                        icon portlet_icon;
                        title portlet_title;
@@ -215,6 +217,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     <div class="portletBoxEditMenu" style="padding: 20px"
      tal:attributes="src_ypos python: 0;
                      folder_url folder_url;
+                     insert_url folder_url;
                      folder_editable folder_editable;
                      icon slot_icon;
                      title slot_title;
@@ -259,8 +262,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                  tal:define="slot_icon python: '/' + content.getIcon();
                              slot_title content/title_or_id">
                   <div tal:content="group" class="boxGroupBoxSlotTitle" />
-                  <tal:block define="folder_url context_url;
-                                     folder_editable context_editable;
+                  <tal:block define="folder_editable context_editable;
                                      portlets python:ptltool.getPortlets(context=here, slot=group)">
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
@@ -307,7 +309,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   </tal:block>
   </div>
   <span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
-  <em tal:content="context_url" />
+  <em tal:content="folder_url" />
   <br style="clear: both" />
 
   <table border=0 width="100%" cellpadding="3" cellspacing="2">
@@ -315,7 +317,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       <th tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)">
         <div class="portletBoxDest"
          tal:omit-tag="not:bc/editable"
-         tal:attributes="dest_rurl bc/rpath;
+         tal:attributes="insert_url string:${base_url}${bc/rpath};
+                         dest_rurl bc/rpath;
                          dest_ypos python: 0">
           <a href=""
            tal:content="string:${bc/id}/" 
@@ -335,6 +338,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                       portlet_url portlet/getURL;
                       portlet_folder portlet/getLocalFolder;
                       portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+                      portlet_folder_url string:${base_url}${portlet_folder_rurl};
                       portlet_rurl portlet/getRelativeUrl;
                       portlet_depth portlet/getDepth;
                       group portlet/getSlot;
@@ -349,8 +353,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
           <div 
            tal:attributes="portlet_rurl portlet_rurl;
                            portlet_url string:${base_url}${portlet_rurl};
-                           portlet_folder_url string:${base_url}${portlet_folder_rurl};
-                           folder_url context_url;
+                           portlet_folder_url portlet_folder_url;
+                           folder_url folder_url;
+                           insert_url portlet_folder_url;
                            icon portlet_icon;
                            title portlet_title;
                            portlet_id portlet_id;
@@ -361,7 +366,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                            src_slot group;
                            class python: editable and 'portletBoxDrag portletBoxEditMenu' or 'portletBoxEditMenu'">
             <div
-             tal:attributes="dest_rurl portlet_folder_rurl;
+             tal:attributes="insert_url portlet_folder_url;
+                             dest_rurl portlet_folder_rurl;
                              dest_ypos python: ypos and ypos or 0;
                              class python: editable and 'portletBoxDest' or None">
               <div class="portletInfo"

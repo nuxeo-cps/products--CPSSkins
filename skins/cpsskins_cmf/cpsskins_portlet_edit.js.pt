@@ -69,7 +69,8 @@ function Portlet_add(selected_items, target_node) {
   dest_rurl = dest.getAttribute('dest_rurl');
   dest_slot = dest.getAttribute('dest_slot');
   dest_ypos = dest.getAttribute('dest_ypos');
-  create_url = 'cpsskins_addportlet_form?ptype_id=' + ptype_id + '&slot=' + dest_slot + '&order=' + dest_ypos;
+  insert_url = dest.getAttribute('insert_url');
+  create_url = insert_url + '/cpsskins_addportlet_form?ptype_id=' + ptype_id + '&slot=' + dest_slot + '&order=' + dest_ypos;
   if (dest_rurl != null) create_url = create_url + '&dest_rurl=' + dest_rurl;
   newWindow(create_url);
 }
@@ -138,8 +139,8 @@ function Choice_insert() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  folder_url = pd_selected_item.getAttribute('folder_url');
-  newWindow(folder_url + '/cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
+  insert_url = pd_selected_item.getAttribute('insert_url');
+  newWindow(insert_url + '/cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
 }
 
 function Choice_delete() {

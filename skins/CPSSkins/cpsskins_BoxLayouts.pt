@@ -166,7 +166,7 @@
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
              context_obj nocall:options/context_obj;
-             context_url python: utool.getRelativeUrl(context_obj);
+             folder_url python: base_url + utool.getRelativeUrl(context_obj);
              view_mode tmtool/getViewMode;
              editable options/editable|nothing;
              folder_editable options/folder_editable|nothing;
@@ -192,7 +192,7 @@
                      title portlet_title;
                      portlet_id portlet_id;
                      portlet_folder_url string:${base_url}${portlet_folder_rurl};
-                     folder_url context_url"
+                     folder_url folder_url"
      tal:content="structure options/body" />
   </div>
 </metal:block>

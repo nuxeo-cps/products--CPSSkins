@@ -11,7 +11,8 @@
   <div class="portletSlotTitle" tal:content="slot_title" />
   <div class="portletBoxDest"
    tal:attributes="dest_slot slot_id;
-                   dest_ypos python: 0">
+                   dest_ypos python: 0;
+                   insert_url folder_url">
     <div class="portletBoxEditMenu"
      tal:attributes="icon slot_icon;
                      folder_url folder_url;
