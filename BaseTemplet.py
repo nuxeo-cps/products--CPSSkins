@@ -342,6 +342,12 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         return None
 
+    security.declarePublic('isMainContent')
+    def isMainContent(self):
+        """Return true if the Templet is main content """
+
+        return 0
+
     security.declarePublic('isAlignable')
     def isAlignable(self):
         """Returns true if the Templet can be aligned horizontally."""

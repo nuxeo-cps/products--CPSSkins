@@ -49,11 +49,11 @@
                     <tal:block condition="rendered"
                      content="structure rendered" />
                     <tal:block condition="not:isRenderable">
-                      <tal:block condition="content/isMainContent|nothing">
+                      <tal:block condition="python:content.isMainContent()">
                         <metal:block define-slot="maincontent" />
                         <br style="clear:both" />
                       </tal:block>
-                      <tal:block condition="content/isPortalBoxGroup|nothing">
+                      <tal:block condition="python:content.isPortalBoxGroup()">
                         <tal:block define="render_box python:1;
                                            box_group content/box_group|nothing">
                           <metal:block use-macro="slot_macro_path" />
