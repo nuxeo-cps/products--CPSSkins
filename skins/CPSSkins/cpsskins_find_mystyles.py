@@ -1,6 +1,5 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
-tmtool = context.portal_themes 
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
@@ -8,10 +7,10 @@ meta_type = kw.get('styleprop', None)
 if meta_type is None:
     return
 
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
-
+tmtool = context.portal_themes 
+theme = tmtool.getRequestedThemeName(context=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
+
 mystyle_objs = theme_container.findStyles(meta_type=meta_type)
 
 if len(mystyle_objs) == 0:
@@ -36,8 +35,8 @@ else:
 if style is None:
     return
 
-url = style.absolute_url() + '/edit_form?edit_mode=' + edit_mode + \
-     '&style=' + meta_type + '&theme=' + theme
+url = style.absolute_url() + '/edit_form?' + \
+     'style=' + meta_type
 
 if REQUEST is None:
     return style

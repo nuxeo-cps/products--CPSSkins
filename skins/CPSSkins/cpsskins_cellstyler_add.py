@@ -1,4 +1,4 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
 tmtool = context.portal_themes
 if REQUEST is not None:
@@ -11,8 +11,7 @@ if cellstyler is None:
 if theme is None:
     theme = tmtool.getDefaultThemeName()
 
-url = cellstyler.absolute_url() + '/edit_form' + \
-     '?theme=' + theme + '&edit_mode=' + edit_mode
+url = cellstyler.absolute_url() + '/edit_form'
 
 if REQUEST is None:
     return cellstyler

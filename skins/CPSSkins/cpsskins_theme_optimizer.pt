@@ -2,7 +2,6 @@
 <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
   <metal:block fill-slot="edit"
   tal:define="tmtool here/portal_themes; 
-              current_theme request/form/theme|nothing; 
               base_url python: request.get('cpsskins_base_url', '');
               theme_container python: tmtool.getThemeContainer(theme=current_theme); 
               unused_styles theme_container/findOrphanedStyles|nothing; 
@@ -17,10 +16,6 @@
     <tal:block condition="not:optimized">
       <form action="" method="post"
       tal:attributes="action string:${base_url}cpsskins_theme_optimize">
-        <input type="hidden" name="theme"
-        tal:attributes="value current_theme" />
-        <input type="hidden" name="edit_mode"
-        tal:attributes="value edit_mode" />
         <tal:block tal:condition="unused_styles">
           <h3 tal:define="title string:_Styles_"
           tal:content="python: mcat and mcat(title) or title"
@@ -33,7 +28,7 @@
             <tal:block repeat="style unused_styles">
               <tr>
                 <td width="50%">
-                  <a tal:attributes="href string:${style/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
+                  <a tal:attributes="href string:${style/absolute_url}/edit_form">
                     <img tal:attributes="src string:${base_url}${style/getIcon}" />
                     <span tal:content="style/getTitle" />
                   </a>
@@ -77,7 +72,7 @@
                   <tal:block repeat="style blocks">
                     <tr>
                       <td>
-                        <a tal:attributes="href string:${style/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
+                        <a tal:attributes="href string:${style/absolute_url}/edit_form">
 
                           <img tal:attributes="src string:${base_url}${style/getIcon}" />
                           <span tal:content="style/getTitle" />
@@ -110,7 +105,7 @@
           class="TableFrame" width="100%">
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
-                <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
+                <a tal:attributes="href string:${templet/absolute_url}/edit_form">
                   <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                   <tal:block content="templet/getTitle" />
                 </a>
@@ -149,7 +144,7 @@
             <tal:block repeat="templet invisible_templets">
               <tr>
                 <td width="50%">
-                  <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
+                  <a tal:attributes="href string:${templet/absolute_url}/edit_form">
                     <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
                   </a>
@@ -181,7 +176,7 @@
             <tal:block repeat="templet uncached_templets">
               <tr>
                 <td width="50%">
-                  <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode&cat=general">
+                  <a tal:attributes="href string:${templet/absolute_url}/edit_form?cat=general">
                     <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
                   </a>

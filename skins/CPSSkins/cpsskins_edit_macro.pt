@@ -5,16 +5,17 @@ tal:define="tmtool here/portal_themes;
             here_url python: base_url + utool.getRelativeUrl(here);
             mcat here/cpsskins_getlocalizer;
             cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
-            edit_mode request/edit_mode|nothing;
+            view_mode tmtool/getViewMode;
+            global edit_mode view_mode/edit_mode|request/form/edit_mode|nothing; 
+            global theme view_mode/theme|request/theme|nothing;
+            global current_theme python: tmtool.getRequestedThemeName(context=here);
+            global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
             display_url_simulation python: edit_mode != 'layout';
-            theme request/theme|nothing;
-	    global current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
-	    theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
 	    pagemargin theme_container/margin|nothing;
 	    bodycolor theme_container/color|nothing;
-            scrollx request/form/scrollx|python:0;
-            scrolly request/form/scrolly|python:0">
+            scrollx view_mode/scrollx|python:0;
+            scrolly view_mode/scrolly|python:0">
   <head>
     <style type="text/css" media="all"
     tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />

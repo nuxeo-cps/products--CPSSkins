@@ -1,31 +1,28 @@
-##parameters=theme=None, edit_mode='wysiwyg', cat=None, REQUEST=None, **kw
+##parameters=cat=None, REQUEST=None, **kw
 
-tmtool = context.portal_themes
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-theme = kw.get('theme', None)
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
+tmtool = context.portal_themes
+theme = tmtool.getRequestedThemeName(context=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
 
 url = theme_container.absolute_url()
-prefs = '&theme=' + theme + '&edit_mode=' + edit_mode
 
 if cat not in ['image', 'style', 'palette']:
     return
 
 if cat == 'image':
     url += '/cpsskins_edit_images' + \
-           '?imagecat=' + kw.get('image', '') + prefs
+           '?imagecat=' + kw.get('image', '')
 
 elif cat == 'style':
     url += '/cpsskins_edit_styles' + \
-           '?style=' + kw.get('style', '') + prefs
+           '?style=' + kw.get('style', '')
 
 elif cat == 'palette':
     url += '/cpsskins_edit_palettes' + \
-           '?palette=' + kw.get('palette', '') + prefs
+           '?palette=' + kw.get('palette', '')
 
 if REQUEST is not None:
     REQUEST.RESPONSE.redirect(url)

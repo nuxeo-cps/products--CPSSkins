@@ -20,7 +20,8 @@ portlet = ptltool.movePortlet(portlet=portlet,
                               dest_folder=dest_folder,
                               **kw)
 
-context.cpsskins_setViewMode(selected_portlet=portlet.getId())
+tmtool = context.portal_themes
+tmtool.setViewMode(selected_portlet=portlet.getId())
 
 if REQUEST is not None:
      url = context.absolute_url() + '/portlet_manage_form'

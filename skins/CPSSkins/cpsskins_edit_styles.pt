@@ -25,7 +25,7 @@
               <td>
                 <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
                                title python:'_%s_' % stylecat"
-                   tal:attributes="href string:${here_url}/cpsskins_edit_styles?style=$stylecat_quoted&theme=$current_theme&edit_mode=$edit_mode"
+                   tal:attributes="href string:${here_url}/cpsskins_edit_styles?style=$stylecat_quoted"
                    i18n:translate="" style="text-decoration: none"
                    tal:content="python: mcat and mcat(title) or title" />
                 <p tal:define="title obj/description"
@@ -54,11 +54,11 @@
                         msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                         onclick_msg python:'return window.confirm(\'%s\')' % msg"
             tal:attributes="onclick onclick_msg;
-                            href string:${del_action/url}?edit_mode=$edit_mode&theme=$current_theme&goto=referer" >
+                            href string:${del_action/url}?goto=referer" >
               <img border="0" width="12" height="12"
               tal:attributes="src string:${base_url}cpsskins_images/img_style_delete.png" />
             </a>
-            &nbsp;<a class="StyleTitle" tal:attributes="href string:${style_url}/edit_form?theme=$current_theme&style=$stylecat&edit_mode=$edit_mode">
+            &nbsp;<a class="StyleTitle" tal:attributes="href string:${style_url}/edit_form?style=$stylecat">
               <tal:block content="style_title" />
             </a>
             <em tal:condition="style/aq_explicit/isDefaultStyle|nothing" i18n:translate=""
@@ -79,10 +79,6 @@
       <form action="cpsskins_style_add" method="get">
         <input type="hidden" name="type_name" value=""
         tal:attributes="value stylecat" />
-        <input type="hidden" name="theme" value=""
-        tal:attributes="value current_theme" />
-        <input type="hidden" name="edit_mode" value=""
-        tal:attributes="value edit_mode" />
         <input type="image" type="submit" width="46" height="18"
         tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
       </form>

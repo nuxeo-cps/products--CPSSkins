@@ -7,10 +7,11 @@ if file:
     theme_id = tmtool.importTheme(file=file, REQUEST=REQUEST)
     theme = tmtool.getEffectiveThemeContainer(theme=theme_id)
     theme.rebuild(setperms=1)
-    tmtool.setDefaultTheme(default_theme)
 
-    url = theme.absolute_url() + '/cpsskins_themes_reconfig_form' + \
-         '?theme=' + theme_id 
+    tmtool.setDefaultTheme(default_theme)
+    tmtool.setViewMode(theme=theme_id)
+
+    url = theme.absolute_url() + '/cpsskins_themes_reconfig_form'
 else:
     url = REQUEST['HTTP_REFERER']
 

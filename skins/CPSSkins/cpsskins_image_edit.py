@@ -1,9 +1,10 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
-tmtool = context.portal_themes
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
+tmtool = context.portal_themes
+theme = tmtool.getRequestedThemeName(context=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
 if theme_container is None:
     return
@@ -17,12 +18,9 @@ img = theme_container.editPortalImage(**kw)
 if img is None:
     return
 
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
-
 imagecat = kw.get('imagecat', '')
-url = '%s/cpsskins_image_edit_form?theme=%s&edit_mode=%s&imagecat=%s' % \
-      (context.absolute_url(), theme, edit_mode, imagecat) 
+url = '%s/cpsskins_image_edit_form?imagecat=%s' % \
+      (context.absolute_url(), imagecat) 
 
 if REQUEST is None:
     return img

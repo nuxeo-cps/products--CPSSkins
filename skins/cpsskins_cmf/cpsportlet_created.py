@@ -4,8 +4,9 @@ psm = 'cpsportlets_portlet_created_psm'
 
 portlet = context
 
+tmtool = context.portal_themes
 # set the newly created portlet as the 'selected portlet'
-context.cpsskins_setViewMode(selected_portlet=portlet.getId())
+tmtool.setViewMode(selected_portlet=portlet.getId())
 
 if REQUEST is not None:
     action_path = portlet.getTypeInfo().immediate_view

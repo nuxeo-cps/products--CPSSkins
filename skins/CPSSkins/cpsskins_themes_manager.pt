@@ -87,10 +87,6 @@
         </div>
       </form>
       <form action="cpsskins_theme_add" method="get">
-        <input type="hidden" name="theme" value=""    
-        tal:attributes="value current_theme" />   
-        <input type="hidden" name="edit_mode" value=""    
-        tal:attributes="value edit_mode" />   
         <input type="image" type="submit" 
         tal:attributes="src string:${base_url}cpsskins_images/img_addtheme.png" />
       </form>

@@ -1,17 +1,13 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
-tmtool = context.portal_themes 
 if REQUEST is not None:
     kw.update(REQUEST.form)
+
+tmtool = context.portal_themes
 action = kw.get('action', None)
 
 url_obj = None
-
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
-
-redirect_url = '/edit_form' + \
-               '?theme=' + theme + '&edit_mode=' + edit_mode
+redirect_url = '/edit_form'
 
 if action == 'insert':
     try:
@@ -24,8 +20,7 @@ if action == 'insert':
     if ypos > 0:
         ypos = ypos -1
     redirect_url = '/add_templet_form?templet_xpos=' + str(xpos) + \
-                  '&templet_ypos=' + str(ypos) + \
-                  '&theme=' + theme + '&edit_mode=' + edit_mode
+                  '&templet_ypos=' + str(ypos)
     url_obj = context.aq_parent
 
 if action == 'duplicate':

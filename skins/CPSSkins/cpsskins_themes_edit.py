@@ -1,4 +1,4 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None,**kw
+##parameters=REQUEST=None,**kw
 
 tmtool = context.portal_themes
 
@@ -36,8 +36,7 @@ for theme_id in themes_to_delete:
 theme_container = tmtool.getEffectiveThemeContainer(theme=default_theme)
 
 if REQUEST is not None:
-     url = theme_container.absolute_url() + '/cpsskins_themes_manager' + \
-           '?edit_mode=' + edit_mode
+     url = theme_container.absolute_url() + '/cpsskins_themes_manager'
      if default_theme:
-        url = url + '&theme=' + default_theme 
+         tmtool.setViewMode(theme=default_theme)
      REQUEST.RESPONSE.redirect(url)

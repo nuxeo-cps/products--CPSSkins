@@ -1,9 +1,10 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
+theme = tmtool.getRequestedThemeName(context=context)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
@@ -34,10 +35,8 @@ else:
 if newobj is None:
     return
 
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
-url = newobj.absolute_url() + '/edit_form' + \
-      '?theme=' + theme + '&edit_mode=' + edit_mode
+tmtool.setViewMode(theme=dest_theme)
+url = newobj.absolute_url() + '/edit_form'
 
 if REQUEST is None:
     return newobj

@@ -2,7 +2,8 @@
 <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
   <metal:block fill-slot="edit"
   tal:define="tmtool here/portal_themes; 
-              edit_mode request/form/edit_mode|nothing;
+              view_mode tmtool/getViewMode;
+              edit_mode view_mode/edit_mode|request/form/edit_mode|nothing;
               imagecat request/form/imagecat|nothing;
               mtool here/portal_membership;
               checkPerm nocall:mtool/checkPermission">

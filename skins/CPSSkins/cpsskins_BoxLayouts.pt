@@ -196,11 +196,12 @@
 <!-- ============================================================ -->
 <metal:block define-macro="portlet_edit"
  tal:define="utool nocall:here/portal_url;
+             tmtool here/portal_themes;
              base_url python: request.get('cpsskins_base_url', '');
              portlet_id portlet/getId;
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
-             view_mode here/cpsskins_getViewMode;
+             view_mode tmtool/getViewMode;
              selected_portlet view_mode/selected_portlet|nothing;
              selected python: portlet_id == selected_portlet">
   <div class="title buttons">

@@ -3,8 +3,9 @@
 
   <metal:block fill-slot="edit" i18n:domain="cpsskins"
   tal:define="tmtool here/portal_themes; 
-              edit_mode request/edit_mode|nothing;
-              theme request/form/theme|nothing;
+              view_mode tmtool/getViewMode
+              edit_mode view_mode/edit_mode|nothing;
+              theme view_mode/theme|nothing;
               mtool here/portal_membership;
               checkPerm nocall:mtool/checkPermission">
     <tal:block condition="python: not checkPerm('Manage Themes', here)"> 

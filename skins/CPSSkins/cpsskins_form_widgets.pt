@@ -93,7 +93,7 @@
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit images_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&theme=$current_theme&edit_mode=$edit_mode&current_image=$value;
+                 tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&current_image=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
                    tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
@@ -107,7 +107,7 @@
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit styles_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&theme=$current_theme&edit_mode=$edit_mode&current_style=$value;
+                 tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&current_style=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
                    tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
@@ -190,8 +190,6 @@ tal:define="theme request/form/theme|nothing;
    onSubmit="saveScrollCoordinates('edittabs')">
     <input type="hidden" name="scrollx" value="0">
     <input type="hidden" name="scrolly" value="0"> 
-    <input type="hidden" name="theme" tal:attributes="value theme" />
-    <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
     <input type="hidden" name="style" tal:attributes="value stylecat" />
     <tal:block repeat="section sections">
       <input type="submit" name="cat"
@@ -215,7 +213,7 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
       <td align="left">
         <tal:block condition="isPortalStyle">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_styles?style=$stylecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_styles?style=$stylecat"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other styles_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -225,10 +223,6 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
       <td align="right">
         <form action="cpsskins_edit_redirect" name="styles">
           <input type="hidden" name="cat" value="style" />
-          <input type="hidden" name="theme"
-          tal:attributes="value theme" />
-          <input type="hidden" name="edit_mode"
-          tal:attributes="value edit_mode" />
           <select name="style" onchange="submit()">
             <option value=""
             tal:define="title string:_Show all categories_"
@@ -275,7 +269,7 @@ tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing;
       <td align="left">
         <tal:block condition="isPortalPalette">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_palettes?palette=$palettecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_palettes?palette=$palettecat"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other palettes_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -285,10 +279,6 @@ tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing;
       <td align="right">
         <form action="cpsskins_edit_redirect" name="palettes">
           <input type="hidden" name="cat" value="palette" />
-          <input type="hidden" name="theme"
-          tal:attributes="value theme" />
-          <input type="hidden" name="edit_mode"
-          tal:attributes="value edit_mode" />
           <select name="palette" onchange="submit()">
             <option value=""
             tal:define="title string:_Show all categories_"
@@ -322,7 +312,7 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <tal:block condition="isPortalImage">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_images?imagecat=$imagecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_images?imagecat=$imagecat"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other images_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -332,10 +322,6 @@ tal:define="theme request/form/theme|nothing;
       <td align="right">
         <form action="cpsskins_edit_redirect" name="images">
           <input type="hidden" name="cat" value="image" />
-          <input type="hidden" name="theme"
-          tal:attributes="value theme" />
-          <input type="hidden" name="edit_mode"
-          tal:attributes="value edit_mode" />
           <select name="image" onchange="submit()">
             <option value=""
             tal:define="title string:_Show all categories_"
@@ -371,8 +357,6 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <form name="importtheme" action="" 
         tal:attributes="action string:${base_url}cpsskins_themes_manager">
-          <input type="hidden" name="theme" value="" tal:attributes="value current_theme"/>
-          <input type="hidden" name="edit_mode" value="" tal:attributes="value edit_mode"/>
           <input type="submit" class="ImportTheme"
           tal:define="title string:_button_import_themes_"
           i18n:attributes="value" 
@@ -384,8 +368,6 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <form name="optimizetheme" action=""
         tal:attributes="action string:${here_url}/cpsskins_theme_optimizer">
-          <input type="hidden" name="theme" value="" tal:attributes="value current_theme"/>
-          <input type="hidden" name="edit_mode" value="" tal:attributes="value edit_mode"/>
           <input type="submit" class="OptimizeTheme"
           tal:define="title string:_button_optimize_theme_"
           i18n:attributes="value" 

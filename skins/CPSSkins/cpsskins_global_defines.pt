@@ -1,13 +1,12 @@
 <metal:block define-macro="defines"
 tal:define="tmtool here/portal_themes; 
             global mcat here/cpsskins_getlocalizer;
-            global edit_mode request/form/edit_mode|nothing; 
-            cpsskins_theme python: tmtool.getLocalThemeName(here);
-            dummy python: request.set('cpsskins_theme', cpsskins_theme);
-            global current_theme python: tmtool.getRequestedThemeName(REQUEST=request);
+            view_mode tmtool/getViewMode;
+            global edit_mode view_mode/edit_mode|request/form/edit_mode|nothing; 
+            global current_theme python: tmtool.getRequestedThemeName(context=here);
             global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
             theme_renderer theme_container/theme_renderer|nothing;
-            renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer, REQUEST=request);
+            renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer);
             main_macro_suffix python: edit_mode and 'edit' or renderer;
             global main_macro python: 'cpsskins_main_template_%s' % main_macro_suffix;
             global enable_esi theme_container/esi|nothing;

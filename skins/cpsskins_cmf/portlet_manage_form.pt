@@ -1,5 +1,6 @@
 <metal:html tal:define="global boxedit python:1;
-                        view_mode here/cpsskins_getViewMode;
+                        tmtool here/portal_themes;
+                        view_mode tmtool/getViewMode;
                         fullscreen view_mode/fullscreen|python:0;
                         panel view_mode/portlets_panel|nothing;
                         selected_portlet view_mode/selected_portlet|nothing;
@@ -29,14 +30,14 @@
                          portal_url here/portal_url">
         <form class="ViewMode" action="" method="post" 
          tal:condition="not:fullscreen"
-         tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+         tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
           <input type="hidden" name="fullscreen" value="1" />
           <input class="Fullscreen"
            type="submit" value="_button_fullscreen_" i18n:attributes="value" />
         </form>
         <form class="ViewMode" action="" method="post"
          tal:condition="fullscreen"
-         tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+         tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
           <input type="hidden" name="fullscreen" value="0" />
           <input class="NoFullscreen"
            type="submit" value="_button_normal_mode_" i18n:attributes="value" />

@@ -1,23 +1,22 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
-tmtool = context.portal_themes
 if REQUEST is not None:
     kw.update(REQUEST.form)
+
+tmtool = context.portal_themes
 
 cellsizer =  context.addCellSizer(**kw)
 if cellsizer is None:
     return
 
-if theme is None:
-    theme = tmtool.getDefaultThemeName()
-
 # scroll position
 scrollx = kw.get('scrollx', '0')
 scrolly = kw.get('scrolly', '0')
 
-url = cellsizer.absolute_url() + '/edit_form' + \
-     '?theme=' + theme + "&edit_mode=" + edit_mode + \
-     '&scrollx=' + scrollx + '&scrolly=' + scrolly
+tmtool.setViewMode(scrollx=scrollx)
+tmtool.setViewMode(scrolly=scrolly)
+
+url = context.absolute_url() + '/edit_form'
 
 if REQUEST is None:
     return cellsizer

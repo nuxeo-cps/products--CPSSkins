@@ -24,7 +24,7 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="TempletDest" tal:attributes="dest_theme theme_id">
               <a 
-              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id&edit_mode=$edit_mode; style style"
+              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id; style style"
               tal:content="theme_title" />
               <img width="16" height="16" border="0" tal:condition="python: theme_id in externalthemes"
               tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
@@ -43,46 +43,47 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
 </metal:block>
 
 <metal:block define-macro="navigate" i18n:domain="cpsskins"
-tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ]; 
+tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
             mtool here/portal_membership;
             utool nocall:here/portal_url;
+            view_mode tmtool/getViewMode;
+            edit_mode view_mode/edit_mode|nothing;
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
             checkPerm nocall: mtool/checkPermission;
-            edit_string string:theme=$theme&edit_mode=$edit_mode;
             can_manage python: checkPerm('Manage portal', here);
-	    cat request/cat|string:general;">
+	    cat request/cat|string:general">
   <div class="mainformtab">
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url python: '%s/edit_form?edit_mode=%s&theme=%s&cat=%s' % (here_url, section, theme, cat);
+      tal:define="url string:${tmtool/absolute_url}/setViewMode?edit_mode=$section;
                   title python:'_%s mode_' % section" i18n:translate=""
        tal:attributes="href url ; class python: edit_mode == section and 'selected' or '' ;"
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
     &nbsp;
-    <a tal:attributes="href string:$url?$edit_string;
+    <a tal:attributes="href url;
                     class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_styles;
                 title string:_Styles_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
-    <a tal:attributes="href string:$url?$edit_string;
+    <a tal:attributes="href url;
                     class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_images;
                 title string:_Images_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
-    <a tal:attributes="href string:$url?$edit_string;
+    <a tal:attributes="href url;
                     class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_palettes;
                 title string:_Palettes_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
-    <a tal:attributes="href string:$url?$edit_string;
+    <a tal:attributes="href url;
                     class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/manage_themes;
                 title string:_Themes manager_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
-    <a tal:attributes="href string:$url?$edit_string;
+    <a tal:attributes="href url;
                     class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/manage_cache;
                 title string:_Cache manager_" i18n:translate=""
@@ -105,10 +106,6 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 	      stylecat request/form/cat|nothing">
     <form style="margin: 0px; padding:0px;" action=""
     tal:attributes="action string:${here_url}/edit_form">
-      <input type="hidden" name="edit_mode"
-      tal:attributes="value edit_mode" />
-      <input type="hidden" name="theme"
-      tal:attributes="value theme" />
       <input type="hidden" name="cat"
       tal:attributes="value stylecat" />
       <select name="sim_url" onchange="submit()"
@@ -226,13 +223,12 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 <metal:block define-macro="templet_titlebar" i18n:domain="cpsskins">
   <tal:block 
   define="templet_url python: base_url + utool.getRelativeUrl(templet);
-	  closed templet/closed;
-          url_parameters string:theme=$current_theme&edit_mode=$edit_mode">
+	  closed templet/closed">
   &nbsp; 
   <a tal:condition="templet/can_moveup"
   i18n:attributes="title"
   tal:define="title string:_Move up_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=up&${url_parameters};
+  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=up;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
@@ -242,7 +238,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   tal:condition="templet/can_movedown"
   i18n:attributes="title"
   tal:define="title string:_Move down_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=down&${url_parameters};
+  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=down;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
@@ -252,7 +248,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   tal:condition="templet/can_moveleft"
   i18n:attributes="title"
   tal:define="title string:_Move left_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=left&${url_parameters};
+  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=left;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
@@ -262,7 +258,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   tal:condition="templet/can_moveright"
   i18n:attributes="title"
   tal:define="title string:_Move right_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=right&${url_parameters};
+  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=right;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
@@ -272,7 +268,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   <a tal:condition="python: templet.can_toggle() and edit_mode == 'layout'"
   i18n:attributes="title"
   tal:define="title string:_Minimize / Maximize_"
-  tal:attributes="href string:${templet_url}/cpsskins_object_toggle?${url_parameters};  
+  tal:attributes="href string:${templet_url}/cpsskins_object_toggle;
                   title python: mcat and mcat(title) or title">
     <img border="0" width="12" height="12" tal:condition="closed"
     tal:attributes="src string:${base_url}cpsskins_images/img_close.png" />
@@ -287,7 +283,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
               msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
               onclick_msg python:'return window.confirm(\'%s\')' % msg"
   tal:attributes="onclick onclick_msg;
-                  href string:${templet_url}/cpsskins_object_delete?${url_parameters}; 
+                  href string:${templet_url}/cpsskins_object_delete;
                   title python: mcat and mcat(title) or title" >
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
@@ -302,7 +298,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
                    dest_pageblock pageblock_id">
     <a i18n:attributes="title"
     tal:define="title string:_Insert a Templet here_"
-    tal:attributes="href string:${pageblock/absolute_url}/add_templet_form?templet_xpos=$x_pos&templet_ypos=$ypos&edit_mode=$edit_mode&theme=$theme; 
+    tal:attributes="href string:${pageblock/absolute_url}/add_templet_form?templet_xpos=$x_pos&templet_ypos=$ypos;
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
@@ -314,7 +310,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   <div class="TempletEditThis"
   tal:condition="python: templet != here">
     <a
-    tal:attributes="href string:${templet/absolute_url}/edit_form?edit_mode=$edit_mode&theme=$current_theme; 
+    tal:attributes="href string:${templet/absolute_url}/edit_form;
                     title string:${templet/title}">
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
@@ -354,9 +350,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <tr>
     <tal:block repeat="ti til">
       <td class="TempletAdd"
-      tal:attributes="type_name ti/id;
-                      edit_mode edit_mode;
-                      theme theme;">
+      tal:attributes="type_name ti/id">
       <img tal:define="title python: '_%s_' % ti.Title()" width="16" height="16"
            i18n:attributes="title"
            tal:attributes="src string:${base_url}${ti/getIcon};
@@ -373,8 +367,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 tal:define="pageblock_id pageblock/getId;
             pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
 	    closed pageblock/closed|nothing;
-            stylecat request/form/style|nothing; 
-            url_parameters string:theme=$current_theme&edit_mode=$edit_mode">
+            stylecat request/form/style|nothing">
   <table
   tal:define="onMouseover_string string:OnMouseOver(this, '${pageblock/title}', '#ccff33');; ; 
               onMouseout_string string:OnMouseOut(this);; ;"
@@ -407,7 +400,7 @@ tal:define="pageblock_id pageblock/getId;
       <a i18n:attributes="title" 
       tal:condition="pageblock/can_toggle"
       tal:define="title string:_Minimize / Maximize_"
-      tal:attributes="href string:${pageblock_url}/cpsskins_object_toggle?${url_parameters};
+      tal:attributes="href string:${pageblock_url}/cpsskins_object_toggle;
                       title python: mcat and mcat(title) or title">
 
         <img border="0" width="12" height="12"

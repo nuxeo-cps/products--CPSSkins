@@ -86,7 +86,7 @@
 
 <metal:block define-macro="panel_selector" i18n:domain="cpsskins">
   <form action="" method="post" style="text-align:right"
-   tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+   tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
     <select name="portlets_panel" onchange="submit()">
       <option value="" disabled="disabled" selected="selected">Management panels ...</option>
       <option value="site_structure">Site structure</option>

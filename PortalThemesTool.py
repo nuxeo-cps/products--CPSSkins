@@ -55,6 +55,8 @@ STATUS_THEME_REBUILD_FAILED = 4
 STATUS_NO_NEW_THEME = 5
 STATUS_NEW_THEME_AVAILABLE = 6
 
+VIEW_MODE_SESSION_KEY = 'cpsskins_view_mode'
+
 class PortalThemesTool(ThemeFolder, ActionProviderBase):
     """
     Portal Themes Tool
@@ -133,6 +135,79 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getThemeCookieID(self):
         """ Gets the cookie ID used to set themes """
         return CPSSKINS_THEME_COOKIE_ID
+
+    #
+    # Session management
+    #
+    security.declarePublic('getViewMode')
+    def getViewMode(self):
+        """ Gets the current view mode """
+
+        return self.REQUEST.SESSION.get(VIEW_MODE_SESSION_KEY)
+
+    security.declarePublic('setViewMode')
+    def setViewMode(self, **kw):
+        """ Sets the current view mode """
+
+        REQUEST = self.REQUEST
+        kw.update(REQUEST.form)
+
+        session = REQUEST.SESSION
+        session_dict = session.get(VIEW_MODE_SESSION_KEY, {})
+
+        fullscreen = kw.get('fullscreen')
+        if fullscreen in ['0', '1']:
+            session_dict['fullscreen'] = int(fullscreen)
+
+        portlets_panel = kw.get('portlets_panel')
+        if portlets_panel in ['site_structure', 'browser', 'unused']:
+            session_dict['portlets_panel'] = portlets_panel
+
+        selected_portlets = kw.get('selected_portlet')
+        if selected_portlets is not None:
+            session_dict['selected_portlet'] = selected_portlets
+
+        theme = kw.get('theme')
+        if theme is not None:
+            session_dict['theme'] = theme
+
+        edit_mode = kw.get('edit_mode')
+        if edit_mode is not None:
+            session_dict['edit_mode'] = edit_mode
+
+        scrollx = kw.get('scrollx')
+        if scrollx is not None:
+            session_dict['scrollx'] = scrollx
+
+        scrolly = kw.get('scrolly')
+        if scrolly is not None:
+            session_dict['scrolly'] = scrolly
+
+        session[VIEW_MODE_SESSION_KEY] = session_dict
+
+        # redirect to the referer
+        if REQUEST is not None:
+            redirect_url = REQUEST['HTTP_REFERER']
+            REQUEST.RESPONSE.redirect(redirect_url)
+
+    security.declarePublic('clearViewMode')
+    def clearViewMode(self, *args):
+        """ clear view modes """
+
+        REQUEST = self.REQUEST
+        session = REQUEST.SESSION
+        session_dict = session.get(VIEW_MODE_SESSION_KEY, {})
+
+        for k in args:
+            if k not in session_dict.keys():
+                continue
+            del session_dict[k]
+
+        session[VIEW_MODE_SESSION_KEY] = session_dict
+
+        if REQUEST is not None:
+            redirect_url = REQUEST['HTTP_REFERER']
+            REQUEST.RESPONSE.redirect(redirect_url)
 
     security.declarePublic('getPortalThemeRoot')
     def getPortalThemeRoot(self, object=None):
@@ -255,7 +330,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return renderers
 
     security.declarePublic('getThemeRenderer')
-    def getThemeRenderer(self, theme_renderer=None, REQUEST=None):
+    def getThemeRenderer(self, theme_renderer=None):
         """ returns the name of the theme renderer """
 
         if theme_renderer is None:
@@ -266,7 +341,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         if theme_renderer == 'automatic':
             theme_renderer = 'default'
-            info = self.cpsskins_browser_detection(REQUEST=REQUEST)
+            info = self.cpsskins_browser_detection()
             browser = info[0]
             version = info[1]
             if browser in ['Netscape']:
@@ -336,7 +411,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return CPSSKINS_LOCAL_THEME_ID
 
     security.declarePublic('getLocalThemeName')
-    def getLocalThemeName(self, context=None):
+    def getLocalThemeName(self, **kw):
         """Return the name of a local theme in a given context.
 
            Local themes are obtained from folder attributes, i.e.
@@ -396,6 +471,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         """
 
+        context = kw.get('context')
         if context is None:
             return None
 
@@ -473,14 +549,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     # Theme negociation
     #
     security.declarePublic('getRequestedThemeName')
-    def getRequestedThemeName(self, REQUEST=None):
+    def getRequestedThemeName(self, **kw):
         """Gets the name of the requested theme by checking 
            if there is a 'cpsskins_theme' cookie, ?pp=1, or ?theme=...
            or a 'cpsskins_theme' variable in the request.
         """
 
-        if REQUEST is None:
-            return
+        REQUEST = self.REQUEST
 
         FORM = REQUEST.form
         # selected by writing ?pp=1 in the URL
@@ -492,8 +567,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme is not None:
             return theme 
 
+        view_mode = self.getViewMode()
+        theme = view_mode and view_mode.get('theme') or None
+        if theme is not None:
+            return theme 
+
         # selected by acquiring a 'cpsskins_theme' form attribute
-        cpsskins_theme = REQUEST.other.get('cpsskins_theme')
+        cpsskins_theme = self.getLocalThemeName(**kw)
         if cpsskins_theme is not None:
             return cpsskins_theme
 

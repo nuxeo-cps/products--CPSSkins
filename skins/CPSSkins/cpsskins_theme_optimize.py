@@ -1,9 +1,10 @@
-##parameters=theme=None, edit_mode='wysiwyg', REQUEST=None, **kw
+##parameters=REQUEST=None, **kw
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
+theme = tmtool.getRequestedThemeName(context=context)
 theme_container = tmtool.getEffectiveThemeContainer(theme=theme)
 
 styles_dir = theme_container.getStylesFolder()
@@ -115,7 +116,5 @@ for templet in i18n_templets:
 #
 
 if REQUEST is not None:
-    url = theme_container.absolute_url() + '/cpsskins_theme_optimizer' + \
-          '?theme=' + theme + '&edit_mode=' + edit_mode 
+    url = theme_container.absolute_url() + '/cpsskins_theme_optimizer'
     REQUEST.RESPONSE.redirect(url)
-

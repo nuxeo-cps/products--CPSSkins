@@ -89,30 +89,24 @@ function Choice_style(styleprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  theme = pd_selected_item.getAttribute('theme');
-  edit_mode = pd_selected_item.getAttribute('edit_mode');
   new_url = pd_selected_item.getAttribute('templeturl');
-  window.location = new_url + '/cpsskins_find_mystyles?styleprop=' + styleprop + '&edit_mode=' + edit_mode + '&theme=' + theme;
+  window.location = new_url + '/cpsskins_find_mystyles?styleprop=' + styleprop;
 }
 
 function Choice_action(action) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  theme = pd_selected_item.getAttribute('theme');
-  edit_mode = pd_selected_item.getAttribute('edit_mode');
   new_url = pd_selected_item.getAttribute('templeturl');
-  window.location = new_url + '/cpsskins_templet_action?action=' + action + '&edit_mode=' + edit_mode + '&theme=' + theme;
+  window.location = new_url + '/cpsskins_templet_action?action=' + action;
 }
 
 function Choice_align(alignprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  theme = pd_selected_item.getAttribute('theme');
-  edit_mode = pd_selected_item.getAttribute('edit_mode');
   new_url = pd_selected_item.getAttribute('templeturl');
-  window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop + '&edit_mode=' + edit_mode + '&theme=' + theme;
+  window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
 }
 
 function Templet_move(selected_items, target_node) {
@@ -126,8 +120,6 @@ function Templet_move(selected_items, target_node) {
   ypos = dest.getAttribute('ypos');
   if (ypos == null) ypos = 0;
   dest_theme = dest.getAttribute('dest_theme');
-  edit_mode = pd_selected_item.getAttribute('edit_mode');
-  theme = pd_selected_item.getAttribute('theme');
   dest_pageblock = dest.getAttribute('dest_pageblock');
   new_url = pd_selected_item.getAttribute('templeturl');
   new_url = new_url + '/cpsskins_move_templet?'
@@ -135,7 +127,7 @@ function Templet_move(selected_items, target_node) {
   if (xpos != null) new_url = new_url + '&xpos=' + xpos;
   if (dest_pageblock != null) new_url = new_url + '&dest_pageblock=' + dest_pageblock;
   if (dest_theme != null) new_url = new_url + '&dest_theme=' + dest_theme;
-  window.location = new_url + '&edit_mode=' + edit_mode + '&theme=' + theme;
+  window.location = new_url
 }
 
 function Templet_add(selected_items, target_node) {
@@ -150,9 +142,7 @@ function Templet_add(selected_items, target_node) {
   new_url = dest.getAttribute('pageblock_url');
   if (xpos == null || ypos == null || new_url == 0) return;
   type_name = pd_selected_item.getAttribute('type_name');
-  edit_mode = pd_selected_item.getAttribute('edit_mode');
-  theme = pd_selected_item.getAttribute('theme');
-  window.location = new_url + '/cpsskins_templet_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name + '&edit_mode=' + edit_mode + '&theme=' + theme;
+  window.location = new_url + '/cpsskins_templet_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
 }
 
 function Templet_checkmove(selected_items, target_node) {
