@@ -158,9 +158,9 @@ class FormStyle(BaseStyle):
                  Element_active_border_color = '#fc3',
                  Element_border_style = 'solid',
                  Element_border_width = '1px',
-                 Element_bg_color = '#ffc',
-                 Element_active_bg_color = '#ffb',
-                 Element_font_color = '#006',
+                 Element_bg_color = '',
+                 Element_active_bg_color = '#ffd',
+                 Element_font_color = '',
                  **kw):
 
         apply(BaseStyle.__init__, (self, id), kw)
