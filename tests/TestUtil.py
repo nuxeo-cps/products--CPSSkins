@@ -111,3 +111,17 @@ PortalThemesTool.setViewMode = setViewMode
 PortalThemesTool.getViewMode = getViewMode
 
 ##########################################
+
+try:
+    from Products.CPSPortlets.PortletsTool import PortletsTool
+except ImportError:
+    pass
+else:
+
+    # disable CPSPortlets events
+    def notify_event(self, event_type, object, infos):
+        pass
+
+    PortletsTool.notify_event = notify_event
+
+##########################################
