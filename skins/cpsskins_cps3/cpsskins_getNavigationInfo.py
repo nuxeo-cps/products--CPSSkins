@@ -62,8 +62,18 @@ folder_title = ''
 menuentries = []
 
 if rel_level > 0:
-    parent_treelist = base_obj.getList(start_depth=rel_level-1,
-                                       stop_depth=rel_level-1)
+    try:
+        parent_treelist = base_obj.getList(
+            start_depth=rel_level-1,
+            stop_depth=rel_level-1,
+            filter=1,
+            order=1,
+            count_children=0)
+    except TypeError: # CPS < 3.3
+        parent_treelist = base_obj.getList(
+            start_depth=rel_level-1,
+            stop_depth=rel_level-1,
+            filter=1)
 
     for item in parent_treelist:
         rpath = item['rpath']
