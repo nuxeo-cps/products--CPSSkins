@@ -121,6 +121,14 @@ class ThemePage(ThemeFolder, StylableContent):
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
+        {'id': 'macroless',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Macroless',
+         'category': 'general',
+         'default': 0,
+         'visible': 'ifMacrolessAllowed',
+        },
         {'id': 'tableless',
          'type': 'boolean',
          'mode': 'w',
@@ -166,6 +174,7 @@ class ThemePage(ThemeFolder, StylableContent):
                  title = '',
                  renderer = 'default',
                  tableless = 0,
+                 macroless = 0,
                  align = '',
                  shape = '',
                  color = '',
@@ -177,6 +186,7 @@ class ThemePage(ThemeFolder, StylableContent):
         self.title = title
         self.renderer = renderer
         self.tableless = tableless
+        self.macroless = macroless
         self.align = align
         self.shape = shape
         self.color = color
@@ -238,7 +248,13 @@ class ThemePage(ThemeFolder, StylableContent):
     def ifTablelessAllowed(self):
         """Return true if the page renderer supports tableless rendering"""
 
-        return self.renderer in ('default', 'macroless')
+        return self.renderer in ('default', 'automatic')
+
+    security.declarePublic('ifMacrolessAllowed')
+    def ifMacrolessAllowed(self):
+        """Return true if the page renderer supports macroless rendering"""
+
+        return self.renderer in ('default', 'automatic')
 
     #
     # CSS
