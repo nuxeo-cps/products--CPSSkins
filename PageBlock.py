@@ -608,7 +608,7 @@ InitializeClass(PageBlock)
 
 def addPageBlock(dispatcher, id, REQUEST=None, **kw):
     """Add a Page Block."""
-    ob = PageBlock(id)
+    ob = PageBlock(id, **kw)
     container = dispatcher.Destination()
     container._setObject(id, ob)
     if REQUEST is not None:
