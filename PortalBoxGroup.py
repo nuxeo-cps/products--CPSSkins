@@ -237,8 +237,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         rendered = ''.join(all_rendered)
         # wrap a box slot in edit mode
         if boxedit:
-            rendered = self.cpsskins_renderBoxSlot(slot=self,
-                                                   rendered=rendered)
+            rendered = self.cpsskins_renderBoxSlot(
+                slot=self,
+                rendered=rendered, **kw)
         return rendered
 
     security.declarePublic('render_cache')
