@@ -32,7 +32,7 @@ tal:define="themes tmtool/getThemes;
               </a>
               <span class="ContextualMenu"
                tal:attributes="themeid python: not we_are_here and theme_id or None;
-                               icon python: '/' + theme.getIcon();
+                               icon python: base_url + theme.getIcon(1);
                                istheme python: 1;
                                title theme_title;
                                contenturl theme_url;
@@ -77,7 +77,7 @@ tal:define="pages theme_container/getPages;">
              tal:content="page_title" />
             <span class="ContextualMenu" tal:attributes="
              pageid python: not we_are_here and page_id or None;
-             icon python: '/' + page.getIcon();
+             icon python: base_url + page.getIcon(1);
              alignments python: '|'.join(align_list);
              styles python: '|'.join([s['meta_type'] for s in styles_list]);
              isalignable python: page.isAlignable();
@@ -425,7 +425,7 @@ tal:define="block_id pageblock/getId;
                    haslayout python: 1;
                    styles python: '|'.join([s['meta_type'] for s in styles_list]);
                    title block_title;
-                   icon python: '/' + pageblock.getIcon()">
+                   icon python: base_url + pageblock.getIcon(1)">
   <table
    tal:attributes="width block_width;
                    class python: pageblock==here and 'pageBlockBoxTitleSelected' or 'pageBlockBoxTitle'; 

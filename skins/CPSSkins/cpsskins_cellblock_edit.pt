@@ -58,7 +58,7 @@
                                  haslayout python: 1;
                                  isalignable python: content.isAlignable();
                                  alignments python: '|'.join(align_list);
-                                 icon python: '/' + content.getIcon();
+                                 icon python: base_url + content.getIcon(1);
                                  title python: content.title;
                                  align python: content.align;
                                  style padding_string">
