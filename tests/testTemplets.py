@@ -18,27 +18,30 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.pageblock = self.page_container.addPageBlock()
         atool = self.portal.portal_actions
         self.portal.REQUEST.SESSION = {}
-        self.portal.REQUEST.set('cpsskins_mcat', tmtool.getTranslationService())
-        self.portal.REQUEST.set('cpsskins_cmfactions', atool.listFilteredActionsFor(self.portal))
+        self.portal.REQUEST.set('cpsskins_mcat',
+                                tmtool.getTranslationService())
+        self.portal.REQUEST.set('cpsskins_cmfactions',
+                                atool.listFilteredActionsFor(self.portal))
         self.portal.REQUEST.set('cpsskins_language', 'en')
 
     def test_MainContent_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Main Content Templet')
-        self.assertEquals('Main Content Templet', getattr(templet, 'title'))
+        self.assertEquals('Main Content Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
 
     def test_SearchBox_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Search Box Templet')
-        self.assertEquals('Search Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Search Box Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         for style in templet.listLayoutModes():
             templet.style = style
             templet.render(context_obj=self.portal)
@@ -46,14 +49,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_TextBox_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet')
-        self.assertEquals('Text Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Text Box Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         templet.render(context_obj=self.portal)
 
     def test_TextBox_Templet_text_format(self):
@@ -70,18 +74,20 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_PortalBox_Templet_Styles(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Templet')
-        self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Portal Box Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
         self.assert_(templet.aq_explicit.isPortalBox())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-             {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
-             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}, \
-             {'meta_type': 'Box Corners', 'id': 'boxcorners'} ])
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+             {'meta_type': 'Portal Box Shape', 'id': 'boxshape'},
+             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'},
+             {'meta_type': 'Box Corners', 'id': 'boxcorners'},
+             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'},
+            ])
         for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
@@ -89,7 +95,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_PortalBox_Templet_title_source(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Templet')
-        self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Portal Box Templet', templet.title)
         for title_source in templet.listTitleSources():
             templet.title_source = title_source
             templet.box_title_i18n = 1
@@ -100,7 +106,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_PortalBox_Templet_layouts(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Templet')
-        self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Portal Box Templet', templet.title)
         for boxlayout in templet.listBoxLayouts():
             templet.boxlayout = boxlayout
             templet.render(context_obj=self.portal)
@@ -117,29 +123,32 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_PortalBoxGroup_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Group Templet')
-        self.assertEquals('Portal Box Group Templet', getattr(templet, 'title'))
+        self.assertEquals('Portal Box Group Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-             {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
-             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}, \
-             {'meta_type': 'Box Corners', 'id': 'boxcorners'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+             {'meta_type': 'Portal Box Shape', 'id': 'boxshape'},
+             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'},
+             {'meta_type': 'Box Corners', 'id': 'boxcorners'},
+             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'},
+            ])
 
     def test_Language_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Language Templet')
-        self.assertEquals('Language Templet', getattr(templet, 'title'))
+        self.assertEquals('Language Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         for style in templet.listLayoutModes():
             templet.style = style
             templet.render(context_obj=self.portal)
@@ -147,14 +156,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_ThemeChooser_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Theme Chooser Templet')
-        self.assertEquals('Theme Chooser Templet', getattr(templet, 'title'))
+        self.assertEquals('Theme Chooser Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         templet.render(context_obj=self.portal)
 
     def test_ImageBox_Templet(self):
@@ -162,12 +172,13 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Image Box Templet')
         self.assert_(templet.aq_explicit.isPortalTemplet())
         self.assert_(templet.aq_explicit.isImageBox())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         self.assert_(templet.render(context_obj=self.portal))
         templet.internal_link = 'http://site.com'
         templet.render(context_obj=self.portal)
@@ -195,25 +206,27 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Flash Box Templet')
         self.assert_(templet.aq_explicit.isPortalTemplet())
         self.assert_(templet.aq_explicit.isFlashBox())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         templet.render(context_obj=self.portal)
 
     def test_Breadcrumbs_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Breadcrumbs Templet')
-        self.assertEquals('Breadcrumbs Templet', getattr(templet, 'title'))
+        self.assertEquals('Breadcrumbs Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         templet.show_icon = 0
         templet.render(context_obj=self.portal)
         templet.separator_start = 'start'
@@ -228,14 +241,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_ActionBox_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Action Box Templet')
-        self.assertEquals('Action Box Templet', getattr(templet, 'title'))
+        self.assertEquals('Action Box Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         for style in templet.listOrientations():
             templet.style = style
             templet.render(context_obj=self.portal)
@@ -246,14 +260,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_Document_Info_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Document Info Templet')
-        self.assertEquals('Document Info Templet', getattr(templet, 'title'))
+        self.assertEquals('Document Info Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+            ])
         for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
@@ -261,15 +276,17 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_CollapsibleMenu_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Collapsible Menu Templet')
-        self.assertEquals('Collapsible Menu Templet', getattr(templet, 'title'))
+        self.assertEquals('Collapsible Menu Templet', templet.title)
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-             {'meta_type': 'Collapsible Menu Style', 'id': 'collapsiblemenu_style'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+             {'meta_type': 'Collapsible Menu Style',
+              'id': 'collapsiblemenu_style'}
+            ])
         templet.render(context_obj=self.portal)
 
     def test_PortalTab_Templet(self):
@@ -277,13 +294,14 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Portal Tab Templet')
         self.assertEquals('Portal Tab Templet', getattr(templet, 'title'))
         self.assert_(templet.aq_explicit.isPortalTemplet())
-        self.assertEquals(templet.getApplicableStyles(), \
-            [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-             {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-             {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'}] )
+        self.assertEquals(templet.getApplicableStyles(),
+            [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+             {'meta_type': 'Font Shape', 'id': 'fontshape'},
+             {'meta_type': 'Area Shape', 'id': 'shape'},
+             {'meta_type': 'Area Color', 'id': 'color'},
+             {'meta_type': 'Form Style', 'id': 'formstyle'},
+             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'},
+            ])
         for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
@@ -304,13 +322,14 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
            templet = pageblock.addContent(type_name='Calendar Templet')
            self.assertEquals('Calendar Templet', getattr(templet, 'title'))
            self.assert_(templet.aq_explicit.isPortalTemplet())
-           self.assertEquals(templet.getApplicableStyles(), \
-               [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
-                {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
-                {'meta_type': 'Area Shape', 'id': 'shape'}, \
-                {'meta_type': 'Area Color', 'id': 'color'}, \
-                {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-                {'meta_type': 'Calendar Style', 'id': 'calendar_style'}])
+           self.assertEquals(templet.getApplicableStyles(),
+               [{'meta_type': 'Font Color', 'id': 'fontcolor'},
+                {'meta_type': 'Font Shape', 'id': 'fontshape'},
+                {'meta_type': 'Area Shape', 'id': 'shape'},
+                {'meta_type': 'Area Color', 'id': 'color'},
+                {'meta_type': 'Form Style', 'id': 'formstyle'},
+                {'meta_type': 'Calendar Style', 'id': 'calendar_style'},
+               ])
            templet.render(context_obj=self.portal)
            templet.show_month = 0
            templet.render(context_obj=self.portal)
@@ -343,8 +362,10 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Text Box Templet')
         dest_pageblock = self.page_container.addPageBlock()
         dest_block = utool.getRelativeUrl(dest_pageblock)
-        moved_templet = templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(1))
-        self.assert_(dest_pageblock.objectValues('Text Box Templet')[0] == moved_templet)
+        moved_templet = templet.move_to_block(
+            dest_block=dest_block, xpos=int(0), ypos=int(1))
+        expected = dest_pageblock.objectValues('Text Box Templet')[0]
+        self.assert_(expected == moved_templet)
 
     def test_Templet_duplicate(self):
         pageblock = self.pageblock
@@ -352,7 +373,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet.duplicate()
         templets = pageblock.objectValues()
         templet_titles = [t.getTitle() for t in templets]
-        self.assertEquals(templet_titles, \
+        self.assertEquals(templet_titles,
                          ['Text Box Templet', 'Text Box Templet'])
       
     def test_Templet_toggle(self):
@@ -364,11 +385,11 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_getVerticalPosition(self):
         pageblock = self.pageblock
-        templet1 = pageblock.addContent(type_name='Text Box Templet', \
+        templet1 = pageblock.addContent(type_name='Text Box Templet',
                                         ypos=int(0))
-        templet2 = pageblock.addContent(type_name='Text Box Templet', \
+        templet2 = pageblock.addContent(type_name='Text Box Templet',
                                         ypos=int(1))
-        templet3 = pageblock.addContent(type_name='Text Box Templet', \
+        templet3 = pageblock.addContent(type_name='Text Box Templet',
                                         ypos=int(2))
         pos1 = templet1.getVerticalPosition()
         pos2 = templet2.getVerticalPosition()
@@ -379,25 +400,25 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_Templet_rebuild(self):
         pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet', \
+        templet = pageblock.addContent(type_name='Text Box Templet',
                                        ypos=int(0))
         templet.rebuild()
 
     def test_setStyle(self):
         pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet', \
+        templet = pageblock.addContent(type_name='Text Box Templet',
                                        ypos=int(0))
         style = self.page_container.addPortalStyle(type_name='Area Color')
-        templet.setStyle(style, meta_type='Area Color')        
+        templet.setStyle(style, meta_type='Area Color')
         self.assert_(templet.color == style.getTitle())
 
     def test_getStyle(self):
         pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet', \
+        templet = pageblock.addContent(type_name='Text Box Templet',
                                        ypos=int(0))
         style = self.page_container.addPortalStyle(type_name='Area Color')
         templet.color = style.getTitle()
-        found_style = templet.getStyle(meta_type='Area Color')        
+        found_style = templet.getStyle(meta_type='Area Color')
         self.assert_(templet.color == found_style.getTitle())
 
 def test_suite():
@@ -407,4 +428,3 @@ def test_suite():
 
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
-
