@@ -255,44 +255,38 @@ padding: 1px 0px 1px 18px;
 /* edit tabs */
 
 .editnavigationtab {
-border-bottom: 1px solid #999;  
-} 
+margin: 0;
+}
 
-.editnavigationtab a {
-border-top: 1px solid #999;  
-border-left: 1px solid #999;  
-border-right: 1px solid #999;  
+.editnavigationtab input {
+border-color: #999;
+border-bottom-color: #ccf;
 margin-left: 2px;
-padding-left: 12px; 
-padding-right: 12px;
-padding-top: 1px;
-font: bold 12px Arial, sans-serif !important; 
+margin-bottom: 0px;
+padding: 0 15px 0 15px;
+font: bold 12px Arial, sans-serif !important;
 color: Black !important;
-background: #e0e0e0;
-text-decoration: none !important;
--moz-border-radius: 20px 20px 0 0;
+background: #dddde0;
+-moz-border-radius: 10px 10px 0 0;
 }
 
-.editnavigationtab a.selected {
-border-bottom: 1px solid #f3f3f3;  
-padding-top: 2px;
-padding-left: 20px; 
-padding-right: 20px;
-background: #f3f3f3;
+.editnavigationtab input.selected {
+border-bottom-color: #ddd;
+background: #f6f6f6;
+padding: 0px 15px 0 15px;
 }
 
-.editnavigationtab a:hover {
-background: #f0f0f0;
+.editnavigationtab input:hover {
+background: #f6f6f6;
 }
 
 /* main content body */
 
 .mainedit {
 background: #f3f3f3;
-border-bottom: 1px solid #999;  
-border-left: 1px solid #999;  
-border-right: 1px solid #999;  
+border: 1px solid #aaa;
 padding: 10px;
+-moz-border-radius: 2px;
 }
 
 .yellowpad {

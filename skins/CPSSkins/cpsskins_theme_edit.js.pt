@@ -31,6 +31,16 @@ function newWindow(url) {
     if (mywindow.opener == null) mywindow.opener = self;
 }
 
+/* Scrolling */
+function scrollToCoordinates(x,y) {
+  window.scrollTo(x,y);
+}
+
+function saveScrollCoordinates(formid) {
+  document[formid].scrollx.value = (document.all)?document.body.scrollLeft:window.pageXOffset;
+  document[formid].scrolly.value = (document.all)?document.body.scrollTop:window.pageYOffset;
+} 
+
 /* PDLib */
 
 function Templet_prepare_element_menu(header) {

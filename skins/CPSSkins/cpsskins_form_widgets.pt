@@ -186,16 +186,21 @@ tal:define="this_url request/URL;
             stylecat request/form/style|nothing; 
             sections python: here.cpsskins_listEditCategories(); 
             object_url here/absolute_url;">
-  <div class="editnavigationtab">
+  <form name="edittabs" class="editnavigationtab"
+   action="cpsskins_edit" method="post"
+   onSubmit="saveScrollCoordinates('edittabs')">
+    <input type="hidden" name="scrollx" value="0">
+    <input type="hidden" name="scrolly" value="0"> 
+    <input type="hidden" name="theme" tal:attributes="value theme" />
+    <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+    <input type="hidden" name="style" tal:attributes="value stylecat" />
     <tal:block repeat="section sections">
-      <a tal:define="url python: '%s/edit_form?theme=%s&edit_mode=%s&cat=%s' % (object_url, theme, edit_mode, section);
-                     url python: stylecat and url + '&style=' + stylecat or url;
-                     title python: '_%s_' % section"
-         tal:attributes="href url; class python: cat == section and 'selected' or None"
-         i18n:translate="" 
-         tal:content="python: mcat and mcat(title) or title" />
+      <input type="submit" name="cat"
+       tal:define="title python: '_%s_' % section" i18n:attributes="value"
+       tal:attributes="value section;
+                       class python: section == cat and 'selected' or ''" />
     </tal:block>
-  </div>
+  </form>
 </metal:block>
 <!-- End navigate between edit categories -->
 
