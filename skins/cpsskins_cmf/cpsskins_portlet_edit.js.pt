@@ -131,7 +131,6 @@ function Choice_paste_from_clipboard() {
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
   folder_url = pd_selected_item.getAttribute('folder_url');
-  alert(folder_url);
   new_url = folder_url + '/cpsskins_paste_from_clipboard';
   new_url = new_url + '?dest_ypos=' + dest_ypos;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
