@@ -96,6 +96,71 @@
       <h1 tal:define="title python:'_%s_' % stylecat" 
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
+
+      <form tal:define="folder theme_container/getStylesFolder"
+       action="" tal:attributes="action folder/absolute_url"
+       name="objectItems" method="post">
+        <table class="browser" summary="" cellpadding="0" cellspacing="0">
+          <tr>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th tal:define="title string:_Title_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Title</th>
+            <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Preview</th>
+            <th>&nbsp;</th>
+          </tr>
+          <tal:block repeat="style style_list">
+            <tr tal:define="styleid style/getId;
+                            onclick_string string:newWindow('${style/absolute_url}/edit_form?style=$stylecat');
+                            even repeat/style/even;"
+                tal:attributes="class python: even and 'even' or None">
+              <td width="20">
+                <input type="checkbox" name="ids:list" tal:attributes="value styleid" />
+              </td>
+              <td width="20">
+                <img src="" alt="" width="16" height="16"
+                 tal:attributes="src string:${style/getIcon}" />
+              </td>
+              <td>
+                <a href=""
+                 tal:attributes="onClick onclick_string"
+                 tal:content="python: style.title_or_id()" />
+              </td>
+              <td align="center">
+                <a href=""
+                 tal:content="structure python: style.preview(inline=1)"
+                 tal:attributes="onClick onclick_string;
+                                 onmouseover string:toggle('$styleid');
+                                 onmouseout string:toggle('$styleid')" />
+              </td>
+              <td>
+                <div class="previewBox hidden"
+                 tal:attributes="id style/getId"
+                 tal:content="structure python: style.preview()" />
+              </td>
+            </tr>
+          </tal:block>
+        </table>
+        <br />
+        <input type="submit" name="cutObjects:method"
+         value="Cut" i18n:attributes="value"
+         tal:define="title string:_Cut_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="copyObjects:method"
+         value="Copy" i18n:attributes="value"
+         tal:define="title string:_Copy_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="pasteObjects:method"
+         value="Paste" i18n:attributes="value"
+         tal:define="title string:_Paste_"
+         tal:condition="folder/canPaste"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="deleteObjects:method"
+         value="Delete" i18n:attributes="value"
+         tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+      </form>
       <div class="addItem">
         <a href="" alt=""
          tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
@@ -103,41 +168,6 @@
            tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
         </a>
       </div>
-      <tal:block repeat="style style_list">
-        <div tal:define="style_title style/title;
-                         style_url style/absolute_url"
-             tal:attributes="class python: current_style and style_title == current_style and 'editPreviewSelected' or 'editPreview'">
-          <tal:block define="info style/getInfo; del_action info/delete|nothing; edit_action info/edit|nothing;">
-            <a title="Delete" 
-            tal:condition="del_action/can_delete|nothing"
-            tal:define="msg string:_Deleting this style, are you sure?_;
-                        msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                        onclick_msg python:'return window.confirm(\'%s\')' % msg"
-            tal:attributes="onclick onclick_msg;
-                            href string:${del_action/url}?goto=referer" >
-              <img border="0" width="12" height="12"
-              tal:attributes="src string:${base_url}cpsskins_images/img_style_delete.png" />
-            </a>
-            &nbsp;<a class="StyleTitle" href=""
-                   tal:attributes="onClick string:newWindow('${style_url}/edit_form?style=$stylecat')">
-              <tal:block content="style_title" />
-            </a>
-            <em tal:condition="style/aq_explicit/isDefaultStyle|nothing" i18n:translate=""
-             style="float:right; padding-right:1em"
-             tal:define="title string:_(default style)_"
-             tal:content="python: mcat and mcat(title) or title" />
-            <a tal:condition="not:style/aq_explicit/isDefaultStyle|nothing"
-             tal:attributes="href string:${style_url}/cpsskins_setdefaultstyle">
-              <em i18n:translate=""
-               style="float:right; padding-right:1em"
-               tal:define="title string:_set as default style_"
-               tal:content="python: mcat and mcat(title) or title" />
-            </a>
-            <tal:block content="structure python: style.preview()" />
-            <metal:block use-macro="here/cpsskins_form_widgets/macros/show_style_parents" />
-          </tal:block>
-        </div>
-      </tal:block>
     </tal:block>
 </metal:block>
 

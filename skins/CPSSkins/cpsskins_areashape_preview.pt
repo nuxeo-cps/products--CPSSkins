@@ -1,10 +1,10 @@
-<table cellpadding="3" cellspacing="0" summary="">
-  <tr>
-    <td>
-      <div style="padding: 4px; text-align: left; background-color: #eeeeee;">
-        <div style="height: 70px; width: 70px; border-color: black;"
-        tal:attributes="class string:shape${here/title}">Lorem ipsum dolor sit amet (...)</div>
-      </div>
-    </td>
-  </tr>
-</table>
+<tal:block define="
+  inline options/inline|nothing;
+  value here/value|nothing">
+  <div tal:condition="not:inline"
+  style="height: 80px; width: 80px; border-color: black;"
+  tal:attributes="class string:shape${here/title}">Lorem ipsum dolor sit amet (...)</div>
+  <div tal:condition="inline"
+  style="height: 16px; width: 128px; border-color: gray;"
+  tal:attributes="class string:shape${here/title}">Lorem ipsum ...</div>
+</tal:block>
