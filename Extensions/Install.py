@@ -190,8 +190,9 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     pr_h3("portal_themes tool")
     if portalhas('portal_themes') and ReinstallDefaultThemes:
         portal.manage_delObjects(['portal_themes'])
-    if not portalhas('portal_themes') or ReinstallDefaultThemes:
-        portal.manage_addProduct['CPSSkins'].manage_addTool('Portal Themes Tool', None)
+    if not portalhas('portal_themes'):
+        cpsskins = portal.manage_addProduct['CPSSkins']
+        cpsskins.manage_addTool('Portal Themes Tool', None)
     # adding portal_themes to the list of action providers
     pr("  Adding portal_themes to the list of action providers")
     if 'portal_themes' in actionstool.listActionProviders():
@@ -206,7 +207,8 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     # Importing portal themes
     theme_container = getattr(portal, 'portal_themes')
     pr_h3("Portal themes")
-    if ReinstallDefaultThemes or (theme_container.objectIds() == [] and not portalhas('themes')):
+    if ReinstallDefaultThemes or (theme_container.objectIds() == [] and
+                                  not portalhas('themes')):
         themes_list = { 'CMF':     ( 'CMF-Plone',
                                      'CMF-Printable',
                                    ),
@@ -294,6 +296,7 @@ def update(self):
              'Change permissions',
              'Delete objects',
              'Add portal content',
+             'Add Documents, Images, and Files',
              'Manage properties',
              'Change Images and Files',
     )
