@@ -237,8 +237,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="main_canvas">
-  <div style="float: right">&raquo;
+<metal:block define-macro="breadcrumbs">
+  <div style="float: right">
     <tal:block define="contents python: ptltool.getFolders(context=bmf)"
      repeat="content contents">
       <a href="" alt=""
@@ -249,7 +249,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
        condition="not:repeat/content/end" />
     </tal:block>
   </div>
-
   <tal:block repeat="bc python: ptltool.getBreadCrumbs(context=here)">
     <span class="portletBoxDest"
      tal:omit-tag="not:bc/editable"
@@ -262,7 +261,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                        title bc/title" />
     </span>
   </tal:block>
+</metal:block>
 
+<metal:block define-macro="main_canvas">
   <tal:block repeat="block python: page_container.getPageBlocks()">
     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slots" />
   </tal:block>
@@ -325,17 +326,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   tal:define="here_depth python: len(utool.getRelativeContentPath(bmf))">
   <h1 i18n:translate="heading_site_structure" 
       i18n:domain="cpsskins">Site structure</h1>
-  <div style="float: right">&raquo;
-  <tal:block define="contents python: ptltool.getFolders(context=bmf)"
-   repeat="content contents">
-    <a href="" alt=""
-       tal:attributes="href string:${content/absolute_url}/portlet_manage_form;
-                       title content/title_or_id"
-       tal:content="content/id" />
-     <tal:block content="structure string:,&nbsp;"
-     condition="not:repeat/content/end" />
-  </tal:block>
-  </div>
   <span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
   <em tal:content="folder_url" />
   <br style="clear: both" />
@@ -343,16 +333,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <table border=0 width="100%" cellpadding="3" cellspacing="2">
     <tr>
       <th tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)">
-        <div class="portletBoxDest"
-         tal:omit-tag="not:bc/editable"
-         tal:attributes="insert_url string:${base_url}${bc/rpath};
-                         dest_rurl bc/rpath;
-                         dest_ypos python: 0">
-          <a href=""
-           tal:content="string:${bc/id}/" 
-           tal:attributes="href string:${base_url}${bc/rpath}/portlet_manage_form;
-                           title bc/title" />
-        </div>
+        <div style="cursor: help"
+         tal:content="string:${bc/id}/" 
+         tal:attributes="title bc/title" />
       </th>
     </tr>
     <tal:block define="portlets python:ptltool.getPortlets(context=here)"
