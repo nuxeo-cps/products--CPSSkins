@@ -56,7 +56,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
  
     security = ClassSecurityInfo()
 
-    _properties = BaseTemplet._properties + (
+    _properties = BaseTemplet._properties + \
+                  SimpleBox._properties + (
         {'id': 'box_group', 
          'type':'string', 
          'mode':'w', 
@@ -71,46 +72,14 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
          'category': 'general',
          'default': 0,
         },
-        {'id': 'boxshape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box shape', 
-         'select_variable': 'BoxShapesList', 
-         'category': 'style', 
-         'style': 'Portal Box Shape'
-        },
-        {'id': 'boxcolor', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box color', 
-         'select_variable': 'BoxColorsList', 
-         'category': 'style', 
-         'style': 'Portal Box Color'
-        },
-       {'id': 'boxlayout', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box layout', 
-        'category': 'layout', 
-        'select_variable': 'BoxLayoutList',
-        'visible': 'hasPortlets',
-        'i18n': 1,
-        'i18n_prefix': '_option_',
-       },
     )
 
     def __init__(self, id,
                  box_group = '0',
                  renderable = 0,
-                 boxshape = 'LightSkins', 
-                 boxcolor = 'Gray', 
-                 boxlayout = 'standard',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.box_group = box_group
-        self.boxshape = boxshape
-        self.boxcolor = boxcolor
-        self.boxlayout = boxlayout
         self.renderable = renderable
 
     security.declarePublic('isRenderable')
@@ -212,12 +181,12 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         context = kw.get('context_obj')
         slot = self.getSlot()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        mtool = getToolByName(self, 'portal_membership')
+        checkPerm = mtool.checkPermission
         portlets = ptltool.getPortlets(context, slot)
 
         boxedit = kw.get('boxedit')
         boxlayout = self.boxlayout
-        if boxedit:
-            boxlayout = 'portlet_edit'
 
         boxclass = self.getCSSBoxClass()
         boxstyle = self.getCSSBoxLayoutStyle()
@@ -226,21 +195,28 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         all_rendered = []
         for portlet in portlets:
-            # add the box frame
+            # open the box frame
             all_rendered.extend('<div style="%s"><div class="%s">' % \
-                                 (boxstyle, boxclass)
-                               )
+                                 (boxstyle, boxclass) )
+            # render the box body
             rendered = portlet.render_cache(**kw)
             # add the box decoration
-            all_rendered.extend(renderBoxLayout(boxlayout=boxlayout,
-                                                title=portlet.title,
-                                                body=rendered,
-                                                portlet=portlet, **kw)
-                               )
+            rendered = renderBoxLayout(boxlayout=boxlayout,
+                                       title=portlet.title,
+                                       body=rendered,
+                                       portlet=portlet, **kw)
+            if boxedit:
+                kw['editable'] = checkPerm('Manage Portlets', portlet)
+                # wrap the edition markup around the box in edit mode
+                rendered = renderBoxLayout(boxlayout='portlet_edit',
+                                           body=rendered,
+                                           portlet=portlet, **kw)
+            all_rendered.extend(rendered)
+            # close the box frame
             all_rendered.extend('</div></div>')
 
         rendered = ''.join(all_rendered)
-        # draw a slot in edit mode
+        # wrap a box slot in edit mode
         if boxedit:
             rendered = self.cpsskins_renderBoxSlot(slot=self,
                                                    rendered=rendered)

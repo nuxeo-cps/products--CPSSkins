@@ -167,7 +167,7 @@
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
              view_mode tmtool/getViewMode;
              checkPerm nocall:mtool/checkPermission;
-             editable python:checkPerm('Manage Portlets', portlet);
+             editable options/editable|nothing;
              selected_portlet view_mode/selected_portlet|nothing;
              selected python: portlet_id == selected_portlet">
   <div class="PortletBoxDrag PortletBoxEditMenu"
@@ -185,17 +185,11 @@
                    portlet_id portlet_id;
                    portlet_folder string:${base_url}${portlet_folder_rurl};
                    folder_url string:${base_url}${portlet_folder_rurl}">
-    <div class="title">
-      <metal:block define-slot="box_title">Box Title</metal:block>
-    </div>
     <div class="PortletBoxDest"
      tal:attributes="dest_rurl portlet_folder_rurl;
                      dest_slot group;
                      dest_ypos python: ypos and ypos or 0;
-                     style python:selected and 'border: 1px dashed Black' or 'border:none'">
-      <div class="body">
-        <metal:block define-slot="box_body">Box Body</metal:block>
-      </div>
-    </div>
+                     style python:selected and 'border: 1px dashed Black' or 'border:none'"
+     tal:content="structure options/body" />
   </div>
 </metal:block>
