@@ -221,7 +221,7 @@ def detectPortalType(self):
         return 'CPS2'
 
     # CPS3
-    cps_version = portal.getProperty('cps_version', '')
+    cps_version = getattr(portal, 'cps_version', '')
     if cps_version.startswith('CPS3'):
         return 'CPS3'
 
