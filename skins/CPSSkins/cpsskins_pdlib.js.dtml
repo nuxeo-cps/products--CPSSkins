@@ -176,14 +176,20 @@ function pd_hideContextMenu() {
 
 function pd_showContextSubMenu(node) {
   submenunode = findChild(node, 'context-submenu');
-  submenunode.style.visibility = "visible";
-  submenunode.style.display = "block";
+  if (submenunode != null) {
+    left = pd_open_context_menu.style.left;
+    submenunode.style.visibility = "visible";
+    submenunode.style.display = "block";
+    submenunode.style.left = '' + (parseInt(left) + 130) + 'px';
+  }
 }
 
 function pd_hideContextSubMenu(node) {
   submenunode = findChild(node, 'context-submenu');
-  submenunode.style.visibility = "hidden";
-  submenunode.style.display = "node";
+  if (submenunode != null) {
+    submenunode.style.visibility = "hidden";
+    submenunode.style.display = "node";
+  }
 }
 
 function findChild(node, className) {

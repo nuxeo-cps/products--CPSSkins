@@ -210,7 +210,7 @@ a.rightButton {
   width: 150px;
   top: auto;
   left: auto;
-  margin: -2em 0 0 130px;
+  margin-top: -1.8em;
 }
 
 .context-submenu-item, .context-submenu-item_highlighted {
