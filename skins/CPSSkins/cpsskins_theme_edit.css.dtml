@@ -123,7 +123,7 @@ body {
 }
 
 div.editSpace {
-  margin-top: 7.2em;
+  margin-top: 6.7em;
 }
 
 div.floatingHeader {
@@ -131,19 +131,19 @@ div.floatingHeader {
   top: 0px;
   left: 0px;
   width: 100%;
-  border: 1px solid #666;  
   padding-top: 0.5em;
   background: #aaaaaa;
-  height: 7.2em;
+  height: 6.7em;
+  border-bottom: 1px solid #333;
 }
 
 .floatingHeader .contentbox {
+  position: fixed;
+  top: 4.2em;
   cursor: default;
-  position: absolute;
-  top: 4em;
-  margin-left: auto; 
-  margin-right: auto; 
-  background-color: #f6f6f6; 
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f6f6f6;
   border: 1px solid #666;
 }
 
@@ -193,19 +193,17 @@ div.simulate_hierarchies {
   padding-top: 0.5em;
 }
 
-
-/* top tab */
+/* Theme tabs */
 
 .themeTabs {
   position: absolute:
   margin: 0px;
   background-color: Black;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   margin-top: 0px;
   text-align: center;
-  border-top: 3px solid Black;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .themeTabs img {
@@ -214,7 +212,7 @@ div.simulate_hierarchies {
 
 .themeTabs, .themeTabs a {
   text-decoration: none;
-  font: 12px arial, helvetica, sans-serif;
+  font: 11px Arial, Helvetica, sans-serif;
   color: Black;
 }
 
@@ -224,26 +222,26 @@ div.simulate_hierarchies {
 }
 
 .themeTabs .ltab, .themeTabs .rtab {
-  background-color : #e3e3e3;
+  background-color: #e3e3e3;
   vertical-align: top;
   width: 5px;
   border-bottom: 1px solid #ccc;
 }
 
 .themeTabs .separator {
-  background-color : Black;
+  background-color: Black;
   width: 2px;
-  border: None;
+  border: none;
 }
 
 .themeTabs .ltabselected, .themeTabs .rtabselected {
-  background-color : White;
+  background-color: White;
   vertical-align: top;
   width: 5px;
 }
 
 .themeTabs .tabselected {
-  background-color : White;
+  background-color: White;
 }
 
 .themeTabs a {
