@@ -12,7 +12,7 @@
   tal:attributes="box_url box_url; 
                   src_ypos python: ypos and ypos or 0;
                   src_slot group;
-                  class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
+                  class python: editable and 'BoxGroupBoxSlot PortalBoxDrag' or 'BoxGroupBoxSlot'">
     <div class="PortalBoxDest" 
       tal:attributes="dest_slot group; 
                       dest_ypos python: ypos and ypos or 0">
