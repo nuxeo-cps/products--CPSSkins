@@ -379,9 +379,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         FORM = REQUEST.form
 
         # selected by writing ?page=... in the URL
-        page_id = FORM.get('page')
-        if page_id is not None:
-            return page_id
+        page = FORM.get('page')
+        if page is not None:
+            return page
 
         if editing:
             # session variable (used in edition mode)
@@ -412,9 +412,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 theme, page = local_theme.split('+')
                 if theme == self.getId() and page:
                     return page
-
-        # default page
-        return self.getDefaultPageName()
+        return None
 
     security.declarePublic('getRequestedPage')
     def getRequestedPage(self, **kw):
@@ -423,6 +421,17 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         page = self.getRequestedPageName(**kw)
         return self.getPageContainer(page)
+
+    security.declarePublic('getEffectivePageName')
+    def getEffectivePageName(self, **kw):
+        """Get the name of the effective page, i.e. a requested page
+        that effectively exists in this theme otherwise return the name of
+        the default page.
+        """
+        page = self.getRequestedPageName(**kw)
+        if page not in self.getPageNames():
+            return self.getDefaultPageName()
+        return page
 
     security.declarePublic('getPages')
     def getPages(self):

@@ -5,7 +5,7 @@ tal:define="global here_url here_url|here/absolute_url;
             global base_url python: here.cpsskins_getBaseUrl();
             global current_theme python: tmtool.getRequestedThemeName(context_obj=here);
             global theme_container python: tmtool.getThemeContainer(theme=current_theme);
-            global current_page python: theme_container.getRequestedPageName(context_obj=here);
+            global current_page python: theme_container.getEffectivePageName(context_obj=here);
             global page_container python: theme_container.getPageContainer(current_page);
             page_renderer_id page_container/renderer|nothing;
             global renderer python: tmtool.getPageRenderer(page_renderer_id);

@@ -6,7 +6,7 @@ if REQUEST is not None:
 tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName(editing=1)
 theme_container = tmtool.getThemeContainer(theme)
-page = theme_container.getRequestedPageName(editing=1)
+page = theme_container.getEffectivePageName(editing=1)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
@@ -26,9 +26,7 @@ if dest_theme_container is None:
 
 # if the destination page is not specified choose the requested page
 if not dest_page:
-    dest_page = dest_theme_container.getRequestedPageName(editing=1)
-    if dest_page not in dest_theme_container.getPageNames():
-        dest_page = dest_theme_container.getDefaultPageName()
+    dest_page = dest_theme_container.getEffectivePageName(editing=1)
     if dest_page is None:
         dest_page = dest_theme_container.addThemePage().getId()
 
