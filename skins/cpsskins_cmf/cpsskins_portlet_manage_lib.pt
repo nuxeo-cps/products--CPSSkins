@@ -375,52 +375,76 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   </table>    
 </metal:block>
 
-<metal:block define-macro="browser_panel">
+<metal:block define-macro="browser_panel"
+  tal:define="topic request/form/topic|nothing">
+
   <h2 i18n:translate="heading_portlet_browser" i18n:domain="cpsskins">Portlet browser</h2>
-  <tal:block define="portlets ptltool/listAllPortlets"
-             repeat="portlet portlets">
-    <tal:block define="ypos portlet/getOrder;
-                       fti portlet/getTypeInfo;
-                       portlet_id portlet/getId;
-                       portlet_title portlet/title_or_id;
-                       portlet_type fti/title_or_id;
-                       portlet_icon fti/getIcon;
-                       portlet_url portlet/getURL;
-                       portlet_folder portlet/getLocalFolder;
-                       portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
-                       portlet_rurl portlet/getRelativeUrl;
-                       folder_url python: base_url + utool.getRelativeUrl(here);
-                       group portlet/getSlot;
-                       editable python:checkPerm('Manage Portlets', portlet);
-                       selected python: portlet_id == selected_portlet">
-      <div class="PortletBoxEditMenu" style="padding: 2px"
-       tal:attributes="portlet_rurl portlet_rurl;
-                       portlet_url string:${base_url}${portlet_rurl};
-                       portlet_folder python: base_url + portlet_folder_rurl;
-                       icon portlet_icon;
-                       title portlet_title;
-                       folder_url folder_url;
-                       portlet_id portlet_id;
-                       editable editable;
-                       src_rurl portlet_folder_rurl;
-                       src_ypos python: ypos and ypos or 0;
-                       src_slot group">
-        <div class="PortletInfo"
-         tal:attributes="style python: selected and 'border-style: dashed' or ''">
-          <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
-           tal:content="portlet/title_or_id" href="javascript:void(0)"/>
-          <p>
-            <img width="16" height="16" alt=""
-             tal:condition="portlet_icon"
-             tal:attributes="src string:${base_url}${portlet_icon};
-                             title python: cpsmcat(portlet_type)" />
-            <em tal:content="structure python: cpsmcat(portlet_type)" />.
-            <span tal:content="portlet/description" />
-          </p>
-          <div class="PortletPreview"
-           tal:content="structure python: portlet.render_cache(context_obj=here)" />
+
+  <div tal:condition="topic">
+    <a tal:attributes="href string:${request/URL0}"
+       i18n:translate="" class="link_up"
+       tal:define="title string:_Other topics_"
+       tal:content="python: mcat and mcat(title) or title" />
+
+    <tal:block define="portlets python: ptltool.listPortlets(topics=(topic,))"
+     repeat="portlet portlets">
+
+      <tal:block define="ypos portlet/getOrder;
+                         fti portlet/getTypeInfo;
+                         portlet_id portlet/getId;
+                         portlet_title portlet/title_or_id;
+                         portlet_type fti/title_or_id;
+                         portlet_icon fti/getIcon;
+                         portlet_url portlet/getURL;
+                         portlet_folder portlet/getLocalFolder;
+                         portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+                         portlet_rurl portlet/getRelativeUrl;
+                         folder_url python: base_url + utool.getRelativeUrl(here);
+                         group portlet/getSlot;
+                         editable python:checkPerm('Manage Portlets', portlet);
+                         selected python: portlet_id == selected_portlet">
+        <div class="PortletBoxEditMenu" style="padding: 2px"
+         tal:attributes="portlet_rurl portlet_rurl;
+                         portlet_url string:${base_url}${portlet_rurl};
+                         portlet_folder python: base_url + portlet_folder_rurl;
+                         icon portlet_icon;
+                         title portlet_title;
+                         folder_url folder_url;
+                         portlet_id portlet_id;
+                         editable editable;
+                         src_rurl portlet_folder_rurl;
+                         src_ypos python: ypos and ypos or 0;
+                         src_slot group">
+          <div class="PortletInfo"
+           tal:attributes="style python: selected and 'border-style: dashed' or ''">
+            <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
+             tal:content="portlet/title_or_id" href="javascript:void(0)"/>
+            <p>
+              <img width="16" height="16" alt=""
+               tal:condition="portlet_icon"
+               tal:attributes="src string:${base_url}${portlet_icon};
+                               title python: cpsmcat(portlet_type)" />
+              <em tal:content="structure python: cpsmcat(portlet_type)" />.
+              <span tal:content="portlet/description" />
+            </p>
+            <div class="PortletPreview"
+             tal:content="structure python: portlet.render_cache(context_obj=here)" />
+          </div>
         </div>
-      </div>
+      </tal:block>
     </tal:block>
-  </tal:block>
+  </div>
+
+  <div class="topicFolder" tal:condition="not:topic">
+    <ul tal:define="topics_voc here/portal_vocabularies/subject_voc|nothing"
+        tal:condition="topics_voc">
+      <tal:block repeat="key python: topics_voc.keys()">
+        <li><a href=""
+             tal:attributes="href string:${request/URL0}?topic=$key"
+             tal:content="topics_voc/?key" />
+        </li>
+      </tal:block>
+    </ul>
+  </div>
+
 </metal:block>
