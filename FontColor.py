@@ -67,6 +67,13 @@ class FontColor(BaseStyle):
          'category': 'H1', 
          'palette': 'Palette Color'
         },
+        {'id': 'H1_bg_color', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'H1_bg_color', 
+         'category': 'H1', 
+         'palette': 'Palette Color'
+        },
         {'id': 'H2_font_color', 
          'type': 'string', 
          'mode': 'w', 
@@ -78,6 +85,13 @@ class FontColor(BaseStyle):
          'type': 'string', 
          'mode': 'w', 
          'label': 'H2_border_color', 
+         'category': 'H2', 
+         'palette': 'Palette Color'
+        },
+        {'id': 'H2_bg_color', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'H2_bg_color', 
          'category': 'H2', 
          'palette': 'Palette Color'
         },
@@ -95,6 +109,13 @@ class FontColor(BaseStyle):
          'category': 'H3', 
          'palette': 'Palette Color'
         },
+        {'id': 'H3_bg_color', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'H3_bg_color', 
+         'category': 'H3', 
+         'palette': 'Palette Color'
+        },
         {'id': 'H456_font_color', 
          'type': 'string', 
          'mode': 'w', 
@@ -106,6 +127,13 @@ class FontColor(BaseStyle):
          'type': 'string', 
          'mode': 'w', 
          'label': 'H456_border_color', 
+         'category': 'H456', 
+         'palette': 'Palette Color'
+        },
+        {'id': 'H456_bg_color', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'H456_bg_color', 
          'category': 'H456', 
          'palette': 'Palette Color'
         },
@@ -145,9 +173,13 @@ class FontColor(BaseStyle):
                  H3_font_color = 'Black',
                  H456_font_color = 'Black',
                  H1_border_color = '#666666',
+                 H1_bg_color = '',
                  H2_border_color = '#666666',
+                 H2_bg_color = '',
                  H3_border_color = '#666666',
+                 H3_bg_color = '',
                  H456_border_color = '#666666',
+                 H456_bg_color = '',
                  **kw):
         apply(BaseStyle.__init__, (self, id), kw)
 
@@ -160,9 +192,13 @@ class FontColor(BaseStyle):
         self.H3_font_color = H3_font_color
         self.H456_font_color = H456_font_color
         self.H1_border_color = H1_border_color
+        self.H1_bg_color = H1_bg_color
         self.H2_border_color = H2_border_color
+        self.H2_bg_color = H2_bg_color
         self.H3_border_color = H3_border_color
+        self.H3_bg_color = H3_bg_color
         self.H456_border_color = H456_border_color
+        self.H456_bg_color = H456_bg_color
 
 InitializeClass(FontColor)
 

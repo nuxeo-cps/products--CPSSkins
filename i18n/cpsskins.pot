@@ -460,6 +460,18 @@ msgstr ""
 msgid "_H456_border_color_"
 msgstr ""
 
+msgid "_H1_bg_color_"
+msgstr ""
+
+msgid "_H2_bg_color_"
+msgstr ""
+
+msgid "_H3_bg_color_"
+msgstr ""
+
+msgid "_H456_bg_color_"
+msgstr ""
+
 msgid "_H1_border_style_"
 msgstr ""
 

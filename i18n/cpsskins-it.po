@@ -635,6 +635,10 @@ msgid "_H1_"
 msgstr "H1"
 
 
+msgid "_H1_bg_color_"
+msgstr ""
+
+
 msgid "_H1_border_color_"
 msgstr "Colore del bordo H1"
 
@@ -661,6 +665,10 @@ msgstr "Spazio di riempimento H1"
 
 msgid "_H2_"
 msgstr "H2"
+
+
+msgid "_H2_bg_color_"
+msgstr ""
 
 
 msgid "_H2_border_color_"
@@ -691,6 +699,10 @@ msgid "_H3_"
 msgstr "H3"
 
 
+msgid "_H3_bg_color_"
+msgstr ""
+
+
 msgid "_H3_border_color_"
 msgstr "Colore del bordo H3"
 
@@ -717,6 +729,10 @@ msgstr "Spazio di riempimento H3"
 
 msgid "_H456_"
 msgstr "H4, H5, H6"
+
+
+msgid "_H456_bg_color_"
+msgstr ""
 
 
 msgid "_H456_border_color_"

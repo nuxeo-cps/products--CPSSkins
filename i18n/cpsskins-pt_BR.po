@@ -638,6 +638,10 @@ msgid "_H1_"
 msgstr "H1"
 
 
+msgid "_H1_bg_color_"
+msgstr ""
+
+
 msgid "_H1_border_color_"
 msgstr "Cor da borda H1"
 
@@ -664,6 +668,10 @@ msgstr "Preenchimento H1"
 
 msgid "_H2_"
 msgstr "H2"
+
+
+msgid "_H2_bg_color_"
+msgstr ""
 
 
 msgid "_H2_border_color_"
@@ -694,6 +702,10 @@ msgid "_H3_"
 msgstr "H3"
 
 
+msgid "_H3_bg_color_"
+msgstr ""
+
+
 msgid "_H3_border_color_"
 msgstr "Cor da borda H3"
 
@@ -720,6 +732,10 @@ msgstr "Preenchimento H3"
 
 msgid "_H456_"
 msgstr "H4, H5, H6"
+
+
+msgid "_H456_bg_color_"
+msgstr ""
 
 
 msgid "_H456_border_color_"
