@@ -60,7 +60,7 @@ STATUS_NEW_THEME_AVAILABLE = 6
 VIEW_MODE_SESSION_KEY = 'cpsskins_view_mode'
 
 THEME_CONFIG_ACTION_ID = 'configThemes'
-DEFAULT_ACCESSKEY = 'j'
+DEFAULT_ACCESSKEY = '*'
 
 class PortalThemesTool(ThemeFolder, ActionProviderBase):
     """
