@@ -175,6 +175,12 @@ class PortletBox(BaseTemplet):
                         # XXX: what to do?
                         pass
 
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         self.manage_changeProperties(**kw)
         self.expireCache()
 

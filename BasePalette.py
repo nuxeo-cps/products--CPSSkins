@@ -125,6 +125,12 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
     def edit(self, **kw):
         """Default edit method, changes the properties."""
 
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         self.manage_changeProperties(**kw)
 
     security.declarePublic( 'can_delete')

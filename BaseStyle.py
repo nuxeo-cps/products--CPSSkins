@@ -185,6 +185,13 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             title = getFreeTitle(styles_dir, title)
         self.findParents(newtitle=title)
         kw['title'] = title
+
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         self.manage_changeProperties(**kw)
         theme_container.expireCSSCache()
 

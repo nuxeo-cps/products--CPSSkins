@@ -78,6 +78,12 @@ class CellSizer(BaseCellModifier):
     def edit(self, **kw):
         """Default edit method, changes the properties."""
 
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         if kw.get('cellwidth') == '':
             del kw['cellwidth']
         self.manage_changeProperties(**kw)

@@ -147,6 +147,13 @@ class FlashBox(File, BaseTemplet):
         """
         Default edit method, changes the properties.
         """
+
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         self.manage_changeProperties(**kw)
 
 InitializeClass(FlashBox)

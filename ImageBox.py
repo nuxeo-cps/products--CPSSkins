@@ -211,7 +211,12 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         Default edit method, changes the properties.
         """
 
-        tmtool = getToolByName(self, 'portal_themes')
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
         self.manage_changeProperties(**kw)
         self.ZCacheable_invalidate()
         self.expireCache()
