@@ -63,10 +63,6 @@ function Portlet_add(selected_items, target_node) {
   newWindow(create_url);
 }
 
-function Portlet_checkmove(selected_items, target_node) {
-  return true;
-}
-
 function PortletBox_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
@@ -80,11 +76,13 @@ function PortletBox_move(selected_items, target_node) {
   src_rurl = pd_selected_item.getAttribute('src_rurl');
   src_ypos = pd_selected_item.getAttribute('src_ypos');
   src_slot = pd_selected_item.getAttribute('src_slot');
+  copy = pd_selected_item.getAttribute('copy');
   new_url = 'cpsskins_move_portletbox?portlet_rurl=' + portlet_rurl
   new_url = new_url + '&src_ypos=' + src_ypos + '&src_slot=' + src_slot + '&src_rurl=' + src_rurl;
   new_url = new_url + '&dest_ypos=' + dest_ypos
   if (dest_rurl != null) new_url = new_url + '&dest_rurl=' + dest_rurl;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
+  if (copy != null) new_url = new_url + '&leave=1';
   window.location = new_url;
 }
 
@@ -123,18 +121,7 @@ function Choice_delete() {
   window.location = portlet_folder + '/cpsskins_delete_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
 }
 
-function PortletBox_checkmove(selected_items, target_node) {
-  return true;
-}
-
-function setupPortletBoxDrag(node) {
-  pd_setupDragUI(node, PortletBox_move, PortletBox_checkmove);
-}
-
-function setupPortletBoxEditMenu(node) {
-  pd_setupContextMenu(node, 'choice-context-menu', null, true);
-}
-
+/* setup */
 function setupDestination(node) {
   if (Destinations.push)
     Destinations.push(node);
@@ -143,9 +130,27 @@ function setupDestination(node) {
   pd_setupDropTarget(node, 1);
 }
 
-function setupPortletAdd(node) {
-  pd_setupDragUI(node, Portlet_add, Portlet_checkmove);
+function setupPortletBoxEditMenu(node) {
+  pd_setupContextMenu(node, 'choice-context-menu', null, true);
 }
+
+function setupPortletBoxDrag(node) {
+  pd_setupDragUI(node, PortletBox_move, PortletBox_checkmove);
+}
+
+function setupPortletAdd(node) {
+  pd_setupDragUI(node, Portlet_add, PortletAdd_checkmove);
+}
+
+/* check move */
+function PortletBox_checkmove(selected_items, target_node) {
+  return true;
+}
+
+function PortletAdd_checkmove(selected_items, target_node) {
+  return true;
+}
+
 
 pd_node_setup['PortletBoxDrag'] = setupPortletBoxDrag;
 pd_node_setup['PortletBoxEditMenu'] = setupPortletBoxEditMenu;

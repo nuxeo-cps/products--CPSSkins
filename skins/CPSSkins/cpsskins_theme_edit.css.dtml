@@ -767,7 +767,7 @@ margin-bottom: 7px;
 
 /* Clipboard */
 
-.ClipboardBox {
+.ClipboardBox, .ClipboardBox_highlighted {
 position: absolute;
 right: 1em;
 top: 0.5em;
@@ -777,11 +777,6 @@ text-align: center;
 padding: 5px;
 width: 110px;
 -moz-border-radius: 8px;
-}
-
-.ClipboardBox .title {
-font-weight: bold;
-padding-bottom: 0.5em;
 }
 
 /* Portal Boxes */
