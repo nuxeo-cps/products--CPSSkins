@@ -1,4 +1,5 @@
-<dtml-let theme_url="getThemeContainer().absolute_url(1)"
+<dtml-let base_url="cpsskins_getBaseUrl()"
+          theme_url="base_url + portal_url.getRelativeUrl(getThemeContainer())"
           class="'.boxColor' + title">
 
 <dtml-var class> .title { 
@@ -12,7 +13,7 @@
   color: <dtml-var BoxTitle_font_color>;
 </dtml-if>
 <dtml-if BoxTitle_bg_image>
-  background-image:url(/<dtml-var theme_url>/backgrounds/<dtml-var BoxTitle_bg_image>);
+  background-image:url(<dtml-var theme_url>/backgrounds/<dtml-var BoxTitle_bg_image>);
 </dtml-if>
 }
 
@@ -29,7 +30,7 @@
   border-color: <dtml-var BoxBody_border_color>;
 </dtml-if>
 <dtml-if BoxBody_bg_image>
-  background-image: url(/<dtml-var theme_url>/backgrounds/<dtml-var BoxBody_bg_image>);
+  background-image: url(<dtml-var theme_url>/backgrounds/<dtml-var BoxBody_bg_image>);
 </dtml-if>
 }
 
@@ -62,8 +63,8 @@
 <dtml-var class> .body ul.cpsskinsMenu li a {
 <dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
-<dtml-let url="absolute_url(relative=1)">
-  background-image: url(/<dtml-var url>);
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background-image: url(<dtml-var url>);
   padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
@@ -74,8 +75,8 @@
 <dtml-var class> .body ul.cpsskinsMenu li.selected a {
 <dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
-<dtml-let url="absolute_url(relative=1)">
-  background-image: url(/<dtml-var url>);
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background-image: url(<dtml-var url>);
   padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
