@@ -1,14 +1,13 @@
 <tal:block
-define="mcat python: request.get('cpsskins_mcat'); 
-        flash_width python: here.flash_width;
+define="flash_width python: here.flash_width;
         flash_height python: here.flash_height;
-	caption python: here.caption">
+        caption python: here.caption">
   <div tal:content="structure caption" />
   <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
         codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0"
         tal:define="flashobject_url here/absolute_url"
         tal:attributes="width flash_width; height flash_height ">
-   <param name="movie" value="" tal:attributes="value flashobject_url">
+   <param name="movie" value="" tal:attributes="value flashobject_url" />
    <embed src="" 
          menu="false"
          wmode="transparent"
