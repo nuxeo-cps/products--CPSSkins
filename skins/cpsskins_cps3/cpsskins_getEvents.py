@@ -11,7 +11,7 @@ for res in results:
                     'url': res.absolute_url(),
                     'title': res.title_or_id(),
                     'icon': res.getIcon(),
-                    'location': res.location,
+                    'location': getattr(res, 'location', ''),
                     'start': DateTime(res.start().strftime('%d/%m/%y'))
                   }
                  )
