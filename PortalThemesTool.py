@@ -661,9 +661,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             except AttributeError:
                 pass
             theme = self.getThemeByMethod(published)
-            if theme is not None and theme.find('+') > 0:
-                theme = theme.split('+')[0]
-            return theme
+            if theme is not None:
+                if theme.find('+') > 0:
+                    theme = theme.split('+')[0]
+                return theme
 
         # local theme + page
         local_theme = self.getLocalThemeName(**kw)
