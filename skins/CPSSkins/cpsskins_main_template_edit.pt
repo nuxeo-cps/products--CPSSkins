@@ -16,7 +16,8 @@
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 <metal:block define-macro="main"
- tal:define="utool nocall:here/portal_url;
+ tal:define="base_url python: here.cpsskins_getBaseUrl();
+          utool nocall:here/portal_url;
           edit_mode request/form/edit_mode|nothing;
           current_theme request/form/theme|nothing;
 	  align python: theme_container.align; 
