@@ -83,7 +83,7 @@
                                special_content python: ismaincontent or isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
 		               hover_effect python: not ismaincontent;
-                               boxdragclass python: (not iscellblock or layout_edit_mode) and 'ContentBoxDrag' or '';
+                               boxdragclass python: not ismaincontent and (not iscellblock or layout_edit_mode) and 'ContentBoxDrag' or '';
                                boxeditmenuclass python: (not ismaincontent and (not iscellblock or context != content)) and 'ContentBoxEditMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
