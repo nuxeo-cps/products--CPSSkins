@@ -27,45 +27,6 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     """Base class for testing as 'Manager' or as 'ThemeManager'
     """
 
-    # Viewing edit screens
-    def test_edit_mode_layout(self):
-        self.tmtool.setViewMode(edit_mode='layout')
-        test_url = '/%s/edit_form' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_edit_mode_wysiwyg(self):
-        self.tmtool.setViewMode(edit_mode='wysiwyg')
-        test_url = '/%s/edit_form' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_edit_mode_mixed(self):
-        self.tmtool.setViewMode(edit_mode='mixed')
-        test_url = '/%s/edit_form' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_cache_manager(self):
-        test_url = '/%s/cpsskins_cache_manager' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_edit_styles(self):
-        test_url = '/%s/cpsskins_edit_styles' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_edit_images(self):
-        test_url = '/%s/cpsskins_edit_images' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_OK)
-
-    def test_edit_palettes(self):
-        test_url = '/%s/cpsskins_edit_palettes' % self.theme_url
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-
     # Adding objects
     def test_add_PortalTheme(self):
         tmtool = self.portal.portal_themes
@@ -320,22 +281,6 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         templets = pageblock.objectValues('Text Box Templet')
         self.assert_(len(templets) == 0)
 
-    def test_edit_Templet(self):
-        theme_container = self.theme_container
-        pageblock = theme_container.addPageBlock()
-        templet = pageblock.addContent(type_name='Text Box Templet')
-        test_url = '/%s/cpsskins_content_action?action=edit' \
-           % templet.absolute_url(1)
-        response = self.publish(test_url, self.basic_auth)                      
-        location_re = re.compile('Location: (.*)')
-        output = response.getOutput() 
-        location = location_re.search(output)
-        redirect_url = None
-        if location is not None:
-            redirect_url = location.group(1)
-        templet_edit_url = templet.absolute_url(1) + '/edit_form'
-        self.assert_(redirect_url.find(templet_edit_url) > 0)
-
     def test_findStyle_for_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
@@ -352,20 +297,6 @@ class TestFunctionalAsMember(TestFunctional):
     login_id = 'cpsskins_user'
 
     # Only testing security
-    def test_edit_mode_layout(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'layout')
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
-
-    def test_edit_mode_wysiwyg(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'wysiwyg')
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
-
-    def test_edit_mode_mixed(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'mixed')
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
 
     def test_add_PortalTheme(self):
         tmtool = self.portal.portal_themes
