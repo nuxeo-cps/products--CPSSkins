@@ -46,6 +46,12 @@
    tal:condition="psm"
    tal:content="psm" />
 
+  <div tal:condition="isPortalStyle"
+    tal:define="style nocall:here"
+    style="float:right">
+    <metal:block use-macro="here/cpsskins_form_widgets/macros/default_style" />
+  </div>
+
   <div class="editForm" i18n:domain="cpsskins">
     <h1>
       <tal:block define="title string:_Edit_"
@@ -69,6 +75,7 @@
         <metal:block use-macro="here/cpsskins_form_widgets/macros/edit_form" />
       </tal:block>
     </div>
+
 
     <br/>
     <tal:block condition="isImageBox">

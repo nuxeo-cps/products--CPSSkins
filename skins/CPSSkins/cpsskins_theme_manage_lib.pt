@@ -108,7 +108,6 @@
              tal:content="python: mcat and mcat(title) or title">Title</th>
             <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
              tal:content="python: mcat and mcat(title) or title">Preview</th>
-            <th>&nbsp;</th>
           </tr>
           <tal:block repeat="style style_list">
             <tr tal:define="styleid style/getId;
@@ -116,7 +115,8 @@
                             even repeat/style/even;"
                 tal:attributes="class python: even and 'even' or None">
               <td width="20">
-                <input type="checkbox" name="ids:list" tal:attributes="value styleid" />
+                <input type="checkbox" name="ids:list"
+                 tal:attributes="value styleid" />
               </td>
               <td width="20">
                 <img src="" alt="" width="16" height="16"
@@ -127,17 +127,12 @@
                  tal:attributes="onClick onclick_string"
                  tal:content="python: style.title_or_id()" />
               </td>
-              <td align="center" width="200px">
-                <div style="background-color: White; padding: 5px">
-                <a href=""
-                 tal:content="structure python: style.preview()"
-                 tal:attributes="onClick onclick_string" />
+              <td align="center" width="240px">
+                <div style="text-align: left; padding: 3px">
+                  <a href=""
+                   tal:content="structure python: style.preview()"
+                   tal:attributes="onClick onclick_string" />
                 </div>
-              </td>
-              <td>
-                <div class="previewBox hidden"
-                 tal:attributes="id style/getId"
-                 tal:content="structure python: style.preview()" />
               </td>
             </tr>
           </tal:block>

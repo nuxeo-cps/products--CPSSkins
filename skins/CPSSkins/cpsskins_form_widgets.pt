@@ -304,23 +304,24 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
         </form>
       </td>
     </tr>
-    <tr tal:condition="isPortalStyle">
-      <td colspan="2" align="right" 
-        tal:define="default_style here/aq_explicit/isDefaultStyle|nothing">
-        <em tal:condition="default_style" i18n:translate=""
-         tal:define="title string:_This style will be used by default_"
-         tal:content="python: mcat and mcat(title) or title" />
-        <a tal:condition="not:default_style"
-         tal:attributes="href string:${here_url}/cpsskins_setdefaultstyle">
-          <em i18n:translate=""
-           tal:define="title string:_Use this as the default style_"
-           tal:content="python: mcat and mcat(title) or title" />
-        </a>
-      </td>
-    </tr>
   </table>
 </metal:block>
 <!-- End navigate between style categories -->
+
+<!-- set default style -->
+<metal:block define-macro="default_style" i18n:domain="cpsskins"
+ tal:define="default_style style/aq_explicit/isDefaultStyle|nothing">
+  <em tal:condition="default_style" i18n:translate=""
+   tal:define="title string:_This style will be used by default_"
+   tal:content="python: mcat and mcat(title) or title" />
+  <a tal:condition="not:default_style"
+   tal:attributes="href string:${style/absolute_url}/cpsskins_setdefaultstyle">
+    <em i18n:translate=""
+     tal:define="title string:_Use this as the default style_"
+     tal:content="python: mcat and mcat(title) or title" />
+  </a>
+</metal:block>
+<!-- End set default style -->
 
 <!-- navigate between palette categories -->
 <metal:block define-macro="palettenavigation" i18n:domain="cpsskins"
@@ -442,16 +443,13 @@ tal:define="theme request/form/theme|nothing;
 
 <metal:block define-macro="show_style_parents" i18n:domain="cpsskins"
   tal:define="parents style/findParents">
-  <p tal:condition="python: len(parents) > 0">
-    <em tal:define="title string:_This style is used by:_"
-     tal:content="python: mcat and mcat(title) or title"
-     i18n:translate="" />
-    <em tal:repeat="parent parents">
+  <tal:block condition="python: len(parents) &gt; 0">
+    <p tal:repeat="parent parents">
       <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
        align="middle" alt="" width="16" height="16" />
       <a href=""
        tal:attributes="onClick string:newWindow('${parent/absolute_url}/edit_form?cat=style')"
        tal:content="parent/title_or_id" />&nbsp;&nbsp;
-    </em>
-  </p>
+    </p>
+  </tal:block>
 </metal:block>
