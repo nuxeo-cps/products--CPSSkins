@@ -222,7 +222,7 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
         <tal:block condition="isPortalStyle">
           <strong>
             <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_styles?style=$stylecat"
-               i18n:translate="" class="link_up"
+               i18n:translate="" class="linkUp"
                tal:define="title string:_Other styles_"
                tal:content="python: mcat and mcat(title) or title" />
           </strong>

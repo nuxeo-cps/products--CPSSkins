@@ -401,7 +401,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
   <div tal:condition="selection">
     <a tal:attributes="href string:${request/URL0}"
-       i18n:translate="" class="link_up"
+       i18n:translate="" class="linkUp"
        tal:define="title string:_Other portlets_"
        tal:content="python: mcat and mcat(title) or title" />
     <br/>
