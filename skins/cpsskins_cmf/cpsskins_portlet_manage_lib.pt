@@ -20,7 +20,7 @@
                    editable editable;
                    class python: editable and 'boxGroupBoxSlot portletBoxDrag' or 'boxGroupBoxSlot'">
     <div class="portletBoxDest"
-     tal:define="box_style python: box_selected and 'border: 1px dashed Black' or 'border: none'"
+     tal:define="box_style python: box_selected and 'border: 2px solid #000' or 'border: none'"
       tal:attributes="style box_style;
                       insert_url folder_url;
                       dest_slot group;
@@ -410,7 +410,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                              dest_ypos python: ypos and ypos or 0;
                              class python: editable and 'portletBoxDest' or None">
               <div class="portletInfo"
-               tal:attributes="style python: selected and 'border-style: dashed' or ''">
+               tal:attributes="style python: selected and 'border: 2px solid #000' or ''">
                 <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
                 tal:content="portlet/title_or_id" href="javascript:void(0)"/>
                 (<span tal:content="group" />)
