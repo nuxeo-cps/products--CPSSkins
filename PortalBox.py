@@ -280,7 +280,8 @@ class PortalBox(BaseTemplet):
         """Renders the templet's title."""
 
         title_source = self.title_source
-        mcat = self.REQUEST.get('cpsskins_mcat')
+        REQUEST = self.REQUEST
+        mcat = REQUEST.get('cpsskins_mcat')
 
         title = ''
 
@@ -295,8 +296,10 @@ class PortalBox(BaseTemplet):
                 title = mcat(title)
 
         elif title_source == 'Workflow state':
-            wtool = getToolByName(self, 'portal_workflow')
-            title = wtool.getInfoFor(context_obj, 'review_state','')
+            context_obj = REQUEST.get('context_obj')
+            if context_obj is not None:
+                wtool = getToolByName(self, 'portal_workflow')
+                title = wtool.getInfoFor(context_obj, 'review_state','')
 
         elif title_source == 'Username':
             mtool = getToolByName(self, 'portal_membership')
