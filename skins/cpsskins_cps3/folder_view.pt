@@ -1,0 +1,15 @@
+<metal:block define-macro="folder_view" tal:define="
+  tmtool here/portal_themes;
+  current_theme python: tmtool.getRequestedThemeName(context=here);
+  theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
+  theme_renderer theme_container/theme_renderer;
+  macroless python: theme_renderer == 'macroless'">
+
+<tal:block condition="macroless">
+  <metal:block use-macro="here/cpsskins_main_template_macroless/macros/master" />
+</tal:block>
+
+<tal:block condition="not:macroless">
+  <metal:block use-macro="here/folder_view_orig/macros/folder_view" />
+</tal:block>
+</metal:block>

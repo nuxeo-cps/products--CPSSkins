@@ -1,7 +1,21 @@
-<metal:block define-macro="head" 
-  tal:define="base_url python: request.get('cpsskins_base_url', '');
-              theme_url python: base_url + utool.getRelativeUrl(theme_container)">
-  <meta name="generator" content="CPSSkins 2.3" />
+<metal:block define-macro="master">
+<html tal:define="
+  utool nocall:here/portal_url;
+  mcat here/cpsskins_getlocalizer;
+  here_url here/absolute_url;
+  base_url python: here.cpsskins_getBaseUrl();
+  theme_url python: base_url + utool.getRelativeUrl(theme_container);
+  cpsskins_language tmtool/getCurrentLang;
+  cpsskins_url here/cpsskins_getCurrentURL;
+  shield not:tmtool/debug_mode|python:1;
+  dummy python: request.set('cpsskins_language', cpsskins_language);
+  dummy python: request.set('cpsskins_url', cpsskins_url);
+  dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());
+  dummy python: request.set('cpsskins_mcat', mcat);
+">
+<head>
+<metal:block define-macro="head"
+ tal:define="theme_url python: base_url + utool.getRelativeUrl(theme_container);">
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${base_url}cpsskins_common.css" />
@@ -13,11 +27,13 @@
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
 <!-- Shortcut icon -->
-<tal:block content="structure theme_container/renderIcon" />
+  <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
+</head>
 <metal:block define-macro="main">
-  <tal:block define="context_rurl request/form/context_rurl|nothing;
-                     context_obj python: here.cpsskins_getContextObj(context_rurl);
-                     dummy python: request.set('cpsskins_mcat', mcat)"
-   content="structure python: theme_container.render(context_obj=context_obj)" />
+  <body tal:attributes="class string:color${theme_container/color};
+                        style string:margin:${theme_container/margin};"
+   tal:content="structure python: theme_container.render(context_obj=here)" />
+</metal:block>
+</html>
 </metal:block>
