@@ -1,6 +1,6 @@
 <div tal:define="orientation here/orientation"
  tal:attributes="class python: orientation == 'horizontal' and 'cpsskinsTab' or 'cpsskinsBox'">
-  <ul tal:define="
+  <ul class="menu" tal:define="
     mcat python: request.get('cpsskins_mcat'); 
     portal_url here/portal_url;
     context_obj nocall:options/context_obj;
