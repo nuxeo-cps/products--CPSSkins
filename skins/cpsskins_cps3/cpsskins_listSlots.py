@@ -6,7 +6,9 @@ if getattr(context, 'portal_cpsportlets', None) is not None:
 
 # CPS3 Boxes
 if getattr(context, 'portal_boxes', None) is not None:
-    list.extend(context.getBoxSlots())
-    list.append('closed')
+    for slot in context.getBoxSlots() + ('closed',):
+       if slot in list:
+           continue
+       list.append(slot)
 
 return list
