@@ -76,6 +76,7 @@
     </div> 
 
     <div class="editForm" tal:condition="python: panel == 'cache_manager'">
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/cache_manager" />
     </div> 
     <div class="editForm" tal:condition="python: panel == 'theme_optimizer'">
