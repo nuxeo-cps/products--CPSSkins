@@ -34,6 +34,11 @@ background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
 
 .BoxColor&dtml-title; .body ul {
 list-style-type: none;
+margin: 0; padding: 0;
+}
+
+.BoxColor&dtml-title; .body li {
+display: inline;
 }
 
 .BoxColor&dtml-title; .body ul li a {
