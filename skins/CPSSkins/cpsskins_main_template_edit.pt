@@ -26,7 +26,7 @@
     mixed_panel python: panel == 'mixed'; 
     wysiwyg_panel python: panel == 'wysiwyg';
     pageblock_style python: page_container.getCSSLayoutStyle();
-    context_obj python: tmtool.getContextObj(context);
+    context_obj python: tmtool.getContextObj(here);
     cpsskins_language tmtool/getCurrentLang;
     mcat python: tmtool.getTranslationService(cat='cpsskins');
     dummy python: request.set('cpsskins_language', cpsskins_language);
