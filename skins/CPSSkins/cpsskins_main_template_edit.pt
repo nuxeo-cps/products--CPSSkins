@@ -11,7 +11,7 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${portal_url}/cpsskins_common-css2.css);" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS"></script>
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/cpsskins_renderJS"></script>
 <!-- Shortcut icon -->
 <tal:block define="shortcut_icon theme_container/shortcut_icon|nothing"
            condition="shortcut_icon">

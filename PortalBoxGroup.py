@@ -223,21 +223,6 @@ class PortalBoxGroup(BaseTemplet):
         # Entire slots are not cached.
         return self.render(shield=shield, **kw)
 
-    security.declarePublic('render_js')
-    def render_js(self, **kw):
-        """Renders the javascript code used in this slot."""
-
-        if not self.hasPortlets():
-            return ''
-        context = kw.get('context')
-        slot = self.getSlot()
-        ptltool = getToolByName(self, 'portal_cpsportlets')
-        portlets = ptltool.getPortlets(context, slot)
-
-        all_rendered = ''
-        for portlet in portlets:
-            all_rendered += portlet.render_js(**kw)
-        return all_rendered
 
 InitializeClass(PortalBoxGroup)
 

@@ -33,6 +33,7 @@ import os
 import string
 import time
 
+from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
 from Products.CMFCore.CMFCorePermissions import View
@@ -450,19 +451,19 @@ class PortalTheme(ThemeFolder):
         js = cache.getEntry(index)
 
         if js is None:
-            js = '<!--\n'
+            js = ''
             done_types = []
             for templet in self.getTemplets():
                 ti = templet.getTypeInfo()
                 if ti is None:
                     continue
                 templet_type = ti.getId()
-                if templet_type not in done_types:
-                    done_types.append(templet_type)
-                    js_code = templet.render_js(**kw)
-                    if js_code:
-                        js += js_code
-            js += '\n-->'   
+                if templet_type in done_types:
+                    continue
+                done_types.append(templet_type)
+                js_code = templet.render_js(**kw)
+                if js_code:
+                    js += js_code
             cache.setEntry(index, js)
         return js  
 
@@ -515,6 +516,17 @@ class PortalTheme(ThemeFolder):
         """ returns a list of page blocks sorted by ypos"""
 
         return self.objectValues('Page Block')
+
+    security.declarePublic('getSlots')
+    def getSlots(self):
+        """Return the list of slots used in this theme.
+        """
+
+        slots = []
+        for templet in self.getTemplets():
+            if getattr(aq_base(templet), 'isportalboxgroup', 0):
+                slots.append(templet.getSlot())
+        return slots
 
     security.declarePublic('getStyles')
     def getStyles(self, meta_type=None):

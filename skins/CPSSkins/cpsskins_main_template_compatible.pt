@@ -13,7 +13,7 @@
     a {text-decoration: none; }
   </style>
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS"></script>
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/cpsskins_renderJS"></script>
 </metal:block>
 <metal:block define-macro="main"
   tal:define="context_rurl python: '/' + utool.getRelativeUrl(here);
