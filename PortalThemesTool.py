@@ -1072,7 +1072,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             try:
                 f = urlopen(themeurl)
                 zexp_data = f.read()
-            except:
+            except IOError:
                 theme['status'] = STATUS_THEME_RETRIEVE_FAILED
             else:
                 new_md5sum = md5.new(zexp_data).hexdigest()
