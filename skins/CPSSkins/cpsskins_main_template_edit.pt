@@ -32,7 +32,8 @@
     cpsskins_language tmtool/getCurrentLang;
     mcat python: tmtool.getTranslationService(cat='cpsskins');
     dummy python: request.set('cpsskins_language', cpsskins_language);
-    dummy python: request.set('cpsskins_mcat', mcat)">
+    dummy python: request.set('cpsskins_mcat', mcat);
+    dummy python: request.set('cpsskins_base_url', base_url)">
 
   <tal:block condition="layout_panel" define="pageblock_ypos python: 0">
     <metal:block use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
