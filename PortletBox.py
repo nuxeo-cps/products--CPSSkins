@@ -275,6 +275,8 @@ class PortletBox(BaseTemplet):
         portlet = ptltool.getPortletById(portlet_id)
 
         boxlayout = self.boxlayout
+        if boxlayout == '':
+            boxlayout = 'standard'
         if kw.get('boxedit'):
             boxlayout = 'portlet_edit'
 

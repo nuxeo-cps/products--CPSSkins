@@ -221,6 +221,8 @@ class PortalBoxGroup(BaseTemplet):
         all_rendered = ''
 
         boxlayout = self.boxlayout
+        if boxlayout == '':
+            boxlayout = 'standard'
         if kw.get('boxedit'):
             boxlayout = 'portlet_edit'
 
