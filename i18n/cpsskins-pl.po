@@ -1361,6 +1361,10 @@ msgid "_Theme chooser_"
 msgstr "Wybór motywów"
 
 
+msgid "_Theme editor_"
+msgstr ""
+
+
 msgid "_Theme name_"
 msgstr ""
 

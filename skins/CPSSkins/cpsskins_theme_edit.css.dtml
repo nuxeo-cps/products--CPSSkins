@@ -182,6 +182,10 @@ background: #ffff00;
 border: 1px inset #666;
 }
 
+.mainformtab a.exit {
+background-color: #dfb;
+}
+
 /* URL simulation menu */ 
 
 div.simulate_hierarchies {
@@ -866,4 +870,32 @@ font-style: bold
 .slotselector a:hover {
 text-decoration: underline;
 }
+
+/* browser */
+
+.topicFolder ul {
+margin: 0px;
+padding: 0px;
+list-style-type: none;
+text-align: left;
+}
+
+.topicFolder ul li { float: left; }
+
+.topicFolder ul li a {
+background: url(<dtml-var base_url>cpsskins_images/topic_folder_off.png) no-repeat top left;
+padding: 15px 20px 0 10px;
+margin: 0px;
+text-decoration: none;
+font-size: 1pt;
+float: left;
+height: 67px;
+width: 75px;
+}
+
+.topicFolder li a:hover {
+background: url(<dtml-var base_url>cpsskins_images/topic_folder_on.png) no-repeat left top;
+color: Black;
+}
+
 </dtml-let>

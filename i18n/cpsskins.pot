@@ -1746,3 +1746,6 @@ msgstr ""
 
 msgid "_clipboard_"
 msgstr ""
+
+msgid "_Theme editor_"
+msgstr ""

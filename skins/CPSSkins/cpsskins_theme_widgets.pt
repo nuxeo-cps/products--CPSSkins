@@ -51,7 +51,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
             tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
             checkPerm nocall: mtool/checkPermission;
-            can_manage python: checkPerm('Manage portal', here);
+            can_manage python: checkPerm('Manage portal', tmtool);
 	    cat request/cat|string:general">
   <div class="mainformtab">
     &nbsp;
@@ -94,7 +94,8 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
        tal:attributes="href string:${tmtool_url}/manage_main"
        tal:define="title string:_ZMI_" i18n:translate="" 
        tal:content="python:mcat and mcat(title) or title" />
-    <a tal:attributes="href string:${theme_container_url}/cpsskins_exit"
+    <a class="exit"
+       tal:attributes="href string:${theme_container_url}/cpsskins_exit"
        tal:define="title string:_Exit_" i18n:translate=""
        tal:content="python:mcat and mcat(title) or title" />
     &nbsp;

@@ -175,7 +175,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
     &nbsp;
-    <a tal:attributes="href string:${here_url}"
+    <a class="exit"
+       tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form"
+       tal:condition="python: checkPerm('Manage Themes', tmtool)"
+       tal:define="title string:_Theme editor_" i18n:translate=""
+       tal:content="python:mcat and mcat(title) or title" />
+    &nbsp;
+    <a class="exit"
+       tal:attributes="href string:${here_url}"
        tal:define="title string:_Exit_" i18n:translate=""
        tal:content="python:mcat and mcat(title) or title" />
  </div>

@@ -1362,6 +1362,10 @@ msgid "_Theme chooser_"
 msgstr "Selecionador de tema"
 
 
+msgid "_Theme editor_"
+msgstr ""
+
+
 msgid "_Theme name_"
 msgstr "Nome do tema"
 
