@@ -32,6 +32,13 @@ def setperms(object, perms, pr=None):
         object.manage_permission(perm, roles, acquire)
         pr("  Permission %s" % perm)
 
+def checktool(self, name):
+    try:
+        getToolByName(self, name)
+    except AttributeError:
+        pass
+    else:
+        return 1
              
 def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     logf("START: CPSSkins Install")
@@ -264,19 +271,29 @@ def update(self):
             pr(" Add role %s" % role)
         else:
             pr(" Role %s already there" % role)
-    permsthemes = ('Manage Themes', 
-                   'Add portal content', 
-                   'Manage properties',
-                   'Change Images and Files', 
-                  )
-    portal_themes_id = 'portal_themes'
-    pr(" Verifying permissions on the 'portal_themes' tool")
-    for perm in permsthemes:
-        try:
-            setperms(portal[portal_themes_id], {perm: ('Manager', 'Owner', 'ThemeManager')}, pr=pr)
-        except:
-            pass
-    portal[portal_themes_id].reindexObjectSecurity()
+
+    # portal_themes
+    tool_id = 'portal_themes'
+    perms = ('Manage Themes', 
+             'Add portal content', 
+             'Manage properties',
+             'Change Images and Files', 
+    ) 
+    pr(" Verifying permissions on the '%s' tool" % tool_id)
+    tool = getattr(portal, tool_id)
+    for perm in perms:
+        setperms(tool, {perm: ('Manager', 'Owner', 'ThemeManager')}, pr=pr)
+    tool.reindexObjectSecurity()
+
+    # portal_cpsportlets (CPSPortlets)
+    tool_id = 'portal_cpsportlets'
+    if checktool(self, tool_id):
+        tool = getattr(portal, tool_id)
+        perms = ('Manage Portlets', ) 
+        pr(" Verifying permissions on the '%s' tool" % tool_id)
+        for perm in perms:
+            setperms(tool, {perm: ('Manager', 'Owner', 'ThemeManager')}, pr=pr) 
+        tool.reindexObjectSecurity()
 
     # portal types
     pr_h3("Portal types")
@@ -321,26 +338,20 @@ def update(self):
         'Palette Border',
         ) 
 
+    ptypes_to_delete = ()
+
     # CMFCalendar
-    has_cmfcalendar = 0
-    try:
-        getToolByName(self, 'portal_calendar')
-    except AttributeError:
-        pass
-    else:
-        has_cmfcalendar = 1
+    if checktool(self, 'portal_calendar'):
         types_in_stylefolders += ('Calendar Style',)
         types_in_pageblocks += ('Calendar Templet',)
+    else:
+        ptypes_to_delete += ('Calendar Templet', 'Calendar Style')
 
     # CPSPortlets
-    has_cpsportlets = 0
-    try:
-        getToolByName(self, 'portal_cpsportlets')
-    except AttributeError:
-        pass
-    else:
-        has_cpsportlets = 1
+    if checktool(self, 'portal_cpsportlets'):
         types_in_pageblocks += ('Portlet Box Templet',)
+    else:
+        ptypes_to_delete += ('Portlet Box Templet',)
 
     types_in_themefolders = types_in_stylefolders + \
                             types_in_palettefolders + \
@@ -354,18 +365,15 @@ def update(self):
                  types_in_palettefolders
                }
 
-    ptypes_to_delete = ()
-    if has_cmfcalendar == 0:
-        ptypes_to_delete += ('Calendar Templet', 'Calendar Style')
-
-    if has_cpsportlets == 0:
-        ptypes_to_delete += ('Portlet Box Templet',)
-
+    # deleting portal types
+    pr("  Deleting portal types")
     for ptype in ptypes_to_delete:             
         if ptype in ttool.objectIds():
             pr("  Portal type '%s' deleted" % ptype)
             ttool.manage_delObjects([ptype])
 
+    # reinstalling portal types
+    pr("  Resinstalling portal types")
     ptypes_installed = ttool.objectIds()
     for prod in ptypes.keys():
         for ptype in ptypes[prod]:
