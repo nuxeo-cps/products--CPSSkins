@@ -610,7 +610,7 @@ tal:define="info cellstyle/getInfo|nothing;
     </a>
     <a class="cellstyler"
     tal:condition="python: edit_action and cellstyle"
-    tal:define="class_string string:Shape${cellstyle/shape|nothing};
+    tal:define="class_string string:shape${cellstyle/shape|nothing};
                 title string:_Stylize this cell_"
      i18n:attributes="title"
     tal:attributes="title python: mcat and mcat(title) or title; 

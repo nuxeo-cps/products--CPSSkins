@@ -1,62 +1,80 @@
-.CalendarStyle&dtml-title; { 
-text-align:center;
-border-collapse:collapse;
-}
-.CalendarStyle&dtml-title; .event { 
-background-color:&dtml-Event_bg_color;;
+<dtml-let class="'.calendarStyle' + title">
+
+<dtml-var class> .event { 
+<dtml-if Event_bg_color>
+  background-color: <dtml-var Event_bg_color>;
+</dtml-if>
 <dtml-if Event_border_color>
-border-color:&dtml-Event_border_color;;
-border-width:1px;
-border-style:solid;
+  border-color: <dtml-var Event_border_color>;
 </dtml-if>
 }
-.CalendarStyle&dtml-title; .event a { 
-color:&dtml-Event_font_color;;
-font-weight:bold;
+
+<dtml-if Event_font_color>
+<dtml-var class> .event a { 
+  color: <dtml-var Event_font_color>;
+}</dtml-if>
+
+<dtml-if Today_border_color>
+<dtml-var class> .todaynoevent { 
+  border-color: <dtml-var Today_border_color>;
+}</dtml-if>
+
+<dtml-var class> .todayevent { 
+<dtml-if Today_border_color>
+  border-color: <dtml-var Today_border_color>;
+</dtml-if>
+<dtml-if Event_bg_color>
+  background-color:  <dtml-var Event_bg_color>;
+</dtml-if>
 }
-.CalendarStyle&dtml-title; .todaynoevent { 
-border-color:&dtml-Today_border_color;;
-border-width:2px;
-border-style:solid;
+
+<dtml-if Event_font_color>
+<dtml-var class> .todayevent a { 
+  color: <dtml-var Event_font_color>;
+}</dtml-if>
+
+<dtml-var class> .header { 
+<dtml-if Header_font_color>
+  color: <dtml-var Header_font_color>;
+</dtml-if>
+<dtml-if Header_bg_color>
+  background-color: <dtml-var Header_bg_color>;
+</dtml-if>
 }
-.CalendarStyle&dtml-title; .todayevent { 
-border-color:&dtml-Today_border_color;;
-border-width:2px;
-border-style:solid;
-background-color: &dtml-Event_bg_color;;
+
+<dtml-if Weekdays_border_color>
+<dtml-var class> .weekdays td { 
+  border-color: <dtml-var Weekdays_border_color>;
+}</dtml-if>
+
+<dtml-var class> .weekdays {
+<dtml-if Weekdays_font_color>
+  color: <dtml-var Weekdays_font_color>;
+</dtml-if>
+<dtml-if Weekdays_bg_color>
+  background-color: <dtml-var Weekdays_bg_color>;
+</dtml-if>
 }
-.CalendarStyle&dtml-title; .todayevent a { 
-color:&dtml-Event_font_color;;
-font-weight:bold;
+
+<dtml-var class> .days { 
+<dtml-if Days_font_color>
+  color: <dtml-var Days_font_color>;
+</dtml-if>
+<dtml-if Days_bg_color>
+  background-color: <dtml-var Days_bg_color>;
+</dtml-if>
 }
-.CalendarStyle&dtml-title; .header { 
-background-color:&dtml-Header_bg_color;;
-color:&dtml-Header_font_color;;
-font-weight:bold;
+
+<dtml-var class> .preview {
+<dtml-if Preview_font_color>
+  color: <dtml-var Preview_font_color>;
+</dtml-if>
+<dtml-if Preview_bg_color>
+  background-color: <dtml-var Preview_bg_color>;
+</dtml-if>
+<dtml-if Preview_border_color>
+  border-color: <dtml-var Preview_border_color>;
+</dtml-if>
 }
-.CalendarStyle&dtml-title; .weekdays td { 
-border-width:1px;
-border-color:&dtml-Weekdays_border_color;;
-border-style:solid none solid none;
-}
-.CalendarStyle&dtml-title; .weekdays { 
-background-color:&dtml-Weekdays_bg_color;;
-color:&dtml-Weekdays_font_color;;
-}
-.CalendarStyle&dtml-title; .days { 
-background-color:&dtml-Days_bg_color;;
-color:&dtml-Days_font_color;;
-}
-.CalendarStyle&dtml-title; .preview {
-color:&dtml-Preview_font_color;;
-background-color:&dtml-Preview_bg_color;;
-border-color:&dtml-Preview_border_color;;
-border-width:1px;
-border-style:solid;
-padding:0.2em;
-margin-top:0.5em;
-position:absolute;
-visibility:hidden;
-width:12em;
-text-align:left;
-}
+
+</dtml-let>

@@ -1,59 +1,62 @@
-.BoxShape&dtml-title; .title {
+<dtml-let class="'.boxShape' + title">
+<dtml-var class> .title {
 <dtml-if BoxTitle_border_style>
-border-style:&dtml-BoxTitle_border_style;;
+  border-style: <dtml-var BoxTitle_border_style>;
 </dtml-if>
 <dtml-if BoxTitle_border_width>
-border-width:&dtml-BoxTitle_border_width;;
+  border-width: <dtml-var BoxTitle_border_width>;
 </dtml-if>
 <dtml-if BoxTitle_padding>
-padding:&dtml-BoxTitle_padding;;
+  padding: <dtml-var BoxTitle_padding>;
 </dtml-if>
 <dtml-if BoxTitle_display>
-display:&dtml-BoxTitle_display;;
+  display: <dtml-var BoxTitle_display>;
 </dtml-if>
 <dtml-if BoxTitle_font_weight>
-font-weight:&dtml-BoxTitle_font_weight;;
+  font-weight: <dtml-var BoxTitle_font_weight>;
 </dtml-if>
 }
 
-.BoxShape&dtml-title; .body {
+<dtml-var class> .body {
 <dtml-if BoxBody_border_style>
-border-style:&dtml-BoxBody_border_style;;
+  border-style: <dtml-var BoxBody_border_style>;
 </dtml-if>
 <dtml-if BoxBody_border_width>
-border-width:&dtml-BoxBody_border_width;;
+  border-width: <dtml-var BoxBody_border_width>;
 </dtml-if>
 <dtml-if BoxBody_padding>
-padding: &dtml-BoxBody_padding;;
+  padding: <dtml-var BoxBody_padding>;
 </dtml-if>
 }
 
-.BoxShape&dtml-title; .body ul li a {
+<dtml-var class> .body ul li a {
 <dtml-if BoxBody_menuout_border_style>
-border-style:&dtml-BoxBody_menuout_border_style;;
+  border-style: <dtml-var BoxBody_menuout_border_style>;
 </dtml-if>
 <dtml-if BoxBody_menuout_border_width>
-border-width:&dtml-BoxBody_menuout_border_width;;
+  border-width: <dtml-var BoxBody_menuout_border_width>;
 </dtml-if>
 <dtml-if BoxBody_menuout_padding>
-padding: &dtml-BoxBody_menuout_padding;;
+  padding: <dtml-var BoxBody_menuout_padding>;
 </dtml-if>
 <dtml-if BoxBody_menuout_margin>
-margin: &dtml-BoxBody_menuout_margin;;
+  margin: <dtml-var BoxBody_menuout_margin>;
 </dtml-if>
 }
 
-.BoxShape&dtml-title; .body ul li.selected a {
+<dtml-var class> .body ul li.selected a {
 <dtml-if BoxBody_menuin_border_style>
-border-style:&dtml-BoxBody_menuin_border_style;;
+  border-style: <dtml-var BoxBody_menuin_border_style>;
 </dtml-if>
 <dtml-if BoxBody_menuin_border_width>
-border-width:&dtml-BoxBody_menuin_border_width;;
+  border-width: <dtml-var BoxBody_menuin_border_width>;
 </dtml-if>
 <dtml-if BoxBody_menuin_padding>
-padding: &dtml-BoxBody_menuin_padding;;
+  padding: <dtml-var BoxBody_menuin_padding>;
 </dtml-if>
 <dtml-if BoxBody_menuin_margin>
-margin: &dtml-BoxBody_menuin_margin;;
+  margin: <dtml-var BoxBody_menuin_margin>;
 </dtml-if>
 }
+
+</dtml-let>

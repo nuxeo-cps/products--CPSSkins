@@ -1,104 +1,112 @@
+<dtml-let class="'.fontShape' + title">
+
 <dtml-if Default_font>
-.FontShape&dtml-title; { 
-font:&dtml-Default_font; !important;
-}
-</dtml-if>
-.FontShape&dtml-title; p {
+<dtml-var class> {
+  font: <dtml-var Default_font> !important;
+} </dtml-if>
+
+<dtml-var class> p {
 <dtml-if P_font>
-font:&dtml-P_font; !important;
+  font: <dtml-var P_font> !important;
 </dtml-if>
 <dtml-if P_padding>
-padding:&dtml-P_padding;;
+  padding: <dtml-var P_padding>;
 </dtml-if>
 }
+
 <dtml-if STRONG_font>
-.FontShape&dtml-title; strong {
-font:&dtml-STRONG_font; !important;
-}
-</dtml-if>
-.FontShape&dtml-title; h1 { 
+<dtml-var class> strong {
+  font: <dtml-var STRONG_font> !important;
+} </dtml-if>
+
+<dtml-var class> h1 {
 <dtml-if H1_font>
-font:&dtml-H1_font; !important;
+  font: <dtml-var H1_font> !important;
 </dtml-if>
 <dtml-if H1_padding>
-padding:&dtml-H1_padding;;
+  padding: <dtml-var H1_padding>;
 </dtml-if>
 <dtml-if H1_border_style>
-border-style:&dtml-H1_border_style;;
+  border-style: <dtml-var H1_border_style>;
 </dtml-if>
 <dtml-if H1_border_width>
-border-width:&dtml-H1_border_width;;
+  border-width: <dtml-var H1_border_width>;
 </dtml-if>
 }
-.FontShape&dtml-title; h2 { 
+
+<dtml-var class> h2 {
 <dtml-if H2_font>
-font:&dtml-H2_font; !important;
+  font: <dtml-var H2_font> !important;
 </dtml-if>
 <dtml-if H2_padding>
-padding:&dtml-H2_padding;;
+  padding: <dtml-var H2_padding>;
 </dtml-if>
 <dtml-if H2_border_style>
-border-style:&dtml-H2_border_style;;
+  border-style: <dtml-var H2_border_style>;
 </dtml-if>
 <dtml-if H2_border_width>
-border-width:&dtml-H2_border_width;;
+  border-width: <dtml-var H2_border_width>;
 </dtml-if>
 }
-.FontShape&dtml-title; h3 { 
+
+<dtml-var class> h3 {
 <dtml-if H3_font>
-font:&dtml-H3_font; !important;
+  font: <dtml-var H3_font> !important;
 </dtml-if>
 <dtml-if H3_padding>
-padding:&dtml-H3_padding;;
+  padding: <dtml-var H3_padding>;
 </dtml-if>
 <dtml-if H3_border_style>
-border-style:&dtml-H3_border_style;;
+  border-style: <dtml-var H3_border_style>;
 </dtml-if>
 <dtml-if H3_border_width>
-border-width:&dtml-H3_border_width;;
+  border-width: <dtml-var H3_border_width>;
 </dtml-if>
 }
-.FontShape&dtml-title; h4, 
-.FontShape&dtml-title; h5, 
-.FontShape&dtml-title; h6 {
+
+<dtml-var class> h4,
+<dtml-var class> h5,
+<dtml-var class> h6 {
 <dtml-if H456_font>
-font:&dtml-H456_font; !important;
+  font: <dtml-var H456_font> !important;
 </dtml-if>
 <dtml-if H456_padding>
-padding:&dtml-H456_padding;;
+  padding: <dtml-var H456_padding>;
 </dtml-if>
 <dtml-if H456_border_style>
-border-style:&dtml-H456_border_style;;
+  border-style: <dtml-var H456_border_style>;
 </dtml-if>
 <dtml-if H456_border_width>
-border-width:&dtml-H456_border_width;;
+  border-width: <dtml-var H456_border_width>;
 </dtml-if>
 }
+
 <dtml-if A_link_decoration>
-.FontShape&dtml-title; a, 
-.FontShape&dtml-title; a div, 
-.FontShape&dtml-title; a span {
-text-decoration:&dtml-A_link_decoration;;
-}
-</dtml-if>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  text-decoration: <dtml-var A_link_decoration>;
+} </dtml-if>
+
 <dtml-if A_visited_decoration>
-.FontShape&dtml-title; a:visited, 
-.FontShape&dtml-title; a:visited div, 
-.FontShape&dtml-title; a:visited span {
-text-decoration:&dtml-A_visited_decoration;;
-}
-</dtml-if>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  text-decoration: <dtml-var A_visited_decoration>;
+} </dtml-if>
+
 <dtml-if A_active_decoration>
-.FontShape&dtml-title; a:active,
-.FontShape&dtml-title; a:active div, 
-.FontShape&dtml-title; a:active span {
-text-decoration:&dtml-A_active_decoration;;
-}
-</dtml-if>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  text-decoration: <dtml-var A_active_decoration>;
+} </dtml-if>
+
 <dtml-if A_hover_decoration>
-.FontShape&dtml-title; a:hover,
-.FontShape&dtml-title; a:hover div,
-.FontShape&dtml-title; a:hover span { 
-text-decoration:&dtml-A_hover_decoration;;
-}
-</dtml-if>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  text-decoration: <dtml-var A_hover_decoration>;
+} </dtml-if>
+
+</dtml-let>

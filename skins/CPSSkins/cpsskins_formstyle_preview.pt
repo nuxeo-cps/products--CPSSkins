@@ -2,7 +2,7 @@
   <tr>
     <td>
       <div style="padding: 4px; text-align: left; background-color: White;">
-        <div tal:attributes="class string:FormStyle${here/title}">
+        <div tal:attributes="class string:formStyle${here/title}">
           <form>
             <textarea>Lorem ipsum dolor sit amet</textarea><br/>
             <input type="text" value="" />

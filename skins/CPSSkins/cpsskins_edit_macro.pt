@@ -28,7 +28,7 @@ tal:define="global editing python: 1;
   </head>
 
   <body
-   tal:attributes="class string:Color${bodycolor};
+   tal:attributes="class string:color${bodycolor};
                    onload string:javascript:scrollToCoordinates(${scrollx},${scrolly})">
 
    <div class="floatingheader">

@@ -1,7 +1,7 @@
 <table cellpadding="3" cellspacing="0" border="0" summary=""
 i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')"
-tal:attributes="class string:CalendarStyle${here/title}">
+tal:attributes="class string:calendarStyle${here/title} cpsskinsCalendar">
   <tbody>
     <tr class="header">
       <td>&#171;</td>

@@ -3,7 +3,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr style="height:150px">
     <td>
       <div style="width: 140px"
-      tal:attributes="class string:CollapsibleMenu${here/title}">
+      tal:attributes="class string:collapsibleMenu${here/title}">
         <div class="topmenu">
           <a href="">
             <tal:block define="title string:_topmenu_"

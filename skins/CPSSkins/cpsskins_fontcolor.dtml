@@ -1,74 +1,81 @@
-.FontColor&dtml-title; h1 { 
-<dtml-if H1_border_color> 
-border-color:&dtml-H1_border_color;;
+<dtml-let class="'.fontColor' + title">
+
+<dtml-var class> h1 {
+<dtml-if H1_border_color>
+  border-color: <dtml-var H1_border_color>;
 </dtml-if>
-<dtml-if H1_bg_color> 
-background-color:&dtml-H1_bg_color;;
+<dtml-if H1_bg_color>
+  background-color: <dtml-var H1_bg_color>;
 </dtml-if>
-<dtml-if H1_font_color> 
-color:&dtml-H1_font_color;;
-</dtml-if> 
-}
-.FontColor&dtml-title; h2 { 
-<dtml-if H2_border_color> 
-border-color:&dtml-H2_border_color;;
-</dtml-if>
-<dtml-if H2_bg_color> 
-background-color:&dtml-H2_bg_color;;
-</dtml-if>
-<dtml-if H2_font_color> 
-color:&dtml-H2_font_color;;
+<dtml-if H1_font_color>
+  color: <dtml-var H1_font_color>;
 </dtml-if>
 }
-.FontColor&dtml-title; h3 { 
-<dtml-if H3_border_color> 
-border-color:&dtml-H3_border_color;;
+
+<dtml-var class> h2 {
+<dtml-if H2_border_color>
+  border-color: <dtml-var H2_border_color>;
 </dtml-if>
-<dtml-if H3_bg_color> 
-background-color:&dtml-H3_bg_color;;
+<dtml-if H2_bg_color>
+  background-color: <dtml-var H2_bg_color>;
 </dtml-if>
-<dtml-if H3_font_color> 
-color: &dtml-H3_font_color;;
-</dtml-if>
-}
-.FontColor&dtml-title; h4, 
-.FontColor&dtml-title; h5, 
-.FontColor&dtml-title; h6 {
-<dtml-if H456_border_color> 
-border-color:&dtml-H456_border_color;;
-</dtml-if>
-<dtml-if H456_bg_color> 
-background-color:&dtml-H456_bg_color;;
-</dtml-if>
-<dtml-if H456_font_color> 
-color:&dtml-H456_font_color;;
+<dtml-if H2_font_color>
+  color: <dtml-var H2_font_color>;
 </dtml-if>
 }
-<dtml-if A_link> 
-.FontColor&dtml-title; a, 
-.FontColor&dtml-title; a div, 
-.FontColor&dtml-title; a span {
-color:&dtml-A_link;;
-}
+
+<dtml-var class> h3 {
+<dtml-if H3_border_color>
+  border-color: <dtml-var H3_border_color>;
 </dtml-if>
-<dtml-if A_visited> 
-.FontColor&dtml-title; a:visited, 
-.FontColor&dtml-title; a:visited div, 
-.FontColor&dtml-title; a:visited span {
-color:&dtml-A_visited;;
-}
+<dtml-if H3_bg_color>
+  background-color: <dtml-var H3_bg_color>;
 </dtml-if>
-<dtml-if A_active> 
-.FontColor&dtml-title; a:active, 
-.FontColor&dtml-title; a:active div, 
-.FontColor&dtml-title; a:active span {
-color:&dtml-A_active;;
-}
+<dtml-if H3_font_color>
+  color: <dtml-var H3_font_color>;
 </dtml-if>
-<dtml-if A_hover> 
-.FontColor&dtml-title; a:hover, 
-.FontColor&dtml-title; a:hover div, 
-.FontColor&dtml-title; a:hover span {
-color:&dtml-A_hover;;
 }
+
+<dtml-var class> h4,
+<dtml-var class> h5,
+<dtml-var class> h6 {
+<dtml-if H456_border_color>
+  border-color: <dtml-var H456_border_color>;
 </dtml-if>
+<dtml-if H456_bg_color>
+  background-color: <dtml-var H456_bg_color>;
+</dtml-if>
+<dtml-if H456_font_color>
+  color: <dtml-var H456_font_color>;
+</dtml-if>
+}
+
+<dtml-if A_link>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  color: <dtml-var A_link>;
+} </dtml-if>
+
+<dtml-if A_visited>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  color: <dtml-var A_visited>;
+} </dtml-if>
+
+<dtml-if A_active>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  color: <dtml-var A_active>;
+} </dtml-if>
+
+<dtml-if A_hover>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  color: <dtml-var A_hover>;
+} </dtml-if>
+
+</dtml-let>

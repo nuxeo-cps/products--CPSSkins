@@ -90,10 +90,10 @@ class CellStyler(BaseCellModifier, StylableContent):
         """
 
         if level == 1:
-            return 'Color%s' % self.color
+            return 'color%s' % self.color
 
         elif level == 2:
-            return 'Shape%s Color%s' % \
+            return 'shape%s color%s' % \
                    (self.shape, 
                     self.color)
         return ''

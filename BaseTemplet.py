@@ -462,20 +462,20 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             fontshape = self.fontshape
 
             if color:
-                areaclass.append('Color%s' % color)
+                areaclass.append('color%s' % color)
             if fontcolor:
-                areaclass.append('FontColor%s' % fontcolor)
+                areaclass.append('fontColor%s' % fontcolor)
             if fontshape:
-                areaclass.append('FontShape%s' % fontshape)
+                areaclass.append('fontShape%s' % fontshape)
 
             if level == 2:
                 shape = self.shape
                 formstyle = self.formstyle
 
                 if shape:
-                    areaclass.append('Shape%s' % shape)
+                    areaclass.append('shape%s' % shape)
                 if formstyle:
-                    areaclass.append('FormStyle%s' % formstyle)
+                    areaclass.append('formStyle%s' % formstyle)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.

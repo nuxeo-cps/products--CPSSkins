@@ -1,22 +1,24 @@
 <dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)">
-.Color&dtml-title; { 
+
+.color<dtml-var title> { 
 <dtml-if Area_border_color>
-border-color:&dtml-Area_border_color;;
+  border-color: <dtml-var Area_border_color>;
 </dtml-if>
 <dtml-if Area_bg_color>
-background-color:&dtml-Area_bg_color;;
+  background-color: <dtml-var Area_bg_color>;
 </dtml-if>
 <dtml-if Area_font_color>
-color:&dtml-Area_font_color;;
+  color: <dtml-var Area_font_color>;
 </dtml-if>
 <dtml-if Area_bg_image>
-background-image: url(/&dtml-theme_url;/backgrounds/&dtml-Area_bg_image;);
+  background-image: url(/<dtml-var theme_url>/backgrounds/<dtml-var Area_bg_image>);
 </dtml-if>
 <dtml-if Area_bg_repeat>
-background-repeat:&dtml-Area_bg_repeat;;
+  background-repeat: <dtml-var Area_bg_repeat>;
 </dtml-if>
 <dtml-if Area_bg_position>
-background-position:&dtml-Area_bg_position;;
+  background-position: <dtml-var Area_bg_position>;
 </dtml-if>
 }
+
 </dtml-let>

@@ -8,8 +8,7 @@
                    year_string python: year and '&year:int=' + str(year) or '';
                    calendar_data here/cpsskins_getCalendar;        
                    calendar python: calendar_data['calendar'];
-                   calendar_class string:CalendarStyle${here/calendar_style};
-">
+                   calendar_class string:calendarStyle${here/calendar_style} cpsskinsCalendar">
 <table cellpadding="2" cellspacing="0" border="0" width="100%" summary=""
   tal:attributes="class calendar_class">
     <tr class="header">

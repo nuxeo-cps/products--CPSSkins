@@ -1,6 +1,6 @@
 <table cellpadding="5" cellspacing="0" summary="" i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')"
-tal:attributes="class string:FontColor${here/title}">
+tal:attributes="class string:fontColor${here/title}">
   <tr style="height: 320px">
     <td style="text-align:left; width: 250px; white-space:nowrap">
       <h1 tal:define="title string:_H1_font_" i18n:translate=""

@@ -151,11 +151,11 @@ class SimpleBox:
             boxshape = self.boxshape
             boxcorners = self.boxcorners
             if boxcolor:
-                boxclass.append('BoxColor%s' % boxcolor)
+                boxclass.append('boxColor%s' % boxcolor)
             if boxshape:
-                boxclass.append('BoxShape%s' % boxshape)
+                boxclass.append('boxShape%s' % boxshape)
             if boxcorners:
-                boxclass.append('BoxCorners%s' % boxcorners)
+                boxclass.append('boxCorners%s cpsskinsBoxCorners' % boxcorners)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.

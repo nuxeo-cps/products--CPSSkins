@@ -202,7 +202,7 @@ class PageBlock(ThemeFolder, StylableContent):
                 o.rebuild(**kw)
                 continue
             moveToLostAndFound(self, o)
- 
+
     security.declarePrivate('getActions')
     def getActions(self):
         """Returns the list of actions"""
@@ -424,9 +424,9 @@ class PageBlock(ThemeFolder, StylableContent):
         color = self.color
         areaclass = []
         if shape:
-            areaclass.append('Shape%s' % shape)
+            areaclass.append('shape%s' % shape)
         if color:
-            areaclass.append('Color%s' % color)
+            areaclass.append('color%s' % color)
         return ' '.join(areaclass)
 
     security.declarePublic('can_toggle')

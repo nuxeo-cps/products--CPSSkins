@@ -45,7 +45,7 @@
       use-macro="here/?main_macro/macros/head" />
       </metal:block>
     </head>
-    <body tal:attributes="class string:Color$cpsskins_bodycolor; style string:margin:$cpsskins_pagemargin">
+    <body tal:attributes="class string:color$cpsskins_bodycolor; style string:margin:$cpsskins_pagemargin">
       <metal:block
       use-macro="here/?main_macro/macros/main">
         <metal:block fill-slot="maincontent">

@@ -1,59 +1,65 @@
-.FormStyle&dtml-title; form {
+<dtml-let class="'.formStyle' + title">
+
+<dtml-var class> form {
 <dtml-if Form_border_color>
-border-color:&dtml-Form_border_color;;
+  border-color: <dtml-var Form_border_color>;
 </dtml-if>
 <dtml-if Form_border_style>
-border-style:&dtml-Form_border_style;;
+  border-style: <dtml-var Form_border_style>;
 </dtml-if>
 <dtml-if Form_border_width>
-border-width:&dtml-Form_border_width;;
+  border-width: <dtml-var Form_border_width>;
 </dtml-if>
 <dtml-if Form_bg_color>
-background-color:&dtml-Form_bg_color;;
+  background-color: <dtml-var Form_bg_color>;
 </dtml-if>
 <dtml-if Form_font_color>
-color:&dtml-Form_font_color;;
+  color: <dtml-var Form_font_color>;
 </dtml-if>
 <dtml-if Form_padding>
-padding:&dtml-Form_padding;;
+  padding: <dtml-var Form_padding>;
 </dtml-if>
 }
-.FormStyle&dtml-title; textarea,
-.FormStyle&dtml-title; input,
-.FormStyle&dtml-title; select
-{
+
+<dtml-var class> textarea,
+<dtml-var class> input,
+<dtml-var class> select {
 <dtml-if Element_border_color>
-border-color:&dtml-Element_border_color;;
+  border-color: <dtml-var Element_border_color>;
 </dtml-if>
 <dtml-if Element_border_style>
-border-style:&dtml-Element_border_style;;
+  border-style: <dtml-var Element_border_style>;
 </dtml-if>
 <dtml-if Element_border_width>
-border-width:&dtml-Element_border_width;;
+  border-width: <dtml-var Element_border_width>;
 </dtml-if>
 <dtml-if Element_bg_color>
-background-color:&dtml-Element_bg_color;;
+  background-color: <dtml-var Element_bg_color>;
 </dtml-if>
 <dtml-if Element_font_color>
-color:&dtml-Element_font_color;;
+  color: <dtml-var Element_font_color>;
 </dtml-if>
 }
-.FormStyle&dtml-title; option {
+
+<dtml-var class> option {
 <dtml-if Element_bg_color>
-background-color:&dtml-Element_bg_color;;
+  background-color: <dtml-var Element_bg_color>;
 </dtml-if>
 <dtml-if Element_font_color>
-color:&dtml-Element_font_color;;
+  color: <dtml-var Element_font_color>;
 </dtml-if>
 }
-.FormStyle&dtml-title; textarea:hover,
-.FormStyle&dtml-title; textarea:focus,
-.FormStyle&dtml-title; input:hover,
-.FormStyle&dtml-title; input:focus {
+
+<dtml-var class> textarea:hover,
+<dtml-var class> textarea:focus,
+<dtml-var class> input:hover,
+<dtml-var class> input:focus {
 <dtml-if Element_active_border_color>
-border-color:&dtml-Element_active_border_color;;
+  border-color: <dtml-var Element_active_border_color>;
 </dtml-if>
 <dtml-if Element_active_bg_color>
-background-color:&dtml-Element_active_bg_color;;
+  background-color: <dtml-var Element_active_bg_color>;
 </dtml-if>
 }
+
+</dtml-let>

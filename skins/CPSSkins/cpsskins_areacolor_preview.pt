@@ -4,7 +4,7 @@
       <div style="padding: 4px;">
         <div style="height: 60px; width: 60px; padding:10px; 
                     text-align: left; border-width: 2px; border-style: solid;"
-             tal:attributes="class string:Color${here/title}">
+             tal:attributes="class string:color${here/title}">
         <br />Text 
         <br /></div>
       </div>

@@ -1,97 +1,95 @@
-<dtml-let theme_url="aq_parent.aq_parent.absolute_url(1)">
+<dtml-let theme_url="aq_parent.aq_parent.absolute_url(1)"
+          class="'.boxColor' + title">
 
-.BoxColor&dtml-title; .title { 
+<dtml-var class> .title { 
 <dtml-if BoxTitle_bg_color>
-background-color:&dtml-BoxTitle_bg_color;; 
+  background-color: <dtml-var BoxTitle_bg_color>; 
 </dtml-if>
 <dtml-if BoxTitle_border_color>
-border-color:&dtml-BoxTitle_border_color;;
+  border-color: <dtml-var BoxTitle_border_color>;
 </dtml-if>
 <dtml-if BoxTitle_font_color>
-color: &dtml-BoxTitle_font_color;;
+  color: <dtml-var BoxTitle_font_color>;
 </dtml-if>
 <dtml-if BoxTitle_bg_image>
-background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxTitle_bg_image;);
+  background-image:url(/<dtml-var theme_url>/backgrounds/<dtml-var BoxTitle_bg_image>);
 </dtml-if>
 }
-<dtml-if BoxTitle_font_color>
-.BoxColor&dtml-title; .title a { 
-color:&dtml-BoxTitle_font_color;;
-}
-</dtml-if>
 
-.BoxColor&dtml-title; .body  { 
+<dtml-if BoxTitle_font_color>
+<dtml-var class> .title a { 
+  color: <dtml-var BoxTitle_font_color>;
+} </dtml-if>
+
+<dtml-var class> .body  { 
 <dtml-if BoxBody_bg_color>
-background-color:&dtml-BoxBody_bg_color;;
+  background-color: <dtml-var BoxBody_bg_color>;
 </dtml-if>
 <dtml-if BoxBody_border_color>
-border-color:&dtml-BoxBody_border_color;;
+  border-color: <dtml-var BoxBody_border_color>;
 </dtml-if>
 <dtml-if BoxBody_bg_image>
-background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
+  background-image: url(/<dtml-var theme_url>/backgrounds/<dtml-var BoxBody_bg_image>);
 </dtml-if>
 }
 
-.BoxColor&dtml-title; .body ul li a {
+<dtml-var class> .body ul li a {
 <dtml-if BoxBody_menuout_border_color>
-border-color:&dtml-BoxBody_menuout_border_color;;
+  border-color: <dtml-var BoxBody_menuout_border_color>;
 </dtml-if>
 }
 
-.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-var class> .body ul li.selected a {
 <dtml-if BoxBody_menuin_border_color>
-border-color:&dtml-BoxBody_menuin_border_color;;
+  border-color: <dtml-var BoxBody_menuin_border_color>;
 </dtml-if>
 }
 
-.BoxColor&dtml-title; .body ul li a {
+<dtml-var class> .body ul li a {
 <dtml-if BoxBody_menuout_color>
-background-color:&dtml-BoxBody_menuout_color;;
+  background-color: <dtml-var BoxBody_menuout_color>;
 </dtml-if>
 }
 
-.BoxColor&dtml-title; .body ul li a:hover, 
-.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-var class> .body ul li a:hover,
+<dtml-var class> .body ul li.selected a {
 <dtml-if BoxBody_menuin_color>
-background-color:&dtml-BoxBody_menuin_color;;
+  background-color: <dtml-var BoxBody_menuin_color>;
 </dtml-if>
 }
 
 <dtml-if BoxBody_menuout_icon>
-.BoxColor&dtml-title; .body ul li a {
+<dtml-var class> .body ul li a {
 <dtml-with expr="aq_parent.aq_parent.icons">
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
 <dtml-let url="absolute_url(relative=1)">
-background-image:url(/<dtml-var url>);
-background-repeat: no-repeat;
-background-position: left center;
-padding-left: <dtml-var "_.int(width)+4">px !important;
+  background-image: url(/<dtml-var url>);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
 </dtml-with>
-}
-</dtml-if>
+} </dtml-if>
 
 <dtml-if BoxBody_menuin_icon>
-.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-var class> .body ul li.selected a {
 <dtml-with expr="aq_parent.aq_parent.icons">
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
 <dtml-let url="absolute_url(relative=1)">
-background-image:url(/<dtml-var url>);
-background-repeat: no-repeat;
-background-position: left center;
-padding-left: <dtml-var "_.int(width)+4">px !important;
+  background-image: url(/<dtml-var url>);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
 </dtml-with>
-}
-</dtml-if>
+} </dtml-if>
 
 <dtml-if expr="BoxBody_menuin_icon or BoxBody_menuout_icon">
-.BoxColor&dtml-title; .body ul li a.noicon {
-background-image: none;
-padding-left: 2px !important;
-}
-</dtml-if>
+<dtml-var class> .body ul li a.noicon {
+  background-image: none;
+  padding-left: 2px !important;
+} </dtml-if>
 
 </dtml-let>

@@ -60,14 +60,14 @@
       use-macro="here/?main_macro/macros/head" />
     </head>
     <body OnLoad="setFocus()"
-    tal:attributes="class string:Color$cpsskins_bodycolor; 
+    tal:attributes="class string:color$cpsskins_bodycolor; 
                     style string:margin:$cpsskins_pagemargin;"
      tal:condition="emptybody">
       <metal:block define-slot="body" />
       <metal:block define-slot="main" />
     </body>
     <body OnLoad="setFocus()"
-    tal:attributes="class string:Color$cpsskins_bodycolor; 
+    tal:attributes="class string:color$cpsskins_bodycolor; 
                     style string:margin:$cpsskins_pagemargin"
      tal:condition="not:emptybody">
       <metal:block

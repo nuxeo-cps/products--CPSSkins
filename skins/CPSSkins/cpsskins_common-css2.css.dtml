@@ -108,3 +108,71 @@ input.SearchBox {
   float: none;
 }
 /* End IE5-Mac hack */
+
+
+/* Box corners */
+.cpsskinsBoxCorners .rbtop div {
+  position: relative;
+  left: -2px;
+  width: 100%;
+}
+.cpsskinsBoxCorners .rbtop {
+  position: relative;
+  right: -1px;
+  top: -1px;
+  width: 100%;
+}
+.cpsskinsBoxCorners .rbbot div {
+  position: relative;
+  left: -2px;
+  width: 100%;
+}
+.cpsskinsBoxCorners .rbbot {
+  width: 100%;
+  position: relative;
+  bottom: -1px;
+  right: -1px;
+}
+
+
+/* Monthly calendar */
+.cpsskinsCalendar { 
+  text-align: center;
+  border-collapse: collapse;
+}
+.cpsskinsCalendar .event { 
+  border-width: 1px;
+  border-style: solid;
+}
+.cpsskinsCalendar .event a { 
+  font-weight: bold;
+}
+.cpsskinsCalendar .todaynoevent { 
+  border-width: 2px;
+  border-style: solid;
+}
+.cpsskinsCalendar .todayevent { 
+  border-width: 2px;
+  border-style: solid;
+}
+.cpsskinsCalendar .todayevent a { 
+  font-weight: bold;
+}
+.cpsskinsCalendar .header { 
+  font-weight: bold;
+}
+.cpsskinsCalendar .weekdays td { 
+  border-width: 1px;
+  border-style: solid none solid none;
+}
+.cpsskinsCalendar .preview {
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.2em;
+  margin-top: 0.5em;
+  position: absolute;
+  visibility: hidden;
+  width: 12em;
+  text-align: left;
+}
+

@@ -4,7 +4,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr>
     <td>
       <div
-      tal:attributes="class string:PortalTab${here/title} cpsskinsRoundedTabs">
+      tal:attributes="class string:portalTab${here/title} cpsskinsRoundedTabs">
         <ul>
           <tal:block repeat="entry python: range(1, 4)">
             <li tal:define="itemclass python: entry == 3 and 'selected' or None"

@@ -3,7 +3,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr style="height: 230px">
     <td>
       <div style="text-align: left; width:130px"
-      tal:attributes="class string:BoxColor${here/title} cpsskinsBox">
+      tal:attributes="class string:boxColor${here/title} cpsskinsBox">
         <br />
         <div class="title"
         style="padding-left: 10px; padding-right: 10px; border-style: solid; border-width: 1px;">
@@ -26,7 +26,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
         </div>
       </div>
       <br />
-      <div tal:attributes="class string:BoxColor${here/title} cpsskinsTab" style="width: 300px">
+      <div tal:attributes="class string:boxColor${here/title} cpsskinsTab" style="width: 300px">
         <div class="title"
         style="padding-left: 10px; padding-right: 10px; border-style: solid; border-width: 1px;">
           <tal:block define="title string:_Menu title_"

@@ -1,12 +1,11 @@
 <metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
   define="padding content/padding|string:0">
-  
-    <!-- Portlets -->
-    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (content.boxcolor, content.boxshape);
-                         style string:text-align:${content/align};; padding:$padding"
-    tal:content="structure python: content.render_cache(shield=1, context_obj=here, enable_esi=enable_esi, boxedit=boexedit)" />
-
+    <div tal:define="rendered python: content.render_cache(shield=1, context_obj=here, enable_esi=enable_esi, boxedit=boxedit);
+                     margin here/margin|string:0"
+         tal:condition="python: rendered != ''"
+         tal:attributes="style string:text-align:${content/align};; padding:$margin"
+         tal:content="structure rendered" />
   </tal:block>
 
   <div class="BoxGroupBoundingBox" tal:condition="not:render_box">

@@ -7,14 +7,14 @@ tal:define="btool here/portal_boxes;
             oklist python:renderlist and filter(None, renderlist);"
 tal:condition="oklist">
   <div tal:repeat="box oklist" tal:condition="render_box"
-  tal:attributes="class string:BoxColor${content/boxcolor} BoxShape${content/boxshape}; 
+  tal:attributes="class string:boxColor${content/boxcolor} boxShape${content/boxshape}; 
                   style string:text-align: left;; 
                   padding:$padding 0 $padding 0">
     <tal:block replace="structure python: box"
     on-error="nothing" />
   </div>
   <div tal:condition="not:render_box"
-  tal:attributes="class string:BoxColor${content/boxcolor} BoxShape${content/boxshape}; 
+  tal:attributes="class string:boxColor${content/boxcolor} boxShape${content/boxshape}; 
                   style string:text-align: left;; 
                   padding:$padding 0 $padding 0">
     <div class="title">

@@ -350,10 +350,10 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         try:
             if level == 1:
                 areaclass = \
-                    'Color%s' % self.color
+                    'color%s' % self.color
             elif level == 2:
                 areaclass = \
-                    'Shape%s Color%s' %\
+                    'shape%s color%s' %\
                          (self.shape,
                           self.color,
                          )

@@ -3,14 +3,14 @@
 
 <h3>Templet preview</h3>
 
-<link rel="Stylesheet" type="text/css" href="cpsskins_common.css" />
+<link rel="Stylesheet" type="text/css" href="cpsskins_common-css2.css" />
 <style type="text/css">
 <dtml-var expr="context.render_css()">
 </style>
 
 <div <dtml-if isAlignable>align="&dtml-align;"</dtml-if>
 style="<dtml-var getCSSLayoutStyle>"
-class="Color&dtml-color; Shape&dtml-shape; FontColor&dtml-fontcolor; FontShape&dtml-fontshape;">
+class="color&dtml-color; shape&dtml-shape; fontColor&dtml-fontcolor; fontShape&dtml-fontshape;">
 <dtml-var expr="context.render(shield=1, context_obj=context)">
 </div>
 

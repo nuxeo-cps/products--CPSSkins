@@ -450,6 +450,7 @@ def css_slimmer(css):
     css = re.sub(r'\n\n','\n', css)
     css = re.sub(r';}','}', css)
     css = re.sub(r',\n',',', css)
+    css = re.sub(r':\s+',':', css)
     return css
 
 def html_slimmer(html):
