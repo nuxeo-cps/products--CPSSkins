@@ -673,6 +673,39 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         return [t.getId() for t in self.getThemes()]
 
+    security.declarePublic('getCurrentLang')
+    def getCurrentLang(self):
+        """Get the current language
+        """
+
+        # Localizer (CMF, Plone1, CPS3)
+        localizer = getattr(self, 'Localizer', None)
+        if localizer is not None:
+            return localizer.get_selected_language()
+
+        # PloneLanguageTool (Plone2)
+        ptool = getToolByName(self, 'portal_languages', None)
+        if ptool is not None:
+            boundLanguages = ptool.getLanguageBindings()
+            if boundLanguages:
+                return boundLanguages[0]
+
+        # Portal messages (CPS2)
+        mcat = getToolByName(self, 'portal_messages', None)
+        if mcat is not None:
+            return mcat.get_selected_language()
+
+        # PlacelessTranslation service
+        REQUEST = self.REQUEST
+        if REQUEST is not None:
+            accept_language = REQUEST.get('HTTP_ACCEPT_LANGUAGE')
+            if accept_language:
+                accept_language = accept_language.split(',')
+                if len(accept_language) > 0:
+                    return accept_language[0]
+
+        return 'en'
+
     security.declarePublic('getIconFor')
     def getIconFor(self, category, id):
         """ Returns an action icon - based on CMFActionsIcons
