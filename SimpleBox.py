@@ -148,7 +148,7 @@ class SimpleBox:
         orientation = getattr(self, 'orientation', '')
         if orientation == 'horizontal':
             boxclass.append('cpsskinsTab')
-        elif orientation == 'vertical':
+        elif self.boxlayout != 'horizontal_menu':
             boxclass.append('cpsskinsBox')
 
         if boxclass:
