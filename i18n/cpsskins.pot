@@ -1552,5 +1552,8 @@ msgstr ""
 msgid "_Portlet Box Templet_"
 msgstr ""
 
-msgid "_portletbox_description_"
+msgid "_portletbox_templet_description_"
+msgstr ""
+
+msgid "_Portlet_"
 msgstr ""

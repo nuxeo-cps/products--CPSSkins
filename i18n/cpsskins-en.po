@@ -1047,6 +1047,10 @@ msgid "_Portlet Box Templet_"
 msgstr "Portlet Box Templet"
 
 
+msgid "_Portlet_"
+msgstr "Portlet"
+
+
 msgid "_Preview background color_"
 msgstr "Preview background color"
 

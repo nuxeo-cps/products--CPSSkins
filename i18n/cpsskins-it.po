@@ -1047,6 +1047,10 @@ msgid "_Portlet Box Templet_"
 msgstr ""
 
 
+msgid "_Portlet_"
+msgstr ""
+
+
 msgid "_Preview background color_"
 msgstr "Colore di sfondo dell'anteprima <br>delle ricorrenze"
 
@@ -1987,7 +1991,7 @@ msgid "_portaltheme_description_"
 msgstr "un tema rappresenta l'aspetto e la modalità di visualizzazione con cui si presenterà il Portale.<br> La struttura della pagina è costituita dall'impilamento di più <STRONG>\"Blocchi di pagina\" </STRONG> orizzontali. "
 
 
-msgid "_portletbox_description_"
+msgid "_portletbox_templet_description_"
 msgstr ""
 
 

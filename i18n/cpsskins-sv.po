@@ -1047,6 +1047,10 @@ msgid "_Portlet Box Templet_"
 msgstr ""
 
 
+msgid "_Portlet_"
+msgstr ""
+
+
 msgid "_Preview background color_"
 msgstr ""
 
@@ -1987,7 +1991,7 @@ msgid "_portaltheme_description_"
 msgstr ""
 
 
-msgid "_portletbox_description_"
+msgid "_portletbox_templet_description_"
 msgstr ""
 
 

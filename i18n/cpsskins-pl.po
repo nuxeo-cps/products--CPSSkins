@@ -1049,6 +1049,10 @@ msgid "_Portlet Box Templet_"
 msgstr ""
 
 
+msgid "_Portlet_"
+msgstr ""
+
+
 msgid "_Preview background color_"
 msgstr "Podgl±d koloru t³a"
 
@@ -1989,7 +1993,7 @@ msgid "_portaltheme_description_"
 msgstr "Motywy portala modyfikuj± wygl±d. Mo¿na je komponowaæ w pionowych blokach"
 
 
-msgid "_portletbox_description_"
+msgid "_portletbox_templet_description_"
 msgstr ""
 
 

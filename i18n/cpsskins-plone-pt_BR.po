@@ -8,10 +8,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: pt-br\n"
+"Language-Name: Português do Brasil\n"
+"Preferred-Encodings: latin1 utf-8\n"
 "Domain: plone\n"
 
 msgid "_You are here:_"
 msgstr "Você está aqui:"
+
 
 msgid "_action_themes_reconfig_"
 msgstr "Temas do portal"

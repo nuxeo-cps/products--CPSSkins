@@ -1061,6 +1061,10 @@ msgid "_Portlet Box Templet_"
 msgstr ""
 
 
+msgid "_Portlet_"
+msgstr ""
+
+
 msgid "_Preview background color_"
 msgstr "Previsualizar color de fondo"
 
@@ -2012,7 +2016,7 @@ msgid "_portaltheme_description_"
 msgstr "un Tema del portal modifica el aspecto y la disposición del portal. La disposición del tema se compone de Bloques de página horizontales."
 
 
-msgid "_portletbox_description_"
+msgid "_portletbox_templet_description_"
 msgstr ""
 
 
