@@ -59,7 +59,8 @@ input.SearchBox {
   background-position: left top;
 }
 
-.cpsskinsBox ul.cpsskinsMenu li a.noicon {
+.cpsskinsBox ul.cpsskinsMenu li a.noicon,
+.cpsskinsBox ul.cpsskinsMenu li.selected a.noicon {
   background-image: none !important;
   padding-left: 2px !important;
 }
