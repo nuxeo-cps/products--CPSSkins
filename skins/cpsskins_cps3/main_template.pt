@@ -32,32 +32,18 @@
                    xml:lang locale">
     <head>
       <metal:block use-macro="here/header_lib/macros/header">
-        <metal:block fill-slot="base">
-          <metal:block define-slot="base">
-            <base href=""
-            tal:attributes="href string:${here_url}/" />
-          </metal:block>
-        </metal:block>
-        <metal:block fill-slot="head_slot">
-          <metal:block define-slot="head_slot" />
-        </metal:block>
-        <metal:block fill-slot="css_slot">
-          <metal:block define-slot="css_slot" />
-        </metal:block>
-        <metal:block fill-slot="javascript_head_slot">
-          <metal:block define-slot="javascript_head_slot" />
-          <script type="text/javascript">
-            function setFocus() {
-            field = document.getElementById('field_focus')
-            if (field) {
-              field.focus();
-            }
-          }
-          </script>
-        </metal:block>
+        <metal:block fill-slot="base"><metal:block define-slot="base"><base
+         href="" tal:attributes="href string:${here_url}/"
+        /></metal:block></metal:block>
+        <metal:block fill-slot="head_slot"><metal:block define-slot="head_slot"
+        /></metal:block>
+        <metal:block fill-slot="css_slot"><metal:block define-slot="css_slot"
+        /></metal:block>
+        <metal:block fill-slot="javascript_head_slot"><metal:block
+        define-slot="javascript_head_slot"
+        /></metal:block>
       </metal:block>
-      <metal:block 
-      use-macro="here/?main_macro/macros/head" />
+      <metal:block use-macro="here/?main_macro/macros/head" />
     </head>
     <body OnLoad="setFocus()"
     tal:attributes="class string:color$cpsskins_bodycolor; 
