@@ -36,7 +36,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for style in templet.StyleList():
             templet.style = style
             self.assert_(templet.render())
@@ -50,7 +51,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render())
 
     def test_TextBox_Templet_text_format(self):
@@ -75,8 +77,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
-             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}] )
+             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}])
         for content in templet.ContentList():
             templet.content = content 
             self.assert_(templet.render())
@@ -119,6 +122,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
              {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}] )
 
@@ -131,7 +135,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render())
 
     def test_ThemeChooser_Templet(self):
@@ -143,7 +148,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render())
 
     def test_ImageBox_Templet(self):
@@ -155,7 +161,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render())
         templet.internal_link = 'http://site.com'
         self.assert_(templet.render())
@@ -187,7 +194,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render())
 
     def test_Breadcrumbs_Templet(self):
@@ -199,7 +207,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         templet.show_icon = 0
         self.assert_(templet.render())
         templet.separator_start = 'start'
@@ -220,7 +229,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for style in templet.OrientationList():
             templet.style = style
             self.assert_(templet.render())
@@ -237,7 +247,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             [{'meta_type': 'Font Color', 'id': 'fontcolor'}, \
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
-             {'meta_type': 'Area Color', 'id': 'color'}] )
+             {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for content in templet.ContentList():
             templet.content = content 
             self.assert_(templet.render())
@@ -253,6 +264,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
+             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Collapsible Menu Style', 'id': 'collapsiblemenu_style'}] )
         self.assert_(templet.render())
 
@@ -266,7 +278,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
-             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'}]  )
+             {'meta_type': 'Form Style', 'id': 'formstyle'}, \
+             {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'}] )
         for content in templet.ContentList():
             templet.content = content 
             self.assert_(templet.render())
@@ -292,6 +305,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
                 {'meta_type': 'Font Shape', 'id': 'fontshape'}, \
                 {'meta_type': 'Area Shape', 'id': 'shape'}, \
                 {'meta_type': 'Area Color', 'id': 'color'}, \
+                {'meta_type': 'Form Style', 'id': 'formstyle'}, \
                 {'meta_type': 'Calendar Style', 'id': 'calendar_style'}] )
            self.assert_(templet.render())
            templet.show_month = 0
