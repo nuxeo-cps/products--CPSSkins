@@ -388,9 +388,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                       portlet_rurl portlet/getRelativeUrl;
                       portlet_depth portlet/getDepth;
                       group portlet/getSlot;
-                      vrange portlet/getVisibilityRange;
-                      vrange_start python: vrange[0];
-                      vrange_stop python: vrange[1];
                       editable python:checkPerm('Manage Portlets', portlet);
                       selected python: portlet_id == selected_portlet">
         <td tal:condition="portlet_depth"
@@ -428,7 +425,13 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                    tal:attributes="src string:${base_url}${portlet_icon};
                                    title python: cpsmcat(portlet_type)" />
                   <em tal:content="structure python: cpsmcat(portlet_type)" />.
-                  <span tal:content="portlet/description" />
+                  <span tal:content="portlet/description" /><br/>
+                   
+                  <small tal:define="vrange portlet/getVisibilityRangeMsgid"
+                   tal:condition="vrange">
+                    <tal:block i18n:translate="">cpsportlets_common_visibility_range_label</tal:block>:
+                    <tal:block content="vrange" i18n:translate="" />
+                  </small>
                 </p>
               </div>
             </div>
