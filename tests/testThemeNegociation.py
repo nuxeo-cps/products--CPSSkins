@@ -76,26 +76,38 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(theme != ('theme', None))
 
     def test_local_theme_1(self):
-        self.portal.invokeFactory(type_name='Folder', id='folder')
-        folder = self.portal.folder
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
         value = 'theme'
         folder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'string')
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
         self.assert_(theme == ('theme', None))
 
     def test_local_theme_2(self):
-        self.portal.invokeFactory(type_name='Folder', id='folder')
-        folder = self.portal.folder
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
         value = 'theme+page'
         folder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'string')
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
         self.assert_(theme == ('theme', 'page'))
 
     def test_local_theme_3(self):
-        self.portal.invokeFactory(type_name='Folder', id='folder')
-        folder = self.portal.folder
-        folder.invokeFactory(type_name='Folder', id='subfolder')
-        subfolder = self.portal.folder.subfolder
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
+        folder.invokeFactory(type_name=self.folder_type, id='subfolder')
+        subfolder = getattr(folder, 'subfolder')
         value = 'theme'
         folder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'string')
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
@@ -104,10 +116,14 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(theme == ('theme', None))
 
     def test_local_theme_4(self):
-        self.portal.invokeFactory(type_name='Folder', id='folder')
-        folder = self.portal.folder
-        folder.invokeFactory(type_name='Folder', id='subfolder')
-        subfolder = self.portal.folder.subfolder
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
+        folder.invokeFactory(type_name=self.folder_type, id='subfolder')
+        subfolder = getattr(folder, 'subfolder')
         value = '1-1:theme'
         folder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'string')
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
@@ -116,10 +132,14 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(theme == ('theme', None))
 
     def test_local_theme_5(self):
-        self.portal.invokeFactory(type_name='Folder', id='folder')
-        folder = self.portal.folder
-        folder.invokeFactory(type_name='Folder', id='subfolder')
-        subfolder = self.portal.folder.subfolder
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
+        folder.invokeFactory(type_name=self.folder_type, id='subfolder')
+        subfolder = getattr(folder, 'subfolder')
         value = ['1-1:theme2', '0-0:theme1']
         folder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'lines')
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
@@ -127,9 +147,23 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=subfolder)
         self.assert_(theme == ('theme2', None))
 
+tests=[]
+target = os.environ.get('CPSSKINS_TARGET', 'CMF')
+if target == 'CPS3':
+    class testCPS3(TestGetThemes):
+        folder_type = 'Workspace'
+        folder_root = 'workspaces'
+    tests.append(testCPS3)
+else:
+    class testCMF(TestGetThemes):
+        folder_type = 'Folder'
+        folder_root = ''
+    tests.append(testCMF)
+
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(TestGetThemes))
+    for test in tests:
+        suite.addTest(unittest.makeSuite(test))
     return suite
 
 if __name__ == '__main__':
