@@ -390,6 +390,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
             <div
              tal:attributes="insert_url portlet_folder_url;
                              dest_rurl portlet_folder_rurl;
+                             dest_slot group;
                              dest_ypos python: ypos and ypos or 0;
                              class python: editable and 'portletBoxDest' or None">
               <div class="portletInfo"
