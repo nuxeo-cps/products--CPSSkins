@@ -348,7 +348,6 @@ msgid "_BoxTitle text align_"
 msgstr "Alinhamento do texto do título da caixa"
 
 
-# , fuzzy
 msgid "_Breadcrumbs Templet_"
 msgstr "Modelo básico"
 
@@ -425,7 +424,6 @@ msgid "_Cellblock margin_"
 msgstr ""
 
 
-# , fuzzy
 msgid "_Collapsible Menu Style_"
 msgstr "Estilo de Menu Contrátil"
 

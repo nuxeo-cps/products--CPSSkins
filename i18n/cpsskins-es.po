@@ -330,7 +330,6 @@ msgid "_BoxTitle border width_"
 msgstr "Grosor del borde del título de caja"
 
 
-# , fuzzy
 msgid "_BoxTitle display_"
 msgstr "Criterios de visualización del título de caja"
 
@@ -456,7 +455,6 @@ msgstr ""
 
 
 # He hecho traducción literal del francés.
-# , fuzzy
 msgid "_Copyright_"
 msgstr "Derechos de autor y otros"
 
@@ -614,7 +612,6 @@ msgid "_Enable ESI_"
 msgstr ""
 
 
-# , fuzzy
 msgid "_End string_"
 msgstr "Cadena final"
 
@@ -631,7 +628,6 @@ msgid "_Event font color_"
 msgstr "Color de la fuente de los eventos"
 
 
-# , fuzzy
 msgid "_Exit_"
 msgstr "Salir"
 
@@ -1140,7 +1136,6 @@ msgid "_P_padding_"
 msgstr "Acolchado para el párrafo"
 
 
-# , fuzzy
 msgid "_Page Block_"
 msgstr "Bloque de página"
 
@@ -1202,7 +1197,6 @@ msgstr "Tema del portal"
 
 
 # plural?
-# , fuzzy
 msgid "_Portal box color_"
 msgstr "Color de las cajas del portal"
 
@@ -1216,7 +1210,6 @@ msgstr "Grupo de cajas del portal"
 
 
 # plural?
-# , fuzzy
 msgid "_Portal box shape_"
 msgstr "Forma de las cajas del portal"
 
@@ -1481,7 +1474,6 @@ msgid "_The languages in which it is visible_"
 msgstr "Idiomas en los que es visible:"
 
 
-# , fuzzy
 msgid "_The visibility paths_"
 msgstr "Visible en los caminos:"
 
@@ -1819,7 +1811,6 @@ msgid "_button_normal_mode_"
 msgstr ""
 
 
-# , fuzzy
 msgid "_button_optimize_theme_"
 msgstr "Optimizar este tema"
 
@@ -1860,7 +1851,6 @@ msgid "_cellhider_description_"
 msgstr "El Escondedor de celda controla la visibilidad de una celda."
 
 
-# , fuzzy
 msgid "_cellsizer_description_"
 msgstr "Un Redimensionador de celda fija la anchura de una celda."
 
@@ -2042,7 +2032,6 @@ msgstr ""
 # es que a veces aparece "modify" en inglés, y hay
 # que saber si se refiere al mismo género de operación
 # Depende del programa. Ver.
-# , fuzzy
 msgid "_menu_Edit_"
 msgstr "Modificar"
 
@@ -2431,7 +2420,6 @@ msgid "_option_vertical_"
 msgstr ""
 
 
-# , fuzzy
 msgid "_pageblock_description_"
 msgstr "Un Bloque de página está compuesto de Celdas (columnas). El aspecto visual de una Celda puede ser modificado utilizando Estilizadores de celda, Redimensionadores de celda y Escondedores de celda."
 
@@ -2544,7 +2532,6 @@ msgid "_topmenu_"
 msgstr "menú superior"
 
 
-# , fuzzy
 msgid "_visibility_"
 msgstr "Visibilidad"
 
