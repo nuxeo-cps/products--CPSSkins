@@ -36,7 +36,7 @@ function Choice_insert(portlet_type) {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  window.location = 'portlet_create?type_name=' + portlet_type + '&order=' + dest_ypos + '&slot=' + dest_slot + '&title=' + portlet_type;
+  window.location = 'cpsskins_portlet_create?type_name=' + portlet_type + '&order=' + dest_ypos + '&slot=' + dest_slot + '&title=' + portlet_type;
 }
 
 function PortletBox_checkmove(selected_items, target_node) {

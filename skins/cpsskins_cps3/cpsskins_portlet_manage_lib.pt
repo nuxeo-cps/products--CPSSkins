@@ -4,14 +4,14 @@
    tal:attributes="src_ypos python: ypos and ypos or 0;
                    src_slot group">
     <div class="PortletBoxDest" 
-      tal:attributes="portlet_url portlet/getRelativeUrl;
+      tal:attributes="portlet_url portlet/getURL;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
-        id: <tal:block content="python: portlet.getId()" /><br/>
-        url: <tal:block content="python: portlet.getURL()" /><br/>
-        slot: <tal:block content="python: portlet.getSlot()" /><br/>
-        order: <tal:block content="python: portlet.getOrder()" /><br/>
+        id: <tal:block content="portlet/getId" /><br/>
+        url: <tal:block content="portlet/getURL" /><br/>
+        slot: <tal:block content="portlet/getSlot" /><br/>
+        order: <tal:block content="portlet/getOrder" /><br/>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
@@ -22,11 +22,19 @@
 </metal:block>
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="portal_url here/portal_url">
+  tal:define="portal_url here/portal_url;
+              ptltool here/portal_cpsportlets">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header" class="context-menu">
       <tal:block i18n:translate="menu_insert_portlet">Insert a portlet here</tal:block>
     </div>
+    <tal:block repeat="ptype_id ptltool/listPortletTypes">
+      <div class="context-menu-item"
+          filter="pd_selected_item"
+          tal:attributes="onmouseup string:Choice_insert('${ptype_id}')" >
+        <tal:block content="structure python: ptype_id" />
+      </div>
+    </tal:block>
   </div>
 </metal:block>
 
