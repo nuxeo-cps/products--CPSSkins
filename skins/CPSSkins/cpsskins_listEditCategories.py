@@ -21,4 +21,7 @@ for propid in context.propertyIds():
              if category not in categories and category is not 'none': 
                  categories.append(category)
 
+if getattr(context, 'isportletbox', None) is not None:
+    categories.append('Portlet')
+
 return categories

@@ -1,8 +1,7 @@
 <metal:block define-macro="generic_edit" i18n:domain="cpsskins">
   <metal:block use-macro="here/cpsskins_form_widgets/macros/form">
     <metal:block fill-slot="content"
-    tal:define="cat request/form/cat|nothing;
-                object_url here/absolute_url;
+    tal:define="object_url here/absolute_url;
                 style_meta_types tmtool/listStyleMetaTypes">
       <tal:block repeat="field python: here.cpsskins_get_form_fields(cat=cat)">
         <tal:block define="ftype field/type; 
@@ -432,4 +431,8 @@ tal:define="this_url request/URL;
       <span tal:condition="description" i18n:translate="" 
        tal:content="python: mcat and mcat(description) or description" /> 
   </div>
+</metal:block>
+
+<metal:block define-macro="portlet_edit" i18n:domain="cpsskins">
+  <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
 </metal:block>

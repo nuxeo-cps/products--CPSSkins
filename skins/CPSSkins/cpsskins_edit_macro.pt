@@ -10,7 +10,7 @@ tal:define="tmtool here/portal_themes;
 	    global current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
 	    theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
 	    pagemargin theme_container/margin|nothing;
-	    bodycolor theme_container/color|nothing;">
+	    bodycolor theme_container/color|nothing">
   <head>
     <style type="text/css" media="all"
     tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
@@ -40,11 +40,11 @@ tal:define="tmtool here/portal_themes;
         tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
                     isPortalPalette here/aq_explicit/isPortalPalette|nothing;
                     isPortalTheme here/aq_explicit/isPortalTheme|nothing;
+                    isPortletBox here/aq_explicit/isPortletBox|nothing;
                     isImageBox here/aq_explicit/isImageBox|nothing;
                     isFlashBox here/aq_explicit/isFlashBox|nothing;
                     showPreview python: isPortalStyle or isPortalPalette;">
-        <metal:block define-slot="edit">
-        </metal:block>
+        <metal:block define-slot="edit" />
       </metal:block>
 
       <metal:block fill-slot="page_top">
