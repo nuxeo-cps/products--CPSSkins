@@ -384,7 +384,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
                    dest_block block_rurl">
     <a i18n:attributes="title" href="javascript:void(0)"
     tal:define="title string:_Insert a Templet here_"
-    tal:attributes="onclick string:newWindow('${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos');
+    tal:attributes="onclick string:newWindow('${block_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos');
                     title python: mcat and mcat(title) or title" >
       <img width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
@@ -673,7 +673,7 @@ tal:define="info cellstyle/getInfo|nothing;
                  submit_string string:saveScrollCoordinates('${name}');;submit()"
      tal:attributes="name name;
                      title python: mcat and mcat(title) or title;
-                     action string:${pageblock/absolute_url}/cpsskins_cellstyler_add">
+                     action string:${block_url}/cpsskins_cellstyler_add">
       <input type="hidden" name="scrollx" value="0" />
       <input type="hidden" name="scrolly" value="0" />
       <input type="hidden" name="xpos" value="" tal:attributes="value x_pos" />
@@ -715,7 +715,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
                  submit_string string:saveScrollCoordinates('${name}');;submit()"
      tal:attributes="name name;
                      title python: mcat and mcat(title) or title;
-                     action string:${pageblock/absolute_url}/cpsskins_cellhider_add">
+                     action string:${block_url}/cpsskins_cellhider_add">
       <input type="hidden" name="scrollx" value="0" />
       <input type="hidden" name="scrolly" value="0" /> 
       <input type="hidden" name="xpos" value="" tal:attributes="value x_pos" /> 
