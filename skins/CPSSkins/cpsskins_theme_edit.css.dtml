@@ -317,6 +317,7 @@ padding-left: 0.2em;
 background: white; 
 padding-top: 3px;
 padding-bottom: 3px;
+cursor: default;
 }
 
 .CellSizer .center {

@@ -5,9 +5,11 @@
              enable_esi options/enable_esi|nothing;
              boxedit options/boxedit|nothing;
              context_obj nocall:options/context_obj;
+             edit_mode options/edit_mode|nothing;
              maxcols python: context['maxcols'];
-             cellblock_rurl python: utool.getRelativeUrl(context);
-             cellblock_url python: base_url + cellblock_rurl"
+             block_id context/getId;
+             block_rurl python: utool.getRelativeUrl(context);
+             block_url python: base_url + block_rurl"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
                  class python: context.getCSSAreaClass(level=2);
@@ -21,6 +23,11 @@
          tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="width python: cellsize and cellsize.cellwidth or None">
+
+          <tal:block condition="python: context == context_obj">
+            <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
+          </tal:block>
+
           <div class="ContentDest" i18n:attributes="title"
            style="border: 1px dashed red; padding: 8px"
            tal:condition="not:contents_in_xpos"
@@ -28,11 +35,12 @@
            tal:attributes="xpos x_pos; 
                            ypos python: 0;
                            title python: mcat and mcat(title) or title;
-                           block_url cellblock_url;
-                           dest_block cellblock_rurl">
+                           block_url block_url;
+                           dest_block block_rurl">
           </div>
           <tal:block condition="contents_in_xpos"
            repeat="content contents_in_xpos">
+
             <div class="ContentBoxDrag ContentBoxEditMenu"
              tal:define="ypos python: content.getVerticalPosition();
                          isRenderable python: content.isRenderable();
@@ -53,8 +61,8 @@
               <div class="ContentDest"
                tal:attributes="xpos x_pos;
                                ypos ypos;
-                               block_url cellblock_url;
-                               dest_block cellblock_rurl">
+                               block_url block_url;
+                               dest_block block_rurl">
                 <div tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
                                  class python: content.getCSSAreaClass(level=2);

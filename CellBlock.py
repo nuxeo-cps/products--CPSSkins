@@ -405,6 +405,24 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         # XXX
         pass
 
+    security.declareProtected(ManageThemes, 'addCellSizer')
+    def addCellSizer(self, **kw):
+        """
+        Add a Cell Sizer. Returns the Cell Sizer's id.
+        """
+
+        id = getFreeId(self)
+        cellsizer_xpos = kw.get('xpos', None)
+        cellwidth = kw.get('cellwidth', None)
+        if cellsizer_xpos is not None:
+            self.invokeFactory('Cell Sizer', id, xpos=int(cellsizer_xpos))
+            cellsizer = getattr(self.aq_explicit, id, None)
+            if cellwidth is not None:
+                cellsizer.edit(cellwidth=cellwidth)
+            if cellsizer is not None:
+                verifyThemePerms(cellsizer)
+                return cellsizer
+
 InitializeClass(CellBlock)
 
 def addCellBlock(dispatcher, id, REQUEST=None, **kw):

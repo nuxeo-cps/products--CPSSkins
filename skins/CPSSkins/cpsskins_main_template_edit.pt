@@ -48,9 +48,9 @@
     <table border="0" cellpadding="0" cellspacing="0"
     tal:define="closed python: pageblock['closed'];		 
                 maxcols python: pageblock['maxcols']; 
-                pageblock_id python: pageblock['id'];
-                pageblock_rurl python: utool.getRelativeUrl(pageblock);
-                pageblock_url python: base_url + pageblock_rurl;
+                block_id python: pageblock['id'];
+                block_rurl python: utool.getRelativeUrl(pageblock);
+                block_url python: base_url + block_rurl;
                 height python: pageblock['height'];
                 height_style python: height and 'height:%s' % height or ''"
     tal:condition="python: (not closed and maxcols)"
@@ -82,15 +82,15 @@
                                isPortalBoxGroup python: getattr(content, 'isportalboxgroup', 0);
                                special_content python: ismaincontent or isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
-		               hover_effect python: not ismaincontent; 
-                               boxdragclass python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'ContentBoxDrag' or '';
-                               boxeditmenuclass python: not ismaincontent and 'ContentBoxEditMenu' or '';"
+		               hover_effect python: not ismaincontent;
+                               boxdragclass python: (not iscellblock or layout_edit_mode) and 'ContentBoxDrag' or '';
+                               boxeditmenuclass python: (not ismaincontent and not iscellblock or context != context) and 'ContentBoxEditMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
                                        class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'ContentDest' or '';
-                                       block_url pageblock_url;
-                                       dest_block pageblock_rurl">
+                                       block_url block_url;
+                                       dest_block block_rurl">
                     <div
                     tal:define="content_title python: content.title;
                                 content_here python: content == here;

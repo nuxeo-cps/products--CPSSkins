@@ -304,7 +304,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   <div class="TempletAddButton" 
    tal:attributes="xpos x_pos; 
                    ypos ypos;  
-                   dest_block pageblock_rurl">
+                   dest_block block_rurl">
     <a i18n:attributes="title"
     tal:define="title string:_Insert a Templet here_"
     tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&content_ypos=$ypos;
@@ -373,9 +373,9 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 
 <!-- Page Blocks -->
 <metal:block define-macro="pageblock_titlebar" i18n:domain="cpsskins"
-tal:define="pageblock_id pageblock/getId;
-            pageblock_rurl python: utool.getRelativeUrl(pageblock);
-            pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
+tal:define="block_id pageblock/getId;
+            block_rurl python: utool.getRelativeUrl(pageblock);
+            block_url python: base_url + utool.getRelativeUrl(pageblock);
 	    closed pageblock/closed|nothing;
             stylecat request/form/style|nothing">
   <table
@@ -391,7 +391,7 @@ tal:define="pageblock_id pageblock/getId;
       <a tal:condition="pageblock/can_moveup|nothing"
       i18n:attributes="title" 
       tal:define="title string:_Move up_"
-      tal:attributes="href string:${pageblock_url}/cpsskins_move_pageblock?direction=up;
+      tal:attributes="href string:${block_url}/cpsskins_move_pageblock?direction=up;
                       title python: mcat and mcat(title) or title">
 
         <img border="0" width="12" height="12"
@@ -400,7 +400,7 @@ tal:define="pageblock_id pageblock/getId;
       <a tal:condition="pageblock/can_movedown|nothing"
       i18n:attributes="title"
       tal:define="title string:_Move down_"
-      tal:attributes="href string:${pageblock_url}/cpsskins_move_pageblock?direction=down; 
+      tal:attributes="href string:${block_url}/cpsskins_move_pageblock?direction=down; 
                       title python: mcat and mcat(title) or title">
 
         <img border="0" width="12" height="12"
@@ -410,7 +410,7 @@ tal:define="pageblock_id pageblock/getId;
       <a i18n:attributes="title" 
       tal:condition="pageblock/can_toggle"
       tal:define="title string:_Minimize / Maximize_"
-      tal:attributes="href string:${pageblock_url}/cpsskins_object_toggle;
+      tal:attributes="href string:${block_url}/cpsskins_object_toggle;
                       title python: mcat and mcat(title) or title">
 
         <img border="0" width="12" height="12"
@@ -427,7 +427,7 @@ tal:define="pageblock_id pageblock/getId;
                   msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                   onclick_msg python:'return window.confirm(\'%s\')' % msg"
       tal:attributes="onclick onclick_msg;
-                      href string:${pageblock_url}/cpsskins_object_delete; 
+                      href string:${block_url}/cpsskins_object_delete; 
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
@@ -435,7 +435,7 @@ tal:define="pageblock_id pageblock/getId;
       &nbsp;&nbsp;
       <a i18n:attributes="title"
       tal:define="title string:_Edit this page block_"
-      tal:attributes="href string:${pageblock_url}/edit_form#mainedit;
+      tal:attributes="href string:${block_url}/edit_form#mainedit;
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
@@ -443,10 +443,10 @@ tal:define="pageblock_id pageblock/getId;
       </td>
       <td>
         <form action="" method="post"
-         tal:define="name string:pb_title_${pageblock_id};
+         tal:define="name string:pb_title_${block_id};
                      submit_string string:saveScrollCoordinates('${name}');;submit()"
          tal:attributes="name name;
-                         action string:${pageblock_url}/cpsskins_edit">
+                         action string:${block_url}/cpsskins_edit">
          <input type="hidden" name="scrollx" value="0">
          <input type="hidden" name="scrolly" value="0"> 
          <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
@@ -494,7 +494,7 @@ tal:define="pageblock_id pageblock/getId;
            i18n:attributes="title"
            tal:condition="python: x_pos > 0"
            tal:define="title string:_Move this cell to the left_"
-           tal:attributes="href string:${pageblock_url}/cpsskins_move_cell?dir=left&xpos=$x_pos; 
+           tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=left&xpos=$x_pos; 
              title python: mcat and mcat(title) or title">
           <img border="0" width="12" height="12"
             tal:attributes="src string:${base_url}cpsskins_images/img_moveleft.png" />
@@ -506,7 +506,7 @@ tal:define="pageblock_id pageblock/getId;
            i18n:attributes="title"
            tal:condition="python: x_pos < maxcols-1"
            tal:define="title string:_Move this cell to the right_"
-           tal:attributes="href string:${pageblock_url}/cpsskins_move_cell?dir=right&xpos=$x_pos; 
+           tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=right&xpos=$x_pos; 
              title python: mcat and mcat(title) or title">
           <img border="0" width="12" height="12"
             tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />
@@ -542,9 +542,9 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
         </tal:block>
         <tal:block condition="not:cellsize">
           <form action="" method="post"
-           tal:define="name string:cellsizer_add_${pageblock_id}_${x_pos}"
+           tal:define="name string:cellsizer_add_${block_id}_${x_pos}"
            tal:attributes="name name;
-                           action string:${pageblock_url}/cpsskins_cellsizer_add;
+                           action string:${block_url}/cpsskins_cellsizer_add;
                            onSubmit string:saveScrollCoordinates('${name}')">
             <input type="hidden" name="scrollx" value="0">
             <input type="hidden" name="scrolly" value="0"> 
@@ -558,6 +558,29 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
         <img border="0" width="7" height="10"
          tal:attributes="src string:${base_url}cpsskins_images/sizer_right.png" />
       </td>
+    </tr>
+  </table>
+</metal:block>
+
+<metal:block define-macro="cellblock_sizer" i18n:domain="cpsskins">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <tal:block define="objects python: content.getObjects(REQUEST=request);
+                         maxcols python: content['maxcols']"
+                 repeat="x_pos python: range(int(maxcols))">
+        <tal:block 
+         define="objects_in_xpos python: objects.get(x_pos, None);
+                 contents_in_xpos python: objects_in_xpos['contents'];
+                 cellsize python: objects_in_xpos['cellsizer'];
+                 cellwidth cellsize/cellwidth|nothing;">
+          <td tal:attributes="width cellwidth">
+            <tal:block define="block_id content/getId;
+                               block_url content/absolute_url">
+              <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
+            </tal:block>
+          </td>
+        </tal:block>
+      </tal:block>
     </tr>
   </table>
 </metal:block>
@@ -651,8 +674,8 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
    tal:attributes="xpos x_pos; 
                    ypos python: 0;
                    title python: mcat and mcat(title) or title;
-                   dest_block pageblock_rurl;
-                   block_url pageblock_url">
+                   dest_block block_rurl;
+                   block_url block_url">
   </div>
 </metal:block>
 
