@@ -137,6 +137,10 @@ msgid "_Area shape_"
 msgstr "Obszar formy"
 
 
+msgid "_Area text transform_"
+msgstr ""
+
+
 msgid "_August_"
 msgstr ""
 
@@ -1994,6 +1998,22 @@ msgstr ""
 
 
 msgid "_option_text only_"
+msgstr ""
+
+
+msgid "_option_text_transform_capitalize_"
+msgstr ""
+
+
+msgid "_option_text_transform_lowercase_"
+msgstr ""
+
+
+msgid "_option_text_transform_none_"
+msgstr ""
+
+
+msgid "_option_text_transform_uppercase_"
 msgstr ""
 
 

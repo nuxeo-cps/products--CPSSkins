@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass
+from AccessControl import ClassSecurityInfo
 
 from BaseStyle import BaseStyle
 
@@ -51,6 +52,8 @@ class AreaShape(BaseStyle):
     render_action = 'cpsskins_areashape'
     preview_action = 'cpsskins_areashape_preview'
 
+    security = ClassSecurityInfo()
+
     _properties = BaseStyle._properties + (
         {'id': 'Area_border_style', 
          'type': 'string', 
@@ -63,16 +66,34 @@ class AreaShape(BaseStyle):
          'mode': 'w', 
          'label': 'Area border width',
         },
+        {'id': 'Area_text_transform', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Area text transform',
+         'select_variable': 'TextTransformList',
+         'default': 'none',
+         'i18n': 1,
+         'i18n_prefix': '_option_text_transform_',
+        },
     )
 
     def __init__(self, id, 
                  Area_border_style = 'solid',
                  Area_border_width = '1px',
-		 **kw):
+                 Area_text_transform = 'none',
+                 **kw):
 
         apply(BaseStyle.__init__, (self, id), kw)
         self.Area_border_style = Area_border_style
         self.Area_border_width = Area_border_width
+        self.Area_text_transform = Area_text_transform
+
+    security.declarePublic('TextTransformList')
+    def TextTransformList(self):
+        """Return a list of text transformations"""
+
+        list = ['none', 'capitalize', 'uppercase', 'lowercase']
+        return list
 
 InitializeClass(AreaShape)
 

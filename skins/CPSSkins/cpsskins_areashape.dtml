@@ -5,4 +5,7 @@ border-style:&dtml-Area_border_style;;
 <dtml-if Area_border_width>
 border-width:&dtml-Area_border_width;;
 </dtml-if>
+<dtml-if Area_text_transform>
+text-transform:&dtml-Area_text_transform;;
+</dtml-if>
 }

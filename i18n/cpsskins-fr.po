@@ -135,6 +135,10 @@ msgid "_Area shape_"
 msgstr "Contour des aires"
 
 
+msgid "_Area text transform_"
+msgstr "Transformation du texte"
+
+
 msgid "_August_"
 msgstr "Août"
 
@@ -1995,6 +1999,22 @@ msgstr "Texte et icônes"
 
 msgid "_option_text only_"
 msgstr "Texte"
+
+
+msgid "_option_text_transform_capitalize_"
+msgstr "Première Lettre En Majuscule"
+
+
+msgid "_option_text_transform_lowercase_"
+msgstr "texte en minuscule"
+
+
+msgid "_option_text_transform_none_"
+msgstr "Texte tel quel"
+
+
+msgid "_option_text_transform_uppercase_"
+msgstr "TEXTE EN MAJUSCULE"
 
 
 msgid "_option_textonly_"

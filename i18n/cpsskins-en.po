@@ -135,6 +135,10 @@ msgid "_Area shape_"
 msgstr "Area shape"
 
 
+msgid "_Area text transform_"
+msgstr "Text transformation"
+
+
 msgid "_August_"
 msgstr "August"
 
@@ -1993,6 +1997,22 @@ msgstr "Text and icons"
 
 msgid "_option_text only_"
 msgstr "Text only"
+
+
+msgid "_option_text_transform_capitalize_"
+msgstr "Capitalize Each Word"
+
+
+msgid "_option_text_transform_lowercase_"
+msgstr "text to lowercase"
+
+
+msgid "_option_text_transform_none_"
+msgstr "No transformation"
+
+
+msgid "_option_text_transform_uppercase_"
+msgstr "TEXT TO UPPERCASE"
 
 
 msgid "_option_textonly_"
