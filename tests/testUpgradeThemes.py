@@ -11,6 +11,7 @@ import CPSSkinsTestCase
 class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        get_transaction().begin()
         self.login('cpsskins_root')
         self.setupLocalEnvironment()
 
