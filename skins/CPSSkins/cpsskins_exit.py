@@ -4,10 +4,8 @@ tmtool = context.portal_themes
 tmtool.manage_clearCaches()
 
 view_mode = tmtool.getViewMode()
-if view_mode and view_mode.has_key('current_url'):
-    url = view_mode['current_url']
-else:
-    url = context.portal_url()
+if view_mode is not None:
+    url = view_mode.get('current_url', context.portal_url())
 
 tmtool.clearViewMode(
     'theme',

@@ -62,7 +62,7 @@ def manage_addCPSSkins(dispatcher, id,
 
     # Creating redirection
     site_url = dispatcher.DestinationURL()
-    redirect_url = site_url + '/cpsskins_themes_reconfig_form'
+    redirect_url = site_url + '/cpsskins_themes_reconfig_form?no_referer=1'
     pr('<blockquote style="border: 1px solid Gray; background-color: #f0f0f0;"><ul>')
     pr('<li><a href="%s" target="_new">Go to the portal</a></li>' % site_url)
     pr('<li><a href="%s" target="_new">Go to the theme configuration page</a></li>' \
