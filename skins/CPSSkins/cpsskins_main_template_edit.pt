@@ -50,7 +50,7 @@
                     summary python: pageblock['title']">
       <tr>
         <tal:block
-          define="objects python: pageblock.getObjects(edit=layout_edit_mode)"
+          define="objects python: pageblock.getObjects(edit=layout_edit_mode, context_obj=context_obj)"
           repeat="x_pos python: range(int(maxcols))">
           <tal:block 
           define="objects_in_xpos python: objects.get(x_pos, None)"

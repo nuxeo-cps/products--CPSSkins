@@ -536,12 +536,12 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             verifyThemePerms(self)
 
     security.declarePublic('getVisibility')
-    def getVisibility(self, REQUEST=None, **kw):
+    def getVisibility(self, **kw):
         """Returns True if the Templet is visible."""
 
         if self.closed:
             return None
-        return getObjectVisibility(self, REQUEST=REQUEST, **kw)
+        return getObjectVisibility(self, **kw)
 
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):

@@ -256,7 +256,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         return atool.listFilteredActionsFor(self)
 
     security.declarePublic('getObjects')
-    def getObjects(self, edit=0, REQUEST=None):
+    def getObjects(self, edit=0, **kw):
         """
         Gets all the objects inside a Page Block.
         Returns information about each cell (width, style, visibility, ...)
@@ -301,7 +301,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         return templets
 
     security.declarePublic('getVisibility')
-    def getVisibility(self, REQUEST=None, **kw):
+    def getVisibility(self, **kw):
         """Returns True if the Cell Block is visible."""
 
         return 1

@@ -110,10 +110,10 @@ class CellHider(BaseCellModifier):
             return 1
 
     security.declarePublic('getVisibility')
-    def getVisibility(self, REQUEST=None, **kw):
+    def getVisibility(self, **kw):
         """ Return 1 if the object is visible in this context """
 
-        return getObjectVisibility(self, REQUEST=None, **kw)
+        return getObjectVisibility(self, **kw)
 
     security.declarePublic('VisibilityList')
     def VisibilityList(self):

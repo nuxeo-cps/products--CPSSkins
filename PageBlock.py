@@ -336,7 +336,7 @@ class PageBlock(ThemeFolder, StylableContent):
             obj.xpos = obj.xpos - delta
 
     security.declarePublic('getObjects')
-    def getObjects(self, edit=0, REQUEST=None):
+    def getObjects(self, edit=0, **kw):
         """
         Gets all the objects inside a Page Block.
         Returns information about each cell (width, style, visibility, ...)
@@ -362,13 +362,13 @@ class PageBlock(ThemeFolder, StylableContent):
             if xpos and xpos >= maxcols:
                 continue
             if getattr(obj, 'iscellhider', 0):
-                cellvisibility[xpos] = obj.getVisibility(REQUEST=REQUEST)
+                cellvisibility[xpos] = obj.getVisibility(**kw)
                 cellhider[xpos] = obj
                 continue
 
             if cellvisibility[xpos] or edit:
                 if getattr(obj, 'isportaltemplet', 0):
-                    if obj.getVisibility(REQUEST=REQUEST) or edit:
+                    if obj.getVisibility(**kw) or edit:
                         contents[xpos].append(obj)
                         continue
 

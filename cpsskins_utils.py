@@ -240,7 +240,7 @@ def detectPortalType(self):
     return portal_type
 
 
-def getObjectVisibility(self, REQUEST=None, **kw):
+def getObjectVisibility(self, **kw):
     """ Return 1 if the object if visible """
 
     lang_list = self.languages
@@ -285,9 +285,7 @@ def getObjectVisibility(self, REQUEST=None, **kw):
 
     if visibility in ['only_in', 'everywhere_except_in', \
                       'starting_from', 'up_till']:
-        if REQUEST is None:
-            return None
-
+        REQUEST = self.REQUEST
         portal_url = utool(relative=0)
 
         url = None
