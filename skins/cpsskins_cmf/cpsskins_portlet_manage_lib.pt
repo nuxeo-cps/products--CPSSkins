@@ -208,7 +208,8 @@
                       vrange_start python: vrange[0];
                       vrange_stop python: vrange[1];
                       selected python: portlet_id == selected_portlet">
-        <td tal:attributes="colspan python: portlet_depth"></td>
+        <td tal:condition="portlet_depth"
+         tal:attributes="colspan python: portlet_depth"></td>
         <td style="border-bottom: 1px dotted #ccc">
           <div class="PortletBoxDrag"
            tal:attributes="portlet_rurl portlet_rurl;
