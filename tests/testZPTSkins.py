@@ -5,12 +5,7 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
-def isCMF15():
-    try:
-        from Products.CMFCore import permissions
-    except ImportError:
-        return 0
-    return 1
+target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
 class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
 
@@ -33,7 +28,7 @@ class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
 
 def test_suite():
     suite = unittest.TestSuite()
-    if not isCMF15():
+    if target != 'CMF':
         suite.addTest(unittest.makeSuite(TestZPTSkins))
     return suite
 

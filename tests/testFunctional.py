@@ -11,12 +11,7 @@ HTTP_OK = 200
 HTTP_UNAUTHORIZED = 401
 HTTP_REDIRECT = 302
 
-def isCMF15():
-    try:
-        from Products.CMFCore import permissions
-    except ImportError:
-        return 0
-    return 1
+target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
 class TestFunctional(ZopeTestCase.Functional,
                      CPSSkinsTestCase.CPSSkinsTestCase):
@@ -573,7 +568,7 @@ def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestFunctionalAsManager))
     suite.addTest(unittest.makeSuite(TestFunctionalAsMember))
-    if not isCMF15():
+    if target != 'CMF':
         suite.addTest(unittest.makeSuite(TestFunctionalAsThemeManager))
 
     suite.addTest(unittest.makeSuite(TestFunctionalCalendar))
