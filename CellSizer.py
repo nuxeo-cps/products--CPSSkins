@@ -25,7 +25,9 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+
 from BaseCellModifier import BaseCellModifier
+from CPSSkinsPermissions import ManageThemes
 
 factory_type_information = (
     {'id': 'Cell Sizer',
@@ -63,7 +65,7 @@ class CellSizer(BaseCellModifier):
 
     def __init__(self, id, 
                        cellwidth = '25%', 
-		       **kw):
+                       **kw):
         apply(BaseCellModifier.__init__, (self, id), kw)
         self.cellwidth = cellwidth
 
@@ -71,6 +73,14 @@ class CellSizer(BaseCellModifier):
     def isCellSizer(self):
            
         return self.iscellsizer
+
+    security.declareProtected(ManageThemes, 'edit')
+    def edit(self, **kw):
+        """Default edit method, changes the properties."""
+
+        if kw.get('cellwidth') == '':
+            del kw['cellwidth']
+        self.manage_changeProperties(**kw)
 
 InitializeClass(CellSizer)
 

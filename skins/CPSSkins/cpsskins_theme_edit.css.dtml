@@ -329,11 +329,10 @@ background-position: center;
 text-align: center; 
 }
 
-.CellSizer .center a.cellwidth {
-background: white; 
-padding-left: 2px; 
-padding-right: 2px;
-text-decoration: none;
+.CellSizer .center input {
+border: none;
+background-color:white;
+text-align: center;
 }
 
 .CellStyler {
