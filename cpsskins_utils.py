@@ -211,6 +211,7 @@ def verifyThemePerms(self):
     self.manage_permission(ManageThemes, [], acquire=1)
     self.manage_permission(View, [], acquire=1)
     self.manage_permission(AccessContentsInformation, [], acquire=1)
+    self.reindexObjectSecurity()
 
 def detectPortalType(self):
     """ This methods attempts to detect the portal type
