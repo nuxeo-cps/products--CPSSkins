@@ -550,9 +550,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     #
     security.declarePublic('getRequestedThemeName')
     def getRequestedThemeName(self, **kw):
-        """Gets the name of the requested theme by checking 
-           if there is a 'cpsskins_theme' cookie, ?pp=1, or ?theme=...
-           or a 'cpsskins_theme' variable in the request.
+        """Gets the name of the requested theme by checking a series
+           of URL parameters, variables, folder attributes, cookies, ...
         """
 
         REQUEST = self.REQUEST
@@ -567,21 +566,24 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme is not None:
             return theme 
 
+        # session variable (used in edition mode)
         view_mode = self.getViewMode()
         theme = view_mode and view_mode.get('theme') or None
         if theme is not None:
             return theme 
 
-        # selected by acquiring a 'cpsskins_theme' form attribute
-        cpsskins_theme = self.getLocalThemeName(**kw)
-        if cpsskins_theme is not None:
-            return cpsskins_theme
-
+        # cookie
         theme_cookie_id = self.getThemeCookieID()
         theme_cookie = REQUEST.cookies.get(theme_cookie_id)
         if theme_cookie is not None:
             return theme_cookie
 
+        # local theme
+        cpsskins_theme = self.getLocalThemeName(**kw)
+        if cpsskins_theme is not None:
+            return cpsskins_theme
+
+        # default theme
         return self.getDefaultThemeName()
 
     def getEffectiveThemeContainer(self, theme=None):
