@@ -160,18 +160,6 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
     #
     # CSS
     #
-    security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self, level=2):
-        """Returns the CSS layout style for this Templet."""
-
-        if level == 1:
-            return ''
-        css = ''
-        height = self.templet_height
-
-        if height:
-            css += 'height:%s' % height
-        return css
 
     security.declarePublic('getCSSBoxStyle')
     def getCSSBoxLayoutStyle(self):
