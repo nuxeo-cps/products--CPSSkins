@@ -116,5 +116,5 @@ for templet in i18n_templets:
 #
 
 if REQUEST is not None:
-    url = theme_container.absolute_url() + '/cpsskins_theme_optimizer'
+    url = context.portal_url() + '/cpsskins_theme_manage_form'
     REQUEST.RESPONSE.redirect(url)

@@ -1,9 +1,34 @@
+<metal:block define-macro="edit_form"
+  tal:define="id request/form/id|here/id;
+              cat request/form/cat|nothing;
+              object object|here;
+              object_url object/absolute_url;
+              redirect_url redirect_url|nothing">
+  <form name="data" action="cpsskins_edit" method="post"
+   enctype="multipart/form-data"
+   tal:attributes="action string:${object_url}/cpsskins_edit"
+   tal:define="stylecat cat|string:general">
+   <input type="hidden" name="cat" tal:attributes="value stylecat" />
+   <input type="hidden" name="id" tal:attributes="value id" />
+   <input type="hidden" name="redirect_url"
+    tal:condition="redirect_url"
+    tal:attributes="value redirect_url" />
+   <metal:block
+    use-macro="here/cpsskins_form_widgets/macros/generic_edit" />
+   <input type="submit" class="mainbutton"
+    i18n:attributes="value"
+    tal:define="title string:_button_modify_"
+    tal:attributes="value python:mcat and mcat(title) or title" />
+  </form>
+</metal:block>
+
 <metal:block define-macro="generic_edit">
   <metal:block use-macro="here/cpsskins_form_widgets/macros/form">
     <metal:block fill-slot="content"
-    tal:define="object_url here/absolute_url;
+    tal:define="object object|here;
+                object_url object/absolute_url;
                 style_meta_types tmtool/listStyleMetaTypes">
-      <tal:block repeat="field python: here.cpsskins_get_form_fields(cat=cat)">
+      <tal:block repeat="field python: object.cpsskins_get_form_fields(cat=cat)">
         <tal:block define="ftype field/type; 
                            id field/id|nothing; 
                            visible field/visible|nothing; 
@@ -68,12 +93,12 @@
 
               <tal:block condition="palette">
                 <img class="colorSample" width="16" height="16" 
-                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
+                tal:attributes="onClick string:selectWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
                                 style string:background-color: $value;; ;
                                 src string: ${base_url}cpsskins_images/select_icon.png"
                 tal:condition="python: palette == 'Palette Color'" />
                 <img class="shapeSample" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
+                tal:attributes="onClick string:selectWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
                                 style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
                                 src string: ${base_url}cpsskins_images/select_icon.png"
                 tal:condition="python: palette == 'Palette Border'" />
@@ -81,29 +106,22 @@
 
               <tal:block condition="slot">
                 <img class="slotSample" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_slot?prop=$id');
+                tal:attributes="onClick string:selectWindow('cpsskins_select_slot?prop=$id');
                                 style string:background-color: $value;; ;
                                 src string: ${base_url}cpsskins_images/select_icon.png" />
               </tal:block>
 
               <tal:block condition="image">
                 <img alt="select image" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_image?prop=$id&amp;image=$image');
+                tal:attributes="onClick string:selectWindow('cpsskins_select_image?prop=$id&amp;image=$image');
                                 src string:${base_url}cpsskins_images/select_icon.png"
                      border="0" />
-                <a i18n:attributes="title" i18n:domain="cpsskins"
-                 tal:define="title string:_Edit images_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&amp;current_image=$value;
-                            title python: mcat and mcat(title) or title">
-                  <img border="0" width="16" height="16"
-                   tal:attributes="src string:${base_url}cpsskins_images/browse_icon.png" />
-                </a>
               </tal:block>
 
               <tal:block condition="python: style in style_meta_types">
                 <img i18n:attributes="title" alt="select" width="16" height="16" border="0"
                  tal:define="title string:_Select a style_"
-                 tal:attributes="onClick string:newWindow('cpsskins_select_style?prop=$id&amp;style=$style');
+                 tal:attributes="onClick string:selectWindow('cpsskins_select_style?prop=$id&amp;style=$style');
                                  src string:${base_url}cpsskins_images/select_icon.png;
                                  title python: mcat and mcat(title) or title" />
 
@@ -115,13 +133,6 @@
                    tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
                 </a>
 
-                <a i18n:attributes="title" i18n:domain="cpsskins"
-                 tal:define="title string:_Edit styles_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&amp;current_style=$value;
-                            title python: mcat and mcat(title) or title">
-                  <img border="0" width="16" height="16"
-                   tal:attributes="src string:${base_url}cpsskins_images/browse_icon.png" />
-                </a>
               </tal:block>
 
               <select tal:condition="python: ftype == 'multiple'"
@@ -219,6 +230,13 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td align="left">
+        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+         i18n:translate="" class="linkUp"
+         tal:condition="stylecat"
+         tal:define="title string:_Other styles_"
+         tal:content="python: mcat and mcat(title) or title" />
+      </td>
+      <td align="left">
         <tal:block condition="isPortalStyle">
           <strong>
             <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_styles?style=$stylecat"
@@ -275,14 +293,11 @@ tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing;
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td align="left">
-        <tal:block condition="isPortalPalette">
-          <strong>
-            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_palettes?palette=$palettecat"
-               i18n:translate="" class="link_up"
-               tal:define="title string:_Other palettes_"
-               tal:content="python: mcat and mcat(title) or title" />
-          </strong>
-        </tal:block>
+        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+         i18n:translate="" class="linkUp"
+         tal:condition="palettecat"
+         tal:define="title string:_Other palettes_"
+         tal:content="python: mcat and mcat(title) or title" />
       </td>
       <td align="right">
         <form action="cpsskins_edit_redirect" name="palettes">
@@ -318,14 +333,11 @@ tal:define="theme request/form/theme|nothing;
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td align="left">
-        <tal:block condition="isPortalImage">
-          <strong>
-            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_images?imagecat=$imagecat"
-               i18n:translate="" class="link_up"
-               tal:define="title string:_Other images_"
-               tal:content="python: mcat and mcat(title) or title" />
-          </strong>
-        </tal:block>
+        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+         i18n:translate="" class="linkUp"
+         tal:condition="imagecat"
+         tal:define="title string:_Other images_"
+         tal:content="python: mcat and mcat(title) or title" />
       </td>
       <td align="right">
         <form action="cpsskins_edit_redirect" name="images">
@@ -350,66 +362,6 @@ tal:define="theme request/form/theme|nothing;
 </metal:block>
 <!-- End navigate between image categories -->
 
-<!-- manage themes -->
-<metal:block define-macro="manage_themes" i18n:domain="cpsskins">
-  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-    <tr>
-      <td align="left">
-        <form name="rebuildtheme" action=""
-        tal:attributes="action string:${here_url}/cpsskins_rebuildtheme">
-          <input type="submit" class="rebuildTheme"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
-        </form>
-      </td>
-      <td align="left">
-        <form name="importtheme" action="" 
-        tal:attributes="action string:${base_url}cpsskins_themes_manager">
-          <input type="submit" class="importTheme"
-          tal:define="title string:_button_import_themes_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <td align="left">
-        <form name="optimizetheme" action=""
-        tal:attributes="action string:${here_url}/cpsskins_theme_optimizer">
-          <input type="submit" class="optimizeTheme"
-          tal:define="title string:_button_optimize_theme_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-      <td align="left">
-        <form name="exporttheme" action="" 
-        tal:attributes="action string:${here_url}/manage_exportObject">
-          <input type="hidden" name="download" value="1" />
-          <input type="submit" class="exportTheme"
-          tal:define="title string:_button_export_theme_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-    </tr>
-    <tr align="center">
-      <td align="left" colspan="2">
-        <form tal:condition="python: not getattr(here, 'default', None)"
-              name="setdefaulttheme" action=""
-              tal:attributes="action string:${here_url}/cpsskins_setdefaulttheme">
-          <input type="hidden" name="default_theme"
-          tal:attributes="value current_theme" />
-          <input type="submit" class="themeDefault"
-          i18n:attributes="value" 
-          tal:define="title string:_button_set_theme_as_default_"
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-    </tr>
-  </table>
-</metal:block>
-<!-- end manage themes -->
 
 <metal:block define-macro="image_upload" i18n:domain="cpsskins">
   <form tal:attributes="action string:${here_url}/upload_image"

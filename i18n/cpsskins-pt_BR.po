@@ -1406,6 +1406,10 @@ msgid "_Theme renderer_"
 msgstr "Renderizador do tema"
 
 
+msgid "_Theme_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr "Administrador de temas"
 
@@ -1628,6 +1632,10 @@ msgstr "este estilo define as formas das caixas do portal"
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "uma trilha de navegação do nível superior do site até a página corrente"
+
+
+msgid "_button_cache_manager_"
+msgstr ""
 
 
 msgid "_button_clear_the_cache_"

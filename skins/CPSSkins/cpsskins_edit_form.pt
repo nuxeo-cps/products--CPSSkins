@@ -1,77 +1,84 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
-    <metal:block fill-slot="edit"
-      tal:define="mtool here/portal_membership;
-                  checkPerm nocall:mtool/checkPermission;
-                  cat request/form/cat|nothing">
-      <a name="mainedit"></a>
-      <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
-        <tal:block define="dummy request/RESPONSE/unauthorized" />
-      </tal:block>
-      <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
-      <tal:block condition="isPortalStyle">
-        <metal:block use-macro="here/cpsskins_form_widgets/macros/stylenavigation"/>
-      </tal:block>
-      <tal:block condition="isPortalPalette">
-        <metal:block use-macro="here/cpsskins_form_widgets/macros/palettenavigation"/>
-      </tal:block>
-      <tal:block condition="python: isPortalTheme and checkPerm('Manage Themes', here)">
-        <metal:block use-macro="here/cpsskins_form_widgets/macros/manage_themes" />
-      </tal:block>
-      <h1>
-        <tal:block define="title string:_Edit_"
-        tal:content="python: mcat and mcat(title) or title"
-        i18n:translate="" />
-        '<tal:block replace="here/title|nothing" />'
-      </h1>
-      <tal:block define="id request/form/id|here/id">
-        <tal:block condition="isImageBox">
-          <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
-        </tal:block>
-        <tal:block condition="isFlashBox">
-          <metal:block use-macro="here/cpsskins_form_widgets/macros/flashfile_upload" />
-        </tal:block>
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td>
-            <div tal:condition="showPreview"
-            tal:content="structure python: here.preview()" />
-          </td>
-        </tr>
-      </table>
-      <tal:block condition="isPortalStyle" define="style here">
-        <metal:block use-macro="here/cpsskins_form_widgets/macros/show_style_parents" />
-      </tal:block>
-      <br />
-      <metal:block
-       use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
-      <div class="mainEdit">
-      <br/>
+<html tal:define="
+  base_url python:here.cpsskins_getBaseUrl();
+  mtool here/portal_membership;
+  utool nocall:here/portal_url;
+  tmtool here/portal_themes; 
+  mcat here/cpsskins_getlocalizer;
+  cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
+  context_url python:here.getContextUrl(utool=utool);
+  here_url python:here.absolute_url();
+  checkPerm nocall:mtool/checkPermission;
+  view_mode tmtool/getViewMode;
+  theme view_mode/theme|nothing;
+  current_theme python: tmtool.getRequestedThemeName(context=here);
+  theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
+  theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
+  cat request/form/cat|nothing;
+  isPortalStyle here/aq_explicit/isPortalStyle|nothing;
+  isPortalPalette here/aq_explicit/isPortalPalette|nothing;">
+<head>
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${theme_container_url}/renderCSS?editing=1" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+  <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
+</head>
+<body tal:define="
+  isPortalTheme here/aq_explicit/isPortalTheme|nothing;
+  isPortletBox here/aq_explicit/isPortletBox|nothing;
+  isImageBox here/aq_explicit/isImageBox|nothing;
+  isFlashBox here/aq_explicit/isFlashBox|nothing;
+  showPreview python: isPortalStyle or isPortalPalette">
 
-        <tal:block condition="python: cat == 'Portlet'">
-          <metal:block use-macro="here/cpsskins_form_widgets/macros/portlet_edit" />
-        </tal:block>
+  <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
+    <tal:block define="dummy request/RESPONSE/unauthorized" />
+  </tal:block>
 
-        <tal:block condition="python: cat != 'Portlet'">
-          <form name="data" action="cpsskins_edit" method="post"
-           enctype="multipart/form-data"
-           tal:define="stylecat request/form/cat|string:general"
-           onSubmit="saveScrollCoordinates('data')">
-            <input type="hidden" name="scrollx" value="0">
-            <input type="hidden" name="scrolly" value="0"> 
-            <input type="hidden" name="cat" tal:attributes="value stylecat" />
-            <input type="hidden" name="id"
-            tal:attributes="value id" />
-            <metal:block
-            use-macro="here/cpsskins_form_widgets/macros/generic_edit" />
-            <input type="submit" class="mainbutton"
-            i18n:attributes="value"
-            tal:define="title string:_button_modify_"
-            tal:attributes="value python:mcat and mcat(title) or title" />
-          </form>
-        </tal:block>
-      </div>
+  <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
+  <div class="editForm">
+    <h1>
+      <tal:block define="title string:_Edit_"
+       tal:content="python: mcat and mcat(title) or title"
+       i18n:translate="" />
+      '<tal:block replace="here/title|nothing" />'
+    </h1>
+  </div>
+
+  <div tal:condition="showPreview" class="stylePreview"
+   tal:content="structure python: here.preview()" />
+
+  <div class="editForm">
+    <tal:block condition="isImageBox">
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
     </tal:block>
-    <br />
-  </metal:block>
-</metal:block>
+    <tal:block condition="isFlashBox">
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/flashfile_upload" />
+    </tal:block>
+
+    <metal:block use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
+
+    <div class="mainEdit">
+      <tal:block condition="python: cat == 'Portlet'">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/portlet_edit" />
+      </tal:block>
+
+      <tal:block condition="python: cat != 'Portlet'">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/edit_form" />
+      </tal:block>
+    </div>
+  </div>
+
+  <br/>
+  <form action="">
+    <input class="standalone" type="submit" 
+     onclick="window.opener.location.reload();window.close()"
+     value="button_close" i18n:attributes="value" />
+  </form>
+
+  </body>
+</html>

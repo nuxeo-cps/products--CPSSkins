@@ -11,17 +11,19 @@
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+  <script type="text/javascript" src="cpsskins_content_edit.js"></script>
+  <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 <!-- Shortcut icon -->
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 <metal:block define-macro="main"
  tal:define="base_url python: here.cpsskins_getBaseUrl();
-	  align python: theme_container.align; 
-          edit_mode edit_mode|nothing;
-          layout_edit_mode python: edit_mode == 'layout'; 
-          mixed_edit_mode python: edit_mode == 'mixed'; 
-          wysiwyg_edit_mode python: edit_mode == 'wysiwyg';
-          edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
+          align python: theme_container.align; 
+          panel panel|string:wysiwyg;
+          layout_panel python: panel == 'layout'; 
+          mixed_panel python: panel == 'mixed'; 
+          wysiwyg_panel python: panel == 'wysiwyg';
           pageblock_style python: theme_container.getCSSLayoutStyle();
           context_rurl request/form/context_rurl|nothing;
           context_obj python: here.cpsskins_getContextObj(context_rurl);
@@ -29,12 +31,19 @@
           mcat python: here.cpsskins_getlocalizer();
           dummy python: request.set('cpsskins_language', cpsskins_language);
           dummy python: request.set('cpsskins_mcat', mcat)">
-  <metal:block define-slot="page_top" tal:replace="nothing">
-  </metal:block>
+
+  <tal:block condition="layout_panel" define="pageblock_ypos python: 0">
+    <metal:block use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
+  </tal:block>
+
   <tal:block 
   repeat="pageblock python: theme_container.getPageBlocks(edit=1)">
-    <metal:block define-slot="pageblock_titlebar"
-    tal:replace="nothing"></metal:block>
+
+    <tal:block condition="not:wysiwyg_panel">
+      <a tal:attributes="name pageblock/id"></a>
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/pageblock_titlebar" />
+    </tal:block>
+
     <table border="0" cellpadding="0" cellspacing="0" summary=""
     tal:define="closed python: pageblock['closed'];
                 maxcols python: pageblock['maxcols']; 
@@ -45,12 +54,12 @@
                 height_style python: height and 'height:%s' % height or ''"
     tal:condition="python: (not closed and maxcols)"
     tal:attributes="width python: pageblock['width']; 
-		    style string:$pageblock_style $height_style;
-		    class python: pageblock.getCSSAreaClass();
+                    style string:$pageblock_style $height_style;
+                    class python: pageblock.getCSSAreaClass();
                     summary python: pageblock['title']">
       <tr>
         <tal:block
-          define="objects python: pageblock.getObjects(edit=layout_edit_mode, context_obj=context_obj)"
+          define="objects python: pageblock.getObjects(edit=layout_panel, context_obj=context_obj)"
           repeat="x_pos python: range(int(maxcols))">
           <tal:block 
           define="objects_in_xpos python: objects.get(x_pos, None)"
@@ -61,11 +70,27 @@
                          cellstyle python: objects_in_xpos['cellstyler']"
              tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
                              width python: cellsize and cellsize.cellwidth or None">
-              <metal:block define-slot="cell_top"
-               tal:replace="nothing"></metal:block>
+
+              <tal:block condition="not:wysiwyg_panel">
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/movecell" />
+                <tal:block condition="not:contents_in_xpos">
+                  <metal:block use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
+                </tal:block>
+              </tal:block>
+              <tal:block condition="not:contents_in_xpos">
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/emptycell" />
+              </tal:block>
+
               <tal:block repeat="content contents_in_xpos">
-                <metal:block define-slot="content_titlebar"
-                 tal:replace="nothing"></metal:block>
+                <tal:block condition="content/aq_explicit/isMainContent|nothing">
+                  <metal:block use-macro="here/cpsskins_theme_widgets/macros/edit_this_content" />
+                </tal:block>
+                <div tal:condition="python: content == here"
+                 tal:attributes="class python: (content.closed and not layout_panel) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
+                  <metal:block use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
+                </div>
+
                 <div 
                    tal:define="ismaincontent python: getattr(content, 'ismaincontent', 0);
                                iscellblock python: getattr(content, 'iscellblock', 0);
@@ -73,56 +98,56 @@
                                special_content python: ismaincontent or isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
 		               hover_effect python: not ismaincontent;
-                               boxdragclass python: not ismaincontent and (not iscellblock or layout_edit_mode) and 'ContentBoxDrag' or '';
+                               boxdragclass python: not ismaincontent and (not iscellblock or layout_panel) and 'ContentBoxDrag' or '';
                                boxeditmenuclass python: (not ismaincontent and (not iscellblock or context != content)) and 'ContentBoxEditMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
-                                       class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'contentDest' or '';
+                                       class python: (not ismaincontent and (not iscellblock or layout_panel)) and 'contentDest' or '';
                                        block_url block_url;
                                        dest_block block_rurl">
                     <div
                     tal:define="content_title python: content.title;
                                 content_here python: content == here;
 		                visible python: content.getVisibility(context_obj=context_obj); 
-				render_content python: not layout_edit_mode and not special_content; 
-                                render_as_title python: layout_edit_mode and not ismaincontent and not render_content;
-                                boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'templetBoxBodyLayout' or 'templetBoxBody'; 
+				render_content python: not layout_panel and not special_content; 
+                                render_as_title python: layout_panel and not ismaincontent and not render_content;
+                                boxeditclass python: (not ismaincontent and not wysiwyg_panel) and 'templetBoxBodyLayout' or 'templetBoxBody'; 
 				boxeditclass python: content_here and 'templetBoxBodySelected' or boxeditclass; 
-				class python: edition_mode and boxeditclass or nothing; 
+				class boxeditclass; 
 				style python: content.getCSSMarginStyle() or '';
 				style python: hover_effect and style + ';;cursor: crosshair' or style;
                                 content_class python: content.getCSSAreaClass(level=2);
                                 styles_list python: content.getApplicableStyles();
                                 align_list content/AlignList|nothing"
-                     tal:condition="python: special_content or render_content or render_as_title or layout_edit_mode"
+                     tal:condition="python: special_content or render_content or render_as_title or layout_panel"
                      tal:attributes="style style;
+		                     xpos x_pos;
+				     ypos ypos;
 	                             class string: $class $boxdragclass $boxeditmenuclass; 
+                                     blockurl block_url;
                                      contenturl python: base_url + utool.getRelativeUrl(content); 
                                      styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                      isalignable python: content.isAlignable();
                                      alignments python: '|'.join(align_list);
                                      icon python: '/' + content.getIcon();
                                      title python: not ismaincontent and content_title or None;
-                                     edit_mode edit_mode;
+                                     panel panel;
                                      theme current_theme;">
                       <tal:block
                        condition="render_as_title"
                        content="structure string:${content/title}&nbsp;" />
                       <div tal:condition="not:render_as_title"
                            tal:attributes="class content_class; 
-	                                   style python: content.getCSSLayoutStyle()">
+                                           style python: content.getCSSLayoutStyle()">
                         <tal:block condition="render_content"
                          content="structure python: content.render_cache(shield=0, context_obj=context_obj, editing=1)" />
                         <tal:block condition="ismaincontent">
 <!-- BEGIN Main Content -->
-                          <metal:block define-slot="maincontent" />
-                          <metal:block 
-                           define-slot="main_edit_content" />
-                          <br clear="all" />
+          <div style="border: 1px solid black; padding: 20px;">Main slot</div>
 <!-- END Main Content -->
                         </tal:block>
-                        <tal:block condition="python: isPortalBoxGroup and not layout_edit_mode">
+                        <tal:block condition="python: isPortalBoxGroup and not layout_panel">
                           <tal:block define="box_group content/box_group|nothing;
                                              render_box python: 0">
                             <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
@@ -132,18 +157,33 @@
                     </div>
                   </div>
                 </div>
-                <metal:block define-slot="content_footer"
-                tal:replace="nothing"></metal:block>
+
+                <tal:block condition="not:wysiwyg_panel">
+                  <metal:block use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
+                </tal:block>
               </tal:block>
-              <metal:block define-slot="cell_bottom"
-               tal:replace="nothing"></metal:block>
+
+              <tal:block condition="not:wysiwyg_panel">
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellstyler" />
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellhider" />
+              </tal:block>
+
             </td>
           </tal:block>
         </tal:block>
       </tr>
     </table>
   </tal:block>
+
+  <tal:block condition="layout_panel">
+    <metal:block use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
+  </tal:block>
+
   <metal:block use-macro="here/cpsskins_theme_widgets/macros/contextual_menu" />
-  <metal:block define-slot="page_footer" tal:replace="nothing">
-  </metal:block>
+  <!-- Begin pdlib footer -->
+  <div id="drag-feedback-box"></div>
+  <script type="text/javascript"><!-- 
+   pd_setupPage();
+  // --></script>
+  <!-- End pdlib footer -->
 </metal:block>

@@ -9,11 +9,13 @@ ttool = context.portal_types
 
 allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
 
-themeroot = tmtool.getPortalThemeRoot(context)
+view_mode = tmtool.getViewMode()
+theme = view_mode.get('theme')
+theme_container = tmtool.getEffectiveThemeContainer(theme=theme)
 
-images_dir = themeroot.getImageFolder(category=imagecat)
+images_dir = theme_container.getImageFolder(category=imagecat)
 if images_dir is None:
-    themeroot.rebuild()
+    theme_container.rebuild()
     return []
 
 images = ['']

@@ -6,41 +6,13 @@ if REQUEST is not None:
 tmtool = context.portal_themes
 action = kw.get('action', None)
 
-url_obj = None
-redirect_url = '/edit_form'
-
-if action == 'insert':
-    try:
-        xpos = context.xpos
-    except:
-        return
-    ypos = context.getVerticalPosition()
-    if ypos is None:
-        return
-    if ypos > 0:
-        ypos = ypos -1
-    redirect_url = '/add_content_form?content_xpos=' + str(xpos) + \
-                  '&content_ypos=' + str(ypos)
-    url_obj = context.aq_parent
-
 if action == 'duplicate':
-    url_obj = context.duplicate()
+    context.duplicate()
 
 if action == 'delete':
     tmtool.delObject(context)
-    url_obj = context.aq_parent
 
-if action == 'edit':
-    url_obj = context
-
-if action == 'edit_styles':
-    url_obj = context
-    redirect_url += '?cat=style'
-
-if url_obj is None:
-    return
-
-url = url_obj.absolute_url() + redirect_url
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is not None:
     REQUEST.RESPONSE.redirect(url)

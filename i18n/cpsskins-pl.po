@@ -1405,6 +1405,10 @@ msgid "_Theme renderer_"
 msgstr "Przetwórz motyw"
 
 
+msgid "_Theme_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr "Menad¿er motywów"
 
@@ -1627,6 +1631,10 @@ msgstr "ten styl definiuje kszta³t ramek w portalu"
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "odwo³anie g³ównego poziomu strony do bie¿±cej strony"
+
+
+msgid "_button_cache_manager_"
+msgstr ""
 
 
 msgid "_button_clear_the_cache_"

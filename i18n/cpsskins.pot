@@ -1794,3 +1794,9 @@ msgstr ""
 
 msgid "_Add content_"
 msgstr ""
+
+msgid "_button_cache_manager_"
+msgstr ""
+
+msgid "_Theme_"
+msgstr ""

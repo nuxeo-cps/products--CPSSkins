@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins"> 
+<html
   <metal:block fill-slot="edit"
   tal:define="current_image request/form/current_image|nothing; 
               imagecat request/form/imagecat|nothing; 
@@ -50,7 +50,8 @@
               <img border="0" width="12" height="12"
               tal:attributes="src string:${base_url}cpsskins_images/img_image_delete.png" />
             </a>
-            <a tal:attributes="href string:${image_url}/cpsskins_image_edit_form?imagecat=$imagecat">
+            <a href=""
+             tal:attributes="onClick string:newWindow(${image_url}/cpsskins_image_edit_form?imagecat=$imagecat)">
               <strong tal:content="image_title" />
               <br />
               <tal:block content="string:${image/size} bytes" />

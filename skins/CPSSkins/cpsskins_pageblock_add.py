@@ -9,7 +9,7 @@ pageblock = context.addPageBlock(**kw)
 if pageblock is None:
     return
 
-url = pageblock.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 # set the edit mode to 'layout'
 tmtool.setViewMode(edit_mode='layout')

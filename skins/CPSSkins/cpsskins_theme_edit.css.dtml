@@ -124,7 +124,7 @@ body {
 }
 
 div.editSpace {
-  margin-top: 7.3em;
+  margin-top: 7.2em;
 }
 
 div.floatingHeader {
@@ -140,6 +140,8 @@ div.floatingHeader {
 
 .floatingHeader .contentbox {
   cursor: default;
+  position: absolute;
+  top: 4em;
   margin-left: auto; 
   margin-right: auto; 
   background-color: #f6f6f6; 
@@ -195,61 +197,83 @@ div.simulate_hierarchies {
 
 /* top tab */
 
-.navigationtab {
+.themeTabs {
+  position: absolute:
   margin: 0px;
   background-color: Black;
   width: 100%;
   margin-bottom: 5px;
   margin-top: 0px;
   text-align: center;
-  border-top: 9px solid Black;
+  border-top: 3px solid Black;
+  padding-top: 10px;
 }
 
-.navigationtab img {
+.themeTabs img {
   vertical-align: top;
 }
 
-.navigationtab, .navigationtab a {
+.themeTabs, .themeTabs a {
   text-decoration: none;
   font: 12px arial, helvetica, sans-serif;
   color: Black;
 }
 
-.navigationtab tr {
+.themeTabs tr {
   background-color: #000000;
   height: 17px;
 }
 
-.navigationtab .ltab, .navigationtab .rtab {
+.themeTabs .ltab, .themeTabs .rtab {
   background-color : #e3e3e3;
   vertical-align: top;
   width: 5px;
   border-bottom: 1px solid #ccc;
 }
 
-.navigationtab .separator {
+.themeTabs .separator {
   background-color : Black;
   width: 2px;
   border: None;
 }
 
-.navigationtab .ltabselected, .navigationtab .rtabselected {
+.themeTabs .ltabselected, .themeTabs .rtabselected {
   background-color : White;
   vertical-align: top;
   width: 5px;
 }
 
-.navigationtab .tabselected {
+.themeTabs .tabselected {
   background-color : White;
 }
 
-.navigationtab a {
+.themeTabs a {
   color: Black;
 }
 
-.navigationtab .tab {
+.themeTabs .tab {
   background-color : #e3e3e3;
   border-bottom: 1px solid #ccc;
+}
+
+.editForm {
+  font: 10px Arial, Helvetica, sans-serif;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.editForm h1 {
+  font-size: 170%;
+  border-left: 12px solid #ffcc00;
+  padding-left: 7px;
+  margin-bottom: 20px;
+}
+
+.stylePreview {
+  position: absolute;
+  right:15px;
+  border: 1px solid #ccc;
+  width: 30%;
 }
 
 /* main content */
@@ -258,6 +282,7 @@ div.simulate_hierarchies {
 
 .linkUp {
   display: block;
+  font-weight: bold;
   background: url(<dtml-var base_url>cpsskins_images/img_onelevelup.png) 4px 5px no-repeat transparent;
   padding: 1px 0px 1px 18px;
 }
@@ -297,6 +322,7 @@ div.simulate_hierarchies {
 /* main content body */
 
 .mainEdit {
+  width: 60%;
   background: #f3f3f3;
   border: 1px solid #aaa;
   padding: 10px;
@@ -629,6 +655,17 @@ input.rebuildTheme {
 
 input.optimizeTheme {
   background: url(<dtml-var base_url>cpsskins_images/theme_optimize.png); 
+  background-repeat: no-repeat;
+  background-position: 2px 50%;
+  padding: 6px 10px 6px 30px;
+  background-color: #fc6 !important;
+  border: 1px solid #c90 !important;
+-moz-border-radius: 5px;
+  color: Black !important;
+}
+
+input.cacheManager {
+  background: url(<dtml-var base_url>cpsskins_images/theme_manage_cache.png); 
   background-repeat: no-repeat;
   background-position: 2px 50%;
   padding: 6px 10px 6px 30px;

@@ -1,16 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
-      <metal:block fill-slot="edit"
-    tal:define="pss modules/Products/PythonScripts/standard;
-                content_ypos request/form/content_ypos|nothing; 
-                content_xpos request/form/content_xpos|nothing;">
+<html tal:define="
+  base_url python:here.cpsskins_getBaseUrl();
+  mcat here/cpsskins_getlocalizer;
+  pss modules/Products/PythonScripts/standard;
+  content_ypos request/form/content_ypos|nothing; 
+  content_xpos request/form/content_xpos|nothing;">
+  <head>
+  </head>
+  <body>
     <h1 i18n:translate=""
     tal:define="title string:_Add_a_new_Templet_"
     tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_content_add" method="get">
         <tal:block define="title string:;">
           <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/content_add_form">
+          use-macro="here/cpsskins_theme_manage_lib/macros/content_add_form">
           </metal:block>
         </tal:block>
         <input type="hidden" name="xpos"
@@ -21,5 +25,5 @@
         i18n:attributes="value" tal:define="title string:_button_create_"
         tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
-  </metal:block>
-</metal:block>
+  </body>
+</html>

@@ -19,7 +19,7 @@ tmtool.setViewMode(theme=themeid)
 # set the edit mode to 'Mixed'
 tmtool.setViewMode(edit_mode='mixed')
 
-url = theme.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 if REQUEST is None:
     return theme
 else:

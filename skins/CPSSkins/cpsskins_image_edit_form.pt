@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
-  <metal:block fill-slot="edit"
-  tal:define="imagecat request/form/imagecat|nothing;
-              mtool here/portal_membership;
-              checkPerm nocall:mtool/checkPermission">
+<html tal:define="
+  imagecat request/form/imagecat|nothing;
+  mcat here/cpsskins_getlocalizer;
+  mtool here/portal_membership;
+  checkPerm nocall:mtool/checkPermission">
+  <head>
     <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
       <tal:block define="dummy request/RESPONSE/unauthorized" />
     </tal:block>
-
-    <metal:block use-macro="here/cpsskins_form_widgets/macros/imagenavigation" />
+  </head>
+  <body>
     <h1>
       <tal:block define="title string:_Edit_"
       tal:content="python: mcat and mcat(title) or title"
@@ -43,5 +44,12 @@
         </tr>
       </table>
     </form>
-  </metal:block>
-</metal:block>
+  <br/>
+  <form action="">
+    <input class="standalone" type="submit" 
+     onclick="window.opener.location.reload();window.close()"
+     value="button_close" i18n:attributes="value" />
+  </form>
+
+  </body>
+</html>

@@ -24,8 +24,7 @@ if img is None:
 if theme is None:
     theme = tmtool.getDefaultThemeName()
 
-url = '%s/cpsskins_edit_images?imagecat=%s' % \
-      (theme_container.absolute_url(), imagecat) 
+url = img.absolute_url() + '/cpsskins_image_edit_form?imagecat=' + imagecat
 
 if REQUEST is None:
     return img

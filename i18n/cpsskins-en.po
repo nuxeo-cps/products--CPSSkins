@@ -1403,6 +1403,10 @@ msgid "_Theme renderer_"
 msgstr "Theme renderer"
 
 
+msgid "_Theme_"
+msgstr "Theme"
+
+
 msgid "_Themes manager_"
 msgstr "Themes manager"
 
@@ -1625,6 +1629,10 @@ msgstr "this style defines the shapes of portal boxes"
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "a navigation trail from the top level of the site to the current page"
+
+
+msgid "_button_cache_manager_"
+msgstr "Cache manager"
 
 
 msgid "_button_clear_the_cache_"

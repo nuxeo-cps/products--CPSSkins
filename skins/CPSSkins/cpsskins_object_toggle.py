@@ -5,7 +5,7 @@ if REQUEST is not None:
 
 object = context.toggle()
 
-url = context.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is None:
     return object

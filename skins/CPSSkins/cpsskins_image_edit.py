@@ -15,6 +15,7 @@ if file is None:
 
 kw['id'] = context.getId()
 img = theme_container.editPortalImage(**kw) 
+
 if img is None:
     return
 

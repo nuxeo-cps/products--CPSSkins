@@ -32,9 +32,7 @@ if edit_mode is None:
 # save session variables
 tmtool.setViewMode(**params)
 
-theme_container = tmtool.getEffectiveThemeContainer(theme=theme)
-if theme_container is not None:
-    url = theme_container.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is not None:
     REQUEST.RESPONSE.redirect(url)

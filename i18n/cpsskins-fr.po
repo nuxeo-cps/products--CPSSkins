@@ -1405,6 +1405,10 @@ msgid "_Theme renderer_"
 msgstr "Générateur de thème"
 
 
+msgid "_Theme_"
+msgstr "Thème"
+
+
 msgid "_Themes manager_"
 msgstr "Gestion des thèmes"
 
@@ -1627,6 +1631,10 @@ msgstr "ce style définit la mise en forme des boîtes du portail."
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "une piste de navigation de la racine du site jusqu'au document courant."
+
+
+msgid "_button_cache_manager_"
+msgstr "Gestion du cache"
 
 
 msgid "_button_clear_the_cache_"

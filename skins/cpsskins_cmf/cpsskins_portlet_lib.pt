@@ -1,4 +1,5 @@
-<metal:block define-macro="edit_form">
+<metal:block define-macro="edit_form"
+ tal:define="id request/form/id|here/id">
   <tal:block define="ptltool nocall:here/portal_cpsportlets;
                      portlet_id here/portlet_id|nothing;
                      portlet python: ptltool.getPortletById(portlet_id)"

@@ -63,6 +63,10 @@ function newWindow(url) {
     if (mywindow.opener == null) mywindow.opener = self;
 }
 
+function selectWindow(url) {
+    window.location.href = url;
+}
+
 /* Scrolling */
 function scrollToCoordinates(x,y) {
   if (x > 0 || y > 0)

@@ -1403,6 +1403,10 @@ msgid "_Theme renderer_"
 msgstr ""
 
 
+msgid "_Theme_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr "Themen Manager"
 
@@ -1625,6 +1629,10 @@ msgstr "dieser Stile definiert Formen für Portal Boxens"
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "ein Navigationspfad von der höchsten Ebene bis zur aktuellen Seite"
+
+
+msgid "_button_cache_manager_"
+msgstr ""
 
 
 msgid "_button_clear_the_cache_"

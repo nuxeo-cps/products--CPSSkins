@@ -1405,6 +1405,10 @@ msgid "_Theme renderer_"
 msgstr "Modalità di visualizzazione a schermo"
 
 
+msgid "_Theme_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr "Amministra i temi"
 
@@ -1627,6 +1631,10 @@ msgstr "in questa schermata puoi definire le impostazioni per l'aspetto dei cont
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "Un percorso di navigazione dalla radice del portale fino alla pagina corrente."
+
+
+msgid "_button_cache_manager_"
+msgstr ""
 
 
 msgid "_button_clear_the_cache_"

@@ -1403,6 +1403,10 @@ msgid "_Theme renderer_"
 msgstr ""
 
 
+msgid "_Theme_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr ""
 
@@ -1625,6 +1629,10 @@ msgstr ""
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "hjälpmedel att se var i strukturen man befinner sig - en klickbar uppräkning av de länkar som leder till den sida som visas,"
+
+
+msgid "_button_cache_manager_"
+msgstr ""
 
 
 msgid "_button_clear_the_cache_"

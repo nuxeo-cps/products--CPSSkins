@@ -7,13 +7,6 @@ tmtool = context.portal_themes
 
 context.edit(**kw)
 
-# set the scroll position
-scrollx = kw.get('scrollx', '0')
-scrolly = kw.get('scrolly', '0')
-
-tmtool.setViewMode(scrollx=scrollx)
-tmtool.setViewMode(scrolly=scrolly)
-
 # category
 cat = kw.get('cat')
 if getattr(context.aq_explicit, 'isportletbox', 0) and kw.get('portlet_type'):
@@ -21,6 +14,9 @@ if getattr(context.aq_explicit, 'isportletbox', 0) and kw.get('portlet_type'):
 
 # redirect url
 url = kw.get('redirect_url')
+
+# save scroll position
+view_mode = tmtool.setViewMode(**kw)
 
 if REQUEST is not None:
     if url is None:

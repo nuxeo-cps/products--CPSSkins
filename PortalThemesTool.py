@@ -161,7 +161,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if fullscreen in ['0', '1']:
             session_dict['fullscreen'] = int(fullscreen)
 
-        for param in ['portlets_panel',
+        for param in ['themes_panel',
+                      'portlets_panel',
                       'selected_portlet',
                       'clipboard',
                       'theme',

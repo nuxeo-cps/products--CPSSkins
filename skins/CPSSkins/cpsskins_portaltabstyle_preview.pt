@@ -6,8 +6,8 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
       <div
       tal:attributes="class string:portalTab${here/title} cpsskinsRoundedTabs">
         <ul>
-          <tal:block repeat="entry python: range(1, 4)">
-            <li tal:define="itemclass python: entry == 3 and 'selected' or None"
+          <tal:block repeat="entry python: range(1, 3)">
+            <li tal:define="itemclass python: entry == 2 and 'selected' or None"
                 tal:attributes="class itemclass">
               <a href="">
                 <tal:block define="title string:_Menu entry_"

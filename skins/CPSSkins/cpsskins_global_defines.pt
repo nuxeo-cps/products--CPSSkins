@@ -2,14 +2,11 @@
 tal:define="global here_url here_url|here/absolute_url;
             tmtool here/portal_themes; 
             global mcat here/cpsskins_getlocalizer;
-            view_mode tmtool/getViewMode;
-            edit_mode view_mode/edit_mode|nothing;
             global current_theme python: tmtool.getRequestedThemeName(context=here);
             global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
             theme_renderer theme_container/theme_renderer|nothing;
             renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer);
-            main_macro_suffix python: edit_mode and 'edit' or renderer;
-            global main_macro python: 'cpsskins_main_template_%s' % main_macro_suffix;
+            global main_macro python: 'cpsskins_main_template_%s' % renderer;
             global enable_esi theme_container/esi|nothing;
             global cpsskins_pagemargin theme_container/margin|nothing;
             global cpsskins_bodycolor theme_container/color|nothing;

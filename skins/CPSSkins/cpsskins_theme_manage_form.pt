@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
+<html tal:define="
+  global boxedit python:1;
+  utool nocall:here/portal_url;
+  mcat python: here.cpsskins_getlocalizer();
+  mtool here/portal_membership;
+  tmtool here/portal_themes;
+  context_url python:here.getContextUrl(utool=utool);
+  base_url python: here.cpsskins_getBaseUrl();
+  tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
+  theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
+  view_mode tmtool/getViewMode;
+  scrollx view_mode/scrollx|python:0;
+  scrolly view_mode/scrolly|python:0;
+  panel view_mode/themes_panel|string:wysiwyg;
+  portal_path python: utool.getPortalPath();
+  cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+  cpsskins_mcat python: request.get('cpsskins_mcat');
+  checkPerm nocall:mtool/checkPermission">
+<head>
+  <metal:block use-macro="here/cpsskins_main_template_edit/macros/head" />
+  <style type="text/css" media="all"
+   tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+</head>
+
+<body tal:attributes="onload string:javascript:scrollToCoordinates(${scrollx},${scrolly})">
+  <div class="floatingHeader">
+   <metal:block use-macro="here/cpsskins_theme_widgets/macros/navigate" />
+   <tal:block define=" display_url_simulation python: panel != 'layout'"
+    condition="python: panel in ['wysiwyg', 'layout', 'mixed']">
+     <metal:block 
+      use-macro="here/cpsskins_theme_widgets/macros/simulate_hierarchy" />
+     <metal:block
+      use-macro="here/cpsskins_theme_widgets/macros/content_add_panel" />
+   </tal:block> 
+  </div>
+
+  <div class="editSpace">
+   <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
+    <tal:block condition="python: panel in ['wysiwyg', 'layout', 'mixed']">
+      <metal:block use-macro="here/cpsskins_main_template_edit/macros/main" />
+    </tal:block> 
+
+    <tal:block condition="python: panel == 'theme'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_manager" />
+    </tal:block> 
+    <tal:block condition="python: panel == 'styles'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/styles" />
+    </tal:block> 
+    <tal:block condition="python: panel == 'images'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/images" />
+    </tal:block> 
+    <tal:block condition="python: panel == 'palettes'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/palettes" />
+    </tal:block> 
+
+    <tal:block condition="python: panel == 'cache_manager'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/cache_manager" />
+    </tal:block> 
+    <tal:block condition="python: panel == 'theme_optimizer'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_optimizer" />
+    </tal:block> 
+
+    <tal:block condition="python: panel == 'themes_manager'">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/themes_manager" />
+    </tal:block> 
+  </div>
+
+  </body>
+</html>

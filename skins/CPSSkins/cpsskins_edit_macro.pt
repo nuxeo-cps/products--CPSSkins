@@ -43,8 +43,8 @@ tal:define="global editing python: 1;
 
    <div class="editSpace">
     <metal:block
-    use-macro="here/cpsskins_main_template_edit/macros/main">
-      <metal:block fill-slot="main_edit_content"
+    use-macro="here/main_template/macros/master">
+      <div
         tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
                     isPortalPalette here/aq_explicit/isPortalPalette|nothing;
                     isPortalTheme here/aq_explicit/isPortalTheme|nothing;
@@ -53,68 +53,11 @@ tal:define="global editing python: 1;
                     isFlashBox here/aq_explicit/isFlashBox|nothing;
                     showPreview python: isPortalStyle or isPortalPalette;">
         <metal:block define-slot="edit" />
-      </metal:block>
-
-      <metal:block fill-slot="page_top">
-        <metal:block
-        use-macro="here/cpsskins_theme_widgets/macros/navigationtab" />
-        <tal:block condition="layout_edit_mode" define="pageblock_ypos python: 0">
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
-        </tal:block>
-      </metal:block>
-
-      <metal:block fill-slot="pageblock_titlebar"
-        tal:condition="python: layout_edit_mode or mixed_edit_mode">
-        <a tal:attributes="name pageblock/id"></a>
-        <metal:block
-        use-macro="here/cpsskins_theme_widgets/macros/pageblock_titlebar" />
-      </metal:block>
+      </div>
 
       <metal:block fill-slot="cell_top" tal:define="ypos python: 0">
-        <tal:block condition="python: layout_edit_mode or mixed_edit_mode">
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/movecell" />
-          <tal:block condition="not:contents_in_xpos">
-            <metal:block 
-            use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
-          </tal:block>
-        </tal:block>
-        <tal:block condition="not:contents_in_xpos">
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/emptycell" />
-        </tal:block>
       </metal:block>
 
-      <metal:block fill-slot="content_footer" 
-      tal:condition="python: layout_edit_mode or mixed_edit_mode"
-      tal:define="ypos content/getVerticalPosition|nothing">
-        <metal:block 
-        use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
-      </metal:block>
-
-      <metal:block fill-slot="cell_bottom">
-       <tal:block condition="python: layout_edit_mode or mixed_edit_mode">
-        <metal:block
-        use-macro="here/cpsskins_theme_widgets/macros/cellstyler" />
-        <metal:block
-        use-macro="here/cpsskins_theme_widgets/macros/cellhider" />
-       </tal:block>
-      </metal:block>
-
-      <metal:block fill-slot="content_titlebar">
-        <tal:block condition="content/aq_explicit/isMainContent|nothing">
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/edit_this_content" />
-        </tal:block>
-        <div tal:condition="python: content == here"
-        tal:attributes="class python: (content.closed and not layout_edit_mode) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
-          <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
-        </div>
-      </metal:block>
 
       <metal:block fill-slot="page_footer">
         <tal:block condition="layout_edit_mode">
