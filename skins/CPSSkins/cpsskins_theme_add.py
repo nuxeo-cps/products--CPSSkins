@@ -17,7 +17,7 @@ theme.setTitle(themeid)
 tmtool.setViewMode(theme=themeid)
 
 # set the edit mode to 'Mixed'
-tmtool.setViewMode(edit_mode='mixed')
+tmtool.setViewMode(themes_panel='mixed')
 
 url = context.portal_url() + '/cpsskins_theme_manage_form'
 if REQUEST is None:
