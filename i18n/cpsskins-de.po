@@ -1919,6 +1919,10 @@ msgid "_option_min_max_close_"
 msgstr ""
 
 
+msgid "_option_min_max_edit_close_"
+msgstr ""
+
+
 msgid "_option_no_frames_"
 msgstr ""
 

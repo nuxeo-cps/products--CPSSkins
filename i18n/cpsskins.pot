@@ -1620,3 +1620,6 @@ msgstr ""
 
 msgid "_Area background repeat_"
 msgstr ""
+
+msgid "_option_min_max_edit_close_"
+msgstr ""

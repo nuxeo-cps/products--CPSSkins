@@ -1921,6 +1921,10 @@ msgid "_option_min_max_close_"
 msgstr "Boîte min/max/fermeture"
 
 
+msgid "_option_min_max_edit_close_"
+msgstr "Boîte min/max/edition/fermeture"
+
+
 msgid "_option_no_frames_"
 msgstr "Boîte sans cadre"
 
