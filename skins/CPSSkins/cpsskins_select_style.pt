@@ -7,6 +7,8 @@
     <link rel="Stylesheet" type="text/css"
     tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
     <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_common-css2.css" />
+    <link rel="Stylesheet" type="text/css"
     tal:attributes="href string:${theme_container/absolute_url}/renderCSS" />
     <script type="text/javascript" 
     tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
