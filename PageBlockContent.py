@@ -271,21 +271,34 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """
 
         tmtool = getToolByName(self, 'portal_themes')
+        # the destination theme is mandatory
         if dest_theme is None:
             return None
-        container = self.getContainer()
+
+        # the destination page is mandatory
+        if dest_page is None:
+            return None
+
+        # give up if the specified theme does not exist
         dest_theme_container = tmtool.getThemeContainer(dest_theme)
         if dest_theme_container is None:
             return None
 
-        dest_container = None
+        # give up if the specified page does not exist
         dest_page_container = dest_theme_container.getPageContainer(dest_page)
+        if dest_page_container is None:
+            return None
+
+        # make sure that the destination page has page blocks
+        # otherwise create one on the fly
         pageblocks = dest_page_container.getPageBlocks()
-        if pageblocks:
+        if len(pageblocks) > 0:
             dest_container = pageblocks[0]
         else:
             dest_container = dest_page_container.addPageBlock()
 
+        # copy the content to the destination container
+        container = self.getContainer()
         cookie = container.manage_copyObjects(self.getId(), REQUEST=REQUEST)
         res = dest_container.manage_pasteObjects(cookie) 
         new_id = res[0]['new_id']

@@ -5,21 +5,29 @@ if REQUEST is not None:
 
 tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName(context_obj=context)
-theme_container = tmtool.getThemeContainer(theme=theme)
+theme_container = tmtool.getThemeContainer(theme)
 page = theme_container.getRequestedPageName(context_obj=context)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
-direction = kw.get('direction', None)
-dest_block = kw.get('dest_block', None)
-dest_theme = kw.get('dest_theme', theme)
-dest_page = kw.get('dest_page', page)
+direction = kw.get('direction')
+dest_block = kw.get('dest_block')
+dest_theme = kw.get('dest_theme')
+dest_page = kw.get('dest_page')
 
-if dest_theme and dest_theme != theme or \
-   dest_page and dest_page != page:
-    dest_theme_container = tmtool.getThemeContainer(dest_theme)
-    if dest_page is None:
-        dest_page = dest_theme_container.getRequestedPageName(context_obj=context)
+# if the destination theme is not specified assume that
+# it is the current theme
+if dest_theme is None:
+    dest_theme = theme
+
+dest_theme_container = tmtool.getThemeContainer(dest_theme)
+
+# if the destination page is not specified choose the requested page
+if dest_page is None:
+    dest_page = dest_theme_container.getRequestedPageName(context_obj=context)
+
+# content will be duplicated
+if dest_theme != theme or dest_page != page:
     newobj = context.copy_to_theme(dest_theme, dest_page)
     for category in context.getApplicableStyles():
         style_propid = category['id']
