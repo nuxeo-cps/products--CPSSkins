@@ -1,4 +1,5 @@
-<dtml-let class="'.boxCorner' + title">
+<dtml-let base_url="cpsskins_getBaseUrl()"
+          class="'.boxCorner' + title">
 
 <dtml-var class> {
 <dtml-if Area_border_color>
@@ -12,29 +13,37 @@
 <dtml-with expr="getThemeContainer().backgrounds">
 <dtml-var class> .rbtop div {
 <dtml-with expr="_.getitem(TopLeft_bg_image)">
-  background: url(/<dtml-var expr="absolute_url(1)">) no-repeat top left;
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background: url(<dtml-var url>) no-repeat top left;
   height: <dtml-var height>px;
+</dtml-let>
 </dtml-with>
 }
 
 <dtml-var class> .rbtop {
 <dtml-with expr="_.getitem(TopRight_bg_image)">
-  background: url(/<dtml-var expr="absolute_url(1)">) no-repeat top right;
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background: url(<dtml-var url>) no-repeat top right;
   height: <dtml-var height>px;
+</dtml-let>
 </dtml-with>
 }
 
 <dtml-var class> .rbbot div {
 <dtml-with expr="_.getitem(BottomLeft_bg_image)">
-  background: url(/<dtml-var expr="absolute_url(1)">) no-repeat bottom left;
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background: url(<dtml-var url>) no-repeat bottom left;
   height: <dtml-var height>px;
+</dtml-let>
 </dtml-with>
 }
 
 <dtml-var class> .rbbot {
 <dtml-with expr="_.getitem(BottomRight_bg_image)">
-  background: url(/<dtml-var expr="absolute_url(1)">) no-repeat bottom right;
+<dtml-let url="base_url + portal_url.getRelativeUrl(this())">
+  background: url(<dtml-var url>) no-repeat bottom right;
   height: <dtml-var height>px;
+</dtml-let>
 </dtml-with>
 } 
 </dtml-with>
