@@ -1,16 +1,14 @@
-##parameters=context_obj=None
 
 from DateTime import DateTime
 
-REQUEST=context.REQUEST
-if context_obj is None:
-    return {'calendar': '',
-            'previews': '',
-            'this_month': '',
-            'this_year': '',
-           }
+REQUEST = context.REQUEST
+base_url = REQUEST.get('cpsskins_base_url')
+if base_url is None:
+    base_url = context.cpsskins_getBaseUrl()
 
-context_url = context_obj.absolute_url()
+# remove the trailing /
+context_url = base_url[:-1]
+
 portal_calendar = context.portal_calendar
 
 current = DateTime()
@@ -51,10 +49,11 @@ for week in weeks:
             previews.append(info)
                  
             weekday['date_id'] = date_id
-            weekday['link'] = context.getCalCPSDayViewParams(context_url=context_url,  \
-                                              datestring=datestring, \
-                                              location=None, event_types=[])
-    
+            weekday['link'] = context.getCalCPSDayViewParams(
+               context_url=context_url,
+               datestring=datestring,
+               location=None, event_types=[])
+
         weekdays.append(weekday)
     calendar.append(weekdays) 
 
