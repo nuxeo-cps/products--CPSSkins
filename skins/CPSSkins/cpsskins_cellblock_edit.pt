@@ -78,7 +78,7 @@
                         <tal:block condition="content/isPortalBoxGroup|nothing">
                           <tal:block define="box_group content/box_group|nothing;
                                              render_box python: 0">
-                            <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                            <metal:block use-macro="slot_macro_path" />
                           </tal:block>
                         </tal:block>
                 </div>

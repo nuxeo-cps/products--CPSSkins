@@ -20,6 +20,7 @@ tal:define="global here_url here_url|here/absolute_url;
             global cpsskins_url python: tmtool.getCurrentUrl();
             global boxedit boxedit|nothing;
             global shield not:tmtool/debug_mode|python:1;
+            global slot_macro_path here/cpsskins_lib/macros/portalboxgroup;
             dummy python: request.set('cpsskins_language', cpsskins_language);
             dummy python: request.set('cpsskins_url', cpsskins_url);
             dummy python: request.set('cpsskins_base_url', base_url);
