@@ -223,11 +223,14 @@ class PortletBox(BaseTemplet):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
        
-        # XXX: additional cache index information should be obtained
-        # from the portlet
         index = (self.getPortletId(), )
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return index
+        portlet_id = self.getPortletId()
+        portlet = ptltool.getPortletById(portlet_id)
+        index += portlet.getCacheIndex()
         return index
-
 
 InitializeClass(PortletBox)
 
