@@ -27,7 +27,6 @@ function Content_prepare_element_menu(header) {
   return true;
 }
 
-
 var Destinations = [];
 
 function findDescendant(node, className) {
@@ -118,7 +117,7 @@ function Content_add(selected_items, target_node) {
   if (xpos == null || ypos == null || new_url == 0) return;
   type_name = pd_selected_item.getAttribute('type_name');
   create_url = new_url + '/edit_form';
-  create_url = new_url + '/cpsskins_content_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
+  create_url = new_url + '/cpsskins_addcontent_form?content_xpos=' + xpos + '&content_ypos=' + ypos + '&type_name=' + type_name;
   newWindow(create_url);
 }
 
@@ -155,10 +154,8 @@ function setupContentAdd(node) {
   pd_setupDragUI(node, Content_add, Content_checkmove);
 }
 
-
 pd_node_setup['ContentBoxDrag'] = setupContentBoxDrag;
 pd_node_setup['ContentBoxEditMenu'] = setupContentEditMenu;
 pd_node_setup['contentDest'] = setupDestination;
 pd_node_setup['ContentAdd'] = setupContentAdd;
-
 //-->

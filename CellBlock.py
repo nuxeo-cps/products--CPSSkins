@@ -405,8 +405,9 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         del kw['type_name']
         xpos = kw.get('xpos', 0)
         ypos = kw.get('ypos', 0)
-
-        kw['title'] = type_name
+        title = kw.get('title')
+        if title is None:
+            kw['title'] = type_name
         ypos = int(ypos)
         if ypos == 0:
             newpos = ypos 

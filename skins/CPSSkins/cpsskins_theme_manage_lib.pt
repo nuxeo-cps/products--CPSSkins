@@ -31,7 +31,6 @@
             i18n:translate="" />  
       </tal:block>
     </dl>
-    <input type="hidden" name="title" tal:attributes="value title" />
   </tal:block>
 </metal:block>
 

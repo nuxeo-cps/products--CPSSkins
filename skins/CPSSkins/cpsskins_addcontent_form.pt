@@ -4,7 +4,8 @@
   mcat here/cpsskins_getlocalizer;
   pss modules/Products/PythonScripts/standard;
   content_ypos request/form/content_ypos|nothing; 
-  content_xpos request/form/content_xpos|nothing;">
+  content_xpos request/form/content_xpos|nothing;
+  type_name request/form/type_name|nothing">
   <head>
   </head>
   <body>
@@ -12,15 +13,19 @@
     tal:define="title string:_Add_a_new_Templet_"
     tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_content_add" method="get">
-        <tal:block define="title string:;">
+        <tal:block condition="not:type_name">
           <metal:block
-          use-macro="here/cpsskins_theme_manage_lib/macros/content_add_form">
-          </metal:block>
+          use-macro="here/cpsskins_theme_manage_lib/macros/content_add_form" />
         </tal:block>
+        <input type="hidden" name="type_name"
+        tal:condition="type_name"
+        tal:attributes="value type_name" />
         <input type="hidden" name="xpos"
         tal:attributes="value content_xpos" />
         <input type="hidden" name="ypos"
         tal:attributes="value content_ypos" />
+        <input type="string" name="title"
+        tal:attributes="value type_name" />
         <input type="submit" class="mainbutton"
         i18n:attributes="value" tal:define="title string:_button_create_"
         tal:attributes="value python: mcat and mcat(title) or title" />
