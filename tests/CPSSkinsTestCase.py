@@ -36,7 +36,7 @@ def setViewMode(self, **kw):
 
 def getViewMode(self):
     """ """
-    return self.fake_session
+    return getattr(self, 'fake_session', {})
 
 from Products.CPSSkins.PortalThemesTool import PortalThemesTool
 PortalThemesTool.setViewMode = setViewMode
