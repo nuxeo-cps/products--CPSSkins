@@ -63,13 +63,15 @@
                 <tal:block repeat="content contents_in_xpos">
                 <!-- Templet profiling START -->
                   <div
-                   tal:define="isRenderable python: content.isRenderable();
+                   tal:define="margin python: content.margin;
+                               isRenderable python: content.isRenderable();
                                rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit) or None"
                    tal:condition="python: rendered or not isRenderable"
-                   tal:attributes="align python: content.align;
-                                   style python: 'padding:%s' % content.margin">
+                   tal:attributes="style python: 'padding:%s' % margin"
+                   tal:omit-tag="not:margin">
                     <div
-                     tal:attributes="class python: content.getCSSAreaClass(level=2);
+                     tal:attributes="align python: content.align;
+                                     class python: content.getCSSAreaClass(level=2);
                                      style python: content.getCSSLayoutStyle()">
                       <tal:block condition="isRenderable"
                        content="structure rendered" />
