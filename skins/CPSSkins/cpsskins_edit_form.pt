@@ -50,10 +50,10 @@
         </tal:block>
 
         <tal:block condition="python: cat != 'Portlet'">
-          <form name="editform" action="cpsskins_edit" method="post"
+          <form name="data" action="cpsskins_edit" method="post"
            enctype="multipart/form-data"
            tal:define="stylecat request/form/cat|string:general"
-           onSubmit="saveScrollCoordinates('editform')">
+           onSubmit="saveScrollCoordinates('data')">
             <input type="hidden" name="scrollx" value="0">
             <input type="hidden" name="scrolly" value="0"> 
             <input type="hidden" name="cat" tal:attributes="value stylecat" />
