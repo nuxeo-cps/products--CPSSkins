@@ -13,7 +13,9 @@
       <tal:block 
        define="objects_in_xpos python: objects.get(x_pos, None)">
         <td valign="top"
-         tal:define="contents_in_xpos python: objects_in_xpos['contents']">
+         tal:define="contents_in_xpos python: objects_in_xpos['contents'];
+                     cellsize python: objects_in_xpos['cellsizer']"
+         tal:attributes="width python: cellsize and cellsize.cellwidth or None">
           <tal:block repeat="content contents_in_xpos">
             <div tal:define="isRenderable python: content.isRenderable();
                              rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"

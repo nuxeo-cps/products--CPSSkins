@@ -18,7 +18,9 @@
       <tal:block 
        define="objects_in_xpos python: objects.get(x_pos, None)">
         <td valign="top"
-         tal:define="contents_in_xpos python: objects_in_xpos['contents']">
+         tal:define="contents_in_xpos python: objects_in_xpos['contents'];
+                     cellsize python: objects_in_xpos['cellsizer']"
+         tal:attributes="width python: cellsize and cellsize.cellwidth or None">
           <div class="ContentDest" i18n:attributes="title"
            style="border: 1px dashed red; padding: 8px"
            tal:condition="not:contents_in_xpos"
