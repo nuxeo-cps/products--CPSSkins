@@ -18,7 +18,7 @@
       <div onMouseover="this.style.backgroundColor='#fff'"
            onMouseout="this.style.background='#eee'">
         <h1 tal:content="style/title|nothing" />
-        <a tal:define="number repeat/style/number" tyle="background-color: white"
+        <a tal:define="number repeat/style/number"
          tal:attributes="onClick string:javascript:changeSelection('$number', '$prop')">
           <tal:block content="structure python: style.preview()" />
         </a>
