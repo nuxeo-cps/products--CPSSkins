@@ -22,7 +22,7 @@
                repeat="x_pos python: range(int(maxcols))">
       <tal:block 
        define="objects_in_xpos python: objects.get(x_pos, None)">
-        <td valign="top"
+        <td valign="top" style="border: 1px dotted red"
          tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="width python: cellsize and cellsize.cellwidth or None">
