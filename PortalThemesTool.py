@@ -524,7 +524,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme_obj and callable(theme_obj):
             theme_obj = apply(theme_obj, ())
         if isinstance(theme_obj, StringType):
-            theme_obj = tuple(theme_obj)
+            theme_obj = (theme_obj, )
         if not isinstance(theme_obj, TupleType):
             return None
 
