@@ -14,7 +14,14 @@ if not session.has_key(session_key):
 
 mode = {}
 if kw.has_key('fullscreen'):
-    mode['fullscreen'] = kw['fullscreen']
+    value = kw['fullscreen']
+    if value in ['0', '1']:
+        mode['fullscreen'] = int(value)
+
+if kw.has_key('portlets_panel'):
+    value = kw['portlets_panel']
+    if value in ['visibility', 'browser', 'unused']:
+        mode['portlets_panel'] = value
 
 session[session_key].update(mode)
 

@@ -79,9 +79,8 @@
 
 <metal:block define-macro="panel_selector" i18n:domain="cpsskins">
   <form action="" method="post" style="text-align:right"
-   tal:attributes="action string:${here/absolute_url}/portlet_manage_form">
-    <input type="hidden" name="fs" tal:attributes="value fullscreen" />
-    <select name="panel" onchange="submit()">
+   tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+    <select name="portlets_panel" onchange="submit()">
       <option value="" disabled="disabled" selected="selected">Select panel ...</option>
       <option value="visibility">Portlet visibility</option>
       <option value="unused">Unused portlets</option>

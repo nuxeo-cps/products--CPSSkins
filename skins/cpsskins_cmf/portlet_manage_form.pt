@@ -1,12 +1,11 @@
 <metal:html tal:define="global boxedit python:1;
                         view_mode here/cpsskins_getViewMode;
                         fullscreen view_mode/fullscreen|python:0;
-                        fullscreen python: fullscreen == '1' and 1 or None;
+                        panel view_mode/portlets_panel|nothing;
                         global emptybody fullscreen;
                         cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                         mtool here/portal_membership;
                         checkPerm nocall:mtool/checkPermission;
-                        panel request/panel|options/panel|string:canvas;
                         selected_portlet request/selected_portlet|options/selected_portlet|nothing">
   <metal:body use-macro="here/main_template/macros/master">
     <metal:head fill-slot="head_slot">
