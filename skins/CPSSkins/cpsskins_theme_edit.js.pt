@@ -1,70 +1,68 @@
 <!--
-
 function OnMouseOver(srcEle, title, color) {
-        TempColor = srcEle.style.backgroundColor;
-        srcEle.style.backgroundColor = color;
-        srcEle.title = title;
+  TempColor = srcEle.style.backgroundColor;
+  srcEle.style.backgroundColor = color;
+  srcEle.title = title;
 }
 
 function OnMouseOut(srcEle) {
-        srcEle.style.backgroundColor = TempColor;
+  srcEle.style.backgroundColor = TempColor;
 }
 
-
 function redirect(url) {
-        window.location=url;
+  window.location=url;
 }
 
 /* select panel */
 function selection_restart(select_id) {
-    document.data[select_id].selectedIndex = style;
-    mywindow.close();
+  document.data[select_id].selectedIndex = style;
+  mywindow.close();
 }
 
 function textfield_restart(textfield_id) {
-    document.data[textfield_id].value = value;
-    mywindow.close();
+  document.data[textfield_id].value = value;
+  mywindow.close();
 }
 
 function selectImage(value, select_id) {
-    opener.style = value;
-    opener.selection_restart(select_id);
-    self.close;
+  opener.style = value;
+  opener.selection_restart(select_id);
+  self.close;
 }
 
 function selectPalette(value, textfield_id) {
-    opener.value = value;
-    opener.textfield_restart(textfield_id);
-    self.close;
+  opener.value = value;
+  opener.textfield_restart(textfield_id);
+  self.close;
 }
 
 function selectTheme(value, select_id) {
-    opener.style = value;
-    opener.selection_restart(select_id);
-    self.close;
+  opener.style = value;
+  opener.selection_restart(select_id);
+  self.close;
 }
 
 function selectSlot(value, textfield_id) {
-    opener.value = value;
-    opener.textfield_restart(textfield_id);
-    self.close;
+  opener.value = value;
+  opener.textfield_restart(textfield_id);
+  self.close;
 }
 
 function selectStyle(style, select_id) {
-    opener.style = style;
-    opener.selection_restart(select_id);
-    self.close;
+  opener.style = style;
+  opener.selection_restart(select_id);
+  self.close;
 }
 
 function newWindow(url) {
-    mywindow=window.open(url, 'selector', "width=760, height=500, location=no, menubar=no, status=no, toolbar=no, scrollbars=yes, resizable=yes");
-    mywindow.location.href = url;
-    mywindow.focus();
-    if (mywindow.opener == null) mywindow.opener = self;
+  mywindow=window.open(url, 'selector', "width=760, height=500, location=no, menubar=no, status=no, toolbar=no, scrollbars=yes, resizable=yes");
+  mywindow.location.href = url;
+  mywindow.focus();
+  if (mywindow.opener == null) mywindow.opener = self;
 }
 
 function selectWindow(url) {
-    window.location.href = url;
+  window.location.href = url;
 }
 
 /* Scrolling */
@@ -77,5 +75,4 @@ function saveScrollCoordinates(formid) {
   document[formid].scrollx.value = document.body.scrollLeft + document.documentElement.scrollLeft;
   document[formid].scrolly.value = document.body.scrollTop + document.documentElement.scrollTop;
 } 
-
 //-->
