@@ -741,10 +741,10 @@ class PortalTheme(ThemeFolder, StylableContent):
             return None
 
         file = kw.get('file', None)
-        if file is None:
+        fn = file.filename
+        if not fn:
             return None
 
-        fn = file.filename
         title = string.split(fn, '/')[-1]
         title = string.split(fn, '\\')[-1]
         id = title
@@ -766,13 +766,11 @@ class PortalTheme(ThemeFolder, StylableContent):
             id = prefix + str(i) + '.' + ext
 
         title = id
-        cmfdefault = images_dir.manage_addProduct['CMFDefault']
-        cmfdefault.manage_addContent(id=id, type='Portal Image')
-
+        images_dir.manage_addProduct['OFSP'].manage_addImage(
+            id=id,
+            file=file,
+            title=title)
         img = getattr(images_dir.aq_inner.aq_explicit, id, None)
-        kw['id'] = id
-        self.editPortalImage(**kw)
-        img.manage_changeProperties(title=title)
         return img
 
     security.declareProtected(ManageThemes, 'editPortalImage')
