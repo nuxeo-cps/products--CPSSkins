@@ -235,19 +235,19 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         if setperms:
             verifyThemePerms(self)
 
-        for (id, o) in self.objectItems():
-            o = o.aq_explicit
-            if isBroken(o):
+        for (id, obj) in self.objectItems():
+            o = obj.aq_explicit
+            if isBroken(obj):
                 self.manage_delObjects(id)
                 continue
             if getattr(o, 'isportaltemplet', 0):
-                o.rebuild(**kw)
+                obj.rebuild(**kw)
                 continue
             if getattr(o, 'iscellmodifier', 0):
-                o.rebuild(**kw)
+                obj.rebuild(**kw)
                 continue
-            moveToLostAndFound(self, o)
- 
+            moveToLostAndFound(self, obj)
+
     security.declarePrivate('getActions')
     def getActions(self):
         """Returns the list of actions"""
@@ -272,15 +272,16 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             cellsizer[col] = None
 
         for obj in self.objectValues():
-            xpos = getattr(obj, 'xpos', 0)
+            o = obj.aq_explicit
+            xpos = getattr(o, 'xpos', 0)
             if xpos and xpos >= maxcols:
                 continue
 
-            if getattr(obj, 'isportaltemplet', 0):
+            if getattr(o, 'isportaltemplet', 0):
                 contents[xpos].append(obj)
                 continue
 
-            if getattr(obj, 'iscellsizer', 0):
+            if getattr(o, 'iscellsizer', 0):
                 cellsizer[xpos] = obj
                 continue
 
@@ -296,7 +297,8 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         """
         templets = []
         for obj in self.objectValues():
-            if getattr(obj, 'isportaltemplet', 0):
+            o = obj.aq_explicit
+            if getattr(o, 'isportaltemplet', 0):
                 templets.append(obj)
         return templets
 
