@@ -23,11 +23,8 @@ if kw.has_key('scrolly'):
 # current url
 params['current_url'] = REQUEST['HTTP_REFERER']
 
-# set the default edit mode
-view_mode = tmtool.getViewMode()
-edit_mode = view_mode and view_mode.get('edit_mode') or None
-if edit_mode is None:
-    params['edit_mode'] ='wysiwyg'
+# set the default panel to WYSIWYG
+params['themes_panel'] ='wysiwyg'
 
 # save session variables
 tmtool.setViewMode(**params)
