@@ -6,7 +6,6 @@
   tmtool here/portal_themes; 
   mcat here/cpsskins_getlocalizer;
   cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
-  context_url python:here.getContextUrl(utool=utool);
   here_url python:here.absolute_url();
   checkPerm nocall:mtool/checkPermission;
   view_mode tmtool/getViewMode;

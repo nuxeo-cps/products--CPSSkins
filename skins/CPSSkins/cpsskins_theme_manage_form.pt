@@ -6,7 +6,6 @@
   mcat python: here.cpsskins_getlocalizer();
   mtool here/portal_membership;
   tmtool here/portal_themes;
-  context_url python:here.getContextUrl(utool=utool);
   base_url python: here.cpsskins_getBaseUrl();
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
