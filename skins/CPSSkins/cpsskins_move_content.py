@@ -34,6 +34,9 @@ if dest_theme != theme or dest_page != page:
         style = getattr(context, style_propid, None)
         if not style:
             continue
+        # do not copy styles between the pages of a same theme.
+        if dest_theme == theme:
+            continue
         styles = tmtool.findStylesFor(category=category['meta_type'], \
                                       object=context, title=style)
         if len(styles) > 0:
