@@ -981,7 +981,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return new_id
 
     security.declareProtected(ManageThemes, 'manage_xmlImport')
-    def manage_xmlImport(self, file, options, REQUEST=None):
+    def manage_xmlImport(self, file, options, plugin='CPSSkinsImporter',
+                         REQUEST=None):
         """Import a theme from a zip file in XML format (CPSIO)
         """
 
@@ -996,7 +997,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         filename = basename(file.filename)
         _writeFileInImportDirectory(file, filename)
 
-        importer = io_tool.getImportPlugin('CPSSkinsImporter', portal)
+        importer = io_tool.getImportPlugin(plugin, portal)
         try:
             importer.setOptions(filename, options=options)
             importer.importFile()

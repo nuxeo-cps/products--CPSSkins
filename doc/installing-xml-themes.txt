@@ -1,15 +1,16 @@
 Installing themes through products
 ==================================
 
-XML format (requires CPSIO 0.3.0)
----------------------------------
+requires CPSIO 0.3.0
+
+Importing themes
+----------------
 
 Concept code showing how to install themes saved in XML format
 from the filesystem (requires CPSIO >= 0.3.0)
 
-- 'filepath' is the path to the file on the local filesystem.
-- 'filename' is the file's name (e.g. 'theme.zip').
-
+  - 'filepath' is the path to the file on the local filesystem.
+  - 'filename' is the file's name (e.g. 'theme.zip').
 
 sample code ::
 
@@ -36,5 +37,22 @@ sample code ::
 
             tmtool.manage_xmlImport(
                 FileUpload(fs),
-                options=['import_overwrite'])
+                options=['import_overwrite'],
+                plugin='CPSSkinsImporter')
+
+
+Configuring theme settings
+--------------------------
+
+Theme settings can be imported with CPSIO (> 0.3.?)
+
+To import theme settings use the same code as above with the following
+parameters ::
+
+            ....
+            tmtool.manage_xmlImport(
+                FileUpload(fs),
+                options=['import_theme_settings'],
+                plugin='CPS3Importer')
+            ....
 
