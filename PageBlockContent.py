@@ -389,8 +389,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Aligns the templet."""
 
         if alignment in ['left', 'center', 'right']:
-            self.set_property('align', alignment)
-        self.expireCache()
+            self.setProperty('align', alignment)
 
     security.declarePublic('getStyle')
     def getStyle(self,  meta_type=None):

@@ -542,17 +542,14 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         self.manage_changeProperties(**kw)
         self.expireCache()
-        
 
-    security.declareProtected(ManageThemes, 'set_property')
-    def set_property(self, prop=None, value=None):
+    security.declareProtected(ManageThemes, 'setProperty')
+    def setProperty(self, prop=None, value=None):
         """Sets a property."""
 
-        if value is None:
-            return None
-        if not hasattr(self, prop):
-            return None
-        setattr(self, prop, value)
+        if value is not None and self.hasProperty(prop):
+            self.manage_changeProperties(**{prop:value})
+            self.expireCache()
 
     #
     # RAM Cache
@@ -790,12 +787,13 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     def render_js(self, **kw):
         """Renders the javascript code used by the Templet."""
 
+        rendered = None
         if getattr(aq_base(self), 'javascript_render_action', None) is None:
             return ''
         meth = getattr(self, self.javascript_render_action, None)
         if meth is not None:
             rendered = apply(meth, (), kw)
-            return rendered  
+        return rendered
 
     security.declarePublic('render_css')
     def render_css(self, **kw):
