@@ -18,6 +18,7 @@
                    src_rurl portlet_folder_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group;
+                   editable editable;
                    class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
     <div class="PortletBoxDest"
      tal:define="box_style python: box_selected and 'border: 1px dashed Black' or 'border: none'"
@@ -43,6 +44,7 @@
                        icon portlet_icon;
                        title portlet_title;
                        folder_url folder_url;
+                       editable editable;
                        src_ypos python: ypos and ypos or 0;
                        src_slot group">
         <div class="body">
@@ -108,7 +110,7 @@
     <div class="context-menu-header"
          filter="Portlet_prepare_element_menu(pd_filter_object)"></div>
     <div class="context-menu-item" onmouseup="Choice_edit()"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('editable') == 1">
       <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/edit-16.png" />
       <tal:block i18n:translate="" 
@@ -133,7 +135,7 @@
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_duplicate()"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('editable') == 1">
       <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/duplicate-16.png" />
       <tal:block i18n:translate="" 
@@ -149,7 +151,7 @@
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_delete()"
-     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('editable') == 1">
        <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
        <tal:block i18n:translate="" 
@@ -295,7 +297,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
 <metal:block define-macro="site_structure"
   tal:define="here_depth python: len(utool.getRelativeContentPath(here))">
-  <h2 i18n:translate="heading_site_structure" i18n:domain="cpsskins">Site structure</h2>
+  <h2 i18n:translate="heading_site_structure" 
+      i18n:domain="cpsskins">Site structure</h2>
   <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
     <span tal:content="context_url" />
   </p>
@@ -328,6 +331,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                       vrange portlet/getVisibilityRange;
                       vrange_start python: vrange[0];
                       vrange_stop python: vrange[1];
+                      editable python:checkPerm('Manage Portlets', portlet);
                       selected python: portlet_id == selected_portlet">
         <td tal:condition="portlet_depth"
          tal:attributes="colspan python: portlet_depth"></td>
@@ -340,6 +344,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                            title portlet_title;
                            folder_url folder_url;
                            portlet_id portlet_id;
+                           editable editable;
                            src_rurl portlet_folder_rurl;
                            src_ypos python: ypos and ypos or 0;
                            src_slot group">
@@ -388,6 +393,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                        portlet_rurl portlet/getRelativeUrl;
                        folder_url python: base_url + utool.getRelativeUrl(here);
                        group portlet/getSlot;
+                       editable python:checkPerm('Manage Portlets', portlet);
                        selected python: portlet_id == selected_portlet">
       <div class="PortletBoxEditMenu" style="padding: 2px"
        tal:attributes="portlet_rurl portlet_rurl;
@@ -397,12 +403,13 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                        title portlet_title;
                        folder_url folder_url;
                        portlet_id portlet_id;
+                       editable editable;
                        src_rurl portlet_folder_rurl;
                        src_ypos python: ypos and ypos or 0;
                        src_slot group">
         <div class="PortletInfo"
          tal:attributes="style python: selected and 'border-style: dashed' or ''">
-          <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
+          <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
            tal:content="portlet/title_or_id" href="javascript:void(0)"/>
           <p>
             <img width="16" height="16" alt=""

@@ -203,6 +203,7 @@
 <metal:block define-macro="portlet_edit"
  tal:define="utool nocall:here/portal_url;
              tmtool here/portal_themes;
+             mtool here/portal_membership;
              base_url python: request.get('cpsskins_base_url', '');
              fti portlet/getTypeInfo;
              portlet_icon fti/getIcon;
@@ -212,17 +213,21 @@
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
              view_mode tmtool/getViewMode;
+             checkPerm nocall:mtool/checkPermission;
+             editable python:checkPerm('Manage Portlets', portlet);
              selected_portlet view_mode/selected_portlet|nothing;
              selected python: portlet_id == selected_portlet">
   <div class="PortletBoxDrag PortletBoxEditMenu"
    tal:define="ypos portlet/getOrder;
                group portlet/getSlot"
-   tal:attributes="portlet_rurl portlet_rurl;
+   tal:attributes="class python: editable and 'PortletBoxDrag PortletBoxEditMenu' or 'PortletBoxEditMenu';
+                   portlet_rurl portlet_rurl;
                    portlet_url string:${base_url}${portlet_rurl};
                    src_rurl portlet_folder_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group;
                    icon portlet_icon;
+                   editable editable;
                    title portlet_title;
                    portlet_id portlet_id;
                    portlet_folder string:${base_url}${portlet_folder_rurl};
