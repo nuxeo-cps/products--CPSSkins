@@ -6,7 +6,7 @@ cpsmcat = context.Localizer.default
 hidden_slots = context.cpsskins_listHiddenSlots(theme=theme)
 
 for hidden_slot in hidden_slots:
-    portlets = ptltool.getPortlets(context, hidden_slot)
+    portlets = ptltool.getPortlets(context, hidden_slot, sort=0)
 
     for portlet in portlets:
         ptltool.deletePortlet(portlet_id=portlet.getId(), context=context)

@@ -6,7 +6,7 @@ src_ypos = int(src_ypos)
 portal_path = context.portal_url.getPortalPath() + '/'
 
 ptltool = context.portal_cpsportlets
-portlets = ptltool.getPortlets(context=context, slot=dest_slot)
+portlets = ptltool.getPortlets(context=context, slot=dest_slot, sort=0)
 
 if src_slot == dest_slot:
     found = 0
