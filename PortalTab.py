@@ -175,12 +175,18 @@ class PortalTab(BaseTemplet):
 
         params = ['user']
         content = self.content
+
         if self.folder_items_i18n:
             params.append('lang')
+
         if content == 'folders':
             params.append('folder')
+
         if content == 'actions':
-            params.append('actions')
+            categories = self.action_categories + self.custom_action_categories
+            cat_string = ','.join(categories)
+            params.append('actions:' + cat_string)
+
         return params
 
     security.declarePublic('ContentList')

@@ -827,6 +827,13 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
                 index_string = md5.new(str(cmf_actions)).hexdigest()
 
+            elif param.startswith('actions:'):
+                categories = param.split(':')[1].split(',')
+                cmf_actions = REQUEST.get('cpsskins_cmfactions')
+                actions = [cmf_actions[x] for x in categories \
+                           if cmf_actions.has_key(x)]
+                index_string = md5.new(str(actions)).hexdigest()
+
             # Workflow actions
             elif param == 'wf_actions':
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')

@@ -282,7 +282,9 @@ class PortalBox(BaseTemplet):
             params.append('folder')
 
         if content == 'actions':
-            params.append('actions')
+            categories = self.action_categories + self.custom_action_categories
+            cat_string = ','.join(categories)
+            params.append('actions:' + cat_string)
 
         if content == 'pending':
             params.append('actions')
