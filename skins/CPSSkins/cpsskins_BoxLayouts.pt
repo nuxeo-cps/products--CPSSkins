@@ -165,9 +165,10 @@
              portlet_rurl portlet/getRelativeUrl;
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+             context_obj nocall:options/context_obj;
              view_mode tmtool/getViewMode;
-             checkPerm nocall:mtool/checkPermission;
              editable options/editable|nothing;
+             folder_editable options/folder_editable|nothing;
              selected_portlet view_mode/selected_portlet|nothing;
              ypos portlet/getOrder;
              group portlet/getSlot;
@@ -186,6 +187,7 @@
                      src_slot group;
                      icon portlet_icon;
                      editable editable;
+                     folder_editable folder_editable;
                      title portlet_title;
                      portlet_id portlet_id;
                      portlet_folder string:${base_url}${portlet_folder_rurl};

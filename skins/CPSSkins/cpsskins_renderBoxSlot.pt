@@ -1,5 +1,6 @@
 <div class="portletSlotFrame"
  tal:define="rendered options/rendered;
+             folder_editable options/folder_editable;
              slot nocall:options/slot;
              slot_title slot/title;
              slot_id slot/getSlot;
@@ -14,6 +15,7 @@
     <div class="portletBoxEditMenu"
      tal:attributes="icon slot_icon;
                      portlet_folder here_url;
+                     folder_editable folder_editable;
                      title slot_title;
                      src_ypos python: 0;
                      src_slot slot_id">

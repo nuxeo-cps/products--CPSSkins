@@ -204,6 +204,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             if self.isESIFragment():
                 render_esi = 1
 
+        if boxedit:
+            kw['folder_editable'] = checkPerm('Manage Portlets', context)
+
         all_rendered = []
         for portlet in portlets:
             kw['portlet'] = portlet
@@ -228,15 +231,18 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                                  (boxstyle, boxclass) )
 
             # add the box decoration
-            rendered = renderBoxLayout(boxlayout=boxlayout,
-                                       title=portlet.title,
-                                       body=rendered, **kw)
+            rendered = renderBoxLayout(
+                boxlayout=boxlayout,
+                title=portlet.title,
+                body=rendered,
+                **kw)
             if boxedit:
                 kw['editable'] = checkPerm('Manage Portlets', portlet)
                 # wrap the edition markup around the box in edit mode
-                rendered = renderBoxLayout(boxlayout='portlet_edit',
-                                           body=rendered,
-                                           **kw)
+                rendered = renderBoxLayout(
+                    boxlayout='portlet_edit',
+                    body=rendered,
+                    **kw)
             all_rendered.extend(rendered)
             # close the box frame
             all_rendered.extend('</div></div>')
