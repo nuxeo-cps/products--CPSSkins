@@ -43,7 +43,7 @@
   <body tal:attributes="class string:color${page_container/color};
                         style string:margin:${page_container/margin};">
   <metal:block define-macro="main">
-    <tal:block content="structure tmtool/renderAccessKey" />
+    <tal:block content="structure python:tmtool.renderAccessKeys(actions=actions)" />
     <tal:block define="
       shield not:tmtool/debug_mode|python:1;
       enable_esi theme_container/esi|nothing;

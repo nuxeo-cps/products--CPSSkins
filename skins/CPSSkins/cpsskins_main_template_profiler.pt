@@ -19,7 +19,7 @@
 <metal:block define-macro="main" 
  tal:condition="nocall:page_container"
  tal:define="benchmarktimer here/cpsskins_benchmarktimer|nothing">
-  <tal:block content="structure tmtool/renderAccessKey" />
+  <tal:block content="structure python:tmtool.renderAccessKeys(actions=actions)" />
   <tal:block condition="not:benchmarktimer">
     <span tal:define="title string:_The benchmark timer is not installed_"
      tal:content="python: mcat and mcat(title) or title" />

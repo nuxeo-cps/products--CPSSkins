@@ -48,9 +48,11 @@ from cpsskins_utils import getFreeId
 from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
                           _writeFileInImportDirectory
 
+# Theme negociation
 CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
 CPSSKINS_LOCAL_THEME_ID = '.cpsskins_theme'
 
+# External themes
 STATUS_NO_THEME_INFO = 0
 STATUS_THEME_INSTALL_OK = 1
 STATUS_THEME_INSTALL_FAILED = 2
@@ -61,7 +63,9 @@ STATUS_NEW_THEME_AVAILABLE = 6
 
 VIEW_MODE_SESSION_KEY = 'cpsskins_view_mode'
 
+# Actions
 THEME_CONFIG_ACTION_ID = 'configThemes'
+THEME_CONFIG_ACTION_CATEGORY = 'global'
 DEFAULT_ACCESSKEY = '*'
 
 class PortalThemesTool(ThemeFolder, ActionProviderBase):
@@ -81,7 +85,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             action=Expression(
                 text='string:${portal_url}/cpsskins_themes_reconfig_form'),
                 permissions=('View',),
-                category='global',
+                category=THEME_CONFIG_ACTION_CATEGORY,
                 condition='python: member and portal.portal_membership.checkPermission(\'Manage Themes\', portal.portal_themes)',
                 visible=1,
         ),
@@ -996,24 +1000,21 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return self.accesskey
 
     security.declarePublic('renderAccessKey')
-    def renderAccessKey(self, REQUEST=None, **kw):
+    def renderAccessKey(self, actions=[], **kw):
         """Render the access key html markup
         """
 
         rendered = ''
 
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        actions = REQUEST.get('cpsskins_cmfactions')
         if actions is None:
             atool = getToolByName(self, 'portal_actions')
             actions = atool.listFilteredActionsFor(self)
 
-        global_actions = actions.get('global')
-        if global_actions is None:
+        actions_by_cat = actions.get(THEME_CONFIG_ACTION_CATEGORY)
+        if actions_by_cat is None:
             return rendered
-        theme_manage_action = [ac for ac in global_actions
+        theme_manage_action = [
+            ac for ac in actions_by_cat
             if ac.get('id') == THEME_CONFIG_ACTION_ID]
 
         if len(theme_manage_action) > 0:
@@ -1023,6 +1024,20 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         rendered = '<a href="%s" accesskey="%s"></a>' % \
             (action['url'], self.getAccessKey())
+        return rendered
+
+    security.declarePublic('renderAccessKeys')
+    def renderAccessKeys(self, **kw):
+        """Render all access keys
+        """
+        rendered = self.renderAccessKey(**kw)
+        # CPSPortlets
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            try:
+                rendered += ptltool.renderAccessKey(**kw)
+            except AttributeError:
+                pass
         return rendered
 
     #
