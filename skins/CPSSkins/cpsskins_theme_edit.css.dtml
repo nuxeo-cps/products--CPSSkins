@@ -43,6 +43,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
+  z-index: 20;
 }
 
 .browser {
@@ -210,7 +211,7 @@ div.floatingHeader {
   background: #aaaaaa;
   height: 6.5em;
   border-bottom: 1px solid #333;
-  z-index: +10;
+  z-index: 10;
 }
 
 .floatingHeader .contentbox {
