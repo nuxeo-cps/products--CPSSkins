@@ -81,6 +81,14 @@ class SimpleBox:
         'category': 'style', 
         'style': 'Box Corners'
        },
+       {'id': 'portaltabstyle', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Tab style', 
+        'select_variable': 'listTabStyles', 
+        'category': 'style', 
+        'style': 'Portal Tab Style'
+       },
        {'id': 'boxlayout', 
         'type': 'selection', 
         'mode': 'w', 
@@ -96,11 +104,13 @@ class SimpleBox:
                  boxshape='',
                  boxcolor='',
                  boxcorners='',
+                 portaltabstyle='',
                  boxlayout = 'standard',
                  **kw):
         self.boxshape = boxshape
         self.boxcolor = boxcolor
         self.boxcorners = boxcorners
+        self.portaltabstyle = portaltabstyle
         self.boxlayout = boxlayout
 
     #
@@ -116,12 +126,15 @@ class SimpleBox:
             boxcolor = self.boxcolor
             boxshape = self.boxshape
             boxcorners = self.boxcorners
+            portaltabstyle = self.portaltabstyle
             if boxcolor:
                 boxclass.append('boxColor%s' % boxcolor)
             if boxshape:
                 boxclass.append('boxShape%s' % boxshape)
             if boxcorners:
                 boxclass.append('boxCorner%s cpsskinsBoxCorners' % boxcorners)
+            if portaltabstyle:
+                boxclass.append('portalTab%s cpsskinsTabs' % portaltabstyle)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.
