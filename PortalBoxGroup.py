@@ -108,7 +108,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         if self.hasPortlets():
             layouts.extend(['min_max',
                             'min_max_close',
-                            'min_max_edit_close'
+                            'min_max_edit_close',
+                            'esi_box',
                            ])
         return layouts
 
