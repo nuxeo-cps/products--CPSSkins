@@ -33,6 +33,12 @@
       tal:define="title string:_Add_a_portlet_"
       tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_portlet_add" method="get">
+        <div class="locationInfo">
+          <strong tal:define="title string:_Location_" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />:
+          <tal:block content="here/title_or_id" />
+          &nbsp;&nbsp;<tal:block content="python: '/' + here.absolute_url(1)" />
+        </div>
         <tal:block condition="not:ptype_id">
           <metal:block
            use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_form" />
