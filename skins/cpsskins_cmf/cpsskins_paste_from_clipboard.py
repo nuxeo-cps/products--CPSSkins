@@ -19,6 +19,7 @@ if object is None:
 
 ptltool.movePortlet(portlet=object,
                     dest_folder=context,
+                    leave=1,
                     **kw)
 
 if REQUEST is not None:
