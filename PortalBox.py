@@ -286,7 +286,7 @@ class PortalBox(BaseTemplet):
 
         if title_source == 'Templet title':
             title = self.title
-            if mcat = self.box_title_i18n:
+            if mcat and self.box_title_i18n:
                 title = mcat(title)
 
         elif title_source == 'Folder title':
