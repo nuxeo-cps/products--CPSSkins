@@ -1538,7 +1538,7 @@ msgstr "Titre de la boîte"
 
 
 msgid "_boxcolor_"
-msgstr "Forme des boîtes"
+msgstr "Couleur des boîtes"
 
 
 msgid "_boxcolor_description_"
@@ -1546,7 +1546,7 @@ msgstr "ce style définit la couleurs de boîtes du portail."
 
 
 msgid "_boxshape_"
-msgstr "Couleur des boîtes"
+msgstr "Forme des boîtes"
 
 
 msgid "_boxshape_description_"
