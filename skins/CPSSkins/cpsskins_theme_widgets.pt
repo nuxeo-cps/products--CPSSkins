@@ -298,7 +298,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
                    dest_block block_rurl">
     <a i18n:attributes="title" href=""
     tal:define="title string:_Insert a Templet here_"
-    tal:attributes="onClick string:newWindow('${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos');
+    tal:attributes="onclick string:newWindow('${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos');
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
@@ -388,7 +388,7 @@ tal:define="block_id pageblock/getId;
       &nbsp;&nbsp;
       <a i18n:attributes="title"
       tal:define="title string:_Edit this page block_"
-      tal:attributes="onClick string:newWindow('${block_url}/edit_form');
+      tal:attributes="onclick string:newWindow('${block_url}/edit_form');
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
@@ -559,27 +559,35 @@ tal:define="info cellstyle/getInfo|nothing;
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
-    <a class="cellstyler" href=""
+    <a class="cellStyler" href=""
     tal:condition="python: edit_action and cellstyle"
     tal:define="class_string string:shape${cellstyle/shape|nothing};
                 title string:_Stylize this cell_"
     i18n:attributes="title"
     tal:attributes="title python: mcat and mcat(title) or title; 
-                    onClick string:newWindow('${edit_action/url}');
+                    onclick string:newWindow('${edit_action/url}');
                     class python: cellstyle == here and 'cellStylerSelected' or class_string;">
       <tal:block content="cellstyle/color" />
       <img
       tal:attributes="src string:${base_url}cpsskins_images/cell_styler.png"
        border="0" />
     </a>
-    <a class="cellstyler" tal:condition="not:cellstyle"
-    i18n:attributes="title"
-    tal:define="title string:_Stylize this cell_"
-    tal:attributes="title python: mcat and mcat(title) or title; 
-                    href string:${pageblock/absolute_url}/cpsskins_cellstyler_add?xpos=${x_pos}">
-      <img border="0" width="16" height="16"
-      tal:attributes="src string:${base_url}cpsskins_images/cell_styler_add.png" />
-    </a>
+    <form class="cellStyler" tal:condition="not:cellstyle"
+     i18n:attributes="title"
+     tal:define="name string:cellstyler_${block_id}_${x_pos};
+                 title string:_Stylize this cell_;
+                 submit_string string:saveScrollCoordinates('${name}');;submit()"
+     tal:attributes="name name;
+                     title python: mcat and mcat(title) or title;
+                     action string:${pageblock/absolute_url}/cpsskins_cellstyler_add">
+      <input type="hidden" name="scrollx" value="0">
+      <input type="hidden" name="scrolly" value="0"> 
+      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos"> 
+      <input type="image" width="16" height="16"
+       tal:attributes="onclick submit_string;
+                       src string:${base_url}cpsskins_images/cell_styler_add.png" />
+    </form>
+
   </div>
 </metal:block>
 
@@ -606,20 +614,26 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
     i18n:attributes="title"
     tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
-                    onClick string:newWindow('${edit_action/url}');
+                    onclick string:newWindow('${edit_action/url}');
                     class python: cellhider == here and 'cellHiderSelected' or 'cellHider'">
       <img border="0" width="20" height="20"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellhider.png" />
     </a>
-    <a class="cellhider" tal:condition="not:cellhider"
-    i18n:attributes="title"
-    tal:define="title string:_Hide this cell_"
-    tal:attributes="title python: mcat and mcat(title) or title;
-                    href string:${pageblock/absolute_url}/cpsskins_cellhider_add?xpos=${x_pos}">
-      <img border="0" width="16" height="16"
-      tal:attributes="src string:${base_url}cpsskins_images/img_addcellhider.png"
-       border="0" />
-    </a>
+    <form tal:condition="not:cellhider"
+     i18n:attributes="title"
+     tal:define="name string:cellhider_${block_id}_${x_pos};
+                 title string:_Hide this cell_;
+                 submit_string string:saveScrollCoordinates('${name}');;submit()"
+     tal:attributes="name name;
+                     title python: mcat and mcat(title) or title;
+                     action string:${pageblock/absolute_url}/cpsskins_cellhider_add">
+      <input type="hidden" name="scrollx" value="0">
+      <input type="hidden" name="scrolly" value="0"> 
+      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos"> 
+      <input type="image" width="16" height="16"
+       tal:attributes="onclick submit_string;
+                       src string:${base_url}cpsskins_images/img_addcellhider.png" />
+    </form>
   </div>
 </metal:block>
 

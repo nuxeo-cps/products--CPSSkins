@@ -354,6 +354,10 @@ div.simulate_hierarchies {
   margin-top: 10px;
 }
 
+.cellStyler input {
+  border: none;
+}
+
 .cellStyler a {
   padding-left: 2px; 
   padding-right: 2px;
@@ -373,6 +377,10 @@ div.simulate_hierarchies {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.cellHider input {
+  border: none;
 }
 
 .cellHider a {
