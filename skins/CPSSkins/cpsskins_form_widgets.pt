@@ -441,15 +441,27 @@ tal:define="theme request/form/theme|nothing;
   <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
 </metal:block>
 
-<metal:block define-macro="show_style_parents" i18n:domain="cpsskins"
-  tal:define="parents style/findParents">
-  <tal:block condition="python: len(parents) &gt; 0">
-    <p tal:repeat="parent parents">
-      <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
-       align="middle" alt="" width="16" height="16" />
-      <a href="javascript:void(0)"
-       tal:attributes="onClick string:newWindow('${parent/absolute_url}/edit_form?cat=style')"
-       tal:content="parent/title_or_id" />&nbsp;&nbsp;
-    </p>
-  </tal:block>
+<metal:block define-macro="check_style_parents" i18n:domain="cpsskins"
+  tal:define="parents style/findParents"
+  tal:condition="python: len(parents) &gt; 1">
+  <div class="warning">
+  <strong i18n:translate=""
+   tal:define="title string:_This style is already used by_"
+   tal:content="python: mcat and mcat(title) or title" />:
+  <br/>
+  <br/>
+  <span tal:repeat="parent parents" style="white-space: nowrap">
+    <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
+     align="middle" alt="" width="16" height="16" />
+    <a href=""
+     tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
+     tal:content="parent/title_or_id" />&nbsp;&nbsp;
+  </span>
+  <br/>
+  <br/>
+  &raquo;
+  <a href="" i18n:translate=""
+    tal:define="title string:_Create a copy_"
+    tal:attributes="href string:$here_url/cpsskins_style_duplicate"
+    tal:content="python: mcat and mcat(title) or title" />
 </metal:block>

@@ -451,6 +451,10 @@ msgid "_Copyright_"
 msgstr "Upphovsrätt"
 
 
+msgid "_Create a copy_"
+msgstr ""
+
+
 msgid "_Created by:_"
 msgstr "Skapat av:"
 
@@ -1471,7 +1475,7 @@ msgid "_These styles are not used and can be deleted:_"
 msgstr ""
 
 
-msgid "_This style is used by:_"
+msgid "_This style is already used by_"
 msgstr ""
 
 

@@ -460,6 +460,10 @@ msgid "_Copyright_"
 msgstr "Zon'ny mpamorona sy ny hafa"
 
 
+msgid "_Create a copy_"
+msgstr ""
+
+
 msgid "_Created by:_"
 msgstr "Noforonin'ny :"
 
@@ -1482,7 +1486,7 @@ msgid "_These styles are not used and can be deleted:_"
 msgstr "Tsy nampiasaina ireto styles ireto ary mety ho voavono:"
 
 
-msgid "_This style is used by:_"
+msgid "_This style is already used by_"
 msgstr ""
 
 

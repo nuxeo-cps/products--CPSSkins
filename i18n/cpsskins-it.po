@@ -453,6 +453,10 @@ msgid "_Copyright_"
 msgstr "Diritti d'autore ed altro ..."
 
 
+msgid "_Create a copy_"
+msgstr ""
+
+
 msgid "_Created by:_"
 msgstr "Creato da:"
 
@@ -1473,7 +1477,7 @@ msgid "_These styles are not used and can be deleted:_"
 msgstr "Questi stili non sono utilizzati e possono essere eliminati:"
 
 
-msgid "_This style is used by:_"
+msgid "_This style is already used by_"
 msgstr ""
 
 

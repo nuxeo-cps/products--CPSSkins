@@ -453,6 +453,10 @@ msgid "_Copyright_"
 msgstr "Prawa"
 
 
+msgid "_Create a copy_"
+msgstr ""
+
+
 msgid "_Created by:_"
 msgstr "Stworzone przez:"
 
@@ -1473,7 +1477,7 @@ msgid "_These styles are not used and can be deleted:_"
 msgstr "Te style nie s± u¿ywane i mo¿na je skasowaæ:"
 
 
-msgid "_This style is used by:_"
+msgid "_This style is already used by_"
 msgstr ""
 
 

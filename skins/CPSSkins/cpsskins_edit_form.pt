@@ -52,9 +52,11 @@
    tal:content="psm" />
 
   <div tal:condition="isPortalStyle"
-    tal:define="style nocall:here"
-    style="float:right">
-    <metal:block use-macro="here/cpsskins_form_widgets/macros/default_style" />
+    tal:define="style nocall:here">
+    <div style="float: right">
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/default_style" />
+    </div>
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/check_style_parents" />
   </div>
 
   <div class="editForm" i18n:domain="cpsskins">

@@ -1720,9 +1720,6 @@ msgstr ""
 msgid "_Cellblock margin_"
 msgstr ""
 
-msgid "_This style is used by:_"
-msgstr ""
-
 msgid "_Add_a_portlet_"
 msgstr ""
 
@@ -1904,4 +1901,10 @@ msgid "_Description_"
 msgstr ""
 
 msgid "_back_"
+msgstr ""
+
+msgid "_This style is already used by_"
+msgstr ""
+
+msgid "_Create a copy_"
 msgstr ""

@@ -78,6 +78,19 @@
   background-color: #f0f0f0;
 }
 
+.warning {
+  padding: 6px;
+  margin: 10px;
+  border: 1px dashed #c00;
+  background-color: #ffc;
+  width: 50%;
+}
+
+.warning a {
+  text-decoration: none;
+  color: #009;
+}
+
 a.rightButton {
   float: right;
   color: #000;
