@@ -205,15 +205,19 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         all_rendered = []
         for portlet in portlets:
-            # open the box frame
-            all_rendered.extend('<div style="%s"><div class="%s">' % \
-                                 (boxstyle, boxclass) )
-
             # render the box body
             if render_esi:
                 rendered = portlet.render_esi(**kw)
             else:
                 rendered = portlet.render_cache(**kw)
+
+            # do not render boxes with empty bodies
+            if rendered == '':
+                continue
+
+            # open the box frame
+            all_rendered.extend('<div style="%s"><div class="%s">' % \
+                                 (boxstyle, boxclass) )
 
             # add the box decoration
             rendered = renderBoxLayout(boxlayout=boxlayout,
