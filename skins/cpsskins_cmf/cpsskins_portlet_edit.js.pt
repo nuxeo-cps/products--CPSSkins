@@ -114,7 +114,8 @@ function Choice_paste_from_clipboard() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  new_url = 'cpsskins_paste_from_clipboard';
+  dest_url = pd_selected_item.getAttribute('portlet_folder');
+  new_url = dest_url + '/cpsskins_paste_from_clipboard';
   new_url = new_url + '?dest_ypos=' + dest_ypos;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
   window.location = new_url;
@@ -126,7 +127,8 @@ function Choice_insert() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  newWindow('cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
+  dest_url = pd_selected_item.getAttribute('portlet_folder');
+  newWindow(dest_url + '/cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
 }
 
 function Choice_delete() {
