@@ -207,7 +207,6 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
            Returns the instance of the object that has been moved
         """
 
-        tmtool = getToolByName(self, 'portal_themes')
         utool = getToolByName(self, 'portal_url')
 
         if xpos is None:
@@ -234,15 +233,18 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         dest_container = self.unrestrictedTraverse(dest_block, default=None)
 
         if dest_container is not None:
-            cookie = src_container.manage_cutObjects(self.getId(), REQUEST=REQUEST)
-            res = dest_container.manage_pasteObjects(cookie) 
+            cookie = src_container.manage_copyObjects([self.getId()])
+            res = dest_container.manage_pasteObjects(cookie)
             new_id = res[0]['new_id']
             newpos = int(ypos) 
             if dest_block == src_block:
                  if newpos > current_ypos and new_xpos != current_xpos:
                      newpos = newpos -1;
             dest_container.move_object_to_position(new_id, newpos)
-            content = getattr(dest_container, new_id)
+            content = getattr(dest_container, new_id, None)
+            if content is None:
+                return
+            src_container.manage_delObjects([self.getId()])
             verifyThemePerms(content)
             content.expireCache()
             return content
