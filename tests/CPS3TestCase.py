@@ -4,7 +4,9 @@
 
 import os, tempfile
 from Testing import ZopeTestCase
+
 import Products
+from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
 ZopeTestCase.installProduct('BTreeFolder2', quiet=1)
 ZopeTestCase.installProduct('CMFCalendar', quiet=1)
@@ -45,6 +47,8 @@ try: ZopeTestCase.installProduct('CPSCollector', quiet=1)
 except: pass
 try: ZopeTestCase.installProduct('CPSMailBoxer', quiet=1)
 except: pass
+try: ZopeTestCase.installProduct('CPSPortlets', quiet=1)
+except: pass
 
 from AccessControl.SecurityManagement \
     import newSecurityManager, noSecurityManager
@@ -62,8 +66,15 @@ def get_selected_language(self):
 from Products.Localizer.Localizer import Localizer
 Localizer.get_selected_language = get_selected_language
 
-# Dummy portal_catalog.
+# CPSPortlets
+try:
+   from Products.CPSPortlets import CPSPortlet
+except ImportError:
+   has_cpsportlets = 0
+else:
+   has_cpsportlets = 1
 
+# Dummy portal_catalog.
 from OFS.SimpleItem import SimpleItem
 class DummyTranslationService(SimpleItem):
     meta_type = 'Translation Service'
@@ -162,6 +173,8 @@ class CPSInstaller:
         self.addUser()
         self.login()
         self.addPortal(portal_id)
+        if has_cpsportlets:
+            self.fixupCPSPortlets(portal_id)
         self.fixupTranslationServices(portal_id)
         self.logout()
 
@@ -187,6 +200,19 @@ class CPSInstaller:
         localizer = portal.Localizer
         for domain in localizer.objectIds():
             setattr(localizer, domain, DummyMessageCatalog())
+
+    # Install CPSPortlets (not installed by default in CPSDefault)
+    def fixupCPSPortlets(self, portal_id):
+        portal = getattr(self.app, portal_id)
+        portal_objectIds = portal.objectIds()
+        if 'portal_cpsportlets' not in portal_objectIds:
+            ZopeTestCase._print('Installing CPSPortlets ...\n')
+            install = ExternalMethod('install_cpsportlets', 
+                                     'CPSPortlets', 
+                                     'CPSPortlets.install', 
+                                     'install' ) 
+            portal._setObject('install_cpsportlets', install)
+            portal.install_cpsportlets()
 
     def logout(self):
         noSecurityManager()

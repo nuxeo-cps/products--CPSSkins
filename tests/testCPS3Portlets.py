@@ -6,7 +6,15 @@ import unittest
 import CPSSkinsTestCase
 from Testing import ZopeTestCase
 
-class TestPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
+try:
+    from Products.CPSPortlets import CPSPortlet
+except ImportError:
+    has_cpsportlets = 0
+    ZopeTestCase._print('CPSPortlets is not installed. Skipping the tests.\n')
+else:
+    has_cpsportlets = 1
+
+class TestCPSPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
         tmtool = self.portal.portal_themes
@@ -24,8 +32,8 @@ class TestPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
 def test_suite():
     suite = unittest.TestSuite()
     target = os.environ.get('CPSSKINS_TARGET', 'CMF')
-    if target == 'CPS3':
-        suite.addTest(unittest.makeSuite(TestPortlets))
+    if target == 'CPS3' and has_cpsportlets:
+        suite.addTest(unittest.makeSuite(TestCPSPortlets))
     return suite
 
 if __name__ == '__main__':
