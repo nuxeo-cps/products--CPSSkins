@@ -15,7 +15,7 @@
         <tal:block repeat="content contents_in_xpos">
           <tal:block
            define="isRenderable python: content.isRenderable();
-                   rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, textonly=1) or None;
+                   rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, textonly=1) or None;
                    display_title content/display_title_in_text_mode|nothing;
                    hidden_in_text_mode content/hidden_in_text_mode|nothing"
            condition="python: not hidden_in_text_mode and (rendered or not isRenderable)">

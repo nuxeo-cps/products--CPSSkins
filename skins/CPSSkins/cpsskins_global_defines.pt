@@ -13,6 +13,7 @@ tal:define="global here_url here_url|here/absolute_url;
             global cpsskins_language tmtool/getCurrentLang;
             global cpsskins_url here/cpsskins_getCurrentURL;
             global boxedit boxedit|nothing;
+            global shield python: 1;
             dummy python: request.set('cpsskins_language', cpsskins_language);
             dummy python: request.set('cpsskins_url', cpsskins_url);
             dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());

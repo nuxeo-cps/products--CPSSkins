@@ -1,5 +1,6 @@
 <tal:block
- define="enable_esi options/enable_esi|nothing;
+ define="shield options/shield|python:1;
+         enable_esi options/enable_esi|nothing;
          context_obj nocall:options/context_obj;
          maxcols python: context['maxcols']"
  condition="maxcols">
@@ -10,7 +11,7 @@
       <tal:block
        define="contents_in_xpos python: objects_in_xpos['contents']">
         <tal:block repeat="content contents_in_xpos">
-          <div tal:define="rendered python: content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi)"
+          <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi)"
                tal:content="structure rendered" />
         </tal:block>
       </tal:block>

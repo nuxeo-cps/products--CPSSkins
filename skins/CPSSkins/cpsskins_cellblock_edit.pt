@@ -48,7 +48,7 @@
                          styles_list python: content.getApplicableStyles();
                          align_list content/AlignList|nothing;
                          padding_string python: content.margin and 'padding:%s' % content.margin or None;
-                         rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
+                         rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
                                  styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                  xpos x_pos;

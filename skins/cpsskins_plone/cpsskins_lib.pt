@@ -15,7 +15,7 @@
     </tal:block>
 
     <!-- CPS Portlets -->
-    <div tal:define="rendered python: content.render_cache(shield=1, context_obj=here);
+    <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=here);
                      margin here/margin|string:0"
          tal:condition="python: rendered != ''"
          tal:attributes="style string:text-align:${content/align};; padding:$margin"

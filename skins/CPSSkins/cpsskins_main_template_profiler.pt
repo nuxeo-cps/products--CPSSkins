@@ -60,7 +60,7 @@
                   <div
                    tal:define="margin_style python: content.getCSSMarginStyle();
                                isRenderable python: content.isRenderable();
-                               rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit) or None"
+                               rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit) or None"
                    tal:condition="python: rendered or not isRenderable"
                    tal:attributes="style margin_style"
                    tal:omit-tag="not:margin_style">
