@@ -29,7 +29,7 @@
 </dtml-if>
 }
 
-<dtml-var class> .body ul.menu li a {
+<dtml-var class> .body ul.cpsskinsMenu li a {
 <dtml-if BoxBody_menuout_border_style>
   border-style: <dtml-var BoxBody_menuout_border_style>;
 </dtml-if>
@@ -44,7 +44,7 @@
 </dtml-if>
 }
 
-<dtml-var class> .body ul.menu li.selected a {
+<dtml-var class> .body ul.cpsskinsMenu li.selected a {
 <dtml-if BoxBody_menuin_border_style>
   border-style: <dtml-var BoxBody_menuin_border_style>;
 </dtml-if>

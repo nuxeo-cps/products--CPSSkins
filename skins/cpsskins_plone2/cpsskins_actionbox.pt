@@ -1,7 +1,7 @@
 <div i18n:domain="plone"
  tal:define="orientation here/orientation"
  tal:attributes="class python: orientation == 'horizontal' and 'cpsskinsTab' or 'cpsskinsBox'">
-  <ul class="menu" tal:define="
+  <ul class="cpsskinsMenu" tal:define="
     mcat python: request.get('cpsskins_mcat'); 
     portal_url here/portal_url;
     context_obj nocall:options/context_obj;

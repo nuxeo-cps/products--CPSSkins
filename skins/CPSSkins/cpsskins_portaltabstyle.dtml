@@ -6,18 +6,18 @@
   background: url(/<dtml-var theme_url>/backgrounds/<dtml-var Tabs_bg_image>) top repeat-x;
 } </dtml-if>
 
-<dtml-var class> ul.menu li {
+<dtml-var class> ul.cpsskinsMenu li {
 <dtml-if Tab_width>
   width: <dtml-var Tab_width>;
 </dtml-if>
   margin:0 <dtml-var HorizontalMargin> 0 0;
 }
 
-<dtml-var class> ul.menu li a {
+<dtml-var class> ul.cpsskinsMenu li a {
   padding:<dtml-var VerticalPadding> <dtml-var HorizontalPadding> <dtml-var VerticalPadding> <dtml-var HorizontalPadding>;
 }
 
-<dtml-var class> ul.menu li {
+<dtml-var class> ul.cpsskinsMenu li {
 <dtml-if Tab_right_bg_image>
   background:url(/<dtml-var theme_url>/backgrounds/<dtml-var Tab_right_bg_image>) right top no-repeat;
 </dtml-if>
@@ -27,11 +27,11 @@
 }
 
 <dtml-if Tab_left_bg_image>
-<dtml-var class> ul.menu li a {
+<dtml-var class> ul.cpsskinsMenu li a {
   background:url(/<dtml-var theme_url>/backgrounds/<dtml-var Tab_left_bg_image>) left top no-repeat;
 } </dtml-if>
 
-<dtml-var class> ul.menu li.selected {
+<dtml-var class> ul.cpsskinsMenu li.selected {
 <dtml-if TabIn_right_bg_image>
   background:url(/<dtml-var theme_url>/backgrounds/<dtml-var TabIn_right_bg_image>) right top no-repeat;
 </dtml-if>
@@ -41,7 +41,7 @@
 }
 
 <dtml-if TabIn_left_bg_image>
-<dtml-var class> ul.menu li.selected a {
+<dtml-var class> ul.cpsskinsMenu li.selected a {
   background:url(/<dtml-var theme_url>/backgrounds/<dtml-var TabIn_left_bg_image>) left top no-repeat;
 } </dtml-if>
 

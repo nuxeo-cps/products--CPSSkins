@@ -3,7 +3,7 @@
                    base_url python: request.get('cpsskins_base_url', '');
                    content python: here.content">
   <tal:block condition="python: content == 'folders'">
-    <ul class="menu"
+    <ul class="cpsskinsMenu"
      tal:define="level python: here.level;
                  base python: here.base;
                  show_docs python: here.show_docs;
@@ -34,7 +34,7 @@
   </tal:block>
 
   <tal:block condition="python: content == 'actions'">
-    <ul class="menu"
+    <ul class="cpsskinsMenu"
      tal:define="wtool here/portal_workflow;
                  actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
      tal:condition="actioninfos">
@@ -120,8 +120,7 @@
   <tal:block condition="python: content == 'related'">
     <tal:block define="RelatedDocuments context_obj/cpsskins_RelatedDocuments"
                condition="RelatedDocuments">
-      <div tal:repeat="related RelatedDocuments"
-      class="menuout">
+      <div tal:repeat="related RelatedDocuments">
         <img src=""
         tal:attributes="src string:${base_url}${related/icon}; alt context_obj/title" />
         <a href="" tal:attributes="href string:${related/url}/view"
@@ -136,14 +135,12 @@
                condition="not:isAnon">
       <tal:block condition="results"
       define="results here/cpsskins_RecentDocuments">
-        <tal:block tal:repeat="obj results">
-          <div class="menuout">
-            <img src=""
-            tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
-            <a href="" tal:attributes="href string:${obj/url}/view"
-            tal:content="obj/title" />
-          </div>
-        </tal:block>
+        <div tal:repeat="obj results">
+          <img src=""
+          tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
+          <a href="" tal:attributes="href string:${obj/url}/view"
+          tal:content="obj/title" />
+        </div>
         <span tal:condition="not: results" i18n:translate=""
         tal:define="title string:_No items published since your last log-in_"
               tal:content="title" />
@@ -154,8 +151,7 @@
   <tal:block condition="python: content == 'events'">
     <tal:block define="results here/cpsskins_getEvents"
     condition="results">
-      <tal:block tal:repeat="obj results">
-        <div class="menuout">
+      <div tal:repeat="obj results">
         <img src=""
         tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
         <a href="" tal:attributes="href string:${obj/url}/view"
@@ -163,23 +159,21 @@
         <tal:block define="location obj/location"
         condition="location" content="location" />
         <br />
-        <tal:block content="obj/start" /></div>
-      </tal:block>
+        <tal:block content="obj/start" />
+      </div>
     </tal:block>
   </tal:block>
 
   <tal:block condition="python: content == 'pending'">
     <tal:block define="results here/cpsskins_getPending"
     condition="results">
-      <tal:block tal:repeat="obj results">
-        <div class="menuout">
-          <img src=""
-          tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
-          <a href=""
-          tal:attributes="href string:${obj/absolute_url}/view"
-          tal:content="obj/title_or_id" />
-        </div>
-      </tal:block>
+      <div tal:repeat="obj results">
+        <img src=""
+        tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
+        <a href=""
+        tal:attributes="href string:${obj/absolute_url}/view"
+        tal:content="obj/title_or_id" />
+      </div>
     </tal:block>
   </tal:block>
 

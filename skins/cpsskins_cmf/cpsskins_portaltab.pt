@@ -13,7 +13,7 @@ tal:define="mcat python: request.get('cpsskins_mcat');
           create_url navigationinfo/create_url|nothing;
           i18n python: here.folder_items_i18n"
   condition="python: menuentries or create_url">
-    <ul class="menu">
+    <ul class="cpsskinsMenu">
       <tal:block condition="i18n" repeat="menuentry menuentries">
         <tal:block
         define="item_url python: menuentry['url']; 
@@ -55,7 +55,7 @@ tal:define="mcat python: request.get('cpsskins_mcat');
   define="wtool here/portal_workflow; 
           actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
   condition="actioninfos">
-    <ul class="menu">
+    <ul class="cpsskinsMenu">
       <tal:block repeat="actioninfo actioninfos">
          <tal:block define="title python: actioninfo['title'];
                             title python: mcat and mcat(title) or title;
