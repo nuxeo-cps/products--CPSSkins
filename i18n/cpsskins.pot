@@ -1692,3 +1692,6 @@ msgstr ""
 
 msgid "psm_portlet_deleted"
 msgstr ""
+
+msgid "_Columns_"
+msgstr ""

@@ -39,7 +39,6 @@ tal:define="tmtool here/portal_themes;
    <div class="editspace">
     <metal:block
     use-macro="here/cpsskins_main_template_edit/macros/main">
-
       <metal:block fill-slot="main_edit_content"
         tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
                     isPortalPalette here/aq_explicit/isPortalPalette|nothing;

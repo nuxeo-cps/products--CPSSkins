@@ -33,7 +33,8 @@ function newWindow(url) {
 
 /* Scrolling */
 function scrollToCoordinates(x,y) {
-  window.scrollTo(x,y);
+  if (x > 0 or y > 0)
+    window.scrollTo(x,y);
 }
 
 function saveScrollCoordinates(formid) {

@@ -489,13 +489,19 @@ padding: 1px;
 color: Black;
 }
 
-.PageBlockBoxTitle form {
+.PageBlockBoxTitle label, .PageBlockBoxTitleSelected label {
+padding-left: 1em;
+}
+
+.PageBlockBoxTitle form, .PageBlockBoxTitleSelected form {
 padding:0;
 margin:0;
 }
 
-.PageBlockBoxTitle input {
+.PageBlockBoxTitle input, .PageBlockBoxTitleSelected input {
 text-align: center;
+background-color: #ffffdd;
+border-style: dotted;
 }
 
 .PageBlockBoxTitleSelected {

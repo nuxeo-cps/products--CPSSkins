@@ -4,6 +4,7 @@
       tal:define="mtool here/portal_membership;
                   checkPerm nocall:mtool/checkPermission;
                   cat request/form/cat|nothing">
+      <a name="mainedit"></a>
       <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
         <tal:block define="dummy request/RESPONSE/unauthorized" />
       </tal:block>

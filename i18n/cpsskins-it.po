@@ -401,6 +401,10 @@ msgid "_Color_"
 msgstr "Colore"
 
 
+msgid "_Columns_"
+msgstr ""
+
+
 msgid "_Content_"
 msgstr "Contenuto"
 

@@ -441,53 +441,34 @@ tal:define="pageblock_url pageblock/absolute_url;
       &nbsp;&nbsp;
       <a i18n:attributes="title"
       tal:define="title string:_Edit this page block_"
-      tal:attributes="href string:${pageblock_url}/edit_form?edit_mode=${edit_mode}&theme=$current_theme;
+      tal:attributes="href string:${pageblock_url}/edit_form?edit_mode=${edit_mode}&theme=$current_theme#mainedit;
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
       </a>
       </td>
-      <td align="right">
+      <td>
         <form action="" method="post"
-         tal:define="name string:pb_title_${pageblock_id}"
+         tal:define="name string:pb_title_${pageblock_id};
+                     submit_string string:saveScrollCoordinates('${name}');;submit()"
          tal:attributes="name name;
-                         action string:${pageblock_url}/cpsskins_edit;
-                         onSubmit string:saveScrollCoordinates('${name}')">
+                         action string:${pageblock_url}/cpsskins_edit">
          <input type="hidden" name="scrollx" value="0">
          <input type="hidden" name="scrolly" value="0"> 
          <input type="hidden" name="theme" tal:attributes="value current_theme" />
          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-         <input name="title"
-           type="text" size="12" tal:attributes="value pageblock/title" />
-        </form>
-      </td>
-      <td align="left">
-        <form action="" method="post"
-         tal:define="name string:pb_width_${pageblock_id}"
-         tal:attributes="name name;
-                         action string:${pageblock_url}/cpsskins_edit;
-                         onSubmit string:saveScrollCoordinates('${name}')">
-         <input type="hidden" name="scrollx" value="0">
-         <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="theme" tal:attributes="value current_theme" />
-         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-          <input name="width"
-           type="text" size="4" tal:attributes="value pageblock/width" />
-        </form>
-      </td>
-      <td align="right">
-        <form action="" method="post" style="margin:0"
-        tal:define="maxcols pageblock/maxcols|nothing; 
-                    name string:pb_maxcols_${pageblock_id}"
-         tal:attributes="name name;
-                         action string:${pageblock_url}/cpsskins_edit;
-                         onSubmit string:saveScrollCoordinates('${name}')">
-         <input type="hidden" name="scrollx" value="0">
-         <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="theme" tal:attributes="value theme" />
-         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+         <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
+          tal:content="python: mcat and mcat(title) or title" />:
+         <input name="title" type="text" size="12"
+          tal:attributes="value pageblock/title; onchange submit_string" />&nbsp;
+         <label for="maxcols" tal:define="title string:_Width_" i18n:translate=""
+          tal:content="python: mcat and mcat(title) or title" />:
+         <input name="width" type="text" size="4"
+          tal:attributes="value pageblock/width; onchange submit_string" />&nbsp;
+         <label for="maxcols" tal:define="title string:_Columns_" i18n:translate=""
+          tal:content="python: mcat and mcat(title) or title" />:
          <input name="maxcols" type="string" size="2"
-          tal:attributes="value maxcols" />
+          tal:attributes="value pageblock/maxcols; onchange submit_string" />
         </form>
       </td>
     </tr>

@@ -399,6 +399,10 @@ msgid "_Color_"
 msgstr "Couleur"
 
 
+msgid "_Columns_"
+msgstr "Colonnes"
+
+
 msgid "_Content_"
 msgstr "Contenu"
 
