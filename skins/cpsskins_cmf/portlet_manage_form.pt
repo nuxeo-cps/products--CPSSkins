@@ -1,6 +1,8 @@
 <metal:html tal:define="global boxedit python:1;
-                        fullscreen request/form/fs|options/fs|nothing;
-                        global emptybody python: fullscreen;
+                        view_mode here/cpsskins_getViewMode;
+                        fullscreen view_mode/fullscreen|python:0;
+                        fullscreen python: fullscreen == '1' and 1 or None;
+                        global emptybody fullscreen;
                         cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                         mtool here/portal_membership;
                         checkPerm nocall:mtool/checkPermission;
@@ -28,14 +30,15 @@
                          portal_url here/portal_url">
         <form class="ViewMode" action="" method="post" 
          tal:condition="not:fullscreen"
-         tal:attributes="action string:${here/absolute_url}/portlet_manage_form">
-          <input type="hidden" name="fs" value="1" />
+         tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+          <input type="hidden" name="fullscreen" value="1" />
           <input class="Fullscreen"
            type="submit" value="_button_fullscreen_" i18n:attributes="value" />
         </form>
         <form class="ViewMode" action="" method="post"
          tal:condition="fullscreen"
-         tal:attributes="action string:${here/absolute_url}/portlet_manage_form">
+         tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
+          <input type="hidden" name="fullscreen" value="0" />
           <input class="NoFullscreen"
            type="submit" value="_button_normal_mode_" i18n:attributes="value" />
         </form>
