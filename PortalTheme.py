@@ -369,24 +369,24 @@ class PortalTheme(ThemeFolder, StylableContent):
                 continue
 
             else:
-                folder = getattr(self.aq_explicit, themefolder)
-                f = folder.aq_explicit
+                folder = getattr(self.aq_inner.aq_explicit, themefolder)
+                f = folder.aq_inner.aq_explicit
                 if getattr(f, 'isthemefolder', 0):
                     continue
 
                 self.manage_renameObjects([themefolder], [backupid])
-                backup_folder = getattr(self.aq_explicit, backupid)
+                backup_folder = getattr(self.aq_inner.aq_explicit, backupid)
                 objects = backup_folder.objectIds()
                 cookie = backup_folder.manage_cutObjects(objects)
                 self.invokeFactory('Theme Folder', themefolder)
-                new_folder = getattr(self.aq_explicit, themefolder, None)
+                new_folder = getattr(self.aq_inner.aq_explicit, themefolder, None)
                 if new_folder is not None:
                     new_folder.manage_pasteObjects(cookie)
                     self.manage_delObjects([backupid])
 
         # move disallowed objects to lost+found
         for (id, o) in self.objectItems():
-            o = o.aq_explicit
+            o = o.aq_inner.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 continue
             if getattr(o, 'isthemefolder', 0):
@@ -401,7 +401,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         styles_dir = self.getStylesFolder()
         for (id, obj) in styles_dir.objectItems():
-            obj = obj.aq_explicit
+            obj = obj.aq_inner.aq_explicit
             if isBroken(obj):
                 styles_dir.manage_delObjects(id)
                 continue
@@ -411,7 +411,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         palettes_dir = self.getPalettesFolder()
         for (id, obj) in palettes_dir.objectItems():
-            obj = obj.aq_explicit
+            obj = obj.aq_inner.aq_explicit
             if isBroken(obj):
                 palettes_dir.manage_delObjects(id)
                 continue
@@ -420,7 +420,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             moveToLostAndFound(self, obj)
 
         for themefolder in themefolders:
-            obj = getattr(self.aq_explicit, themefolder, None)
+            obj = getattr(self.aq_inner.aq_explicit, themefolder, None)
             if obj is not None and setperms:
                 verifyThemePerms(obj)
 
@@ -487,7 +487,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 return None
             css = ''
             for obj in styles_dir.objectValues():
-                o = obj.aq_explicit
+                o = obj.aq_inner.aq_explicit
                 if getattr(o, 'isportalstyle', 0):
                     try:
                         css += obj.render(**kw) 
@@ -610,9 +610,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
 
         id = 'styles'
-        folder = getattr(self.aq_explicit, id, None)
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_explicit
+            f = folder.aq_inner.aq_explicit
             if not getattr(f, 'isthemefolder', 0):
                 return None
         return getattr(self, id, None)
@@ -624,9 +624,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         """                 
                             
         id = 'palettes'
-        folder = getattr(self.aq_explicit, id, None)
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_explicit
+            f = folder.aq_inner.aq_explicit
             if not getattr(f, 'isthemefolder', 0):
                 return None 
         return getattr(self, id, None)
@@ -649,14 +649,14 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
 
         id = 'LOST-AND-FOUND'
-        folder = getattr(self.aq_explicit, id, None)
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
         exists = 0
         if folder is not None:
-            if getattr(folder.aq_explicit, 'isthemefolder', 0):
+            if getattr(folder.aq_inner.aq_explicit, 'isthemefolder', 0):
                 exists = 1 
         if not exists and create:
             self.invokeFactory('Theme Folder', id)
-        return getattr(self.aq_explicit, id, None)
+        return getattr(self.aq_inner.aq_explicit, id, None)
 
     security.declarePublic('getImageFolder')
     def getImageFolder(self, category=None):
@@ -667,9 +667,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         if category not in self.cpsskins_listImageCategories():
             return None
         id = category
-        folder = getattr(self.aq_explicit, id, None)
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
-            f = folder.aq_explicit
+            f = folder.aq_inner.aq_explicit
             if not getattr(f, 'isthemefolder', 0):
                 return None
         return getattr(self, id, None)
@@ -683,7 +683,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         styles_dir = self.getStylesFolder()
         list = []
         for (id, o) in styles_dir.objectItems():
-            o = o.aq_explicit
+            o = o.aq_inner.aq_explicit
             if not getattr(o, 'isportalstyle', 0):
                 continue
 
@@ -722,7 +722,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         if meta_type is None:
             return None
         for style in self.findStyles(meta_type=meta_type):
-            if style.aq_explicit.isDefaultStyle():
+            if style.aq_inner.aq_explicit.isDefaultStyle():
                 return style
         return None
 
@@ -760,7 +760,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         list = []
         for templet in self.getTemplets():
-            templet = templet.aq_explicit
+            templet = templet.aq_inner.aq_explicit
             if templet.isCacheable():
                 if not getattr(templet, 'cacheable', 0):
                     list.append(templet)
@@ -774,7 +774,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         id = getFreeId(self)
         self.invokeFactory('Page Block', title='PageBlock', id=id)
-        pageblock = getattr(self.aq_explicit, id, None)
+        pageblock = getattr(self.aq_inner.aq_explicit, id, None)
         if pageblock is not None:
             ypos = kw.get('pageblock_ypos', None)
             if ypos:
@@ -820,7 +820,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         id = getFreeId(self)
         palettes_dir.invokeFactory(type_name, id, title=title, **kw)
-        palette = getattr(palettes_dir.aq_explicit, id, None)
+        palette = getattr(palettes_dir.aq_inner.aq_explicit, id, None)
         if palette is not None:
             if value:
                 setattr(palette, 'value', value)
@@ -859,7 +859,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         id = getFreeId(self)
         styles_dir.invokeFactory(type_name, id, title=title, **kw)
-        style = getattr(styles_dir.aq_explicit, id, None)
+        style = getattr(styles_dir.aq_inner.aq_explicit, id, None)
         if style is not None:
             verifyThemePerms(style)
             self.expireCSSCache()
@@ -962,7 +962,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         stylesfolder = self.getStylesFolder()
         list = []
         for style in stylesfolder.objectValues():
-            if hasattr(style.aq_explicit, 'isOrphan'):
+            if hasattr(style.aq_inner.aq_explicit, 'isOrphan'):
                 if style.isOrphan():
                     list.append(style)
         return list
@@ -1016,7 +1016,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             if maxcols is not None:
                 maxcols = int(maxcols)
             for obj in pageblock.objectValues():
-                o = obj.aq_explicit
+                o = obj.aq_inner.aq_explicit
                 if getattr(o, 'isportaltemplet', 0):
                     if obj.closed:
                         invisible_templets.append(obj)

@@ -236,7 +236,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             verifyThemePerms(self)
 
         for (id, obj) in self.objectItems():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if isBroken(obj):
                 self.manage_delObjects(id)
                 continue
@@ -272,7 +272,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             cellsizer[col] = None
 
         for obj in self.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             xpos = getattr(o, 'xpos', 0)
             if xpos and xpos >= maxcols:
                 continue
@@ -297,7 +297,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         """
         templets = []
         for obj in self.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0):
                 templets.append(obj)
         return templets
@@ -416,7 +416,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
 
         id = getFreeId(self)
         self.invokeFactory(type_name, id, **kw)
-        content = getattr(self.aq_explicit, id, None)
+        content = getattr(self.aq_inner.aq_explicit, id, None)
         if content is not None:
             self.move_object_to_position(content.getId(), newpos)
             content.xpos = int(xpos)
@@ -449,7 +449,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         cellwidth = kw.get('cellwidth', None)
         if cellsizer_xpos is not None:
             self.invokeFactory('Cell Sizer', id, xpos=int(cellsizer_xpos))
-            cellsizer = getattr(self.aq_explicit, id, None)
+            cellsizer = getattr(self.aq_inner.aq_explicit, id, None)
             if cellwidth is not None:
                 cellsizer.edit(cellwidth=cellwidth)
             if cellsizer is not None:

@@ -72,7 +72,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
@@ -89,7 +89,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
@@ -125,7 +125,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         # otherwise find a templet above it
         this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                 getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
@@ -145,7 +145,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         container = self.aq_parent
         this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
-            o =  obj.aq_explicit
+            o =  obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:

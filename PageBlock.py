@@ -188,7 +188,7 @@ class PageBlock(ThemeFolder, StylableContent):
             verifyThemePerms(self)
 
         for (id, o) in self.objectItems():
-            o = o.aq_explicit
+            o = o.aq_inner.aq_explicit
             if isBroken(o):
                 self.manage_delObjects(id)
                 continue
@@ -243,7 +243,7 @@ class PageBlock(ThemeFolder, StylableContent):
 
         id = getFreeId(self)
         self.invokeFactory(type_name, id, **kw)
-        content = getattr(self.aq_explicit, id, None)
+        content = getattr(self.aq_inner.aq_explicit, id, None)
         if content is not None:
             self.move_object_to_position(content.getId(), newpos)
             content.xpos = int(xpos)
@@ -263,7 +263,7 @@ class PageBlock(ThemeFolder, StylableContent):
         cellhider_xpos = kw.get('xpos', None)
         if cellhider_xpos is not None:
             self.invokeFactory('Cell Hider', id, xpos=int(cellhider_xpos))
-            cellhider = getattr(self.aq_explicit, id, None)
+            cellhider = getattr(self.aq_inner.aq_explicit, id, None)
             if cellhider is not None:
                 verifyThemePerms(cellhider)
                 return cellhider
@@ -280,7 +280,7 @@ class PageBlock(ThemeFolder, StylableContent):
         cellwidth = kw.get('cellwidth', None)
         if cellsizer_xpos is not None:
             self.invokeFactory('Cell Sizer', id, xpos=int(cellsizer_xpos))
-            cellsizer = getattr(self.aq_explicit, id, None)
+            cellsizer = getattr(self.aq_inner.aq_explicit, id, None)
             if cellwidth is not None:
                 cellsizer.edit(cellwidth=cellwidth)
             if cellsizer is not None:
@@ -298,7 +298,7 @@ class PageBlock(ThemeFolder, StylableContent):
         cellstyler_xpos = kw.get('xpos', None)
         if cellstyler_xpos is not None:
             self.invokeFactory('Cell Styler', id, xpos=int(cellstyler_xpos))
-            cellstyler = getattr(self.aq_explicit, id, None)
+            cellstyler = getattr(self.aq_inner.aq_explicit, id, None)
             if cellstyler is not None:
                 verifyThemePerms(cellstyler)
                 return cellstyler
@@ -406,7 +406,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         templets = []
         for obj in self.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportaltemplet', 0):
                 templets.append(obj)
             if getattr(o, 'iscellblock', 0):
@@ -445,7 +445,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """
            
         for obj in self.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'ismaincontent', 0):
                 return None
         return 1
@@ -519,7 +519,7 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos < this_pos:
@@ -535,7 +535,7 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos > this_pos:
@@ -552,7 +552,7 @@ class PageBlock(ThemeFolder, StylableContent):
         this_pos = container.get_object_position(self.getId())
         newpos = -1
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos > newpos and pos < this_pos:
@@ -571,7 +571,7 @@ class PageBlock(ThemeFolder, StylableContent):
         container = self.aq_parent
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
-            o = obj.aq_explicit
+            o = obj.aq_inner.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
                 if pos > this_pos:

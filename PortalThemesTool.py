@@ -210,7 +210,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 theme_name = path[p+1]
                 theme_container = self.getThemeContainer(theme=theme_name)
                 return theme_container     
-        o = object.aq_explicit
+        o = object.aq_inner.aq_explicit
         if getattr(o, 'isportaltheme', 0):
             return object
         return None
@@ -264,7 +264,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return None
 
         for obj in palettes_dir.objectValues():
-            if getattr(obj.aq_explicit, 'meta_type', None) == category:
+            if getattr(obj.aq_inner.aq_explicit, 'meta_type', None) == category:
                 title_list.append(obj.title)
                 object_list.append(obj)
 
@@ -744,7 +744,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         # the object is a style
         # remove the references
-        if getattr(object.aq_explicit, 'isportalstyle', 0):
+        if getattr(object.aq_inner.aq_explicit, 'isportalstyle', 0):
             object.findParents(newtitle='')
 
         mtool = getToolByName(self, 'portal_membership')
