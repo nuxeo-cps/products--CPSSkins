@@ -493,7 +493,7 @@ tal:define="block_id pageblock/getId;
           <input type="hidden" name="scrolly" value="0" /> 
           <input type="hidden" name="redirect_url"
            tal:attributes="value string:${base_url}cpsskins_theme_manage_form" /> 
-          <label for="maxcols" tal:define="title string:_Width_" i18n:translate=""
+          <label for="width" tal:define="title string:_Width_" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />:
           <input interactive="1"
            name="width" type="text" size="4"
