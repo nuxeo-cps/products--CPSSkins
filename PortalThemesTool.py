@@ -643,7 +643,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         # session variable (used in edition mode)
         view_mode = self.getViewMode()
-        theme = view_mode.get('theme') or None
+        theme = view_mode.get('theme')
         if theme is not None:
             return theme 
 
