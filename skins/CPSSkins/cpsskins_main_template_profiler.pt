@@ -30,8 +30,7 @@
                        CPSSkins_bmt_mark nocall:CPSSkins_BMT/setMarker; 
                        CPSSkins_bmt_elapsed nocall:CPSSkins_BMT/getProfiling;">
       <span tal:replace="CPSSkins_BMT/start" />
-  <tal:block define="context_rurl request/form/context_rurl|nothing;
-              context_obj python: here.cpsskins_getContextObj(context_rurl);
+  <tal:block define="
               pageblock_style python: page_container.getCSSLayoutStyle();
               dummy python: request.set('cpsskins_mcat', mcat)"
     tal:repeat="pageblock python: page_container.getPageBlocks()">

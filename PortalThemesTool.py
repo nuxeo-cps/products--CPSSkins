@@ -245,6 +245,26 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return object
         return None
 
+    security.declarePublic('getContextObj')
+    def getContextObj(self, context=None):
+        """Return the context object
+        """
+        context_obj = None
+        REQUEST = self.REQUEST
+        context_rurl = REQUEST.form.get('context_rurl');
+
+        if context_rurl is not None:
+            utool = getToolByName(self, 'portal_url')
+            portal_url = utool(relative=1)
+            if portal_url != '/':
+                portal_url = '/' + portal_url
+            context_obj = self.unrestrictedTraverse(portal_url + context_rurl, default=None)
+
+        if context_obj is None:
+            context_obj = REQUEST.get('context_obj', context)
+
+        return context_obj
+
     security.declarePublic('findStylesFor')
     def findStylesFor(self, category=None, object=None, title=None):
         """ Gets the list of available styles:

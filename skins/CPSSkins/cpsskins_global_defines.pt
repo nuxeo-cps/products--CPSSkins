@@ -25,4 +25,5 @@ tal:define="global here_url here_url|here/absolute_url;
             dummy python: request.set('cpsskins_url', cpsskins_url);
             dummy python: request.set('cpsskins_base_url', base_url);
             dummy python: enable_esi and here.cpsskins_set_esi_header();
+            global context_obj python: tmtool.getContextObj(context);
 "/>
