@@ -1,6 +1,6 @@
 <metal:block define-macro="defines"
 tal:define="global here_url here_url|here/absolute_url;
-            tmtool here/portal_themes; 
+            global tmtool here/portal_themes; 
             global mcat python: tmtool.getTranslationService();
             global base_url python: here.cpsskins_getBaseUrl();
             global current_theme python: tmtool.getRequestedThemeName(context_obj=here);

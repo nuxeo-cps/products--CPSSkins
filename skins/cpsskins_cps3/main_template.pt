@@ -1,6 +1,5 @@
 <metal:block define-macro="master"
-  tal:define="tmtool here/portal_themes;
-              showthirdcol showthirdcol|python:1;
+  tal:define="showthirdcol showthirdcol|python:1;
               emptybody emptybody|request/emptybody|nothing;
               utool nocall:here/portal_url; 
               atool here/portal_actions; 
