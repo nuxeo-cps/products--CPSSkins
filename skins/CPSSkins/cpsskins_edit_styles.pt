@@ -75,15 +75,15 @@
             </a>
             <tal:block content="structure python: style.preview()" />
             <p tal:condition="python: len(parents) > 0">
-              <span tal:define="title string:_This style is used by:_"
+              <em tal:define="title string:_This style is used by:_"
                tal:content="python: mcat and mcat(title) or title"
                i18n:translate="" />
-              <span tal:repeat="parent parents">
+              <em tal:repeat="parent parents">
                 <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
                  align="middle" alt="" width="16" height="16" />
                 <a href="" tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
                  tal:content="parent/title_or_id" />&nbsp;&nbsp;
-              </span>
+              </em>
             </p>
           </tal:block>
         </div>
