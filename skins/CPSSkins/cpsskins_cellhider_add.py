@@ -7,7 +7,7 @@ cellhider =  context.addCellHider(**kw)
 if cellhider is None:
     return
 
-url = cellhider.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is None:
     return cellhider

@@ -559,13 +559,13 @@ tal:define="info cellstyle/getInfo|nothing;
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
-    <a class="cellstyler"
+    <a class="cellstyler" href=""
     tal:condition="python: edit_action and cellstyle"
     tal:define="class_string string:shape${cellstyle/shape|nothing};
                 title string:_Stylize this cell_"
-     i18n:attributes="title"
+    i18n:attributes="title"
     tal:attributes="title python: mcat and mcat(title) or title; 
-                    href string:${edit_action/url}; 
+                    onClick string:newWindow('${edit_action/url}');
                     class python: cellstyle == here and 'cellStylerSelected' or class_string;">
       <tal:block content="cellstyle/color" />
       <img
@@ -573,10 +573,10 @@ tal:define="info cellstyle/getInfo|nothing;
        border="0" />
     </a>
     <a class="cellstyler" tal:condition="not:cellstyle"
-    i18n:attributes="title" href=""
+    i18n:attributes="title"
     tal:define="title string:_Stylize this cell_"
     tal:attributes="title python: mcat and mcat(title) or title; 
-                    onClick string:newWindow('${pageblock/absolute_url}/cpsskins_cellstyler_add?xpos=${x_pos}')">
+                    href string:${pageblock/absolute_url}/cpsskins_cellstyler_add?xpos=${x_pos}">
       <img border="0" width="16" height="16"
       tal:attributes="src string:${base_url}cpsskins_images/cell_styler_add.png" />
     </a>
@@ -601,12 +601,12 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
-    <a 
+    <a href=""
     tal:condition="python: edit_action and cellhider"
-     i18n:attributes="title"
-     tal:define="title string:_Hide this cell_"
+    i18n:attributes="title"
+    tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
-                    href string:${edit_action/url}; 
+                    onClick string:newWindow('${edit_action/url}');
                     class python: cellhider == here and 'cellHiderSelected' or 'cellHider'">
       <img border="0" width="20" height="20"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellhider.png" />
@@ -615,7 +615,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
     i18n:attributes="title"
     tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
-                    onClick string:newWindow('${pageblock/absolute_url}/cpsskins_cellhider_add?xpos=${x_pos}')">
+                    href string:${pageblock/absolute_url}/cpsskins_cellhider_add?xpos=${x_pos}">
       <img border="0" width="16" height="16"
       tal:attributes="src string:${base_url}cpsskins_images/img_addcellhider.png"
        border="0" />

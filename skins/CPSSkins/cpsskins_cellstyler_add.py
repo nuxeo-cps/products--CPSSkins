@@ -7,7 +7,7 @@ cellstyler =  context.addCellStyler(**kw)
 if cellstyler is None:
     return
 
-url = cellstyler.absolute_url() + '/edit_form'
+url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is None:
     return cellstyler
