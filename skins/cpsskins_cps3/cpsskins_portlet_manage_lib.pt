@@ -48,6 +48,9 @@
         <tal:block i18n:translate="listingheader_location" />:
         <tal:block content="python: '/' + portlet_folder.absolute_url(1)" />
         </p>
+        <p>
+        Order: <tal:block content="portlet/getOrder" />
+        </p>
       </div>
     </div>
   </div>
