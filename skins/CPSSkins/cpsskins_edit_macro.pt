@@ -23,6 +23,7 @@ tal:define="global editing python: 1;
     <metal:block
     use-macro="here/cpsskins_main_template_edit/macros/head" />
     <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+    <script type="text/javascript" src="cpsskins_templet_edit.js"></script>
     <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
   </head>
 

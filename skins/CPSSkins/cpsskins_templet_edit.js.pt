@@ -1,0 +1,136 @@
+<!--
+
+/* PDLib */
+
+function Templet_prepare_element_menu(header) {
+  // Prepares the header of the element context menu.
+  var node;
+  if (!pd_selected_item) {
+    icon = null;
+    text = '' + pd_selected_items.length + ' Elements Selected';
+  }
+  else {
+    icon = pd_selected_item.getAttribute('icon');
+    text = pd_selected_item.getAttribute('title');
+  }
+  while (header.childNodes.length)
+    header.removeChild(header.childNodes[0]);
+  if (icon) {
+    node = document.createElement("img");
+    node.setAttribute("src", icon);
+    node.setAttribute("width", "16");
+    node.setAttribute("height", "16");
+    header.appendChild(node);
+  }
+  node = document.createTextNode(text);
+  header.appendChild(node);
+  return true;
+}
+
+
+var Destinations = [];
+
+function findDescendant(node, className) {
+  // Returns a descendant with the given class name, or null.
+  if (node.className == className + '_highlighted')
+    return node;
+  var i, c;
+  for (i = 0; i < node.childNodes.length; i++) {
+    c = findDescendant(node.childNodes[i], className);
+    if (c != null)
+      return c;
+  }
+  return null;
+}
+
+function Choice_style(styleprop) {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  new_url = pd_selected_item.getAttribute('templeturl');
+  window.location = new_url + '/cpsskins_find_mystyles?styleprop=' + styleprop;
+}
+
+function Choice_action(action) {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  new_url = pd_selected_item.getAttribute('templeturl');
+  window.location = new_url + '/cpsskins_templet_action?action=' + action;
+}
+
+function Choice_align(alignprop) {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  new_url = pd_selected_item.getAttribute('templeturl');
+  window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
+}
+
+function Templet_move(selected_items, target_node) {
+  if (!selected_items.length)
+    return;
+  target_node.style.border = "1px solid transparent";
+  dest = findDescendant(target_node, 'TempletDest')
+  if (dest == null)
+     return;
+  xpos = dest.getAttribute('xpos');
+  ypos = dest.getAttribute('ypos');
+  if (ypos == null) ypos = 0;
+  dest_theme = dest.getAttribute('dest_theme');
+  dest_pageblock = dest.getAttribute('dest_pageblock');
+  new_url = pd_selected_item.getAttribute('templeturl');
+  new_url = new_url + '/cpsskins_move_templet?'
+  new_url = new_url + 'ypos=' + ypos;
+  if (xpos != null) new_url = new_url + '&xpos=' + xpos;
+  if (dest_pageblock != null) new_url = new_url + '&dest_pageblock=' + dest_pageblock;
+  if (dest_theme != null) new_url = new_url + '&dest_theme=' + dest_theme;
+  window.location = new_url
+}
+
+function Templet_add(selected_items, target_node) {
+  if (!selected_items.length)
+    return;
+  target_node.style.border = "1px solid transparent";
+  dest = findDescendant(target_node, 'TempletDest')
+  if (dest == null)
+     return;
+  xpos = dest.getAttribute('xpos');
+  ypos = dest.getAttribute('ypos');
+  new_url = dest.getAttribute('pageblock_url');
+  if (xpos == null || ypos == null || new_url == 0) return;
+  type_name = pd_selected_item.getAttribute('type_name');
+  window.location = new_url + '/cpsskins_templet_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
+}
+
+function Templet_checkmove(selected_items, target_node) {
+  return true;
+}
+
+function setupTempletBoxDrag(node) {
+  pd_setupDragUI(node, Templet_move, Templet_checkmove);
+}
+
+function setupTempletEditMenu(node) {
+  pd_setupContextMenu(node, 'choice-context-menu', null, true);
+}
+
+function setupDestination(node) {
+  if (Destinations.push)
+    Destinations.push(node);
+  else
+    Destinations = Destinations.concat([node]);
+  pd_setupDropTarget(node, 1);
+}
+
+function setupTempletAdd(node) {
+  pd_setupDragUI(node, Templet_add, Templet_checkmove);
+}
+
+
+pd_node_setup['TempletBoxDrag'] = setupTempletBoxDrag;
+pd_node_setup['TempletBoxEditMenu'] = setupTempletEditMenu;
+pd_node_setup['TempletDest'] = setupDestination;
+pd_node_setup['TempletAdd'] = setupTempletAdd;
+
+//-->
