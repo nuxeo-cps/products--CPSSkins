@@ -626,6 +626,9 @@ msgstr ""
 msgid "_menu_Delete_"
 msgstr ""
 
+msgid "_menu_Set_as_default_"
+msgstr ""
+
 msgid "_mixed mode_"
 msgstr ""
 

@@ -2029,6 +2029,10 @@ msgid "_menu_Set styles_"
 msgstr ""
 
 
+msgid "_menu_Set_as_default_"
+msgstr ""
+
+
 msgid "_mixed mode_"
 msgstr "Layout e Wysiwyg"
 

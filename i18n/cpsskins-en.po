@@ -2027,6 +2027,10 @@ msgid "_menu_Set styles_"
 msgstr "Set styles"
 
 
+msgid "_menu_Set_as_default_"
+msgstr "Set as default"
+
+
 msgid "_mixed mode_"
 msgstr "Mixed mode"
 

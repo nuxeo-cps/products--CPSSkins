@@ -17,6 +17,11 @@ elif action == 'set_styles':
 elif action == 'set_layout':
     url = context.absolute_url() + '/edit_form?cat=layout'
 
+elif action == 'set_default':
+    context.setAsDefault()
+    tmtool.setViewMode(theme=context.getId())
+    url = context.portal_url() + '/cpsskins_theme_manage_form'
+
 if action == 'delete':
     tmtool.delObject(context)
     tmtool.clearViewMode('selected_content')

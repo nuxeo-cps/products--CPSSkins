@@ -26,10 +26,11 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="ContextualMenu"
              tal:attributes="themeid python: not we_are_here and theme_id or None;
-                               icon python: '/' + theme.getIcon();
-                               title theme_title;
-                               contenturl theme_url;
-                               styles python:''">
+                             icon python: '/' + theme.getIcon();
+                             title theme_title;
+                             contenturl theme_url;
+                             notdefault python: not theme.isDefaultTheme() or None;
+                             styles python:''">
               <div class="contentDest" tal:attributes="dest_theme theme_id">
                 <a interactive="1" tal:attributes="
                    href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
@@ -77,6 +78,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
            styles python: '|'.join([s['meta_type'] for s in styles_list]);
            isalignable python: page.isAlignable();
            haslayout python: 1;
+           notdefault python: not page.isDefaultPage() or None;
            title page_title;
            contenturl page_url">
             <div class="contentDest" tal:attributes="dest_page page_id">
@@ -206,6 +208,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          tal:attributes="src string:${base_url}cpsskins_images/edit_styles-16.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Set styles_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
+    <div class="context-menu-item" onmouseup="Choice_set_default()"
+    tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('notdefault')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/set_default-16.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Set_as_default_"
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_insert()"

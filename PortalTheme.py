@@ -974,6 +974,14 @@ class PortalTheme(ThemeFolder, StylableContent):
         for themefolder in themefolders:
             self.invokeFactory('Theme Folder', id=themefolder)
 
+    security.declareProtected('Manage Themes', 'setAsDefault')
+    def setAsDefault(self):
+        """Set as the default theme
+        """
+
+        tmtool = getToolByName(self, 'portal_themes')
+        tmtool.setDefaultTheme(default_theme=self.getId())
+
     security.declareProtected('Manage Themes', 'setDefaultPage')
     def setDefaultPage(self, default_page=None, REQUEST=None):
         """Set the default page.

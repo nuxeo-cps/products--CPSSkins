@@ -195,6 +195,13 @@ class ThemePage(ThemeFolder, StylableContent):
 
         return getattr(self, 'default', None)
 
+    security.declareProtected('Manage Themes', 'setAsDefault')
+    def setAsDefault(self):
+        """Set as the default page
+        """
+        theme_container = self.getContainer()
+        theme_container.setDefaultPage(default_page=self.getId())
+
     #
     # Properties
     #

@@ -97,6 +97,15 @@ function Choice_edit_layout() {
   newWindow(new_url + '/cpsskins_content_action?action=set_layout');
 }
 
+function Choice_set_default() {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+    return;
+  new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
+  window.location = new_url + '/cpsskins_content_action?action=set_default';
+}
+
 function Choice_align(alignprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
