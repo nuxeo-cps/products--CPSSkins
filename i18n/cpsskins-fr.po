@@ -884,7 +884,7 @@ msgstr "Images"
 
 
 msgid "_Import a theme_"
-msgstr "Importer a thème"
+msgstr "Importer un thème"
 
 
 msgid "_Info text_"
@@ -928,7 +928,7 @@ msgstr "Sélecteur de langue"
 
 
 msgid "_Language selector_"
-msgstr "Selecteur de langue"
+msgstr "Sélecteur de langue"
 
 
 msgid "_Last modified:_"
@@ -1542,7 +1542,7 @@ msgstr "Police de caractères des menus principaux"
 
 
 msgid "_Top menu hover background color_"
-msgstr "Couleur d'arrière-plan des menus principaux (selectionnés)"
+msgstr "Couleur d'arrière-plan des menus principaux (sélectionnés)"
 
 
 msgid "_Top menu hover font color_"
@@ -1778,7 +1778,7 @@ msgstr "Thème par défaut"
 
 
 msgid "_button_upload_flashfile_"
-msgstr "Transférerer l'animation"
+msgstr "Transférer l'animation"
 
 
 msgid "_button_upload_image_"
@@ -1814,7 +1814,7 @@ msgstr "un styleur modifie le style d'une cellule."
 
 
 msgid "_clipboard_"
-msgstr "Presse-papier"
+msgstr "Presse papier"
 
 
 msgid "_collapsiblemenu_style_"
@@ -2246,7 +2246,7 @@ msgstr "Boîte min/max/fermeture"
 
 
 msgid "_option_min_max_edit_close_"
-msgstr "Boîte min/max/edition/fermeture"
+msgstr "Boîte min/max/édition/fermeture"
 
 
 msgid "_option_no_frames_"
