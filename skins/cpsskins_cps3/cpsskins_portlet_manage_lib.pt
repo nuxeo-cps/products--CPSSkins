@@ -3,9 +3,10 @@
    tal:define="ypos portlet/getOrder;
                portlet_id portlet/getId;
                portlet_url portlet/getURL;
+               portlet_title portlet/title_or_id;
                portlet_rurl portlet/getRelativeUrl;
                fti portlet/getTypeInfo;
-               portlet_title fti/title_or_id;
+               portlet_type fti/title_or_id;
                portlet_icon fti/getIcon"
    tal:attributes="portlet_rurl portlet_rurl;
                    src_ypos python: ypos and ypos or 0;
@@ -14,6 +15,7 @@
       tal:attributes="dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
+        <tal:block content="portlet_title" />
         <a href=""
         tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
           <img border="0" width="12" height="12"
@@ -32,7 +34,7 @@
         <img width="16" height="16" 
          tal:condition="portlet_icon"
          tal:attributes="src string:${portal_url}/$portlet_icon" />
-        <strong tal:content="structure python: cpsmcat(portlet_title)" />
+        <strong tal:content="structure python: cpsmcat(portlet_type)" />
       </div>
     </div>
   </div>
@@ -53,11 +55,11 @@
       tal:attributes="onmouseup string:Choice_insert('${ptype_id}')"
       tal:define="fti python: ttool.getTypeInfo(ptype_id);
                   portlet_icon python: fti.getIcon();
-                  portlet_title python: fti and fti.title_or_id() or ptype_id">
+                  portlet_type python: fti and fti.title_or_id() or ptype_id">
         <img width="16" height="16" 
          tal:condition="portlet_icon"
          tal:attributes="src string:${portal_url}/$portlet_icon" />
-        <tal:block content="structure python: cpsmcat(portlet_title)" />
+        <tal:block content="structure python: cpsmcat(portlet_type)" />
       </div>
     </tal:block>
   </div>
