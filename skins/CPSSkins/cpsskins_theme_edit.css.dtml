@@ -13,6 +13,13 @@ padding: 2px;
 background-color: White;
 }
 
+.slotSample {
+width: 16px;
+height: 16px;
+border: 1px solid #999;
+padding: 2px;
+}
+
 .ObjectInfo {
 border-bottom: 1px dotted #ccc;
 padding-bottom: 5px;
@@ -704,5 +711,22 @@ margin: 2px;
 
 .TableHeader {
 background-color: #e0e0e0;
+}
+
+.slotselector {
+width: 260px;
+margin: 4px;
+padding: 9px;
+border: solid 1px gray; 
+background-color: #f0f0f0;
+}
+
+.slotselector a {
+text-decoration: none;
+font-style: bold
+}
+
+.slotselector a:hover {
+text-decoration: underline;
 }
 </dtml-let>

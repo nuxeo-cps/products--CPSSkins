@@ -57,10 +57,10 @@ class PortalBoxGroup(BaseTemplet):
 
     _properties = BaseTemplet._properties + (
         {'id': 'box_group', 
-         'type':'selection', 
+         'type':'string', 
          'mode':'w', 
-         'label':'Box group', 
-         'select_variable': 'cpsskins_listBoxSlots', 
+         'label':'Slot name', 
+         'slot': 'cpsskins_listBoxSlots', 
          'category': 'general'
         },
         {'id': 'boxshape', 
@@ -85,15 +85,11 @@ class PortalBoxGroup(BaseTemplet):
                  box_group = '0',
                  boxshape = 'LightSkins', 
                  boxcolor = 'Gray', 
-                 folder_icon = '',
-		 folder_open_icon = '',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.box_group = box_group
         self.boxshape = boxshape
         self.boxcolor = boxcolor
-        self.folder_icon = folder_icon
-        self.folder_open_icon = folder_open_icon
 
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):

@@ -30,12 +30,13 @@ for propid in context.propertyIds():
             field['description'] = obj.get('label', None)
             field['palette'] = obj.get('palette', None)
             field['image'] = obj.get('image', None)
+            field['style'] =  obj.get('style', None)
+            field['slot'] = obj.get('slot', None)
             field['i18n'] = obj.get('i18n', None)
             field['i18n_prefix'] = obj.get('i18n_prefix', '_')
             field['i18n_suffix'] = obj.get('i18n_suffix', '_')
             field['i18n_transform'] = obj.get('i18n_transform', None)
             field['i18n_default_domain'] = obj.get('i18n_default_domain', None)
-            field['style'] =  obj.get('style', None)
             break
                   
     if hasattr(context, propid):
@@ -83,7 +84,7 @@ for propid in context.propertyIds():
     elif type == 'selection':
         ftype = 'select'
 
-    if type == 'selection' or type == 'multiple selection':
+    if type in ['selection', 'multiple selection']:
         for obj in prop_map:
             if obj['id'] == propid:
                 select_variable = obj['select_variable']

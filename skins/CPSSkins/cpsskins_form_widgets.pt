@@ -10,8 +10,9 @@
                            description field/description|nothing; 
                            palette field/palette|nothing; 
                            image field/image|nothing; 
-                           value field/value|nothing;
                            style field/style;
+                           slot field/slot;
+                           value field/value|nothing;
                            i18n field/i18n"
                    condition="visible">
           <metal:block use-macro="here/cpsskins_form_widgets/macros/form_property">
@@ -76,6 +77,13 @@
                                 style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
                                 src string: ${portal_url}/cpsskins_images/select_icon.gif"
                 tal:condition="python: palette == 'Palette Border'" />
+              </tal:block>
+
+              <tal:block condition="slot">
+                <img class="slotSample" width="16" height="16"
+                tal:attributes="onClick string:newWindow('cpsskins_select_slot?prop=$id');
+                                style string:background-color: $value;; ;
+                                src string: ${portal_url}/cpsskins_images/select_icon.gif" />
               </tal:block>
 
               <tal:block condition="image">
