@@ -182,7 +182,6 @@
 <metal:block define-macro="navigationtab" i18n:domain="cpsskins"
 tal:define="theme request/form/theme|nothing; 
             cat request/form/cat|string:general; 
-            stylecat request/form/style|nothing; 
             sections python: here.cpsskins_listEditCategories(); 
             object_url here/absolute_url;">
   <form name="edittabs" class="editnavigationtab"
@@ -190,7 +189,6 @@ tal:define="theme request/form/theme|nothing;
    onSubmit="saveScrollCoordinates('edittabs')">
     <input type="hidden" name="scrollx" value="0">
     <input type="hidden" name="scrolly" value="0"> 
-    <input type="hidden" name="style" tal:attributes="value stylecat" />
     <tal:block repeat="section sections">
       <input type="submit" name="cat"
        tal:define="title python: '_%s_' % section" i18n:attributes="value"
