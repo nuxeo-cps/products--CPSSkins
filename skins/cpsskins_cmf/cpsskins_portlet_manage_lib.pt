@@ -473,12 +473,15 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <div class="typeFolder" tal:condition="not:selection">
     <h3 i18n:translate="heading_portlet_browser_by_type"
      i18n:domain="cpsskins">By type</h3>
-    <ul tal:define="ptltool nocall:here/portal_cpsportlets;
+    <ul tal:define="portal_types nocall:here/portal_types;
+                    ptltool nocall:here/portal_cpsportlets;
                     types ptltool/listPortletTypes">
       <tal:block repeat="type types">
-        <li><a href=""
-             tal:attributes="href string:${request/URL0}?type=$type"
-             tal:content="type" />
+        <li tal:define="icon python: portal_types[type].getIcon()">
+        <a href="" tal:attributes="href string:${request/URL0}?type=$type">
+          <img src="" tal:attributes="src icon" width="16" height="16" />
+          <tal:block content="type" />
+        </a>
         </li>
       </tal:block>
     </ul>

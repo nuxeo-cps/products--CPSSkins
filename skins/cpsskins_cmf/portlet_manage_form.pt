@@ -25,7 +25,6 @@
   <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
 </head>
 
-
 <body>
   <div class="floatingheader">
    <metal:block 
@@ -37,8 +36,7 @@
     use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_panel" />
   </div>
 
-  <br/>
-  <div class="editspace">
+  <div style="padding: 10px" class="editspace">
     <tal:block condition="wysiwyg">
       <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/main">
         <metal:block fill-slot="maincontent">
