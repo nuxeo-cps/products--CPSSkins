@@ -282,7 +282,7 @@ class PortletBox(BaseTemplet):
             else:
                 rendered = portlet.render(**kw)
             # add the box decoration$
-            rendered = self.cpsskins_renderBox(portlet=portlet,
+            rendered = self.cpsskins_renderPortletBox(portlet=portlet,
                                                rendered=rendered)
         return rendered
 

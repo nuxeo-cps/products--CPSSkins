@@ -1011,8 +1011,14 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     # Rendering
     #
     security.declarePublic('render')
-    def render(self, shield=0,  **kw):
+    def render(self, shield=0, **kw):
         """Render the templet."""
+
+        return self.render_skin(shield=shield, **kw)
+
+    security.declarePublic('render_skin')
+    def render_skin(self, shield=0,  **kw):
+        """Render the templet's skin."""
 
         fail = 0
         if getattr(aq_base(self), 'render_action', None) is not None:

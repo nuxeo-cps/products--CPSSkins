@@ -49,6 +49,11 @@ try: ZopeTestCase.installProduct('CPSMailBoxer', quiet=1)
 except: pass
 try: ZopeTestCase.installProduct('CPSPortlets', quiet=1)
 except: pass
+try: ZopeTestCase.installProduct('CPSNewsLetters', quiet=1)
+except: pass
+try: ZopeTestCase.installProduct('CPSNavigation', quiet=1)
+except: pass
+
 
 from AccessControl.SecurityManagement \
     import newSecurityManager, noSecurityManager

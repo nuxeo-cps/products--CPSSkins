@@ -30,6 +30,8 @@ from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
 
+from cpsskins_utils import html_slimmer
+
 import md5 
 
 factory_type_information = (
@@ -256,6 +258,58 @@ class PortalBox(BaseTemplet):
         """ Returns true if the Templet can be cached in RAM """
 
         return 1
+
+    #
+    # Rendering
+    #
+    security.declarePublic('render')
+    def render(self, shield=0, **kw):
+        """Renders the templet."""
+
+        body = self.render_skin(shield=shield, **kw)
+        body = html_slimmer(body)
+        rendered_box = ''
+        if body:
+            title = self.render_title(**kw)
+            rendered_box = self.cpsskins_renderPortalBox(title=title, body=body)
+
+        return rendered_box
+
+    security.declarePublic('render_title')
+    def render_title(self, **kw):
+        """Renders the templet's title."""
+
+        title_source = self.title_source
+        mcat = self.REQUEST.get('cpsskins_mcat')
+
+        title = ''
+
+        if title_source == 'Templet title':
+            title = self.title
+            if mcat = self.box_title_i18n:
+                title = mcat(title)
+
+        elif title_source == 'Folder title':
+            title = 'XXX'
+            if mcat and self.box_title_i18n:
+                title = mcat(title)
+
+        elif title_source == 'Workflow state':
+            wtool = getToolByName(self, 'portal_workflow')
+            title = wtool.getInfoFor(context_obj, 'review_state','')
+
+        elif title_source == 'Username':
+            mtool = getToolByName(self, 'portal_membership')
+            isAnon = mtool.isAnonymousUser()
+            if isAnon:
+                title = '_Guest_'
+                if mcat:
+                    title = mcat(title)
+            else:
+                member = mtool.getAuthenticatedMember()
+                title = member.getUserName()
+
+        return title
 
     #
     # RAM Cache
