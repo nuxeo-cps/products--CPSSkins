@@ -37,23 +37,6 @@ function toggle(panelId) {
   }
 }
 
-function show(el) {
-  if (document.getElementById) {
-    var target = document.getElementById(el);
-    target.style.visibility = 'visible';
-    target.style.display = 'block';
-  }
-}
-
-function hide(el) {
-  if (document.getElementById) {
-    var target = document.getElementById(el);
-    if (target.style.display == "block"){
-      target.style.display = "none";
-    }
-  }
-}
-
 function selectImage(value) {
   document.data[current_field].selectedIndex = value
   document.data.submit();

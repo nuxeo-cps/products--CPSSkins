@@ -15,6 +15,11 @@
 // WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 // FOR A PARTICULAR PURPOSE.
 
+// Copyright (c) 2005 Chalmers University of Technology
+// Changes:
+// - added support for sub-menus
+// - added an attribute to filter out non-interactive elements.
+
 // Page design Javascript library
 
 // A library for manipulating objects on a page with object selection,
@@ -122,7 +127,6 @@ function getScrollY() {
   return scroll_y;  
 }    
 
-
 function pd_showContextMenu(menunode, e) {
   if (!e)
     e = event;
@@ -168,6 +172,31 @@ function pd_hideContextMenu() {
     pd_open_context_menu.style.visibility = "hidden";
     pd_open_context_menu = null;
   }
+}
+
+function pd_showContextSubMenu(node) {
+  submenunode = findChild(node, 'context-submenu');
+  submenunode.style.visibility = "visible";
+  submenunode.style.display = "block";
+}
+
+function pd_hideContextSubMenu(node) {
+  submenunode = findChild(node, 'context-submenu');
+  submenunode.style.visibility = "hidden";
+  submenunode.style.display = "node";
+}
+
+function findChild(node, className) {
+  // Returns a descendant with the given class name, or null.
+  if (node.className == className)
+    return node;
+  var i, c;
+  for (i = 0; i < node.childNodes.length; i++) {
+    c = findChild(node.childNodes[i], className);
+    if (c != null)
+      return c;
+  }
+  return null;
 }
 
 function pd_filterContextMenuItems(node) {
@@ -562,6 +591,17 @@ function pd_setupContextMenuDefinition(node) {
   node.onmouseup = pd_hideContextMenu;
 }
 
+function pd_setupContextSubMenu(node) {
+  node.onmouseover = function() { 
+    pd_highlight(node, "hover");
+    pd_showContextSubMenu(node);
+  };
+  node.onmouseout = function() { 
+    pd_highlight(node, "");
+    pd_hideContextSubMenu(node);
+  };
+}
+
 function pd_setupContextMenuItem(node) {
   node.onmouseover = function() {
     pd_highlight(node, "hover");
@@ -574,3 +614,5 @@ function pd_setupContextMenuItem(node) {
 pd_node_setup['drop-target'] = pd_setupDropTarget;
 pd_node_setup['context-menu'] = pd_setupContextMenuDefinition;
 pd_node_setup['context-menu-item'] = pd_setupContextMenuItem;
+
+pd_node_setup['context-submenu-header'] = pd_setupContextSubMenu;
