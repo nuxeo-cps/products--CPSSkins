@@ -96,8 +96,8 @@
                                 boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'TempletBoxBodyLayout' or 'TempletBoxBody'; 
 				boxeditclass python: content_here and 'TempletBoxBodySelected' or boxeditclass; 
 				class python: edition_mode and boxeditclass or nothing; 
-				style python: 'padding:%s;;' % content.margin;
-				style python: hover_effect and style + 'cursor: crosshair;;' or style;
+				style python: content.getCSSMarginStyle() or '';
+				style python: hover_effect and style + ';;cursor: crosshair' or style;
                                 content_class python: content.getCSSAreaClass(level=2);
                                 styles_list python: content.getApplicableStyles();
                                 align_list content/AlignList|nothing"
