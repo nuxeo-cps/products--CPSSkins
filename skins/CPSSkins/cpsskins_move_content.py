@@ -27,6 +27,8 @@ if dest_theme_container is None:
 # if the destination page is not specified choose the requested page
 if not dest_page:
     dest_page = dest_theme_container.getRequestedPageName(editing=1)
+    if dest_page not in dest_theme_container.getPageNames():
+        dest_page = dest_theme_container.getDefaultPageName()
     if dest_page is None:
         dest_page = dest_theme_container.addThemePage().getId()
 

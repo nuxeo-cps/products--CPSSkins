@@ -223,8 +223,8 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         templet_id = templet.getId()
         dest_block = utool.getRelativeUrl(pageblock_dest)
         test_url = '/%s/cpsskins_move_content' % templet.absolute_url(1)
-        test_url += '?ypos=%s&dest_theme=%s' % \
-            (0, dest_theme_container.getId())
+        test_url += '?ypos=%s&dest_theme=%s&dest_page=%s' % \
+            (0, dest_theme_container.getId(), dest_page_container.getId())
         response = self.publish(test_url, self.basic_auth)
         templet_copied = pageblock_dest.objectValues('Text Box Templet')[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)

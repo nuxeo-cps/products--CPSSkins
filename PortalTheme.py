@@ -425,10 +425,16 @@ class PortalTheme(ThemeFolder, StylableContent):
         return self.getPageContainer(page)
 
     security.declarePublic('getPages')
-    def getPages(self, edit=0):
-        """ returns a list of page blocks sorted by ypos"""
+    def getPages(self):
+        """Return the list of pages"""
 
         return self.objectValues('Theme Page')
+
+    security.declarePublic('getPageNames')
+    def getPageNames(self):
+        """Return the list of page names"""
+
+        return [p.getId() for p in self.getPages()]
 
     security.declarePublic('getPageContainer')
     def getPageContainer(self, page=''):
