@@ -60,7 +60,7 @@ class ThemeChooser(BaseTemplet):
          'type': 'multiple selection',
          'mode': 'w',
          'label': 'Selectable themes',
-         'select_variable': 'listThemesAndPages'
+         'select_variable': 'listThemesAndPageNames'
         },
     )
 
