@@ -21,6 +21,7 @@ if REQUEST is None:
     REQUEST = context.REQUEST
 
 context_obj = REQUEST.get('context_obj', None)
+# XXX add support for context_rurl for ESI
 
 nav = CPSNavigation(root_uid=base,
                     current_uid=utool.getRelativeUrl(context_obj),
@@ -28,24 +29,43 @@ nav = CPSNavigation(root_uid=base,
                     request_form=REQUEST.form)
 
 menuentries = []
-tree = [t for t in nav.getTree() if t['level'] == level]
-for t in tree:
+current_object = None
+folder_title = ''
+
+for node in nav.getTree():
+
+    node_level = node['level']
+    object = node['object']
+
+    if node.get('is_current'):
+       folder_title = object['title_or_id']
+
+    if node_level == int(level) -1:
+       if node['state'] == 'open':
+           current_object = object
+
+    if node_level != level:
+        continue
+
     if not display_hidden_folders:
-        if t.get('hidden_folder'):
+        if node.get('hidden_folder'):
             continue
 
-    object = t['object']
     menuentries.append(
         {'title' : object['title_or_id'],
          'id' : object['id'],
          'url' : object['url'],
          'icon': '', #XXX
          'folderish': 1, #XXX
-         'selected': t.get('is_open'),
+         'selected': node.get('is_open'),
         }
     ) 
 
+create_url = ''
+if current_object is not None:
+    create_url = current_object['url'] + '/folder_factories'
+
 return {'menuentries' : menuentries,
-        'create_url' : '', #XXX
-        'folder_title': '', #XXX
+        'create_url' : create_url,
+        'folder_title': folder_title,
        }
