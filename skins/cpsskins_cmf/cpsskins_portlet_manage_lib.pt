@@ -345,9 +345,13 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <table border=0 width="100%" cellpadding="3" cellspacing="2">
     <tr>
       <th tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)">
-        <div style="cursor: help"
-         tal:content="string:${bc/id}/" 
-         tal:attributes="title bc/title" />
+        <span class="portletBoxDest" style="cursor:help"
+         tal:omit-tag="not:bc/editable"
+         tal:attributes="insert_url string:${base_url}${bc/rpath};
+                         dest_rurl bc/rpath;
+                         title bc/title;
+                         dest_ypos python: 0"
+         tal:content="bc/id" />
       </th>
     </tr>
     <tal:block define="portlets python:ptltool.getPortlets(context=here)"
