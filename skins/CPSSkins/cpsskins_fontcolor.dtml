@@ -1,6 +1,6 @@
 <dtml-let class="'.fontColor' + title">
 
-<dtml-var class> h1 {
+<dtml-var class> h1, <dtml-var class> .h1 {
 <dtml-if H1_border_color>
   border-color: <dtml-var H1_border_color>;
 </dtml-if>
@@ -12,7 +12,7 @@
 </dtml-if>
 }
 
-<dtml-var class> h2 {
+<dtml-var class> h2, <dtml-var class> .h2 {
 <dtml-if H2_border_color>
   border-color: <dtml-var H2_border_color>;
 </dtml-if>
@@ -24,7 +24,7 @@
 </dtml-if>
 }
 
-<dtml-var class> h3 {
+<dtml-var class> h3, <dtml-var class> .h3 {
 <dtml-if H3_border_color>
   border-color: <dtml-var H3_border_color>;
 </dtml-if>
@@ -36,9 +36,9 @@
 </dtml-if>
 }
 
-<dtml-var class> h4,
-<dtml-var class> h5,
-<dtml-var class> h6 {
+<dtml-var class> h4, <dtml-var class> .h4,
+<dtml-var class> h5, <dtml-var class> .h5,
+<dtml-var class> h6, <dtml-var class> .h6 {
 <dtml-if H456_border_color>
   border-color: <dtml-var H456_border_color>;
 </dtml-if>
