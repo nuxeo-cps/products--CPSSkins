@@ -50,7 +50,7 @@
 <metal:block define-macro="drawer" 
   tal:define="base_url python: request.get('cpsskins_base_url');
               orientation orientation|string:vertical;
-              box_state python: here.getBoxState(REQUEST=request);
+              box_state python: here.getBoxState();
               boxid here/id">
   <div class="title">
     <metal:block define-slot="box_title">Box Title</metal:block>
@@ -77,7 +77,7 @@
 <metal:block define-macro="drawer_notitle" 
   tal:define="base_url python: request.get('cpsskins_base_url');
               orientation orientation|string:vertical;
-              box_state python: here.getBoxState(REQUEST=request);
+              box_state python: here.getBoxState();
               boxid here/id">
   <div class="body">
     <tal:block condition="python: box_state != 'minimized'">

@@ -49,7 +49,7 @@
 		      class python: pageblock.getCSSAreaClass();
                       summary python: pageblock['title']">
         <tr>
-          <tal:block define="objects python: pageblock.getObjects(REQUEST=request)"
+          <tal:block define="objects python: pageblock.getObjects()"
                      repeat="x_pos python: range(int(maxcols))">
             <tal:block 
              define="objects_in_xpos python: objects.get(x_pos, None)"

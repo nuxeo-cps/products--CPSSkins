@@ -26,7 +26,7 @@
         <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
           <table cellpadding="0" cellspacing="3" width="100%">
             <tr valign="top"
-            tal:define="objects python: block.getObjects(REQUEST=request);
+            tal:define="objects python: block.getObjects();
                         maxcols block/maxcols|nothing">
               <tal:block condition="maxcols"
               repeat="x_pos python: range(int(maxcols))">

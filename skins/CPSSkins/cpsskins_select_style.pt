@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html tal:define="tmtool here/portal_themes; 
                   base_url python: request.get('cpsskins_base_url', '');
-                  current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
+                  current_theme python: tmtool.getRequestedThemeName(); 
                   theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme)">
   <head>
     <link rel="Stylesheet" type="text/css"

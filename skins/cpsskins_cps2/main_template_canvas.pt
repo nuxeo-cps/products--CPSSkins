@@ -1,13 +1,13 @@
 <link rel="Stylesheet" type="text/css" href="cpsskins_theme_edit.css" />
 <tal:block
 define="tmtool here/portal_themes; 
-        theme python: tmtool.getRequestedThemeName(REQUEST=request); 
+        theme python: tmtool.getRequestedThemeName(); 
         boxes options/boxes">
   <tal:block
    repeat="block python: tmtool.getPageBlocks(theme=theme)">
     <table width="100%" cellpadding="0" cellspacing="3">
       <tr valign="top"
-       tal:define="objects python: block.getObjects(REQUEST=request); 
+       tal:define="objects python: block.getObjects(); 
                    maxcols block/maxcols|nothing"> 
         <tal:block condition="maxcols"
          repeat="x_pos python: range(int(maxcols))">
