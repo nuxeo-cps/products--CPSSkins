@@ -180,7 +180,13 @@ function pd_showContextSubMenu(node) {
     left = pd_open_context_menu.style.left;
     submenunode.style.visibility = "visible";
     submenunode.style.display = "block";
-    submenunode.style.left = '' + (parseInt(left) + 130) + 'px';
+    if (document.all) {
+        xpos = 130;
+    }
+    else {
+        xpos = parseInt(left) + 130;
+    }
+    submenunode.style.left = '' + xpos + 'px';
   }
 }
 
