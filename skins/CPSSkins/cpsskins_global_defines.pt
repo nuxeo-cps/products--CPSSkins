@@ -5,7 +5,7 @@ tal:define="global here_url here_url|here/absolute_url;
             global current_theme python: tmtool.getRequestedThemeName(context=here);
             global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
             theme_renderer theme_container/theme_renderer|nothing;
-            renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer);
+            global renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer);
             global main_macro python: 'cpsskins_main_template_%s' % renderer;
             global enable_esi theme_container/esi|nothing;
             global cpsskins_pagemargin theme_container/margin|nothing;

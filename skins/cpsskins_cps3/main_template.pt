@@ -11,7 +11,6 @@
               context_url python:here.getContextUrl(utool=utool); 
               base_url python:here.getBaseUrl(utool=utool); 
               here_url here/absolute_url;
-              boxes python:btool.getBoxes(here); 
               member mtool/getAuthenticatedMember; 
               isAnon mtool/isAnonymousUser; 
               isHomeless python:isAnon or member.getProperty('homeless', 0);
@@ -28,6 +27,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
+   tal:define="boxes python: renderer != 'macroless' and btool.getBoxes(here) or []"
    tal:attributes="lang locale;
                    xml:lang locale">
     <head>
