@@ -222,7 +222,4 @@ div.xmlExportButtons a {
   font: bold 80% Arial, sans-serif;
   text-decoration: none;
   padding: 0 0.3em 0 0.3em;
-  margin: 0.2em 0.2em 0.2em 0.2em;
-  display: block;
-  float: right;
 }
