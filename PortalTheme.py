@@ -446,6 +446,31 @@ class PortalTheme(ThemeFolder, StylableContent):
     #
     # Rendering
     #
+    security.declarePublic('render')
+    def render(self, **kw):
+        """Render the theme"""
+
+        rendered = ['<html>']
+        rendered.append(self.renderHead())
+        rendered.append('<body>')
+
+        kw['layout_style'] = self.getCSSLayoutStyle()
+        for pageblock in self.getPageBlocks():
+            rendered.append(pageblock.render(**kw))
+        rendered.append('</body></html>')
+        return ''.join(rendered)
+
+    security.declarePublic('renderHead')
+    def renderHead(self):
+        """Render the head element"""
+
+        head = """<head>
+          <link rel="Stylesheet" type="text/css" href="cpsskins_common.css" />
+          <link rel="Stylesheet" type="text/css" href="%s/renderCSS" />
+          <style type="text/css" media="all">@import url(cpsskins_common-css2.css);</style>
+        </head>""" % self.absolute_url()
+        return head
+
     security.declarePublic('renderIcon')
     def renderIcon(self):
         """ Generates the shortcut icon for this theme."""

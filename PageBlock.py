@@ -176,6 +176,59 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         return self.getIcon(1)
 
+    #
+    # Rendering
+    #
+    security.declarePublic('render')
+    def render(self, **kw):
+        """Render the theme"""
+
+        objects = self.getObjects(**kw)
+
+        layout_style = kw.get('layout_style')
+        if layout_style is None:
+            layout_style = self.getCSSLayoutStyle()
+        width = self.width
+        height = self.height
+
+        rendered = []
+        table_tag = []
+        if layout_style:
+            table_tag.append('class="%s"' % self.getCSSAreaClass())
+        if height:
+            layout_style += ';height: %s' % height
+        if layout_style:
+            table_tag.append('style="%s"' % layout_style)
+        if width:
+            table_tag.append('width="%s"' % width)
+
+        rendered.append('<table %s>' % " ".join(table_tag))
+
+        for x_pos in range(int(self.maxcols)):
+            objects_in_xpos = objects.get(x_pos, None)
+            if objects_in_xpos is None:
+                continue
+            td_tag = []
+            td_tag.append('valign="top"')
+            cellsize = objects_in_xpos['cellsizer']
+            if cellsize is not None:
+                td_tag.append('width="%s"' % cellsize.cellwidth)
+            cellstyle = objects_in_xpos['cellstyler']
+            if cellstyle is not None:
+                td_tag.append('class="%s"' % cellstyle.getCSSCellClass(level=2))
+            rendered.append('<td %s>' % " ".join(td_tag))
+            contents_in_xpos = objects_in_xpos['contents']
+            for content in contents_in_xpos:
+                rendered.append('<div class="%s" style="%s">' % (
+                    content.getCSSAreaClass(level=2),
+                    content.getCSSLayoutStyle()))
+                rendered.append(content.render_cache(**kw))
+                rendered.append('</div>')
+            rendered.append('</td>')
+        rendered.append('</tr></table>')
+
+        return ''.join(rendered)
+
     security.declareProtected(ManageThemes, 'rebuild')
     def rebuild(self, **kw):
         """                  
