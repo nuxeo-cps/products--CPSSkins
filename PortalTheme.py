@@ -444,7 +444,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
 
     security.declarePublic('renderCSS')
-    def renderCSS(self, REQUEST=None, **kw):
+    def renderCSS(self, **kw):
         """ Generates the CSS file for this theme """
 
         REQUEST = self.REQUEST
