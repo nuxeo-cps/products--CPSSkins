@@ -731,6 +731,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         theme_container = self.getThemeContainer(theme)
         if page not in theme_container.getPageNames():
             page = theme_container.getDefaultPageName()
+
+        # the theme has no page - use the default theme
+        if page is None:
+            theme = self.getDefaultThemeName()
+            theme_container = self.getThemeContainer(theme)
+            page = theme_container.getDefaultPageName()
         return theme, page
 
     security.declarePublic('getThemes')
