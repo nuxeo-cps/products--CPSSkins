@@ -23,6 +23,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 import re
 import random
 
+from DateTime import DateTime
 from Acquisition import  aq_base
 from AccessControl import Unauthorized
 
@@ -273,18 +274,6 @@ def getObjectVisibility(self, **kw):
         mtool = getToolByName(self, 'portal_membership')
         if mtool.isAnonymousUser():
             return 1
-
-    if visibility == 'time_limited':
-        now = DateTime()
-        effective_date = self.EffectiveDate()
-        expiration_date = self.ExpirationDate()
-        if effective_date != 'None':
-            if now < DateTime(effective_date):
-                return None
-        if expiration_date != 'None':
-            if now >= DateTime(expiration_date):
-                return None
-        return 1
 
     if visibility in ['only_in', 'everywhere_except_in', \
                       'starting_from', 'up_till']:
