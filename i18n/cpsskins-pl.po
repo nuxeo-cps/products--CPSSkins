@@ -2073,8 +2073,20 @@ msgid "_wysiwyg mode_"
 msgstr "Tryb WYSIWYG"
 
 
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+
 msgid "description_delete_unused_boxes"
 msgstr "Skasuj nieu¿ywane ramki"
+
+
+msgid "description_delete_unused_portlets"
+msgstr ""
 
 
 msgid "description_unused_boxes"
@@ -2085,10 +2097,30 @@ msgid "description_unused_boxes_deleted"
 msgstr "Nieu¿ywane ramki skasowano"
 
 
+msgid "description_unused_portlets"
+msgstr ""
+
+
+msgid "description_visible_portlets_from"
+msgstr ""
+
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+
 msgid "heading_unused_boxes"
 msgstr "Nieu¿ywane ramki"
 
 
+msgid "heading_unused_portlets"
+msgstr ""
+
+
 msgid "menu_insert_box"
+msgstr ""
+
+
+msgid "menu_insert_portlet"
 msgstr ""
 

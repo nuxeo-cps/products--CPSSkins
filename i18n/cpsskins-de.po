@@ -2071,8 +2071,20 @@ msgid "_wysiwyg mode_"
 msgstr "WYSIWYG Modus"
 
 
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+
 msgid "description_delete_unused_boxes"
 msgstr "Unbenutzte Boxen löschen"
+
+
+msgid "description_delete_unused_portlets"
+msgstr ""
 
 
 msgid "description_unused_boxes"
@@ -2083,10 +2095,30 @@ msgid "description_unused_boxes_deleted"
 msgstr "Unbenutzte Boxen gelöscht"
 
 
+msgid "description_unused_portlets"
+msgstr ""
+
+
+msgid "description_visible_portlets_from"
+msgstr ""
+
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+
 msgid "heading_unused_boxes"
 msgstr "Unbenutzte Boxen"
 
 
+msgid "heading_unused_portlets"
+msgstr ""
+
+
 msgid "menu_insert_box"
+msgstr ""
+
+
+msgid "menu_insert_portlet"
 msgstr ""
 

@@ -1572,3 +1572,27 @@ msgstr ""
 
 msgid "_select this slot_"
 msgstr ""
+
+msgid "heading_unused_portlets"
+msgstr ""
+
+msgid "description_unused_portlets"
+msgstr ""
+
+msgid "description_delete_unused_portlets"
+msgstr ""
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+msgid "description_visible_portlets_from"
+msgstr ""
+
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+msgid "menu_insert_portlet"
+msgstr ""

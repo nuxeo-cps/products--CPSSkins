@@ -2071,8 +2071,20 @@ msgid "_wysiwyg mode_"
 msgstr "WYSIWYG mode"
 
 
+msgid "description_confirm_delete_portlet"
+msgstr "Deleting this portlet, are you sure?"
+
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr "Deleting all unused portlets, are you sure?"
+
+
 msgid "description_delete_unused_boxes"
 msgstr "Delete unused boxes"
+
+
+msgid "description_delete_unused_portlets"
+msgstr "Delete unused portlets"
 
 
 msgid "description_unused_boxes"
@@ -2083,10 +2095,30 @@ msgid "description_unused_boxes_deleted"
 msgstr "Unused boxes deleted"
 
 
+msgid "description_unused_portlets"
+msgstr "Portlets that are invisible because their slot is not in this theme"
+
+
+msgid "description_visible_portlets_from"
+msgstr "visible portlets from"
+
+
+msgid "heading_portlet_manage_form"
+msgstr "Portlet management form"
+
+
 msgid "heading_unused_boxes"
 msgstr "Unused boxes"
 
 
+msgid "heading_unused_portlets"
+msgstr "Unused portlets"
+
+
 msgid "menu_insert_box"
 msgstr "Insert a box ..."
+
+
+msgid "menu_insert_portlet"
+msgstr "Insert a portlet"
 
