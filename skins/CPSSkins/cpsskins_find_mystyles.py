@@ -30,6 +30,8 @@ for s in tmtool.findStylesFor(meta_type, context)['object']:
 if style is None:
     return
 
+context.setStyle(style=style, meta_type=meta_type)
+
 url = style.absolute_url() + '/edit_form?' + \
      'style=' + meta_type
 
