@@ -61,7 +61,7 @@
   </div>
 
   <div class="editForm" i18n:domain="cpsskins">
-    <h1>
+    <h1 class="fancy">
       <tal:block define="title string:_Edit_"
        tal:content="python: mcat and mcat(title) or title"
        i18n:translate="" />

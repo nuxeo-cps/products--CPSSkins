@@ -322,10 +322,10 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="unused_portlets_panel">
-  <h1 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h1>
+  <h1 class="fancy" i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h1>
   <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
   <tal:block repeat="hidden_slot hidden_slots">
-    <h2 tal:content="hidden_slot" />
+    <h2 class="fancy" tal:content="hidden_slot" />
     <tal:block define="portlets python:ptltool.getPortlets(here, hidden_slot)">
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_browser" />
     </tal:block>
@@ -334,8 +334,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
 <metal:block define-macro="site_structure"
   tal:define="here_depth python: len(utool.getRelativeContentPath(bmf))">
-  <h1 i18n:translate="heading_site_structure" 
-      i18n:domain="cpsskins">Site structure</h1>
+  <h1 class="fancy" 
+   i18n:translate="heading_site_structure" 
+   i18n:domain="cpsskins">Site structure</h1>
   <span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
   <em tal:content="folder_url" />
   <br style="clear: both" />
@@ -422,7 +423,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
               type request/form/type|nothing;
               selection python: topic or type">
 
-  <h1 i18n:translate="heading_portlet_browser"
+  <h1 class="fancy"
+   i18n:translate="heading_portlet_browser"
    i18n:domain="cpsskins">Portlet browser</h1>
 
   <div tal:condition="selection">
@@ -439,7 +441,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   </div>
 
   <tal:block condition="not:selection">
-    <h2 i18n:translate="heading_portlet_browser_by_topic"
+    <h2 class="fancy" i18n:translate="heading_portlet_browser_by_topic"
      i18n:domain="cpsskins">By topic</h2>
     <div class="topicFolder">
       <ul tal:define="topics_voc here/portal_vocabularies/subject_voc|nothing"
@@ -461,7 +463,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       <div style="clear:both"></div>
     </div>
     <br />
-    <h2 i18n:translate="heading_portlet_browser_by_type"
+    <h2 class="fancy" i18n:translate="heading_portlet_browser_by_type"
      i18n:domain="cpsskins">By type</h2>
     <div class="typeFolder">
       <ul tal:define="

@@ -69,12 +69,13 @@
   tal:define="current_style request/form/current_style|nothing;
               pss modules/Products/PythonScripts/standard; 
               stylecat request/form/style|nothing">
-    <metal:block use-macro="here/cpsskins_form_widgets/macros/stylenavigation"/>
-    <form tal:define="folder theme_container/getStylesFolder"
-     action="" tal:attributes="action folder/absolute_url"
-     name="objectItems" method="post">
+  <metal:block use-macro="here/cpsskins_form_widgets/macros/stylenavigation"/>
+  <form tal:define="folder theme_container/getStylesFolder"
+   action="" tal:attributes="action folder/absolute_url"
+   name="objectItems" method="post">
     <tal:block condition="not:stylecat">
-      <h1 tal:define="title string:_Edit styles_"
+      <h1 class="fancy"
+      tal:define="title string:_Edit styles_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
       <dl>
@@ -92,79 +93,82 @@
            tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
       </dl>
+    <input type="submit" name="pasteObjects:method"
+     value="Paste" i18n:attributes="value"
+     tal:define="title string:_Paste_"
+     tal:condition="folder/canPaste"
+     tal:attributes="value python: mcat and mcat(title) or title" />
     </tal:block>
     <tal:block condition="stylecat"
     define="styles python: tmtool.findStylesFor(stylecat, theme_container); 
             style_list styles/object|nothing">
-      <h1 tal:define="title python:'_%s_' % stylecat" 
+      <h2 class="fancy" tal:define="title python:'_%s_' % stylecat" 
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
 
-        <table class="browser" summary="" cellpadding="0" cellspacing="0">
-          <tr>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th tal:define="title string:_Title_" i18n:translate=""
-             tal:content="python: mcat and mcat(title) or title">Title</th>
-          </tr>
-          <tal:block repeat="style style_list">
-            <tr tal:define="styleid style/getId;
-                            onclick_string string:newWindow('${style/absolute_url}/edit_form?style=$stylecat');
-                            even repeat/style/even;"
-                tal:attributes="class python: even and 'even' or None">
-              <td width="20">
-                <input type="checkbox" name="ids:list"
-                 tal:attributes="value styleid" />
-              </td>
-              <td width="20">
-                <img src="" alt="" width="16" height="16"
-                 tal:attributes="src string:${style/getIcon}" />
-              </td>
-              <td>
-                <a href="javascript:void(0)"
-                 tal:attributes="onClick onclick_string;
-                                 onmouseover string:toggle('$styleid');
-                                 onmouseout string:toggle('$styleid')"
-                 tal:content="python: style.title_or_id()" />
-              </td>
-            </tr>
-          </tal:block>
-        </table>
+      <table class="browser" summary="" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+          <th tal:define="title string:_Title_" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title">Title</th>
+        </tr>
         <tal:block repeat="style style_list">
-          <div class="previewBox hidden"
-           tal:content="structure python: style.preview()"
-           tal:attributes="id style/getId" />
+          <tr tal:define="styleid style/getId;
+                          onclick_string string:newWindow('${style/absolute_url}/edit_form?style=$stylecat');
+                          even repeat/style/even;"
+              tal:attributes="class python: even and 'even' or None">
+            <td width="20">
+              <input type="checkbox" name="ids:list"
+               tal:attributes="value styleid" />
+            </td>
+            <td width="20">
+              <img src="" alt="" width="16" height="16"
+               tal:attributes="src string:${style/getIcon}" />
+            </td>
+            <td>
+              <a href="javascript:void(0)"
+               tal:attributes="onClick onclick_string;
+                               onmouseover string:toggle('$styleid');
+                               onmouseout string:toggle('$styleid')"
+               tal:content="python: style.title_or_id()" />
+            </td>
+          </tr>
         </tal:block>
+      </table>
+      <tal:block repeat="style style_list">
+        <div class="previewBox hidden"
+         tal:content="structure python: style.preview()"
+         tal:attributes="id style/getId" />
       </tal:block>
-
-        <br />
-        <input type="submit" name="cutObjects:method"
-         value="Cut" i18n:attributes="value"
-         tal:condition="stylecat"
-         tal:define="title string:_Cut_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="copyObjects:method"
-         value="Copy" i18n:attributes="value"
-         tal:condition="stylecat"
-         tal:define="title string:_Copy_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="pasteObjects:method"
-         value="Paste" i18n:attributes="value"
-         tal:define="title string:_Paste_"
-         tal:condition="folder/canPaste"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="deleteObjects:method"
-         value="Delete" i18n:attributes="value"
-         tal:condition="stylecat"
-         tal:define="title string:_Delete_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
+    <br />
+    <input type="submit" name="pasteObjects:method"
+     value="Paste" i18n:attributes="value"
+     tal:define="title string:_Paste_"
+     tal:condition="folder/canPaste"
+     tal:attributes="value python: mcat and mcat(title) or title" />
+    <tal:block condition="style_list">
+      <input type="submit" name="cutObjects:method"
+       value="Cut" i18n:attributes="value"
+       tal:define="title string:_Cut_"
+       tal:attributes="value python: mcat and mcat(title) or title" />
+      <input type="submit" name="copyObjects:method"
+       value="Copy" i18n:attributes="value"
+       tal:define="title string:_Copy_"
+       tal:attributes="value python: mcat and mcat(title) or title" />
+      <input type="submit" name="deleteObjects:method"
+       value="Delete" i18n:attributes="value"
+       tal:define="title string:_Delete_"
+       tal:attributes="value python: mcat and mcat(title) or title" />
+      </tal:block>
       <div class="addItem">
         <a href="javascript:void(0)" alt=""
-         tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
+        tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
           <img width="46" height="18" alt=""
-           tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
+          tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
         </a>
       </div>
+    </tal:block>
   </form>
 </metal:block>
 
@@ -175,26 +179,26 @@
               pss modules/Products/PythonScripts/standard">
     <metal:block use-macro="here/cpsskins_form_widgets/macros/imagenavigation"/>
     <tal:block condition="python: imagecat not in sections">
-      <h1 tal:define="title string:_Edit images_"
+      <h1 class="fancy"
+      tal:define="title string:_Edit images_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
       <dl>
-      <tal:block repeat="imagecat sections">
-        <dt><img tal:attributes="src string:${base_url}themefolder.png" align="top" />
+        <tal:block repeat="imagecat sections">
+          <dt><img tal:attributes="src string:${base_url}themefolder.png" align="top" />
             <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);
                            title python:'_%s_' % imagecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?imagecat=$imagecat_quoted"
                i18n:translate="" 
                tal:content="python: mcat and mcat(title) or title" />
-        </dt>
-      </tal:block>
-    </dl>
+          </dt>
+        </tal:block>
+      </dl>
     </tal:block>
     <tal:block condition="python: imagecat in sections">
-      <h1 tal:define="title python:'_%s_' % imagecat"
+      <h2 class="fancy" tal:define="title python:'_%s_' % imagecat"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-
       <form tal:define="folder python: theme_container.getImageFolder(category=imagecat);
                         images python: here.cpsskins_listImages(imagecat=imagecat)"
        action="" tal:attributes="action folder/absolute_url"
@@ -280,9 +284,10 @@
               palettecat request/form/palette|nothing">
     <metal:block use-macro="here/cpsskins_form_widgets/macros/palettenavigation"/>
     <tal:block condition="not:palettecat">
-      <h1 tal:define="title string:_Edit palettes_"
+      <h1 class="fancy"
+       tal:define="title string:_Edit palettes_"
        tal:content="python: mcat and mcat(title) or title"
-      i18n:translate="" />
+       i18n:translate="" />
       <dl>
         <tal:block repeat="obj tmtool/listPaletteTypes">
           <dt tal:define="palettecat obj/getId">
@@ -302,7 +307,7 @@
     <tal:block condition="palettecat"
     define="palettes python: tmtool.listPalettes(palettecat, theme_container);
             palette_list palettes/object|nothing;">
-      <h1 tal:define="title python:'_%s_' % palettecat"
+      <h2 class="fancy" tal:define="title python:'_%s_' % palettecat"
       tal:content="python: mcat and mcat(title) or title" 
       i18n:translate="" />
       <form tal:define="folder theme_container/getPalettesFolder"
@@ -333,7 +338,9 @@
               </td>
               <td>
                 <a href="javascript:void(0)"
-                 tal:attributes="onClick onclick_string"
+                 tal:attributes="onClick onclick_string;
+                                 onmouseover string:toggle('$paletteid');
+                                 onmouseout string:toggle('$paletteid')"
                  tal:content="python: palette.title_or_id()" />
               </td>
               <td>
@@ -386,7 +393,8 @@
 
 <metal:block define-macro="themes_manager" i18n:domain="cpsskins"
   tal:define="themes python: tmtool.getThemes()">
-    <h1 tal:define="title string:_Themes manager_"
+    <h1 class="fancy"
+    tal:define="title string:_Themes manager_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
       <form action="" method="post"
@@ -394,8 +402,9 @@
         <input type="hidden" name="theme"
         tal:attributes="value current_theme" />
         <table border="0" cellpadding="2" cellspacing="0"
-        width="100%" summary="">
-          <tr>
+         class="tableFrame" width="100%" summary="">
+          <tr class="tableHeader">
+             <td>&nbsp;</td>
              <td>
                  <strong i18n:translate=""
                   tal:define="title string:_Theme name_"
@@ -415,7 +424,7 @@
           <tal:block repeat="theme themes">
               <tr tal:define="default_theme theme/default|nothing;
                               theme_id theme/id|nothing"
-                  tal:attributes="style python: theme_id == current_theme and 'background-color: #d0d0d0' or ''">
+                  tal:attributes="style python: theme_id == current_theme and 'background-color: #fff' or ''">
                   <td width="16">
                     <img src="" align="middle" alt=""
                     tal:attributes="src string:${base_url}${theme/getIcon}" />
@@ -455,7 +464,7 @@
 </metal:block>
 
 <metal:block define-macro="cache_manager" i18n:domain="cpsskins">
-    <h2 tal:define="title string:_Cache manager_"
+    <h2 class="fancy" tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
 
@@ -478,9 +487,9 @@
 
     <form action="cpsskins_cache_edit" method="post">
       <table border="0" cellpadding="2" cellspacing="0"
-      width="100%" summary="">
+       width="100%" summary="" class="tableFrame">
         <tal:block repeat="pageblock python: page_container.getPageBlocks()">
-          <tr>
+          <tr clss="tableHeader">
             <td colspan="4">
               <h3 tal:content="pageblock/title_or_id" />
             </td>
@@ -546,7 +555,7 @@
 <metal:block define-macro="theme_manager" i18n:domain="cpsskins">
   <tal:block define="object theme_container;
                      redirect_url string:${base_url}/cpsskins_theme_manage_form">
-    <h1 tal:define="title string:_Edit_">
+    <h1 class="fancy" tal:define="title string:_Edit_">
      <tal:block i18n:translate="" content="python: mcat and mcat(title) or title" />
     '<tal:block replace="theme_container/title|nothing" />'
     </h1>
@@ -561,7 +570,7 @@
                        exporters io_tool/listExportModules;
                        error_msg options/error_msg|nothing"
                condition="python: exporter in exporters">
-      <h2 tal:define="title string:_XML export_"
+      <h2 class="fancy" tal:define="title string:_XML export_"
        tal:content="python: mcat and mcat(title) or title"
        i18n:translate="" />
       <form method="post" action="." enctype="multipart/form-data">
@@ -575,7 +584,7 @@
       </form>
     </tal:block>
   </tal:block>
-  <h2 tal:define="title string:_zexp export_"
+  <h2 class="fancy" tal:define="title string:_zexp export_"
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" />
   <form action=""
@@ -596,7 +605,7 @@
   uncached_templets theme_container/findUncachedTemplets|nothing;
   i18n_templets theme_container/getI18nTemplets|nothing;
   optimized python: not (unused_styles or invisible_templets or uncached_templets or identical_styles or i18n_templets)">
-    <h2 tal:define="title string:_Theme optimizer_"
+    <h2 class="fancy" tal:define="title string:_Theme optimizer_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
     <tal:block condition="not:optimized">
@@ -654,9 +663,8 @@
               <tal:block repeat="blocks styles_by_type">
                 <table border="0" cellpadding="2" cellspacing="0"
                 class="tableFrame" width="100%">
-                  <tr class="tableHeader"
-                  tal:condition="styles_by_type">
-                    <td colspan="2">
+                  <tr class="tableHeader" tal:condition="styles_by_type">
+                    <td colspan="3">
                       <span tal:define="title python:'_%s_' % style_type"
                        tal:content="python: mcat and mcat(title) or title"
                        i18n:translate="" />

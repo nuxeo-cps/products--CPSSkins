@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="editForm">
-    <h1 i18n:translate=""
+    <h1 class="fancy" i18n:translate=""
     tal:define="title string:_Add_a_new_style_"
     tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_style_add" method="get">

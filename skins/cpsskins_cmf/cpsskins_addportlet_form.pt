@@ -29,7 +29,7 @@
        i18n:translate="" />)
     </div>
     <div class="editForm">
-      <h1 i18n:translate="" i18n:domain="cpsskins"
+      <h1 class="fancy" i18n:translate="" i18n:domain="cpsskins"
       tal:define="title string:_Add_a_portlet_"
       tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_portlet_add" method="get">

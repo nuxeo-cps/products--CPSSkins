@@ -12,7 +12,7 @@
       <tal:block define="dummy request/RESPONSE/unauthorized" />
     </tal:block>
 
-    <h1 tal:define="title string:_Cache manager_"
+    <h1 class="fancy" tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
      i18n:translate="" />
 

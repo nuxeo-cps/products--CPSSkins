@@ -19,7 +19,7 @@
 </head>
 <body>
   <div class="editForm">
-    <h1 tal:define="title string:_Add an image_"
+    <h1 class="fancy" tal:define="title string:_Add an image_"
      tal:content="python: mcat and mcat(title) or title" i18n:translate="" />
     <form action="cpsskins_image_add" method="post"
     enctype="multipart/form-data">

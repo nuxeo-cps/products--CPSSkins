@@ -417,32 +417,18 @@ div.simulate_hierarchies {
   text-decoration: none;
 }
 
-.editForm > h1 {
+.editForm h1.fancy {
   font-size: 170%;
   border-left: 8px solid #fc0;
-  padding: 5px;
+  padding: 2px 2px 2px 10px;
 }
 
-.editForm > h2 {
+.editForm h2.fancy {
   font-size: 150%;
-  padding-left: 12px;
-  padding: 4px;
-  background-color: #ffc;
-  border-left: 2px solid #fc0;
-  margin-top: 1.5em;
-  margin-left: 3px;
-}
-
-.editForm > form {
-  border: 1px solid #eee;
-  background-color: #f3f6f3;
-  padding: 8px;
-  margin: 3px;
-}
-
-.editForm > form input {
-  border: 1px solid #999;
-  background-color: #fffff;
+  padding: 2px 2px 2px 10px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #fc0;
+  margin-top: 1em;
 }
 
 .stylePreview {
@@ -776,6 +762,11 @@ div.addItem {
   padding: 15px;
 }
 
+div.addItem form {
+  background: none;
+  border: none;
+}
+
 div.editPreview {
   border: 1px solid #ccc; 
   padding: 3px; 
@@ -1055,14 +1046,14 @@ cursor: crosshair;
 }
 
 .tableFrame {
-  border: 1px #ccc solid;
-  background-color: #eae9e4;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
   margin: 2px;
   padding: 5px;
 }
 
 .tableHeader {
-  background-color: #e0e0e0;
+  background-color: #ccc; 
 }
 
 .slotSelector {
