@@ -66,10 +66,11 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']
         for obj in theme.objectValues():
-           self.assertEquals(tmtool.findStylesFor(category='Area Color', object=obj)['title'], \
-               ['AreaColor4', 'AreaColor1', 'AreaColor2', 'AreaColor3', 'AreaColor5'])
-           self.assertEquals(tmtool.findStylesFor(category='Area Shape', object=obj)['title'], \
-               ['AreaShape1', 'AreaShape2'])
+           self.assertEquals(tmtool.findStylesFor(category='Area Color', object=obj)['title'],
+           ['AreaColor4', 'AreaColor1', 'AreaColor2', 'AreaColor3', 'AreaColor5',
+            'AreaColor', 'AreaColor6', 'AreaColor7', 'AreaColor8'])
+           self.assertEquals(tmtool.findStylesFor(category='Area Shape', object=obj)['title'],
+           ['AreaShape1', 'AreaShape2', 'AreaShape', 'AreaShape3', 'AreaShape4', 'AreaShape5'])
            self.assertEquals(tmtool.findStylesFor(category='Portal Box Color', object=obj)['title'], \
                ['PortalBoxColor2'])
            self.assertEquals(tmtool.findStylesFor(category='Portal Box Shape', object=obj)['title'], \
