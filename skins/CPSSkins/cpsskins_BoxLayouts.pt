@@ -179,6 +179,7 @@
   <div class="portletBoxDest"
    tal:attributes="dest_rurl portlet_folder_rurl;
                    dest_slot group;
+                   insert_url folder_url;
                    dest_ypos python: ypos and ypos or 0;
                    style python:selected and 'border: 2px solid #000' or 'border:none'">
     <div
