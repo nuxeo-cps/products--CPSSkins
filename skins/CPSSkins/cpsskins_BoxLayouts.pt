@@ -216,7 +216,7 @@
     <div class="PortletBoxDest"
      tal:attributes="dest_slot group;
                      dest_ypos python: ypos and ypos or 0;
-                     style python:selected and 'border: 2px solid red' or ''">
+                     style python:selected and 'border: 1px solid black' or 'border:none'">
       <div class="body">
         <metal:block define-slot="box_body">Box Body</metal:block>
       </div>

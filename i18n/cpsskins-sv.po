@@ -2187,6 +2187,14 @@ msgid "_wysiwyg mode_"
 msgstr "WYSIWYG"
 
 
+msgid "button_canvas"
+msgstr ""
+
+
+msgid "button_visibility"
+msgstr ""
+
+
 msgid "description_confirm_delete_portlet"
 msgstr ""
 

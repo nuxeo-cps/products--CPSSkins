@@ -680,9 +680,17 @@ font: 10px Verdana, Arial, Sans-Serif;
 }
 
 .BoxGroupBoxTitle {
-background-color: #ccc;
+background-color: #cc9;
 font-weight: bold;
-padding: 2px;
+padding: 2px 2px 2px 5px;
+}
+
+.BoxGroupBoxTitle a {
+color: Black !important;
+}
+
+.BoxGroupBoxTitle a:hover {
+text-decoration: underline !important;
 }
 
 .BoxGroupBoxBody {
@@ -724,7 +732,7 @@ height: 100%; /* IE hack */
 
 /* Portlet Boxes */
 .PortletBoxDest, .PortletBoxDest_highlighted {
-border: 1px solid #666;
+border: 1px solid #444;
 font: 11px Verdana, Arial, Sans-Serif;
 cursor: pointer; cursor: hand;
 }

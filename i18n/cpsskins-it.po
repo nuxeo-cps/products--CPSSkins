@@ -2189,6 +2189,14 @@ msgid "_wysiwyg mode_"
 msgstr "Modalità WYSIWYG"
 
 
+msgid "button_canvas"
+msgstr ""
+
+
+msgid "button_visibility"
+msgstr ""
+
+
 msgid "description_confirm_delete_portlet"
 msgstr "Stai eliminando questo portlet. Sei sicuro?"
 

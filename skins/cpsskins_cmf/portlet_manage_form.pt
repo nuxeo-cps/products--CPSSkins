@@ -1,7 +1,9 @@
 <metal:html tal:define="global boxedit python:1;
                         cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                         mtool here/portal_membership;
-                        checkPerm nocall:mtool/checkPermission">
+                        checkPerm nocall:mtool/checkPermission;
+                        view_mode request/view_mode|options/view_mode|string:canvas;
+                        selected_portlet request/selected_portlet|options/selected_portlet|nothing">
   <metal:body use-macro="here/main_template/macros/master">
     <metal:head fill-slot="head_slot">
       <style type="text/css" media="all"
@@ -15,13 +17,11 @@
         <tal:redirect define="response request/RESPONSE;
                               dummy python:response.redirect(context_url)" />
       </tal:security>
-      <h2 i18n:translate="heading_portlet_manage_form">Portlet
-      management</h2>
+      <h1 i18n:translate="heading_portlet_manage_form">Portlet
+      management</h1>
     </metal:header>
-    <metal:main fill-slot="main"
-      tal:define="view_mode request/form/view_mode|string:canvas">
+    <metal:main fill-slot="main">
       <tal:block define="ptltool nocall:here/portal_cpsportlets;
-                         utool nocall:here/portal_url;
                          portal_url here/portal_url;
                          here_depth python: len(utool.getRelativeContentPath(here))">
         <tal:block condition="python: view_mode == 'canvas'"
@@ -63,7 +63,7 @@
 
         <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
                    condition="python: hidden_slots and view_mode=='canvas'">
-          <h3 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h3>
+          <h2 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h2>
           <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
           <p style="text-align: right">
             <a
@@ -91,6 +91,48 @@
             </tr>
           </table>
         </tal:block>
+
+        <tal:block condition="python: view_mode == 'visibility'">
+          <h2 i18n:translate="heading_portlet_visibility" i18n:domain="cpsskins">Portlet visibility</h2>
+          <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
+            <span tal:content="context_url" />
+          </p>
+          <table border=0 width="100%" cellpadding="3" cellspacing="2">
+            <tr>
+              <th tal:repeat="bc here/cpsskins_getBreadcrumbs">
+                <a href="" tal:content="bc/longtitle" 
+                 tal:attributes="href string:/${bc/rpath}/portlet_manage_form?view_mode=visibility" />
+              </th>
+            </tr>
+            <tal:block define="portlets python:ptltool.getPortlets(context=here)"
+                       repeat="portlet portlets">
+              <tr tal:define="fti portlet/getTypeInfo;
+                            portlet_id portlet/getId;
+                            portlet_type fti/title_or_id;
+                            portlet_icon fti/getIcon;
+                            portlet_depth portlet/getDepth;
+                            vrange portlet/getVisibilityRange;
+                            vrange_start python: vrange[0];
+                            vrange_stop python: vrange[1];
+                            selected python: portlet_id == selected_portlet">
+                <td tal:attributes="colspan python: portlet_depth"></td>
+                <td style="border-bottom: 1px solid #ccc">
+                  <img width="16" height="16" alt=""
+                   tal:condition="portlet_icon"
+                   tal:attributes="src string:${portal_url}/${portlet_icon};
+                                   title python: cpsmcat(portlet_type)" />
+                  <a tal:content="portlet/title"
+                   tal:attributes="href string:${portlet/absolute_url}/edit_form;
+                                   style python: selected and 'font-weight: bold' or ''" />
+                </td>
+                <td style="border-bottom: 1px solid #ccc"
+                 tal:condition="python: here_depth != portlet_depth"
+                 tal:attributes="colspan python: here_depth - portlet_depth">
+                </td>
+              </tr>       
+            </tal:block> 
+          </table>   
+        </tal:block> 
       </tal:block>
 
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />

@@ -217,6 +217,12 @@ msgstr ""
 msgid "_button_create_"
 msgstr ""
 
+msgid "button_canvas"
+msgstr ""
+
+msgid "button_visibility"
+msgstr ""
+
 msgid "_button_export_theme_"
 msgstr ""
 
