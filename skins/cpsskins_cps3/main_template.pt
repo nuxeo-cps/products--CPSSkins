@@ -60,7 +60,7 @@
       use-macro="here/?main_macro/macros/main">
         <metal:block fill-slot="maincontent">
           <metal:block
-          use-macro="here/generic_lib_portal_message/macros/portal_message" />
+          use-macro="here/generic_lib_portal_message/macros/portal_message|here/generic_lib/macros/portal_message" />
             <metal:block define-slot="header" />
             <metal:block define-slot="main" />
             <metal:block define-slot="sub" />
