@@ -36,7 +36,7 @@
   <tal:block condition="python: content == 'actions'">
     <ul
      tal:define="wtool here/portal_workflow;
-                 actioninfos python: here.cpsskins_getActionsInfo(here, context_obj);
+                 actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
      tal:condition="actioninfos">
       <tal:block repeat="actioninfo actioninfos">
         <li tal:define="we_are_here python: actioninfo['we_are_here']; 
