@@ -345,7 +345,8 @@ class PortalTheme(ThemeFolder, StylableContent):
                 templet_type = ti.getId()
                 if templet_type in done_types:
                     continue
-                done_types.append(templet_type)
+                if templet_type != 'Portlet Box Templet':
+                    done_types.append(templet_type)
                 js_code = templet.render_js(**kw)
                 if js_code:
                     js += js_code

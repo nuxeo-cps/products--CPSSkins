@@ -180,6 +180,20 @@ class PortletBox(BaseTemplet, SimpleBox):
                 rendered_box.extend('</div>')
         return ''.join(rendered_box)
 
+    security.declarePublic('render_js')
+    def render_js(self, **kw):
+        """Renders the javascript code used by the Templet."""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return ''
+        portlet_id = self.getPortletId()
+        portlet = ptltool.getPortletById(portlet_id)
+
+        if portlet is None:
+            return ''
+        return portlet.render_js(**kw)
+
     #
     # Actions
     #
