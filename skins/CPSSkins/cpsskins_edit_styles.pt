@@ -80,9 +80,9 @@
                i18n:translate="" />
               <span tal:repeat="parent parents">
                 <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
-                 align="middle" />
+                 align="middle" alt="" width="16" height="16" />
                 <a href="" tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
-                 tal:content="parent/title_or_id" />
+                 tal:content="parent/title_or_id" />&nbsp;&nbsp;
               </span>
             </p>
           </tal:block>
