@@ -72,7 +72,7 @@
 <!-- BEGIN Main Content -->
                           <metal:block define-slot="maincontent" />
 <!-- END Main Content -->
-                          <br clear="all" />
+                          <br style="clear:both" />
                         </tal:block>
                         <tal:block condition="content/isPortalBoxGroup|nothing">
                           <tal:block define="render_box python:1;

@@ -53,7 +53,7 @@
                     <tal:block condition="not:isRenderable">
                       <tal:block condition="content/isMainContent|nothing">
                         <metal:block define-slot="maincontent" />
-                        <br clear="all" />
+                        <br style="clear:both" />
                       </tal:block>
                     </tal:block>
                   </div>

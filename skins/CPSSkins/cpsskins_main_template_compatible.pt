@@ -55,7 +55,7 @@
                   <tal:block condition="not:isRenderable">
                     <tal:block condition="content/isMainContent|nothing">
                       <metal:block define-slot="maincontent" />
-                      <br clear="all" />
+                      <br style="clear:both" />
                     </tal:block>
                     <tal:block condition="content/isPortalBoxGroup|nothing">
                       <tal:block define="render_box python:1;
