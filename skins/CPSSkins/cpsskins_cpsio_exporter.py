@@ -1,4 +1,4 @@
-##parameters=export_file_name=None, REQUEST=None
+##parameters=export_file_name=None, theme=None, REQUEST=None
 
 export_class = 'CPSSkinsExporter'
 export_template = getattr(context, 'cpsskins_theme_manage_form')
@@ -14,9 +14,7 @@ exporter = io_tool.getExportPlugin(
 options = [o['id'] for o in io_tool.getExportOptionsTable(export_class)]
 
 # append the current theme name to the list of options as 'theme_...'
-tmtool = context.portal_themes
-current_theme = tmtool.getRequestedThemeName(REQUEST=REQUEST)
-options.append('theme_%s' % current_theme)
+options.append('theme_%s' % theme)
 
 try:
     exporter.setOptions(export_file_name, options=options)

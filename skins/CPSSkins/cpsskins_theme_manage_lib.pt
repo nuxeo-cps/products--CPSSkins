@@ -468,6 +468,8 @@
       <form method="post" action="." enctype="multipart/form-data">
         <input type="text" name="export_file_name"
          tal:attributes="value string:${current_theme}.zip" />
+        <input type="hidden" name="theme"
+         tal:attributes="value current_theme" />
         <input type="submit" name="cpsskins_cpsio_exporter:method"
          class="standalone" value="cpsio_button_export"
          i18n:attributes="value" />
