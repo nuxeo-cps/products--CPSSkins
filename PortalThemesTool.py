@@ -821,11 +821,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if tmp_dir is None:
             return None
 
-        try:
-            QuickImporter.manage_doQuickImport(tmp_dir, file, \
-                             set_owner=0, leave=0, REQUEST=None)
-        except:
-            return None
+        QuickImporter.manage_doQuickImport(
+            tmp_dir,
+            file,
+            set_owner=0,
+            leave=0,
+            REQUEST=None)
 
         theme_id = tmp_dir.objectIds()[0]
         new_id = getFreeId(self, try_id=theme_id)
