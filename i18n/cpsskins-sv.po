@@ -443,6 +443,10 @@ msgid "_Content_"
 msgstr "Innehåll"
 
 
+msgid "_Copy_"
+msgstr ""
+
+
 msgid "_Copyright_"
 msgstr "Upphovsrätt"
 
@@ -452,6 +456,10 @@ msgstr "Skapat av:"
 
 
 msgid "_Custom action categories_"
+msgstr ""
+
+
+msgid "_Cut_"
 msgstr ""
 
 
@@ -1089,6 +1097,10 @@ msgstr ""
 
 msgid "_Password_"
 msgstr "Lösenord"
+
+
+msgid "_Paste_"
+msgstr ""
 
 
 msgid "_Portal Box Color_"

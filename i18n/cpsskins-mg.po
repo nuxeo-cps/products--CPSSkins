@@ -452,6 +452,10 @@ msgid "_Content_"
 msgstr "Votoatiny"
 
 
+msgid "_Copy_"
+msgstr ""
+
+
 msgid "_Copyright_"
 msgstr "Zon'ny mpamorona sy ny hafa"
 
@@ -462,6 +466,10 @@ msgstr "Noforonin'ny :"
 
 msgid "_Custom action categories_"
 msgstr "Sokajin'ny hetsika fanampiny"
+
+
+msgid "_Cut_"
+msgstr ""
 
 
 msgid "_Days background color_"
@@ -1100,6 +1108,10 @@ msgstr "Palettes"
 
 msgid "_Password_"
 msgstr "Môdepasy"
+
+
+msgid "_Paste_"
+msgstr ""
 
 
 msgid "_Portal Box Color_"

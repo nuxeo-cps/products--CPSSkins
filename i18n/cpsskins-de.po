@@ -443,6 +443,10 @@ msgid "_Content_"
 msgstr "Inhalt"
 
 
+msgid "_Copy_"
+msgstr ""
+
+
 msgid "_Copyright_"
 msgstr "Copyright"
 
@@ -453,6 +457,10 @@ msgstr "Erstellt von:"
 
 msgid "_Custom action categories_"
 msgstr "Eigene Aktions-Kategorien"
+
+
+msgid "_Cut_"
+msgstr ""
 
 
 msgid "_Days background color_"
@@ -1089,6 +1097,10 @@ msgstr "Paletten"
 
 msgid "_Password_"
 msgstr "Passwort"
+
+
+msgid "_Paste_"
+msgstr ""
 
 
 msgid "_Portal Box Color_"

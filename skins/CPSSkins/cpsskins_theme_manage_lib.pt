@@ -255,6 +255,7 @@
              tal:content="python: mcat and mcat(title) or title">Value</th>
             <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
              tal:content="python: mcat and mcat(title) or title">Preview</th>
+            <th>&nbsp;</th>
           </tr>
           <tal:block repeat="palette palette_list">
             <tr tal:define="paletteid palette/getId;
@@ -282,6 +283,8 @@
                  tal:attributes="onClick onclick_string;
                                  onmouseover string:toggle('$paletteid');
                                  onmouseout string:toggle('$paletteid')" />
+              </td>
+              <td>
                 <div class="previewBox hidden"
                  tal:attributes="id palette/getId"
                  tal:content="structure python: palette.preview()" />
@@ -290,11 +293,23 @@
           </tal:block>
         </table>
         <br />
-        <input type="submit" name="cutObjects:method" value="Cut" />
-        <input type="submit" name="copyObjects:method" value="Copy" />
-        <input tal:condition="folder/canPaste"
-         type="submit" name="pasteObjects:method" value="Paste" />
-        <input type="submit" name="deleteObjects:method" value="Delete" />
+        <input type="submit" name="cutObjects:method"
+         value="Cut" i18n:attributes="value"
+         tal:define="title string:_Cut_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="copyObjects:method"
+         value="Copy" i18n:attributes="value"
+         tal:define="title string:_Copy_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="pasteObjects:method"
+         value="Paste" i18n:attributes="value"
+         tal:define="title string:_Paste_"
+         tal:condition="folder/canPaste"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="deleteObjects:method"
+         value="Delete" i18n:attributes="value"
+         tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
         <a href="" alt=""

@@ -447,6 +447,10 @@ msgid "_Content_"
 msgstr "Contenido"
 
 
+msgid "_Copy_"
+msgstr ""
+
+
 # He hecho traducción literal del francés.
 # , fuzzy
 msgid "_Copyright_"
@@ -459,6 +463,10 @@ msgstr "Creado por:"
 
 msgid "_Custom action categories_"
 msgstr "Categorías de acciones personalizadas"
+
+
+msgid "_Cut_"
+msgstr ""
 
 
 msgid "_Days background color_"
@@ -1099,6 +1107,10 @@ msgstr "Paletas"
 
 msgid "_Password_"
 msgstr "Contraseña"
+
+
+msgid "_Paste_"
+msgstr ""
 
 
 msgid "_Portal Box Color_"

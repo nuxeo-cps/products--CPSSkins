@@ -1860,3 +1860,12 @@ msgstr ""
 
 msgid "_Value_"
 msgstr ""
+
+msgid "_Cut_"
+msgstr ""
+
+msgid "_Copy_"
+msgstr ""
+
+msgid "_Paste_"
+msgstr ""
