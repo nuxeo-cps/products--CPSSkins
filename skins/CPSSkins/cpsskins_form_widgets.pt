@@ -432,6 +432,20 @@ tal:define="meta_type here/meta_type|nothing;
 </metal:block>
 
 <metal:block define-macro="portlet_edit">
+    <!-- XXX this has to move to CPSSchemas -->
+    <script type="text/javascript">
+    <!--
+     function popup_rte(input_id, label_edit) {
+       var args, value
+       value = document.getElementById(input_id).value;
+       args='?input_id='+input_id+'&label_edit='+escape(label_edit);
+       popup = window.open('popup_rte_form'+args, input_id, 'toolbar=0, scrollbars=0, location=0, statusbar=0, menubar=0, resizable=0, dependent=1, width=640, height=480')
+       if(!popup.opener)
+         popup.opener = window;
+       return false;
+   }
+   //-->
+   </script>
   <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
 </metal:block>
 
