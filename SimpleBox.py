@@ -38,6 +38,12 @@ BOX_LAYOUTS = {
 # no frames
 'no_frames': """<div class="title" style="border: none">%s</div>
 <div class="body" style="border: none">%s</div>""",
+# rounded box
+'rounded_box': """<div class="roundedBox">
+<div class="ul"></div><div class="ur"></div>
+<div class="body" style="border: none">%s</div>
+<div class="ll"></div><div class="lr"></div>
+</div>""",
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -66,6 +72,8 @@ class SimpleBox:
             return BOX_LAYOUTS['no_frames'] % (title, body)
         elif boxlayout == 'notitle_noframe':
             return BOX_LAYOUTS['notitle_noframe'] % body
+        elif boxlayout == 'rounded_box':
+            return BOX_LAYOUTS['rounded_box'] % body
 
         macro_path = self.restrictedTraverse('%s/macros/%s' %\
                                              (BOX_LAYOUT_MACRO, boxlayout),
@@ -79,18 +87,5 @@ class SimpleBox:
                                                  macro_path=macro_path,
                                                  **kw)
         return rendered
-
-    security.declarePublic('BoxLayoutList')
-    def BoxLayoutList(self):           
-        """ Returns a list of orientations for this Templet"""
-
-        layouts = ['standard', 
-                   'one_frame', 
-                   'notitle', 
-                   'no_frames', 
-                   'notitle_noframe',
-                   'drawer',
-                   'drawer_notitle']
-        return layouts
 
 InitializeClass(SimpleBox)
