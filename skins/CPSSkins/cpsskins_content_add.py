@@ -25,8 +25,7 @@ for category in content.getApplicableStyles():
     if styles['object']:
         default_style = theme_container.getDefaultStyle(type_name)
     else:
-        style = theme_container.addPortalStyle(type_name=type_name)
-        default_style = getattr(style, 'title', '')
+        default_style = ''
     default_styles[style_propid] = default_style
 
 if default_styles:

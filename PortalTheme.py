@@ -632,9 +632,8 @@ class PortalTheme(ThemeFolder, StylableContent):
         styles = self.getStyles(meta_type=meta_type) 
         for style in styles:
            if style.isDefaultStyle():
-               return getattr(style, 'title', None)
-        if styles:
-           return getattr(styles[0], 'title', None)
+               return style.title
+        return ''
 
     security.declareProtected(ManageThemes, 'getLostAndFoundFolder')
     def getLostAndFoundFolder(self, create=0):
