@@ -340,8 +340,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Text Box Templet')
         dest_pageblock = self.theme_container.addPageBlock()
         dest_block = utool.getRelativeUrl(dest_pageblock)
-        templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(1))
-        templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(0))
+        moved_templet = templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(1))
+        self.assert_(dest_pageblock.objectValues('Text Box Templet')[0] == moved_templet)
 
     def test_Templet_duplicate(self):
         pageblock = self.pageblock
