@@ -265,17 +265,17 @@ def getObjectVisibility(self, **kw):
     if visibility == 'always':
         return 1
 
-    if visibility == 'if_authenticated':
+    elif visibility == 'if_authenticated':
         mtool = getToolByName(self, 'portal_membership')
         if not mtool.isAnonymousUser():
             return 1
 
-    if visibility == 'if_anonymous':
+    elif visibility == 'if_anonymous':
         mtool = getToolByName(self, 'portal_membership')
         if mtool.isAnonymousUser():
             return 1
 
-    if visibility in ['only_in', 'everywhere_except_in', \
+    elif visibility in ['only_in', 'everywhere_except_in', \
                       'starting_from', 'up_till']:
         url = None
         # simulated URL
@@ -303,21 +303,21 @@ def getObjectVisibility(self, **kw):
             if url_path in paths:
                 return 1
 
-        if visibility == 'everywhere_except_in':
+        elif visibility == 'everywhere_except_in':
             if url_path not in paths:
                 return 1
 
-        if visibility == 'starting_from':
+        elif visibility == 'starting_from':
             for p in paths:
                 if url_path.startswith(p):
                     return 1
 
-        if visibility == 'up_till':
+        elif visibility == 'up_till':
             for p in paths:
                 if p.startswith(url_path):
                     return 1
 
-    if visibility == 'if_secure_connection':
+    elif visibility == 'if_secure_connection':
         if REQUEST is not None:
             theBase = REQUEST['BASE0'].split('//')[0]
             if theBase == 'https:':
