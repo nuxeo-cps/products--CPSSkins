@@ -55,14 +55,6 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
             cat request/cat|string:general">
   <div class="mainFormTab">
     &nbsp;
-    <tal:block repeat="section sections">
-      <a
-      tal:define="url string:${tmtool_url}/setViewMode?themes_panel=$section;
-                  title python:'_%s mode_' % section" i18n:translate=""
-       tal:attributes="href url; class python: panel == section and 'selected' or None;"
-      tal:content="python:mcat and mcat(title) or title" />
-    </tal:block>
-    &nbsp;
     <a tal:attributes="href url;
                     class python: panel=='palettes' and 'selected' or ''"
     tal:define="url string:${tmtool_url}/setViewMode?themes_panel=palettes;
@@ -83,6 +75,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme;
                 title string:_Theme_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
+    &nbsp;
+    <tal:block repeat="section sections">
+      <a
+      tal:define="url string:${tmtool_url}/setViewMode?themes_panel=$section;
+                  title python:'_%s mode_' % section" i18n:translate=""
+       tal:attributes="href url; class python: panel == section and 'selected' or None;"
+      tal:content="python:mcat and mcat(title) or title" />
+    </tal:block>
     &nbsp;
     <a tal:attributes="href url;
                     class python: panel=='theme_manager' and 'selected' or ''"
