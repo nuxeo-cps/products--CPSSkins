@@ -461,11 +461,13 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     <ul tal:define="topics_voc here/portal_vocabularies/subject_voc|nothing"
         tal:condition="topics_voc">
       <tal:block repeat="key python: topics_voc.keys()">
-        <tal:block define="portlets python: ptltool.listPortlets(topics=(key,))"
-         condition="python: len(portlets) > 0">
+        <tal:block define="portlets python: ptltool.listPortlets(topics=(key,));
+                           nb_portlets python: len(portlets)"
+         condition="python: nb_portlets > 0">
           <li><a href=""
                tal:attributes="href string:${request/URL0}?topic=$key"
                tal:content="topics_voc/?key" />
+              (<tal:block content="nb_portlets" />)
           </li>
         </tal:block>
       </tal:block>
@@ -480,12 +482,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                     ptltool nocall:here/portal_cpsportlets;
                     types ptltool/listPortletTypes">
       <tal:block repeat="type types">
-        <tal:block define="portlets python: ptltool.listPortlets(portal_types=(type,))"
-         condition="python: len(portlets) > 0">
+        <tal:block define="portlets python: ptltool.listPortlets(portal_types=(type,));
+                           nb_portlets python: len(portlets)"
+         condition="python: nb_portlets > 0">
           <li tal:define="icon python: portal_types[type].getIcon()">
             <a href="" tal:attributes="href string:${request/URL0}?type=$type">
               <img src="" tal:attributes="src icon" width="16" height="16" />
               <tal:block content="type" />
+              (<tal:block content="nb_portlets" />)
             </a>
           </li>
         </tal:block>
