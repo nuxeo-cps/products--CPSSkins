@@ -293,11 +293,11 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="site_structure"
-  tal:define="here_depth python: len(utool.getRelativeContentPath(here))">
+  tal:define="here_depth python: len(utool.getRelativeContentPath(bmf))">
   <h1 i18n:translate="heading_site_structure" 
       i18n:domain="cpsskins">Site structure</h1>
   <div style="float: right">&raquo;
-  <tal:block define="contents python: here.contentValues()"
+  <tal:block define="contents python: ptltool.getFolders(context=bmf)"
    repeat="content contents">
     <a href="" alt=""
        tal:attributes="href string:${content/absolute_url}/portlet_manage_form;
