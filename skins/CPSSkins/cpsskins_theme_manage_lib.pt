@@ -18,6 +18,7 @@
          i18n:translate="cpsio_label_cpsskins_overwrite">Overwrite existing theme in case of conflict</label>
         <input id="overwrite" type="checkbox" name="import_overwrite" /><br/>
         <input type="file" name="import_file_name" />
+        <input type="hidden" name="plugin" tal:attributes="value importer" />
         <input type="submit" class="mainbutton"
         i18n:attributes="value"
         tal:define="title string:_button_import_theme_"
