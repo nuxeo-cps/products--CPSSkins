@@ -66,6 +66,7 @@ import PaletteBorder
 import CollapsibleMenuStyle
 import CalendarStyle
 import PortalTabStyle
+import FormStyle
 
 this_module = sys.modules[__name__]
 
@@ -115,6 +116,7 @@ styleClasses = (
     CollapsibleMenuStyle.CollapsibleMenuStyle, 
     CalendarStyle.CalendarStyle,
     PortalTabStyle.PortalTabStyle,
+    FormStyle.FormStyle,
 )
                  
 paletteClasses = (
@@ -156,6 +158,7 @@ contentConstructors = (
     Calendar.addCalendar,
     CalendarStyle.addCalendarStyle,
     PortalTabStyle.addPortalTabStyle,
+    FormStyle.addFormStyle,
 )
 
 fti = (
@@ -192,6 +195,7 @@ fti = (
     Calendar.factory_type_information +
     CalendarStyle.factory_type_information +
     PortalTabStyle.factory_type_information +
+    FormStyle.factory_type_information +
     ())
 
 contentClasses = portalthemeClasses + \
@@ -274,6 +278,7 @@ def initialize(registrar):
         (CollapsibleMenuStyle.CollapsibleMenuStyle, 'collapsiblemenu_style.gif'),
         (CalendarStyle.CalendarStyle, 'calendar_style.gif'),
         (PortalTabStyle.PortalTabStyle, 'portaltab_style.gif'),
+        (FormStyle.FormStyle, 'form_style.gif'),
         (PaletteColor.PaletteColor, 'palette_color.gif'),
         (PaletteBorder.PaletteBorder, 'palette_border.gif'), 
     ):
