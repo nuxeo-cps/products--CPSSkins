@@ -23,6 +23,10 @@ ZopeTestCase.installProduct('NuxUserGroups', quiet=1)
 ZopeTestCase.installProduct('TranslationService', quiet=1)
 ZopeTestCase.installProduct('SiteAccess', quiet=1)
 
+# CPSWorkflow
+try: ZopeTestCase.installProduct('CPSWorkflow', quiet=1)
+except: pass
+
 # XXX: these products should (and used to be) be optional, but they aren't
 # right now.
 ZopeTestCase.installProduct('CPSForum', quiet=1)
