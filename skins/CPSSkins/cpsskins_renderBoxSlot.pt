@@ -9,6 +9,7 @@
              slot_icon fti/getIcon|nothing">
   <div class="portletSlotTitle" tal:content="slot_title" />
   <div class="portletBoxDest"
+   tal:omit-tag="rendered"
    tal:attributes="dest_slot slot_id;
                    dest_ypos python: 0;
                    insert_url folder_url">
