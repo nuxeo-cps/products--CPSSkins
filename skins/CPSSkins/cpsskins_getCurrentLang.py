@@ -1,22 +1,22 @@
 
 # Localizer (CMF, Plone1, CPS3)
-if hasattr(context, 'Localizer'):
-    localizer = getattr(context, 'Localizer')
+localizer =  getattr(context, 'Localizer', None)
+if localizer is not None:
     return localizer.get_selected_language()
-   
+
 # PloneLanguageTool (Plone2)
-if hasattr(context, 'portal_languages'):
-    ptool = context.portal_languages
+ptool = getattr(context, 'portal_languages', None)
+if ptool is not None:
     boundLanguages = ptool.getLanguageBindings()
     if boundLanguages:
        return boundLanguages[0]
 
 # Portal messages (CPS2)
-if hasattr(context, 'portal_messages'):
-    mcat = getattr(context, 'portal_messages')
+mcat = getattr(context, 'portal_messages', None)
+if mcat is not None:
     return mcat.get_selected_language()
 
-# PTS
+# PlacelessTranslation service
 REQUEST = context.REQUEST
 if REQUEST is not None:
     accept_language = REQUEST.get('HTTP_ACCEPT_LANGUAGE')
