@@ -9,9 +9,7 @@ newstyle = context.duplicate()
 # assign the new style to the edited object
 tmtool = context.portal_themes
 view_mode = tmtool.getViewMode()
-
-if view_mode is not None:
-    edited_url = view_mode.get('edited_url')
+edited_url = view_mode.get('edited_url')
 
 if edited_url is not None:
     edited_obj = context.restrictedTraverse(edited_url, default=None)

@@ -10,7 +10,7 @@ ttool = context.portal_types
 allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
 
 view_mode = tmtool.getViewMode()
-theme = view_mode is not None and view_mode.get('theme') or None
+theme = view_mode.get('theme')
 theme_container = tmtool.getThemeContainer(theme=theme)
 
 images_dir = theme_container.getImageFolder(category=imagecat)

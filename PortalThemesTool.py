@@ -162,7 +162,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getViewMode(self):
         """ Gets the current view mode """
 
-        return self.REQUEST.SESSION.get(VIEW_MODE_SESSION_KEY)
+        return self.REQUEST.SESSION.get(VIEW_MODE_SESSION_KEY, {})
 
     security.declarePublic('setViewMode')
     def setViewMode(self, reload=0, **kw):
@@ -643,7 +643,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         # session variable (used in edition mode)
         view_mode = self.getViewMode()
-        theme = view_mode and view_mode.get('theme') or None
+        theme = view_mode.get('theme') or None
         if theme is not None:
             return theme 
 
