@@ -214,8 +214,15 @@ class PortalBoxGroup(BaseTemplet):
                                            state=portlet.getState(),
                                            url=portlet.getRelativeUrl())
             all_rendered += rendered
-
         return all_rendered
+
+    security.declarePublic('render_cache')
+    def render_cache(self, shield=0, **kw):
+        """Renders the cached version of the templet."""
+        
+        # Entire slots are not cached.
+        return self.render(shield=shield, **kw)
+
 
 InitializeClass(PortalBoxGroup)
 
