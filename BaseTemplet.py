@@ -45,6 +45,20 @@ from cpsskins_utils import rebuild_properties, callAction, \
 from PageBlockContent import PageBlockContent
 from StylableContent import StylableContent
 
+# Edge-Side-Includes
+ESI_CODE = """
+<esi:try>
+  <esi:attempt>
+    <esi:include src="%s/render?context_rurl=%s" onerror="continue" />
+  </esi:attempt>
+  <esi:except>
+    <!--esi
+     This spot is reserved
+    -->
+  </esi:except>
+</esi:try>
+"""
+
 factory_type_information = (
     {'id': 'Base Templet',
      'meta_type': 'Base Templet',
@@ -268,20 +282,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     # RAM cache
     #
     cache_cleanup_date = 0
-
-    # Edge-Side-Includes
-    esi_code = """
-      <esi:try>
-        <esi:attempt>
-          <esi:include src="%s/render?context_rurl=%s" onerror="continue" />
-        </esi:attempt>
-        <esi:except>
-          <!--esi
-           This spot is reserved
-          -->
-        </esi:except>
-      </esi:try>
-    """
 
     def __init__(self, id, 
                  title = 'Templet',
@@ -830,7 +830,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         utool = getToolByName(self, 'portal_url')
         context_obj = kw.get('context_obj')
         context_rurl = utool.getRelativeUrl(context_obj)
-        return self.esi_code % (self.absolute_url(), context_rurl)
+        return ESI_CODE % (self.absolute_url(), context_rurl)
 
     #
     # Theme properties

@@ -1779,6 +1779,3 @@ msgstr ""
 
 msgid "_option_rounded_box_"
 msgstr ""
-
-msgid "_option_esi_box_"
-msgstr ""

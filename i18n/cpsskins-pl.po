@@ -1969,10 +1969,6 @@ msgid "_option_dropdown list_"
 msgstr ""
 
 
-msgid "_option_esi_box_"
-msgstr ""
-
-
 msgid "_option_events_"
 msgstr ""
 

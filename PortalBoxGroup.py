@@ -109,7 +109,6 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             layouts.extend(['min_max',
                             'min_max_close',
                             'min_max_edit_close',
-                            'esi_box',
                            ])
         return layouts
 
@@ -134,6 +133,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             ESI is expected to be globally enabled in the theme.
         """
 
+        if self.hasPortlets():
+            return 1
         return None
 
     security.declarePublic('getSlot')
@@ -174,11 +175,12 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
     # Rendering.
     #
     security.declarePublic('render')
-    def render(self, shield=0, **kw):
+    def render(self, shield=0, enable_esi=0, **kw):
         """Renders the templet."""
 
         if not self.hasPortlets():
             return ''
+
         context = kw.get('context_obj')
         slot = self.getSlot()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
@@ -194,13 +196,24 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         renderBoxLayout = self.renderBoxLayout
 
+        # edge-side includes
+        render_esi = 0
+        if enable_esi:
+            if self.isESIFragment():
+                render_esi = 1
+
         all_rendered = []
         for portlet in portlets:
             # open the box frame
             all_rendered.extend('<div style="%s"><div class="%s">' % \
                                  (boxstyle, boxclass) )
+
             # render the box body
-            rendered = portlet.render_cache(**kw)
+            if render_esi:
+                rendered = portlet.render_esi(**kw)
+            else:
+                rendered = portlet.render_cache(**kw)
+
             # add the box decoration
             rendered = renderBoxLayout(boxlayout=boxlayout,
                                        title=portlet.title,
@@ -224,11 +237,11 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         return rendered
 
     security.declarePublic('render_cache')
-    def render_cache(self, shield=0, **kw):
+    def render_cache(self, shield=0, enable_esi=0, **kw):
         """Renders the cached version of the templet."""
         
         # Entire slots are not cached.
-        return self.render(shield=shield, **kw)
+        return self.render(shield=shield, enable_esi=enable_esi, **kw)
 
 
 InitializeClass(PortalBoxGroup)

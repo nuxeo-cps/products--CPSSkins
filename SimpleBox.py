@@ -42,14 +42,6 @@ BOX_LAYOUTS = {
 # rounded box
 'rounded_box': """<div class="rbtop"><div></div></div>
 <div class="body">%s</div><div class="rbbot"><div></div></div>""",
-# Edge-Side-Includes
-'esi_box': """<esi:try>
-<esi:attempt>
-<esi:include src="%s/render?context_rurl=%s" onerror="continue" />
-</esi:attempt>
-<esi:except>
-</esi:except>
-</esi:try>""",
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -127,8 +119,6 @@ class SimpleBox:
             return BOX_LAYOUTS['notitle_noframe'] % body
         elif boxlayout == 'rounded_box':
             return BOX_LAYOUTS['rounded_box'] % body
-        elif boxlayout == 'esi_box':
-            return self.render_esi(**kw)
 
         macro_path = self.restrictedTraverse('%s/macros/%s' %\
                                              (BOX_LAYOUT_MACRO, boxlayout),
@@ -169,13 +159,5 @@ class SimpleBox:
             return ' '.join(boxclass)
         return ''
 
-    security.declarePublic('render_esi')
-    def render_esi(self, **kw):
-        """Renders the ESI fragment code."""
-
-        utool = getToolByName(self, 'portal_url')
-        context_obj = kw.get('context_obj')
-        context_rurl = utool.getRelativeUrl(context_obj)
-        return BOX_LAYOUTS['esi_box'] % (self.absolute_url(), context_rurl)
 
 InitializeClass(SimpleBox)
