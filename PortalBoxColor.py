@@ -50,7 +50,7 @@ class PortalBoxColor(BaseStyle):
     portal_type = 'Portal Box Color'
 
     render_method = 'cpsskins_portalboxcolor'
-    preview_action = 'cpsskins_portalboxcolor_preview'
+    preview_method = 'cpsskins_portalboxcolor_preview'
 
     _properties = BaseStyle._properties + (
         {'id': 'BoxTitle_bg_color', 

@@ -162,7 +162,7 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
     def preview(self, **kw):    
         """Renders a preview of the palette."""
 
-        return renderMeth(self, 'preview_action', **kw)
+        return renderMeth(self, 'preview_method', **kw)
 
 InitializeClass(BasePalette)
 

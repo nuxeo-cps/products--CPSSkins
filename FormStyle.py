@@ -52,7 +52,7 @@ class FormStyle(BaseStyle):
     portal_type = 'Form Style'
 
     render_method = 'cpsskins_formstyle'
-    preview_action = 'cpsskins_formstyle_preview'
+    preview_method = 'cpsskins_formstyle_preview'
 
     security = ClassSecurityInfo()
 

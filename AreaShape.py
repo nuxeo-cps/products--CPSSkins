@@ -50,7 +50,7 @@ class AreaShape(BaseStyle):
     portal_type = 'Area Shape'
 
     render_method = 'cpsskins_areashape'
-    preview_action = 'cpsskins_areashape_preview'
+    preview_method = 'cpsskins_areashape_preview'
 
     security = ClassSecurityInfo()
 

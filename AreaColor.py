@@ -52,7 +52,7 @@ class AreaColor(BaseStyle):
     portal_type = 'Area Color'
 
     render_method = 'cpsskins_areacolor'
-    preview_action = 'cpsskins_areacolor_preview'
+    preview_method = 'cpsskins_areacolor_preview'
 
     security = ClassSecurityInfo()
 

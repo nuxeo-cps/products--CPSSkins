@@ -166,7 +166,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
     def preview(self, **kw):
         """Renders a preview of the style."""
 
-        return renderMeth(self, 'preview_action', **kw)
+        return renderMeth(self, 'preview_method', **kw)
 
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):

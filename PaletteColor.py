@@ -50,7 +50,7 @@ class PaletteColor(BasePalette):
     meta_type = 'Palette Color'
     portal_type = 'Palette Color'
 
-    preview_action = 'cpsskins_palettecolor_preview'
+    preview_method = 'cpsskins_palettecolor_preview'
 
     security = ClassSecurityInfo()
 

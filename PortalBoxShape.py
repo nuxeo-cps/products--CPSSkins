@@ -51,7 +51,7 @@ class PortalBoxShape(BaseStyle):
     portal_type = 'Portal Box Shape'
 
     render_method = 'cpsskins_portalboxshape'
-    preview_action = 'cpsskins_portalboxshape_preview'
+    preview_method = 'cpsskins_portalboxshape_preview'
 
     security = ClassSecurityInfo()
 

@@ -52,7 +52,7 @@ class BoxCorners(BaseStyle):
     portal_type = 'Box Corners'
 
     render_method = 'cpsskins_boxcorners'
-    preview_action = 'cpsskins_boxcorners_preview'
+    preview_method = 'cpsskins_boxcorners_preview'
 
     security = ClassSecurityInfo()
 

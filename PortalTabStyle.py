@@ -50,7 +50,7 @@ class PortalTabStyle(BaseStyle):
     portal_type = 'Portal Tab Style'
 
     render_method = 'cpsskins_portaltabstyle'
-    preview_action = 'cpsskins_portaltabstyle_preview'
+    preview_method = 'cpsskins_portaltabstyle_preview'
 
     _properties = BaseStyle._properties + (
         {'id': 'HorizontalMargin', 

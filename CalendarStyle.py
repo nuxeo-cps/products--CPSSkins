@@ -50,7 +50,7 @@ class CalendarStyle(BaseStyle):
     portal_type = 'Calendar Style'
 
     render_method = 'cpsskins_calendarstyle'
-    preview_action = 'cpsskins_calendarstyle_preview'
+    preview_method = 'cpsskins_calendarstyle_preview'
 
     _properties = BaseStyle._properties + (
         {'id': 'Header_bg_color', 

@@ -50,7 +50,7 @@ class PaletteBorder(BasePalette):
     meta_type = 'Palette Border'
     portal_type = 'Palette Border'
 
-    preview_action = 'cpsskins_paletteborder_preview'
+    preview_method = 'cpsskins_paletteborder_preview'
 
     security = ClassSecurityInfo()
 
