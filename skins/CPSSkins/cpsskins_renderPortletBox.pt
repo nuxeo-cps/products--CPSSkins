@@ -1,6 +1,7 @@
 <div tal:attributes="class options/boxclass|nothing">
   <div tal:define="title options/title;
                    body options/body;
+                   portlet nocall:options/portlet;
                    boxedit options/boxedit|nothing;
                    macro_path options/macro_path|nothing;"
        tal:attributes="style options/boxstyle|nothing"

@@ -301,7 +301,7 @@ class PortletBox(BaseTemplet):
                                                       boxclass=boxclass,
                                                       boxstyle=boxstyle,
                                                       macro_path=macro_path,
-                                                      rendered=rendered)
+                                                      portlet=portlet)
         return rendered
 
     #
