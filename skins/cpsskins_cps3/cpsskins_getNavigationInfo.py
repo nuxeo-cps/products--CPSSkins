@@ -84,12 +84,10 @@ if rel_level > 0 and base_create_obj is not None:
                                                   base_create_obj):
         create_url = base_create_url + '/folder_factories'
 
-
 if rel_level > 1 and \
    (rel_level > len(path_list)-1  or \
    not here_rurl.startswith(base_path)):
       create_url = ''
-
 
 if base_create_obj:
     folder_title = base_create_obj.Title()
@@ -122,6 +120,18 @@ if base_create_obj:
              'icon' : doc.getIcon(relative_to_portal=1),
              'folderish' : folderish }
         ) 
+
+# tree root
+if rel_level == 0:
+    base_obj_rpath = utool.getRelativeUrl(base_obj_as_proxy)
+    menuentries = [
+        {'title': base_obj_as_proxy.title_or_id(),
+         'id': base_obj_as_proxy.id,
+         'url': base_url + base_obj_rpath,
+         'selected': here_rurl_slash.startswith('/' + base_obj_rpath + '/'),
+         'icon': base_obj_as_proxy.getIcon(relative_to_portal=1),
+         'folderish': 1, }
+    ]
 
 return { 'menuentries' : menuentries, 
          'create_url' : create_url,
