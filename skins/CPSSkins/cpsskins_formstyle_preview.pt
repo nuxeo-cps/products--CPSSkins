@@ -1,7 +1,5 @@
 <div tal:attributes="class string:formStyle${here/title}">
-  <form action="" style="width: 160px">
-    <textarea style="width: 128px">Lorem ipsum dolor sit amet</textarea><br/>
-    <input type="text" value="" style="width: 96px" />
-    <input type="submit" value="OK" style="width: 24px" /> <br/>
-  </form>
+  <textarea style="width: 128px">Lorem ipsum dolor sit amet</textarea><br/>
+  <input type="text" value="" style="width: 96px" />
+  <input type="submit" value="OK" style="width: 24px" /> <br/>
 </div>
