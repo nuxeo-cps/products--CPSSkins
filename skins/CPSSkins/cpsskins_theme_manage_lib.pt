@@ -451,7 +451,7 @@
 </metal:block>
 
 <metal:block define-macro="cache_manager" i18n:domain="cpsskins">
-    <h1 tal:define="title string:_Cache manager_"
+    <h2 tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
 

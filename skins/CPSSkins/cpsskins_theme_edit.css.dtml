@@ -419,22 +419,25 @@ div.simulate_hierarchies {
 
 .editForm > h1 {
   font-size: 170%;
-  border-left: 12px solid #fc0;
-  padding-left: 7px;
-  margin-bottom: 20px;
+  border-left: 8px solid #fc0;
+  padding: 5px;
 }
 
 .editForm > h2 {
   font-size: 150%;
-  border-left: 10px solid #cc3;
-  padding-left: 10px;
-  margin-bottom: 10px;
+  padding-left: 12px;
+  padding: 4px;
+  background-color: #ffc;
+  border-left: 2px solid #fc0;
+  margin-top: 1.5em;
+  margin-left: 3px;
 }
 
 .editForm > form {
   border: 1px solid #eee;
   background-color: #f3f6f3;
   padding: 8px;
+  margin: 3px;
 }
 
 .editForm > form input {
