@@ -267,7 +267,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return style
 
     security.declarePublic('listPalettes')
-    def listPalettes(self, category=None, object=None ):
+    def listPalettes(self, category=None, object=None):
         """ Gets the list of available palettes for a given object"""
 
         palette = {}
@@ -360,7 +360,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return page_renderer_id
 
     security.declarePublic('getThemeContainer')
-    def getThemeContainer(self, theme=None, parent=None ):
+    def getThemeContainer(self, theme=None, parent=None):
         """Gets the themes container.
            - theme = 'printable' | 'default' | ...
            - theme = None : will return the first available theme
@@ -762,7 +762,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 return iconinfo
 
     security.declarePublic('getIconsInfo')
-    def getIconsInfo(self, actions=None, ):
+    def getIconsInfo(self, actions=None):
         """ Returns action icons as a dictionary - based on CMFActionsIcons
         """
 

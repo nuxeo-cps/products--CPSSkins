@@ -229,8 +229,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 continue
 
             # open the box frame
-            all_rendered.extend('<div style="%s"><div class="%s">' % \
-                                 (boxstyle, boxclass) )
+            all_rendered.extend(
+                '<div style="%s"><div class="%s">' % (boxstyle, boxclass))
 
             # add the box decoration
             rendered = renderBoxLayout(
