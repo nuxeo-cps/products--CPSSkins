@@ -615,6 +615,11 @@ vertical-align: middle;
   margin-right: auto;
 }
 
+div.addItem {
+  clear: both;
+  padding: 10px;
+}
+
 div.editPreview {
   border: 1px solid #ccc; 
   padding: 3px; 
