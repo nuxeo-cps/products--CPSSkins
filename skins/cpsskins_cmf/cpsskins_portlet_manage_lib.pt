@@ -28,7 +28,7 @@
       <div class="title BoxGroupBoxTitle"
        tal:condition="editable" style="display:block; padding-right: 0">
         <a style="float:right"  href=""
-        tal:attributes="href string:${portlet_folder/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id; 
+        tal:attributes="href string:${portlet_folder/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id&redirect_url=$folder_url; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
           <img border="0" width="12" height="12" alt=""
           tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
