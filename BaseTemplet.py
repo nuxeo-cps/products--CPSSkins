@@ -711,6 +711,10 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             elif param == 'url':
                 index_string = REQUEST.get('cpsskins_url')
 
+            # base url
+            elif param == 'baseurl':
+                index_string = REQUEST.get('cpsskins_base_url')
+
             # CMF Actions
             elif param == 'actions':
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')

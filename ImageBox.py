@@ -149,7 +149,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         """Return a list of cache parameters"
         """
 
-        params = []
+        params = ['baseurl']
         if self.i18n:
             params.append('lang')
         return params
