@@ -1,7 +1,7 @@
 tmtool = context.portal_themes
 ttool = context.portal_types
 
-allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
+allowed_content_types = ['image/gif', 'image/jpeg', 'image/png']
 
 themeroot = tmtool.getPortalThemeRoot(context)
 

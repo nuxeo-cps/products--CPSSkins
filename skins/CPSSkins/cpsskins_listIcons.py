@@ -1,7 +1,12 @@
 tmtool = context.portal_themes
 ttool = context.portal_types
 
-allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
+allowed_content_types = [
+    'image/gif',
+    'image/jpeg',
+    'image/png',
+    'image/x-icon',
+    'image/x-ico']
 themeroot = tmtool.getPortalThemeRoot(context)
 
 images_dir = getattr(themeroot, 'icons', None)
