@@ -69,7 +69,8 @@ def migrate(self):
     for theme in theme_container.getThemes():
         for templet in theme.getTemplets():
             for oldattr in ('cache', 'cache_last_update', \
-                            'cache_count', 'cache_size'):
+                            'cache_count', 'cache_size',
+                            'cache_misses'):
                 if hasattr(templet, oldattr):
                     try:
                         delattr(templet, oldattr)
