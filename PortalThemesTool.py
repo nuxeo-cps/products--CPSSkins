@@ -1051,13 +1051,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         new_theme = getattr(self, themeid, None)
         if new_theme is not None:
+            new_theme.rebuild(setperms=1)
             theme['updated'] = DateTime().ISO()
-            try:
-                new_theme.rebuild(setperms=1)
-            except:
-                theme['status'] = STATUS_THEME_REBUILD_FAILED
-            else:
-                theme['status'] = STATUS_THEME_INSTALL_OK
+            theme['status'] = STATUS_THEME_INSTALL_OK
         else:
             theme['status'] = STATUS_THEME_INSTALL_FAILED
 
