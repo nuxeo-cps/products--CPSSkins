@@ -817,8 +817,7 @@ border: 1px dotted black;
 padding-left: 0.5em;
 padding-right: 0.5em;
 border: 1px solid black;
-display: inline;
-background-color: #ffffcc
+background-color: #ffffcc;
 }
 
 .TableFrame {
