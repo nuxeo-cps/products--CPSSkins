@@ -31,3 +31,12 @@ Refactoring:
 
   - theme migration / theme rebuild: move Page Blocks into a default Page if
     none exists.
+
+
+2004-12-21:
+
+- make the macroless renderer more intelligent so that it uses DIVs instead
+of TABLEs whenever possible. The use cases are:
+
+  - page blocks with only one column
+  - page blocks with fixed columns widths
