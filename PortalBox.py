@@ -291,6 +291,8 @@ class PortalBox(BaseTemplet):
             boxclass = self.getCSSBoxClass()
 
             boxlayout = self.boxlayout
+            if boxlayout == '':
+                boxlayout = 'standard'
             macro_path = self.unrestrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
                                                    boxlayout, default=None)
             if macro_path is None:
