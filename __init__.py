@@ -27,6 +27,8 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from CPSSkinsInstaller import manage_addInstaller
 from PortalThemesTool import PortalThemesTool
 
+import AllowModules
+
 import PortalTheme
 import ThemePage
 import ThemeFolder

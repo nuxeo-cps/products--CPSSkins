@@ -1,4 +1,7 @@
 ##parameters=REQUEST=None, theme=None, **kw
+
+from types import ListType
+
 tmtool = context.portal_themes
 mcat = tmtool.getTranslationService()
 
@@ -11,6 +14,8 @@ cache_lifetimes = kw.get('cache_lifetimes', [])
 
 if paths:
     idx = 0
+    if not isinstance(paths, ListType):
+        paths = [paths]
     for path in paths:
         templet = tmtool.restrictedTraverse(path)
         if templet.getId() in cacheable_templets:

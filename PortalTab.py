@@ -23,6 +23,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
   horizontal tabs displaying folders, actions, etc.
 """
 
+from types import StringType
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
@@ -252,7 +253,7 @@ class PortalTab(BaseTemplet):
         if self.IfFoldersCategoryAndExistsBase():
             mount_points = self.cpsskins_getMountPoints()
             base = self.base
-            if type(base) == type(''):
+            if isinstance(base, StringType):
                 if mount_points.has_key(base):
                     mount_point = mount_points[base]
                     list = [p for p in list if p.startswith(mount_point)]
