@@ -42,8 +42,8 @@
 <tal:block condition="nocall:page_container">
   <body tal:attributes="class string:color${page_container/color};
                         style string:margin:${page_container/margin};">
-  <tal:block content="structure tmtool/renderAccessKey" />
   <metal:block define-macro="main">
+    <tal:block content="structure tmtool/renderAccessKey" />
     <tal:block define="
       shield not:tmtool/debug_mode|python:1;
       enable_esi theme_container/esi|nothing;
