@@ -3,24 +3,22 @@
   define="padding templet/padding|string:0">
 
     <!-- Plone slot macros -->
-    <tal:block define="slots slots_mapping/?box_group|nothing"
-     condition="slots">
-      <metal:block tal:repeat="slot slots">
-        <tal:block define="global pathexpr python:slot[0];
-                           global usemacro python:slot[1]"
-                   on-error="nothing">
-            <metal:block tal:condition="usemacro" 
-             metal:use-macro="python:path(pathexpr)" />
-          <span tal:condition="not:usemacro"
-              tal:replace="structure python:path(pathexpr)" />
-        </tal:block>
-      </metal:block>
+    <tal:block on-error="nothing" 
+     condition="python: box_group == 'left'" >
+      <metal:leftportlets use-macro="here/portlets_fetcher/macros/left_column">
+      </metal:leftportlets>
     </tal:block>
     <tal:block on-error="nothing" 
-     condition="python: render_box and box_group == 'content_actions'" >
-     <tal:block metal:use-macro="here/global_contentviews/macros/content_actions" />
+     condition="python: box_group == 'right'" >
+      <metal:leftportlets use-macro="here/portlets_fetcher/macros/right_column">
+      </metal:leftportlets>
+    </tal:block>
+    <tal:block on-error="nothing" 
+      condition="python: box_group == 'content_actions'" >
+      <tal:block metal:use-macro="here/global_contentviews/macros/content_actions" />
     </tal:block>
 
+    <!-- CPS Portlets -->
     <div tal:define="rendered python: templet.render_cache(shield=1, context_obj=here);
                      margin here/margin|string:0"
          tal:condition="python: rendered != ''"
