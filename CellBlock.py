@@ -470,7 +470,7 @@ InitializeClass(CellBlock)
 
 def addCellBlock(dispatcher, id, REQUEST=None, **kw):
     """Add a Cell Block."""
-    ob = CellBlock(id)
+    ob = CellBlock(id, **kw)
     container = dispatcher.Destination()
     container._setObject(id, ob)
     if REQUEST is not None:
