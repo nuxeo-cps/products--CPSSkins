@@ -15,7 +15,7 @@ form {
   margin: 0;
 }
 
-input {
+input, button {
   vertical-align: middle;
 }
 
@@ -82,7 +82,7 @@ th small {
 
 /* Forms */
 
-input, select, textarea {
+input, select, textarea, button {
   font: 11px Verdana, Arial, sans-serif !important;
   color:  Black;
   background-color: #efefef;
