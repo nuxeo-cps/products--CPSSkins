@@ -47,8 +47,6 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
 tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
             mtool here/portal_membership;
             utool nocall:here/portal_url;
-            view_mode tmtool/getViewMode;
-            edit_mode view_mode/edit_mode|nothing;
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
             tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
             checkPerm nocall: mtool/checkPermission;
