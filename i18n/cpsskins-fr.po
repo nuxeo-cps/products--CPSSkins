@@ -879,6 +879,10 @@ msgid "_Images_"
 msgstr "Images"
 
 
+msgid "_Import a theme_"
+msgstr "Importer a thème"
+
+
 msgid "_Info text_"
 msgstr "Texte d'information"
 
@@ -1247,6 +1251,10 @@ msgstr "Voir le message d'erreur"
 
 msgid "_Select a style_"
 msgstr "Sélectionner un style"
+
+
+msgid "_Select a theme to manage_"
+msgstr "Sélectionner un thème à gérer"
 
 
 msgid "_Selectable themes_"

@@ -888,6 +888,10 @@ msgid "_Images_"
 msgstr "Sary"
 
 
+msgid "_Import a theme_"
+msgstr ""
+
+
 msgid "_Info text_"
 msgstr "Teny fampahalalana"
 
@@ -1255,6 +1259,10 @@ msgstr "Mijery ny hafatra momba ny diso"
 
 
 msgid "_Select a style_"
+msgstr ""
+
+
+msgid "_Select a theme to manage_"
 msgstr ""
 
 

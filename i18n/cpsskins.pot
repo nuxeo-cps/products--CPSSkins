@@ -1919,3 +1919,9 @@ msgstr ""
 
 msgid "_Creator_"
 msgstr ""
+
+msgid "_Import a theme_"
+msgstr ""
+
+msgid "_Select a theme to manage_"
+msgstr ""

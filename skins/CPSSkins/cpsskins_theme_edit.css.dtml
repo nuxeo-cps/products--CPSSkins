@@ -796,7 +796,7 @@ div.backgroundeditbox {
 }
 
 .formSubmit {
-  background-color:  #fc0;
+  background-color:  #ee0;
   margin-top: 15px;
   padding: 1px;
   padding-right: 30px;
