@@ -519,6 +519,10 @@ msgid "_Depth level_"
 msgstr "Verschachtelungs-Tiefe"
 
 
+msgid "_Description_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr ""
 
@@ -931,6 +935,10 @@ msgid "_List orientation_"
 msgstr "Listen Ausrichtung"
 
 
+msgid "_Location_"
+msgstr ""
+
+
 msgid "_Log in_"
 msgstr "Log in"
 
@@ -1061,6 +1069,10 @@ msgstr "Andere Bilder"
 
 msgid "_Other palettes_"
 msgstr "Andere Paletten"
+
+
+msgid "_Other portlets_"
+msgstr ""
 
 
 msgid "_Other styles_"
@@ -1635,6 +1647,10 @@ msgid "_areashape_description_"
 msgstr "dieser Stil definiert Rahmenstil und Dicke eines Bereiches."
 
 
+msgid "_back_"
+msgstr ""
+
+
 msgid "_backgrounds_"
 msgstr "Hintergründe"
 
@@ -1931,12 +1947,12 @@ msgid "_menu_Duplicate_"
 msgstr "Kopieren"
 
 
+msgid "_menu_Edit styles_"
+msgstr ""
+
+
 msgid "_menu_Edit_"
 msgstr "Bearbeiten"
-
-
-msgid "_menu_Edit_styles_"
-msgstr ""
 
 
 msgid "_menu_Font Color_"
@@ -1975,7 +1991,7 @@ msgid "_menu_Set alignment_"
 msgstr ""
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 

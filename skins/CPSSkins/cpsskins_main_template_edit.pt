@@ -14,12 +14,13 @@
   tal:attributes="href string:${base_url}cpsskins_msie.css" />
 <tal:comment replace="structure string:&lt;![endif]--&gt;" />
 <!-- JavaScript -->
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
   <script type="text/javascript" src="cpsskins_pdlib.js"></script>
   <script type="text/javascript" src="cpsskins_content_edit.js"></script>
   <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 <!-- Shortcut icon -->
-<tal:block content="structure theme_container/renderIcon" />
+<tal:block content="structure python:theme_container.renderIcon()" />
 </metal:block>
 <metal:block define-macro="main" tal:condition="nocall:page_container">
   <tal:block define="
@@ -88,7 +89,7 @@
 
               <tal:block repeat="content contents_in_xpos">
                 <div tal:condition="python: content.getId() == selected_content"
-                 tal:attributes="class python: (content.closed and not layout_panel) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
+                 class="templetBoxTitleSelected">
                   <metal:block use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
                 </div>
 

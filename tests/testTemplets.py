@@ -375,13 +375,6 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet_titles = [t.getTitle() for t in templets]
         self.assertEquals(templet_titles,
                          ['Text Box Templet', 'Text Box Templet'])
-      
-    def test_Templet_toggle(self):
-        pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet')
-        state = templet.closed
-        templet.toggle()
-        self.assertEquals(templet.closed, not state)
 
     def test_getVerticalPosition(self):
         pageblock = self.pageblock

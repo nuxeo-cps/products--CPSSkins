@@ -519,6 +519,10 @@ msgid "_Depth level_"
 msgstr "Profondeur de départ"
 
 
+msgid "_Description_"
+msgstr "Description"
+
+
 msgid "_Display a contextual icon_"
 msgstr "Afficher l'icône de l'objet courrant"
 
@@ -931,6 +935,10 @@ msgid "_List orientation_"
 msgstr "Orientation de la liste"
 
 
+msgid "_Location_"
+msgstr "Location"
+
+
 msgid "_Log in_"
 msgstr "Authentification"
 
@@ -1063,6 +1071,10 @@ msgstr "Autres images"
 
 msgid "_Other palettes_"
 msgstr "Autres palettes"
+
+
+msgid "_Other portlets_"
+msgstr "Autres portlets"
 
 
 msgid "_Other styles_"
@@ -1637,6 +1649,10 @@ msgid "_areashape_description_"
 msgstr "ce style définit l'épaisseur et le style des bordures d'une aire."
 
 
+msgid "_back_"
+msgstr "retour"
+
+
 msgid "_backgrounds_"
 msgstr "Images d'arrière-plan"
 
@@ -1933,12 +1949,12 @@ msgid "_menu_Duplicate_"
 msgstr "Dupliquer"
 
 
+msgid "_menu_Edit styles_"
+msgstr "Editer les styles"
+
+
 msgid "_menu_Edit_"
 msgstr "Editer"
-
-
-msgid "_menu_Edit_styles_"
-msgstr "Editer les styles"
 
 
 msgid "_menu_Font Color_"
@@ -1977,7 +1993,7 @@ msgid "_menu_Set alignment_"
 msgstr "Aligner"
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr "Styliser"
 
 

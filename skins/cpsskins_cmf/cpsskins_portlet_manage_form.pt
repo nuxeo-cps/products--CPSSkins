@@ -14,7 +14,7 @@
                   selected_portlet view_mode/selected_portlet|nothing;
                   clipboard view_mode/clipboard|nothing;
                   portal_path python: utool.getPortalPath();
-                  clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + clipboard, default=None) or nothing;
+                  clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + str(clipboard), default=None) or nothing;
                   cpsmcat python: tmtool.getTranslationService(cat='default');
                   checkPerm nocall:mtool/checkPermission;
                   context_url python: base_url + utool.getRelativeUrl(here);
@@ -28,7 +28,8 @@
   <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
 </head>
 
-<body>
+<body tal:attributes="
+  class string:color${page_container/color}">
   <div class="floatingHeader">
    <metal:block 
     use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />

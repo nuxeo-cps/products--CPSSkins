@@ -525,6 +525,10 @@ msgid "_Depth level_"
 msgstr "Nivel de profundidad relativo"
 
 
+msgid "_Description_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr ""
 
@@ -940,6 +944,10 @@ msgid "_List orientation_"
 msgstr "Orientación de la lista"
 
 
+msgid "_Location_"
+msgstr ""
+
+
 msgid "_Log in_"
 msgstr "Autentificación"
 
@@ -1070,6 +1078,10 @@ msgstr "Otras imágenes"
 
 msgid "_Other palettes_"
 msgstr "Otras paletas"
+
+
+msgid "_Other portlets_"
+msgstr ""
 
 
 msgid "_Other styles_"
@@ -1651,6 +1663,10 @@ msgid "_areashape_description_"
 msgstr "este estilo define el estilo y grosor de borde de un área."
 
 
+msgid "_back_"
+msgstr ""
+
+
 msgid "_backgrounds_"
 msgstr "Fondos"
 
@@ -1949,6 +1965,10 @@ msgid "_menu_Duplicate_"
 msgstr "Duplicar"
 
 
+msgid "_menu_Edit styles_"
+msgstr ""
+
+
 # Siguiendo la traducción francesa, prefiero
 # modificar, un término predigital. El problema
 # es que a veces aparece "modify" en inglés, y hay
@@ -1957,10 +1977,6 @@ msgstr "Duplicar"
 # , fuzzy
 msgid "_menu_Edit_"
 msgstr "Modificar"
-
-
-msgid "_menu_Edit_styles_"
-msgstr ""
 
 
 msgid "_menu_Font Color_"
@@ -1999,7 +2015,7 @@ msgid "_menu_Set alignment_"
 msgstr ""
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 

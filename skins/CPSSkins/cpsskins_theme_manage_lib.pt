@@ -226,7 +226,8 @@
               <td tal:content="string:${image/size} bytes" />              
               <td tal:content="string:${image/width}x${image/height} px" />
               <td align="center">
-                <a href="javascript:void(0)" 
+                <a style="cursor: help"
+                 href="javascript:void(0)" 
                  tal:attributes="onClick onclick_string;
                                  onmouseover string:toggle('$imageid');
                                  onmouseout string:toggle('$imageid')"
@@ -612,9 +613,11 @@
           class="tableFrame" width="100%">
             <tal:block repeat="style unused_styles">
               <tr>
-                <td width="50%">
+                <td width="20">
                   <img src="" alt=""
                    tal:attributes="src string:${base_url}${style/getIcon}" />
+                </td>
+                <td>
                   <a href="javascript:void(0)"
                    tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')"
                    tal:content="style/getTitle" />
@@ -657,12 +660,13 @@
                   </tr>
                   <tal:block repeat="style blocks">
                     <tr>
+                      <td width="20">
+                        <img tal:attributes="src string:${base_url}${style/getIcon}" />
+                      </td>
                       <td>
                         <a href="javascript:void(0)"
-                         tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')">
-                          <img tal:attributes="src string:${base_url}${style/getIcon}" />
-                          <span tal:content="style/getTitle" />
-                        </a>
+                         tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')"
+                         tal:content="style/getTitle" />
                       </td>
                       <td align="right">
                         <tal:block define="title string:_Merge this style?_"
@@ -691,11 +695,10 @@
           class="tableFrame" width="100%">
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
+                <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                 <a href="javascript:void(0)"
-                 tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')">
-                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
-                  <tal:block content="templet/getTitle" />
-                </a>
+                 tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')"
+                 tal:content="templet/getTitle" />
               </td>
               <td width="70%" align="right">
                 <table cellpadding="0" cellspacing="0">
@@ -730,27 +733,27 @@
           class="tableFrame" width="100%">
             <tal:block repeat="templet invisible_templets">
               <tr>
-                <td width="50%">
+                <td width="20">
+                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
+                </td>
+                <td>
                   <a href="javascript:void(0)"
-                   tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')">
-                    <img tal:attributes="src string:${base_url}${templet/getIcon}" />
-                    <tal:block content="templet/getTitle" />
-                  </a>
+                   tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')"
+                   tal:content="templet/getTitle" />
                 </td>
                 <td width="50%" align="right">
                   <tal:block define="title string:_Delete Templet?_"
                    content="python: mcat and mcat(title) or title" 
-                   i18n:translate="" /> 
+                   i18n:translate="" />
                   <input type="checkbox"
                   name="delete_templets:list" value="."
-                  checked="checked"     
+                  checked="checked"
                   tal:attributes="value templet/getId" />
-                </td>                   
-              </tr>                     
+                </td>
+              </tr>
             </tal:block>
-          </table>     
+          </table>
         </tal:block>
-
 
         <tal:block condition="uncached_templets">
           <h3 tal:define="title string:_Templets_"
@@ -763,26 +766,29 @@
           class="tableFrame" width="100%">
             <tal:block repeat="templet uncached_templets">
               <tr>
-                <td width="50%">
-                  <a href="javascript:void(0)"
-                  tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form?cat=general')">
-                    <img tal:attributes="src string:${base_url}${templet/getIcon}" />
-                    <tal:block content="templet/getTitle" />
-                  </a>
+                <td width="20">
+                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                 </td>
+                <td>
+                  <a href="javascript:void(0)"
+                  tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form?cat=general')"
+                  tal:content="templet/getTitle" />
+                </td>
+                <td tal:define="page templet/getPage"
+                 tal:content="page/title_or_id" />
                 <td width="50%" align="right">
                   <tal:block define="title string:_Use the cache?_"
-                   content="python: mcat and mcat(title) or title" 
-                   i18n:translate="" /> 
+                   content="python: mcat and mcat(title) or title"
+                   i18n:translate="" />
                   <input type="checkbox"
                   name="cached_templets:list" value="."
-                  checked="checked"     
+                  checked="checked"
                   tal:attributes="value templet/getId" />
-                </td>                   
-              </tr>                     
-            </tal:block>      
-          </table>            
-        </tal:block>  
+                </td>
+              </tr>
+            </tal:block>
+          </table>
+        </tal:block>
 
         <div class="formSubmit">
           <input type="submit" class="mainbutton"

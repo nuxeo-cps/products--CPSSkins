@@ -39,6 +39,11 @@
     <tal:block define="dummy request/RESPONSE/unauthorized" />
   </tal:block>
 
+  <a class="rightButton"
+    href="javascript:history.back()" i18n:translate=""
+    tal:define="title string:_back_"
+    tal:content="python: mcat and mcat(title) or title" />
+
   <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
 
   <div class="statusmessage" i18n:translate=""
@@ -76,7 +81,6 @@
       </tal:block>
     </div>
 
-
     <br/>
     <tal:block condition="isImageBox">
       <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
@@ -94,7 +98,7 @@
 
     <form action="" class="formClose">
       <input class="standalone" type="submit" 
-       onclick="window.opener.location.reload();window.close()"
+       onClick="window.opener.location.reload();window.close()"
        value="_button_close_" i18n:attributes="value" />
     </form>
   </div>

@@ -7,7 +7,7 @@
   here_url here/absolute_url;
   base_url python: here.cpsskins_getBaseUrl();
   cpsskins_language python: tmtool.getCurrentLang();
-  cpsskins_url python: here.cpsskins_getCurrentURL();
+  cpsskins_url python: tmtool.getCurrentUrl();
   dummy python: request.set('cpsskins_language', cpsskins_language);
   dummy python: request.set('cpsskins_url', cpsskins_url);
   dummy python: request.set('cpsskins_base_url', base_url);
@@ -33,9 +33,10 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 <!-- Shortcut icon -->
-  <tal:block content="structure theme_container/renderIcon" />
+  <tal:block content="structure python:theme_container.renderIcon()" />
 </metal:block>
 </head>
 <tal:block condition="nocall:page_container">

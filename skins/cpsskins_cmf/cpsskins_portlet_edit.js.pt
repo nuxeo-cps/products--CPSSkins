@@ -7,6 +7,17 @@ function newWindow(url) {
   if (mywindow.opener == null) mywindow.opener = self;
 }
 
+function toggle(panelId) {
+  if (document.getElementById) {
+    var target = document.getElementById(panelId);
+    if (target.style.display != "block"){
+      target.style.display = "block";
+    } else {
+      target.style.display = "none";
+    }
+  }
+}
+
 /* PDLIB */
 var Destinations = [];
 

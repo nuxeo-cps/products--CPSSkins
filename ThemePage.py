@@ -336,22 +336,7 @@ class ThemePage(ThemeFolder, StylableContent):
         invisible_templets = []
         pageblocks = self.getPageBlocks()
         for pageblock in pageblocks:
-            maxcols = pageblock.maxcols
-            pageblock_closed = pageblock.closed
-            if maxcols is not None:
-                maxcols = int(maxcols)
-            for obj in pageblock.objectValues():
-                if not getattr(aq_base(obj), 'isportaltemplet', 0):
-                    continue
-                if obj.closed:
-                    invisible_templets.append(obj)
-                    continue
-                if pageblock_closed:
-                    invisible_templets.append(obj)
-                    continue
-                xpos = getattr(obj, 'xpos', None)
-                if xpos is not None and xpos >= maxcols:
-                    invisible_templets.append(obj)
+            invisible_templets.extend(pageblock.getInvisibleTemplets())
         return invisible_templets
 
     # slots

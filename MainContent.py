@@ -93,12 +93,6 @@ class MainContent(BaseTemplet):
            
         return 1
 
-    security.declarePublic('can_toggle')
-    def can_toggle(self):
-        """ Can the templet be toggled (maximize / minimize)  ?"""
-           
-        return None
-
 InitializeClass(MainContent)
 
 def addMainContent(dispatcher, id, REQUEST=None, **kw):

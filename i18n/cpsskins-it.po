@@ -521,6 +521,10 @@ msgid "_Depth level_"
 msgstr "Profondità relativa del livello"
 
 
+msgid "_Description_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr "Visualizza l'icona associata all'oggetto corrente"
 
@@ -933,6 +937,10 @@ msgid "_List orientation_"
 msgstr "Disposizione della lista"
 
 
+msgid "_Location_"
+msgstr ""
+
+
 msgid "_Log in_"
 msgstr "Autenticati"
 
@@ -1063,6 +1071,10 @@ msgstr "Altre immagini"
 
 msgid "_Other palettes_"
 msgstr "Torna alla raccolta completa"
+
+
+msgid "_Other portlets_"
+msgstr ""
 
 
 msgid "_Other styles_"
@@ -1637,6 +1649,10 @@ msgid "_areashape_description_"
 msgstr "in questa schermata puoi definire le impostazioni per il titolo, lo stile e lo spessore del contorno di un'area."
 
 
+msgid "_back_"
+msgstr ""
+
+
 msgid "_backgrounds_"
 msgstr "Motivi di sfondo"
 
@@ -1933,12 +1949,12 @@ msgid "_menu_Duplicate_"
 msgstr "Duplica"
 
 
+msgid "_menu_Edit styles_"
+msgstr ""
+
+
 msgid "_menu_Edit_"
 msgstr "Modifica"
-
-
-msgid "_menu_Edit_styles_"
-msgstr ""
 
 
 msgid "_menu_Font Color_"
@@ -1977,7 +1993,7 @@ msgid "_menu_Set alignment_"
 msgstr ""
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 

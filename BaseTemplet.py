@@ -127,13 +127,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'label': 'Title', 
          'category': 'general',
         },
-        {'id': 'closed', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Closed', 
-         'category': 'none',
-         'default': 0,
-        },
         {'id': 'cacheable', 
          'type': 'boolean', 
          'mode': 'w', 
@@ -284,7 +277,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
     def __init__(self, id, 
                  title = 'Templet',
-                 closed = 0,
                  cacheable = 0,
                  cache_lifetime = '60',
                  esi_fragment = 0,
@@ -305,7 +297,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                  formstyle = '',
                  **kw):
         self.id = id
-        self.closed = closed
         self.cacheable = cacheable
         self.cache_lifetime = cache_lifetime
         self.esi_fragment = esi_fragment
@@ -621,8 +612,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     def getVisibility(self, **kw):
         """Returns True if the Templet is visible."""
 
-        if self.closed:
-            return None
         return getObjectVisibility(self, **kw)
 
     security.declareProtected(ManageThemes, 'edit_form')

@@ -434,6 +434,27 @@ class PageBlock(ThemeFolder, StylableContent):
                 templets.extend(obj.getTemplets())
         return templets
 
+    security.declareProtected(ManageThemes, 'getInvisibleTemplets')
+    def getInvisibleTemplets(self, **kw):
+        """Returns the list of invisible templets.
+        """
+
+        invisible_templets = []
+        maxcols = self.maxcols
+        pageblock_closed = self.closed
+
+        for obj in self.objectValues():
+            o = aq_base(obj)
+            # templets
+            if getattr(o, 'isportaltemplet', 0):
+                if pageblock_closed or obj.xpos >= maxcols:
+                    invisible_templets.append(obj)
+                    continue
+            # cell blocks
+            if getattr(o, 'iscellblock', 0):
+                invisible_templets.extend(obj.getInvisibleTemplets())
+        return invisible_templets
+
     #
     # Actions
     #

@@ -42,7 +42,6 @@ for k in merge_style_keys:
             if style_id not in styles_to_delete:
                 styles_to_delete.append(style_id) 
 
-
 #
 # Styles to delete
 #
@@ -51,51 +50,32 @@ styles_to_delete = filter(lambda s, l=styles_dir.objectIds(): s in l, \
                           styles_to_delete)
 styles_dir.manage_delObjects(styles_to_delete)
 
-
 #
 # Templets to delete 
 #
 
 if templets_to_delete:
-    pageblocks =  page_container.getPageBlocks()
-    for pageblock in pageblocks:
-        maxcols = pageblock['maxcols']
-        objects = pageblock.getObjects(REQUEST=REQUEST) 
-        for xpos in range(int(maxcols)):
-            objects_in_xpos = objects.get(xpos, None)
-            if not objects_in_xpos:
-                continue
-            for templet in objects_in_xpos['contents']:
-                id = templet.getId()
-                if id in templets_to_delete:
-                    pageblock.manage_delObjects([id])
-
+    for templet in theme_container.getTemplets():
+        id = templet.getId()
+        if id in templets_to_delete:
+             pageblock = templet.getContainer()
+             pageblock.manage_delObjects([id])
 
 #
 # Templets to cache
-#                   
-                    
-if templets_to_cache:
-    pageblocks =  page_container.getPageBlocks()
-    for pageblock in pageblocks: 
-        maxcols = pageblock['maxcols']
-        objects = pageblock.getObjects(REQUEST=REQUEST) 
-        for xpos in range(int(maxcols)):
-            objects_in_xpos = objects.get(xpos, None)
-            if not objects_in_xpos:
-                continue         
-            for templet in objects_in_xpos['contents']:
-                id = templet.getId()
-                if id in templets_to_cache:
-                    templet.edit(**{'cacheable':1})
+#
 
+if templets_to_cache:
+    for templet in theme_container.getTemplets():
+        id = templet.getId()
+        if id in templets_to_cache:
+            templet.edit(cacheable=1)
 
 #
 # Items to translate
 #
 
-i18n_templets = page_container.getI18nTemplets()
-for templet in i18n_templets:
+for templet in theme_container.getTemplets():
     i18n_templet_id = templet.getId()
     i18n_props = templet.getI18nProperties()
     prop_dict = {}

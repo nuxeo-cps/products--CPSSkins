@@ -43,6 +43,7 @@ try:
 except ImportError:
     isPILAvailable = 0
 
+from DateTime import DateTime
 from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
@@ -57,7 +58,7 @@ from StylableContent import StylableContent
 
 from cpsskins_utils import rebuild_properties, callAction, css_slimmer, \
                            getFreeId, verifyThemePerms, canonizeId, \
-                           isBroken, moveToLostAndFound, setCacheHeaders
+                           isBroken, moveToLostAndFound
 
 factory_type_information = (
     {'id': 'Portal Theme',
@@ -287,7 +288,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         REQUEST = self.REQUEST
         kw.update(REQUEST.form)
 
-        setCacheHeaders(self, css=1, **kw)
+        self.setCacheHeaders(content_type='text/css', **kw)
 
         cache = self.getCSSCache()
         index = tuple(kw.items())
@@ -318,6 +319,8 @@ class PortalTheme(ThemeFolder, StylableContent):
         if REQUEST is not None:
             kw.update(REQUEST.form)
 
+        self.setCacheHeaders(content_type='text/javascript', **kw)
+
         cache = self.getJSCache()
         index = tuple(kw.items())
 
@@ -347,6 +350,21 @@ class PortalTheme(ThemeFolder, StylableContent):
                     js += js_code
             cache.setEntry(index, js)
         return js  
+
+    security.declarePublic('setCacheHeaders')
+    def setCacheHeaders(self, content_type='', editing=0, **kw):
+        """ set HTTP cache headers"""
+
+        REQUEST = self.REQUEST
+        setHeader = REQUEST.RESPONSE.setHeader
+        setHeader('Content-Type', content_type)
+        if not editing:
+            now = DateTime()
+            last_modified = now -14
+            expires = now +1
+            setHeader('Last-Modified', last_modified.toZone('GMT').rfc822())
+            setHeader('Cache-Control', 'max-age=36000, must-revalidate')
+            setHeader('Expires', expires.toZone('GMT').rfc822())
 
     #
     # Pagelets (Page elements)
@@ -642,6 +660,15 @@ class PortalTheme(ThemeFolder, StylableContent):
                 list.append(templet)
         return list
 
+    security.declareProtected(ManageThemes, 'getInvisibleTemplets')
+    def getInvisibleTemplets(self, **kw):
+        """Returns the list of invisible templets.
+        """
+
+        invisible_templets  = []
+        for page in self.getPages():
+            invisible_templets.extend(page.getInvisibleTemplets())
+        return invisible_templets
     #
     # Factories
     #

@@ -1,13 +1,12 @@
 ##parameters=theme=None, page=None, REQUEST=None, **kw
 
-if REQUEST is not None:
-    REQUEST.RESPONSE.setHeader('Content-Type', 'text/javascript')
-
 tmtool = context.portal_themes
 theme_container = tmtool.getThemeContainer(theme=theme)
 page_container = theme_container.getPageContainer(page=page)
-js = theme_container.renderJS(page=page)
 
+theme_container.setCacheHeaders(content_type='text/javascript', page=page)
+
+js = ''
 # CPS Portlets
 ptltool = getattr(context, 'portal_cpsportlets', None)
 if ptltool is not None and page_container is not None:

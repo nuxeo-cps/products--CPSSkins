@@ -522,6 +522,10 @@ msgid "_Depth level_"
 msgstr "Profundidade de nível relativa"
 
 
+msgid "_Description_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr "Mostra um ícone contextual"
 
@@ -934,6 +938,10 @@ msgid "_List orientation_"
 msgstr "Orientação da lista"
 
 
+msgid "_Location_"
+msgstr ""
+
+
 msgid "_Log in_"
 msgstr "Login"
 
@@ -1064,6 +1072,10 @@ msgstr "Outras imagens"
 
 msgid "_Other palettes_"
 msgstr "Outras paletas"
+
+
+msgid "_Other portlets_"
+msgstr ""
 
 
 msgid "_Other styles_"
@@ -1638,6 +1650,10 @@ msgid "_areashape_description_"
 msgstr "este estilo define o estilo e a espessura da borda de uma área."
 
 
+msgid "_back_"
+msgstr ""
+
+
 msgid "_backgrounds_"
 msgstr "Fundos"
 
@@ -1934,12 +1950,12 @@ msgid "_menu_Duplicate_"
 msgstr "Duplicar"
 
 
+msgid "_menu_Edit styles_"
+msgstr ""
+
+
 msgid "_menu_Edit_"
 msgstr "Editar"
-
-
-msgid "_menu_Edit_styles_"
-msgstr ""
 
 
 msgid "_menu_Font Color_"
@@ -1978,7 +1994,7 @@ msgid "_menu_Set alignment_"
 msgstr ""
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 

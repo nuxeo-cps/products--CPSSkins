@@ -11,9 +11,10 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 <!-- Shortcut icon -->
-<tal:block content="structure theme_container/renderIcon" />
+<tal:block content="structure python:theme_container.renderIcon()" />
 </metal:block>
 <metal:block define-macro="main" tal:condition="nocall:page_container">
   <tal:block content="structure tmtool/renderAccessKey" />

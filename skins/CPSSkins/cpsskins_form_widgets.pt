@@ -201,7 +201,7 @@
                      title python: mcat and mcat(title) or title" />
       <a i18n:attributes="title" i18n:domain="cpsskins"
        tal:define="title string:_Edit the current style_"
-       tal:attributes="href string:${object_url}/cpsskins_edit_style?stylecat=$style&amp;style=$value;
+       tal:attributes="href string:${object_url}/cpsskins_edit_style?stylecat=$style&amp;style=$value&amp;goback=1;
                        title python: mcat and mcat(title) or title">
         <img border="0" width="16" height="16" alt="edit"
          tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
@@ -437,7 +437,7 @@ tal:define="theme request/form/theme|nothing;
   </div>
 </metal:block>
 
-<metal:block define-macro="portlet_edit" i18n:domain="cpsskins">
+<metal:block define-macro="portlet_edit">
   <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
 </metal:block>
 

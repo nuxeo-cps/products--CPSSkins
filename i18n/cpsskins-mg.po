@@ -528,6 +528,10 @@ msgid "_Depth level_"
 msgstr "Profondeur de départ"
 
 
+msgid "_Description_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr "Afficher l'icône de l'objet courant"
 
@@ -940,6 +944,10 @@ msgid "_List orientation_"
 msgstr "Orientation de la liste"
 
 
+msgid "_Location_"
+msgstr ""
+
+
 msgid "_Log in_"
 msgstr "Fanamarinam-pidirana"
 
@@ -1072,6 +1080,10 @@ msgstr "Sary hafa"
 
 msgid "_Other palettes_"
 msgstr "Palettes hafa"
+
+
+msgid "_Other portlets_"
+msgstr ""
 
 
 msgid "_Other styles_"
@@ -1646,6 +1658,10 @@ msgid "_areashape_description_"
 msgstr "Ity style ity no mamaritra ny style sy ny hatevin'ny tsipika manodidina ny faritra"
 
 
+msgid "_back_"
+msgstr ""
+
+
 msgid "_backgrounds_"
 msgstr "Images d'arrière-plan"
 
@@ -1942,12 +1958,12 @@ msgid "_menu_Duplicate_"
 msgstr "Dupliquer"
 
 
+msgid "_menu_Edit styles_"
+msgstr ""
+
+
 msgid "_menu_Edit_"
 msgstr "Manova"
-
-
-msgid "_menu_Edit_styles_"
-msgstr ""
 
 
 msgid "_menu_Font Color_"
@@ -1986,7 +2002,7 @@ msgid "_menu_Set alignment_"
 msgstr ""
 
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 

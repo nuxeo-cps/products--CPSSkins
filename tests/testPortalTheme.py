@@ -149,7 +149,7 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(title1, 'AreaColor1')
         self.assertEquals(title2, 'AreaColor1')
         self.assertEquals(title3, 'Noname')
- 
+
     def test_getInvisibleTemplets(self):
         theme_container = self.theme_container
         page_container = theme_container.addThemePage()
@@ -160,24 +160,22 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
             type_name='Action Box Templet', xpos=int(2))
         templet3 = pageblock.addContent(
             type_name='Search Box Templet', xpos=int(3))
-        templet4 = pageblock.addContent(
+        cellblock = pageblock.addContent(
+            type_name='Cell Block', xpos=int(0))
+        templet4 = cellblock.addContent(
             type_name='Portal Box Templet', xpos=int(0))
-        templet5 = pageblock.addContent(
-            type_name='Portal Box Templet', xpos=int(0))
-        templet6 = pageblock.addContent(
-            type_name='Portal Box Group Templet', xpos=int(0))
         pageblock.maxcols = 1
-        templet4.closed = 1
+        cellblock.xpos = 2
         invisible_templets = page_container.getInvisibleTemplets()
         invisible_templets_titles = [getattr(t, 'title') for t in invisible_templets]
         self.assertEquals(invisible_templets_titles, 
                 ['Portal Box Templet', 'Search Box Templet', 'Action Box Templet'])
-    
+
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestPortalTheme))
     return suite
-    
+
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
- 
+

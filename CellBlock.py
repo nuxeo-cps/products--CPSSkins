@@ -300,6 +300,17 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
                 templets.append(obj)
         return templets
 
+    security.declareProtected(ManageThemes, 'getInvisibleTemplets')
+    def getInvisibleTemplets(self, **kw):
+        """Returns the list of invisible templets.
+        """
+
+        invisible_templets = []
+        container = self.getContainer()
+        if self.xpos >= container.maxcols:
+            invisible_templets.extend(self.getTemplets())
+        return invisible_templets
+
     security.declarePublic('getVisibility')
     def getVisibility(self, **kw):
         """Returns True if the Cell Block is visible."""

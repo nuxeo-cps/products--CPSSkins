@@ -572,7 +572,7 @@ msgstr ""
 msgid "_menu_Paste_"
 msgstr ""
 
-msgid "_menu_Set style_"
+msgid "_menu_Set styles_"
 msgstr ""
 
 msgid "_menu_Set alignment_"
@@ -617,7 +617,7 @@ msgstr ""
 msgid "_menu_Edit_"
 msgstr ""
 
-msgid "_menu_Edit_styles_"
+msgid "_menu_Edit styles_"
 msgstr ""
 
 msgid "_menu_Delete_"
@@ -672,6 +672,9 @@ msgid "_button_clear_the_cache_"
 msgstr ""
 
 msgid "_Other styles_"
+msgstr ""
+
+msgid "_Other portlets_"
 msgstr ""
 
 msgid "_Other palettes_"
@@ -1892,4 +1895,13 @@ msgid "_dimensions_"
 msgstr ""
 
 msgid "_size_"
+msgstr ""
+
+msgid "_Location_"
+msgstr ""
+
+msgid "_Description_"
+msgstr ""
+
+msgid "_back_"
 msgstr ""

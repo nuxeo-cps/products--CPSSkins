@@ -663,6 +663,23 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         return [t.getId() for t in self.getThemes()]
 
+    security.declarePublic('getCurrentUrl')
+    def getCurrentUrl(self, REQUEST=None):
+        """Get the current url
+        """
+
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        request_url = REQUEST.get('URL', None)
+        query_string = REQUEST.get('QUERY_STRING', None)
+
+        if request_url.endswith('/index_html'):
+            request_url = request_url[:-11]
+        if query_string:
+            request_url += '?' + query_string
+        return request_url
+
     security.declarePublic('getCurrentLang')
     def getCurrentLang(self):
         """Get the current language

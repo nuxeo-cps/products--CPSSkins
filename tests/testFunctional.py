@@ -118,24 +118,9 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         pageblocks = self.page_container.objectValues('Page Block')
         self.assert_(len(pageblocks) == 0)
 
-    def test_Templet_toggle(self):
-        pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet')
-        templet.closed = 0
-        test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() !=  HTTP_UNAUTHORIZED )
-        self.assert_(templet.closed == 1)
-        templet.closed = 1
-        test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() !=  HTTP_UNAUTHORIZED )
-        self.assert_(templet.closed == 0)
-
     def test_Templet_delete(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet')
-        templet.closed = 0
         test_url = '/%s/cpsskins_object_delete' % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() !=  HTTP_UNAUTHORIZED )
@@ -467,20 +452,6 @@ class TestFunctionalAsMember(TestFunctional):
         pageblocks = self.page_container.objectValues('Page Block')
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
         self.assert_(len(pageblocks) == 1)
-
-    def test_Templet_toggle(self):
-        pageblock = self.pageblock
-        templet = pageblock.addContent(type_name='Text Box Templet')
-        templet.closed = 0
-        test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() ==  HTTP_UNAUTHORIZED )
-        self.assert_(templet.closed == 0)
-        templet.closed = 1
-        test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
-        response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() ==  HTTP_UNAUTHORIZED )
-        self.assert_(templet.closed == 1)
 
     def test_duplicate_Templet(self):
         pageblock = self.pageblock

@@ -101,14 +101,6 @@ class ActionBox(BaseTemplet):
 
         return 1
 
-    security.declarePublic('isAlignable')
-    def isAlignable(self):
-        """Returns true if the Templet can be aligned horizontally"""
-
-        if getattr(self, 'orientation', '') == 'vertical':
-            return 1
-        return None
-
     security.declarePublic('getCacheParams')
     def getCacheParams(self):
         """Return a list of cache parameters"

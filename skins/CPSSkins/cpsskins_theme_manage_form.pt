@@ -24,7 +24,9 @@
    tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
 </head>
 
-<body tal:attributes="onload string:javascript:scrollToCoordinates(${scrollx},${scrolly})">
+<body tal:attributes="
+  onload string:javascript:scrollToCoordinates(${scrollx},${scrolly});
+  class string:color${page_container/color}">
   <div class="floatingHeader">
    <metal:block use-macro="here/cpsskins_theme_widgets/macros/navigate" />
    <tal:block define=" display_url_simulation python: panel != 'layout'"

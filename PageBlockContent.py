@@ -103,14 +103,6 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                 break
         return newpos
 
-    security.declarePublic('can_toggle')
-    def can_toggle(self):
-        """Can the templet be toggled (open/close)?"""
-
-        if hasattr(self, 'closed'):
-            return 1
-        return None
-
     security.declarePublic('can_delete')
     def can_delete(self):
         """Can the templet be deleted?"""
@@ -180,12 +172,6 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         if self.xpos > 0:
             return 1
         return None
-
-    security.declareProtected(ManageThemes, 'toggle')
-    def toggle(self):
-        """Opens or closes the Templet."""
-
-        self.closed = not self.closed
 
     security.declareProtected(ManageThemes, 'duplicate')
     def duplicate(self):
@@ -416,6 +402,12 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Return the content's container"""
 
         return aq_parent(aq_inner(self))
+
+    security.declarePublic('getPage')
+    def getPage(self):
+        """Return the content's page"""
+
+        return aq_parent(aq_inner(aq_parent(aq_inner(self))))
 
     #
     # Properties
