@@ -28,8 +28,6 @@ from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.Image import Image
 
-from Products.CMFCore.utils import getToolByName
-
 from BaseTemplet import BaseTemplet
 from ThemeFolder import ThemeFolder
 from CPSSkinsPermissions import ManageThemes
