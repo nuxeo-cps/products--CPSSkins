@@ -27,7 +27,6 @@ from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
 from BaseTemplet import BaseTemplet
-from cpsskins_utils import getStyleList
 
 import md5
 
@@ -258,12 +257,6 @@ class PortalTab(BaseTemplet):
                     mount_point = mount_points[base]
                     list = [p for p in list if p.startswith(mount_point)]
         return list 
-
-    security.declarePublic('PortalTabStylesList')
-    def PortalTabStylesList(self):           
-        """ Returns a list of Portal Tab styles"""
-
-        return getStyleList(self, 'Portal Tab Style')
 
 InitializeClass(PortalTab)
 

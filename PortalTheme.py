@@ -55,9 +55,11 @@ from Products.CMFCore.utils import getToolByName
 from RAMCache import SimpleRAMCache, RAMCache
 from ThemeFolder import ThemeFolder
 from CPSSkinsPermissions import ManageThemes
+from StylableContent import StylableContent
+
 from cpsskins_utils import rebuild_properties, callAction, css_slimmer, \
                            getFreeId, verifyThemePerms, canonizeId, \
-                           getApplicableStylesFor, isBroken, moveToLostAndFound
+                           isBroken, moveToLostAndFound
 
 factory_type_information = (
     {'id': 'Portal Theme',
@@ -131,7 +133,7 @@ SHORTCUT_ICON_HTML = """
 <link rel="shortcut icon" type="image/x-icon" href="%s" type="%s" />
 """
 
-class PortalTheme(ThemeFolder):
+class PortalTheme(ThemeFolder, StylableContent):
     """
     Class for Portal Themes.
     """
@@ -675,13 +677,6 @@ class PortalTheme(ThemeFolder):
             list.append(o)
         return list 
 
-    security.declarePublic('getApplicableStyles')
-    def getApplicableStyles(self):
-        """ Returns the styles by meta type that are 
-            applicable to this Portal Theme
-        """
-        return getApplicableStylesFor(self)
-    
     security.declarePublic('findIdenticalStyles')
     def findIdenticalStyles(self):
         """
@@ -1115,18 +1110,6 @@ class PortalTheme(ThemeFolder):
         objects.insert(newpos, obj)
         self._objects = tuple(objects)
         return 1
-
-    #
-    # Properties options
-    #
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
-        """ Returns a list of Area Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Color', object=self)
-        if styles: 
-            return styles['title']
 
     #
     # RAM Cache

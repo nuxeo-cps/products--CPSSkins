@@ -27,7 +27,6 @@ from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
 from BaseTemplet import BaseTemplet
-from cpsskins_utils import getStyleList
 
 factory_type_information = (
     {'id': 'Collapsible Menu Templet',
@@ -148,12 +147,6 @@ class CollapsibleMenu(BaseTemplet):
         if self.folder_items_i18n:
             params.append('lang')
         return params
-
-    security.declarePublic('CollapsibleMenuStylesList')
-    def CollapsibleMenuStylesList(self):           
-        """ Returns a list of Collapsible Menu styles"""
-
-        return getStyleList(self, 'Collapsible Menu Style')
 
     security.declarePublic('PathsList')
     def PathsList(self):           

@@ -34,9 +34,11 @@ from Products.CMFCore.utils import getToolByName
 
 from CPSSkinsPermissions import ManageThemes
 from ThemeFolder import ThemeFolder
+from StylableContent import StylableContent
+
 from cpsskins_utils import rebuild_properties, callAction, \
                            getFreeId, verifyThemePerms, canonizeId, \
-                           getApplicableStylesFor, isBroken, moveToLostAndFound
+                           isBroken, moveToLostAndFound
 
 factory_type_information = (
     {'id': 'Page Block',
@@ -76,7 +78,7 @@ factory_type_information = (
     },
 )
 
-class PageBlock(ThemeFolder):
+class PageBlock(ThemeFolder, StylableContent):
     """
     Class for page blocks.
     """
@@ -404,13 +406,6 @@ class PageBlock(ThemeFolder):
             areaclass = 'Shape%s Color%s' % (shape, color)
         return areaclass
 
-    security.declarePublic('getApplicableStyles')
-    def getApplicableStyles(self):
-        """ Returns the styles by meta type that are 
-            applicable to this Page Block
-        """
-        return getApplicableStylesFor(self)
-
     security.declarePublic('can_toggle')
     def can_toggle(self):
         """
@@ -586,24 +581,6 @@ class PageBlock(ThemeFolder):
 
         theme_container = self.aq_parent
         theme_container.manage_delObjects(self.getId())
-
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
-        """ Returns a list of Area Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Color', object=self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('AreaShapesList')
-    def AreaShapesList(self):           
-        """ Returns a list of Area Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Shape', object=self)
-        if styles: 
-            return styles['title']
 
 InitializeClass(PageBlock)
 

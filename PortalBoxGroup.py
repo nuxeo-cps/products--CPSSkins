@@ -166,26 +166,6 @@ class PortalBoxGroup(BaseTemplet):
 
         return None
 
-    security.declarePublic('BoxShapesList')
-    def BoxShapesList(self):           
-        """ Returns a list of Portal Box Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Portal Box Shape', 
-                                      object=self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('BoxColorsList')
-    def BoxColorsList(self):           
-        """ Returns a list of Portal Box Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Portal Box Color', 
-                                      object=self)
-        if styles: 
-            return styles['title']
-
     security.declarePublic('getSlot')
     def getSlot(self):
          """Return the slot name"""

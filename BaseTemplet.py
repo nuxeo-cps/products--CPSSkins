@@ -39,10 +39,10 @@ from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import rebuild_properties, callAction, \
                            verifyThemePerms, \
                            getObjectVisibility, canonizeId, \
-                           getApplicableStylesFor, getStyleList, \
                            getAvailableLangs, getDefaultLang, html_slimmer
 
 from PageBlockContent import PageBlockContent
+from StylableContent import StylableContent
 
 factory_type_information = (
     {'id': 'Base Templet',
@@ -84,7 +84,7 @@ factory_type_information = (
 )
 
 
-class BaseTemplet(PageBlockContent, DynamicType, PropertyManager, SimpleItem):
+class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManager, SimpleItem):
     """
     Base class for templets.
     """
@@ -502,14 +502,6 @@ class BaseTemplet(PageBlockContent, DynamicType, PropertyManager, SimpleItem):
             return None
         return getObjectVisibility(self, REQUEST=REQUEST, **kw)
 
-    security.declarePublic('getApplicableStyles')
-    def getApplicableStyles(self):
-        """Returns the styles by meta type that are 
-           applicable to this Templet
-        """
-
-        return getApplicableStylesFor(self)
-
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):
         """Call the edit action."""
@@ -821,35 +813,6 @@ class BaseTemplet(PageBlockContent, DynamicType, PropertyManager, SimpleItem):
     #
     # Theme properties
     #
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
-        """Returns a list of Area Color styles."""
-
-        return getStyleList(self, 'Area Color')
-
-    security.declarePublic('AreaShapesList')
-    def AreaShapesList(self):           
-        """Returns a list of Area Shape styles."""
-
-        return getStyleList(self, 'Area Shape')
-
-    security.declarePublic('FontColorsList')
-    def FontColorsList(self):           
-        """Returns a list of Font Color styles."""
-
-        return getStyleList(self, 'Font Color')
-
-    security.declarePublic('FontShapesList')
-    def FontShapesList(self):           
-        """Returns a list of Font Shape styles."""
-
-        return getStyleList(self, 'Font Shape')
-
-    security.declarePublic('FormStyleList')
-    def FormStyleList(self):           
-        """Returns a list of formstyles."""
-
-        return getStyleList(self, 'Form Style')
 
     security.declarePublic('isCacheable')
     def isCacheable(self):

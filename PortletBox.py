@@ -203,26 +203,6 @@ class PortletBox(BaseTemplet):
             title = fti.title_or_id()
         return title
 
-    security.declarePublic('BoxShapesList')
-    def BoxShapesList(self):           
-        """ Returns a list of Portal Box Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Portal Box Shape', 
-                                      object=self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('BoxColorsList')
-    def BoxColorsList(self):           
-        """ Returns a list of Portal Box Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Portal Box Color', 
-                                      object=self)
-        if styles: 
-            return styles['title']
-
     security.declarePublic('BoxLayoutList')
     def BoxLayoutList(self):           
         """ Returns a list of orientations for this Templet"""

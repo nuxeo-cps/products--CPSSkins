@@ -458,24 +458,6 @@ class PortalBox(BaseTemplet):
                       ['Templet title', 'Folder title']:
             return 1
 
-    security.declarePublic('BoxShapesList')
-    def BoxShapesList(self):           
-        """ Returns a list of Portal Box Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor('Portal Box Shape', self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('BoxColorsList')
-    def BoxColorsList(self):           
-        """ Returns a list of Portal Box Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor('Portal Box Color', self)
-        if styles: 
-            return styles['title']
-
     security.declarePublic('getBoxState')
     def getBoxState(self, REQUEST=None):           
         """ Returns the box state """

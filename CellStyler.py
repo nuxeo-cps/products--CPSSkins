@@ -28,7 +28,7 @@ from AccessControl import ClassSecurityInfo
 from Products.CMFCore.utils import getToolByName
 
 from BaseCellModifier import BaseCellModifier
-from cpsskins_utils import getApplicableStylesFor
+from StylableContent import StylableContent
 
 factory_type_information = (
     {'id': 'Cell Styler',
@@ -45,7 +45,7 @@ factory_type_information = (
     },
 )
 
-class CellStyler(BaseCellModifier):
+class CellStyler(BaseCellModifier, StylableContent):
     """
     Cell Styler.
     """
@@ -98,31 +98,6 @@ class CellStyler(BaseCellModifier):
                         (self.shape, 
                          self.color)
         return cellclass
-
-    security.declarePublic('getApplicableStyles')
-    def getApplicableStyles(self):
-        """ Returns the styles by meta type that are 
-            applicable to this Cell Styler
-        """
-        return getApplicableStylesFor(self)
-
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
-        """ Returns a list of Area Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes') 
-        styles = tmtool.findStylesFor(category = 'Area Color', object=self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('AreaShapesList')
-    def AreaShapesList(self):           
-        """ Returns a list of Area Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Shape', object=self)
-        if styles: 
-            return styles['title']
 
 InitializeClass(CellStyler)
 

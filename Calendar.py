@@ -27,7 +27,6 @@ from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
 from BaseTemplet import BaseTemplet
-from cpsskins_utils import getStyleList
 
 factory_type_information = (
     {'id': 'Calendar Templet',
@@ -127,12 +126,6 @@ class Calendar(BaseTemplet):
         """
         params = ['lang', 'user', 'month', 'year']
         return params
-
-    security.declarePublic('CalendarStylesList')
-    def CalendarStylesList(self):           
-        """ Returns a list of Calendar styles"""
-
-        return getStyleList(self, 'Calendar Style')
 
 InitializeClass(Calendar)
 

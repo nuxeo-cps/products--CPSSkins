@@ -38,6 +38,7 @@ from cpsskins_utils import rebuild_properties, callAction, \
                            isBroken, moveToLostAndFound
 
 from PageBlockContent import PageBlockContent
+from StylableContent import StylableContent
 
 factory_type_information = (
     {'id': 'Cell Block',
@@ -83,7 +84,7 @@ factory_type_information = (
     },
 )
 
-class CellBlock(ThemeFolder, PageBlockContent):
+class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     """
     Class for cell blocks.
     """
@@ -196,16 +197,19 @@ class CellBlock(ThemeFolder, PageBlockContent):
         return self.render_skin(shield=shield, **kw)
 
     security.declarePublic('render_skin')
-    def render_skin(self, shield=0,  **kw):
+    def render_skin(self, editing=0, textonly=0, **kw):
         """Render the cellblock's skin."""
 
-        if kw.get('editing'):
+        # edit mode
+        if editing:
             return self.cpsskins_cellblock_edit(**kw)
-        else:
-            return self.cpsskins_cellblock(**kw)
+        # text mode
+        if textonly:
+            return self.cpsskins_cellblock_textonly(**kw)
+        return self.cpsskins_cellblock(**kw)
 
     security.declarePublic('render_cache')
-    def render_cache(self, shield=0, enable_esi=0, **kw):
+    def render_cache(self, **kw):
         """Renders the cached version of the templet."""
 
         return self.render(**kw)
@@ -400,27 +404,6 @@ class CellBlock(ThemeFolder, PageBlockContent):
 
         # XXX
         pass
-
-    #
-    # properties 
-    #
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
-        """ Returns a list of Area Color styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Color', object=self)
-        if styles: 
-            return styles['title']
-
-    security.declarePublic('AreaShapesList')
-    def AreaShapesList(self):           
-        """ Returns a list of Area Shape styles"""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        styles = tmtool.findStylesFor(category = 'Area Shape', object=self)
-        if styles: 
-            return styles['title']
 
 InitializeClass(CellBlock)
 
