@@ -14,8 +14,13 @@ Released: 2004-08-xx
 CPSSkins 2.2 (final release)
 Released: 2004-08-xx
 
-- added Portugese translation of CPSSkins
-  (Thanks to Mario Olimpio de Menezes <mario [at] curiango.ipen.br>
+- i18n: 
+  added Brazilian Portugese translation
+  (Thanks to Mario Olimpio de Menezes <mario [at] curiango.ipen.br>)
+
+  added support for PO filenames written as '...-xx_XX.po' (needed for
+  pt_BR.po). i18n tests have been updated too.
+
 
 ==========================================================================
 CPSSkins 2.2-rc5 (release candidate)

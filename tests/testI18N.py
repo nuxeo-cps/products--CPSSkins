@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
 import CPSSkinsTestCase
 import unittest,re
+from re import match
 from glob import glob
 from Testing import ZopeTestCase
 from gettext import GNUTranslations
@@ -28,6 +29,10 @@ except ImportError:
                            such as Linux, \
                due to a dependency on Python's commands.getstatusoutput().")
 
+
+def canonizeLang(lang):
+    return lang.lower().replace('_', '-')
+
 def getLanguageFromPath(path):
     # get file
     file = path.split('/')[-1]
@@ -38,12 +43,12 @@ def getLanguageFromPath(path):
 
 def getPoFiles(path, pot):
     i18nPath = os.path.abspath(path)
-    potMatchString = pot.split('.')[0] + '-??.po'
-    poFiles= glob(os.path.join(i18nPath, potMatchString))
+    potPathPrefix = os.path.join(i18nPath, pot.split('.')[0])
+    poFiles= glob(potPathPrefix + '-[a-z][a-z].po') + \
+             glob(potPathPrefix + '-[a-z][a-z]_[A-Z][A-Z].po')
     if not poFiles:
         raise IOError('No po files found in %s!' % i18nPath)
     return poFiles
-
 
 class TestPOT(CPSSkinsTestCase.CPSSkinsTestCase):
     potFile = None
@@ -102,7 +107,8 @@ class TestPoFile(CPSSkinsTestCase.CPSSkinsTestCase):
         self.failUnless(language, 'Po file %s has no language!' % po)
 
         fileLang = getLanguageFromPath(po)
-        language = language.lower().replace('_', '-')
+        fileLang = canonizeLang(fileLang)
+        language = canonizeLang(language)
         self.failUnless(fileLang == language,
             'The file %s has the wrong name or wrong language code. \
              expected: %s, got: %s' % \

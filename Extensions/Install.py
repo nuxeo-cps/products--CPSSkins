@@ -449,7 +449,7 @@ def update(self):
             pr("    Available languages: %s" % str(avail_langs))
             for file in os.listdir(popath):
                 if file.endswith('.po'):
-                    m = match('^.*([a-z][a-z])\.po$', file)
+                    m = match('^.*([a-z][a-z]|[a-z][a-z]_[A-Z][A-Z])\.po$', file)
                     if m is None:
                         pr( '    Skipping bad file %s' % file)
                         continue
@@ -480,7 +480,7 @@ def update(self):
             avail_langs = defaultmcat.get_languages()
             for file in os.listdir(popath):
                 if file.endswith('.po'):
-                    m = match('^.*([a-z][a-z])\.po$', file)
+                    m = match('^.*([a-z][a-z]|[a-z][a-z]_[A-Z][A-Z])\.po$', file)
                     if m is None:
                         pr( '    Skipping bad file %s' % file)
                         continue
