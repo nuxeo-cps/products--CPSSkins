@@ -42,7 +42,8 @@ from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import getFreeId
 import QuickImporter
 
-CPSSKINS_THEME_COOKIE_NAME = 'cpsskins_theme'
+CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
+CPSSKINS_LOCAL_THEME_ID = '.cpsskins_theme'
 
 STATUS_NO_THEME_INFO = 0
 STATUS_THEME_INSTALL_OK = 1
@@ -129,7 +130,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declarePublic('getThemeCookieID')
     def getThemeCookieID(self):
         """ Gets the cookie ID used to set themes """
-        return CPSSKINS_THEME_COOKIE_NAME
+        return CPSSKINS_THEME_COOKIE_ID
 
     security.declarePublic('getPortalThemeRoot')
     def getPortalThemeRoot(self, object=None):
@@ -321,27 +322,60 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if REQUEST is not None:
             REQUEST.RESPONSE.redirect(self.absolute_url() + \
                 '/manage_selectDefaultTheme?manage_tabs_message=' + msg)
- 
+
+    security.declarePublic('getLocalThemeName')
+    def getLocalThemeID(self):
+        """Return the id of the attribute used to identify local themes.
+        """
+
+        return CPSSKINS_LOCAL_THEME_ID
+
+    security.declarePublic('getLocalThemeName')
+    def getLocalThemeName(self, context=None):
+        """Return the name of a local theme in a given context.
+           Local themes are defined as folder attributes,
+           i.e. the property of a folder or an object located in
+           the folder that is callable and that returns the name
+           of a theme.
+        """
+
+        if context is None:
+            return None
+        local_theme_id = self.getLocalThemeID()
+        theme = getattr(context, local_theme_id, None)
+        if theme and callable(theme):
+            theme = apply(theme, ())
+        return theme
+
     security.declarePublic('getRequestedThemeName')
     def getRequestedThemeName(self, REQUEST=None):
         """Gets the name of the requested theme by checking 
            if there is a 'cpsskins_theme' cookie, ?pp=1, or ?theme=...
+           or a 'cpsskins_theme' variable in the request.
         """
 
         if REQUEST is None:
             return
 
-        if hasattr(REQUEST, 'pp'):
+        # selected by writing ?pp=1 in the URL
+        if REQUEST.form.get('pp') is not None:
             return 'printable'
 
-        if hasattr(REQUEST, 'theme'):
-            return REQUEST.form['theme']
+        # selected by writing ?theme=... in the URL
+        theme = REQUEST.form.get('theme')
+        if theme is not None:
+            return theme 
 
-        if hasattr(REQUEST, 'cpsskins_theme'):
-            return REQUEST['cpsskins_theme']
+        # selected by acquiring a 'cpsskins_theme' attribute 
+        # in the URL
+        cpsskins_theme = REQUEST.get('cpsskins_theme')
+        if cpsskins_theme is not None:
+            return cpsskins_theme
 
-        if hasattr(REQUEST, CPSSKINS_THEME_COOKIE_NAME):
-            return REQUEST.cookies[CPSSKINS_THEME_COOKIE_NAME]
+        theme_cookie_id = self.getThemeCookieID()
+        theme_cookie = REQUEST.cookies.get(theme_cookie_id)
+        if theme_cookie is not None:
+            return theme_cookie
 
         return self.getDefaultThemeName()
 
