@@ -12,14 +12,14 @@ html, body {
 
 /* misc table elements */
 
-input,select,textarea {
+input, select, textarea, button {
   border: 1px solid #336699;
   background-color: #f9f9f9;
   margin: 3px;
 }
 
 input[type="radio"], input[type="checkbox"] {
-  border: 1px solid red;
+  border: none;
 }
 
 .fileview {
