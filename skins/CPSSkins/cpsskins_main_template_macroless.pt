@@ -22,24 +22,23 @@
 <metal:block define-macro="head"
  tal:define="charset here/cpsskins_getCharset;
              theme_url python: base_url + utool.getRelativeUrl(theme_container);">
-  <tal:block define="dummy python:request.RESPONSE.setHeader(
-   'Content-Type', 'text/html;; charset=%s' % charset)" />
-  <meta http-equiv="Content-Type" tal:attributes="
-   content string:text/html;;charset=${charset}" />
-  <meta name="generator" content="CPSSkins 2.3" />
+<tal:block define="dummy python:request.RESPONSE.setHeader(
+ 'Content-Type', 'text/html;; charset=%s' % charset)" />
+<meta http-equiv="Content-Type" tal:attributes="
+ content string:text/html;;charset=${charset}" />
+<meta name="generator" content="CPSSkins 2.3" />
+<tal:block content="structure python:theme_container.renderIcon()" />
 <!-- CSS1 -->
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${base_url}cpsskins_common.css" />
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${theme_url}/renderCSS" />
+<link rel="Stylesheet" type="text/css"
+ tal:attributes="href string:${base_url}cpsskins_common.css" />
+<link rel="Stylesheet" type="text/css"
+ tal:attributes="href string:${theme_url}/renderCSS" />
 <!-- CSS2 -->
-  <style type="text/css" media="all"
-  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
+<style type="text/css" media="all"
+ tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
-  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
-<!-- Shortcut icon -->
-  <tal:block content="structure python:theme_container.renderIcon()" />
+<script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
+<script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 </metal:block>
 </head>
 <tal:block condition="nocall:page_container">

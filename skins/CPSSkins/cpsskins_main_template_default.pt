@@ -1,20 +1,19 @@
 <metal:block define-macro="head" 
   tal:define="base_url python: request.get('cpsskins_base_url', '');
               theme_url python: base_url + utool.getRelativeUrl(theme_container)">
-  <meta name="generator" content="CPSSkins 2.3" />
-<!-- CSS1 -->
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${base_url}cpsskins_common.css" />
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${theme_url}/renderCSS" />
-<!-- CSS2 -->
-  <style type="text/css" media="all"
-  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
-<!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
-  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
-<!-- Shortcut icon -->
+<meta name="generator" content="CPSSkins 2.3" />
 <tal:block content="structure python:theme_container.renderIcon()" />
+<!-- CSS1 -->
+<link rel="Stylesheet" type="text/css"
+ tal:attributes="href string:${base_url}cpsskins_common.css" />
+<link rel="Stylesheet" type="text/css"
+ tal:attributes="href string:${theme_url}/renderCSS" />
+<!-- CSS2 -->
+<style type="text/css" media="all"
+ tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
+<!-- JavaScript -->
+<script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
+<script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 </metal:block>
 <metal:block define-macro="main" tal:condition="nocall:page_container">
   <tal:block content="structure python:tmtool.renderAccessKeys(actions=actions)" />

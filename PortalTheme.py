@@ -182,7 +182,7 @@ class PortalTheme(ThemeFolder, StylableContent):
          'mode': 'w',
          'label': 'Shortcut icon',
          'select_variable': 'cpsskins_listIcons',
-         'category': 'style',
+         'category': 'general',
          'image' : 'icons'
         },
         {'id': 'author',
@@ -269,6 +269,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     def renderIcon(self):
         """ Generates the shortcut icon for this theme."""
 
+        rendered = None
         shortcut_icon = self.shortcut_icon
         if shortcut_icon:
             icon_dir = getattr(self, 'icons', None)
@@ -277,8 +278,10 @@ class PortalTheme(ThemeFolder, StylableContent):
                 if icon_obj is not None:
                     path = '/' + icon_obj.absolute_url(1)
                     mimetype = icon_obj.content_type
-                    return SHORTCUT_ICON_HTML % (path, mimetype, path, mimetype)
-        return None
+                    rendered = '<!-- Shortcut icon -->'
+                    rendered += SHORTCUT_ICON_HTML % (
+                        path, mimetype, path, mimetype)
+        return rendered
 
     security.declarePublic('renderCSS')
     def renderCSS(self, **kw):
