@@ -410,7 +410,8 @@ tal:define="theme request/form/theme|nothing;
     <em tal:repeat="parent parents">
       <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
        align="middle" alt="" width="16" height="16" />
-      <a href="" tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
+      <a href=""
+       tal:attributes="onClick string:newWindow('${parent/absolute_url}/edit_form?cat=style')"
        tal:content="parent/title_or_id" />&nbsp;&nbsp;
     </em>
   </p>
