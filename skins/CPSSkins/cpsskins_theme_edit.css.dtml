@@ -699,10 +699,10 @@ font: 10px Verdana, Arial, Sans-Serif;
 }
 
 .BoxGroupBoxTitle {
-background-color: #cc9;
 font-weight: bold;
-padding: 2px;
+padding: 0px;
 cursor: default;
+background-color: #cc9;
 }
 
 .BoxGroupBoxTitle a {
@@ -714,9 +714,10 @@ text-decoration: underline !important;
 }
 
 .BoxGroupBoxBody {
-background-color: #f6f6f6; 
-padding: 2px;
+padding: 0px;
 margin: 0px;
+cursor: crosshair;
+background-color: #f0f0f0;
 }
 
 .BoxGroupBoundingBox {
