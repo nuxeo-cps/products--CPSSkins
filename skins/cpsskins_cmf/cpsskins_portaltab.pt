@@ -2,7 +2,7 @@
 tal:define="mcat python: request.get('cpsskins_mcat'); 
             context_obj nocall:options/context_obj;
             content python: here.content"
- tal:attributes="class string:portalTab${here/portaltabstyle} cpsskinsRoundedTabs">
+ tal:attributes="class string:portalTab${here/portaltabstyle} cpsskinsTabs">
  <tal:block condition="python: content == 'folders'">
    <tal:block define="level python: here.level;
           base python: here.base;
