@@ -154,7 +154,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   tal:define="sim_url request/form/sim_url|nothing; 
 	      stylecat request/form/cat|nothing">
     <form style="margin: 0px; padding:0px;" action=""
-    tal:attributes="action string:${base_url}/cpsskins_theme_manage_form">
+    tal:attributes="action string:${base_url}cpsskins_theme_manage_form">
       <input type="hidden" name="cat"
       tal:attributes="value stylecat" />
       <select name="sim_url" onchange="submit()"
@@ -475,7 +475,7 @@ tal:define="block_id pageblock/getId;
           <input type="hidden" name="scrollx" value="0" />
           <input type="hidden" name="scrolly" value="0" /> 
           <input type="hidden" name="redirect_url"
-           tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" /> 
+           tal:attributes="value string:${base_url}cpsskins_theme_manage_form" /> 
           <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />:
           <input interactive="1"
@@ -492,7 +492,7 @@ tal:define="block_id pageblock/getId;
           <input type="hidden" name="scrollx" value="0" />
           <input type="hidden" name="scrolly" value="0" /> 
           <input type="hidden" name="redirect_url"
-           tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" /> 
+           tal:attributes="value string:${base_url}cpsskins_theme_manage_form" /> 
           <label for="maxcols" tal:define="title string:_Width_" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />:
           <input interactive="1"
@@ -509,7 +509,7 @@ tal:define="block_id pageblock/getId;
           <input type="hidden" name="scrollx" value="0" />
           <input type="hidden" name="scrolly" value="0" /> 
           <input type="hidden" name="redirect_url"
-           tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" /> 
+           tal:attributes="value string:${base_url}cpsskins_theme_manage_form" /> 
           <label for="maxcols" tal:define="title string:_Columns_" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />:
           <input interactive="1"
@@ -591,7 +591,7 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
            <input type="hidden" name="scrollx" value="0" />
            <input type="hidden" name="scrolly" value="0" /> 
            <input type="hidden" name="redirect_url"
-            tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" />
+            tal:attributes="value string:${base_url}cpsskins_theme_manage_form" />
            <input name="cellwidth"
             type="text" size="4" tal:attributes="value cellwidth" />
           </form>

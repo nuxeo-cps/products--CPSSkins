@@ -265,7 +265,7 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td align="left">
-        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+        <a tal:attributes="href string:${base_url}cpsskins_theme_manage_form"
          i18n:translate="" class="linkUp"
          tal:condition="stylecat"
          tal:define="title string:_Other styles_"
@@ -328,7 +328,7 @@ tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing;
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td align="left">
-        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+        <a tal:attributes="href string:${base_url}cpsskins_theme_manage_form"
          i18n:translate="" class="linkUp"
          tal:condition="palettecat"
          tal:define="title string:_Other palettes_"
@@ -367,7 +367,7 @@ tal:define="meta_type here/meta_type|nothing;
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td align="left">
-        <a tal:attributes="href string:${base_url}/cpsskins_theme_manage_form"
+        <a tal:attributes="href string:${base_url}cpsskins_theme_manage_form"
          i18n:translate="" class="linkUp"
          tal:condition="imagecat"
          tal:define="title string:_Other images_"

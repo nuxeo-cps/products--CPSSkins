@@ -421,7 +421,7 @@
       </form>
       <div class="addItem">
         <a href="javascript:void(0)" alt=""
-        tal:attributes="onClick string:newWindow('${base_url}/cpsskins_addpalette_form?type_name=$palettecat')">
+        tal:attributes="onClick string:newWindow('${base_url}cpsskins_addpalette_form?type_name=$palettecat')">
           <img width="46" height="18" alt=""
            tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
         </a>
@@ -623,7 +623,7 @@
 
 <metal:block define-macro="theme_manager" i18n:domain="cpsskins">
   <tal:block define="object theme_container;
-                     redirect_url string:${base_url}/cpsskins_theme_manage_form">
+                     redirect_url string:${base_url}cpsskins_theme_manage_form">
     <h1 class="fancy" tal:define="title string:_Edit_">
      <tal:block i18n:translate="" content="python: mcat and mcat(title) or title" />
     '<tal:block replace="theme_container/title|nothing" />'
