@@ -194,7 +194,15 @@
 </metal:block>
 
 <!-- ============================================================ -->
-<metal:block define-macro="edit">
+<metal:block define-macro="edit"
+ tal:define="portal_url here/portal_url">
+  <div class="title buttons">
+    <a tal:attributes="href string:${portlet_url}/edit_form">
+      <img src="" width="16" height="16" border="0" alt=""
+       tal:attributes="src string:$portal_url/cpsskins_images/button_edit.gif" /></a>
+    <metal:block define-slot="box_title">Box Title</metal:block>
+    <br style="clear:right"/>
+  </div>
   <div class="PortletBoxDrag PortletBoxEditMenu"
    tal:define="ypos portlet/getOrder;
                group portlet/getSlot"
@@ -204,9 +212,6 @@
     <div class="PortletBoxDest"
      tal:attributes="dest_slot group;
                      dest_ypos python: ypos and ypos or 0">
-      <div class="BoxGroupBoxTitle">
-        <metal:block define-slot="box_title">Box Title</metal:block>
-      </div>
       <div class="body">
         <metal:block define-slot="box_body">Box Body</metal:block>
       </div>
