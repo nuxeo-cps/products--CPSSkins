@@ -9,7 +9,7 @@ for hidden_slot in hidden_slots:
 
     for box in sboxes:
         box_obj = box['box']
-        box_container = box_obj.aq_parent.aq_inner
+        box_container = box_obj.aq_inner.aq_parent
         box_container.manage_delObjects([box_obj.getId()])
 
 if REQUEST is not None:
