@@ -825,14 +825,16 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
             # CMF Actions
             elif param == 'actions':
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
-                index_string = md5.new(str(cmf_actions)).hexdigest()
+                if cmf_actions:
+                    index_string = md5.new(str(cmf_actions)).hexdigest()
 
             elif param.startswith('actions:'):
-                categories = param.split(':')[1].split(',')
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
-                actions = [cmf_actions[x] for x in categories \
-                           if cmf_actions.has_key(x)]
-                index_string = md5.new(str(actions)).hexdigest()
+                if cmf_actions:
+                    categories = param.split(':')[1].split(',')
+                    actions = [cmf_actions[x] for x in categories \
+                               if cmf_actions.has_key(x)]
+                    index_string = md5.new(str(actions)).hexdigest()
 
             # Workflow actions
             elif param == 'wf_actions':
