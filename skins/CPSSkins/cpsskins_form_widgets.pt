@@ -20,7 +20,7 @@
     tal:attributes="value redirect_url" />
    <metal:block
     use-macro="here/cpsskins_form_widgets/macros/generic_edit" />
-   <input type="submit" class="mainbutton"
+   <input type="submit" class="mainbutton" i18n:domain="cpsskins"
     i18n:attributes="value"
     tal:define="title string:_button_modify_"
     tal:attributes="value python:mcat and mcat(title) or title" />
@@ -81,9 +81,9 @@
                                 i18n_transform field/i18n_transform;
                                 item_title python: i18n_transform and getattr(context, i18n_transform)(item_title) or item_title;
                                 i18n_title string:${field/i18n_prefix}${item_title}${field/i18n_suffix}">
-                      <tal:block condition="i18n_default_domain" 
+                      <tal:block condition="i18n_default_domain" i18n:translate=""
                       content="python: mcat and mcat(i18n_title) or i18n_title" />
-                      <tal:block condition="not:i18n_default_domain" 
+                      <tal:block condition="not:i18n_default_domain" i18n:translate="" 
                       i18n:domain="cpsskins"
                       content="python: mcat and mcat(i18n_title) or i18n_title" />
                     </tal:block>
