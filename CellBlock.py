@@ -25,6 +25,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent, aq_inner
 from OFS.Folder import Folder
 
 from Products.CMFCore.CMFCorePermissions import View
@@ -364,14 +365,22 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         """
         Add content. Returns the id
         """
- 
+
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
         type_name = kw.get('type_name', None)
         if type_name is None:
             return
-        del kw['type_name']
 
+        # Cell block cannot be added inside cell blocks
+        # add it inside the container instead
+        if type_name == self.meta_type:
+            kw['xpos'] = self.xpos
+            kw['ypos'] = self.getVerticalPosition()
+            container = aq_parent(aq_inner(self))
+            return container.addContent(**kw)
+
+        del kw['type_name']
         xpos = kw.get('xpos', 0)
         ypos = kw.get('ypos', 0)
 
