@@ -414,7 +414,7 @@ class PortalTheme(ThemeFolder):
             if icon_dir is not None:
                 icon_obj = getattr(icon_dir, shortcut_icon, None);
                 if icon_obj is not None:
-                    path = icon_obj.absolute_url()
+                    path = '/' + icon_obj.absolute_url(1)
                     mimetype = icon_obj.content_type
                     return SHORTCUT_ICON_HTML % (path, mimetype, path, mimetype)
 
