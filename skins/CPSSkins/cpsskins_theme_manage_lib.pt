@@ -123,13 +123,13 @@
                  tal:attributes="src string:${style/getIcon}" />
               </td>
               <td>
-                <a href=""
+                <a href="javascript:void(0)"
                  tal:attributes="onClick onclick_string"
                  tal:content="python: style.title_or_id()" />
               </td>
               <td align="center" width="240px">
                 <div style="text-align: left; padding: 3px">
-                  <a href=""
+                  <a href="javascript:void(0)"
                    tal:content="structure python: style.preview()"
                    tal:attributes="onClick onclick_string" />
                 </div>
@@ -157,7 +157,7 @@
          tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
-        <a href="" alt=""
+        <a href="javascript:void(0)" alt=""
          tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
           <img width="46" height="18" alt=""
            tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
@@ -219,14 +219,14 @@
                 <input type="checkbox" name="ids:list" tal:attributes="value imageid" />
               </td>
               <td>
-                <a href=""
+                <a href="javascript:void(0)"
                  tal:attributes="onClick onclick_string"
                  tal:content="python: image.title_or_id()" />
               </td>
               <td tal:content="string:${image/size} bytes" />              
               <td tal:content="string:${image/width}x${image/height} px" />
               <td align="center">
-                <a href="" 
+                <a href="javascript:void(0)" 
                  tal:attributes="onClick onclick_string;
                                  onmouseover string:toggle('$imageid');
                                  onmouseout string:toggle('$imageid')"
@@ -263,7 +263,7 @@
          tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
-        <a href="" alt=""
+        <a href="javascript:void(0)" alt=""
          tal:attributes="onClick string:newWindow('${theme_container_url}/$imagecat/cpsskins_addimage_form')">
           <img width="46" height="18" alt=""
            tal:attributes="src string:${base_url}cpsskins_images/img_addimage.png" />
@@ -330,7 +330,7 @@
                  tal:attributes="src string:${palette/getIcon}" />
               </td>
               <td>
-                <a href=""
+                <a href="javascript:void(0)"
                  tal:attributes="onClick onclick_string"
                  tal:content="python: palette.title_or_id()" />
               </td>
@@ -338,7 +338,7 @@
                 <tal:block content="palette/value" />
               </td>
               <td align="center">
-                <a href=""
+                <a href="javascript:void(0)"
                  tal:content="structure python: palette.preview(inline=1)"
                  tal:attributes="onClick onclick_string;
                                  onmouseover string:toggle('$paletteid');
@@ -372,7 +372,7 @@
          tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
-        <a href="" alt=""
+        <a href="javascript:void(0)" alt=""
         tal:attributes="onClick string:newWindow('${base_url}/cpsskins_addpalette_form?type_name=$palettecat')">
           <img width="46" height="18" alt=""
            tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
@@ -492,7 +492,7 @@
                   <td>
                     <img align="middle"
                     tal:attributes="src string:${base_url}${content/getIcon}" />
-                    <a href=""
+                    <a href="javascript:void(0)"
                      tal:attributes="onClick string:newWindow('${content/absolute_url}/edit_form')"
                      tal:content="python: content.title_or_id()" />
                     <input type="hidden" name="paths" 
@@ -615,7 +615,7 @@
                 <td width="50%">
                   <img src="" alt=""
                    tal:attributes="src string:${base_url}${style/getIcon}" />
-                  <a href=""
+                  <a href="javascript:void(0)"
                    tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')"
                    tal:content="style/getTitle" />
                 </td>
@@ -658,7 +658,7 @@
                   <tal:block repeat="style blocks">
                     <tr>
                       <td>
-                        <a href=""
+                        <a href="javascript:void(0)"
                          tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')">
                           <img tal:attributes="src string:${base_url}${style/getIcon}" />
                           <span tal:content="style/getTitle" />
@@ -691,7 +691,7 @@
           class="tableFrame" width="100%">
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
-                <a href=""
+                <a href="javascript:void(0)"
                  tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')">
                   <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                   <tal:block content="templet/getTitle" />
@@ -731,7 +731,7 @@
             <tal:block repeat="templet invisible_templets">
               <tr>
                 <td width="50%">
-                  <a href=""
+                  <a href="javascript:void(0)"
                    tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')">
                     <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
@@ -764,7 +764,7 @@
             <tal:block repeat="templet uncached_templets">
               <tr>
                 <td width="50%">
-                  <a href=""
+                  <a href="javascript:void(0)"
                   tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form?cat=general')">
                     <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
