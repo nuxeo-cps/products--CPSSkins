@@ -5,12 +5,10 @@ if __name__ == '__main__':
 import filecmp
 import unittest
 from Testing import ZopeTestCase
-from Acquisition import aq_base
-from Testing.ZopeTestCase.utils import importObjectFromFile
 
 import CPSSkinsTestCase
 
-class TestUpgradeTheme(CPSSkinsTestCase.CPSSkinsTestCase):
+class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
         self.login('cpsskins_root')
@@ -19,34 +17,38 @@ class TestUpgradeTheme(CPSSkinsTestCase.CPSSkinsTestCase):
     def beforeTearDown(self):
         self.logout()
 
-    def test_theme(self):
+    def test_rebuild_themes(self):
         portal = self.portal
         tmtool = portal.portal_themes
-        theme_id = self.theme_id
-        theme_name = self.theme_name
-        # remove existing themes
-        ids = tmtool.objectIds()
-        tmtool.manage_delObjects(ids)
-        # import the theme from ../Install
-        install_dir = os.path.abspath('../Install')
-        old_file  = os.path.join(install_dir, '%s.zexp' % theme_name)
-        new_file = os.path.join(self.export_dir, '%s.zexp' % theme_name)
-        tmtool._importObjectFromFile(old_file, verify=0)
-        theme = tmtool[theme_id]
-        # rebuild the theme
-        theme.rebuild()
-        # rename 'theme_id' as 'theme_name'
-        tmtool.manage_renameObject(theme_id, theme_name)
-        # export the theme
-        tmtool.manage_exportObject(theme_name)
-        # compare the new file and the old file
-        self.assert_(self.filesize(old_file) == self.filesize(new_file))
+
+        for theme_name, theme_id in getThemes().items():
+            # remove existing themes
+            ids = tmtool.objectIds()
+            tmtool.manage_delObjects(ids)
+
+            # import the theme from ../Install
+            install_dir = os.path.abspath('../Install')
+            old_file  = os.path.join(install_dir, '%s.zexp' % theme_name)
+            new_file = os.path.join(self.export_dir, '%s.zexp' % theme_name)
+            tmtool._importObjectFromFile(old_file, verify=0)
+            get_transaction().commit()
+
+            theme = tmtool[theme_id]
+            # rebuild the theme
+            theme.rebuild()
+            get_transaction().commit()
+
+            # rename 'theme_id' as 'theme_name'
+            tmtool.manage_renameObject(theme_id, theme_name)
+            # export the theme
+            tmtool.manage_exportObject(theme_name)
+
+            theme.setAsDefault()
+            # compare the new file and the old file
+            self.assert_(theme.render(shield=0, context_obj=self.portal))
 
     local_home = os.path.join(os.curdir, 'data')
     export_dir = os.path.join(local_home, 'export')
-
-    def filesize(self, file):
-        return os.stat(file)[6]
 
     def setupLocalEnvironment(self):
         # adapted from ZopeTestCase/testZODBCompat.py
@@ -104,17 +106,9 @@ def getThemes():
     }
     return themes
 
-tests = []
-for theme_name, theme_id in getThemes().items():
-    class TestOneTheme(TestUpgradeTheme):
-        theme_id = theme_id
-        theme_name = theme_name
-    tests.append(TestOneTheme)
-
 def test_suite():
     suite = unittest.TestSuite()
-    for test in tests:
-        suite.addTest(unittest.makeSuite(test))
+    suite.addTest(unittest.makeSuite(TestUpgradeThemes))
     return suite
 
 if __name__ == '__main__':
