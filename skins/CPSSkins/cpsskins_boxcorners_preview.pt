@@ -2,12 +2,15 @@
   <tr>
     <td>
       <div style="padding: 4px; text-align: left; background-color: #eeeeee;">
-        <div style="width: 140px; border-color: black;"
+        <div style="width: 100px;"
         tal:attributes="class string:BoxCorners${here/title}">
+          <div class="rbtop"><div></div></div>
+            <pre>
 
-<div class="rbtop"><div></div></div>
-<div class="rbcontent">123 12 31 23 123</div><div class="rbbot"><div></div></div></div>
 
+
+            </pre>
+          <div class="rbbot"><div></div></div></div>
       </div>
     </td>
   </tr>

@@ -1,26 +1,48 @@
-<dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)">
-.BoxCorners&dtml-title; {
-border: 1px solid &dtml-border_color;;
+<dtml-let boxtitle="title">
+.BoxCorners&dtml-boxtitle; {
+<dtml-if Area_border_color>
+border: 1px solid &dtml-Area_border_color;;
+</dtml-if>
+<dtml-if Area_bg_color>
+background-color: &dtml-Area_bg_color;;
+</dtml-if>
 }
-.BoxCorners&dtml-title; .rbtop div {
-background: url(/&dtml-theme_url;/backgrounds/&dtml-TopLeft_bg_image;) no-repeat top left;
-}
-.BoxCorners&dtml-title; .rbtop {
-background: url(/&dtml-theme_url;/backgrounds/&dtml-TopRight_bg_image;) no-repeat top right;
-}
-.BoxCorners&dtml-title; .rbbot div {
-background: url(/&dtml-theme_url;/backgrounds/&dtml-BottomLeft_bg_image;) no-repeat bottom left;
-}
-.BoxCorners&dtml-title; .rbbot {
-background: url(/&dtml-theme_url;/backgrounds/&dtml-BottomRight_bg_image;) no-repeat bottom right;
-}
-.BoxCorners&dtml-title; .rbtop div,
-.BoxCorners&dtml-title; .rbtop,
-.BoxCorners&dtml-title; .rbbot div,
-.BoxCorners&dtml-title; .rbbot {
+<dtml-with expr="aq_parent.aq_parent.backgrounds">
+.BoxCorners&dtml-boxtitle; .rbtop div {
+<dtml-with expr="_.getitem(TopLeft_bg_image)">
+background: url(/<dtml-var expr="absolute_url(1)">) no-repeat top left;
+height: <dtml-var height>px;
+position:relative;
+</dtml-with>
+left: -2px;
 width: 100%;
-height: 7px;
-font-size: 1px;
 }
-.BoxCorners&dtml-title; .rbcontent  { margin: 0 7px; }
+.BoxCorners&dtml-boxtitle; .rbtop {
+<dtml-with expr="_.getitem(TopRight_bg_image)">
+background: url(/<dtml-var expr="absolute_url(1)">) no-repeat top right;
+height: <dtml-var height>px;
+</dtml-with>
+position:relative;
+right: -1px; top: -1px;
+width: 100%;
+}
+.BoxCorners&dtml-boxtitle; .rbbot div {
+<dtml-with expr="_.getitem(BottomLeft_bg_image)">
+background: url(/<dtml-var expr="absolute_url(1)">) no-repeat bottom left;
+height: <dtml-var height>px;
+</dtml-with>
+position:relative;
+left: -2px;
+width: 100%;
+}
+.BoxCorners&dtml-boxtitle; .rbbot {
+<dtml-with expr="_.getitem(BottomRight_bg_image)">
+background: url(/<dtml-var expr="absolute_url(1)">) no-repeat bottom right;
+height: <dtml-var height>px;
+</dtml-with>
+width: 100%;
+position:relative;
+bottom: -1px; right: -1px;
+}
+</dtml-with>
 </dtml-let>
