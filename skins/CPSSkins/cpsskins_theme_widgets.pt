@@ -90,7 +90,8 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
                 title string:_Cache manager_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
-    <a tal:condition="can_manage" 
+    <a class="exit"
+       tal:condition="can_manage" 
        tal:attributes="href string:${tmtool_url}/manage_main"
        tal:define="title string:_ZMI_" i18n:translate="" 
        tal:content="python:mcat and mcat(title) or title" />
