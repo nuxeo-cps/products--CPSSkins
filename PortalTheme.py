@@ -34,7 +34,6 @@ THUMBNAIL_WIDTH = 200
 THUMBNAIL_HEIGHT = 160
 THUMBNAIL_IMAGE_FORMAT = 'PNG'
 
-import os
 import string
 import time
 
@@ -44,7 +43,6 @@ try:
 except ImportError:
     isPILAvailable = 0
 
-from cStringIO import StringIO
 from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo

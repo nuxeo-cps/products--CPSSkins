@@ -28,8 +28,6 @@ from AccessControl import ClassSecurityInfo
 
 from BaseTemplet import BaseTemplet
 
-import md5
-
 factory_type_information = (
     {'id': 'Portal Tab Templet',
      'meta_type': 'Portal Tab Templet',

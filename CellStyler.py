@@ -25,7 +25,6 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Products.CMFCore.utils import getToolByName
 
 from BaseCellModifier import BaseCellModifier
 from StylableContent import StylableContent

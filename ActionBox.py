@@ -23,8 +23,6 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
   a toolbar containing action buttons with icons.
 """
 
-import md5
-
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from Products.CMFCore.utils import getToolByName

@@ -32,8 +32,6 @@ from BaseTemplet import BaseTemplet
 
 from cpsskins_utils import html_slimmer
 
-import md5 
-
 factory_type_information = (
     {'id': 'Portal Box Templet',
      'meta_type': 'Portal Box Templet',
