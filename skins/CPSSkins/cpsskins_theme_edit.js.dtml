@@ -29,8 +29,11 @@ function select(panel, field) {
 function toggle(panelId) {
   if (document.getElementById) {
     var target = document.getElementById(panelId);
-    target.style.visibility = 'hidden';
-    target.style.display = 'none';
+    if (target.style.display != "block"){
+      target.style.display = "block";
+    } else {
+      target.style.display = "none";
+    }
   }
 }
 
