@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass
+from Acquisition import aq_base
 from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.Image import Image
