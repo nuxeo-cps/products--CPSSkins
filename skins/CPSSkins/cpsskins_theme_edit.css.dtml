@@ -50,6 +50,7 @@ cursor: default;
 z-index: 1000;
 visibility: hidden;
 display: table;
+white-space: nowrap;
 }
 
 .context-menu-item, .context-menu-item_highlighted {
