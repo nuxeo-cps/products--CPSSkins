@@ -216,6 +216,8 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     pr_h3("Portal themes")
     if ReinstallDefaultThemes or (theme_container.objectIds() == [] and
                                   not portalhas('themes')):
+
+        # the first theme in each category is the default theme.
         themes_list = { 'CMF':     ( 'CMF-Plone',
                                      'CMF-Printable',
                                    ),
@@ -223,9 +225,9 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
                                      'CPS2-Plone',
                                      'CMF-Printable',
                                    ),
-                        'CPS3':    ( 'CPS3-LightSkins',
+                        'CPS3':    ( 'CPS3-Default',
+                                     'CPS3-LightSkins',
                                      'CPS3-Autumn',
-                                     'CPS3-Default',
                                      'CMF-Printable',
                                      'CPS3-Plone',
                                    ),
@@ -240,13 +242,17 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
         if Target in ['CMF', 'CPS2', 'CPS3', 'Plone', 'Plone2' ]:
             theme_ids = theme_container.objectIds()
             theme_container.manage_delObjects(theme_ids)
-            for theme_name in themes_list[Target]:
+            target_themes = themes_list[Target]
+            for theme_name in target_themes:
                 pr(" Importing %s theme" % theme_name)
                 zexppath = os.path.join(zexpdir, '%s.%s' % (theme_name, 'zexp'))
                 try:
                     theme_container._importObjectFromFile(zexppath)
                 except:
                     pr("    Could not import theme  %s" % theme_name)
+
+            # set the first theme in the list as the default one.
+            theme_container.setDefaultTheme(target_themes[0])
 
     pr(portal.cpsskinsupdate())
     pr(portal.cpsskinsmigrate())
