@@ -633,9 +633,12 @@ def update(self):
             path = list(skins) + path
         npath = ', '.join(path)
         skinstool.addSkinSelection('CPSSkins', npath)
-    skinstool.default_skin = 'CPSSkins'
     pr(" Setting 'CPSSkins' as default skin")
+    skinstool.default_skin = 'CPSSkins'
 
+    pr(" Resetting the skin cache")
+    portal.clearCurrentSkin()
+    portal.setupCurrentSkin()
 
     pr_h3("Purging the RAM cache")
     tmtool.manage_clearCaches()
