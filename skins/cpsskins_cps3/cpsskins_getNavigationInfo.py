@@ -36,11 +36,14 @@ if base in ttool.objectIds():
 else:
     return
 
+if REQUEST is None:
+    REQUEST = context.REQUEST
+
 parent_url = ''
 if context_rurl is not None:
     here_rurl = context_rurl
 else:
-    context_obj = context.REQUEST.get('context_obj', None)
+    context_obj = REQUEST.get('context_obj', None)
     if context_obj is not None:
         here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
     else:
@@ -51,7 +54,7 @@ here_rurl_slash = here_rurl + '/'
 parent_url = here_rurl
 path_list = here_rurl.split('/')
 
-base_url = context.cpsskins_getBaseUrl()
+base_url = REQUEST.get('cpsskins_base_url', '')
 
 base_create_path = ''
 base_create_obj = None

@@ -6,10 +6,8 @@
          level python: here.level;
          show_docs python: here.show_docs; 
          display_hidden_folders python: here.display_hidden_folders;
-         context_rurl request/form/context_rurl|nothing;
-         context_obj python: here.cpsskins_getContextObj(context_rurl);
+         context_obj python: request.get('context_obj');
          context_url context_obj/absolute_url|nothing;
-         portal_url here/portal_url; 
          getNavigationInfo python: here.cpsskins_getNavigationInfo;
          navinfo python: getNavigationInfo(level=level, base=base, show_docs=0, base_path=base_path, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl);">
   <div tal:attributes="class string:CollapsibleMenu${here/collapsiblemenu_style}"

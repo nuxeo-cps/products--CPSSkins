@@ -6,8 +6,8 @@ if context_rurl is not None:
     if portal_url != '/':
         portal_url = '/' + portal_url
     try:
-        context_obj = context.restrictedTraverse(portal_url + context_rurl) 
-    except:
+        context_obj = context.restrictedTraverse(portal_url + context_rurl)
+    except KeyError:
         pass
 
 if context_obj is None:

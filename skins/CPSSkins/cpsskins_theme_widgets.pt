@@ -1,5 +1,5 @@
 <metal:block define-macro="navigationtab"
-tal:define="base_url here/cpsskins_getBaseUrl;
+tal:define="base_url python: request.get('cpsskins_base_url', '');
             current_theme python: tmtool.getRequestedThemeName(REQUEST=request);
             themes tmtool/getThemes;
             externalthemes tmtool/getExternalThemeIds">

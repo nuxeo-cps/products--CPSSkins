@@ -1,7 +1,6 @@
 <div style="text-align: left"
 tal:define="mcat python: request.get('cpsskins_mcat'); 
-            context_rurl request/form/context_rurl|nothing;
-            context_obj python: here.cpsskins_getContextObj(context_rurl);
+            context_obj python: request.get('cpsskins_mcat');
             content python: here.content"
  tal:attributes="class python: 'PortalTab%s' % here.portaltabstyle">
  <tal:block condition="python: content == 'folders'">

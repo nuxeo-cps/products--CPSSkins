@@ -1,9 +1,7 @@
-##parameters=utool=None
 
 # return the base url of the zope instance, ex: /cps/ or /
 
-if not utool:
-    utool = context.portal_url
+utool = context.portal_url
 
 REQUEST = getattr(context, 'REQUEST', None)
 

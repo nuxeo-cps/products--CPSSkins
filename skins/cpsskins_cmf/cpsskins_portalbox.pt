@@ -1,8 +1,6 @@
 <tal:block define="mcat python: request.get('cpsskins_mcat');
-                   context_rurl request/form/context_rurl|nothing;
-                   context_obj python: here.cpsskins_getContextObj(context_rurl);
-                   portal_url here/portal_url;
-                   base_url here/cpsskins_getBaseUrl;
+                   context_obj python: request.get('context_obj');
+                   base_url python: request.get('cpsskins_base_url', '');
                    orientation python: here.orientation;
                    menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
                    item_style python: orientation == 'horizontal' and 'white-space: nowrap' or None;

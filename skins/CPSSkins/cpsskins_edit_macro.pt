@@ -1,8 +1,7 @@
 <html metal:define-macro="edit"
 tal:define="tmtool here/portal_themes; 
             utool nocall:here/portal_url;
-            portal_url here/portal_url;
-            base_url here/cpsskins_getBaseUrl;
+            base_url python: here.cpsskins_getBaseUrl();
             here_url python: base_url + utool.getRelativeUrl(here);
             mcat here/cpsskins_getlocalizer;
             cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');

@@ -48,7 +48,7 @@
 <!-- ============================================================ -->
 <!-- drawer box -->
 <metal:block define-macro="drawer" 
-  tal:define="base_url here/cpsskins_getBaseUrl;
+  tal:define="base_url python: request.get('cpsskins_base_url');
               orientation orientation|string:vertical;
               box_state python: here.getBoxState(REQUEST=request);
               boxid here/id">
@@ -75,7 +75,7 @@
 <!-- ============================================================ -->
 <!-- drawer box without title -->
 <metal:block define-macro="drawer_notitle" 
-  tal:define="base_url here/cpsskins_getBaseUrl;
+  tal:define="base_url python: request.get('cpsskins_base_url');
               orientation orientation|string:vertical;
               box_state python: here.getBoxState(REQUEST=request);
               boxid here/id">
@@ -99,7 +99,7 @@
 <!-- ============================================================ -->
 <metal:block define-macro="min_max"
   tal:define="maximized python: state == 'maximized';
-              base_url here/cpsskins_getBaseUrl">
+              base_url python: request.get('cpsskins_base_url')">
   <div class="title buttons">
     <a tal:condition="not:maximized"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
@@ -122,7 +122,7 @@
 <!-- ============================================================ -->
 <metal:block define-macro="min_max_close"
   tal:define="maximized python: state == 'maximized';
-              base_url here/cpsskins_getBaseUrl">
+              base_url python: request.get('cpsskins_base_url')">
   <tal:block tal:condition="python: state != 'closed'">
     <div class="title buttons">
       <a tal:condition="python: state != 'closed'"
@@ -157,7 +157,7 @@
 <!-- ============================================================ -->
 <metal:block define-macro="min_max_edit_close"
   tal:define="maximized python: state == 'maximized';
-              base_url here/cpsskins_getBaseUrl">
+              base_url python: request.get('cpsskins_base_url')">
   <tal:block tal:condition="python: state != 'closed'">
     <div class="title buttons">
       <a tal:condition="python: state != 'closed'"
@@ -195,7 +195,7 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="portlet_edit"
- tal:define="base_url here/cpsskins_getBaseUrl;
+ tal:define="base_url python: request.get('cpsskins_base_url', '');
              portlet_id portlet/getId;
              selected_portlet request/form/selected_portlet|options/selected_portlet|nothing;
              context_obj nocall:options/context_obj;

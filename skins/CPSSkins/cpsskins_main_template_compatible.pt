@@ -1,5 +1,5 @@
 <metal:block define-macro="head" 
-  tal:define="base_url here/cpsskins_getBaseUrl;
+  tal:define="base_url python: request.get('cpsskins_base_url', '');
               tmtool here/portal_themes;
               theme_url theme_container/absolute_url">
   <meta name="generator" content="CPSSkins 2.3" />

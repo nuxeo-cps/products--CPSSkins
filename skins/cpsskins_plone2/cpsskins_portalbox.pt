@@ -1,6 +1,5 @@
 <tal:block i18n:domain="plone"
-define="context_rurl request/form/context_rurl|nothing;
-        context_obj python: here.cpsskins_getContextObj(context_rurl);
+define="context_obj python: request.get('cpsskins_obj');
         base_url here/cpsskins_getBaseUrl;
         orientation python: here.orientation;
         menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';

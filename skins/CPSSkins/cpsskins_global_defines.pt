@@ -17,7 +17,10 @@ tal:define="tmtool here/portal_themes;
             global cpsskins_url here/cpsskins_getCurrentURL;
             global boxedit boxedit|nothing;
             dummy python: request.set('cpsskins_language', cpsskins_language);
-            dummy python: request.set('context_obj', here);
+            context_rurl request/form/context_rurl|nothing;
+            context_obj python: here.cpsskins_getContextObj(context_rurl);
+            dummy python: request.set('context_obj', context_obj);
             dummy python: request.set('cpsskins_url', cpsskins_url);
+            dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());
             dummy python: enable_esi and here.cpsskins_set_esi_header();
 "/>

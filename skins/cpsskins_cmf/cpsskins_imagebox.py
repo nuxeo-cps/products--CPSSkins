@@ -15,7 +15,9 @@ img_url = img.absolute_url()
 tag = ''
 
 if context.use_internal_link:
-    link = context.cpsskins_getBaseUrl()
+    if REQUEST is None:
+        REQUEST = context.REQUEST
+    link = REQUEST.get('cpsskins_base_url', '')
     internal_link = context.internal_link
     if internal_link != '/':
         link += internal_link

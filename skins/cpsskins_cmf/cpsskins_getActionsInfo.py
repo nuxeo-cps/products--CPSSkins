@@ -6,7 +6,7 @@ if obj is None:
 REQUEST = context.REQUEST
 tmtool = context.portal_themes
 current_url = REQUEST.get('cpsskins_url', None)
-base_url = context.cpsskins_getBaseUrl()
+base_url = REQUEST.get('cpsskins_base_url', '')
 
 action_categories = getattr(obj, 'action_categories', None) 
 custom_action_categories = getattr(obj, 'custom_action_categories', []) 

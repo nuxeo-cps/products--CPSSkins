@@ -1,7 +1,5 @@
 <div style="text-align: left" i18n:domain="plone"
-tal:define="context_rurl request/form/context_rurl|nothing;
-            context_obj python: here.cpsskins_getContextObj(context_rurl);
-            portal_url here/portal_url;
+tal:define="context_obj python: request.get('cpsskins_obj');
             content python: here.content"
  tal:attributes="class python: 'PortalTab%s' % here.portaltabstyle">
  <tal:block condition="python: content == 'folders'">

@@ -1,6 +1,6 @@
 <div i18n:domain="plone"
-tal:define="context_rurl request/form/context_rurl|nothing;
-            context_obj python: here.cpsskins_getContextObj(context_rurl);
+tal:define="context_obj python: request.get('context_obj');
+            base_url python: request.get('cpsskins_base_url', '');
             show_icon python: here.show_icon;
             separator_start python: here.separator_start;
             separator_end python: here.separator_end;
@@ -8,7 +8,7 @@ tal:define="context_rurl request/form/context_rurl|nothing;
             i18n python: here.i18n;
 	    bcs python: context_obj.cpsskins_getBreadcrumbs()">
   <img tal:condition="python: show_icon and hasattr(context_obj, 'getIcon')"
-   tal:attributes="src string:${here/portal_url}/${context_obj/getIcon|nothing}" alt="" />
+   tal:attributes="src string:${base_url}${context_obj/getIcon|nothing}" alt="" />
   <tal:block i18n:translate="" condition="separator_start"
   content="structure separator_start" />
   <tal:block repeat="bc bcs" condition="i18n">
