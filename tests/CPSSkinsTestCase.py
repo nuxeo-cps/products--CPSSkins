@@ -27,7 +27,6 @@ ZopeTestCase.installProduct('CPSSkins', quiet=1)
 import time
 import os
 
-import CPSSkinsTestCase
 
 ERROR_LOG_ID = 'error_log'
 
@@ -45,6 +44,7 @@ from Products.CPSSkins.PortalThemesTool import PortalThemesTool
 PortalThemesTool.setViewMode = setViewMode
 PortalThemesTool.getViewMode = getViewMode
 
+
 # This one is needed by ProxyTool.
 def get_selected_language(self):
     """ """
@@ -57,32 +57,8 @@ try:
 except ImportError:
     localizer = 0
 
-# Dummy portal_catalog.
-
-from OFS.SimpleItem import SimpleItem
-class DummyTranslationService(SimpleItem):
-    meta_type = 'Translation Service'
-    id = 'translation_service'
-    def translate(self, domain, msgid, *args, **kw):
-        return msgid
-
-# Dummy MessageCatalog
-class DummyMessageCatalog:
-    def __call__(self, message, *args, **kw):
-        return message
-
-    def get_selected_language(self):
-        "xxx"
-        return 'fr'
-
-    def get_languages(self):
-        return ['en', 'fr']
-
-    def manage_import(self, *args, **kw):
-        pass
-
-    def wl_isLocked(self):
-        return None # = False
+# Dummy translation service and message catalog
+from CPS3TestCase import DummyTranslationService, DummyMessageCatalog
 
 target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
