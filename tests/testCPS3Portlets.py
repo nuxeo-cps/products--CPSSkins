@@ -32,7 +32,7 @@ class TestCPSPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_PortalBoxGroup_Templet(self):
         pageblock = self.pageblock
         templet = pageblock.addTemplet(type_name='Portal Box Group Templet')
-        self.assert_(templet.aq_explicit.isCacheable())
+        self.assert_(not templet.aq_explicit.isCacheable())
  
 
 def test_suite():
