@@ -413,10 +413,6 @@ msgid "_Cellblock margin_"
 msgstr ""
 
 
-msgid "_Click here to edit the Main Content Templet_"
-msgstr "Clique aqui para editar o Conteúdo Principal do Modelo"
-
-
 # , fuzzy
 msgid "_Collapsible Menu Style_"
 msgstr "Estilo de Menu Contrátil"

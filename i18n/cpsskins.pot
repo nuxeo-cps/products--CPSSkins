@@ -67,9 +67,6 @@ msgstr ""
 msgid "_Box layout_"
 msgstr ""
 
-msgid "_Click here to edit the Main Content Templet_"
-msgstr ""
-
 msgid "_Color_"
 msgstr ""
 

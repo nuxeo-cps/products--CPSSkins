@@ -83,27 +83,22 @@
               </tal:block>
 
               <tal:block repeat="content contents_in_xpos">
-                <tal:block condition="content/aq_explicit/isMainContent|nothing">
-                  <metal:block use-macro="here/cpsskins_theme_widgets/macros/edit_this_content" />
-                </tal:block>
                 <div tal:condition="python: content == here"
                  tal:attributes="class python: (content.closed and not layout_panel) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
                   <metal:block use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
                 </div>
 
                 <div 
-                   tal:define="ismaincontent python: getattr(content, 'ismaincontent', 0);
-                               iscellblock python: getattr(content, 'iscellblock', 0);
+                   tal:define="iscellblock python: getattr(content, 'iscellblock', 0);
                                isPortalBoxGroup python: getattr(content, 'isportalboxgroup', 0);
-                               special_content python: ismaincontent or isPortalBoxGroup;
+                               special_content isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
-		               hover_effect python: not ismaincontent;
-                               boxdragclass python: not ismaincontent and (not iscellblock or layout_panel) and 'ContentBoxDrag' or '';
-                               boxeditmenuclass python: (not ismaincontent and (not iscellblock or context != content)) and 'ContentBoxEditMenu' or '';"
+                               boxdragclass python: (not iscellblock or layout_panel) and 'ContentBoxDrag' or '';
+                               boxeditmenuclass python: (not iscellblock or context != content) and 'ContentBoxEditMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
-                                       class python: (not ismaincontent and (not iscellblock or layout_panel)) and 'contentDest' or '';
+                                       class python: (not iscellblock or layout_panel) and 'contentDest' or '';
                                        block_url block_url;
                                        dest_block block_rurl">
                     <div
@@ -111,12 +106,12 @@
                                 content_here python: content == here;
 		                visible python: content.getVisibility(context_obj=context_obj); 
 				render_content python: not layout_panel and not special_content; 
-                                render_as_title python: layout_panel and not ismaincontent and not render_content;
-                                boxeditclass python: (not ismaincontent and not wysiwyg_panel) and 'templetBoxBodyLayout' or 'templetBoxBody'; 
+                                render_as_title python: layout_panel and not render_content;
+                                boxeditclass python: not wysiwyg_panel and 'templetBoxBodyLayout' or 'templetBoxBody'; 
 				boxeditclass python: content_here and 'templetBoxBodySelected' or boxeditclass; 
 				class boxeditclass; 
 				style python: content.getCSSMarginStyle() or '';
-				style python: hover_effect and style + ';;cursor: crosshair' or style;
+				style python: style + ';;cursor: crosshair';
                                 content_class python: content.getCSSAreaClass(level=2);
                                 styles_list python: content.getApplicableStyles();
                                 align_list content/AlignList|nothing"
@@ -131,7 +126,7 @@
                                      isalignable python: content.isAlignable();
                                      alignments python: '|'.join(align_list);
                                      icon python: '/' + content.getIcon();
-                                     title python: not ismaincontent and content_title or None;
+                                     title content_title;
                                      panel panel;
                                      theme current_theme;">
                       <tal:block
@@ -142,11 +137,6 @@
                                            style python: content.getCSSLayoutStyle()">
                         <tal:block condition="render_content"
                          content="structure python: content.render_cache(shield=0, context_obj=context_obj, editing=1)" />
-                        <tal:block condition="ismaincontent">
-<!-- BEGIN Main Content -->
-          <div style="border: 1px solid black; padding: 20px;">Main slot</div>
-<!-- END Main Content -->
-                        </tal:block>
                         <tal:block condition="python: isPortalBoxGroup and not layout_panel">
                           <tal:block define="box_group content/box_group|nothing;
                                              render_box python: 0">

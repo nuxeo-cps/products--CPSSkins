@@ -1,1 +1,5 @@
-<h1>Main Content templet</h1>
+<tal:block define="mcat python: request.get('cpsskins_mcat')">
+  <h1 i18n:translate=""
+   tal:define="title string:_Main content_"
+   tal:content="python: mcat and mcat(title) or title "/>
+</tal:block>

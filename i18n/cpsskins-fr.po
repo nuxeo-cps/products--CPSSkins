@@ -411,10 +411,6 @@ msgid "_Cellblock margin_"
 msgstr "Marges"
 
 
-msgid "_Click here to edit the Main Content Templet_"
-msgstr "Cliquer ici pour éditer le Templet de la région principale"
-
-
 msgid "_Collapsible Menu Style_"
 msgstr "Style des menus extensibles"
 

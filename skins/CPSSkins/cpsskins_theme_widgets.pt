@@ -306,21 +306,6 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   </div>
 </metal:block>
 
-<metal:block define-macro="edit_this_content">
-  <div class="templetEditThis"
-  tal:condition="python: content != here">
-    <a
-    tal:attributes="href string:${content/absolute_url}/edit_form;
-                    title string:${content/title}">
-      <img border="0" width="12" height="12"
-      tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
-      <tal:block i18n:translate="" i18n:domain="cpsskins"
-       tal:define="title string:_Click here to edit the Main Content Templet_"
-      content="python: mcat and mcat(title) or title" />
-    </a>
-  </div>
-</metal:block>
-
 <metal:block define-macro="content_add_panel" i18n:domain="cpsskins">
   <table class="contentbox" cellpadding="2" cellspacing="1"
        tal:define="til here/cpsskins_listContents">
