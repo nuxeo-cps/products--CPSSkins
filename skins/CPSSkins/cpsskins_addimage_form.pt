@@ -11,10 +11,6 @@
      tal:content="python: mcat and mcat(title) or title" i18n:translate="" />
     <form action="cpsskins_image_add" method="post"
     enctype="multipart/form-data">
-      <input type="hidden" name="theme"
-      tal:attributes="value theme" />
-      <input type="hidden" name="edit_mode"
-      tal:attributes="value edit_mode" />
       <table cellspacing="0" cellpadding="2" border="0">
         <tr>
           <td>
