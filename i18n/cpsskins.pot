@@ -1596,3 +1596,9 @@ msgstr ""
 
 msgid "menu_insert_portlet"
 msgstr ""
+
+msgid "_option_min_max_"
+msgstr ""
+
+msgid "_option_min_max_close"
+msgstr ""

@@ -1887,6 +1887,14 @@ msgid "_option_login_"
 msgstr ""
 
 
+msgid "_option_min_max_"
+msgstr ""
+
+
+msgid "_option_min_max_close"
+msgstr ""
+
+
 msgid "_option_no_frames_"
 msgstr ""
 
