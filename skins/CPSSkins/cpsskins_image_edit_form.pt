@@ -1,15 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html tal:define="
+  base_url python:here.cpsskins_getBaseUrl();
   imagecat request/form/imagecat|nothing;
   mcat here/cpsskins_getlocalizer;
   mtool here/portal_membership;
   checkPerm nocall:mtool/checkPermission">
-  <head>
-    <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
-      <tal:block define="dummy request/RESPONSE/unauthorized" />
-    </tal:block>
-  </head>
-  <body>
+<head>
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+</head>
+<body>
+  <div class="editForm">
     <h1>
       <tal:block define="title string:_Edit_"
       tal:content="python: mcat and mcat(title) or title"
@@ -44,12 +49,12 @@
         </tr>
       </table>
     </form>
-  <br/>
-  <form action="">
-    <input class="standalone" type="submit" 
-     onclick="window.opener.location.reload();window.close()"
-     value="button_close" i18n:attributes="value" />
-  </form>
-
-  </body>
+    <br/>
+    <form action="">
+      <input class="standalone" type="submit" 
+       onclick="window.opener.location.reload();window.close()"
+       value="button_close" i18n:attributes="value" />
+    </form>
+  </div>
+</body>
 </html>
