@@ -29,7 +29,7 @@
                        CPSSkins_bmt_mark nocall:CPSSkins_BMT/setMarker; 
                        CPSSkins_bmt_elapsed nocall:CPSSkins_BMT/getProfiling;">
       <span tal:replace="CPSSkins_BMT/start" />
-  <tal:block define="context_rurl python: '/' + utool.getRelativeUrl(here);
+  <tal:block define="context_obj python: request.get('context_obj');
               align python: theme_container.align; 
 	      marginleft python: align == 'left' and '0px' or 'auto'; 
               marginright python: align == 'right' and '0px' or 'auto'; 
@@ -64,7 +64,7 @@
                 <!-- Templet profiling START -->
                   <div
                    tal:define="isRenderable python: templet.isRenderable();
-                               rendered python: isRenderable and templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit) or None"
+                               rendered python: isRenderable and templet.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit) or None"
                    tal:condition="python: rendered or not isRenderable"
                    tal:attributes="align python: templet.align;
                                    style python: 'padding:%s' % templet.margin">

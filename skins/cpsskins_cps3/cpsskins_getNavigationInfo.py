@@ -1,4 +1,4 @@
-##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, context_rurl=None
+##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None
 
 if base_path is None:
     return
@@ -36,18 +36,14 @@ if base in ttool.objectIds():
 else:
     return
 
-if REQUEST is None:
-    REQUEST = context.REQUEST
+REQUEST = context.REQUEST
 
 parent_url = ''
-if context_rurl is not None:
-    here_rurl = context_rurl
+context_obj = REQUEST.get('context_obj', None)
+if context_obj is not None:
+    here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
 else:
-    context_obj = REQUEST.get('context_obj', None)
-    if context_obj is not None:
-        here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
-    else:
-        return
+    return
 
 here_rurl_slash = here_rurl + '/'
 

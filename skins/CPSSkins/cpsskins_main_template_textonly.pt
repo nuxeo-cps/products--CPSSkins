@@ -2,7 +2,7 @@
   <meta name="generator" content="CPSSkins 2.3" />
 </metal:block>
 <metal:block define-macro="main"
- tal:define="context_rurl python: '/' + utool.getRelativeUrl(here);
+ tal:define="context_obj python: request.get('context_obj');
              dummy python: request.set('cpsskins_mcat', mcat)"
  tal:repeat="pageblock python: theme_container.getPageBlocks()">
   <tal:block define="closed python: pageblock['closed'];
@@ -16,7 +16,7 @@
           <tal:block repeat="templet templets_in_xpos">
             <tal:block
              define="isRenderable python: templet.isRenderable();
-                     rendered python: isRenderable and templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi) or None;
+                     rendered python: isRenderable and templet.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi) or None;
                      display_title templet/display_title_in_text_mode|nothing;
                      hidden_in_text_mode templet/hidden_in_text_mode|nothing"
              condition="python: not hidden_in_text_mode and (rendered or not isRenderable)">

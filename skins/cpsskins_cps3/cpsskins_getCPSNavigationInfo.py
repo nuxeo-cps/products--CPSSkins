@@ -1,4 +1,4 @@
-##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, context_rurl=None, REQUEST=None
+##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, REQUEST=None
 
 if base_path is None:
     return
@@ -21,7 +21,6 @@ if REQUEST is None:
     REQUEST = context.REQUEST
 
 context_obj = REQUEST.get('context_obj', None)
-# XXX add support for context_rurl for ESI
 
 nav = CPSNavigation(root_uid=base,
                     current_uid=utool.getRelativeUrl(context_obj),

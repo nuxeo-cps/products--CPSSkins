@@ -9,7 +9,7 @@
          context_obj python: request.get('context_obj');
          context_url context_obj/absolute_url|nothing;
          getNavigationInfo python: here.cpsskins_getNavigationInfo;
-         navinfo python: getNavigationInfo(level=level, base=base, show_docs=0, base_path=base_path, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl);">
+         navinfo python: getNavigationInfo(level=level, base=base, show_docs=0, base_path=base_path, display_hidden_folders=display_hidden_folders);">
   <div tal:attributes="class string:CollapsibleMenu${here/collapsiblemenu_style}"
        tal:define="menuentries navinfo/menuentries|nothing"
        tal:repeat="menuentry menuentries">
@@ -27,7 +27,7 @@
       </div>
       <tal:block condition="we_are_here">
         <div class="submenu"
-             tal:define="subnavinfo python: getNavigationInfo(level=level, base=base, show_docs=int(show_docs), base_path=sub_base_path, max_results=max_items, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl); 
+             tal:define="subnavinfo python: getNavigationInfo(level=level, base=base, show_docs=int(show_docs), base_path=sub_base_path, max_results=max_items, display_hidden_folders=display_hidden_folders); 
                          submenuentries subnavinfo/menuentries|nothing;
                          nb_entries python: submenuentries and len(submenuentries) or 0"
              tal:repeat="submenuentry submenuentries">

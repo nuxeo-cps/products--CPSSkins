@@ -1,4 +1,4 @@
-##parameters=level=None, base=None, show_docs=None, base_path='/', max_results=None, context_rurl=None, **kw
+##parameters=level=None, base=None, show_docs=None, base_path='/', max_results=None,  **kw
 
 REQUEST=context.REQUEST
 
@@ -27,20 +27,14 @@ portal_root = utool.getPortalObject()
 if portal_url != '/':
     portal_url = '/' + portal_url
 
-current_obj = None
-if context_rurl is not None:
-    current_path = context_rurl
-else:
-    current_obj = REQUEST.get('context_obj', None)
-    if current_obj is not None:
-        current_path = '/' + utool.getRelativeUrl(current_obj)
-    else:
-        return
+context_obj = REQUEST.get('context_obj', None)
+if context_obj is None:
+    return
 
-if current_obj is None:
-    current_obj = portal_root.restrictedTraverse(portal_url + current_path)
+here_rurl =  '/' + utool.getRelativeUrl(context_obj)
+current_path = here_rurl
 
-here_url = current_obj.absolute_url()
+here_url = context_obj.absolute_url()
 
 if not base_path.startswith('/'):
     base_path = '/' + base_path
@@ -70,7 +64,7 @@ if not current_path.startswith(base_path):
         level_obj = base_obj
 else:
     split_current_path = current_path.split('/')
-    if not getattr(current_obj.aq_explicit, 'isPrincipiaFolderish', 0):
+    if not getattr(context_obj.aq_explicit, 'isPrincipiaFolderish', 0):
         split_current_path = split_current_path[0:len(split_current_path)-1]
     split_base_path = base_path.split('/')
     split_relative_path = split_current_path[0:len(split_base_path)+level-1]

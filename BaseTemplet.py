@@ -1129,9 +1129,12 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         return css
 
     security.declarePublic('render_esi')
-    def render_esi(self, context_rurl=None, **kw):
+    def render_esi(self, **kw):
         """Renders the ESI fragment code."""
 
+        utool = getToolByName(self, 'portal_url')
+        context_obj = kw.get('context_obj')
+        context_rurl = utool.getRelativeUrl(context_obj)
         return self.esi_code % (self.absolute_url(), context_rurl)
 
     security.declarePublic('getStyle')

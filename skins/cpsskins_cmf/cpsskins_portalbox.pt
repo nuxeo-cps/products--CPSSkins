@@ -12,7 +12,7 @@
                        show_docs python: here.show_docs;
                        display_hidden_folders python: here.display_hidden_folders;
                        base_path python: here.base_path;
-                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl); 
+                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders); 
                        menuentries navigationinfo/menuentries|nothing;
                        create_url navigationinfo/create_url|nothing;
                        i18n python: here.folder_items_i18n"

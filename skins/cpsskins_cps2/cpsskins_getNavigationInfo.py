@@ -1,4 +1,4 @@
-##parameters=level=None, base=None, show_docs=None, base_path=None, max_results=None, context_rurl=None, **kw
+##parameters=level=None, base=None, show_docs=None, base_path=None, max_results=None, **kw
 
 REQUEST=context.REQUEST
 
@@ -36,8 +36,6 @@ try: mygroups = user.getGroups()
 except: mygroups = ()
 myids = [myid] + ['group:'+id for id in mygroups]
 
-context_obj = REQUEST.get('context_obj', context)
-
 try:
    hier_base =  getattr(context.portal_hierarchies, base, None)
 except:
@@ -58,14 +56,12 @@ hierlist = hier_base.getHierarchyList()
 hierlist = [h for h in hierlist if h['depth'] == total_level]
 hierlist = [h for h in hierlist if (h['rurl'] +'/').startswith(base_parent_path)]
 
-if context_rurl is not None:
-    current_path = context_rurl
+context_obj = REQUEST.get('context_obj', None)
+
+if context_obj is not None:
+    current_path =  '/' + utool.getRelativeUrl(context_obj)
 else:
-    current_obj = REQUEST.get('context_obj', context)
-    if context_obj is not None:
-        current_path = '/' + utool.getRelativeUrl(current_obj)
-    else:
-        return
+    return
 
 munge_url = REQUEST.get('munge_absolute_url', context, None)
 if len(munge_url) > 1:
