@@ -209,3 +209,20 @@ input.SearchBox {
 .hidden {
   display: none;
 }
+
+div.xmlExportButtons {
+  text-align: right;
+  padding-top: 1em;
+}
+
+div.xmlExportButtons a {
+  border: 1px solid #000;
+  background: #f30;
+  color: #fff !important;
+  font: bold 80% Arial, sans-serif;
+  text-decoration: none;
+  padding: 0 0.3em 0 0.3em;
+  margin: 0.2em 0.2em 0.2em 0.2em;
+  display: block;
+  float: right;
+}
