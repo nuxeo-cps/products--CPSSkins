@@ -6,4 +6,4 @@ if object_rurl is None:
 tmtool = context.portal_themes
 
 # XXX rename 'setViewMode' to something else
-tmtool.setViewMode(clipboard=object_rurl)
+tmtool.setViewMode(clipboard=object_rurl, reload=1)
