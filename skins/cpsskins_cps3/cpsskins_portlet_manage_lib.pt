@@ -1,5 +1,5 @@
 <metal:block define-macro="box">
-  <div class="BoxGroupBoxSlot PortletBoxDrag"
+  <div
    tal:define="ypos portlet/getOrder;
                portlet_id portlet/getId;
                portlet_url portlet/getURL;
@@ -9,10 +9,12 @@
                portlet_rurl portlet/getRelativeUrl;
                fti portlet/getTypeInfo;
                portlet_type fti/title_or_id;
-               portlet_icon fti/getIcon"
+               portlet_icon fti/getIcon;
+               editable python:checkPerm('Manage Portlets', portlet)"
    tal:attributes="portlet_rurl portlet_rurl;
                    src_ypos python: ypos and ypos or 0;
-                   src_slot group">
+                   src_slot group;
+                   class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
     <div class="PortletBoxDest"
       tal:define="rel_depth python: here_depth - portlet_depth;
                   thickness python: test(rel_depth < 3, 3 - rel_depth, 1)" 
@@ -21,17 +23,19 @@
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
         <tal:block content="portlet_title" />
-        <a href=""
-        tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
-          <img border="0" width="12" height="12" alt=""
-          tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
-        </a>
-        <a href=""
-        tal:attributes="href string:${here/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id; 
-                        onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
-          <img border="0" width="12" height="12" alt=""
-          tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
-        </a>
+        <tal:block condition="editable">
+          <a href=""
+          tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
+            <img border="0" width="12" height="12" alt=""
+            tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
+          </a>
+          <a href=""
+          tal:attributes="href string:${here/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id; 
+                          onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
+            <img border="0" width="12" height="12" alt=""
+            tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
+          </a>
+        </tal:block>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
