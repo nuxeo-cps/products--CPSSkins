@@ -356,6 +356,7 @@
 </metal:block>
 
 <metal:block define-macro="cache_manager">
+  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
     <h1 tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
@@ -454,6 +455,7 @@
 
 <metal:block define-macro="theme_exporter" tal:define="
   io_tool here/portal_io|nothing">
+  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
   <h1 tal:define="title string:_Theme export_"
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" />
@@ -497,6 +499,7 @@
   uncached_templets theme_container/findUncachedTemplets|nothing;
   i18n_templets theme_container/getI18nTemplets|nothing;
   optimized python: not (unused_styles or invisible_templets or uncached_templets or identical_styles or i18n_templets)">
+  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
     <h1 tal:define="title string:_Theme optimizer_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
@@ -703,61 +706,50 @@
 </metal:block>
 
 <metal:block define-macro="manage_themes" i18n:domain="cpsskins">
-  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-    <tr>
-      <td align="left">
-        <form name="rebuildtheme" action=""
-        tal:attributes="action string:${theme_container_url}/cpsskins_rebuildtheme">
-          <input type="submit" class="rebuildTheme"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
-        </form>
-      </td>
-      <td align="left">
-        <form name="optimizetheme" action=""
-        tal:attributes="action string:${tmtool_url}/setViewMode">
-          <input type="hidden" name="themes_panel"
-           tal:attributes="value string:theme_optimizer" />
-          <input type="submit" class="optimizeTheme"
-          tal:define="title string:_button_optimize_theme_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-      <td align="left">
-        <form name="cachemanager" action=""
-        tal:attributes="action string:${tmtool_url}/setViewMode">
-          <input type="hidden" name="themes_panel"
-           tal:attributes="value string:cache_manager" />
-          <input type="submit" class="cacheManager"
-          tal:define="title string:_button_cache_manager_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-      <td align="left">
-        <form name="exporttheme" action="" 
-        tal:attributes="action string:${tmtool_url}/setViewMode">
-          <input type="hidden" name="themes_panel"
-           tal:attributes="value string:theme_exporter" />
-          <input type="submit" class="exportTheme"
-          tal:define="title string:_button_export_theme_"
-          i18n:attributes="value" 
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-      <td align="left" colspan="2">
-        <form tal:condition="python: not getattr(theme_container, 'default', None)"
-              name="setdefaulttheme" action=""
-              tal:attributes="action string:${theme_container_url}/cpsskins_setdefaulttheme">
-          <input type="hidden" name="default_theme"
-          tal:attributes="value current_theme" />
-          <input type="submit" class="themeDefault"
-          i18n:attributes="value" 
-          tal:define="title string:_button_set_theme_as_default_"
-          tal:attributes="value python: mcat and mcat(title) or title" />
-        </form>
-      </td>
-    </tr>
-  </table>
+  <div style="padding-top: 10px">
+    <form name="rebuildtheme" action="" style="float: left; padding: 3px"
+     tal:attributes="action string:${theme_container_url}/cpsskins_rebuildtheme">
+      <input type="submit" class="rebuildTheme"
+       i18n:attributes="value" 
+       tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
+    </form>
+    <form name="optimizetheme" action="" style="float: left; padding: 3px"
+     tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="themes_panel"
+       tal:attributes="value string:theme_optimizer" />
+      <input type="submit" class="optimizeTheme"
+       tal:define="title string:_button_optimize_theme_"
+       i18n:attributes="value" 
+       tal:attributes="value python: mcat and mcat(title) or title" />
+    </form>
+    <form name="cachemanager" action="" style="float: left; padding: 3px"
+     tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="themes_panel"
+       tal:attributes="value string:cache_manager" />
+      <input type="submit" class="cacheManager"
+       tal:define="title string:_button_cache_manager_"
+       i18n:attributes="value" 
+       tal:attributes="value python: mcat and mcat(title) or title" />
+    </form>
+    <form name="exporttheme" action="" style="float: left; padding: 3px"
+     tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="themes_panel"
+       tal:attributes="value string:theme_exporter" />
+      <input type="submit" class="exportTheme"
+       tal:define="title string:_button_export_theme_"
+       i18n:attributes="value" 
+       tal:attributes="value python: mcat and mcat(title) or title" />
+    </form>
+    <form name="setdefaulttheme" action="" style="float: left; padding: 3px"
+     tal:condition="python: not getattr(theme_container, 'default', None)"
+     tal:attributes="action string:${theme_container_url}/cpsskins_setdefaulttheme">
+      <input type="hidden" name="default_theme"
+       tal:attributes="value current_theme" />
+      <input type="submit" class="themeDefault"
+       i18n:attributes="value" 
+       tal:define="title string:_button_set_theme_as_default_"
+       tal:attributes="value python: mcat and mcat(title) or title" />
+    </form>
+  </div>
+  <br style="clear: left" />
 </metal:block>
