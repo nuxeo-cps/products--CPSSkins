@@ -166,10 +166,10 @@
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
              context_obj nocall:options/context_obj;
-             folder_url python: base_url + utool.getRelativeUrl(context_obj);
              view_mode tmtool/getViewMode;
              editable options/editable|nothing;
-             folder_editable options/folder_editable|nothing;
+             folder_editable options/folder_editable;
+             folder_url options/folder_url;
              selected_portlet view_mode/selected_portlet|nothing;
              ypos portlet/getOrder;
              group portlet/getSlot;

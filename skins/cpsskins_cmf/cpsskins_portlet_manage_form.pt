@@ -17,8 +17,9 @@
                   clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + str(clipboard), default=None) or nothing;
                   cpsmcat python: tmtool.getTranslationService(cat='default');
                   checkPerm nocall:mtool/checkPermission;
-                  folder_url python: base_url + utool.getRelativeUrl(here);
-                  context_editable python: checkPerm('Manage Portlets', here);">
+                  bmf python: ptltool.getBottomFolder(context=here);
+                  folder_url python: base_url + utool.getRelativeUrl(bmf);
+                  folder_editable python: checkPerm('Manage Portlets', bmf);">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <head>
   <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/head" />

@@ -205,7 +205,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 render_esi = 1
 
         if boxedit:
-            kw['folder_editable'] = checkPerm('Manage Portlets', context)
+            bmf = ptltool.getBottomFolder(context=context)
+            kw['folder_editable'] = checkPerm('Manage Portlets', bmf)
+            kw['folder_url'] = bmf.absolute_url(1)
 
         all_rendered = []
         for portlet in portlets:

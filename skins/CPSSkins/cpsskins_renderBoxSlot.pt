@@ -1,13 +1,12 @@
 <div class="portletSlotFrame"
  tal:define="rendered options/rendered;
              folder_editable options/folder_editable;
+             folder_url options/folder_url;
              slot nocall:options/slot;
              slot_title slot/title;
              slot_id slot/getSlot;
              fti slot/getTypeInfo;
-             slot_icon fti/getIcon|nothing;
-             context_obj nocall:options/context_obj;
-             folder_url python: context_obj.absolute_url(1)">
+             slot_icon fti/getIcon|nothing">
   <div class="portletSlotTitle" tal:content="slot_title" />
   <div class="portletBoxDest"
    tal:attributes="dest_slot slot_id;
