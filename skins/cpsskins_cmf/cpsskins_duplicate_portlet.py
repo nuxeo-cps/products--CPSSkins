@@ -4,7 +4,10 @@ if portlet_id is None:
     return
 
 ptltool = context.portal_cpsportlets
-ptltool.duplicatePortlet(portlet_id, context)
+tmtool = context.portal_themes
+
+newportlet = ptltool.duplicatePortlet(portlet_id, context)
+tmtool.setViewMode(selected_portlet=newportlet.getId())
 
 if REQUEST is not None:
     if redirect_rurl is None:
