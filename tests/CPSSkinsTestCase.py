@@ -28,6 +28,20 @@ import CPSSkinsTestCase
 
 ERROR_LOG_ID = 'error_log'
 
+# session management
+def setViewMode(self, **kw):
+    """ """
+    self.fake_session = {}
+    self.fake_session.update(kw)
+
+def getViewMode(self):
+    """ """
+    return self.fake_session
+
+from Products.CPSSkins.PortalThemesTool import PortalThemesTool
+PortalThemesTool.setViewMode = setViewMode
+PortalThemesTool.getViewMode = setViewMode
+
 # This one is needed by ProxyTool.
 def get_selected_language(self):
     """ """
