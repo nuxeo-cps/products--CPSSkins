@@ -13,56 +13,62 @@ function redirect(url) {
   window.location=url;
 }
 
-/* select panel */
+/* Select panel */
+function select(panel, field) {
+  current_field = field;
+  toggle(panel);
+}
+
+function toggle(panelId) {
+  if (document.getElementById) {
+    var target = document.getElementById(panelId);
+    if (target.style.display != "block"){
+      target.style.display = "block";
+    } else {
+      target.style.display = "none";
+    }
+  }
+}
+
 function selection_restart(select_id) {
   document.data[select_id].selectedIndex = style;
-  mywindow.close();
 }
 
 function textfield_restart(textfield_id) {
   document.data[textfield_id].value = value;
-  mywindow.close();
 }
 
-function selectImage(value, select_id) {
+function selectImage(value) {
   opener.style = value;
-  opener.selection_restart(select_id);
-  self.close;
+  opener.selection_restart(current_field);
 }
 
-function selectPalette(value, textfield_id) {
+function selectPalette(value) {
   opener.value = value;
-  opener.textfield_restart(textfield_id);
-  self.close;
+  opener.textfield_restart(current_field);
 }
 
-function selectTheme(value, select_id) {
+function selectTheme(value) {
   opener.style = value;
-  opener.selection_restart(select_id);
-  self.close;
+  opener.selection_restart(current_field);
 }
 
-function selectSlot(value, textfield_id) {
+function selectSlot(value) {
   opener.value = value;
-  opener.textfield_restart(textfield_id);
-  self.close;
+  opener.textfield_restart(current_field);
 }
 
-function selectStyle(style, select_id) {
+function selectStyle(style) {
   opener.style = style;
-  opener.selection_restart(select_id);
-  self.close;
+  opener.selection_restart(current_field);
 }
 
+/* Pop-up window */
 function newWindow(url) {
   mywindow=window.open(url, 'selector', "width=760, height=500, location=no, menubar=no, status=no, toolbar=no, scrollbars=yes, resizable=yes");
   mywindow.location.href = url;
   mywindow.focus();
   if (mywindow.opener == null) mywindow.opener = self;
-}
-
-function selectWindow(url) {
-  window.location.href = url;
 }
 
 /* Scrolling */
