@@ -6,27 +6,27 @@ COMMON_ACTIONS = \
 ( { 'category'              : 'global'
   , 'action_id'             : 'configThemes'
   , 'title'                 : 'Portal Themes'
-  , 'icon_expr'             : 'cpsskins_actionicons/configthemes.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/configthemes.png'
   }
 , { 'category'              : 'global'
   , 'action_id'             : 'configPortal'
   , 'title'                 : 'Portal Configuration'
-  , 'icon_expr'             : 'cpsskins_actionicons/configpanel.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/configpanel.png'
   }
 , { 'category'              : 'user'
   , 'action_id'             : 'login'
   , 'title'                 : 'Login'
-  , 'icon_expr'             : 'cpsskins_actionicons/login.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/login.png'
   }
 , { 'category'              : 'user'
   , 'action_id'             : 'logout'
   , 'title'                 : 'Logout'
-  , 'icon_expr'             : 'cpsskins_actionicons/logout.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/logout.png'
   }
 , { 'category'              : 'user'
   , 'action_id'             : 'join'
   , 'title'                 : 'Join'
-  , 'icon_expr'             : 'cpsskins_actionicons/join.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/join.png'
   }
 )
 
@@ -35,17 +35,17 @@ CPS2_ACTIONS = \
 ( { 'category'              : 'global'
   , 'action_id'             : 'globalboxes'
   , 'title'                 : 'Global boxes'
-  , 'icon_expr'             : 'cpsskins_actionicons/boxes.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/boxes.png'
   }
 , { 'category'              : 'user'
   , 'action_id'             : 'personalboxes'
   , 'title'                 : 'My boxes'
-  , 'icon_expr'             : 'cpsskins_actionicons/boxes.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/boxes.png'
   }
 , { 'category'              : 'global'
   , 'action_id'             : 'directories'
   , 'title'                 : 'Directories'
-  , 'icon_expr'             : 'cpsskins_actionicons/directories.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/directories.png'
   }
 )
 
@@ -53,12 +53,12 @@ CPS3_ACTIONS = \
 ( { 'category'              : 'global'
   , 'action_id'             : 'boxes'
   , 'title'                 : 'action_boxes_root'
-  , 'icon_expr'             : 'cpsskins_actionicons/boxes.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/boxes.png'
   }
 , { 'category'              : 'global'
   , 'action_id'             : 'directories'
   , 'title'                 : 'Directories'
-  , 'icon_expr'             : 'cpsskins_actionicons/directories.gif'
+  , 'icon_expr'             : 'cpsskins_actionicons/directories.png'
   }
 )
 

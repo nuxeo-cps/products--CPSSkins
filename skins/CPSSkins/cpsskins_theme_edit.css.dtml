@@ -246,7 +246,7 @@ border-bottom: 1px solid #ccc;
 
 .link_up {
 display: block;
-background: url(<dtml-var base_url>cpsskins_images/img_onelevelup.gif) 4px 5px no-repeat transparent;
+background: url(<dtml-var base_url>cpsskins_images/img_onelevelup.png) 4px 5px no-repeat transparent;
 padding: 1px 0px 1px 18px;
 }
 

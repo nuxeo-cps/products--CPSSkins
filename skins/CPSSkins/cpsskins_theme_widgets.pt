@@ -18,7 +18,7 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
           <td
           tal:attributes="class python: we_are_here and 'ltabselected' or 'ltab'">
             <img width="5" height="5" border="0"
-            tal:attributes="src string:${base_url}cpsskins_images/ltab.gif" />
+            tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
           </td>
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
@@ -33,7 +33,7 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
           <td
           tal:attributes="class python: we_are_here and 'rtabselected' or 'rtab'">
             <img width="5" height="5" border="0"
-            tal:attributes="src string:${base_url}cpsskins_images/rtab.gif" />
+            tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
           </td>
           <td class="separator"></td>
         </tal:block>
@@ -137,7 +137,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_action('edit')"
          filter="pd_selected_item">
       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/edit-16.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/edit-16.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Edit_"
          content="python: mcat and mcat(title) or title" />
@@ -145,7 +145,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_action('edit_styles')"
          filter="pd_selected_item">
       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/edit_styles-16.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/edit_styles-16.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Edit_styles_"
          content="python: mcat and mcat(title) or title" />
@@ -153,7 +153,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_action('insert')"
          filter="pd_selected_item">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/insert-16.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/insert-16.png" />
        <tal:block i18n:translate="" 
          define="title string:_menu_Insert_"
          content="python: mcat and mcat(title) or title" />
@@ -161,7 +161,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_action('duplicate')"
          filter="pd_selected_item">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/duplicate-16.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/duplicate-16.png" />
        <tal:block i18n:translate="" 
          define="title string:_menu_Duplicate_"
          content="python: mcat and mcat(title) or title" />
@@ -169,7 +169,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_action('delete')"
          filter="pd_selected_item">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/delete-16.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
        <tal:block i18n:translate="" 
          define="title string:_menu_Delete_"
          content="python: mcat and mcat(title) or title" />
@@ -192,7 +192,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_align('left')"
      tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('left') >= 0)">
       <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_left.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/align_left.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Align left_"
          content="python: mcat and mcat(title) or title" />
@@ -200,7 +200,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_align('center')"
      tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('center') >= 0)">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_center.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/align_center.png" />
        <tal:block i18n:translate="" 
          define="title string:_menu_Align center_"
          content="python: mcat and mcat(title) or title" />
@@ -208,7 +208,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     <div class="context-menu-item" onmouseup="Choice_align('right')"
      tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('right') >= 0)">
        <img width="16" height="16" 
-         tal:attributes="src string:${base_url}cpsskins_images/align_right.gif" />
+         tal:attributes="src string:${base_url}cpsskins_images/align_right.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Align right_"
          content="python: mcat and mcat(title) or title" />
@@ -679,10 +679,10 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
        tal:content="title" i18n:translate="" />:
        <span tal:content="hits_width" />%
       <img height="8" alt="0" border="0" hspace="0" style="border-left: 1px solid black"
-       tal:attributes="src string:${base_url}cpsskins_images/cache_hits.gif;
+       tal:attributes="src string:${base_url}cpsskins_images/cache_hits.png;
                        width hits_width" /><img height="8" alt="0" border="0" hspace="0"
        style="border-right: 1px solid black"
-       tal:attributes="src string:${base_url}cpsskins_images/cache_misses.gif;
+       tal:attributes="src string:${base_url}cpsskins_images/cache_misses.png;
                        width misses_width" />
       &nbsp;&nbsp;-
       <span tal:define="title python:'_Memory usage_';

@@ -221,7 +221,7 @@ define="context_obj nocall:options/context_obj;
           <strong tal:define="code python: lang[0]; title python: lang[1]"
                   tal:omit-tag="python:prefLang != code">
             <img width="15" height="12" alt=""
-            tal:attributes="src string:${base_url}cpsskins_images/flag-${code}.gif; title title" />
+            tal:attributes="src string:${base_url}cpsskins_images/flag-${code}.png; title title" />
             <a href=""
             tal:attributes="href string:${base_url}switchLanguage?set_language=${code}"
                tal:content="python:portal_languages.getNameForLanguageCode(code) or title" />

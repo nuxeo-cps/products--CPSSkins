@@ -22,7 +22,7 @@ margin-bottom: 9px;
 }
 
 input.SearchBox {
-background: url("<dtml-var portal_url>/cpsskins_images/search_icon.gif"); 
+background: url("<dtml-var portal_url>/cpsskins_images/search_icon.png"); 
 background-repeat: no-repeat;
 background-position: center left;
 padding: 2px 2px 2px 20px;

@@ -59,7 +59,7 @@
     <td align="left" valign="top">
       <div class="form-item" style="white-space: nowrap">
         <input type="hidden" name="themeids" value="<dtml-var expr="key['themeid']">" />
-        <img src="/misc_/CPSSkins/portaltheme.gif" width="16" height="16" border="0"/>
+        <img src="/misc_/CPSSkins/portaltheme.png" width="16" height="16" border="0"/>
         <dtml-if expr="key['themeid'] in objectIds()">
           <a href="<dtml-var expr="key['themeid']">/manage_main">
             <dtml-var expr="key['themeid']"> 

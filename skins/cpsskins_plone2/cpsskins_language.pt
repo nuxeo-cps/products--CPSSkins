@@ -22,7 +22,7 @@
     repeat="lang served_languages">
       <a style="text-decoration: none"
          tal:define="lang_code python: lang[0]; 
-                     img_path python: 'here/cpsskins_images/flag-%s.gif' % lang_code; 
+                     img_path python: 'here/cpsskins_images/flag-%s.png' % lang_code; 
                      img_tag python: exists(img_path) and path(img_path) or None;
                      lang_selected python:prefLang == lang[0]"
          tal:attributes="href string:${portal_url}/switchLanguage?set_language=${lang_code}"

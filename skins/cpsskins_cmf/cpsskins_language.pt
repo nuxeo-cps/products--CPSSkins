@@ -21,7 +21,7 @@
     repeat="lang langs">
       <a style="text-decoration: none"
       tal:define="lang_id lang/id;
-                  img_path python: 'here/cpsskins_images/flag-%s.gif' % lang_id;
+                  img_path python: 'here/cpsskins_images/flag-%s.png' % lang_id;
                   img_tag python: exists(img_path) and path(img_path) or nothing;
                   lang_selected lang/selected"
        tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id}"

@@ -228,7 +228,7 @@
         <strong tal:omit-tag="python: not lang['selected']"
         tal:define="lang_id python: lang['id']; title python: lang['title']">
           <img width="15" height="12" alt=""
-          tal:attributes="src string:${base_url}cpsskins_images/flag-${lang_id}.gif; title title" />
+          tal:attributes="src string:${base_url}cpsskins_images/flag-${lang_id}.png; title title" />
           <a href=""
           tal:attributes="href string:${lc/absolute_url}/changeLanguage?lang=${lang_id}"
              tal:content="title" />

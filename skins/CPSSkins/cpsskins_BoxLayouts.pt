@@ -63,11 +63,11 @@
       <a tal:condition="python: box_state == 'minimized'"
          tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=maximized">
         <img src="" width="12" height="12" border="0"
-         tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.gif" /></a>
+         tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.png" /></a>
       <a tal:condition="python: box_state != 'minimized'"
          tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=minimized">
         <img src="" width="12" height="12" border="0"
-         tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.gif" /></a>
+         tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.png" /></a>
     </div>
   </div>
 </metal:block>
@@ -87,11 +87,11 @@
       <a tal:condition="python: box_state == 'minimized'"
          tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=maximized">
         <img src="" width="12" height="12" border="0" 
-         tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.gif" /></a>
+         tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.png" /></a>
       <a tal:condition="python: box_state != 'minimized'"
          tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=minimized">
         <img src="" width="12" height="12" border="0"
-         tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.gif" /></a>
+         tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.png" /></a>
     </div>
   </div>
 </metal:block>
@@ -104,11 +104,11 @@
     <a tal:condition="not:maximized"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
      <img src="" width="16" height="16" border="0" alt=""
-     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.gif" /></a>
+     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.png" /></a>
     <a tal:condition="python: state != 'minimized'"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=minimized">
      <img src="" width="16" height="16" border="0" alt=""
-      tal:attributes="src string:${base_url}cpsskins_images/button_minimized.gif" /></a>
+      tal:attributes="src string:${base_url}cpsskins_images/button_minimized.png" /></a>
     <metal:block define-slot="box_title">Box Title</metal:block>
     <br style="clear:right"/>
   </div>
@@ -128,15 +128,15 @@
       <a tal:condition="python: state != 'closed'"
       tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=closed">
        <img src="" width="16" height="16" border="0" alt="" 
-       tal:attributes="src string:${base_url}cpsskins_images/button_close.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png" /></a>
       <a tal:condition="not:maximized"
        tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
        <img src="" width="16" height="16" border="0" alt="" 
-       tal:attributes="src string:${base_url}cpsskins_images/button_maximized.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_maximized.png" /></a>
       <a tal:condition="python: state != 'minimized'"
        tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=minimized">
        <img src="" width="16" height="16" border="0" alt=""
-       tal:attributes="src string:${base_url}cpsskins_images/button_minimized.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_minimized.png" /></a>
       <metal:block define-slot="box_title">Box Title</metal:block>
       <br style="clear:right"/>
     </div>
@@ -149,7 +149,7 @@
   <a tal:condition="python: state == 'closed'"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
      <img src="" width="16" height="16" border="0" 
-     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.gif" />
+     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.png" />
     <metal:block define-slot="box_title">Box Title</metal:block>
   </a>
 </metal:block>
@@ -163,19 +163,19 @@
       <a tal:condition="python: state != 'closed'"
       tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=closed">
        <img src="" width="16" height="16" border="0" alt="" 
-       tal:attributes="src string:${base_url}cpsskins_images/button_close.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png" /></a>
       <a
        tal:attributes="href string:${portlet_url}/edit_form">
        <img src="" width="16" height="16" border="0" alt=""
-       tal:attributes="src string:${base_url}cpsskins_images/button_edit.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_edit.png" /></a>
       <a tal:condition="not:maximized"
        tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
        <img src="" width="16" height="16" border="0" alt="" 
-       tal:attributes="src string:${base_url}cpsskins_images/button_maximized.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_maximized.png" /></a>
       <a tal:condition="python: state != 'minimized'"
        tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=minimized">
        <img src="" width="16" height="16" border="0" alt=""
-       tal:attributes="src string:${base_url}cpsskins_images/button_minimized.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_minimized.png" /></a>
       <metal:block define-slot="box_title">Box Title</metal:block>
       <br style="clear:right"/>
     </div>
@@ -188,7 +188,7 @@
   <a tal:condition="python: state == 'closed'"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
      <img src="" width="16" height="16" border="0" 
-     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.gif" />
+     tal:attributes="src string:${base_url}cpsskins_images/button_maximized.png" />
     <metal:block define-slot="box_title">Box Title</metal:block>
   </a>
 </metal:block>
@@ -207,7 +207,7 @@
   <div class="title buttons">
     <a tal:attributes="href string:${portlet_url}/cpsskins_portlet_edit">
       <img src="" width="16" height="16" border="0" alt=""
-       tal:attributes="src string:${base_url}cpsskins_images/button_edit.gif" /></a>
+       tal:attributes="src string:${base_url}cpsskins_images/button_edit.png" /></a>
     <metal:block define-slot="box_title">Box Title</metal:block>
     <br style="clear:right"/>
   </div>

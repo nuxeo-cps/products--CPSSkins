@@ -19,7 +19,7 @@
         <tal:block repeat="imagecat sections">
           <tr>
             <td>
-              <img tal:attributes="src string:${base_url}themefolder.gif" />
+              <img tal:attributes="src string:${base_url}themefolder.png" />
             </td>
             <td>
               <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);

@@ -2,7 +2,7 @@
  style="color: red; background-color: Yellow; border: 1px solid black; padding: 5px"
  tal:define="mcat here/cpsskins_getlocalizer">
   <img src="" alt="" width="16" height="16"
-   tal:attributes="src string:${here/portal_url}/cpsskins_images/broken_templet.gif" />
+   tal:attributes="src string:${here/portal_url}/cpsskins_images/broken_templet.png" />
   <strong i18n:translate="" 
    tal:define="title string:_Broken Templet!_"
    tal:content="python: mcat and mcat(title) or title" />
