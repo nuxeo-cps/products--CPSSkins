@@ -23,16 +23,21 @@
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
   tal:define="portal_url here/portal_url;
+              ttool here/portal_types;
               ptltool here/portal_cpsportlets">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header" class="context-menu">
-      <tal:block i18n:translate="menu_insert_portlet">Insert a portlet here</tal:block>
+      <tal:block i18n:translate="menu_insert_portlet" i18n:domain="cpsskins">
+      Insert a portlet here</tal:block>
     </div>
     <tal:block repeat="ptype_id ptltool/listPortletTypes">
       <div class="context-menu-item"
           filter="pd_selected_item"
           tal:attributes="onmouseup string:Choice_insert('${ptype_id}')" >
-        <tal:block content="structure python: ptype_id" />
+        <tal:block i18n:translate=""
+         define="fti python: ttool.getTypeInfo(ptype_id);
+                 title python: fti and fti.title_or_id() or ptype_id"
+         content="title" />
       </div>
     </tal:block>
   </div>
