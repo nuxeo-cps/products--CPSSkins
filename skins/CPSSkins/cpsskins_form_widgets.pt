@@ -1,7 +1,7 @@
 <metal:block define-macro="edit_form"
   tal:define="id request/form/id|here/id;
               cat request/form/cat|nothing;
-              object object|here;
+              object nocall:object|here;
               object_url object/absolute_url;
               redirect_url redirect_url|nothing">
   <form name="data" action="cpsskins_edit" method="post"
@@ -25,7 +25,7 @@
 <metal:block define-macro="generic_edit">
   <metal:block use-macro="here/cpsskins_form_widgets/macros/form">
     <metal:block fill-slot="content"
-    tal:define="object object|here;
+    tal:define="object nocall:object|here;
                 object_url object/absolute_url;
                 style_meta_types tmtool/listStyleMetaTypes">
       <tal:block repeat="field python: object.cpsskins_get_form_fields(cat=cat)">
