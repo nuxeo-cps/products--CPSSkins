@@ -17,8 +17,13 @@ tmtool.setViewMode(scrolly=scrolly)
 # category
 cat = kw.get('cat')
 
+# redirect url
+url = kw.get('redirect_url')
+
 if REQUEST is not None:
-   url = context.absolute_url() + '/edit_form'
+   if url is None:
+       url = context.absolute_url() + '/edit_form'
+
    if cat:
          url += '?cat=' + cat
    REQUEST.RESPONSE.redirect(url)

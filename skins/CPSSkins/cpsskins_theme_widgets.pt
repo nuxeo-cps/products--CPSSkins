@@ -536,6 +536,8 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
                            onSubmit string:saveScrollCoordinates('${name}')">
            <input type="hidden" name="scrollx" value="0">
            <input type="hidden" name="scrolly" value="0"> 
+           <input type="hidden" name="redirect_url" value="" 
+            tal:attributes="value string:${block_rurl}/edit_form" />
            <input name="cellwidth"
             type="text" size="4" tal:attributes="value cellwidth" />
           </form>

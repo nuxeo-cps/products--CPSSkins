@@ -16,7 +16,7 @@ scrolly = kw.get('scrolly', '0')
 tmtool.setViewMode(scrollx=scrollx)
 tmtool.setViewMode(scrolly=scrolly)
 
-url = context.absolute_url() + '/edit_form'
+url = cellsizer.aq_parent.absolute_url() + '/edit_form'
 
 if REQUEST is None:
     return cellsizer
