@@ -461,6 +461,10 @@ msgid "_Created by:_"
 msgstr "Creato da:"
 
 
+msgid "_Creator_"
+msgstr ""
+
+
 msgid "_Custom action categories_"
 msgstr "Inserisci altre categorie di azioni "
 

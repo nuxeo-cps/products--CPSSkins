@@ -452,11 +452,15 @@ msgstr "Droits d'auteur et autres"
 
 
 msgid "_Create a copy_"
-msgstr ""
+msgstr "Créer une copie"
 
 
 msgid "_Created by:_"
 msgstr "Créé par :"
+
+
+msgid "_Creator_"
+msgstr "Créateur"
 
 
 msgid "_Custom action categories_"

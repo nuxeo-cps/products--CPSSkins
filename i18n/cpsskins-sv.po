@@ -459,6 +459,10 @@ msgid "_Created by:_"
 msgstr "Skapat av:"
 
 
+msgid "_Creator_"
+msgstr ""
+
+
 msgid "_Custom action categories_"
 msgstr ""
 

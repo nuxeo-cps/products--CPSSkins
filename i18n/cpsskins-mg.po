@@ -468,6 +468,10 @@ msgid "_Created by:_"
 msgstr "Noforonin'ny :"
 
 
+msgid "_Creator_"
+msgstr ""
+
+
 msgid "_Custom action categories_"
 msgstr "Sokajin'ny hetsika fanampiny"
 

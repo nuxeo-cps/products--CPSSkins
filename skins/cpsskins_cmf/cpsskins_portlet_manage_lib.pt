@@ -478,6 +478,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
          tal:content="python: mcat and mcat(title) or title">Title</th>
         <th tal:define="title string:_Description_" i18n:translate=""
          tal:content="python: mcat and mcat(title) or title">Description</th>
+        <th tal:define="title string:_Creator_" i18n:translate=""
+         tal:content="python: mcat and mcat(title) or title">Creator</th>
         <th tal:define="title string:_Location_" i18n:translate=""
          tal:content="python: mcat and mcat(title) or title">Location</th>
         <th>&nbsp;</th>
@@ -491,6 +493,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
           portlet_type fti/title_or_id;
           portlet_icon fti/getIcon;
           portlet_url portlet/getURL;
+          portlet_creator portlet/getCreator;
           portlet_folder portlet/getLocalFolder;
           portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
           portlet_rurl portlet/getRelativeUrl;
@@ -521,11 +524,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
              tal:content="portlet_title" />
           </td>
           <td tal:content="portlet/description" />
+          <td tal:content="portlet_creator" />
           <td tal:content="portlet_folder_url" />
           <td>
-            <div class="previewBox hidden"
-             tal:attributes="id portlet_id"
-             tal:content="structure python: portlet.render_cache(context_obj=here)" />
           </td>
         </tr>
       </tal:block>
@@ -535,4 +536,11 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
      tal:define="title string:_Copy_"
      tal:attributes="value python: mcat and mcat(title) or title" />
   </form>
+
+  <tal:block repeat="portlet portlets">
+    <div class="previewBox hidden"
+     tal:define="portlet_id portlet/getId"
+     tal:attributes="id portlet_id"
+     tal:content="structure python: portlet.render_cache(context_obj=here)" />
+  </tal:block>
 </metal:block>

@@ -459,6 +459,10 @@ msgid "_Created by:_"
 msgstr "Created by:"
 
 
+msgid "_Creator_"
+msgstr "Creator"
+
+
 msgid "_Custom action categories_"
 msgstr "Custom action categories"
 
