@@ -9,13 +9,13 @@
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
         id: <tal:block content="portlet/getId" /><br/>
-        url: <tal:block content="portlet/getURL" /><br/>
-        slot: <tal:block content="portlet/getSlot" /><br/>
-        order: <tal:block content="portlet/getOrder" /><br/>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
                      src_slot group">
+        url: <tal:block content="portlet/getURL" /><br/>
+        slot: <tal:block content="portlet/getSlot" /><br/>
+        order: <tal:block content="portlet/getOrder" /><br/>
       </div>
     </div>
   </div>
