@@ -3,7 +3,7 @@
   tal:define="io_tool here/portal_io|nothing">
   <h2 class="fancy" tal:define="title string:_Import a theme_" 
    tal:content="python: mcat and mcat(title) or title"
-   i18n:translate="" />
+   i18n:translate="" i18n:domain="cpsskins" />
 
   <tal:block condition="nocall:io_tool">
     <tal:block define="importer string:CPSSkinsImporter;
@@ -516,7 +516,7 @@
 
       <h2 class="fancy" tal:define="title string:_Add a theme_"
       tal:content="python: mcat and mcat(title) or title"
-      i18n:translate="" />
+      i18n:translate="" i18n:domain="cpsskins" />
       <div class="addItem">
         <form action="cpsskins_theme_add" method="get">
           <input type="image" type="submit" 
