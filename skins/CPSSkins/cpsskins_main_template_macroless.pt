@@ -1,5 +1,6 @@
 <metal:block define-macro="master">
-<html tal:define="
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
+ tal:define="
   utool nocall:here/portal_url;
   mcat here/cpsskins_getlocalizer;
   here_url here/absolute_url;
@@ -7,15 +8,22 @@
   theme_url python: base_url + utool.getRelativeUrl(theme_container);
   cpsskins_language tmtool/getCurrentLang;
   cpsskins_url here/cpsskins_getCurrentURL;
+  charset here/cpsskins_getCharset;
   shield not:tmtool/debug_mode|python:1;
   dummy python: request.set('cpsskins_language', cpsskins_language);
   dummy python: request.set('cpsskins_url', cpsskins_url);
   dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());
-  dummy python: request.set('cpsskins_mcat', mcat);
-">
+  dummy python: request.set('cpsskins_mcat', mcat)"
+ tal:attributes="lang cpsskins_language;
+                 xml:lang cpsskins_language">
 <head>
 <metal:block define-macro="head"
  tal:define="theme_url python: base_url + utool.getRelativeUrl(theme_container);">
+  <tal:block define="dummy python:request.RESPONSE.setHeader(
+   'Content-Type', 'text/html;; charset=%s' % charset)" />
+  <meta http-equiv="Content-Type" tal:attributes="
+   content string:text/html;;charset=${charset}" />
+  <meta name="generator" content="CPSSkins 2.3" />
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${base_url}cpsskins_common.css" />
