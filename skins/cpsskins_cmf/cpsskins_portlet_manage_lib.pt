@@ -392,19 +392,23 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="browser_panel"
-  tal:define="topic request/form/topic|nothing">
+  tal:define="topic request/form/topic|nothing;
+              type request/form/type|nothing;
+              selection python: topic or type">
 
-  <h2 i18n:translate="heading_portlet_browser" i18n:domain="cpsskins">Portlet browser</h2>
+  <h2 i18n:translate="heading_portlet_browser"
+   i18n:domain="cpsskins">Portlet browser</h2>
 
-  <div tal:condition="topic">
+  <div tal:condition="selection">
     <a tal:attributes="href string:${request/URL0}"
        i18n:translate="" class="link_up"
-       tal:define="title string:_Other topics_"
+       tal:define="title string:_Other portlets_"
        tal:content="python: mcat and mcat(title) or title" />
-
-    <tal:block define="portlets python: ptltool.listPortlets(topics=(topic,))"
+    <br/>
+    <tal:block define="topics python: topic and (topic,) or ();
+                       portal_types python: type and (type,) or ();
+                       portlets python: ptltool.listPortlets(topics=topics, portal_types=portal_types)"
      repeat="portlet portlets">
-
       <tal:block define="ypos portlet/getOrder;
                          fti portlet/getTypeInfo;
                          portlet_id portlet/getId;
@@ -417,7 +421,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                          portlet_rurl portlet/getRelativeUrl;
                          folder_url python: base_url + utool.getRelativeUrl(here);
                          group portlet/getSlot;
-                         editable python:checkPerm('Manage Portlets', portlet);
+                         editable python: checkPerm('Manage Portlets', portlet);
                          selected python: portlet_id == selected_portlet">
         <div class="PortletBoxEditMenu" style="padding: 2px"
          tal:attributes="portlet_rurl portlet_rurl;
@@ -451,7 +455,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     </tal:block>
   </div>
 
-  <div class="topicFolder" tal:condition="not:topic">
+  <div class="topicFolder" tal:condition="not:selection">
+    <h3 i18n:translate="heading_portlet_browser_by_topic"
+     i18n:domain="cpsskins">By topic</h3>
     <ul tal:define="topics_voc here/portal_vocabularies/subject_voc|nothing"
         tal:condition="topics_voc">
       <tal:block repeat="key python: topics_voc.keys()">
@@ -461,6 +467,22 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         </li>
       </tal:block>
     </ul>
+    <div style="clear:both" />
+  </div>
+
+  <div class="typeFolder" tal:condition="not:selection">
+    <h3 i18n:translate="heading_portlet_browser_by_type"
+     i18n:domain="cpsskins">By type</h3>
+    <ul tal:define="ptltool nocall:here/portal_cpsportlets;
+                    types ptltool/listPortletTypes">
+      <tal:block repeat="type types">
+        <li><a href=""
+             tal:attributes="href string:${request/URL0}?type=$type"
+             tal:content="type" />
+        </li>
+      </tal:block>
+    </ul>
+    <div style="clear:both" />
   </div>
 
 </metal:block>

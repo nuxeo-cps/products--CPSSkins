@@ -1749,3 +1749,9 @@ msgstr ""
 
 msgid "_Theme editor_"
 msgstr ""
+
+msgid "heading_portlet_browser_by_topic"
+msgstr ""
+
+msgid "heading_portlet_browser_by_type"
+msgstr ""

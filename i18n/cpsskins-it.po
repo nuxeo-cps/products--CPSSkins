@@ -2285,6 +2285,14 @@ msgid "description_unused_portlets"
 msgstr "Questi portlets non sono visualizzabili in quanto il loro alloggiamento non è presente nella struttura di questo tema."
 
 
+msgid "heading_portlet_browser_by_topic"
+msgstr ""
+
+
+msgid "heading_portlet_browser_by_type"
+msgstr ""
+
+
 msgid "heading_portlet_manage_form"
 msgstr "Gestione dei portlets"
 

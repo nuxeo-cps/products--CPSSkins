@@ -2283,6 +2283,14 @@ msgid "description_unused_portlets"
 msgstr "Portlets that are invisible because their slot is not in this theme"
 
 
+msgid "heading_portlet_browser_by_topic"
+msgstr "By topic"
+
+
+msgid "heading_portlet_browser_by_type"
+msgstr "By type"
+
+
 msgid "heading_portlet_manage_form"
 msgstr "Portlet management"
 

@@ -2285,6 +2285,14 @@ msgid "description_unused_portlets"
 msgstr "Ces portlets sont invisibles car leur groupe ne fait pas partie de ce thème"
 
 
+msgid "heading_portlet_browser_by_topic"
+msgstr "Par topique"
+
+
+msgid "heading_portlet_browser_by_type"
+msgstr "Par type de portlet"
+
+
 msgid "heading_portlet_manage_form"
 msgstr "Gestion des portlets"
 

@@ -2309,6 +2309,14 @@ msgid "description_unused_portlets"
 msgstr ""
 
 
+msgid "heading_portlet_browser_by_topic"
+msgstr ""
+
+
+msgid "heading_portlet_browser_by_type"
+msgstr ""
+
+
 msgid "heading_portlet_manage_form"
 msgstr ""
 

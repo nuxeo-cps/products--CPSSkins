@@ -871,7 +871,7 @@ font-style: bold
 text-decoration: underline;
 }
 
-/* browser */
+/* Portlet browser */
 
 .topicFolder ul {
 margin: 0px;
@@ -887,10 +887,9 @@ background: url(<dtml-var base_url>cpsskins_images/topic_folder_off.png) no-repe
 padding: 15px 20px 0 10px;
 margin: 0px;
 text-decoration: none;
-font-size: 1pt;
 float: left;
-height: 67px;
-width: 75px;
+height: 60px;
+width: 60px;
 }
 
 .topicFolder li a:hover {
@@ -898,4 +897,27 @@ background: url(<dtml-var base_url>cpsskins_images/topic_folder_on.png) no-repea
 color: Black;
 }
 
+.typeFolder ul {
+margin: 0px;
+padding: 0px;
+list-style-type: none;
+text-align: left;
+}
+
+.typeFolder ul li { float: left; }
+
+.typeFolder ul li a {
+background: url(<dtml-var base_url>cpsskins_images/type_folder_off.png) no-repeat top left;
+padding: 15px 20px 0 10px;
+margin: 0px;
+text-decoration: none;
+float: left;
+height: 60px;
+width: 60px;
+}
+
+.typeFolder li a:hover {
+background: url(<dtml-var base_url>cpsskins_images/type_folder_on.png) no-repeat left top;
+color: Black;
+}
 </dtml-let>
