@@ -177,6 +177,18 @@ msgid "_Bottom border color_"
 msgstr "Colore del bordo inferiore"
 
 
+msgid "_Bottom left image_"
+msgstr ""
+
+
+msgid "_Bottom right image_"
+msgstr ""
+
+
+msgid "_Box Corners_"
+msgstr ""
+
+
 msgid "_Box color_"
 msgstr "Colore del contenitore"
 
@@ -1417,6 +1429,10 @@ msgid "_Today border color_"
 msgstr "Colore del bordo per la data odierna"
 
 
+msgid "_Top left image_"
+msgstr ""
+
+
 msgid "_Top menu background color_"
 msgstr "Colore di sfondo"
 
@@ -1447,6 +1463,10 @@ msgstr "Colore del carattere <br>(menù selezionati)"
 
 msgid "_Top menu items width_"
 msgstr "Larghezza dei menù principali"
+
+
+msgid "_Top right image_"
+msgstr ""
 
 
 msgid "_Translate folder items_"
@@ -1575,6 +1595,10 @@ msgstr "Colore del contenitore"
 
 msgid "_boxcolor_description_"
 msgstr "in questa schermata puoi definire le impostazioni per i colori dei contenitori del portale."
+
+
+msgid "_boxcorners_description_"
+msgstr ""
 
 
 msgid "_boxshape_"
@@ -1787,6 +1811,10 @@ msgstr "Colore dell'area"
 
 msgid "_menu_Area Shape_"
 msgstr "Forma dell'area"
+
+
+msgid "_menu_Box Corners_"
+msgstr ""
 
 
 msgid "_menu_Calendar Style_"

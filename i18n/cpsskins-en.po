@@ -175,6 +175,18 @@ msgid "_Bottom border color_"
 msgstr "Bottom border color"
 
 
+msgid "_Bottom left image_"
+msgstr "Bottom left image"
+
+
+msgid "_Bottom right image_"
+msgstr "Bottom right image"
+
+
+msgid "_Box Corners_"
+msgstr "Box corners"
+
+
 msgid "_Box color_"
 msgstr "Portal box color"
 
@@ -1415,6 +1427,10 @@ msgid "_Today border color_"
 msgstr "Today border color"
 
 
+msgid "_Top left image_"
+msgstr "Top left image"
+
+
 msgid "_Top menu background color_"
 msgstr "Top menu background color"
 
@@ -1445,6 +1461,10 @@ msgstr "Top menu hover font color"
 
 msgid "_Top menu items width_"
 msgstr "Top menu items width"
+
+
+msgid "_Top right image_"
+msgstr "Top right image"
 
 
 msgid "_Translate folder items_"
@@ -1573,6 +1593,10 @@ msgstr "Portal box shape"
 
 msgid "_boxcolor_description_"
 msgstr "this style defines the colors of portal boxes"
+
+
+msgid "_boxcorners_description_"
+msgstr "this style defines the appearance of box corners"
 
 
 msgid "_boxshape_"
@@ -1785,6 +1809,10 @@ msgstr "Area color"
 
 msgid "_menu_Area Shape_"
 msgstr "Area shape"
+
+
+msgid "_menu_Box Corners_"
+msgstr "Box corners"
 
 
 msgid "_menu_Calendar Style_"

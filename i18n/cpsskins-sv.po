@@ -175,6 +175,18 @@ msgid "_Bottom border color_"
 msgstr ""
 
 
+msgid "_Bottom left image_"
+msgstr ""
+
+
+msgid "_Bottom right image_"
+msgstr ""
+
+
+msgid "_Box Corners_"
+msgstr ""
+
+
 msgid "_Box color_"
 msgstr ""
 
@@ -1415,6 +1427,10 @@ msgid "_Today border color_"
 msgstr ""
 
 
+msgid "_Top left image_"
+msgstr ""
+
+
 msgid "_Top menu background color_"
 msgstr ""
 
@@ -1444,6 +1460,10 @@ msgstr ""
 
 
 msgid "_Top menu items width_"
+msgstr ""
+
+
+msgid "_Top right image_"
 msgstr ""
 
 
@@ -1572,6 +1592,10 @@ msgstr ""
 
 
 msgid "_boxcolor_description_"
+msgstr ""
+
+
+msgid "_boxcorners_description_"
 msgstr ""
 
 
@@ -1784,6 +1808,10 @@ msgstr ""
 
 
 msgid "_menu_Area Shape_"
+msgstr ""
+
+
+msgid "_menu_Box Corners_"
 msgstr ""
 
 

@@ -1755,3 +1755,25 @@ msgstr ""
 
 msgid "heading_portlet_browser_by_type"
 msgstr ""
+
+msgid "_Top left image_"
+msgstr ""
+
+msgid "_Top right image_"
+msgstr ""
+
+msgid "_Bottom right image_"
+msgstr ""
+
+msgid "_Bottom left image_"
+msgstr ""
+
+msgid "_Box Corners_"
+msgstr ""
+
+msgid "_boxcorners_description_"
+msgstr ""
+
+msgid "_menu_Box Corners_"
+msgstr ""
+

@@ -175,6 +175,18 @@ msgid "_Bottom border color_"
 msgstr "Couleur de bordure inférieure"
 
 
+msgid "_Bottom left image_"
+msgstr "Image en bas à gauche"
+
+
+msgid "_Bottom right image_"
+msgstr "Image en bas à droite"
+
+
+msgid "_Box Corners_"
+msgstr "Coins de la boîte"
+
+
 msgid "_Box color_"
 msgstr "Couleur de la boîte"
 
@@ -1417,6 +1429,10 @@ msgid "_Today border color_"
 msgstr "Couleur de la bordure du jour courant"
 
 
+msgid "_Top left image_"
+msgstr "Image en haut à gauche"
+
+
 msgid "_Top menu background color_"
 msgstr "Couleur d'arrière-plan des menus principaux"
 
@@ -1447,6 +1463,10 @@ msgstr "Couleur du texte des menus principaux (sélectionnés)"
 
 msgid "_Top menu items width_"
 msgstr "Largeur des menus principaux"
+
+
+msgid "_Top right image_"
+msgstr "Image en haut à droite"
 
 
 msgid "_Translate folder items_"
@@ -1575,6 +1595,10 @@ msgstr "Couleur des boîtes"
 
 msgid "_boxcolor_description_"
 msgstr "ce style définit la couleurs de boîtes du portail."
+
+
+msgid "_boxcorners_description_"
+msgstr "Ce style définit l'apparence du coin des boîtes."
 
 
 msgid "_boxshape_"
@@ -1787,6 +1811,10 @@ msgstr "Couleurs de l'aire"
 
 msgid "_menu_Area Shape_"
 msgstr "Forme de l'aire"
+
+
+msgid "_menu_Box Corners_"
+msgstr "Coins de la boîte"
 
 
 msgid "_menu_Calendar Style_"

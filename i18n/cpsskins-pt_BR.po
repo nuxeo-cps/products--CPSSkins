@@ -176,6 +176,18 @@ msgid "_Bottom border color_"
 msgstr "Cor da borda de baixo"
 
 
+msgid "_Bottom left image_"
+msgstr ""
+
+
+msgid "_Bottom right image_"
+msgstr ""
+
+
+msgid "_Box Corners_"
+msgstr ""
+
+
 msgid "_Box color_"
 msgstr "Cor da caixa do Portal"
 
@@ -1418,6 +1430,10 @@ msgid "_Today border color_"
 msgstr "Cor da borda de hoje"
 
 
+msgid "_Top left image_"
+msgstr ""
+
+
 msgid "_Top menu background color_"
 msgstr "Cor de fundo do menu superior"
 
@@ -1448,6 +1464,10 @@ msgstr "Cor da fonte do menu superior ao pairar sobre"
 
 msgid "_Top menu items width_"
 msgstr "Largura dos itens do menu superior"
+
+
+msgid "_Top right image_"
+msgstr ""
 
 
 msgid "_Translate folder items_"
@@ -1576,6 +1596,10 @@ msgstr "Cor da caixa do portal"
 
 msgid "_boxcolor_description_"
 msgstr "este estilo define as cores das caixas do portal."
+
+
+msgid "_boxcorners_description_"
+msgstr ""
 
 
 msgid "_boxshape_"
@@ -1788,6 +1812,10 @@ msgstr "Cor da área"
 
 msgid "_menu_Area Shape_"
 msgstr "Forma da área"
+
+
+msgid "_menu_Box Corners_"
+msgstr ""
 
 
 msgid "_menu_Calendar Style_"

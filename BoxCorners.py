@@ -20,7 +20,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 """ 
   Box Corners
-  this style defines the style of area corners.
+  this style defines the appearance of box corners.
 """
 
 from Globals import InitializeClass
@@ -31,7 +31,7 @@ from BaseStyle import BaseStyle
 factory_type_information = (
     {'id': 'Box Corners',
      'meta_type': 'Box Corners',
-     'description': ('_box_corners_description_'),
+     'description': ('_boxcorners_description_'),
      'icon': 'box_corners.png',
      'product': 'CPSSkins',
      'factory': 'addBoxCorners',
