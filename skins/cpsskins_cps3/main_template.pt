@@ -23,8 +23,6 @@
               cpsmcat nocall:here/Localizer/default; 
               locale here/Localizer/get_selected_language;
               in_ws here/isInWorkspace;
-              cpsskins_theme python: tmtool.getLocalThemeName(here); 
-              dummy python: request.set('cpsskins_theme', cpsskins_theme);
               dummy python: request.set('cpsskins_cmfactions', actions);
 ">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
