@@ -26,14 +26,12 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
 
 
     def test_1(self):
-        self.portal.REQUEST.set('context_obj', self.sections)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sections)
         results={'create_url': '', 'menuentries': []}
         self.assert_(menuentries, results)
 
     def test_2(self):
-        self.portal.REQUEST.set('context_obj', self.sections)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sections)
         results={'create_url': 'http://nohost/portal/sections/folder_factories',
         'menuentries': [{'title': 'section1',
         'url': 'http://nohost/portal/sections/section1',
@@ -50,14 +48,12 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_3(self):
-        self.portal.REQUEST.set('context_obj', self.sections)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1', context_obj=self.sections)
         results={'create_url': '', 'menuentries': []}
         self.assert_(menuentries, results)
 
     def test_4(self):
-        self.portal.REQUEST.set('context_obj', self.sections)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/section2')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/section2', context_obj=self.sections)
         results={'create_url': 'http://nohost/portal/sections/folder_factories',
         'menuentries': [{'title': 'section1',
         'url': 'http://nohost/portal/sections/section1',
@@ -74,14 +70,12 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_5(self):
-        self.portal.REQUEST.set('context_obj', self.section1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/', context_obj=self.section1)
         results={'create_url': '', 'menuentries': []}
         self.assert_(menuentries, results)
 
     def test_6(self):
-        self.portal.REQUEST.set('context_obj', self.section1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/', context_obj=self.section1)
         results={'create_url': 'http://nohost/portal/sections/folder_factories',
         'menuentries': [{'title': 'section1',
         'url': 'http://nohost/portal/sections/section1',
@@ -98,8 +92,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_7(self):
-        self.portal.REQUEST.set('context_obj', self.section1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1', context_obj=self.section1)
         results={'create_url': '',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -122,8 +115,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_8(self):
-        self.portal.REQUEST.set('context_obj', self.section1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2', context_obj=self.section1)
         results={'create_url': '',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -146,14 +138,12 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_9(self):
-        self.portal.REQUEST.set('context_obj', self.sub1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sub1)
         results={'create_url': '', 'menuentries': []}
         self.assert_(menuentries, results)
 
     def test_10(self):
-        self.portal.REQUEST.set('context_obj', self.sub1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sub1)
         results={'create_url': 'http://nohost/portal/sections/folder_factories',
         'menuentries': [{'title': 'section1',
         'url': 'http://nohost/portal/sections/section1',
@@ -170,8 +160,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_11(self):
-        self.portal.REQUEST.set('context_obj', self.sub1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1', context_obj=self.sub1)
         results={'create_url': 'http://nohost/portal/sections/section1/folder_factories',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -194,8 +183,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_12(self):
-        self.portal.REQUEST.set('context_obj', self.sub1)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2', context_obj=self.sub1)
         results={'create_url': '',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -218,15 +206,13 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_13(self):
-        self.portal.REQUEST.set('context_obj', self.sub2)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=0, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sub2)
         results={'create_url': '', 'menuentries': []}
         self.assert_(menuentries, results)
 
 
     def test_14(self):
-        self.portal.REQUEST.set('context_obj', self.sub2)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/', context_obj=self.sub2)
         results={'create_url': 'http://nohost/portal/sections/folder_factories',
         'menuentries': [{'title': 'section1',
         'url': 'http://nohost/portal/sections/section1',
@@ -244,8 +230,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
 
 
     def test_15(self):
-        self.portal.REQUEST.set('context_obj', self.sub2)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section1', context_obj=self.sub2)
         results={'create_url': 'http://nohost/portal/sections/section1/folder_factories',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -268,8 +253,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(menuentries, results)
 
     def test_16(self):
-        self.portal.REQUEST.set('context_obj', self.sub2)
-        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2')
+        menuentries = self.portal.cpsskins_getNavigationInfo(level=1, base='sections', show_docs=0, base_path='/sections/section2', context_obj=self.sub2)
         results={'create_url': '',
         'menuentries': [{'title': 'sub1',
         'url': 'http://nohost/portal/sections/section1/sub1',
@@ -290,9 +274,6 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
         'id': 'sub3',
         'icon': 'section_icon.gif'}]}
         self.assert_(menuentries, results)
-
- 
-
 
 def test_suite():
     suite = unittest.TestSuite()
