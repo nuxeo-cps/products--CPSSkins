@@ -660,7 +660,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
                    ypos python: 0;
                    title python: mcat and mcat(title) or title;
                    dest_block pageblock_rurl;
-                   pageblock_url pageblock_url">
+                   block_url pageblock_url">
   </div>
 </metal:block>
 
