@@ -1258,7 +1258,11 @@ class PortalTheme(ThemeFolder, StylableContent):
     def getCSSCache(self):
         """ Returns the CSS RAM cache object"""
 
-        cacheid = '_'.join((CSS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
+        virtualrootpath = self.REQUEST.get('VirtualRootPhysicalPath', ())
+        cacheid = '_'.join((CSS_RAMCACHE_ID, ) + \
+                            virtualrootpath + \
+                            self.getPhysicalPath()[1:] )
+
         try:
             return self.caches[cacheid]
         except KeyError:
