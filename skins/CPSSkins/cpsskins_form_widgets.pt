@@ -68,12 +68,12 @@
 
               <tal:block condition="palette">
                 <img class="colorSample" width="16" height="16" 
-                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&palette=$palette');
+                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
                                 style string:background-color: $value;; ;
                                 src string: ${base_url}cpsskins_images/select_icon.png"
                 tal:condition="python: palette == 'Palette Color'" />
                 <img class="shapeSample" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&palette=$palette');
+                tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&amp;palette=$palette');
                                 style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
                                 src string: ${base_url}cpsskins_images/select_icon.png"
                 tal:condition="python: palette == 'Palette Border'" />
@@ -88,12 +88,12 @@
 
               <tal:block condition="image">
                 <img alt="select image" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_image?prop=$id&image=$image');
+                tal:attributes="onClick string:newWindow('cpsskins_select_image?prop=$id&amp;image=$image');
                                 src string:${base_url}cpsskins_images/select_icon.png"
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit images_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&current_image=$value;
+                 tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&amp;current_image=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
                    tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
@@ -102,12 +102,12 @@
 
               <tal:block condition="python: style in style_meta_types">
                 <img alt="select image" width="16" height="16"
-                tal:attributes="onClick string:newWindow('cpsskins_select_style?prop=$id&style=$style');
+                tal:attributes="onClick string:newWindow('cpsskins_select_style?prop=$id&amp;style=$style');
                                 src string:${base_url}cpsskins_images/select_icon.png"
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit styles_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&current_style=$value;
+                 tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&amp;current_style=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
                    tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />

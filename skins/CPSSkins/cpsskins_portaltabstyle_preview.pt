@@ -1,4 +1,4 @@
-<table cellpadding="10" cellspacing="0" width="100%"
+<table cellpadding="10" cellspacing="0" width="100%" summary=""
 i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr>
@@ -17,9 +17,9 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
               </a>
             </li>
           </tal:block>
-          <br clear="left" />
         </ul>
       </div>
+      <div style="clear:left" ></div>
     </td>
   </tr>
 </table>

@@ -4,7 +4,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
             themes tmtool/getThemes;
             externalthemes tmtool/getExternalThemeIds">
   <table class="navigationtab" cellpadding="0" cellspacing="0" 
-  border="0">
+  border="0" summary="">
     <tr>
       <tal:block repeat="theme themes">
         <tal:block
@@ -17,23 +17,24 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           ">
           <td
           tal:attributes="class python: we_are_here and 'ltabselected' or 'ltab'">
-            <img width="5" height="5" border="0"
+            <img src="" alt="" width="5" height="5" border="0"
             tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
           </td>
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="ContentDest" tal:attributes="dest_theme theme_id">
               <a 
-              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id&scrolly=0;
+              tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id&amp;scrolly=0;
                               style style"
               tal:content="theme_title" />
-              <img width="16" height="16" border="0" tal:condition="python: theme_id in externalthemes"
+              <img src="" alt="" width="16" height="16" border="0"
+              tal:condition="python: theme_id in externalthemes"
               tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
             </div>
           </td>
           <td
           tal:attributes="class python: we_are_here and 'rtabselected' or 'rtab'">
-            <img width="5" height="5" border="0"
+            <img alt="" src="" width="5" height="5" border="0"
             tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
           </td>
           <td class="separator"></td>
@@ -306,7 +307,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
                    dest_block block_rurl">
     <a i18n:attributes="title"
     tal:define="title string:_Insert a Templet here_"
-    tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&content_ypos=$ypos;
+    tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos;
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
@@ -507,7 +508,7 @@ tal:define="block_id pageblock/getId;
            i18n:attributes="title"
            tal:condition="python: x_pos < maxcols-1"
            tal:define="title string:_Move this cell to the right_"
-           tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=right&xpos=$x_pos; 
+           tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=right&amp;xpos=$x_pos; 
              title python: mcat and mcat(title) or title">
           <img border="0" width="12" height="12"
             tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />

@@ -1,4 +1,4 @@
-<table cellpadding="10" cellspacing="0" i18n:domain="cpsskins"
+<table cellpadding="10" cellspacing="0" summary="" i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr style="height:150px">
     <td>

@@ -15,7 +15,7 @@
       <h1 tal:define="title string:_Edit images_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <table cellpadding="3" cellspacing="0" border="0">
+      <table cellpadding="3" cellspacing="0" border="0" summary="">
         <tal:block repeat="imagecat sections">
           <tr>
             <td>
@@ -24,7 +24,7 @@
             <td>
               <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);
                              title python:'_%s_' % imagecat"
-                 tal:attributes="href string:${here_url}/cpsskins_edit_images?imagecat=$imagecat_quoted&theme=$current_theme&edit_mode=$edit_mode"
+                 tal:attributes="href string:${here_url}/cpsskins_edit_images?imagecat=$imagecat_quoted&amp;theme=$current_theme"
                  i18n:translate="" 
                  tal:content="python: mcat and mcat(title) or title" />
             </td>
@@ -46,11 +46,11 @@
                         msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                         onclick_msg python:'return window.confirm(\'%s\')' % msg"
             tal:attributes="onclick onclick_msg;
-              href string:${image_url}/cpsskins_object_delete?edit_mode=$edit_mode&theme=$current_theme&goto=referer" >
+              href string:${image_url}/cpsskins_object_delete?goto=referer" >
               <img border="0" width="12" height="12"
               tal:attributes="src string:${base_url}cpsskins_images/img_image_delete.png" />
             </a>
-            <a tal:attributes="href string:${image_url}/cpsskins_image_edit_form?theme=$current_theme&edit_mode=$edit_mode&imagecat=$imagecat">
+            <a tal:attributes="href string:${image_url}/cpsskins_image_edit_form?imagecat=$imagecat">
               <strong tal:content="image_title" />
               <br />
               <tal:block content="string:${image/size} bytes" />

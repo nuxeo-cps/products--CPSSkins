@@ -35,7 +35,7 @@
         <span>No local theme is currently associated to this folder.</span>
       </p>
 
-      <ul tal:condition="local_themes">
+      <blockquote tal:condition="local_themes">
         <em>Local themes can be stacked together. The top layer is the most visible.</em>
         <tal:block repeat="theme local_themes">
           <tal:block define="theme_name python: theme[1];
@@ -79,7 +79,7 @@
 
           </tal:block>
         </tal:block>
-      </ul>
+      </blockquote>
 
       <h2>Add a theme</h2>
       <form name="data" action="theme_edit_form" method="get"

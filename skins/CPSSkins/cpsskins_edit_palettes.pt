@@ -13,7 +13,7 @@
       <h1 tal:define="title string:_Edit palettes_"
        tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <table cellpadding="3" cellspacing="0" border="0">
+      <table cellpadding="3" cellspacing="0" border="0" summary="">
         <tal:block repeat="obj here/cpsskins_listPalettes">
           <tal:block define="palettecat obj/getId">
             <tr>

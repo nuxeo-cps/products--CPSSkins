@@ -11,7 +11,7 @@
      tal:content="python: mcat and mcat(title) or title" i18n:translate="" />
     <form action="cpsskins_image_add" method="post"
     enctype="multipart/form-data">
-      <table cellspacing="0" cellpadding="2" border="0">
+      <table cellspacing="0" cellpadding="2" border="0" summary="">
         <tr>
           <td>
             <input type="file" name="file" size="25" value="" />

@@ -1,4 +1,4 @@
-<table cellpadding="5" cellspacing="0" i18n:domain="cpsskins"
+<table cellpadding="5" cellspacing="0" summary="" i18n:domain="cpsskins"
 tal:define="mcat python: request.get('cpsskins_mcat')"
 tal:attributes="class string:FontShape${here/title}">
   <tr style="height: 320px">

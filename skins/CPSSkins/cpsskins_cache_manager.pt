@@ -17,7 +17,7 @@
     i18n:translate="" />
 
     <form action="manage_clearCache">
-      <table cellpadding="0" cellspacing="2" width="100%">
+      <table cellpadding="0" cellspacing="2" width="100%" summary="">
         <tr>
           <td>
             <metal:block use-macro="here/cpsskins_theme_widgets/macros/cache_statistics" />
@@ -36,7 +36,7 @@
       <input type="hidden" name="theme"
       tal:attributes="value theme" />
       <table border="0" cellpadding="2" cellspacing="0"
-      width="100%">
+      width="100%" summary="">
         <tal:block repeat="pageblock theme_container/getPageBlocks|nothing">
           <tr>
             <td colspan="4">
@@ -54,7 +54,7 @@
                   <td>
                     <img align="middle"
                     tal:attributes="src string:${base_url}${content/getIcon}" />
-                    <a tal:attributes="href string:${content/absolute_url}/edit_form?theme=$theme&edit_mode=$edit_mode"
+                    <a tal:attributes="href string:${content/absolute_url}/edit_form"
                      tal:content="python: content.title_or_id()" />
                     <input type="hidden" name="paths" 
                     tal:attributes="value python: '/'.join(content.getPhysicalPath())" />

@@ -23,13 +23,14 @@
           <p tal:define="title string:_These styles are not used and can be deleted:_"
              tal:content="python: mcat and mcat(title) or title"
              i18n:translate="" />
-          <table border="0" cellpadding="2" cellspacing="0"
+          <table border="0" cellpadding="2" cellspacing="0" summary=""
           class="TableFrame" width="100%">
             <tal:block repeat="style unused_styles">
               <tr>
                 <td width="50%">
                   <a tal:attributes="href string:${style/absolute_url}/edit_form">
-                    <img tal:attributes="src string:${base_url}${style/getIcon}" />
+                    <img src="" alt=""
+                     tal:attributes="src string:${base_url}${style/getIcon}" />
                     <span tal:content="style/getTitle" />
                   </a>
                 </td>

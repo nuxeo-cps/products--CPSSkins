@@ -10,15 +10,18 @@
                     prop request/form/prop|nothing;
                     images python: here.cpsskins_listImages(imagecat=imagecat)">
     <div class="panel" tal:repeat="image images">
-      <a tal:define="number repeat/image/number"
+      <a href=""
+       tal:define="number repeat/image/number" 
        tal:attributes="href string:javascript:selectImage('$number', '$prop')">
         <div style="width: 250px">
           <h1 tal:content="image/title" />
           <tal:block content="string:${image/size} bytes" />
           <tal:block content="string:(${image/width}x${image/height} px)" />
-          <img border="0" tal:condition="python: imagecat == 'icons'"
+          <img border="0" alt="" src=""
+           tal:condition="python: imagecat == 'icons'"
            tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image/absolute_url" />
-          <img border="0" tal:condition="python: imagecat == 'thumbnails'"
+          <img border="0" alt="" src=""
+           tal:condition="python: imagecat == 'thumbnails'"
            tal:attributes="src image/absolute_url" />
           <div class="backgroundeditbox"
            tal:condition="python: imagecat == 'backgrounds'"

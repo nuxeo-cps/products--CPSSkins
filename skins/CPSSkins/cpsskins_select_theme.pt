@@ -13,12 +13,14 @@
    tal:define="prop request/form/prop|nothing;
                themes tmtool/getThemes">
     <div class="panel" tal:repeat="theme themes">
-      <a tal:define="number repeat/theme/number"
+      <a href=""
+       tal:define="number repeat/theme/number"
        tal:attributes="href string:javascript:selectTheme('$number', '$prop')">
         <div style="width: 250px"
          tal:define="preview theme/preview|nothing">
           <h1 tal:content="theme/title" />
-          <img tal:condition="preview" width="200px" height="160px"
+          <img alt="" src="" width="200px" height="160px"
+           tal:condition="preview"
            tal:attributes="src string:${theme/absolute_url}/thumbnails/${preview}" />
           <div class="thumbnail" style="width: 200px; height: 160px"
            tal:condition="not:preview">

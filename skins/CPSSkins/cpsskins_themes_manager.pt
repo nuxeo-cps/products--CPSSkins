@@ -19,7 +19,7 @@
         <input type="hidden" name="edit_mode" value=""    
         tal:attributes="value edit_mode" />   
         <table border="0" cellpadding="2" cellspacing="0"
-        width="100%">
+        width="100%" summary="">
           <tr>
              <td>
                  <strong i18n:translate=""
@@ -49,9 +49,9 @@
                               renderers tmtool/listThemeRenderers"
                   tal:attributes="style python: theme_id == current_theme and 'background-color: #d0d0d0' or ''">
                   <td>
-                    <img align="middle" alt=""
+                    <img src="" align="middle" alt=""
                     tal:attributes="src string:${base_url}${theme/getIcon}" />
-                    <a tal:attributes="href string:${theme/absolute_url}/edit_form?theme=$theme_id&edit_mode=$edit_mode;
+                    <a tal:attributes="href string:${theme/absolute_url}/edit_form?theme=$theme_id;
                                        style python: default_theme and 'font-weight: bold' or ''"
                        tal:content="python: '%s (%s)' % (theme_id, theme.title_or_id())" />
                   </td>

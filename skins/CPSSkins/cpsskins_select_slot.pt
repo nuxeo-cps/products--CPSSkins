@@ -10,8 +10,8 @@
   <body tal:define="prop request/form/prop|nothing;
                     slots here/cpsskins_listSlots">
     <div class="slotselector" tal:repeat="slot slots">
-      <img tal:attributes="src string:${base_url}cpsskins_images/boxslot.png" 
-       width="16" height="16" alt="" />
+      <img src="" width="16" height="16" alt=""
+       tal:attributes="src string:${base_url}cpsskins_images/boxslot.png" />
       &nbsp;<span tal:content="slot" /> ...
       <div style="text-align: right"> 
         <a tal:define="title string:_select this slot_" i18n:translate=""

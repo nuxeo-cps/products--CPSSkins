@@ -61,11 +61,11 @@
     </tal:block>
     <div style="text-align: right">
       <a tal:condition="python: box_state == 'minimized'"
-         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=maximized">
+         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&amp;state=maximized">
         <img src="" width="12" height="12" border="0"
          tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.png" /></a>
       <a tal:condition="python: box_state != 'minimized'"
-         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=minimized">
+         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&amp;state=minimized">
         <img src="" width="12" height="12" border="0"
          tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.png" /></a>
     </div>
@@ -85,11 +85,11 @@
     </tal:block>
     <div style="text-align: right">
       <a tal:condition="python: box_state == 'minimized'"
-         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=maximized">
+         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&amp;state=maximized">
         <img src="" width="12" height="12" border="0" 
          tal:attributes="src string:${base_url}cpsskins_images/drawer_open_$orientation.png" /></a>
       <a tal:condition="python: box_state != 'minimized'"
-         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&state=minimized">
+         tal:attributes="href string:${base_url}cpsskins_setBoxState?boxid=$boxid&amp;state=minimized">
         <img src="" width="12" height="12" border="0"
          tal:attributes="src string:${base_url}cpsskins_images/drawer_close_$orientation.png" /></a>
     </div>

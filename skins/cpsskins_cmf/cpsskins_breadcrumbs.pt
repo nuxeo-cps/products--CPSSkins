@@ -9,8 +9,9 @@ tal:define="mcat python: request.get('cpsskins_mcat');
 	    bcs python: context_obj.cpsskins_getBreadcrumbs();">
   <tal:block i18n:translate="" condition="python: separator_start and not show_icon"
   content="structure python: mcat and mcat(separator_start) or separator_start" />
-  <img tal:condition="python: show_icon and hasattr(context_obj, 'getIcon')" 
-   tal:attributes="src string:${here/portal_url}/${context_obj/getIcon|nothing}" alt="" />
+  <img alt="" src=""
+   tal:condition="python: show_icon and hasattr(context_obj, 'getIcon')" 
+   tal:attributes="src string:${here/portal_url}/${context_obj/getIcon|nothing}"/>
   <tal:block repeat="bc bcs" condition="i18n">
     <tal:block
     define="title python: bc['title'] or bc['id'];

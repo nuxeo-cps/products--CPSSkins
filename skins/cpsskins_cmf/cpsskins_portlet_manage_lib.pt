@@ -29,9 +29,9 @@
       <div class="title BoxGroupBoxTitle"
        tal:condition="editable" style="display:block; padding-right: 0">
         <a style="float:right"  href=""
-        tal:attributes="href string:${base_url}${portlet_folder_rurl}/cpsskins_delete_portlet?portlet_id=$portlet_id&redirect_url=$folder_url; 
+        tal:attributes="href string:${base_url}${portlet_folder_rurl}/cpsskins_delete_portlet?portlet_id=$portlet_id&amp;redirect_url=$folder_url; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
-          <img border="0" width="12" height="12" alt=""
+          <img src="" border="0" width="12" height="12" alt=""
           tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
         </a>
         <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
@@ -49,7 +49,7 @@
                        src_ypos python: ypos and ypos or 0;
                        src_slot group">
         <div class="body">
-          <img width="16" height="16" alt=""
+          <img src="" width="16" height="16" alt=""
           tal:condition="portlet_icon"
           tal:attributes="src string:${base_url}${portlet_icon}" />
           <em tal:content="structure python: cpsmcat(portlet_type)" />
@@ -65,13 +65,13 @@
 </metal:block>
 
 <metal:block define-macro="portlet_add_panel">
-  <table class="contentbox" cellpadding="2" cellspacing="1"
+  <table class="contentbox" cellpadding="2" cellspacing="1" summary=""
    tal:define="til here/cpsskins_listPortlets">
     <tr>
       <tal:block repeat="ti til">
         <td class="PortletAdd"
          tal:attributes="ptype_id ti/id">
-          <img tal:define="title ti/Title" width="16" height="16"
+          <img src="" alt="" tal:define="title ti/Title" width="16" height="16"
            i18n:attributes="title"
            tal:attributes="src string:${base_url}${ti/getIcon};
                            title title" /><br/>
