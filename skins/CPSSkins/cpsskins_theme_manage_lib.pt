@@ -492,7 +492,7 @@
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" />
   <form action=""
-   tal:attributes="action string:${here_url}/manage_exportObject">
+   tal:attributes="action string:${theme_container_url}/manage_exportObject">
     <input type="hidden" name="download" value="1" />
     <input type="submit" class="ExportTheme"
      tal:define="title string:_button_export_theme_"
