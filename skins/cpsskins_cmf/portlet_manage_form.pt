@@ -8,28 +8,20 @@
                   context_url python:here.getContextUrl(utool=utool);
                   base_url python: here.cpsskins_getBaseUrl();
                   view_mode tmtool/getViewMode;
-                  wysiwyg view_mode/wysiwyg|python:0;
-                  panel view_mode/portlets_panel|string:site_structure;
+                  panel view_mode/portlets_panel|string:wysiwyg;
+                  wysiwyg python: panel == 'wysiwyg';
                   selected_portlet view_mode/selected_portlet|nothing;
                   cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                   checkPerm nocall:mtool/checkPermission">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <head>
+  <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/head" />
   <style type="text/css" media="all"
    tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
   <script type="text/javascript" src="cpsskins_pdlib.js"></script>
   <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
 </head>
 
-<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
-
-<div class="editspace"
- tal:condition="python: panel == 'wysiwyg'">
-  <metal:block use-macro="here/main_template/macros/master">
-    <metal:block fill-slot="main">
-      <div style="border: 1px solid black; padding: 20px;">Main slot</div>
-    </metal:block>
-  </metal:block>
-</div>
 
 <body>
   <div class="floatingheader">
@@ -40,25 +32,35 @@
   </div>
 
   <div class="editspace">
-    <tal:block 
-     define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
-     condition="python: hidden_slots and panel=='unused_portlets'">
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
-    </tal:block>
-
-    <tal:block
-     condition="python: panel == 'site_structure'">
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
+    <tal:block condition="wysiwyg">
+      <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/main">
+        <metal:block fill-slot="maincontent">
+          <div style="border: 1px solid black; padding: 20px;">Main slot</div>
+        </metal:block>
+      </metal:block>
     </tal:block> 
 
-    <tal:block
-     condition="python: panel == 'portlet_slots'">
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
-    </tal:block> 
+    <tal:block condition="not:wysiwyg">
+      <tal:block 
+       define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+       condition="python: hidden_slots and panel=='unused_portlets'">
+        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
+      </tal:block>
 
-    <tal:block
-     condition="python: panel == 'portlet_browser'">
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
+      <tal:block
+       condition="python: panel == 'site_structure'">
+       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
+      </tal:block> 
+
+      <tal:block
+       condition="python: panel == 'portlet_slots'">
+       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
+      </tal:block> 
+
+      <tal:block
+       condition="python: panel == 'portlet_browser'">
+       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
+      </tal:block> 
     </tal:block> 
   </div>
 
