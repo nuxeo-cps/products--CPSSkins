@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html tal:define="
+<html i18n:domain="cpsskins" tal:define="
   base_url python:here.cpsskins_getBaseUrl();
   mcat here/cpsskins_getlocalizer;
   type_name request/form/type_name|nothing">
