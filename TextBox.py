@@ -27,7 +27,13 @@ from cgi import escape
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+
 from Products.PythonScripts.standard import structured_text, newline_to_br
+try: 
+    from Products.PythonScripts.standard \
+    import restructured_text as structured_text
+except ImportError:
+    pass
 
 from BaseTemplet import BaseTemplet
 
