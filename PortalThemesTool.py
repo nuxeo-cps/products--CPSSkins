@@ -159,33 +159,17 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if fullscreen in ['0', '1']:
             session_dict['fullscreen'] = int(fullscreen)
 
-        portlets_panel = kw.get('portlets_panel')
-        if portlets_panel is not None:
-            session_dict['portlets_panel'] = portlets_panel
-
-        selected_portlet = kw.get('selected_portlet')
-        if selected_portlet is not None:
-            session_dict['selected_portlet'] = selected_portlet
-
-        clipboard = kw.get('clipboard')
-        if clipboard is not None:
-            session_dict['clipboard'] = clipboard
-
-        theme = kw.get('theme')
-        if theme is not None:
-            session_dict['theme'] = theme
-
-        edit_mode = kw.get('edit_mode')
-        if edit_mode is not None:
-            session_dict['edit_mode'] = edit_mode
-
-        scrollx = kw.get('scrollx')
-        if scrollx is not None:
-            session_dict['scrollx'] = scrollx
-
-        scrolly = kw.get('scrolly')
-        if scrolly is not None:
-            session_dict['scrolly'] = scrolly
+        for param in ['portlets_panel',
+                      'selected_portlet',
+                      'clipboard',
+                      'theme',
+                      'edit_mode',
+                      'current_url',
+                      'scrollx',
+                      'scrolly',
+                      'current_url']:
+            if kw.has_key(param):
+                session_dict[param] = kw[param]
 
         session[VIEW_MODE_SESSION_KEY] = session_dict
 
