@@ -419,7 +419,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         tmtool = getToolByName(self, 'portal_themes')
         if REQUEST is None:
             REQUEST = self.REQUEST
-        current_theme = tmtool.getRequestedThemeName(REQUEST=REQUEST)
+        current_theme = tmtool.getRequestedThemeName()
         boxid = self.getId()
         cookie_name = 'cpsskins_%s_%s' % (current_theme, boxid)
 
