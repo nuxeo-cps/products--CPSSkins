@@ -717,6 +717,10 @@ font: 11px Verdana, Arial, Sans-Serif;
 border-color: red;
 }
 
+.PortalBoxEditMenu, .PortalBoxEditMenu_highlighted {
+height: 100%; /* IE hack */
+}
+
 /* Portlet Boxes */
 .PortletBoxDest, .PortletBoxDest_highlighted {
 border: 1px solid #666;
@@ -725,6 +729,10 @@ font: 11px Verdana, Arial, Sans-Serif;
 
 .PortletDest_highlighted {
 border-color: red;
+}
+
+.PortletBoxEditMenu, .PortletBoxEditMenu_highlighted {
+height: 100%; /* IE hack */
 }
 
 .TableFrame {

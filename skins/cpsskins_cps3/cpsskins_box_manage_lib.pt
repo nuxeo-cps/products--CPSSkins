@@ -77,7 +77,7 @@
    dest_ypos python: 0">
     <div class="PortalBoxEditMenu" style="padding: 20px"
      tal:attributes="src_ypos python: 0;
-                     src_slot group">&nbsp;</div>
+                     src_slot group"></div>
   </div>
 </metal:block>
 
