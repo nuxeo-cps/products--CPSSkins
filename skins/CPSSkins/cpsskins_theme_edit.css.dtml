@@ -800,6 +800,13 @@ border: 1px solid #ccc;
 background-color: #f3f3f6;
 }
 
+.PortletsFullscreen {
+}
+
+.PortletsPanelSelector {
+float: left;
+}
+
 .TableFrame {
 border: 1px #ccc solid;
 background-color: #f3f3f6;

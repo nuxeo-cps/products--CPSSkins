@@ -2,7 +2,7 @@
                         tmtool here/portal_themes;
                         view_mode tmtool/getViewMode;
                         fullscreen view_mode/fullscreen|python:0;
-                        panel view_mode/portlets_panel|nothing;
+                        panel view_mode/portlets_panel|string:site_structure;
                         selected_portlet view_mode/selected_portlet|nothing;
                         global emptybody fullscreen;
                         cpsmcat python: here.cpsskins_getlocalizer(cat='default');
@@ -25,45 +25,33 @@
       management</h1>
     </metal:header>
 
-    <metal:main fill-slot="main">
-      <tal:block define="ptltool nocall:here/portal_cpsportlets;
-                         portal_url here/portal_url;
-                         base_url python: request.get('cpsskins_base_url');
-                         folder_url python: base_url + utool.getRelativeUrl(here)">
-        <form class="ViewMode" action="" method="post" 
-         tal:condition="not:fullscreen"
-         tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
-          <input type="hidden" name="fullscreen" value="1" />
-          <input class="Fullscreen"
-           type="submit" value="_button_fullscreen_" i18n:attributes="value" />
-        </form>
-        <form class="ViewMode" action="" method="post"
-         tal:condition="fullscreen"
-         tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
-          <input type="hidden" name="fullscreen" value="0" />
-          <input class="NoFullscreen"
-           type="submit" value="_button_normal_mode_" i18n:attributes="value" />
-        </form>
+    <metal:main fill-slot="main"
+     tal:define="ptltool nocall:here/portal_cpsportlets;
+                 base_url python: request.get('cpsskins_base_url');
+                 folder_url python: base_url + utool.getRelativeUrl(here)">
 
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/panel_selector" />
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/fullscreen" />
+      <br clear="both" />
 
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/panel_selector" />
-
-        <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
-                   condition="python: hidden_slots and panel=='unused'">
-          <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
-        </tal:block>
-
-        <tal:block condition="python: panel == 'site_structure'">
-          <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
-        </tal:block> 
-
-        <tal:block condition="python: panel == 'browser'">
-          <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
-        </tal:block> 
+      <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+                 condition="python: hidden_slots and panel=='unused'">
+        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
       </tal:block>
 
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
+      <tal:block condition="python: panel == 'site_structure'">
+        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
+      </tal:block> 
+
+      <tal:block condition="python: panel == 'main_canvas'">
+        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
+      </tal:block> 
+
+      <tal:block condition="python: panel == 'browser'">
+        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
+      </tal:block> 
+
+    <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
 
       <!-- Begin pdlib footer -->
       <div id="drag-feedback-box"></div>

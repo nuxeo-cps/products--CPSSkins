@@ -160,7 +160,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             session_dict['fullscreen'] = int(fullscreen)
 
         portlets_panel = kw.get('portlets_panel')
-        if portlets_panel in ['site_structure', 'browser', 'unused']:
+        if portlets_panel is not None:
             session_dict['portlets_panel'] = portlets_panel
 
         selected_portlets = kw.get('selected_portlet')
