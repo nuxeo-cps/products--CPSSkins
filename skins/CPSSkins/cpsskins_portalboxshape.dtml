@@ -66,3 +66,6 @@ padding-top:1px;
 .BoxShape&dtml-title; .buttons a {
 float:right;
 }
+.BoxShape&dtml-title; .body li {
+margin: 0;
+}
