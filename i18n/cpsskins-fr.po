@@ -1969,6 +1969,10 @@ msgid "_option_dropdown list_"
 msgstr "Liste déroulante"
 
 
+msgid "_option_esi_box_"
+msgstr "Boîte ESI"
+
+
 msgid "_option_events_"
 msgstr "Evénements"
 
@@ -2119,6 +2123,10 @@ msgstr "Voir aussi ..."
 
 msgid "_option_right_"
 msgstr "A droite"
+
+
+msgid "_option_rounded_box_"
+msgstr "Boîte à coins arrondis"
 
 
 msgid "_option_searchbox_advanced_"

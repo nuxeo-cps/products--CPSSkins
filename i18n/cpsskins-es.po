@@ -1991,6 +1991,10 @@ msgid "_option_dropdown list_"
 msgstr ""
 
 
+msgid "_option_esi_box_"
+msgstr ""
+
+
 msgid "_option_events_"
 msgstr ""
 
@@ -2140,6 +2144,10 @@ msgstr ""
 
 
 msgid "_option_right_"
+msgstr ""
+
+
+msgid "_option_rounded_box_"
 msgstr ""
 
 

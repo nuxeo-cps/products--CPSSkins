@@ -1970,6 +1970,10 @@ msgid "_option_dropdown list_"
 msgstr "Lista Dropdown"
 
 
+msgid "_option_esi_box_"
+msgstr ""
+
+
 msgid "_option_events_"
 msgstr "Eventos futuros"
 
@@ -2120,6 +2124,10 @@ msgstr "Documentos relacionados"
 
 msgid "_option_right_"
 msgstr "Direita"
+
+
+msgid "_option_rounded_box_"
+msgstr ""
 
 
 msgid "_option_searchbox_advanced_"

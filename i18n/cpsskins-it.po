@@ -1969,6 +1969,10 @@ msgid "_option_dropdown list_"
 msgstr "Lista scorrevole"
 
 
+msgid "_option_esi_box_"
+msgstr ""
+
+
 msgid "_option_events_"
 msgstr "Avvenimenti"
 
@@ -2119,6 +2123,10 @@ msgstr "Vedi anche oggetti correlati ..."
 
 msgid "_option_right_"
 msgstr "A destra"
+
+
+msgid "_option_rounded_box_"
+msgstr ""
 
 
 msgid "_option_searchbox_advanced_"
