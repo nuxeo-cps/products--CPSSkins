@@ -96,8 +96,7 @@
                                 styles_list python: content.getApplicableStyles();
                                 align_list content/AlignList|nothing"
                      tal:condition="python: special_content or render_content or render_as_title or layout_edit_mode"
-                     tal:attributes="align python: content.align;
-                                     style style;
+                     tal:attributes="style style;
 	                             class string: $class $boxdragclass $boxeditmenuclass; 
                                      contenturl python: base_url + utool.getRelativeUrl(content); 
                                      styles python: '|'.join([s['meta_type'] for s in styles_list]);

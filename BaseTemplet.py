@@ -434,9 +434,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     def getCSSLayoutStyle(self):
         """Returns the CSS layout style for this Templet."""
 
-        css = ''
         padding = self.padding
         height = self.templet_height
+        css = 'text-align: %s;' % self.align
 
         if padding:
             if padding not in ('0', '0pt', '0in', '0pc', '0mm',

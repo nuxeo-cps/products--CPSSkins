@@ -52,8 +52,7 @@
                    tal:condition="python: rendered or not isRenderable"
                    tal:attributes="style margin_style"
                    tal:omit-tag="not:margin_style">
-                    <div tal:attributes="align python: content.align;
-                                         class python: content.getCSSAreaClass(level=1);
+                    <div tal:attributes="class python: content.getCSSAreaClass(level=1);
                                          style python: content.getCSSLayoutStyle()">
                   <tal:block condition="isRenderable"
                    content="structure rendered" />
