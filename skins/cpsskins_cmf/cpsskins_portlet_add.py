@@ -3,7 +3,8 @@
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-kw['title'] = kw.get('ptype_id', '')
+ptype_id = kw.get('ptype_id', '')
+title = kw.get('title', ptype_id)
 
 dest_rurl = kw.get('dest_rurl')
 
@@ -15,7 +16,13 @@ if dest_rurl:
                                              default=None)
 if dest_folder is None:
     dest_folder = context
-kw['context'] = dest_folder
 
 ptltool = context.portal_cpsportlets
-context.createCPSPortlet(REQUEST=REQUEST, **kw)
+portlet_id = ptltool.createPortlet(context=context, **kw)
+portlet_container = ptltool.getPortletContainer(context)
+portlet = portlet_container.getPortletById(portlet_id)
+
+if REQUEST is not None:
+    url = portlet.absolute_url() + '/edit_form'
+    REQUEST.RESPONSE.redirect(url)
+

@@ -78,6 +78,30 @@
   </table>
 </metal:block>
 
+<metal:block define-macro="portlet_add_form">
+  <tal:block define="til here/cpsskins_listPortlets">
+    <dl class="contentlist">
+      <tal:block repeat="ti til">
+        <dt tal:define="choice_id string:choice_${repeat/ti/number}">
+          <input name="ptype_id" type="radio"
+           tal:attributes="value ti/id;
+                           id choice_id" />
+          <img width="16" height="16" alt=""
+           tal:attributes="src string:${base_url}${ti/getIcon}" />
+          <label for="" tal:attributes="for choice_id">
+            <strong tal:define="title ti/Title"
+                    tal:content="python: mcat and mcat(title) or title"
+                    i18n:translate="" />
+          </label>
+        </dt>
+        <dd tal:define="title ti/description"
+            tal:content="python: mcat and mcat(title) or title"
+            i18n:translate="" />  
+      </tal:block>
+    </dl>
+  </tal:block>
+</metal:block>
+
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
   tal:define="ttool here/portal_types;
               view_mode python: tmtool.getViewMode();

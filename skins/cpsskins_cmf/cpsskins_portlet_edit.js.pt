@@ -58,7 +58,7 @@ function Portlet_add(selected_items, target_node) {
   dest_rurl = dest.getAttribute('dest_rurl');
   dest_slot = dest.getAttribute('dest_slot');
   dest_ypos = dest.getAttribute('dest_ypos');
-  create_url = 'cpsskins_portlet_add?ptype_id=' + ptype_id + '&slot=' + dest_slot + '&order=' + dest_ypos;
+  create_url = 'cpsskins_addportlet_form?ptype_id=' + ptype_id + '&slot=' + dest_slot + '&order=' + dest_ypos;
   if (dest_rurl != null) create_url = create_url + '&dest_rurl=' + dest_rurl;
   newWindow(create_url);
 }

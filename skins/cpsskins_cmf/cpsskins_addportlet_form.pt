@@ -4,20 +4,26 @@
       <metal:block fill-slot="main"
     tal:define="pss modules/Products/PythonScripts/standard;
                 order request/form/order|python:0; 
-                slot request/form/slot|nothing;">
+                slot request/form/slot|nothing;
+                ptype_id request/form/ptype_id|nothing">
     <h1 i18n:translate=""
     tal:define="title string:_Add_a_portlet_"
     tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_portlet_add" method="get">
-        <tal:block define="title string:;">
+        <tal:block condition="not:ptype_id">
           <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/portlet_add_form">
+          use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_form">
           </metal:block>
         </tal:block>
+        <input type="hidden" name="ptype_id"
+        tal:condition="ptype_id"
+        tal:attributes="value ptype_id" />
         <input type="hidden" name="slot"
         tal:attributes="value slot" />
         <input type="hidden" name="order"
         tal:attributes="value order" />
+        <input type="string" name="title"
+        tal:attributes="value ptype_id" />
         <input type="submit" class="mainbutton"
         i18n:attributes="value" tal:define="title string:_button_create_"
         tal:attributes="value python: mcat and mcat(title) or title" />
