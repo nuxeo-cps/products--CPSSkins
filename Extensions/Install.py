@@ -275,6 +275,9 @@ def update(self):
     # portal_themes
     tool_id = 'portal_themes'
     perms = ('Manage Themes', 
+             'Copy or Move',
+             'Change permissions',
+             'Delete objects',
              'Add portal content', 
              'Manage properties',
              'Change Images and Files', 
