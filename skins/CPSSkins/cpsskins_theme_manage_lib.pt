@@ -363,7 +363,7 @@
       </div>
 </metal:block>
 
-<metal:block define-macro="cache_manager">
+<metal:block define-macro="cache_manager" i18n:domain="cpsskins">
     <h1 tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
@@ -452,7 +452,7 @@
     </form>
 </metal:block>
 
-<metal:block define-macro="theme_manager">
+<metal:block define-macro="theme_manager" i18n:domain="cpsskins">
   <tal:block define="object theme_container;
                      redirect_url string:${base_url}/cpsskins_theme_manage_form">
     <h1 tal:define="title string:_Edit_">
@@ -463,7 +463,7 @@
   </tal:block>
 </metal:block>
 
-<metal:block define-macro="theme_exporter" tal:define="
+<metal:block define-macro="theme_exporter" i18n:domain="cpsskins" tal:define="
   io_tool here/portal_io|nothing">
   <h1 tal:define="title string:_Theme export_"
    tal:content="python: mcat and mcat(title) or title"
