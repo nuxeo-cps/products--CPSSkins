@@ -186,18 +186,20 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         list = []
         for propid in self.propertyIds():
             prop_map = self.propertyMap()
-            for obj in prop_map:            
-                if obj['id'] == propid:                
-                    image = obj.get('image', None)
-                    if image:
-                        value = getattr(self, propid)
-                        if value == '':
-                            continue
-                        list.append({'id': value, 
-                                     'prop': propid, 
-                                     'category': image
-                                    }
-                        )
+            for obj in prop_map:
+                if obj['id'] != propid:
+                    continue
+                image = obj.get('image', None)
+                if image is None:
+                    continue
+                value = getattr(self, propid)
+                if value == '':
+                    continue
+                list.append(
+                    {'id': value,
+                     'prop': propid,
+                     'category': image
+                    })
         return list
 
     security.declarePublic('findParents')
