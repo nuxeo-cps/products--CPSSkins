@@ -1,0 +1,144 @@
+<dtml-var manage_page_header>
+<dtml-let management_view="'External themes'">
+<dtml-var manage_tabs>
+</dtml-let>
+<p>External themes are themes that are located on an external server (WWW or FTP server). They can be installed directly over the Internet.</p>
+
+<form action="&dtml-URL1;" method="POST">
+<dtml-let keys="getExternalThemes()">
+<dtml-if keys>
+
+<table cellspacing="2" cellpadding="2" border="0" width="100%">
+  <tr>
+    <td align="center">
+      <input type="submit" name="manage_synchronizeExternalThemes:method" value=" Check for updates ">
+      <input type="submit" name="manage_updateExternalThemes:method" value=" Install updates ">
+      <input type="submit" name="manage_forceupdateExternalThemes:method" value=" Reinstall all themes ">
+    </td>
+  </tr>
+</table>
+<br />
+
+<dtml-let len_keys="_.len(keys)">
+   <dtml-if "len_keys == 1">
+   <em>1 external theme is currently configured:</em>
+   <dtml-else>
+   <em><dtml-var len_keys> external themes are currently configured:</em>
+   </dtml-if>
+   <input type="hidden" name="len_keys:int" value="&dtml-len_keys;">
+</dtml-let>
+<br />
+<br />
+
+<dtml-let status_msgs="getStatusMsgs()">
+<table cellspacing="0" cellpadding="2" border="0" width="100%">
+  <tr class="list-header">
+    <td align="left" valign="top">
+       &nbsp;
+    </td>
+    <td align="left" valign="top">
+      <div class="form-label">Theme ID</div>
+    </td>
+    <td align="left" valign="top">
+      <div class="form-label">Status</div>
+    </td>
+    <td align="left" valign="top">
+      <div class="form-label">Theme URL</div>
+    </td>
+  </tr>
+  <dtml-in keys>
+  <dtml-let key=sequence-item index=sequence-index>
+  <dtml-if sequence-odd>
+  <tr class="row-normal">
+  <dtml-else>
+  <tr class="row-hilite">
+  </dtml-if>
+    <td align="right" valign="top">
+      <input type="checkbox" name="keys:list" value="&dtml-key;">
+    </td>
+    <td align="left" valign="top">
+      <div class="form-item" style="white-space: nowrap">
+        <input type="hidden" name="themeids" value="<dtml-var expr="key['themeid']">" />
+        <img src="/misc_/CPSSkins/portaltheme.gif" width="16" height="16" border="0"/>
+        <dtml-if expr="key['themeid'] in objectIds()">
+          <a href="<dtml-var expr="key['themeid']">/manage_main">
+            <dtml-var expr="key['themeid']"> 
+          </a>
+        <dtml-else>
+          <dtml-var expr="key['themeid']">
+        </dtml-if>
+      </div>
+    </td>
+    <td align="left">
+      <div class="form-item">
+        <dtml-var expr="status_msgs[key['status']]"> 
+        <dtml-var expr="key['updated']"> 
+      </div>
+    </td>
+    <td align="left">
+      <div class="form-item">
+        <input type="text" name="themeurls" size="60" value="<dtml-var expr="key['themeurl']">" />
+      </div>        
+    </td>  
+  </tr>
+  </dtml-let>
+  </dtml-in>
+  <tr>
+    <td align="left" colspan="1">&nbsp;</td>
+    <td align="left" colspan="2">
+      <input type="submit" name="manage_delExternalThemes:method" value=" Remove from list " />
+      <input type="submit" name="manage_changeExternalThemes:method" value=" Modify URL " />
+    </td>
+    <td align="left" colspan="1">&nbsp;</td>
+  </tr>
+</table>
+<br />
+
+</dtml-let>
+<dtml-else>
+<p>
+  <em>There are no external themes configured.</em>
+</p>
+</dtml-if>
+</dtml-let>
+
+<br />
+
+<table cellspacing="4" cellpadding="2" border="0" width="100%">
+<tr class="list-header">
+  <td align="left" valign="top" colspan="2">
+    <div class="form-label">Add a new theme</div>
+  </td>
+</tr>
+<tr>
+  <td align="left" width="20%">
+    <div class="form-label">Theme ID</div>
+    <em>(select an available ID)</em>
+  </td>
+  <td align="left" width="80%">
+    <div class="form-item">
+      <input type="text" name="themeid" size="20" value="<dtml-if themeid>&dtml-themeid;</dtml-if>" />
+    </div>
+  </td>
+</tr>
+<tr>
+  <td align="left">
+    <div class="form-label">Theme URL</div>
+    <em>(URLs must begin with http://, https:// or ftp://)</em>
+  </td>
+  <td align="left">
+    <div class="form-item">
+      <input type="text" name="themeurl" size="80" value="<dtml-if themeurl>&dtml-themeurl;</dtml-if>" />
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td align="left">
+    <input type="submit" name="manage_addExternalTheme:method" value=" Add ">
+  </td>
+</tr>
+</table>
+</form>
+
+<dtml-var manage_page_footer>

@@ -1,0 +1,35 @@
+--- PloneTestCase.py	2004-08-05 15:31:56.000000000 +0200
++++ PloneTestCase.py-patched	2004-08-05 15:28:26.000000000 +0200
+@@ -23,6 +23,12 @@
+ ZopeTestCase.installProduct('PythonScripts', quiet=1)
+ ZopeTestCase.installProduct('ExternalMethod', quiet=1)
+ 
++import os
++test_cpsskins = (os.environ.get('CPSSKINS_TARGET', '') == 'Plone2')
++if test_cpsskins:
++    try: ZopeTestCase.installProduct('CPSSkins')
++    except: pass
++
+ from AccessControl.SecurityManagement import newSecurityManager
+ from AccessControl.SecurityManagement import noSecurityManager
+ from Acquisition import aq_base
+@@ -95,12 +101,19 @@
+         # Add Plone Site
+         factory = app.manage_addProduct['CMFPlone']
+         factory.manage_addSite(id, '', create_userfolder=1)
++        # Add CPSSkins
++        if test_cpsskins:
++            factory = app.manage_addProduct['CPSSkins']
++            factory.manage_addCPSSkins(id, SourceSkin='Plone Default', \
++                 Target='Plone2', ReinstallDefaultThemes=1)
+         # Log out
+         noSecurityManager()
+         get_transaction().commit()
+         if not quiet: ZopeTestCase._print('done (%.3fs)\n' % (time.time()-_start,))
+ 
+ 
++
++
+ def optimize():
+     '''Significantly reduces portal creation time.'''
+     # Don't compile expressions on creation

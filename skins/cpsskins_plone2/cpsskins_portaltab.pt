@@ -1,0 +1,73 @@
+<div style="text-align: left" i18n:domain="plone"
+tal:define="context_rurl request/form/context_rurl|nothing;
+            context_obj python: here.cpsskins_getContextObj(context_rurl);
+            portal_url here/portal_url;
+            content python: here.content"
+ tal:attributes="class python: 'PortalTab%s' % here.portaltabstyle">
+ <tal:block condition="python: content == 'folders'">
+   <tal:block define="level python: here.level;
+          base python: here.base;
+          show_docs python: here.show_docs;
+          base_path python: here.base_path;
+          navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, context_rurl=context_rurl);
+          menuentries navigationinfo/menuentries|nothing; 
+          create_url navigationinfo/create_url|nothing;
+          i18n python: here.folder_items_i18n"
+  condition="python: menuentries or create_url">
+    <ul>
+      <tal:block condition="i18n" repeat="menuentry menuentries">
+        <tal:block
+        define="menu_url python: menuentry['url']; 
+                menu_selected python: menuentry['selected'];
+                menu_title python: menuentry['title'];
+                menuclass python: menu_selected and 'submenuin' or 'submenuout'">
+          <li tal:attributes="class menuclass">
+            <a tal:attributes="href menu_url"
+               i18n:translate="" tal:content="structure menu_title" />
+          </li>
+        </tal:block>
+      </tal:block>
+      <tal:block condition="not:i18n" repeat="menuentry menuentries">
+        <tal:block
+        define="menu_url python: menuentry['url']; 
+                menu_selected python: menuentry['selected'];
+                menu_title python: menuentry['title'];
+                menuclass python: menu_selected and 'submenuin' or 'submenuout'">
+          <li tal:attributes="class menuclass">
+            <a tal:attributes="href menu_url"
+               tal:content="structure menu_title" />
+          </li>
+        </tal:block>
+      </tal:block>
+      <tal:block define="url create_url|nothing" tal:condition="url">
+        <li>
+          <a class="addmenu" tal:attributes="href url">
+             &nbsp;+&nbsp;
+          </a>
+        </li>
+      </tal:block>
+      <div style="clear:left" />
+    </ul>
+  </tal:block>
+ </tal:block>
+ <tal:block condition="python: content == 'actions'">
+  <tal:block
+  define="wtool here/portal_workflow; 
+          actioninfos python: here.cpsskins_getActionsInfo(here, context_obj)"
+  condition="actioninfos">
+    <ul>
+      <tal:block repeat="actioninfo actioninfos">
+         <tal:block define="title python: actioninfo['title'];
+                            url python: actioninfo['url'];
+                            class python: actioninfo['class']">
+              <li tal:attributes="class class">
+              <a tal:attributes="href url"
+                 i18n:translate="" tal:content="structure title" />
+              </li>
+         </tal:block>
+      </tal:block>
+      <div style="clear:left" />
+    </ul>
+  </tal:block>
+ </tal:block>
+</div>

@@ -1,0 +1,69 @@
+<metal:block define-macro="head">
+  <meta name="generator" content="CPSSkins 2.0" />
+</metal:block>
+<metal:block define-macro="main"
+ tal:define="context_rurl python: '/' + utool.getRelativeUrl(here);
+             dummy python: request.set('cpsskins_mcat', mcat)"
+  tal:repeat="pageblock python: theme_container.getPageBlocks()">
+    <tal:block  
+     define="closed python: pageblock['closed'];
+     maxcols python: pageblock['maxcols']"
+     condition="python: (not closed and maxcols)">
+      <tal:block
+       define="objects python: pageblock.getObjects(REQUEST=request)"
+       repeat="x_pos python: range(int(maxcols))">
+        <tal:block 
+         define="objects_in_xpos python: objects.get(x_pos, None)"
+         condition="objects_in_xpos">
+          <tal:block
+           define="templets_in_xpos python: objects_in_xpos['templets']">
+            <tal:block repeat="templet templets_in_xpos">
+              <tal:block define="ismaincontent python: getattr(templet, 'ismaincontent', 0);
+                                 isESIFragment python: (esi_enabled and getattr(templet, 'esi_fragment', 0)) or 0;
+                                 isPortalBoxGroup python: getattr(templet, 'isportalboxgroup', 0);
+                                 special_templet python: ismaincontent or isPortalBoxGroup or isESIFragment;
+                                 rendered_templet python: not special_templet and templet.render_cache(shield=1) or nothing"
+              condition="python: rendered_templet not in ['', '\n']">
+              <tal:block
+               define="display_title templet/display_title_in_text_mode|nothing;
+                       hidden_in_text_mode templet/hidden_in_text_mode|nothing"
+               condition="not:hidden_in_text_mode">
+                <tal:block 
+                 define="templet_title templet/title|nothing"
+                 condition="python: templet_title and display_title">
+                 <h2 tal:content="structure python:mcat and mcat(templet_title) or templet_title" 
+                  i18n:translate="" />
+                 </tal:block>
+                 <tal:block condition="not:special_templet"
+                  content="structure rendered_templet" />
+                      <esi:try tal:condition="isESIFragment">
+                        <esi:attempt>
+                          <esi:include tal:attributes="src string:${templet/absolute_url}/render?context_rurl=$context_rurl"
+                           onerror="continue" />
+                        </esi:attempt>
+                        <esi:except>
+                          <!--esi
+                          This spot is reserved for something 
+                          -->
+                        </esi:except>
+                      </esi:try>
+                 <tal:block condition="ismaincontent">
+<!-- BEGIN Main Content -->
+                   <metal:block define-slot="maincontent" />
+<!-- END MainContent -->
+                   <br clear="all" />
+                 </tal:block>
+                 <tal:block condition="isPortalBoxGroup">
+                   <tal:block define="render_box python:1;
+                                      box_group templet/box_group|nothing">
+                     <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                   </tal:block>
+                 </tal:block>  
+               </tal:block>                               
+             </tal:block>
+           </tal:block>
+         </tal:block>
+       </tal:block>
+     </tal:block>
+  </tal:block>
+</metal:block>

@@ -1,0 +1,21 @@
+<tal:block
+define="tmtool here/portal_themes;
+        portal_url here/portal_url;
+        themes here/themes|nothing; 
+        cookie_id tmtool/getThemeCookieID;
+        available_themes tmtool/getThemes;
+        current_theme python: here.REQUEST.cookies.get(cookie_id, None)">
+  <tal:block condition="available_themes" 
+   repeat="theme available_themes">
+    <tal:block define="theme_id theme/id;
+                       theme_title theme/title"
+               condition="python: theme_id in themes">
+      <a href="" tal:attributes="href string:$portal_url/cpsskins_setcookie?theme=$theme_id" 
+                 tal:condition="python: current_theme != theme_id"
+                 tal:content="theme_title" />
+      <strong tal:condition="python: current_theme == theme_id" 
+              tal:content="theme_title" />
+      &nbsp;
+    </tal:block>
+  </tal:block>
+</tal:block>

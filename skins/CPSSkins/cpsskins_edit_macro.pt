@@ -1,0 +1,126 @@
+<html metal:define-macro="edit"
+tal:define="tmtool here/portal_themes; 
+            portal_url here/portal_url;
+            here_url here/absolute_url;
+            mcat here/cpsskins_getlocalizer;
+            cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
+            edit_mode request/edit_mode|nothing;
+            display_url_simulation python: edit_mode != 'layout';
+            theme request/theme|nothing;
+	    global current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
+	    theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
+	    pagemargin theme_container/margin|nothing;
+	    bodycolor theme_container/color|nothing;">
+  <head>
+    <style type="text/css" media="all"
+    tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
+    <metal:block
+    use-macro="here/cpsskins_main_template_edit/macros/head" />
+    <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+    <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
+  </head>
+
+  <body tal:attributes="class string:Color${bodycolor};">
+
+   <div class="floatingheader">
+     <metal:block
+      use-macro="here/cpsskins_theme_widgets/macros/navigate" />
+     
+     <metal:block 
+      use-macro="here/cpsskins_theme_widgets/macros/simulate_hierarchy" />
+     <metal:block
+      use-macro="here/cpsskins_theme_widgets/macros/templet_add_panel" />
+   </div>
+
+   <div class="editspace">
+    <metal:block
+    use-macro="here/cpsskins_main_template_edit/macros/main">
+
+      <metal:block fill-slot="main_edit_content"
+        tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
+                    isPortalPalette here/aq_explicit/isPortalPalette|nothing;
+                    isPortalTheme here/aq_explicit/isPortalTheme|nothing;
+                    isImageBox here/aq_explicit/isImageBox|nothing;
+                    isFlashBox here/aq_explicit/isFlashBox|nothing;
+                    showPreview python: isPortalStyle or isPortalPalette;">
+        <metal:block define-slot="edit">
+        </metal:block>
+      </metal:block>
+
+      <metal:block fill-slot="page_top">
+        <metal:block
+        use-macro="here/cpsskins_theme_widgets/macros/navigationtab" />
+        <tal:block condition="layout_edit_mode" define="pageblock_ypos python: 0">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
+        </tal:block>
+      </metal:block>
+
+      <metal:block fill-slot="pageblock_titlebar"
+        tal:condition="python: layout_edit_mode or mixed_edit_mode">
+        <a tal:attributes="name pageblock/id"></a>
+        <metal:block
+        use-macro="here/cpsskins_theme_widgets/macros/pageblock_titlebar" />
+      </metal:block>
+
+      <metal:block fill-slot="cell_top" tal:define="ypos python: 0">
+        <tal:block condition="python: layout_edit_mode or mixed_edit_mode">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/movecell" />
+          <tal:block condition="not:templets_in_xpos">
+            <metal:block 
+            use-macro="here/cpsskins_theme_widgets/macros/insert_templet" />
+          </tal:block>
+        </tal:block>
+        <tal:block condition="not:templets_in_xpos">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/emptycell" />
+        </tal:block>
+      </metal:block>
+
+      <metal:block fill-slot="templet_footer" 
+      tal:condition="python: layout_edit_mode or mixed_edit_mode"
+      tal:define="ypos templet/getTempletPosition|nothing">
+        <metal:block 
+        use-macro="here/cpsskins_theme_widgets/macros/insert_templet" />
+      </metal:block>
+
+      <metal:block fill-slot="cell_bottom">
+       <tal:block condition="python: layout_edit_mode or mixed_edit_mode">
+        <metal:block
+        use-macro="here/cpsskins_theme_widgets/macros/cellstyler" />
+        <metal:block
+        use-macro="here/cpsskins_theme_widgets/macros/cellhider" />
+       </tal:block>
+      </metal:block>
+
+      <metal:block fill-slot="templet_titlebar">
+        <tal:block condition="templet/aq_explicit/isMainContent|nothing">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/edit_this_templet" />
+        </tal:block>
+        <div tal:condition="python: templet == here"
+        tal:attributes="class python: (templet.closed and not layout_edit_mode) and 'TempletBoxTitleSelectedClosed' or 'TempletBoxTitleSelected'">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/templet_titlebar" />
+        </div>
+      </metal:block>
+
+      <metal:block fill-slot="page_footer">
+        <tal:block condition="layout_edit_mode">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
+        </tal:block>
+        <!-- Begin pdlib footer -->
+        <div id="drag-feedback-box"></div>
+          <script type="text/javascript"><!-- 
+          pd_setupPage();
+          // --></script>
+        <!-- End pdlib footer -->
+      </metal:block>
+    </metal:block>
+   </div>
+  </body>
+</html>

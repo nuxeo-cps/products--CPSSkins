@@ -1,0 +1,13 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+xmlns:metal="http://xml.zope.org/namespaces/metal"
+metal:use-macro="here/main_template/macros/master">
+  <body>
+    <metal:block fill-slot="header_plus" />
+    <metal:block fill-slot="header">
+      <tal:block condition="here/title|nothing"
+      tal:content="here/title|nothing" />
+    </metal:block>
+    <metal:block fill-slot="main" />
+  </body>
+</html>
+

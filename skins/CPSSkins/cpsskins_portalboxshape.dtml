@@ -1,0 +1,59 @@
+.BoxShape&dtml-title; .title { 
+<dtml-if BoxTitle_border_style>
+border-style:&dtml-BoxTitle_border_style;;
+</dtml-if>
+<dtml-if BoxTitle_border_width>
+border-width:&dtml-BoxTitle_border_width;;
+</dtml-if>
+<dtml-if BoxTitle_padding>
+padding:&dtml-BoxTitle_padding;;
+</dtml-if>
+<dtml-if BoxTitle_display>
+display:&dtml-BoxTitle_display;;
+</dtml-if>
+<dtml-if BoxTitle_font_weight>
+font-weight:&dtml-BoxTitle_font_weight;;
+</dtml-if>
+}
+.BoxShape&dtml-title; .body { 
+<dtml-if BoxBody_border_style>
+border-style:&dtml-BoxBody_border_style;;
+</dtml-if>
+<dtml-if BoxBody_border_width>
+border-width:&dtml-BoxBody_border_width;;
+</dtml-if>
+<dtml-if BoxBody_padding>
+padding: &dtml-BoxBody_padding;;
+</dtml-if>
+}
+.BoxShape&dtml-title; .body img { 
+vertical-align: bottom;
+}
+.BoxShape&dtml-title; .body .submenuout {
+<dtml-if BoxBody_menuout_border_style>
+border-style:&dtml-BoxBody_menuout_border_style;;                          
+</dtml-if>
+<dtml-if BoxBody_menuout_border_width>
+border-width:&dtml-BoxBody_menuout_border_width;;                          
+</dtml-if>
+<dtml-if BoxBody_menuout_margin>
+margin: &dtml-BoxBody_menuout_margin;;                          
+</dtml-if>
+<dtml-if BoxBody_menuout_padding>
+padding: &dtml-BoxBody_menuout_padding;;
+</dtml-if>
+}
+.BoxShape&dtml-title; .body .submenuin {
+<dtml-if BoxBody_menuin_border_style>
+border-style:&dtml-BoxBody_menuin_border_style;;
+</dtml-if>
+<dtml-if BoxBody_menuin_border_width>
+border-width:&dtml-BoxBody_menuin_border_width;;
+</dtml-if>
+<dtml-if BoxBody_menuin_margin>
+margin:&dtml-BoxBody_menuin_margin;;
+</dtml-if>
+<dtml-if BoxBody_menuin_padding>
+padding:&dtml-BoxBody_menuin_padding;;
+</dtml-if>
+}

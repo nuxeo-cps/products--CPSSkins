@@ -1,0 +1,11 @@
+<table cellpadding="0" cellspacing="0">
+  <tr style="height: 100px">
+    <td>
+      <div style="padding: 4px;">
+        <div tal:define="value here/value|nothing"
+        tal:attributes="style string:border-style:$value;; border-width: 2px;; width: 60px;; height: 60px">
+        &nbsp;</div>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,46 @@
+.CollapsibleMenu&dtml-title; .topmenu {
+border-width: 1px;
+border-color: &dtml-topmenu_border_color;;
+border-style: &dtml-topmenu_border_style;;
+font: &dtml-topmenu_font;;
+}
+.CollapsibleMenu&dtml-title; .topmenu {
+background-color: &dtml-topmenu_bg_color;;
+}
+.CollapsibleMenu&dtml-title; .topmenu a {
+color: &dtml-topmenu_font_color;;
+text-decoration: none;
+display: block;
+padding: 4px;
+}
+.CollapsibleMenu&dtml-title; .topmenu a:hover,
+.CollapsibleMenu&dtml-title; .topmenu a.selected {
+background-color: &dtml-topmenu_hover_bg_color;;
+color: &dtml-topmenu_hover_font_color;;
+text-decoration: none;
+}
+.CollapsibleMenu&dtml-title; .submenu a {
+font: &dtml-submenu_font;;
+color: &dtml-submenu_font_color;;
+background-color: &dtml-submenu_bg_color;;
+text-decoration: none;
+display: block;
+padding: 3px 7px;
+border-color: &dtml-submenu_border_color;;
+border-style: &dtml-submenu_border_style;;
+border-width: 1px;
+}
+.CollapsibleMenu&dtml-title; .submenumore {
+background-color: &dtml-submenu_bg_color;;
+display: block;
+padding: 2px 7px;
+border-color: &dtml-submenu_border_color;;
+border-style: &dtml-submenu_border_style;;
+border-width: 1px;
+}
+.CollapsibleMenu&dtml-title; .submenu a:hover,
+.CollapsibleMenu&dtml-title; .submenu a.selected {
+color: &dtml-submenu_hover_font_color;;
+background-color: &dtml-submenu_hover_bg_color;;
+text-decoration: none;
+}

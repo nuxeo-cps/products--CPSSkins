@@ -1,0 +1,67 @@
+<!--
+
+var Destinations = [];
+
+function findDescendant(node, className) {
+  // Returns a descendant with the given class name, or null.
+  if (node.className == className + '_highlighted')
+    return node;
+  var i, c;
+  for (i = 0; i < node.childNodes.length; i++) {
+    c = findDescendant(node.childNodes[i], className);
+    if (c != null)
+      return c;
+  }
+  return null;
+}
+
+
+function PortalBox_move(selected_items, target_node) {
+  if (!selected_items.length)
+    return;
+  dest = findDescendant(target_node, 'PortalBoxDest')
+  if (dest == null)
+     return;
+  dest_slot = dest.getAttribute('dest_slot');
+  dest_ypos = dest.getAttribute('dest_ypos');
+  box_url = pd_selected_item.getAttribute('box_url');
+  src_ypos = pd_selected_item.getAttribute('src_ypos');
+  src_slot = pd_selected_item.getAttribute('src_slot');
+  window.location = 'cpsskins_move_portalbox?box_url=' + box_url + '&src_ypos=' + src_ypos + '&dest_ypos=' + dest_ypos + '&dest_slot=' + dest_slot + '&src_slot=' + src_slot;
+}
+
+function Choice_insert(boxtype) {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  dest_slot = pd_selected_item.getAttribute('src_slot');
+  dest_ypos = pd_selected_item.getAttribute('src_ypos');
+  window.location = 'box_create?type_name=' + boxtype + '&order=' + dest_ypos + '&slot=' + dest_slot + '&title=' + boxtype;
+}
+
+function PortalBox_checkmove(selected_items, target_node) {
+  return true;
+}
+
+function setupPortalBoxDrag(node) {
+  pd_setupDragUI(node, PortalBox_move, PortalBox_checkmove);
+}
+
+function setupPortalBoxEditMenu(node) {
+  pd_setupContextMenu(node, 'choice-context-menu', null, true);
+}
+
+function setupDestination(node) {
+  if (Destinations.push)
+    Destinations.push(node);
+  else
+    Destinations = Destinations.concat([node]);
+  pd_setupDropTarget(node, 1);
+}
+
+pd_node_setup['PortalBoxDrag'] = setupPortalBoxDrag;
+pd_node_setup['PortalBoxEditMenu'] = setupPortalBoxEditMenu;
+pd_node_setup['PortalBoxDest'] = setupDestination;
+
+//-->
+

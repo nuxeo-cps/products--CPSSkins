@@ -1,0 +1,83 @@
+<tal:block i18n:domain="cpsskins"
+           define="mcat python: request.get('cpsskins_mcat'); 
+                   cacheable here/cacheable;
+                   cal_id here/getId;
+                   month request/month|nothing;
+                   year request/year|nothing;
+                   month_string python: month and '&month:int=' + str(month) or '';
+                   year_string python: year and '&year:int=' + str(year) or '';
+                   calendar_data here/cpsskins_getCalendar;        
+                   calendar python: calendar_data['calendar'];
+                   calendar_class string:CalendarStyle${here/calendar_style};
+">
+<table cellpadding="2" cellspacing="0" border="0" width="100%" summary=""
+  tal:attributes="class calendar_class">
+    <tr class="header">
+      <td>
+        <a href="#" class="CalendarArrow"
+        tal:attributes="href string:cpsskins_calendar_browse?dir=prevmonth$month_string$year_string">
+        &#171;</a>
+      </td>
+      <td colspan="5">
+        <span tal:condition="python: here.show_month"
+              tal:define="month python: '_%s_' % calendar_data['this_month']"
+              tal:content="python: mcat and mcat(month) or month"
+              i18n:translate="" />
+        <br />
+        <span tal:condition="python: here.show_year" tal:replace="python: calendar_data['this_year']" />
+      </td>
+      <td>
+        <a href="#" class="CalendarArrow"
+        tal:attributes="href string:cpsskins_calendar_browse?dir=nextmonth$month_string$year_string">
+        &#187;</a>
+      </td>
+    </tr>
+    <tr class="weekdays" tal:condition="python: here.show_weekdays"
+    tal:define="weekdays here/portal_calendar/getDays">
+      <tal:weekday tal:repeat="weekday weekdays">
+        <td class="weekdays" tal:define="weekday python: '_%s_' % weekday"
+         tal:content="python: mcat and mcat(weekday) or weekday" i18n:translate="">Su</td>
+      </tal:weekday>
+    </tr>
+    <tr tal:repeat="week calendar" class="days">
+      <tal:week tal:repeat="day week">
+          <tal:daynumber define="daynumber python: day['daynumber']; 
+                                 event python: day['event']">
+            <tal:block condition="event">
+              <td class="event"
+              tal:define="javascriptstring string:javascript:cpsskins%sDay('%s');
+                          element_id python: 'day' + day['date_id'] + cal_id"
+              tal:attributes="class python: day['class']; 
+                              onmouseout python: javascriptstring % ('Hide', element_id); 
+                              onmouseover python: javascriptstring % ('Show', element_id);">
+                <a href=""
+                   tal:attributes="href day/link"
+                   tal:content="python: daynumber or default"></a>
+              </td>
+            </tal:block>
+            <tal:block condition="not:event">
+              <td tal:content="python: daynumber or default"
+              tal:attributes="class python: day['class']">
+              </td>
+            </tal:block>
+          </tal:daynumber>
+      </tal:week>
+    </tr>
+  </table>
+  <div tal:condition="here/show_preview"
+  tal:attributes="class calendar_class">
+     <tal:block define="previews python: calendar_data['previews']"
+                repeat="event previews">
+         <div class="preview" tal:attributes="id python:event['date_id'] + cal_id">
+         <strong tal:content="python: event['date']" />
+         <div tal:repeat="event python: event['eventslist']">
+             <tal:block define="start event/start; 
+                                end event/end;
+                                start python: start and len(start) > 2 and start[:-3] or '';
+                                end python: end and len(end) > 2 and end[:-3] or ''" 
+              content="string: $start-$end ${event/title}" />
+         </div>
+         </div>
+     </tal:block>
+  </div>
+</tal:block>

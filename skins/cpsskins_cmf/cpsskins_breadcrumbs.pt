@@ -1,0 +1,40 @@
+<div 
+tal:define="mcat python: request.get('cpsskins_mcat'); 
+            context_rurl request/form/context_rurl|nothing;
+            context_obj python: here.cpsskins_getContextObj(context_rurl);
+            show_icon python: here.show_icon;
+            separator_start python: here.separator_start;
+            separator_end python: here.separator_end;
+            separator_repeat python: here.separator_repeat;
+            i18n python: here.i18n;
+	    bcs python: context_obj.cpsskins_getBreadcrumbs();">
+  <tal:block i18n:translate="" condition="python: separator_start and not show_icon"
+  content="structure python: mcat and mcat(separator_start) or separator_start" />
+  <img tal:condition="python: show_icon and hasattr(context_obj, 'getIcon')" 
+   tal:attributes="src string:${here/portal_url}/${context_obj/getIcon|nothing}" alt="" />
+  <tal:block repeat="bc bcs" condition="i18n">
+    <tal:block
+    define="title python: bc['title'] or bc['id'];
+            end repeat/bc/end">
+      <a i18n:translate=""
+      tal:attributes="href python: bc['url']; title title"
+      tal:content="python: mcat and mcat(title) or title">
+      Title</a>
+      <span tal:condition="not:end"
+      tal:content="structure separator_repeat" />
+    </tal:block>
+  </tal:block>
+  <tal:block repeat="bc bcs" condition="not:i18n">
+    <tal:block
+    define="title python: bc['title'] or bc['id'];
+            end repeat/bc/end">
+      <a 
+      tal:attributes="href python: bc['url']; title title"
+      tal:content="title">Title</a>
+      <span tal:condition="not:end"
+      tal:content="structure separator_repeat" />
+    </tal:block>
+  </tal:block>
+  <tal:block i18n:translate="" condition="separator_end" 
+  content="structure python: mcat and mcat(separator_end) or separator_end" />
+</div>

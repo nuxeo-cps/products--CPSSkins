@@ -1,0 +1,19 @@
+
+How to upgrade CPSSkins (when upgrading from an earlier version of CPSSkins):
+
+  - Go to the ZMI
+
+  - Locate the script called 'cpsskinsupdate' and click on it.
+  - Then click on the 'Test' tab.
+
+  - Locate the script called 'cpsskinsmigrate' and click on it.
+  - Then click on the 'Test' tab.
+
+
+How to update CPSSkins (in case a product was installed after CPSSkins)
+
+  - Go to the ZMI
+
+  - Locate the script called 'cpsskinsupdate' and click on it.
+  - Then click on the 'Test' tab.
+

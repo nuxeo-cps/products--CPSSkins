@@ -1,0 +1,8 @@
+function cpsskinsShowDay(element_id) {
+document.getElementById(element_id).style.visibility = 'visible';
+return true; 
+} 
+function cpsskinsHideDay(element_id) {
+document.getElementById(element_id).style.visibility = 'hidden';
+return true; 
+}

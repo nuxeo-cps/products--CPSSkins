@@ -1,0 +1,31 @@
+<dtml-call "RESPONSE.setHeader('Content-Type','text/css')">
+
+/* misc table elements */
+
+input,select,textarea {
+border: 1px solid #336699;
+background-color: #f9f9f9;
+margin: 3px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+border: 1px solid red;
+}
+
+.fileview {
+padding: 3px;
+}
+
+.statusmessage {
+padding: 3px;
+margin-bottom: 9px;
+}
+
+input.SearchBox {
+background: url("<dtml-var portal_url>/cpsskins_images/search_icon.gif"); 
+background-repeat: no-repeat;
+background-position: center left;
+padding: 2px 2px 2px 20px;
+background-color: #fcfcfc;
+border: 1px solid #b0b0b0;
+}

@@ -1,0 +1,101 @@
+
+<!-- default -->
+<metal:block define-macro="standard">
+  <div class="title">
+    <metal:block define-slot="box_title">Box Title</metal:block>
+  </div>
+  <div class="body">
+      <metal:block define-slot="box_body">Box Body</metal:block>
+  </div>
+</metal:block>
+
+
+<!-- ============================================================ -->
+<!-- a framed box -->
+<metal:block define-macro="one_frame">
+  <div class="body">
+      <metal:block define-slot="box_title">Box Title</metal:block>
+      <metal:block define-slot="box_body">Box Body</metal:block>
+  </div>
+</metal:block>
+
+
+<!-- ============================================================ -->
+<!-- a framed box without title  -->
+<metal:block define-macro="notitle">
+  <div class="body">
+      <metal:block define-slot="box_body">Box Body</metal:block>
+  </div>
+</metal:block>
+
+
+<!-- ============================================================ -->
+<!-- A frameless box -->
+<metal:block define-macro="no_frames">
+  <div class="title" style="border: none">
+     <metal:block define-slot="box_title">Box Title</metal:block>
+  </div>
+  <div class="body" style="border: none">
+     <metal:block define-slot="box_body">Box Body</metal:block>
+  </div>
+</metal:block>
+
+
+<!-- ============================================================ -->
+<!-- A box with frameless body and no title-->
+<metal:block define-macro="notitle_noframe">
+  <div class="body" style="border: none">
+     <metal:block define-slot="box_body">Box Body</metal:block>
+  </div>
+</metal:block>
+
+<!-- ============================================================ -->
+<!-- drawer box -->
+<metal:block define-macro="drawer" 
+  tal:define="portal_url here/portal_url;
+              box_state python: here.getBoxState(REQUEST=request);
+              boxid here/id">
+  <div class="title">
+    <metal:block define-slot="box_title">Box Title</metal:block>
+  </div>
+  <div class="body">
+    <tal:block condition="python: box_state != 'minimized'">
+      <metal:block define-slot="box_body">Box Body</metal:block>
+    </tal:block>
+    <div tal:attributes="style string:$menustyle;; text-align: right">
+      <a tal:condition="python: box_state == 'minimized'"
+         tal:attributes="href string:$portal_url/cpsskins_setBoxState?boxid=$boxid&state=maximized">
+        <img src="" width="12" height="12" border="0"
+         tal:attributes="src string:$portal_url/cpsskins_images/drawer_open_$orientation.gif" /></a>
+      <a tal:condition="python: box_state != 'minimized'"
+         tal:attributes="href string:$portal_url/cpsskins_setBoxState?boxid=$boxid&state=minimized">
+        <img src="" width="12" height="12" border="0"
+         tal:attributes="src string:$portal_url/cpsskins_images/drawer_close_$orientation.gif" /></a>
+    </div>
+  </div>
+</metal:block>
+
+
+<!-- ============================================================ -->
+<!-- drawer box without title -->
+<metal:block define-macro="drawer_notitle" 
+  tal:define="portal_url here/portal_url;
+              box_state python: here.getBoxState(REQUEST=request);
+              boxid here/id">
+  <div class="body">
+    <tal:block condition="python: box_state != 'minimized'">
+      <metal:block define-slot="box_body">Box Body</metal:block>
+    </tal:block>
+    <div tal:attributes="style string:$menustyle;; text-align: right">
+      <a tal:condition="python: box_state == 'minimized'"
+         tal:attributes="href string:$portal_url/cpsskins_setBoxState?boxid=$boxid&state=maximized">
+        <img src="" width="12" height="12" border="0" 
+         tal:attributes="src string:$portal_url/cpsskins_images/drawer_open_$orientation.gif" /></a>
+      <a tal:condition="python: box_state != 'minimized'"
+         tal:attributes="href string:$portal_url/cpsskins_setBoxState?boxid=$boxid&state=minimized">
+        <img src="" width="12" height="12" border="0"
+         tal:attributes="src string:$portal_url/cpsskins_images/drawer_close_$orientation.gif" /></a>
+    </div>
+  </div>
+</metal:block>
+

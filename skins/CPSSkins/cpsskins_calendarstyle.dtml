@@ -1,0 +1,62 @@
+.CalendarStyle&dtml-title; { 
+text-align:center;
+border-collapse:collapse;
+}
+.CalendarStyle&dtml-title; .event { 
+background-color:&dtml-Event_bg_color;;
+<dtml-if Event_border_color>
+border-color:&dtml-Event_border_color;;
+border-width:1px;
+border-style:solid;
+</dtml-if>
+}
+.CalendarStyle&dtml-title; .event a { 
+color:&dtml-Event_font_color;;
+font-weight:bold;
+}
+.CalendarStyle&dtml-title; .todaynoevent { 
+border-color:&dtml-Today_border_color;;
+border-width:2px;
+border-style:solid;
+}
+.CalendarStyle&dtml-title; .todayevent { 
+border-color:&dtml-Today_border_color;;
+border-width:2px;
+border-style:solid;
+background-color: &dtml-Event_bg_color;;
+}
+.CalendarStyle&dtml-title; .todayevent a { 
+color:&dtml-Event_font_color;;
+font-weight:bold;
+}
+.CalendarStyle&dtml-title; .header { 
+background-color:&dtml-Header_bg_color;;
+color:&dtml-Header_font_color;;
+font-weight:bold;
+}
+.CalendarStyle&dtml-title; .weekdays td { 
+border-width:1px;
+border-color:&dtml-Weekdays_border_color;;
+border-style:solid none solid none;
+}
+.CalendarStyle&dtml-title; .weekdays { 
+background-color:&dtml-Weekdays_bg_color;;
+color:&dtml-Weekdays_font_color;;
+}
+.CalendarStyle&dtml-title; .days { 
+background-color:&dtml-Days_bg_color;;
+color:&dtml-Days_font_color;;
+}
+.CalendarStyle&dtml-title; .preview {
+color:&dtml-Preview_font_color;;
+background-color:&dtml-Preview_bg_color;;
+border-color:&dtml-Preview_border_color;;
+border-width:1px;
+border-style:solid;
+padding:0.2em;
+margin-top:0.5em;
+position:absolute;
+visibility:hidden;
+width:12em;
+text-align:left;
+}

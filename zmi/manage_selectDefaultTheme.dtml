@@ -1,0 +1,18 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+
+<form action="setDefaultTheme">
+<p>
+Select the default theme:
+</p>
+<p class="form-element">
+<select name="default_theme">
+<dtml-in objectValues prefix="theme">
+<option <dtml-if expr="theme_item['default']">selected</dtml-if>><dtml-var getId>
+</option>
+</dtml-in>
+</select>
+
+<input type="submit" value="Set as default">
+
+<dtml-var manage_page_footer>

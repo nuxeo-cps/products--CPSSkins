@@ -1,0 +1,50 @@
+<dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)">
+<dtml-if Tabs_bg_image>
+.PortalTab&dtml-title; {
+background:url(&dtml-theme_url;/backgrounds/&dtml-Tabs_bg_image;) bottom repeat-x;
+}
+</dtml-if>
+.PortalTab&dtml-title; ul {
+margin:0px;
+padding:0px;
+width: 100%;
+list-style-image:none;
+}
+.PortalTab&dtml-title; li {
+list-style-type:none;
+float:left;
+overflow:visible;
+white-space:nowrap;
+margin:0px &dtml-HorizontalMargin; 0px 0px;
+}
+.PortalTab&dtml-title; li a {
+display:block;
+padding:&dtml-VerticalPadding; &dtml-HorizontalPadding; &dtml-VerticalPadding; &dtml-HorizontalPadding;;
+}
+.PortalTab&dtml-title; li.submenuout {
+<dtml-if Tab_right_bg_image>
+background:url(&dtml-theme_url;/backgrounds/&dtml-Tab_right_bg_image;) right top no-repeat;
+</dtml-if>
+<dtml-if Tab_bottom_border_color>
+border-bottom:1px solid &dtml-Tab_bottom_border_color;;
+</dtml-if>
+}
+<dtml-if Tab_left_bg_image>
+.PortalTab&dtml-title; li.submenuout a {
+background:url(&dtml-theme_url;/backgrounds/&dtml-Tab_left_bg_image;) left top no-repeat;;
+}
+</dtml-if>
+.PortalTab&dtml-title; li.submenuin {
+<dtml-if TabIn_right_bg_image>
+background:url(&dtml-theme_url;/backgrounds/&dtml-TabIn_right_bg_image;) right top no-repeat;
+</dtml-if>
+<dtml-if TabIn_bottom_border_color>
+border-bottom:1px solid &dtml-TabIn_bottom_border_color;;
+</dtml-if>
+}
+<dtml-if TabIn_left_bg_image>
+.PortalTab&dtml-title; li.submenuin a {
+background:url(&dtml-theme_url;/backgrounds/&dtml-TabIn_left_bg_image;) left top no-repeat;
+}
+</dtml-if>
+</dtml-let>

@@ -1,0 +1,12 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+
+<h3>Style preview</h3>
+
+<style type="text/css">
+<dtml-var expr="context.render()">
+</style>
+
+<dtml-var expr="context.preview()">
+
+<dtml-var manage_page_footer>

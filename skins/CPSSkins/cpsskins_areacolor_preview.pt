@@ -1,0 +1,13 @@
+<table cellpadding="5" cellspacing="0">
+  <tr style="height: 80px">
+    <td>
+      <div style="padding: 4px;">
+        <div style="height: 60px; width: 60px; padding:10px; 
+                    text-align: left; border-width: 2px; border-style: solid;"
+             tal:attributes="class string:Color${here/title}">
+        <br />Text 
+        <br /></div>
+      </div>
+    </td>
+  </tr>
+</table>

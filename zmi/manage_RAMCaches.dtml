@@ -1,0 +1,78 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+
+<dtml-if expr="getCachesSize() > 0">
+<br/>
+<form action="manage_clearCaches" method="post">
+<p class="form-element">
+<input class="form-element" type="submit" value=" Purge the cache " />
+</p>
+</form>
+
+<p>Total cache size: <dtml-var "getCachesSize() / 1024"> KB</p>
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%">
+  <tr class="list-header">
+    <td align="left" valign="top" width="20">
+       &nbsp;
+    </td>
+    <td align="left" valign="top" width="25%">
+      <div class="form-label">Theme name</div>
+    </td>
+    <td align="left" valign="top" width="25%">
+      <div class="form-label">Statistics</div>
+    </td>
+    <td align="center" valign="top">
+      <div class="form-label">Effectivity</div>
+    </td>
+    <td align="center" valign="top">
+      <div class="form-label">Size (KB)</div>
+    </td>
+  </tr>
+
+<dtml-in "getThemes()">
+  <dtml-let theme=sequence-item>
+    <dtml-with theme>
+      <dtml-let stats="getCacheStats()">
+        <dtml-if stats>
+        <dtml-if sequence-odd>
+          <tr class="row-normal">
+        <dtml-else>
+          <tr class="row-hilite">
+        </dtml-if>
+        <td align="left" valign="top">
+          <img src="<dtml-var getIcon>" width="16" height="16" border="0" />
+        </td>
+        <td align="left" valign="top">
+          <div class="list-item">
+            <a href="<dtml-var getURL>/manage_main">
+            <dtml-var getTitle></a>
+          </div>
+        </td>
+        <td align="left" valign="top">
+          <div class="list-item">
+            <a href="<dtml-var getURL>/manage_RAMCache">Cache detail</a>
+          </div>
+        </td>
+        <td align="center" valign="top">
+          <div class="list-item">
+            <dtml-var expr="stats['effectivity']">%
+          </div>
+        </td>
+        <td align="center" valign="top">
+          <div class="list-item">
+            <dtml-var expr="stats['size'] / 1024">
+          </div>
+        </td>
+        </tr>
+        </dtml-if>
+      </dtml-let>
+    </dtml-with>
+  </dtml-let>
+</dtml-in>
+</table>
+<dtml-else>
+<p><em>The cache is currently empty.</em></p>
+</dtml-if>
+
+<dtml-var manage_page_footer>

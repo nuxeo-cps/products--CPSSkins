@@ -1,0 +1,62 @@
+
+CPSSkins can be installed:
+
+A) from the ZMI by choosing 'CPSSkins Installer' in the product list.
+B) with CMFQuickInstaller
+
+
+Requirements:
+
+    - CMFActionIcons (optional: to display action icons)
+      http://zope.org/Members/tseaver/CMFActionIcons
+
+
+How to upgrade:
+
+    See UPGRADE.TXT 
+
+
+
+A) INSTALLATION THROUGH THE ZOPE MANAGEMENT INTERFACE
+
+  In /Control_Panel/Products
+  - Make sure that the 'CPSSkins' product is correctly installed 
+    (i.e. not broken)
+
+  From the Products' list add "CPSSkins Installer"
+
+
+  IMPORTANT:
+
+- Select the basic skin. It must be a skin that works already without CPSSkins.
+  It is usually called 'Basic' in CMF, CPS2 and CPS3, or 'Plone Default' 
+  in Plone.
+
+- The type of portal (CMF/CPS2/CPS3/Plone/Plone2) is automatically detected.
+  If the installation fails, make sure that the portal was correctly detected.
+  Look for a 'Detected portal type is ...' message at the beginning of 
+  the installation log.
+
+- Check the 'reinstall default themes' option to reinstall the default themes.
+  (BEWARE: existing themes created with CPSSkins will be erased)
+  Default themes will be installed if this is a first installation.
+
+
+
+B) INSTALLATION WITH CMFQUICKINSTALLER:
+
+   CMF:
+   - Go to 'portal_quickinstaller'
+   - Select 'CPSSkins' and click on 'Install'
+
+   Plone2:
+   - Go to 'Plone Setup'
+   - Choose 'Add/Remove Products'
+   - Select 'CPSSkins'
+   - Click on 'Install'
+
+   CPSSkins can be also be uninstalled with CMFQuickInstaller
+
+
+Have fun!
+

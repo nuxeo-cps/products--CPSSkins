@@ -1,0 +1,162 @@
+<metal:block define-macro="head"
+  tal:define="portal_url here/portal_url;
+              tmtool here/portal_themes;
+              theme_url theme_container/absolute_url">
+<!-- CSS1 -->
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${portal_url}/cpsskins_common.css" />
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${theme_url}/renderCSS" />
+<!-- CSS2 -->
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${portal_url}/cpsskins_common-css2.css);" />
+<!-- JavaScript -->
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS"></script>
+<!-- Shortcut icon -->
+<tal:block define="shortcut_icon theme_container/shortcut_icon|nothing"
+           condition="shortcut_icon">
+  <tal:block define="icon_dir theme_container/icons|nothing;
+                     icon_obj python: icon_dir and getattr(icon_dir, shortcut_icon, None) or nothing;
+                     icon_path icon_obj/absolute_url|nothing;
+                     icon_mimetype icon_obj/content_type|nothing;">
+    <link rel="icon" tal:attributes="href icon_path; type icon_mimetype" />
+    <link rel="shortcut icon" type="image/x-icon" tal:attributes="href icon_path; type icon_mimetype" />
+  </tal:block>
+</tal:block>
+</metal:block>
+<metal:block define-macro="main"
+ tal:define="edit_mode request/form/edit_mode|nothing;
+          current_theme request/form/theme|nothing;
+	  align python: theme_container.align; 
+          layout_edit_mode python: edit_mode == 'layout'; 
+          mixed_edit_mode python: edit_mode == 'mixed'; 
+          wysiwyg_edit_mode python: edit_mode == 'wysiwyg';
+          edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
+	  marginleft python: align in ['right', 'center'] and 'auto' or '0px'; 
+          marginright python: align in ['left', 'center'] and 'auto' or '0px'; 
+          mcat python: here.cpsskins_getlocalizer();
+          dummy python: request.set('cpsskins_mcat', mcat)">
+  <metal:block define-slot="page_top" tal:replace="nothing">
+  </metal:block>
+  <tal:block 
+  repeat="pageblock python: theme_container.getPageBlocks()">
+    <metal:block define-slot="pageblock_titlebar"
+    tal:replace="nothing"></metal:block>
+    <table border="0" cellpadding="0" cellspacing="0"
+    tal:define="closed python: pageblock['closed'];		 
+                maxcols python: pageblock['maxcols']; 
+                pageblock_shape python: pageblock['shape']; 
+                pageblock_color python: pageblock['color']; 
+                pageblock_id python: pageblock['id'];
+                height python: pageblock['height'];
+                height_style python: height and 'height:%s' % height or ''; 
+                shape_class python: pageblock_shape and 'Shape%s' % pageblock_shape or ''; 
+	        color_class python: pageblock_color and 'Color%s' % pageblock_color or '';"
+    tal:condition="python: (not closed and maxcols)"
+    tal:attributes="width python: pageblock['width']; 
+	            style python: 'margin-left:%s;; margin-right:%s;; %s' % (marginleft, marginright, height_style);
+	            class python: '%s %s' % (shape_class, color_class);
+                    summary python: pageblock['title']">
+      <tr>
+        <tal:block
+          define="objects python: pageblock.getObjects(edit=layout_edit_mode, REQUEST=request)"
+          repeat="x_pos python: range(int(maxcols))">
+          <tal:block 
+          define="objects_in_xpos python: objects.get(x_pos, None)"
+          condition="objects_in_xpos">
+            <td valign="top"
+             tal:define="templets_in_xpos python: objects_in_xpos['templets'];
+                         cellsize python: objects_in_xpos['cellsizer'];
+                         cellstyle python: objects_in_xpos['cellstyler'];
+                         cellwidth python: cellsize and cellsize.cellwidth or None;
+                         cellclass python: cellstyle and 'Shape%s Color%s' % (cellstyle.shape, cellstyle.color) or None"
+             tal:attributes="class cellclass; 
+                             width cellwidth">
+              <metal:block define-slot="cell_top"
+               tal:replace="nothing"></metal:block>
+              <tal:block condition="not:templets_in_xpos" 
+                         content="structure string:&nbsp;" />
+              <tal:block repeat="templet templets_in_xpos">
+                <metal:block define-slot="templet_titlebar"
+                 tal:replace="nothing"></metal:block>
+                <div 
+                   tal:define="ismaincontent python: getattr(templet, 'ismaincontent', 0);
+                               isPortalBoxGroup python: getattr(templet, 'isportalboxgroup', 0);
+                               special_templet python: ismaincontent or isPortalBoxGroup;
+                               ypos python: templet.getTempletPosition();
+		               hover_effect python: not ismaincontent; 
+                               boxdragclass python: (not ismaincontent) and 'TempletBoxDrag' or '';
+                               boxeditmenuclass python: (not ismaincontent) and 'TempletBoxEditMenu' or '';"
+                   tal:attributes="class boxdragclass">
+                  <div tal:attributes="xpos x_pos;
+                                       ypos ypos; 
+                                       pageblock_url python: pageblock.absolute_url();
+                                       class python: ismaincontent and 'TempletDestMain' or 'TempletDest';
+                                       dest_pageblock pageblock_id">
+                    <div
+                    tal:define="templet_title python: templet.title;
+                                templet_here python: templet == here;
+		                visible python: templet.getVisibility(REQUEST=request); 
+				render_templet python: not layout_edit_mode and not special_templet; 
+                                render_as_title python: layout_edit_mode and not ismaincontent and not render_templet;
+                                boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'TempletBoxBodyLayout' or 'TempletBoxBody'; 
+				boxeditclass python: templet_here and 'TempletBoxBodySelected' or boxeditclass; 
+				class python: edition_mode and boxeditclass or nothing; 
+				style python: 'padding:%s;;' % templet.margin;
+				style python: hover_effect and style + 'cursor: crosshair;;' or style;
+                                templet_class python: 'Shape%s Color%s FontColor%s FontShape%s' % (templet.shape, templet.color, templet.fontcolor, templet.fontshape);
+                                styles_list python: templet.getApplicableStyles();
+                                align_list templet/AlignList|nothing"
+                     tal:condition="python: special_templet or render_templet or render_as_title or layout_edit_mode"
+                     tal:attributes="align python: templet.align;
+                                     style style;
+	                             class string: $class $boxdragclass $boxeditmenuclass; 
+                                     templeturl python: templet.absolute_url(); 
+                                     styles python: '|'.join([s['meta_type'] for s in styles_list]);
+                                     isalignable python: templet.isAlignable();
+                                     alignments python: '|'.join(align_list);
+                                     icon python: templet.getIcon();
+                                     title python: not ismaincontent and templet_title or None;
+                                     edit_mode edit_mode;
+                                     theme current_theme;">
+                      <tal:block
+                       condition="render_as_title"
+                       content="structure string:${templet/title}&nbsp;" />
+                      <div tal:condition="not:render_as_title"
+                           tal:attributes="class templet_class; 
+	                                   style python: templet.getCSSLayoutStyle()">
+                        <tal:block condition="render_templet"
+                         content="structure python: templet.render_cache(shield=1)" />
+                        <tal:block condition="ismaincontent">
+<!-- BEGIN Main Content -->
+                          <metal:block define-slot="maincontent" />
+                          <metal:block 
+                           define-slot="main_edit_content" />
+                          <br clear="all" />
+<!-- END Main Content -->
+                        </tal:block>
+                        <tal:block condition="python: isPortalBoxGroup and not layout_edit_mode">
+                          <tal:block define="box_group templet/box_group|nothing;
+                                             render_box python: 0">
+                            <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                          </tal:block>
+                        </tal:block>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <metal:block define-slot="templet_footer"
+                tal:replace="nothing"></metal:block>
+              </tal:block>
+              <metal:block define-slot="cell_bottom"
+               tal:replace="nothing"></metal:block>
+            </td>
+          </tal:block>
+        </tal:block>
+      </tr>
+    </table>
+  </tal:block>
+  <metal:block use-macro="here/cpsskins_theme_widgets/macros/contextual_menu" />
+  <metal:block define-slot="page_footer" tal:replace="nothing">
+  </metal:block>
+</metal:block>

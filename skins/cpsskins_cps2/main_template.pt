@@ -1,0 +1,80 @@
+<metal:block define-macro="master"
+  tal:define="utool nocall:here/portal_url; 
+              mtool here/portal_membership; 
+	      atool here/portal_actions; 
+	      wtool here/portal_workflow; 
+	      btool here/portal_boxes; 
+	      ptool here/portal_types; 
+	      dirtool here/portal_metadirectories; 
+	      dtool dirtool/members; 
+	      gdtool dirtool/groups; 
+	      mcat nocall:here/portal_messages; 
+	      portal_object utool/getPortalObject; 
+	      portal_title portal_object/Title; 
+	      object_title here/Title; 
+              portal_url python: utool(relative=0);
+	      here_rurl python: '/' + utool.getRelativeUrl(here); 
+	      here_url python: portal_url + here_rurl; 
+	      bcs here/breadcrumbs; 
+	      member mtool/getAuthenticatedMember; 
+	      isAnon mtool/isAnonymousUser; 
+	      actions python: atool.listFilteredActionsFor(here); 
+	      docinfo python:here.cpsdocument_info_get(item=here); 
+	      global_actions actions/global; 
+	      pss modules/Products/PythonScripts/standard; 
+	      showthirdcol showthirdcol|nothing; 
+	      hideactions hideactions|nothing; 
+	      hierarchies here/getMainHierarchies; 
+	      portal_status_message request/form/portal_status_message|nothing; 
+              dummy python: request.set('cpsskins_cmfactions', actions);
+"><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
+    <html>
+    <head>
+      <title tal:content="here/expanded_title">Nuxeo | Solutions
+      web pour mieux collaborer</title>
+      <metal:block define-slot="base">
+<!-- Additional head elements -->
+        <base tal:attributes="href string:${here/absolute_url}/" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      </metal:block>
+      <metal:block define-slot="style_plus" tal:replace="nothing">
+<!-- additional styles -->
+      </metal:block>
+      <metal:block define-slot="script_plus" tal:replace="nothing">
+<!-- additional scripts -->
+      </metal:block>
+      <metal:block
+      use-macro="here/?main_macro/macros/head" />
+    </head>
+    <body tal:attributes="class string:Color$cpsskins_bodycolor; style string:margin:$cpsskins_pagemargin">
+      <metal:block
+      use-macro="here/?main_macro/macros/main">
+        <metal:block fill-slot="maincontent">
+          <metal:block define-slot="genericmain">
+          <metal:block use-macro="here/main_widgets/macros/boxstd">
+          <metal:block fill-slot="box_title">
+              <metal:block metal:define-slot="header"
+              tal:content="python:mcat(here.title_or_id())">
+              Header</metal:block>
+          </metal:block>
+          <metal:block fill-slot="box_body">
+            <metal:block define-slot="header_plus">
+              <metal:block
+              use-macro="here/main_template_elements/macros/header_plus" />
+            </metal:block>
+            <metal:block
+            use-macro="here/main_template_elements/macros/portal_status_message" />
+            <metal:block define-slot="main" />
+          </metal:block>
+          </metal:block>
+          <metal:block define-slot="main_plus"
+          tal:replace="nothing"></metal:block>
+          </metal:block>
+        </metal:block>
+      </metal:block>
+    </body>
+    <metal:block define-slot="login_box" tal:replace="nothing">
+    </metal:block>
+  </html>
+</metal:block>

@@ -1,0 +1,27 @@
+<metal:block define-macro="portalboxgroup">
+  <tal:block condition="render_box"
+  define="padding templet/padding|string:0">
+    <tal:block define="slot_boxes python: btool.filterBoxes(boxes, slot=box_group)">
+      <tal:block tal:condition="python: box_group != 'closed'">
+        <tal:block repeat="box slot_boxes">
+          <div tal:attributes="style string:text-align:left;; padding:$padding">
+            <metal:block use-macro="python:path(box['macro'])" />
+          </div>
+        </tal:block>
+      </tal:block>
+      <tal:block tal:condition="python: box_group == 'closed'"
+      tal:define="closed_box python: btool.filterBoxes(boxes, closed_only=1)">
+        <tal:block repeat="box closed_box" on-error="nothing">
+          <metal:block use-macro="here/box_lib/macros/closed_box" />
+        </tal:block>
+      </tal:block>
+    </tal:block>
+  </tal:block>
+  <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
+  style="text-align: left">
+  <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_nuxeo.png"
+       width="16" height="16" />
+  <tal:block content="templet_title" />(
+  <span style="font-weight: bold"
+  tal:content="templet/box_group" />)</div>
+</metal:block>

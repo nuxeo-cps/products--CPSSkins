@@ -1,0 +1,22 @@
+<tal:block i18n:domain="cpsskins"
+define="mcat python: request.get('cpsskins_mcat'); 
+        context_obj python: request.get('context_obj', here);
+	content python: here.content">
+  <tal:block condition="python: content == 'title'">
+    <tal:block i18n:translate=""
+    define="title python: context_obj.title_or_id()"
+    content="python: mcat and mcat(title) or title" />
+  </tal:block>
+  <tal:block condition="python: content == 'last_modified'">
+    <tal:block i18n:translate="" 
+      define="title string:_Last modified:_"
+      content="python: mcat and mcat(title) or title" />
+    <tal:block replace="python: context_obj.bobobase_modification_time().ISO()" />
+  </tal:block>
+  <tal:block condition="python: content == 'created_by'">
+    <tal:block i18n:translate="" 
+      define="title string:_Created by:_"
+      content="python: mcat and mcat(title) or title" />
+    <tal:block replace="context_obj/Creator" />
+  </tal:block>
+</tal:block>

@@ -1,0 +1,46 @@
+<metal:block define-macro="login_box"></metal:block>
+<metal:block define-macro="header_plus">
+  <div class="chapo">
+    <tal:block
+    define="creator here/Creator; 
+            props python:dtool.getEntry(creator); 
+	    fullname python:props and props[dtool.display_prop] or creator; 
+	    dir_url python:props and '%s/%s?dirname=%s&entry_id=%s' % (portal_url, dtool.entry_template, dtool.id, creator) or nothing">
+      <tal:block
+      replace="python: DateTime(here.ModificationDate()).strftime(mcat('_header_date_Modified_on_%m/%d/%Y at %H:%M'))">
+      09/09/09</tal:block>
+      <br />
+      <tal:block replace="python:mcat('_header_Creator:')">
+      Creator:</tal:block>
+      <a tal:attributes="href dir_url" tal:content="fullname">
+      Author</a>
+    </tal:block>
+    <tal:block
+    condition="python:docinfo['schema_name'] and docinfo['schema_state']">
+    <br />
+    State: ?&nbsp; 
+    <span tal:replace="docinfo/schema_state_name">1</span>
+    &nbsp;? 
+    <tal:block condition="docinfo/schema_action">by 
+    <tal:block replace="docinfo/schema_actor">Actor</tal:block>
+    <tal:block condition="docinfo/schema_time_ago">since 
+    <span tal:replace="docinfo/schema_time_ago">4 hours</span>
+    </tal:block>
+    ( 
+    <span
+    tal:replace="python: DateTime(docinfo['schema_time']).strftime(mcat('_header_date_Modified_on_%m/%d/%Y at %H:%M'))">
+    01/01/2001 - 12h00</span>
+    )</tal:block>
+    </tal:block>
+  </div>
+</metal:block>
+
+<metal:block define-macro="portal_status_message">
+  <tal:block condition="portal_status_message">
+    <div class="statusmessage">
+      <img border="0" width="24" height="24" align="middle"
+       tal:attributes="src string:${here/portal_url}/cpsskins_images/status_message_icon.png" />
+      <span tal:content="portal_status_message" />
+    </div>
+  </tal:block>
+</metal:block>

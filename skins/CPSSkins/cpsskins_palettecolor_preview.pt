@@ -1,0 +1,19 @@
+<table cellpadding="4" cellspacing="2" border="0">
+   <tr>
+     <td>
+   <div
+   tal:define="value here/value|nothing"
+   tal:attributes="style string:background-color:$value;; width: 60px;; height: 60px">
+   &nbsp;
+   </div>
+     </td>
+     <td>
+   <div
+   tal:define="value here/value|nothing"
+   tal:attributes="style string:border-color:$value;; width: 60px;; height: 60px;; border-width: 2px;; border-style: solid;;">
+   &nbsp;
+   </div>
+     </td>
+   </tr>
+</table>
+

@@ -1,0 +1,32 @@
+<metal:block define-macro="title"
+tal:define="title_source python: here.title_source">
+  <tal:block condition="python: title_source == 'Templet title'">
+    <tal:block condition="box_title_i18n" i18n:translate=""
+     content="here/title" />
+    <tal:block tal:condition="not:box_title_i18n"
+    content="here/title" />
+  </tal:block>
+  <tal:block condition="python: title_source == 'Folder title'">
+    <tal:block condition="box_title_i18n" i18n:translate=""
+     content="navigationinfo/folder_title|nothing" />
+    <tal:block condition="not:box_title_i18n"
+     content="navigationinfo/folder_title|nothing" />
+  </tal:block>
+  <tal:block condition="python: title_source == 'Workflow state'">
+    <tal:block define="wtool here/portal_workflow;
+                       wf_state python: wtool.getInfoFor(context_obj,'review_state','')">
+      <tal:block condition="wf_state" content="wf_state"
+      i18n:translate="" />
+    </tal:block>
+  </tal:block>
+  <tal:block condition="python: title_source == 'Username'" i18n:domain="cpsskins">
+    <tal:block define="mtool here/portal_membership;
+                       isAnon mtool/isAnonymousUser">
+      <tal:block condition="not:isAnon" 
+       define="member mtool/getAuthenticatedMember"
+       content="python: member.getUserName()" />
+      <tal:block condition="isAnon" 
+       content="string:_Guest_" i18n:translate="" />
+    </tal:block>
+  </tal:block>
+</metal:block>

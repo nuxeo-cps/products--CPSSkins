@@ -1,0 +1,81 @@
+<metal:block define-macro="master"
+  tal:define="showthirdcol showthirdcol|python:1;
+              emptybody emptybody|request/emptybody|nothing;
+	      utool nocall:here/portal_url; 
+	      atool here/portal_actions; 
+	      mtool here/portal_membership; 
+	      ttool here/portal_trees; 
+	      wtool here/portal_workflow; 
+	      btool here/portal_boxes; 
+              context_url python:here.getContextUrl(utool=utool); 
+              base_url python:here.getBaseUrl(utool=utool); 
+              here_url here/absolute_url;
+              boxes python:btool.getBoxes(here); 
+              member mtool/getAuthenticatedMember; 
+              isAnon mtool/isAnonymousUser; 
+              isHomeless python:isAnon or member.getProperty('homeless', 0);
+              isHomeless python:(isHomeless == '0' and [0] or [isHomeless])[0];
+              actions python:atool.listFilteredActionsFor(here);
+              wf_state python:wtool.getInfoFor(here,'review_state',''); 
+              uname python: isAnon and 'Guest' or member.getUserName(); 
+              checkPerm nocall: mtool/checkPermission; 
+              cpsmcat nocall:here/Localizer/default; 
+              in_ws here/isInWorkspace;
+              dummy python: request.set('cpsskins_cmfactions', actions);
+">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
+  <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <metal:block use-macro="here/header_lib/macros/header">
+        <metal:block fill-slot="base">
+          <metal:block define-slot="base">
+            <base href=""
+            tal:attributes="href string:${here_url}/" />
+          </metal:block>
+        </metal:block>
+        <metal:block fill-slot="head_slot">
+          <metal:block define-slot="head_slot" />
+        </metal:block>
+        <metal:block fill-slot="css_slot">
+          <metal:block define-slot="css_slot" />
+        </metal:block>
+        <metal:block fill-slot="javascript_head_slot">
+          <metal:block define-slot="javascript_head_slot" />
+          <script type="text/javascript">
+            function setFocus() {
+            field = document.getElementById('field_focus')
+            if (field) {
+              field.focus();
+            }
+          }
+          </script>
+        </metal:block>
+      </metal:block>
+      <metal:block 
+      use-macro="here/?main_macro/macros/head" />
+    </head>
+    <body OnLoad="setFocus()"
+    tal:attributes="class string:Color$cpsskins_bodycolor; 
+                    style string:margin:$cpsskins_pagemargin;"
+     tal:condition="emptybody">
+      <metal:block define-slot="body" />
+      <metal:block define-slot="main" />
+    </body>
+    <body OnLoad="setFocus()"
+    tal:attributes="class string:Color$cpsskins_bodycolor; 
+                    style string:margin:$cpsskins_pagemargin"
+     tal:condition="not:emptybody">
+      <metal:block
+      use-macro="here/?main_macro/macros/main">
+        <metal:block fill-slot="maincontent">
+          <metal:block
+          use-macro="here/generic_lib/macros/portal_message" />
+            <metal:block define-slot="header" />
+            <metal:block define-slot="main" />
+            <metal:block define-slot="sub" />
+          </metal:block>
+        </metal:block>
+    </body>
+  </html>
+</metal:block>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
+      <metal:block fill-slot="edit"
+    tal:define="tmtool here/portal_themes;
+                edit_mode request/form/edit_mode|nothing; 
+                pss modules/Products/PythonScripts/standard;
+                templet_ypos request/form/templet_ypos|nothing; 
+                templet_xpos request/form/templet_xpos|nothing;">
+    <h1 i18n:translate=""
+    tal:define="title string:_Add_a_new_Templet_"
+    tal:content="python: mcat and mcat(title) or title" />
+      <form action="cpsskins_templet_add" method="get">
+        <tal:block define="title string:;">
+          <metal:block
+          use-macro="here/cpsskins_theme_widgets/macros/templet_add_form">
+          </metal:block>
+        </tal:block>
+        <input type="hidden" name="edit_mode"
+        tal:attributes="value edit_mode" />
+        <input type="hidden" name="xpos"
+        tal:attributes="value templet_xpos" />
+        <input type="hidden" name="ypos"
+        tal:attributes="value templet_ypos" />
+        <input type="hidden" name="theme"
+        tal:attributes="value current_theme" />
+        <input type="submit" class="mainbutton"
+        i18n:attributes="value" tal:define="title string:_button_create_"
+        tal:attributes="value python: mcat and mcat(title) or title" />
+      </form>
+  </metal:block>
+</metal:block>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
+
+  <metal:block fill-slot="edit" i18n:domain="cpsskins"
+  tal:define="tmtool here/portal_themes; 
+              portal_url here/portal_url;
+              edit_mode request/edit_mode|nothing;
+              theme request/form/theme|nothing;
+              mtool here/portal_membership;
+              checkPerm nocall:mtool/checkPermission">
+    <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
+      <tal:block define="dummy request/RESPONSE/unauthorized" />
+    </tal:block>
+
+    <h1 tal:define="title string:_Cache manager_"
+     tal:content="python: mcat and mcat(title) or title"
+    i18n:translate="" />
+
+    <form action="manage_clearCache">
+      <table cellpadding="0" cellspacing="2" width="100%">
+        <tr>
+          <td>
+            <metal:block use-macro="here/cpsskins_theme_widgets/macros/cache_statistics" />
+          </td>
+          <td align="right">
+             <input type="submit" class="InvalidateCache"
+             i18n:attributes="value" 
+             tal:define="title string:_button_clear_the_cache_"
+             tal:attributes="value python: mcat and mcat(title) or title" />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <form action="cpsskins_cache_edit" method="post">
+      <input type="hidden" name="theme"
+      tal:attributes="value theme" />
+      <table border="0" cellpadding="2" cellspacing="0"
+      width="100%">
+        <tal:block repeat="pageblock theme_container/getPageBlocks|nothing">
+          <tr>
+            <td colspan="4">
+              <h3 tal:content="pageblock/title_or_id" />
+            </td>
+          </tr>
+          <tal:block define="objects python: pageblock.getObjects(REQUEST=request)"
+                     repeat="x_pos python: range(int(maxcols))">
+            <tal:block 
+             define="objects_in_xpos python: objects.get(x_pos, None)"
+             condition="objects_in_xpos">
+              <tal:block repeat="templet python: objects_in_xpos['templets']">
+                <tr tal:condition="templet/isCacheable|nothing"
+                    tal:define="templet_cacheable templet/cacheable|nothing">
+                  <td>
+                    <img align="middle"
+                    tal:attributes="src string:${portal_url}/${templet/getIcon}" />
+                    <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$theme&edit_mode=$edit_mode"
+                     tal:content="python: templet.title_or_id()" />
+                    <input type="hidden" name="paths" 
+                    tal:attributes="value python: '/'.join(templet.getPhysicalPath())" />
+                  </td>
+                  <td tal:define="ti templet/getTypeInfo">
+                    <span tal:condition="ti" tal:content="ti/getId" />
+                    <span tal:condition="not:ti" tal:content="string:?" />
+                  </td>
+                  <td align="center">
+                    <span i18n:translate=""
+                    tal:define="title string:_Cacheable?_"
+                    tal:content="python: mcat and mcat(title) or title" />
+                    <input type="checkbox" name="cache:list"
+                    value="."
+                    tal:attributes="checked templet_cacheable; value templet/getId" />
+                  </td>
+                  <td> 
+                    <select name="cache_lifetimes:list">
+                      <tal:block repeat="lifetime templet/LifetimeList">
+                        <option i18n:translate="" 
+                         tal:define="cache_lifetime templet/cache_lifetime|nothing;
+                                     i18n_option string:_option_lifetime_${lifetime}_;
+                                     i18n_lifetime python: mcat and mcat(i18n_option) or i18n_option"
+                         tal:attributes="value lifetime;
+                                         selected python: lifetime == cache_lifetime"
+                         tal:content="i18n_lifetime" />
+                      </tal:block>
+                    </select>
+                  </td>
+                </tr>
+              </tal:block>
+            </tal:block>
+          </tal:block>
+        </tal:block>
+      </table>
+      <div class="form_submit">
+        <input type="submit" class="mainbutton"
+        i18n:attributes="value"
+        tal:define="title string:_button_modify_"
+        tal:attributes="value python: mcat and mcat(title) or title" />
+      </div>
+    </form>
+  </metal:block>
+</metal:block>

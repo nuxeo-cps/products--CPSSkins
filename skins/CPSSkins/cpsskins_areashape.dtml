@@ -1,0 +1,8 @@
+.Shape&dtml-title; { 
+<dtml-if Area_border_style>
+border-style:&dtml-Area_border_style;;
+</dtml-if>
+<dtml-if Area_border_width>
+border-width:&dtml-Area_border_width;;
+</dtml-if>
+}

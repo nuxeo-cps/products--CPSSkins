@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <link rel="Stylesheet" type="text/css"
+  href="cpsskins_theme_edit.css" />
+  <head>
+    <script type="text/javascript">
+      <!--
+      function changeSelection(image, select_id) {
+          opener.style = image;
+          opener.selection_restart(select_id);
+          self.close;
+      }
+      //-->
+    </script>
+  </head>
+  <body>
+    <tal:block tal:define="imagecat request/form/image|nothing;
+                           prop request/form/prop|nothing;
+                           images python: here.cpsskins_listImages(imagecat=imagecat)">
+      <tal:block repeat="image images">
+        <table class="panel">
+          <tr>
+            <td>
+              <a tal:define="number repeat/image/number"
+              tal:attributes="href string:javascript:changeSelection('$number', '$prop')">
+              <div style="height: 60px; width: 250px">
+                <strong tal:content="image/title" />
+                <br />
+                <tal:block content="string:${image/size} bytes" />
+                <tal:block content="string:(${image/width}x${image/height} px)" />
+                <br />
+                <br />
+                <img border="0" tal:condition="python: imagecat == 'icons'"
+                tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image/absolute_url" />
+                <div class="backgroundeditbox"
+                tal:condition="python: imagecat == 'backgrounds'"
+                tal:attributes="style string:background: url('${image/absolute_url}');;">
+                </div>
+              </div>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </tal:block>
+    </tal:block>
+  </body>
+</html>

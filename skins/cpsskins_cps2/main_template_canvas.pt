@@ -1,0 +1,39 @@
+<link rel="Stylesheet" type="text/css" href="cpsskins_theme_edit.css" />
+<tal:block
+define="tmtool here/portal_themes; 
+        theme python: tmtool.getRequestedThemeName(REQUEST=request); 
+        boxes options/boxes">
+  <tal:block
+   repeat="block python: tmtool.getPageBlocks(theme=theme)">
+    <table width="100%" cellpadding="0" cellspacing="3">
+      <tr valign="top"
+       tal:define="objects python: block.getObjects(REQUEST=request); 
+                   maxcols block/maxcols|nothing"> 
+        <tal:block condition="maxcols"
+         repeat="x_pos python: range(int(maxcols))">
+          <td tal:define="objects_in_xpos python: objects.get(x_pos, None)"
+           tal:condition="objects_in_xpos">
+            <tal:block define="templets_in_xpos python: objects_in_xpos['templets']"
+             condition="templets_in_xpos"
+             repeat="templet templets_in_xpos">
+              <div tal:content="templet/title" class="TempletBox"
+               tal:condition="templet/aq_explicit/isPortalBox|nothing" />
+              <tal:block
+               condition="templet/aq_explicit/isMainContent|nothing"
+               content="structure boxes/1" />
+              <tal:block
+               condition="templet/aq_explicit/isPortalBoxGroup|nothing"
+               define="group templet/box_group|nothing">
+                <div class="BoxGroupBoundingBox">
+                  <div tal:content="templet/title" class="BoxGroupBoxSlotTitle"/>
+                  <tal:block condition="group"
+                  content="structure python: boxes[group]" />
+                </div>
+              </tal:block>
+            </tal:block>
+          </td>
+        </tal:block>
+      </tr>
+    </table>
+  </tal:block>
+</tal:block>

@@ -1,0 +1,20 @@
+<metal:block define-macro="portalboxgroup">
+  <tal:block define="slots slots_mapping/?box_group|nothing"
+   condition="slots">
+    <metal:block tal:repeat="slot slots">
+      <tal:block define="global pathexpr python:slot[0];
+                         global usemacro python:slot[1]"
+                 condition="usemacro">
+          <metal:block metal:use-macro="python:path(pathexpr)" />
+      </tal:block>
+      <span tal:condition="not:usemacro"
+            tal:replace="structure python:path(pathexpr)" />
+    </metal:block>
+  </tal:block>
+  <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
+  style="text-align: left">
+  <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_plone.png"
+       width="45" height="17" alt="Plone slot" />
+  <tal:block content="templet_title" /> 
+  (<span style="font-weight: bold" tal:content="templet/box_group" />)</div>
+</metal:block>

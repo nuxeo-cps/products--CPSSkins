@@ -1,0 +1,27 @@
+<table cellpadding="10" cellspacing="0" i18n:domain="cpsskins"
+tal:define="mcat python: request.get('cpsskins_mcat')">
+  <tr style="height:150px">
+    <td>
+      <div style="width: 140px"
+      tal:attributes="class string:CollapsibleMenu${here/title}">
+        <div class="topmenu">
+          <a href="">
+            <tal:block define="title string:_topmenu_"
+            content="python: mcat and mcat(title) or title"
+            i18n:translate="" />
+          </a>
+        </div>
+        <div class="submenu">
+          <tal:block repeat="entry python: range(1, 6)">
+            <a tal:define="state python: entry == 3 and 'selected' or None"
+               tal:attributes="class state">
+            <tal:block define="title string:_submenu_"
+            content="python: mcat and mcat(title) or title"
+            i18n:translate="" />
+            <tal:block content="entry" /> </a>
+          </tal:block>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

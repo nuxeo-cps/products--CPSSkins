@@ -1,0 +1,2 @@
+<span tal:replace="structure here/tag">Tag</span>
+<span tal:content="here/id"/>

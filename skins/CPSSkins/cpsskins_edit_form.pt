@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
+    <metal:block fill-slot="edit"
+      tal:define="mtool here/portal_membership;
+                  checkPerm nocall:mtool/checkPermission">
+      <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
+        <tal:block define="dummy request/RESPONSE/unauthorized" />
+      </tal:block>
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
+      <tal:block condition="isPortalStyle">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/stylenavigation"/>
+      </tal:block>
+      <tal:block condition="isPortalPalette">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/palettenavigation"/>
+      </tal:block>
+      <tal:block condition="python: isPortalTheme and checkPerm('Manage Themes', here)">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/manage_themes" />
+      </tal:block>
+      <h1>
+        <tal:block define="title string:_Edit_"
+        tal:content="python: mcat and mcat(title) or title"
+        i18n:translate="" />
+        '<tal:block replace="here/title|nothing" />'
+      </h1>
+      <tal:block define="id request/form/id|here/id">
+        <tal:block condition="isImageBox">
+          <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
+        </tal:block>
+        <tal:block condition="isFlashBox">
+          <metal:block use-macro="here/cpsskins_form_widgets/macros/flashfile_upload" />
+        </tal:block>
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td>
+              <div tal:condition="showPreview"
+              tal:content="structure python: here.preview()" />
+            </td>
+          </tr>
+        </table>
+        <br />
+        <metal:block
+         use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
+        <div class="mainedit">
+        <br/>
+          <form name="data" action="cpsskins_edit" method="post"
+           enctype="multipart/form-data">
+            <input type="hidden" name="id"
+            tal:attributes="value id" />
+            <metal:block
+            use-macro="here/cpsskins_form_widgets/macros/generic_edit" />
+            <input type="submit" class="mainbutton"
+            i18n:attributes="value"
+            tal:define="title string:_button_modify_"
+            tal:attributes="value python:mcat and mcat(title) or title" />
+          </form>
+        </div>
+      </tal:block>
+    <br />
+  </metal:block>
+</metal:block>

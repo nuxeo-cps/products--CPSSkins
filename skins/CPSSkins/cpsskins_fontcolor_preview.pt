@@ -1,0 +1,24 @@
+<table cellpadding="5" cellspacing="0" i18n:domain="cpsskins"
+tal:define="mcat python: request.get('cpsskins_mcat')"
+tal:attributes="class string:FontColor${here/title}">
+  <tr style="height: 320px">
+    <td style="text-align:left; width: 250px; white-space:nowrap">
+      <h1 tal:define="title string:_H1_font_" i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <p tal:define="title string:_P_font_" i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <h2 tal:define="title string:_H2_font_" i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <strong tal:define="title string:_STRONG_font_"
+      i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <h3 tal:define="title string:_H3_font_" i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <a href="" tal:define="title string:_A_link_decoration_"
+      i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+      <h4 tal:define="title string:_H456_font_" i18n:translate=""
+      tal:content="python: mcat and mcat(title) or title" />
+    </td>
+  </tr>
+</table>

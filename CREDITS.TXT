@@ -1,0 +1,44 @@
+
+See COPYRIGHT.TXT
+
+* Icons, language flags
+Jakub Steiner <jimmac@ximian.com>
+http://jimmac.musichall.cz/ikony.php3 (Icons created for the Gnome project)
+
+* XIMIAN Icons: 
+http://developer.ximian.com/themes/icons/
+
+* Floating toolbar:
+http://devnull.tagsoup.com/fixed/ 
+
+
+People:
+
+* Sebastien Georget <sebastien.georget@ecl2003.ec-lyon.fr>
+- Templet caching mechanism
+- bug reports, patches and suggestions
+
+* Fabrice Robin <FabriceRobin@bbs-one.fr>
+- bug reports, patches and suggestions
+
+* Jean-François Romanowski <ROMANOWSKIJF@aol.com>
+- French translation
+
+* Fabio Nosari <fabnos@fastwebnet.it>
+  PiCo <pico@cocco.biz>
+- Italian translation
+
+* Álvaro Tejero Cantero <alvaro@antalia.com>
+- Spanish translation
+
+* Marek Ciesielski <marekc@klub.chip.pl>
+- Polish translation
+
+* Olle Olsson <olle_o2003@yahoo.com>
+- patch for cpsskins_cmf/cpsskins_getNavigationInfo.py
+
+* Stefan Undorf <sundorf@suncom.de>
+- German translation
+
+* Mario Olimpio de Menezes <mario@curiango.ipen.br>
+- Portuguese translation

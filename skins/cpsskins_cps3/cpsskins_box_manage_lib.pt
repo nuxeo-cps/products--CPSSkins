@@ -1,0 +1,87 @@
+<metal:block define-macro="box">
+  <div class="BoxGroupBoxSlot PortalBoxDrag" 
+  tal:define="box_url box/url;
+              box_obj python: box['box'];
+              ypos box/settings/order|nothing;
+              box_ti box_obj/getTypeInfo;
+              box_title box_obj/title;
+              box_type python:box_ti.Title();
+              box_icon python:box_ti.getIcon();
+              action python:box_ti.immediate_view; 
+              editable python:checkPerm('Manage Boxes', box_obj)"
+  tal:attributes="box_url box_url; 
+                  src_ypos python: ypos and ypos or 0;
+                  src_slot group">
+    <div class="PortalBoxDest" 
+      tal:attributes="dest_slot group; 
+                      dest_ypos python: ypos and ypos or 0">
+    <div class="BoxGroupBoxTitle">
+      <tal:block content="box_title" />
+      <tal:block condition="editable">
+        <a href=""
+        tal:attributes="href string:${context_urlc}/${action}?box_url=$box_url">
+          <img border="0" width="12" height="12"
+          tal:attributes="src string:$portal_url/cpsskins_images/img_edit.png" />
+        </a>
+        <a href=""
+        tal:attributes="href string:${context_urlc}/box_delete?box_url=$box_url; 
+                        onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )">
+          <img border="0" width="12" height="12"
+          tal:attributes="src string:$portal_url/cpsskins_images/img_delete.png" />
+        </a>
+      </tal:block>
+      <tal:block condition="not:editable">
+        <a href=""
+        tal:attributes="href string:${context_urlc}/${action}?box_url=$box_url"
+           i18n:translate="link_box_view">view</a>
+      </tal:block>
+    </div>
+    <div class="BoxGroupBoxBody PortalBoxEditMenu" 
+         tal:attributes="src_ypos python: ypos and ypos or 0;
+                         src_slot group">
+    <tal:block i18n:translate="listingheader_type" />: 
+    <tal:block i18n:translate="" content="box_type" />
+    <br />
+    <tal:block i18n:translate="listingheader_location" />: 
+    <tal:block replace="string:${base_url}${box/display_url}" /></div>
+    </div>
+  </div>
+</metal:block>
+
+<metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
+  tal:define="portal_url here/portal_url">
+  <div id="choice-context-menu" class="context-menu">
+    <div class="context-menu-header" class="context-menu">
+    <tal:block i18n:translate="menu_insert_box">Insert a box here</tal:block></div>
+    <tal:block repeat="box_ti here/getBoxFTI">
+      <div tal:define="box_name box_ti/Title|nothing;
+                       box_type box_ti/getId|nothing;
+                       box_icon box_ti/content_icon|nothing"
+           class="context-menu-item"
+           filter="pd_selected_item"
+           tal:attributes="onmouseup string:Choice_insert('${box_type}')" >
+        <img width="16" height="16" 
+         tal:condition="box_icon" 
+         tal:attributes="src string:${portal_url}/$box_icon" />
+        <tal:block content="structure python: cpsmcat(box_name)" />
+      </div>
+    </tal:block>
+  </div>
+</metal:block>
+
+<metal:block define-macro="empty_slot">
+  <div class="PortalBoxDest" style="margin:4px"
+   tal:condition="python:len(sboxes) == 0"
+   tal:attributes="dest_slot group; 
+   dest_ypos python: 0">
+    <div class="PortalBoxEditMenu" style="padding: 20px"
+     tal:attributes="src_ypos python: 0;
+                     src_slot group">&nbsp;</div>
+  </div>
+</metal:block>
+
+<metal:block define-macro="box_slot">
+    <tal:block repeat="box sboxes">
+      <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box" />
+    </tal:block>
+</metal:block>

@@ -1,0 +1,50 @@
+<tal:block 
+ define="mcat python: request.get('cpsskins_mcat'); 
+         max_items python: here.max_items;
+         base_path python: here.base_path; 
+         base python: here.base; 
+         level python: here.level;
+         show_docs python: here.show_docs; 
+         display_hidden_folders python: here.display_hidden_folders;
+         context_rurl request/form/context_rurl|nothing;
+         context_obj python: here.cpsskins_getContextObj(context_rurl);
+         context_url context_obj/absolute_url|nothing;
+         portal_url here/portal_url; 
+         getNavigationInfo python: here.cpsskins_getNavigationInfo;
+         navinfo python: getNavigationInfo(level=level, base=base, show_docs=0, base_path=base_path, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl);">
+  <div tal:attributes="class string:CollapsibleMenu${here/collapsiblemenu_style}"
+       tal:define="menuentries navinfo/menuentries|nothing"
+       tal:repeat="menuentry menuentries">
+    <tal:block define="title python: menuentry['title']; 
+                       id python: menuentry['id']; 
+                       num repeat/menuentry/number; 
+                       sub_base_path string:${base_path}${id}/; 
+                       url python: menuentry['url'];
+                       we_are_here python: (context_url + '/').startswith(url + '/')">
+      <div class="topmenu">
+        <a i18n:translate=""
+           tal:define="class python: we_are_here and 'selected' or ''"
+           tal:attributes="href url; class class"
+           tal:content="python: mcat and mcat(title) or title" />
+      </div>
+      <tal:block condition="we_are_here">
+        <div class="submenu"
+             tal:define="subnavinfo python: getNavigationInfo(level=level, base=base, show_docs=int(show_docs), base_path=sub_base_path, max_results=max_items, display_hidden_folders=display_hidden_folders, context_rurl=context_rurl); 
+                         submenuentries subnavinfo/menuentries|nothing;
+                         nb_entries python: submenuentries and len(submenuentries) or 0"
+             tal:repeat="submenuentry submenuentries">
+            <a i18n:translate=""
+               tal:define="submenu_title python: submenuentry['title'];
+                           submenu_url python: submenuentry['url'];
+                           this_submenu python: (context_url + '/').startswith(submenu_url + '/');
+                           class python: this_submenu and 'selected' or ''"
+               tal:attributes="href submenu_url;
+                               class class"
+               tal:content="python: mcat and mcat(submenu_title) or submenu_title" />
+          <div tal:condition="python: nb_entries > max_items and max_items != 0"
+           class="submenumore">...</div>
+        </div>
+      </tal:block>
+    </tal:block>
+  </div>
+</tal:block>

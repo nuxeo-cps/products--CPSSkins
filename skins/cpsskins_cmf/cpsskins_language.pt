@@ -1,0 +1,51 @@
+<div
+ tal:define="lc python: here.cpsskins_getlocalizer(root=1); 
+	     langs python: lc and lc.get_languages_map() or []; 
+             lc_url python: lc and lc.absolute_url() or nothing;
+             style python: here.style;
+             hide_current_lang python: here.hide_current_lang"
+ tal:condition="python:len(langs)>1">
+    <tal:block condition="python: style == 'dropdown list'">
+      <form style="margin:0;padding:0;" name="cpsskins_i18n" method="post"
+      tal:attributes="action string:${lc_url}/changeLanguage">
+        <select name="lang" onchange="cpsskins_i18n.submit()"
+          tal:define="tr_langs python: here.cpsskins_translateLangs(langs)">
+          <option tal:repeat="lang tr_langs"  
+          tal:attributes="value lang/id; selected lang/selected|nothing;"
+          tal:content="lang/title">
+          Language</option>
+        </select>
+      </form>
+    </tal:block>
+    <tal:block condition="python: style == 'flags'"
+    repeat="lang langs">
+      <a style="text-decoration: none"
+      tal:define="lang_id lang/id;
+                  img_path python: 'here/cpsskins_images/flag-%s.gif' % lang_id;
+                  img_tag python: exists(img_path) and path(img_path) or nothing;
+                  lang_selected lang/selected"
+       tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id}"
+       tal:condition="python: not (hide_current_lang and lang_selected)">
+        <tal:block condition="img_tag" content="structure img_tag"
+        tal:attributes="alt lang_id" />
+        <span tal:condition="python: not img_tag"
+        tal:content="string:[$lang_id]" />
+      </a>
+    </tal:block>
+    <tal:block condition="python: style == 'language names'">
+      <tal:block define="tr_langs python: here.cpsskins_translateLangs(langs)"
+                 repeat="lang tr_langs"
+                 condition="python: len(tr_langs) > 1">
+        <tal:block define="lang_id lang/id; 
+                           selected lang/selected|nothing;
+                           title lang/title">
+           <strong tal:content="title" 
+            tal:condition="python: selected and not hide_current_lang" />
+           <a href="" tal:condition="not:selected" 
+              tal:content="title" 
+              tal:attributes="href string:${lc_url}/changeLanguage?lang=$lang_id" />
+        </tal:block>
+      </tal:block>
+    </tal:block>
+</div>
+

@@ -1,0 +1,72 @@
+- Miscellaneous code:
+Copyright (c) 2003-2004 Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+Copyright (c) 2003-2004 Chalmers University of Technology
+Copyright (c) 2003 Centre de Recherche en Informatique ENSMP Fontainebleau <http://cri.ensmp.fr>
+Copyright (c) 2003 Benoît PIN <mailto:pin@cri.ensmp.fr>
+Copyright (c) 2002, 2003, 2004 Nuxeo SARL <http://nuxeo.com>
+Copyright (c) 2002 Florent Guillaume <mailto:fg@nuxeo.com>
+Copyright (c) 2002 Julien Jalon <mailto:jj@nuxeo.com>
+Copyright (c) 2002 Préfecture du Bas-Rhin, France
+Copyright (c) 2002 Centre Informatique de la Région de Bruxelles, Belgique
+
+- QuickImporter:  
+Copyright (c) 2003 Michiharu Sakurai <mojix@mojix.org>
+http://zope.org/Members/mojix/QuickImporter/
+
+- CMF:
+Copyright (c) Zope Corporation (tm) and Contributors. All rights reserved.
+source code covered by the ZPL version 2.0 (see ZPL.TXT)
+
+- Nuxeo CPS:
+Copyright (c) 2002-2004 Nuxeo SARL <http://nuxeo.com>
+
+- Plone:
+Plone and its visual design is Copyright (c) 2000-2004 by Alexander Limi, Alan Runyan, Vidar Andersen.
+
+- PDLib:
+Copyright (c) 2002 Zope Corporation and Contributors.
+source code covered by the ZPL version 2.0 (see ZPL.TXT)
+Copyright (c) 2002-2003 Shane Hathaway <shane@hathawaymix.org>
+CompositePage-0.2 http://hathawaymix.org/Software/CompositePage
+
+- Color Picker Script from Flooble.com:
+For more information, visit http://www.flooble.com/scripts/colorpicker.php
+Copyright 2003 Animus Pactum Consulting inc.
+
+- Browser detection code:
+Copyright (c) 2003 Josef Meile <jmeile@hotmail.com>
+http://zope.org/Members/jmeile/browserDetector
+
+- CMF FlashMovie content type:
+Copyright (c) 2003 sergeyv <s_volobuev@phpv.khv.ru>
+http://zope.org/Members/sergeyv/CMFFlashMovie
+
+- CMFTestCase:
+Copyright (c) 2003 <stefan@epy.co.at>
+http://zope.org/Members/shh/CMFTestCase
+License: ZPL
+
+- CPSTestCase:
+Copyright (c) 2002, 2003, 2004 Nuxeo SARL <http://nuxeo.com>
+http://www.nuxeo.com
+
+- PloneTestCase, zcheck.py
+Plone and its visual design is Copyright (c) 2000-2004 by Alexander Limi, Alan Runyan, Vidar Andersen.
+
+- Plone i18n tests:
+Plone and its visual design is Copyright (c) 2000-2004 by Alexander Limi, Alan Runyan, Vidar Andersen.
+http://cvs.sourceforge.net/viewcvs.py/plone-i18n/i18n/tests/ 
+
+- slimmer.py:
+Copyright (c) 2003-2004 Peter Bengtsson, Fry-IT Ltd
+http://zope.org/Members/peterbe/CheckoutableTemplates
+License: ZPL
+
+- msgfmt.py:
+Written by Martin v. Loewis <loewis@informatik.hu-berlin.de>
+Changed by Christian 'Tiran' Heimes <ch@comlounge.net> for the placeless
+translation service (PTS) of zope
+
+- ESI code: 
+Copyright (c) 2004 Simon Eisenmann <simon@longsleep.org>
+http://longsleep.org/howto/squidwithzopeandesi

@@ -1,0 +1,417 @@
+<!-- boxleft -->
+<metal:block define-macro="boxleft">
+    <div class="title">
+      <metal:block define-slot="box_title">Box Title</metal:block>
+    </div>
+    <div class="body">
+      <metal:block define-slot="box_body" />
+    </div>
+</metal:block>
+<!-- End boxleft -->
+
+<!-- boxright -->
+<metal:block define-macro="boxright">
+    <div class="title">
+      <metal:block define-slot="box_title">Box Title</metal:block>
+    </div>
+    <div class="body">
+      <metal:block define-slot="box_body" />
+    </div>
+</metal:block>
+<!-- End boxright -->
+
+<!-- boxstd -->
+<metal:block define-macro="boxstd">
+  <h1>
+    <metal:block metal:define-slot="box_title"></metal:block>
+  </h1>
+  <div tal:condition="vignette|nothing">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <tal:block condition="photo|nothing">
+            <a href="."
+            tal:attributes="href photo/absolute_url; target string:secondary; onclick string:popup('${photo/absolute_url}','${photo/width}','${photo/height}')">
+              <img
+              tal:attributes="src vignette/absolute_url; height nothing"
+               width="175" border="1" />
+            </a>
+          </tal:block>
+          <tal:block condition="not: photo|nothing">
+            <img
+            tal:attributes="src vignette/absolute_url; height nothing"
+             width="175" border="1" />
+          </tal:block>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <metal:block define-slot="box_body"></metal:block>
+</metal:block>
+<!-- End boxstd -->
+
+<!-- title_content -->
+<metal:block define-macro="title_content">
+  <h2>
+    <metal:block define-slot="title">Title</metal:block>
+  </h2>
+  <metal:block define-slot="content">Content</metal:block>
+</metal:block>
+<!-- End title_content -->
+
+<!-- form -->
+<metal:block define-macro="form">
+  <table cellpadding="4" cellspacing="4" border="0" width="100%">
+    <colgroup width="30%">
+    <colgroup width="70%">
+    <metal:block define-slot="content"></metal:block>
+  </table>
+</metal:block>
+
+<!-- form_property -->
+<metal:block define-macro="form_property">
+  <tal:block define="form_pos form_pos|nothing">
+    <tr>
+      <td valign="top" class="formmeta">
+        <metal:block define-slot="title">Field name</metal:block>
+      </td>
+      <td valign="middle">
+        <metal:block define-slot="content">Field
+        content</metal:block>
+      </td>
+    </tr>
+  </tal:block>
+</metal:block>
+<!-- End form_property -->
+
+<!-- binary_input -->
+<metal:block define-macro="binary_input"
+tal:define="deletable deletable|nothing;">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <input type="radio" name="binary_change"
+        tal:attributes="name string:${name}_change" value="keep"
+        checked="checked" />
+      </td>
+      <td valign="middle" colspan="2"
+      tal:content="python:mcat('_binaryinput_Do_not_change_')">Do
+      not change</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <input type="radio" name="binary_change"
+        tal:attributes="name string:${name}_change"
+        value="change" />
+      </td>
+      <td valign="middle"
+      tal:content="python:mcat('_binaryinput_Change:_')">
+      Change:</td>
+      <td>
+        <input type="file" name="binary"
+        tal:attributes="name name" />
+      </td>
+    </tr>
+    <tr tal:condition="deletable">
+      <td>
+        <input type="radio" name="binary_change"
+        tal:attributes="name string:${name}_change"
+        value="delete" />
+      </td>
+      <td valign="middle" colspan="2"
+      tal:content="python:mcat('_binaryinput_Delete_')">Delete</td>
+    </tr>
+  </table>
+</metal:block>
+<!-- End binary input -->
+
+<!-- links_widget -->
+<metal:block define-macro="linkswidget">
+  <tal:block
+  define="create create|nothing; related_links python:(create and [''] or [here.related_links])[0];">
+    <metal:block
+    use-macro="here/main_widgets/macros/form_property">
+      <metal:block fill-slot="title"
+      tal:content="python:mcat('_linkswidget_Related_links_')">
+      Related links</metal:block>
+      <metal:block fill-slot="content">
+        <textarea name="related_links:lines" rows="6" cols="50"
+        wrap="soft" tal:content="python:'\n'.join(related_links)">
+        </textarea>
+        <br />
+        <small>(
+        <tal:block
+        replace="python:mcat('_One line by link, URL and description separated by one space_')">
+        One line by link, URL and description separated by one
+        space.</tal:block>
+        )</small>
+      </metal:block>
+    </metal:block>
+  </tal:block>
+</metal:block>
+<!-- End links_widget -->
+
+<!-- links_render -->
+<metal:block define-macro="linksrender">
+  <tal:block
+  define="links python:here.getRelatedLinks(portal_url=here.portal_url())"
+   tal:condition="python:links">
+    <metal:block
+    use-macro="here/main_widgets/macros/title_content">
+      <metal:block fill-slot="title"
+      tal:content="python:mcat('_linksrender_Related_links_')">
+      Related links</metal:block>
+      <metal:block fill-slot="content">
+         <tal:block repeat="link links">
+            <a target="_new" href="#"
+            tal:attributes="href python:link[0]">
+              <tal:block condition="python:link[1]"
+              replace="python:link[1]"></tal:block>
+              <tal:block condition="python:not link[1]"
+              replace="python:link[0]"></tal:block>
+            </a>
+            <br/>
+         </tal:block>
+      </metal:block>
+    </metal:block>
+  </tal:block>
+</metal:block>
+<!-- End links_render -->
+
+<!-- file_list -->
+<metal:block define-macro="file_list">
+  <tal:block
+  define="show_version show_version|nothing; show_pubstate show_pubstate|nothing; show_pendstate show_pendstate|nothing; selectable selectable|nothing;">
+    <table border="0" cellpadding="2" cellspacing="1"
+    tal:condition="docinfos">
+      <tr>
+        <td width="20" tal:condition="selectable">&nbsp;</td>
+        <th colspan="2">
+          <a tal:attributes="href colhrefs/main|nothing"
+          tal:omit-tag="not:colhrefs|nothing"
+          tal:content="python:mcat('_column_Document')">
+          Document</a>
+        </th>
+        <th width="80" tal:condition="show_version">
+          <a tal:attributes="href colhrefs/version|nothing"
+          tal:omit-tag="not:colhrefs|nothing"
+          tal:content="python:mcat('_column_Version')">Version</a>
+        </th>
+        <th width="80" tal:condition="show_pubstate">
+          <a tal:attributes="href colhrefs/pub|nothing"
+          tal:omit-tag="not:colhrefs|nothin"
+          tal:content="python:mcat('_column_Published')">
+          Published</a>
+        </th>
+        <th width="80" tal:condition="show_pendstate">
+          <a tal:attributes="href colhrefs/pend|nothing"
+          tal:omit-tag="not:colhrefs|nothin"
+          tal:content="python:mcat('_column_Pending')">Pending</a>
+        </th>
+      </tr>
+      <tr align="top" tal:repeat="docinfo docinfos">
+        <tal:block
+        define="even repeat/docinfo/even; tdclass python:even and 'even' or 'odd'">
+          <td tal:attributes="class tdclass"
+          tal:condition="selectable">
+            <tal:block condition="docinfo/nocheck|nothing">
+            &nbsp;</tal:block>
+            <tal:block condition="not:docinfo/nocheck|nothing">
+              <input type="checkbox" name="ids:list"
+              tal:attributes="value docinfo/id" />
+            </tal:block>
+          </td>
+          <td tal:attributes="class tdclass" 
+          width="16">
+            <tal:block condition="docinfo/icon" define="img_path python:'here%s' % docinfo['icon']; 
+	                                                img_tag python: exists(img_path) and path(img_path) or None;
+							">
+              <a
+              tal:attributes="href string:${docinfo/url}/${docinfo/action}">
+		<tal:block condition="img_tag" content="structure img_tag" /></a>
+            </tal:block>
+            <tal:block condition="not:docinfo/icon">
+            &nbsp;</tal:block>
+          </td>
+          <td tal:attributes="class tdclass">
+            <a
+            tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+             tal:content="docinfo/title">Title</a>
+            <tal:block condition="docinfo/modification"
+            content="structure string:(${docinfo/modification})" />
+            <br />
+            <tal:block define="description docinfo/description"
+                       content="python: here.cpsskins_getSummary(description, 20)" />
+          </td>
+          <td tal:attributes="class tdclass"
+          tal:condition="show_version"
+          tal:content="docinfo/version"></td>
+          <td tal:attributes="class tdclass"
+          tal:condition="show_pubstate"
+          tal:content="docinfo/public_categories_string">public1,
+          public2</td>
+          <td tal:attributes="class tdclass"
+          tal:condition="show_pendstate"
+          tal:content="docinfo/pending_categories_string">pending1,
+          pending2</td>
+        </tal:block>
+      </tr>
+    </table>
+    <table tal:condition="not:docinfos">
+      <tr>
+        <th tal:content="python:mcat('_file_list_No_document')">No
+        document</th>
+      </tr>
+    </table>
+  </tal:block>
+</metal:block>
+<!-- End file_list -->
+
+<!-- file_list_simple -->
+<metal:block define-macro="file_list_simple" tal:define="mcat nocall:here/portal_messages">
+   <table border="0" cellpadding="2" cellspacing="0">
+    <tal:block repeat="docinfo docinfos">
+       <tr>
+          <td valign="top">
+            <tal:block condition="docinfo/icon" define="img_path python:'here%s' % docinfo['icon']; 
+	                                              img_tag python: exists(img_path) and path(img_path) or None;
+						      ">
+            <strong><a
+            tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+             tal:omit-tag="not:docinfo/url">
+	      <tal:block condition="img_tag" content="structure img_tag" /></a>
+            </strong>
+            </tal:block>
+            <tal:block condition="not:docinfo/icon">
+            &nbsp;</tal:block>
+          </td>
+          <td valign="bottom">
+            <strong><a
+            tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+            tal:content="docinfo/title"
+            tal:omit-tag="not:docinfo/url">Title</a></strong>
+            <tal:block condition="docinfo/modification"
+            content="structure string:[${docinfo/modification}]" />
+          </td>
+        </tr>
+        <tr tal:condition="docinfo/description">
+          <td>&nbsp</td>
+          <td>
+            <tal:block define="description docinfo/description"
+                       content="python: here.cpsskins_getSummary(description, 20)" />
+            <a
+            tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+            tal:content="structure python: mcat('_Read more_')" />
+          </td>
+        </tr> 
+    </tal:block>
+      </table>
+</metal:block>
+<!-- End file_list_simple -->
+
+<!-- file_list_compact -->
+<metal:block define-macro="file_list_compact"  tal:define="mcat nocall:here/portal_messages">
+    <tal:block repeat="docinfo docinfos">
+      <a class="submenuout" style="display: block"
+      tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+      tal:omit-tag="not:docinfo/url">
+      <span class="menuouticon">&nbsp;</span><strong tal:content="docinfo/title" />
+      <tal:block condition="docinfo/modification"
+      content="structure string:[${docinfo/modification}]" />
+      </a>
+      <tal:block condition="docinfo/description">
+        <tal:block define="description docinfo/description"
+                   content="python: here.cpsskins_getSummary(description, 20)" />
+        <br />
+      </tal:block>
+    </tal:block>
+</metal:block>
+<!-- End file_list_compact -->
+
+<!-- file_list_minimal -->
+<metal:block define-macro="file_list_minimal"  tal:define="mcat nocall:here/portal_messages">
+      <tal:block repeat="docinfo docinfos">
+      <a class="submenuout" style="display: block"
+      tal:attributes="href string:${docinfo/url}/${docinfo/action}"
+      tal:omit-tag="not:docinfo/url">
+      <span class="menuouticon">&nbsp;</span><strong tal:content="docinfo/title" />
+      <tal:block condition="docinfo/modification"
+      content="structure string:[${docinfo/modification}]">
+      Modification</tal:block>
+      </a>
+      </tal:block>
+</metal:block>
+<!-- End file_list_minimal -->
+
+<!-- navigation_list -->
+<metal:block define-macro="navigation_list">
+  <tal:block repeat="item groups">
+    <a style="display: block"
+    tal:define="title item/title; 
+                depth item/depth;
+		title python:here.portal_messages(title); 
+                item_class python:item.get('in') and 'submenuin' or 'submenuout';
+                icon_class python:item.get('in') and 'menuinicon' or 'menuouticon';
+                item_padding python: '%sem' % depth;"
+    tal:attributes="class item_class;
+                    href string:${item/url}/;
+                    title title;">
+       <span tal:attributes="class icon_class; style string:margin-left: ${item_padding}">&nbsp;</span><tal:block content="title" />
+    </a>
+  </tal:block>
+</metal:block>
+<!-- navigation_list -->
+
+<!-- actions_list -->
+<metal:block define-macro="actions_list">
+</metal:block>
+<!-- End actions_list -->
+
+<!-- discussion -->
+<metal:block define-macro="discussion">
+  <tal:block condition="here/talkback|nothing">
+    <tal:block condition="python: here.talkback.hasReplies(here)">
+      <metal:block
+      use-macro="here/main_widgets/macros/title_content">
+        <metal:block fill-slot="title"
+        tal:content="python:mcat('_str_Comments_')">
+        Comments</metal:block>
+        <metal:block fill-slot="content">
+          <table cellspacing="0" border="0"
+          tal:define="t python:here.setup_talkback_tree(here); height t/root/height">
+
+            <tr tal:repeat="row t/rows">
+              <td tal:define="indent python:row.depth - 1"
+              tal:condition="indent"
+              tal:attributes="colspan indent" colspan="1"></td>
+              <td width="16" tal:define="rlink row/branch"></td>
+              <td
+              tal:attributes="colspan python:height - row.depth"
+              tal:define="obj nocall:row/object; url python:obj.absolute_url()"
+               colspan="1" width="99%">
+                <a href="." tal:attributes="href url" tal:condition="obj/icon" 
+		tal:define="img_path python: 'here/%s' % obj.getIcon(); 
+		img_tag python: exists(img_path) and path(img_path) or None;">
+		  <tal:block condition="img_tag" content="structure img_tag" /></a>
+                <a href="." tal:attributes="href url"
+                tal:content="obj/Title">Title</a>
+                , 
+                <tal:block replace="python:mcat('_(comment)_by_')">
+                by</tal:block>
+                <a href="."
+                tal:define="creator obj/Creator; props python:dtool.getEntry(creator); fullname python:props and props.get(dtool.display_prop,creator) or creator; dir_url string:${portal_url}/${dtool/entry_template}?dirname=${dtool/id}&entry_id=${creator};"
+                 tal:omit-tag="not: props" tal:content="fullname"
+                tal:attributes="href dir_url">Moi</a>
+                <span
+                tal:replace="python: obj.created().strftime(mcat('_date_on_%m/%d/%Y at %H:%M_'))">
+                1/1/2000</span>
+              </td>
+            </tr>
+          </table>
+        </metal:block>
+      </metal:block>
+    </tal:block>
+  </tal:block>
+</metal:block>
+<!-- End discussion -->

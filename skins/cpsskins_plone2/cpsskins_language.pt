@@ -1,0 +1,57 @@
+<div tal:define="portal_url here/portal_url; 
+                 portal_languages nocall:here/portal_languages|nothing; 
+                 served_languages python: portal_languages and portal_languages.listSupportedLanguages() or [];
+                 hide_current_lang python: here.hide_current_lang;
+                 style python: here.style"
+     tal:condition="python:len(served_languages) > 1">
+  <tal:block define="boundLanguages portal_languages/getLanguageBindings; 
+                     prefLang python:boundLanguages[0];">
+    <form style="margin:0;padding:0;"
+    tal:condition="python: style == 'dropdown list'"
+    action="switchLanguage" method="post"
+    tal:attributes="action string:${portal_url}/switchLanguage">
+      <select name="set_language" onchange="submit()">
+        <option tal:repeat="lang served_languages"
+        tal:content="python:lang[1]"
+        tal:attributes="value python:lang[0]; 
+                        selected python:prefLang == lang[0]">
+        </option>
+      </select>
+    </form>
+    <tal:block condition="python: style == 'flags'"
+    repeat="lang served_languages">
+      <a style="text-decoration: none"
+         tal:define="lang_code python: lang[0]; 
+                     img_path python: 'here/cpsskins_images/flag-%s.gif' % lang_code; 
+                     img_tag python: exists(img_path) and path(img_path) or None;
+                     lang_selected python:prefLang == lang[0]"
+         tal:attributes="href string:${portal_url}/switchLanguage?set_language=${lang_code}"
+         tal:condition="python: not (hide_current_lang and lang_selected)">
+        <tal:block condition="img_tag" content="structure img_tag"
+        tal:attributes="alt lang_code" />
+        <span tal:condition="python: not img_tag"
+        tal:content="string:[${lang_code}]" />
+      </a>
+    </tal:block>
+  </tal:block>
+
+  <tal:block condition="python: style == 'language names'">
+    <tal:block define="portal_languages nocall:here/portal_languages|nothing"
+               condition="nocall:portal_languages">
+      <tal:block condition="python: len(served_languages) <= 8"
+                 define="served_languages portal_languages/listSupportedLanguages|nothing;
+                         boundLanguages portal_languages/getLanguageBindings|nothing;
+                         prefLang python:boundLanguages and boundLanguages[0] or None"
+                 repeat="lang served_languages">
+        <tal:block define="code python: lang[0];
+                           title python: lang[1]">
+          <strong tal:condition="python: prefLang == code and not hide_current_lang"
+            tal:content="python:portal_languages.getNameForLanguageCode(code) or title" />
+          <a href="" tal:condition="python: prefLang != code"
+            tal:attributes="href string:${portal_url}/switchLanguage?set_language=${code}"
+            tal:content="python:portal_languages.getNameForLanguageCode(code) or title" />
+        </tal:block>
+      </tal:block>
+    </tal:block>
+  </tal:block>
+</div>

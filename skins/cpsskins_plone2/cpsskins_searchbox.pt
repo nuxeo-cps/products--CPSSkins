@@ -1,0 +1,62 @@
+<tal:block i18n:domain="cpsskins"
+    define="portal_url here/portal_url;
+            search_urls python: here.cpsskins_getSearchUrls();
+            search_script_url python: search_urls['script'];
+            search_form_url python: search_urls['form'];
+	    style python: here.style">
+  <form tal:condition="python: style == 'compact'"
+  style="margin:0;padding:0;" method="get"
+  tal:attributes="action python: portal_url + '/' + search_script_url">
+    <table cellpadding="0" cellspacing="0" border="0" summary="">
+      <tr>
+        <td>
+          <input id="searchGadget"
+               name="SearchableText"
+               type="text"
+               size="10"
+               value=""
+               alt="Search"
+               title="Search"
+               tal:attributes="value request/SearchableText|nothing" />
+        </td>
+        <td>
+          <input class="searchButton" i18n:attributes="value"
+           type="submit" value="_searchbox_Search_" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  
+  <form tal:condition="python: style == 'advanced'"
+  style="margin:0;padding:0;" method="get"
+  tal:attributes="action python: portal_url + '/' + search_script_url">
+    <table cellpadding="0" cellspacing="0" border="0" summary="">
+      <tr>
+        <td>
+          <input id="searchGadget"
+               name="SearchableText"
+               type="text"
+               size="10"
+               value=""
+               alt="Search"
+               title="Search"
+               tal:attributes="value request/SearchableText|nothing" />
+        </td>
+        <td>
+          <input class="searchButton" i18n:attributes="value"
+           type="submit" value="_searchbox_Search_" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <a tal:define="title string:_searchbox_Advanced_search;
+                         advanced_search_form_url python: search_urls['advanced']"
+          tal:content="title"
+          i18n:translate=""
+          tal:attributes="href python: portal_url + '/' + advanced_search_form_url">
+          Advanced search</a>
+        </td>
+      </tr>
+    </table>
+  </form>
+</tal:block>

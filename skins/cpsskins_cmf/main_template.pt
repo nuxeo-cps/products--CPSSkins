@@ -1,0 +1,41 @@
+<metal:block define-macro="master"
+tal:define="utool nocall:here/portal_url; 
+            mtool here/portal_membership; 
+            atool here/portal_actions; 
+            wtool here/portal_workflow; 
+            portal_object utool/getPortalObject; 
+            portal_title portal_object/Title; 
+            object_title here/Title; 
+            portal_url utool; 
+            member mtool/getAuthenticatedMember; 
+            isAnon mtool/isAnonymousUser; 
+            actions python: atool.listFilteredActionsFor(here); 
+            user_actions actions/user; 
+            object_actions actions/object; 
+            workflow_actions actions/workflow; 
+            folder_actions actions/folder; 
+            global_actions actions/global; 
+            wf_state python:wtool.getInfoFor(here,'review_state',''); 
+            dummy python: request.set('cpsskins_cmfactions', actions);
+"><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
+  <html>
+    <head>
+      <title tal:content="here/expanded_title">Title goes
+      here</title>
+      <metal:block define-slot="base" />
+      <metal:block
+      use-macro="here/?main_macro/macros/head" />
+    </head>
+    <body tal:attributes="class string:Color$cpsskins_bodycolor; style string:margin:$cpsskins_pagemargin">
+      <metal:block
+      use-macro="here/?main_macro/macros/main">
+        <metal:block fill-slot="maincontent">
+          <metal:block define-slot="header" />
+          <metal:block define-slot="main" />
+        </metal:block>
+      </metal:block>
+    </body>
+  </html>
+</metal:block>
+

@@ -1,0 +1,133 @@
+<metal:block define-macro="head" 
+  tal:define="portal_url here/portal_url;
+              tmtool here/portal_themes;
+              theme_url theme_container/absolute_url">
+  <meta name="generator" content="CPSSkins 2.0" />
+<!-- CSS1 -->
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${portal_url}/cpsskins_common.css" />
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${theme_url}/renderCSS" />
+<!-- CSS2 -->
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${portal_url}/cpsskins_common-css2.css);" />
+<!-- JavaScript -->
+  <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS"></script>
+<!-- Shortcut icon -->
+<tal:block define="shortcut_icon theme_container/shortcut_icon|nothing"
+           condition="shortcut_icon">
+  <tal:block define="icon_dir theme_container/icons|nothing;
+                     icon_obj python: icon_dir and getattr(icon_dir, shortcut_icon, None);
+                     icon_path icon_obj/absolute_url|nothing;
+                     icon_mimetype icon_obj/content_type|nothing;">
+    <link rel="icon" tal:attributes="href icon_path; type icon_mimetype" />
+    <link rel="shortcut icon" type="image/x-icon" tal:attributes="href icon_path; type icon_mimetype" />
+  </tal:block>
+</tal:block>
+</metal:block>
+<metal:block define-macro="main"
+  tal:define="benchmarktimer here/cpsskins_benchmarktimer|nothing">
+  <tal:block condition="not:benchmarktimer">
+    <span tal:define="title string:_The benchmark timer is not installed_"
+     tal:content="python: mcat and mcat(title) or title" />
+  </tal:block>
+  <tal:block condition="benchmarktimer">
+    <tal:block define="CPSSkins_BMT python:here.cpsskins_benchmarktimer('cpsskins_main_template_profiler'); 
+                       CPSSkins_bmt_start nocall:CPSSkins_BMT/start; 
+                       CPSSkins_bmt_stop nocall:CPSSkins_BMT/stop; 
+                       CPSSkins_bmt_mark nocall:CPSSkins_BMT/setMarker; 
+                       CPSSkins_bmt_elapsed nocall:CPSSkins_BMT/getProfiling;">
+      <span tal:replace="CPSSkins_BMT/start" />
+  <tal:block define="context_rurl python: '/' + utool.getRelativeUrl(here);
+              align python: theme_container.align; 
+	      marginleft python: align in ['right', 'center'] and 'auto' or '0px'; 
+              marginright python: align in ['left', 'center'] and 'auto' or '0px'; 
+              dummy python: request.set('cpsskins_mcat', mcat)"
+    tal:repeat="pageblock python: theme_container.getPageBlocks()">
+      <b tal:define="title python: pageblock.title"
+         tal:replace="python:CPSSkins_bmt_mark('--------- [%s] %s ' % (title, '-' *(37-len(title))))" />
+      <table cellpadding="0" cellspacing="0"
+      tal:define="closed python: pageblock['closed'];
+	          maxcols python: pageblock['maxcols']; 
+                  pageblock_shape python: pageblock['shape']; 
+                  pageblock_color python: pageblock['color'];
+                  height python: pageblock['height'];
+                  height_style python: height and 'height:%s' % height or ''"
+      tal:condition="python: (not closed and maxcols)"
+      tal:attributes="width python: pageblock['width'];
+		      style python: 'margin-left:%s;; margin-right:%s;; %s' % (marginleft, marginright, height_style);
+		      class python: (pageblock_shape and pageblock_color) and 'Shape%s Color%s' % (pageblock_shape, pageblock_color) or None;
+                      summary python: pageblock['title']">
+        <tr>
+          <tal:block define="objects python: pageblock.getObjects(REQUEST=request)"
+                     repeat="x_pos python: range(int(maxcols))">
+          <tal:block 
+           define="objects_in_xpos python: objects.get(x_pos, None)"
+           condition="objects_in_xpos">
+            <td valign="top"
+             tal:define="templets_in_xpos python: objects_in_xpos['templets'];
+                         cellsize python: objects_in_xpos['cellsizer'];
+                         cellstyle python: objects_in_xpos['cellstyler'];
+	                 cellclass python: cellstyle and 'Shape%s Color%s' % (cellstyle.shape, cellstyle.color) or None"
+             tal:attributes="class cellclass; 
+	                 width python: cellsize and cellsize.cellwidth or None">
+              <tal:block condition="not:templets_in_xpos" 
+                         content="structure string:&nbsp;" />
+                <tal:block repeat="templet templets_in_xpos">
+                <!-- Templet profiling START -->
+                  <tal:block define="ismaincontent python: hasattr(templet, 'ismaincontent');
+                                     isESIFragment python: (esi_enabled and getattr(templet, 'esi_fragment', 0)) or 0;
+                                     isPortalBoxGroup python: getattr(templet, 'isportalboxgroup', 0);
+                                     special_templet python: ismaincontent or isPortalBoxGroup or isESIFragment;
+                                     rendered_templet python: not special_templet and templet.render_cache(shield=1) or nothing"
+                  condition="python: rendered_templet not in ['', '\n']">
+                  <div
+                  tal:attributes="align python: templet.align; 
+                                  style python: 'padding:%s' % templet.margin">
+                    <div tal:attributes="class python: 'Shape%s Color%s FontColor%s FontShape%s' % (templet.shape, templet.color, templet.fontcolor, templet.fontshape);
+                                         style python: templet.getCSSLayoutStyle()">
+                      <tal:block condition="not:special_templet"
+                       content="structure rendered_templet" />
+                      <esi:try tal:condition="isESIFragment">
+                        <esi:attempt>
+                          <esi:include tal:attributes="src string:${templet/absolute_url}/render?context_rurl=$context_rurl"
+                           onerror="continue" />
+                        </esi:attempt>
+                        <esi:except>
+                          <!--esi
+                          This spot is reserved for something 
+                          -->
+                        </esi:except>
+                      </esi:try>
+                      <tal:block condition="ismaincontent">
+<!-- BEGIN Main Content -->
+                        <metal:block define-slot="maincontent" />
+<!-- END Main Content -->
+                        <br clear="all" />
+                      </tal:block>
+                    <tal:block condition="isPortalBoxGroup">
+                      <tal:block define="render_box python:1;
+                                         box_group templet/box_group|nothing">
+                        <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                      </tal:block>
+                    </tal:block>
+                  </div>
+                </div>
+                <!-- Templet profiling STOP-->
+                  <b tal:define="renderer python: templet.isCacheable() and 'CPSSkins:' or '         ';
+                                 title python: templet.title" 
+                     tal:replace="python:CPSSkins_bmt_mark('%s %s ' % (renderer, title + '.'*(40-len(title))))" />
+                </tal:block>
+              </tal:block>
+            </td>
+          </tal:block>
+          </tal:block>
+        </tr>
+      </table>
+    </tal:block>
+    <span tal:replace="CPSSkins_BMT/stop" />
+    <span tal:replace="structure CPSSkins_bmt_elapsed" />
+    <span tal:replace="structure request/other/bench_mark_profiler|nothing" />
+  </tal:block>
+</tal:block>
+</metal:block>

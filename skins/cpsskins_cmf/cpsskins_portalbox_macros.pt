@@ -1,0 +1,42 @@
+<metal:block define-macro="title"
+   tal:define="title_source python: here.title_source">
+    <tal:block condition="python: title_source == 'Templet title'">
+       <tal:block i18n:translate="" tal:condition="box_title_i18n" 
+       define="mcat python: request.get('cpsskins_mcat');
+               title python: here.title"
+       content="python: mcat and mcat(title) or title" />
+       <tal:block tal:condition="not:box_title_i18n" 
+          content="here/title" />
+    </tal:block>
+    <tal:block condition="python: title_source == 'Folder title'">
+       <tal:block i18n:translate="" tal:condition="box_title_i18n"
+       define="mcat python: request.get('cpsskins_mcat');
+               folder_title navigationinfo/folder_title|nothing"
+       content="python: mcat and mcat(folder_title) or folder_title" />
+       <tal:block tal:condition="not:box_title_i18n"
+       define="mcat python: request.get('cpsskins_mcat');
+               folder_title navigationinfo/folder_title|nothing"
+       content="folder_title" />
+    </tal:block>
+    <tal:block condition="python: title_source == 'Workflow state'">
+       <tal:block 
+        define="mcat python: request.get('cpsskins_mcat');
+                wtool here/portal_workflow;
+                wf_state python: wtool.getInfoFor(context_obj,'review_state','');
+                wf_state python: mcat and mcat(wf_state) or wf_state">
+         <tal:block condition="wf_state" content="wf_state" i18n:translate="" />
+       </tal:block>
+    </tal:block>
+    <tal:block condition="python: title_source == 'Username'" i18n:domain="cpsskins">
+       <tal:block define="mtool here/portal_membership;
+                          isAnon mtool/isAnonymousUser">
+         <tal:block condition="not:isAnon" 
+          define="member mtool/getAuthenticatedMember"
+          content="python: member.getUserName()" />
+         <tal:block condition="isAnon" i18n:translate=""
+          define="mcat python: request.get('cpsskins_mcat');
+                  title string:_Guest_"
+          content="python: mcat and mcat(title) or title" />
+       </tal:block>
+   </tal:block>
+</metal:block>

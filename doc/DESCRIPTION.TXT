@@ -1,0 +1,13 @@
+DESCRIPTION:
+
+- BENCHMARKING.TXT:
+  How to benchmark a theme.
+
+- TESTING.TXT, CPSTestCase.py.diff, PloneTestCase.diff
+  How to run unit tests.
+
+- tidy.conf: 
+  Configuration file for HTML tidy. http://tidy.sourceforge.net/
+
+- naming-conventions.txt: 
+  Naming conventions used in the API.

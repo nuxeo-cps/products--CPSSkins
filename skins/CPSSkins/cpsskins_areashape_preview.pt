@@ -1,0 +1,10 @@
+<table cellpadding="3" cellspacing="0">
+  <tr>
+    <td>
+      <div style="padding: 4px; text-align: left; background-color: #eeeeee;">
+        <div style="height: 70px; width: 70px; border-color: black;"
+        tal:attributes="class string:Shape${here/title}">&nbsp;</div>
+      </div>
+    </td>
+  </tr>
+</table>

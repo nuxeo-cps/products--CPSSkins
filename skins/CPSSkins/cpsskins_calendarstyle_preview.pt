@@ -1,0 +1,81 @@
+<table cellpadding="3" cellspacing="0" border="0" 
+i18n:domain="cpsskins"
+tal:define="mcat python: request.get('cpsskins_mcat')"
+tal:attributes="class string:CalendarStyle${here/title}">
+  <tbody>
+    <tr class="header">
+      <td>&#171;</td>
+      <td colspan="5">
+        <tal:block define="title string:_Month_"
+        content="python: mcat and mcat(title) or title"
+        i18n:translate="" />
+        <br />
+        <tal:block define="title string:_Year_"
+        content="python: mcat and mcat(title) or title"
+        i18n:translate="" />
+      </td>
+      <td>&#187;</td>
+    </tr>
+    <!-- The week days across the top -->
+    <tr class="weekdays"
+    tal:define="weekdays here/portal_calendar/getDays">
+      <tal:weekday tal:repeat="weekday weekdays">
+        <td class="weekdays"
+        tal:define="weekday python: '_%s_' % weekday"
+        tal:content="python: mcat and mcat(weekday) or weekday"
+        i18n:translate="">Su</td>
+      </tal:weekday>
+    </tr>
+    <tr class="days">
+      <td class="">&nbsp;</td>
+      <td class="">1</td>
+      <td class="">2</td>
+      <td class="">3</td>
+      <td class="">4</td>
+      <td class="">5</td>
+      <td class="">6</td>
+    </tr>
+    <tr class="days">
+      <td class="">7</td>
+      <td class="">8</td>
+      <td class="">9</td>
+      <td class="">10</td>
+      <td class="">11</td>
+      <td class="">12</td>
+      <td class="">13</td>
+    </tr>
+    <tr class="days">
+      <td class="">14</td>
+      <td class="">15</td>
+      <td class="">16</td>
+      <td class="event">
+        <a href="">17</a>
+      </td>
+      <td class="">18</td>
+      <td class="">19</td>
+      <td class="">20</td>
+    </tr>
+    <tr class="days">
+      <td class="">21</td>
+      <td class="">22</td>
+      <td class="event">
+        <a href="">23</a>
+      </td>
+      <td class="">24</td>
+      <td class="">25</td>
+      <td class="">26</td>
+      <td class="todayevent">
+        <a href="">27</a>
+      </td>
+    </tr>
+    <tr class="days">
+      <td class="">28</td>
+      <td class="">29</td>
+      <td class="">30</td>
+      <td class=""> </td>
+      <td class=""> </td>
+      <td class=""> </td>
+      <td class=""> </td>
+    </tr>
+  </tbody>
+</table>

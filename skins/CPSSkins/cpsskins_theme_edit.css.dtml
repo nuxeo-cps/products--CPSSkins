@@ -1,0 +1,708 @@
+<dtml-let portal_url="portal_url.absolute_url(relative=1)">
+.colorSample {
+width: 16px;
+height: 16px;
+border: 1px solid #999;
+padding: 2px;
+}
+
+.shapeSample {
+width: 16px;
+height: 16px;
+padding: 2px;
+background-color: White;
+}
+
+.ObjectInfo {
+border-bottom: 1px dotted #ccc;
+padding-bottom: 5px;
+margin-bottom: 15px;
+}
+
+/* PDLib */
+
+#drag-feedback-box {
+border: 1px solid #666;
+background-image: url(<dtml-var portal_url>/cpsskins_images/bg_dragbox.png);
+position: absolute;
+filter: alpha(opacity=60);
+display: none;
+z-index: 1000;
+cursor: hand;
+-moz-border-radius: 4px;
+}
+
+.context-menu {
+font: 11px Verdana, Arial, Helvetica, sans-serif;
+position: absolute;
+border: 1px outset Menu;
+filter: alpha(opacity=90);
+background-image: url(<dtml-var portal_url>/cpsskins_images/bg_context-menu.png);
+color: MenuText;
+cursor: default;
+z-index: 1000;
+visibility: hidden;
+display: table;
+}
+
+.context-menu-item, .context-menu-item_highlighted {
+padding: 0.2em;
+vertical-align: top;
+cursor: default;
+}
+
+.context-menu-item_highlighted {
+color: HighlightText;
+background-color: Highlight;
+}
+
+.context-menu-item img, .context-menu-item_highlighted img {
+padding-right: 0.2em;
+padding-left: 0.1em;
+vertical-align: middle;
+}
+
+.context-menu .separator {
+border-bottom: 1px solid #ccc;
+margin: 5px;
+padding: 0px;
+}
+
+.context-menu-header {
+background-color: #aaaaaa;
+color: #000;
+text-align: left;
+font-weight: bold;
+padding: 0.2em;
+vertical-align: top;
+cursor: default;
+border-bottom: 1px solid #666;
+margin-bottom: 5px;
+}
+
+.context-menu-header img {
+padding-right: 0.2em;
+padding-left: 0.1em;
+vertical-align: middle;
+}
+
+.context-menu-subheader {
+background-color: #f0f0f0;
+color: #000;
+text-align: center;
+font-weight: bold;
+padding: 0.2em;
+vertical-align: top;
+cursor: default;
+border-bottom: 1px solid #999;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+/* floating toolbar */
+
+body
+{
+margin: 0px;
+padding: 0px;
+}
+
+div.editspace {
+margin-top: 7.3em;
+}
+
+div.floatingheader {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+border: 1px solid #666;  
+padding-top: 0.5em;
+background: #aaaaaa;
+height: 7.2em;
+}
+
+.floatingheader .templetbox {
+cursor: default;
+margin-left: auto; 
+margin-right: auto; 
+background-color: #f6f6f6; 
+border: 1px solid #666;
+}
+
+.floatingheader .templetbox td {
+background-color: #f6f6f6;
+border: 1px solid #f6f6f6;
+}
+
+.floatingheader .templetbox td:hover {
+background-color: #fff; 
+border: 1px solid #ccc;
+}
+
+@media screen {
+body>div.floatingheader {
+position: fixed; }
+}
+
+/* toolbar buttons */
+
+.mainformtab {
+}
+
+.mainformtab a {
+font: bold 12px Arial, sans-serif;
+color: Black !important;
+background: #ffffff;
+text-decoration: none;
+border: 1px outset #666;
+padding: 2px;
+}
+
+.mainformtab a.selected,
+.mainformtab a:hover {
+background: #ffff00;
+border: 1px inset #666;
+}
+
+/* URL simulation menu */ 
+
+div.simulate_hierarchies {
+font: 12px Arial, sans-serif;
+padding-top: 0.5em;
+}
+
+
+/* top tab */
+
+.navigationtab {
+margin: 0px;
+background-color: Black;
+width: 100%;
+margin-bottom: 5px;
+margin-top: 0px;
+text-align: center;
+border-top: 9px solid Black;
+}
+
+.navigationtab img {
+vertical-align: top;
+}
+
+.navigationtab, .navigationtab a {
+text-decoration: none;
+font: Bold 12px Verdana, arial, helvetica, sans-serif;
+color: Black;
+}
+
+.navigationtab tr {
+background-color: #000000;
+height: 17px;
+}
+
+.navigationtab .ltab, .navigationtab .rtab {
+background-color : #e3e3e3;
+vertical-align: top;
+width: 5px;
+border-bottom: 1px solid #ccc;
+}
+
+.navigationtab .separator {
+background-color : Black;
+width: 2px;
+border: None;
+}
+
+.navigationtab .ltabselected, .navigationtab .rtabselected {
+background-color : White;
+vertical-align: top;
+width: 5px;
+}
+
+.navigationtab .tabselected {
+background-color : White;
+}
+
+.navigationtab a {
+color: Black;
+}
+
+.navigationtab .tab {
+background-color : #e3e3e3;
+border-bottom: 1px solid #ccc;
+}
+
+
+/* main content */
+
+/* link up */
+
+.link_up {
+display: block;
+background: url(<dtml-var portal_url>/cpsskins_images/img_onelevelup.gif) 4px 5px no-repeat transparent;
+padding: 1px 0px 1px 18px;
+}
+
+
+/* edit tabs */
+
+.editnavigationtab {
+border-bottom: 1px solid #999;  
+} 
+
+.editnavigationtab a {
+border-top: 1px solid #999;  
+border-left: 1px solid #999;  
+border-right: 1px solid #999;  
+margin-left: 2px;
+padding-left: 12px; 
+padding-right: 12px;
+padding-top: 1px;
+font: bold 12px Arial, sans-serif !important; 
+color: Black !important;
+background: #e0e0e0;
+text-decoration: none !important;
+-moz-border-radius: 20px 20px 0 0;
+}
+
+.editnavigationtab a.selected {
+border-bottom: 1px solid #f3f3f3;  
+padding-top: 2px;
+padding-left: 20px; 
+padding-right: 20px;
+background: #f3f3f3;
+}
+
+.editnavigationtab a:hover {
+background: #f0f0f0;
+}
+
+/* main content body */
+
+.mainedit {
+background: #f3f3f3;
+border-bottom: 1px solid #999;  
+border-left: 1px solid #999;  
+border-right: 1px solid #999;  
+padding: 10px;
+}
+
+.yellowpad {
+background:#fffcbf; 
+padding: 0.35em; 
+border: 1px solid #ccc;
+margin: 5px;
+}
+
+.greenpad {
+background:#ccee99; 
+padding: 0.35em; 
+border: 1px solid #99cc66;
+margin: 5px;
+}
+
+.leftmark {
+border-left: 4px solid #ffff00;
+padding-left: 0.2em;
+}
+
+
+/* theme edition mode */
+
+.CellSizer, .PageBlock  {
+background: white; 
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+.CellSizer .center {
+background: url(<dtml-var portal_url>/cpsskins_images/sizer_line.png); 
+background-repeat: repeat-x; 
+background-position: center;
+text-align: center; 
+}
+
+.CellSizer .center a.cellwidth {
+background: white; 
+padding-left: 2px; 
+padding-right: 2px;
+text-decoration: none;
+}
+
+.CellStyler {
+text-align: center;
+margin-top: 10px;
+}
+
+.CellStyler a {
+padding-left: 2px; 
+padding-right: 2px;
+text-decoration: none;
+}
+
+.CellSizer .center a.cellwidth:hover,  .CellStyler a:hover {
+background: Yellow;
+}
+
+.CellSizer .center .CellSizerSelected, .CellStyler .CellStylerSelected {
+border: 1px solid #f00;
+background: Yellow;
+}
+
+.CellHider {
+text-align: center;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.CellHider a {
+padding-left: 2px; 
+padding-right: 2px;
+text-decoration: none;
+}
+
+.CellHider .center a.cellwidth:hover,  .CellHider a:hover {
+background: Yellow;
+}
+
+.CellHider .center .CellHiderSelected, .CellHider .CellHiderSelected {
+border: 1px solid #f00;
+background: Yellow;
+}
+
+.MoveCell  {
+background: #f0f0f0;
+padding-top: 3px;
+padding-bottom: 1px;
+margin-bottom: 2px;
+border: 1px solid #ccc;
+}
+
+/* Templets */
+
+.TempletBoxBody {
+} 
+
+.TempletEditThis {
+border-style: dotted none none dotted;
+border-width: 1px;
+border-color: #ccc;
+padding-left: 1px;
+padding-top: 1px;
+}
+
+.TempletEditThis a {
+text-decoration: none;
+}
+
+.TempletBoxBodyLayout {
+font: 11px Verdana, Arial, Helvetica, sans-serif;
+border-style: solid;
+border-color: #666; 
+border-width: 1px;  
+background: #fc6;
+color: Black;
+-moz-border-radius: 4px;
+}
+
+.TempletPortalBoxGroup {
+border: 1px solid #a0a0a0;  
+background: #f3f3f3;
+color: Black;
+height: 35px;
+}
+
+.TempletBoxBodySelected {
+border-style: none solid solid solid;
+border-color: #f00; 
+border-width: 2px;  
+background: Yellow;
+color: Black;
+}
+
+.TempletBoxTitle ,.TempletBoxTitleSelected, .TempletBoxTitleSelectedClosed {
+background-color: #d0d0d9;
+text-align: left; 
+border-color: #aaa; 
+margin-top: 0px; 
+margin-bottom: 0px; 
+border-style: solid solid dotted solid; 
+border-width: 1px;
+vertical-align: middle;
+color: Black;
+}
+
+.TempletBoxTitle a,.TempletBoxTitleSelected a, .TempletBoxTitleSelectedClosed a {
+text-decoration: none;
+}
+
+.TempletBoxTitleSelected {
+border-color: #f00;
+border-style: solid solid none solid; 
+border-width: 2px;
+}
+
+.TempletBoxTitleSelectedClosed {
+border-color: #f00;
+border-style: solid; 
+border-width: 2px;
+}
+
+.TempletAddButton {
+padding-top: 3px; 
+text-align: center; 
+border: 1px none #ccc;
+margin: 2px;
+}
+
+.TempletAddButton:hover {
+background-color: #ffd;
+border: 1px solid #ccc;
+}
+
+.TempletDest {
+}
+
+.TempletDest_highlighted, .TempletDest:hover {
+background-color: #fff066;
+}
+
+/* Page blocks */
+.PageBlockBoxTitle a, .PageBlockBoxTitleSelected a{
+text-decoration: none;
+}
+
+.PageBlockBoxTitle, .PageBlockBoxTitleSelected {
+background-color: #e9ff30;
+text-align: center; 
+font-weight: bold;
+border-color: #ccc;
+margin-top: 0px; 
+margin-bottom: 1px; 
+margin-left: 1px; 
+margin-right: 1px; 
+border-style: solid ; 
+border-width: 1px;
+vertical-align: middle;
+padding: 1px;
+color: Black;
+}
+
+.PageBlockBoxTitleSelected {
+border-color: #f00;
+background-color: #ccff33;
+border-width: 2px;
+}
+
+.PageBlockAddButton {
+padding: 4px; 
+text-align: left; 
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+table.panel { 
+font: 12px Arial, sans-serif; 
+background-color: #eee;     
+border: 1px solid #999;
+text-align: center;
+float: left;
+margin: 4px;
+}
+
+table.panel td { 
+border: 1px solid #ccc;      
+padding: 10px;       
+text-align: center;
+}
+
+table.panel td a { 
+text-decoration: none;
+color:Black
+}
+
+table.panel td:hover { 
+background-color: white;
+}
+
+div.EditPreview {
+border: 1px solid #ccc; 
+padding: 3px; 
+text-align: left;
+color: Black;
+background-color: #ffffff;
+margin-bottom: 10px;
+}
+
+div.EditPreviewSelected {
+border: 2px dotted #f00; 
+padding: 3px; 
+text-align: left;
+background-color: #fc0;
+color: Black;
+margin-bottom: 10px;
+}
+
+div.EditPreview a.StyleTitle {
+text-decoration: none;
+color: Black !important;
+}
+
+div.EditPreview a.StyleTitle:hover {
+background-color: yellow;
+}
+
+div.backgroundeditbox {
+height: 25px;
+border: 1px solid #ccc;
+}
+
+.templetlist .description {
+font-style: italic; 
+}
+
+.form_submit {
+background-color:  #fc0;
+margin-top: 15px;
+padding: 1px;
+padding-right: 30px;
+text-align: right;
+}
+
+/* theme edition panel */
+
+input.ExportTheme {
+background: url(<dtml-var portal_url>/cpsskins_images/theme_export.png); 
+background-repeat: no-repeat;
+background-position: 2px 50%; 
+padding: 6px 10px 6px 30px;
+background-color: #cdee9c;
+border: 1px solid #9cce62;
+-moz-border-radius: 5px;
+}
+
+input.ImportTheme {
+background: url(<dtml-var portal_url>/cpsskins_images/theme_import.png); 
+background-repeat: no-repeat;
+background-position: 2px 50%;
+padding: 6px 10px 6px 28px;
+background-color: #cdee9c;
+border: 1px solid #9cce62;
+-moz-border-radius: 5px;
+}
+
+input.RebuildTheme {
+background: url(<dtml-var portal_url>/cpsskins_images/theme_rebuild.png); 
+background-repeat: no-repeat;
+background-position: 2px 50%;
+padding: 6px 10px 6px 30px;
+background-color: #fff099;
+border: 1px solid #ccc066;
+-moz-border-radius: 5px;
+}
+
+input.OptimizeTheme {
+background: url(<dtml-var portal_url>/cpsskins_images/theme_optimize.png); 
+background-repeat: no-repeat;
+background-position: 2px 50%;
+padding: 6px 10px 6px 30px;
+background-color: #fc6;
+border: 1px solid #c90;
+-moz-border-radius: 5px;
+}
+
+
+input.ThemeDefault {
+background: url(<dtml-var portal_url>/cpsskins_images/theme_default.png); 
+background-repeat: no-repeat;
+background-position: center left;
+padding: 6px 10px 6px 25px;
+background-color: #f0f0f0;
+border: 1px solid #ccc;
+-moz-border-radius: 5px;
+}
+
+
+input.InvalidateCache {
+background: url(<dtml-var portal_url>/cpsskins_images/invalidate_cache.png); 
+background-repeat: no-repeat;
+background-position: center left;
+padding: 6px 10px 6px 25px;
+background-color: #f0f0f0;
+border: 1px solid #ccc;
+-moz-border-radius: 5px;
+}
+
+div.StyleDefault {
+text-align: right;
+text-decoration: none;
+}
+
+/*  */
+
+.BoxGroupBoxSlotTitle {
+text-align: center;
+background-color: #fc0;
+font: bold 11px Verdana, Arial, Sans-Serif;
+}
+
+.BoxGroupBoxSlotTitleHidden {
+text-align: center;
+background-color: #d0d0d0;
+font: bold 11px Verdana, Arial, Sans-Serif;
+}
+
+.BoxGroupBoxSlot {
+text-align: left;
+padding: 4px;
+color: Black;
+font: 10px Verdana, Arial, Sans-Serif;
+}
+
+.BoxGroupBoxTitle {
+background-color: #ccc; 
+font-weight: bold;  
+padding: 2px;
+}
+
+.BoxGroupBoxBody {
+background-color: #f6f6f6; 
+padding: 2px;              
+}                          
+             
+.BoxGroupBoundingBox {
+border: 1px solid #999; 
+margin-bottom: 10px;
+background-color: #ffc;
+}
+ 
+.TempletBox {
+padding: 2px;
+color: Black;
+font: 11px Verdana, Arial, Sans-Serif;
+text-align: center; 
+border: 1px dotted #ccc;
+background: #f6f6f9;
+margin-bottom: 7px;
+}
+
+.PortalBoxDest, .PortalBoxDest_highlighted {
+border: 1px solid #666;
+font: 11px Verdana, Arial, Sans-Serif;
+}
+
+.PortalBoxDest_highlighted {
+border-color: red;
+}
+
+
+.TableFrame {
+border: 1px #ccc solid;
+background-color: #f3f3f6;
+margin: 2px;
+}
+
+.TableHeader {
+background-color: #e0e0e0;
+}
+</dtml-let>

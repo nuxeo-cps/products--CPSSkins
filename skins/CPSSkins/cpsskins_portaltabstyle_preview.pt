@@ -1,0 +1,25 @@
+<table cellpadding="10" cellspacing="0" width="100%"
+i18n:domain="cpsskins"
+tal:define="mcat python: request.get('cpsskins_mcat')">
+  <tr>
+    <td>
+      <div style="text-align: left"
+      tal:attributes="class string:PortalTab${here/title} box">
+        <ul>
+          <tal:block repeat="entry python: range(1, 4)">
+            <li tal:define="state python: entry == 3 and 'in' or 'out'"
+                tal:attributes="class string:submenu${state}">
+              <a href="">
+                <tal:block define="title string:_Menu entry_"
+                content="python: mcat and mcat(title) or title"
+                i18n:translate="" />
+                <tal:block content="entry" />
+              </a>
+            </li>
+          </tal:block>
+          <br clear="left" />
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
