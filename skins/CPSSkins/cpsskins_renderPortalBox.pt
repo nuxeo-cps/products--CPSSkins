@@ -1,0 +1,17 @@
+<div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (here.boxcolor, here.boxshape)">
+  <div tal:define="title options/title;
+                   body options/body;
+                   boxlayout here/boxlayout;
+                   boxlayout_macro_path here/cpsskins_BoxLayouts/macros/?boxlayout|here/cpsskins_BoxLayouts/macros/standard"
+       tal:attributes="style string:padding:${here/padding}">
+    <metal:block use-macro="boxlayout_macro_path">
+      <metal:block fill-slot="box_title" >
+        <tal:block content="structure title" />
+      </metal:block>
+      <metal:block fill-slot="box_body" >
+        <tal:block content="structure body" />
+      </metal:block>
+    </metal:block>
+  </div>
+</div>
+

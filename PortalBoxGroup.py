@@ -234,9 +234,9 @@ class PortalBoxGroup(BaseTemplet):
             else:
                 rendered = portlet.render_cache(**kw)
             # add the box decoration
-            rendered = self.cpsskins_renderBox(portlet=portlet,
-                                               rendered=rendered, 
-                                               **kw)
+            rendered = self.cpsskins_renderPortletBox(portlet=portlet,
+                                                      rendered=rendered, 
+                                                      **kw)
             all_rendered += rendered
         return all_rendered
 
