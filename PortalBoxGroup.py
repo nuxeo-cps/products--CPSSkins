@@ -78,8 +78,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                  box_group = '0',
                  renderable = 0,
                  **kw):
-        apply(BaseTemplet.__init__, (self, id), kw)
-        apply(SimpleBox.__init__, (self, id), kw)
+        BaseTemplet.__init__(self, id, **kw)
+        SimpleBox.__init__(self, **kw)
         self.box_group = box_group
         self.renderable = renderable
 

@@ -91,8 +91,8 @@ class PortletBox(BaseTemplet, SimpleBox):
                  portlet_id = None, 
                  portlet_type = None,
                  **kw):
-        apply(BaseTemplet.__init__, (self, id), kw)
-        apply(SimpleBox.__init__, (self, id), kw)
+        BaseTemplet.__init__(self, id, **kw)
+        SimpleBox.__init__(self, **kw)
         self.portlet_id = portlet_id
         self.portlet_type = portlet_type
 

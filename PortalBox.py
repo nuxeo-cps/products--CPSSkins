@@ -189,8 +189,8 @@ class PortalBox(BaseTemplet, SimpleBox):
                  folder_items_i18n = 0,
                  box_title_i18n = 0,
                  **kw):
-        apply(BaseTemplet.__init__, (self, id), kw)
-        apply(SimpleBox.__init__, (self, id), kw)
+        BaseTemplet.__init__(self, id, **kw)
+        SimpleBox.__init__(self, **kw)
         self.content = content
         self.level = level
         self.show_docs = show_docs
