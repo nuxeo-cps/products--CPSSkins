@@ -37,6 +37,7 @@
          type="submit" value="_searchbox_Search_" />
       </label>
     </span>
+    <br/>
     <a tal:define="title string:_searchbox_Advanced_search;
                    advanced_search_form_url python: search_urls['advanced']"
      i18n:translate=""
