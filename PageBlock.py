@@ -209,15 +209,68 @@ class PageBlock(ThemeFolder, StylableContent):
     #
     security.declarePublic('render')
     def render(self, **kw):
-        """Render the theme"""
-
-        objects = self.getObjects(**kw)
-
+        """Render the page block
+        """
         layout_style = kw.get('layout_style')
         if layout_style is None:
             page_container = self.getContainer()
             layout_style = page_container.getCSSLayoutStyle()
 
+        if self.maxcols == 1:
+            rendered = self._renderDiv(**kw)
+        else:
+            rendered = self._renderTable(**kw)
+        return rendered
+
+    security.declarePrivate('_renderDiv')
+    def _renderDiv(self, layout_style='', **kw):
+        """Render the page block using a <div> tag
+        """
+        objects = self.getObjects(**kw)
+        if objects.has_key(0):
+            rendered = []
+            rendered_append = rendered.append
+            div_tag = []
+            div_tag.append('class="%s"' % self.getCSSAreaClass())
+            if layout_style:
+                div_tag.append('style="%s"' % \
+                    self.getCSSLayoutStyle(layout_style))
+            rendered_append('<div %s>' % " ".join(div_tag))
+
+            objects_in_xpos = objects[0]
+            cellstyle = objects_in_xpos['cellstyler']
+            if cellstyle:
+                rendered_append('<div class="%s">' % \
+                    cellstyle.getCSSCellClass(level=2))
+            contents_in_xpos = objects_in_xpos['contents']
+            for content in contents_in_xpos:
+                margin_style = content.getCSSMarginStyle()
+                if margin_style:
+                    rendered_append('<div style="%s">' % margin_style)
+                layout_style = content.getCSSLayoutStyle()
+                area_class = content.getCSSAreaClass(level=2)
+                div_tag = []
+                if layout_style:
+                    div_tag.append('style="%s"' % layout_style)
+                if area_class:
+                    div_tag.append('class="%s"' % area_class)
+                rendered.extend([
+                    '<div %s>' % " ".join(div_tag),
+                    content.render_cache(**kw),
+                    '</div>'])
+                if margin_style:
+                    rendered_append('</div>')
+            if cellstyle:
+                rendered_append('</div>')
+            rendered_append('</div>')
+            return ''.join(rendered)
+        else:
+            return ''
+
+    security.declarePrivate('_renderTable')
+    def _renderTable(self, layout_style='', **kw):
+        """Render the page block using a <table> tag
+        """
         rendered = []
         table_tag = []
         table_tag.append('class="%s"' % self.getCSSAreaClass())
@@ -228,6 +281,7 @@ class PageBlock(ThemeFolder, StylableContent):
         rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % \
             " ".join(table_tag))
 
+        objects = self.getObjects(**kw)
         for x_pos in range(int(self.maxcols)):
             if objects.has_key(x_pos):
                 objects_in_xpos = objects[x_pos]
