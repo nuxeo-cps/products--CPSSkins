@@ -277,8 +277,6 @@ class PortletBox(BaseTemplet):
         boxlayout = self.boxlayout
         if boxlayout == '':
             boxlayout = 'standard'
-        if kw.get('boxedit'):
-            boxlayout = 'portlet_edit'
 
         boxclass = self.getCSSBoxClass()
         boxstyle = self.getCSSBoxLayoutStyle()
