@@ -729,10 +729,6 @@ font: 11px Verdana, Arial, Sans-Serif;
 cursor: pointer; cursor: hand;
 }
 
-.PortletBoxDest_highlighted {
-border-color: red;
-}
-
 .PortletBoxEditMenu, .PortletBoxEditMenu_highlighted {
 height: 100%; /* IE hack */
 }

@@ -17,12 +17,12 @@
                    src_ypos python: ypos and ypos or 0;
                    src_slot group;
                    class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
-    <div
+    <div class="PortletBoxDest"
       tal:define="rel_depth python: here_depth - portlet_depth;
                   thickness python: test(rel_depth < 3, 3 - rel_depth, 1);
-                  box_class python: box_selected and 'PortletBoxDest_highlighted' or 'PortletBoxDest'"
-      tal:attributes="class box_class;
-                      style string:border-width:1px ${thickness}px ${thickness}px 1px;
+                  box_style string:border-width:1px ${thickness}px ${thickness}px 1px;
+                  box_style python: box_selected and box_style + ';; border-color: red' or box_style"
+      tal:attributes="style box_style;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
