@@ -445,6 +445,13 @@ border-style: solid;
 border-width: 2px;
 }
 
+.TempletBoxSelected {
+border-style: solid;
+border-color: #f00; 
+border-width: 2px;  
+background: Yellow;
+color: Black;
+}
 .TempletAddButton {
 padding-top: 3px; 
 text-align: center; 

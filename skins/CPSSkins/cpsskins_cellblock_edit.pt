@@ -1,5 +1,6 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
  tal:define="utool nocall:here/portal_url;
+             cpsskins_mcat python: request.get('cpsskins_mcat');
              mcat python: request.get('cpsskins_mcat');
              base_url python: request.get('cpsskins_base_url', '');
              enable_esi options/enable_esi|nothing;
@@ -63,6 +64,8 @@
                                ypos ypos;
                                block_url block_url;
                                dest_block block_rurl">
+                <div class="TempletBoxSelected"
+                 tal:omit-tag="python: content != context_obj">
                 <div tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
                                  class python: content.getCSSAreaClass(level=2);
@@ -75,6 +78,7 @@
                             <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
                           </tal:block>
                         </tal:block>
+                </div>
                 </div>
               </div>
             </div>
