@@ -251,8 +251,8 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             new_id = res[0]['new_id']
             newpos = int(ypos) 
             if dest_block == src_block:
-                if newpos > current_ypos and new_xpos != current_xpos:
-                    newpos = newpos -1;
+                if newpos > current_ypos:
+                    newpos += 1
             dest_container.move_object_to_position(new_id, newpos)
             content = getattr(dest_container, new_id, None)
             if content is None:
