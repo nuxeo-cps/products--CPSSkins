@@ -79,7 +79,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
-             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}])
+             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}, \
+             {'meta_type': 'Box Corners', 'id': 'boxcorners'} ])
         for content in templet.ContentList():
             templet.content = content 
             templet.render(context_obj=self.portal)
@@ -124,7 +125,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
-             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}] )
+             {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}, \
+             {'meta_type': 'Box Corners', 'id': 'boxcorners'}] )
 
     def test_Language_Templet(self):
         pageblock = self.pageblock
@@ -307,7 +309,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
                 {'meta_type': 'Area Shape', 'id': 'shape'}, \
                 {'meta_type': 'Area Color', 'id': 'color'}, \
                 {'meta_type': 'Form Style', 'id': 'formstyle'}, \
-                {'meta_type': 'Calendar Style', 'id': 'calendar_style'}] )
+                {'meta_type': 'Calendar Style', 'id': 'calendar_style'}])
            templet.render(context_obj=self.portal)
            templet.show_month = 0
            templet.render(context_obj=self.portal)
