@@ -129,17 +129,14 @@ class FlashBox(File, BaseTemplet):
     def manage_upload(self, file='', content_type=''):
 
         data, size = self._read_data(file)
-        content_type=self._get_content_type(file, data, id, content_type)
+        content_type = self._get_content_type(file, data, id, content_type)
         self.update_data(data, content_type, size)
-
         file.seek(0)
-        data=file.read()
-        filesize=len(data)
-
-        analysed=analyseContent(data,filesize)
-        self.flash_height=analysed['height']
-        self.flash_width=analysed['width']
-        self.flash_width=100
+        data = file.read()
+        filesize = len(data)
+        analysed = analyseContent(data,filesize)
+        self.flash_height = analysed['height']
+        self.flash_width = analysed['width']
 
     security.declareProtected(ManageThemes, 'edit')
     def edit(self, **kw):
