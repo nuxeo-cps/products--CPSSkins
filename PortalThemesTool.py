@@ -59,6 +59,9 @@ STATUS_NEW_THEME_AVAILABLE = 6
 
 VIEW_MODE_SESSION_KEY = 'cpsskins_view_mode'
 
+THEME_CONFIG_ACTION_ID = 'configThemes'
+DEFAULT_ACCESSKEY = 'j'
+
 class PortalThemesTool(ThemeFolder, ActionProviderBase):
     """
     Portal Themes Tool
@@ -70,7 +73,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     _actions = (
         ActionInformation(
-            id='configThemes',
+            id=THEME_CONFIG_ACTION_ID,
             title='_action_themes_reconfig_',
             description='Configure Portal Themes',
             action=Expression(
@@ -104,6 +107,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         ThemeFolder.__init__(self, self.id)
         self.externalthemes = PersistentList()
         self.debug_mode = 0
+        self.accesskey = DEFAULT_ACCESSKEY
 
     #
     #   ActionProvider interface
@@ -888,6 +892,47 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         for obj in self.objectValues('Portal Theme'):
             obj.rebuild(**kw)
 
+
+    # Access key
+    security.declarePrivate('_getAccessKey')
+    def _getAccessKey(self):
+        """Return the value of the key used to access the tool
+        """
+
+        return self.accesskey
+
+    security.declarePublic('renderAccessKey')
+    def renderAccessKey(self, REQUEST=None, **kw):
+        """Render the access key html markup
+        """
+
+        rendered = ''
+
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        base_url = REQUEST.get('cpsskins_base_url')
+        if base_url is None:
+            base_url = self.cpsskins_getBaseUrl()
+
+        actions = REQUEST.get('cpsskins_cmfactions')
+        if actions is None:
+            atool = getToolByName(self, 'portal_actions')
+            actions = atool.listFilteredActionsFor(self)
+
+        global_actions = actions.get('global')
+        if global_actions is None:
+            return rendered
+        theme_manage_action = [ac for ac in global_actions if ac['id'] == THEME_CONFIG_ACTION_ID]
+
+        if len(theme_manage_action) > 0:
+            action = theme_manage_action[0]
+        else:
+            return rendered
+
+        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'].strip(), self._getAccessKey())
+        return rendered
+
     #
     # External Themes
     #
@@ -923,7 +968,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declareProtected('Manage portal', 'manage_changeExternalThemes')
     def manage_changeExternalThemes(self, form={}, REQUEST=None):
         """ updates a list external themes """
-     
+
         form = form.copy()
         if REQUEST is not None:
             form.update(REQUEST.form)

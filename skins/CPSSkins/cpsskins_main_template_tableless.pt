@@ -16,6 +16,7 @@
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 <metal:block define-macro="main" tal:condition="nocall:page_container">
+  <tal:block content="structure tmtool/renderAccessKey" />
   <tal:block define="context_rurl request/form/context_rurl|nothing;
                      context_obj python: here.cpsskins_getContextObj(context_rurl);
                      pageblock_style python: page_container.getCSSLayoutStyle();

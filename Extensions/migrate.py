@@ -1,6 +1,8 @@
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 
+from Products.CPSSkins.PortalThemesTool import DEFAULT_ACCESSKEY
+
 import zLOG
 
 def logf(summary,message='',severity=0):
@@ -72,6 +74,13 @@ def migrate(self):
         theme_container.debug_mode = 0
     else:
         pr("  debug mode already set.")
+
+    pr_h3("Checking the presence of the tool's access key")
+    if getattr(aq_base(theme_container), 'accesskey', None) is None:
+        pr("  setting the tool's access key to '%s'" % DEFAULT_ACCESSKEY)
+        theme_container.accesskey = DEFAULT_ACCESSKEY
+    else:
+        pr("  access key already set.")
 
     pr_h3("  Removing obsolete cache attributes: ")
     for theme in theme_container.getThemes():
