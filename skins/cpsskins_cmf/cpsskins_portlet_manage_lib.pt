@@ -222,13 +222,19 @@
              tal:attributes="dest_rurl portlet_folder_rurl;
                              dest_slot group;
                              dest_ypos python: ypos and ypos or 0">
-              <img width="16" height="16" alt=""
-               tal:condition="portlet_icon"
-               tal:attributes="src string:${portal_url}/${portlet_icon};
-                               title python: cpsmcat(portlet_type)" />
-              <a tal:content="portlet/title"
-               tal:attributes="href string:${portlet/absolute_url}/edit_form;
-                               style python: selected and 'font-weight: bold' or ''" />
+              <div class="PortletInfo"
+               tal:attributes="style python: selected and 'border-style: dashed' or ''">
+                <a tal:content="portlet/title_or_id"
+                 tal:attributes="href string:${portlet/absolute_url}/edit_form" />
+                <p>
+                  <img width="16" height="16" alt=""
+                   tal:condition="portlet_icon"
+                   tal:attributes="src string:${portal_url}/${portlet_icon};
+                                   title python: cpsmcat(portlet_type)" />
+                  <em tal:content="structure python: cpsmcat(portlet_type)" />.
+                  <span tal:content="portlet/description" />
+                </p>
+              </div>
             </div>
           </div>
         </td> 
