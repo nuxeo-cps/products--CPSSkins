@@ -5,7 +5,7 @@
                    state portlet/getState;
                    portlet_url portlet/getURL;
                    boxlayout here/boxlayout;
-                   boxlayout python: boxedit and 'edit' or boxlayout;
+                   boxlayout python: boxedit and 'portlet_edit' or boxlayout;
                    boxlayout_macro_path here/cpsskins_BoxLayouts/macros/?boxlayout|here/cpsskins_BoxLayouts/macros/standard"
        tal:attributes="style string:padding:${here/padding}">
     <metal:block use-macro="boxlayout_macro_path">

@@ -17,17 +17,15 @@
       </tal:security>
       <h2 i18n:translate="heading_portlet_manage_form">Portlet
       management</h2>
-      <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
-        <span tal:content="context_url" />
-      </p>
     </metal:header>
-    <metal:main fill-slot="main">
-      <tal:block define="tmtool here/portal_themes;
-                         ptltool nocall:here/portal_cpsportlets;
+    <metal:main fill-slot="main"
+      tal:define="view_mode request/form/view_mode|string:canvas">
+      <tal:block define="ptltool nocall:here/portal_cpsportlets;
                          utool nocall:here/portal_url;
                          portal_url here/portal_url;
                          here_depth python: len(utool.getRelativeContentPath(here))">
-        <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
+        <tal:block condition="python: view_mode == 'canvas'"
+         repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
           <table cellpadding="0" cellspacing="3" width="100%">
             <tr valign="top"
             tal:define="objects python: block.getObjects(REQUEST=request); 
@@ -64,19 +62,19 @@
         </tal:block>
 
         <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
-               condition="hidden_slots">
-        <h3 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h3>
-        <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
-        <p style="text-align: right">
-        <a
-           i18n:translate="description_delete_unused_portlets" 
-           i18n:domain="cpsskins" 
-           tal:attributes="href string:${here/absolute_url}/cpsskins_delete_unused_portlets?theme=$current_theme;
-                          onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_unused_portlets'), )" >Delete unused portlets</a>
-        </p>
-        <table cellpadding="0" cellspacing="3">
-          <tr>
-             <td valign="top" tal:repeat="hidden_slot hidden_slots">
+                   condition="python: hidden_slots and view_mode=='canvas'">
+          <h3 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h3>
+          <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
+          <p style="text-align: right">
+            <a
+             i18n:translate="description_delete_unused_portlets" 
+             i18n:domain="cpsskins" 
+             tal:attributes="href string:${here/absolute_url}/cpsskins_delete_unused_portlets?theme=$current_theme;
+                             onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_unused_portlets'), )" >Delete unused portlets</a>
+          </p>
+          <table cellpadding="0" cellspacing="3">
+            <tr>
+              <td valign="top" tal:repeat="hidden_slot hidden_slots">
                 <div class="BoxGroupBoundingBox" 
                   tal:define="group hidden_slot">
                   <div tal:content="hidden_slot"
@@ -89,19 +87,20 @@
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
                   </tal:block>
                 </div>
-             </td>
-          </tr>
-        </table>
+              </td>
+            </tr>
+          </table>
         </tal:block>
       </tal:block>
-    <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
 
-    <!-- Begin pdlib footer -->
-    <div id="drag-feedback-box"></div>
-      <script type="text/javascript"><!-- 
-      pd_setupPage();
-      // --></script>
-    <!-- End pdlib footer -->
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
+
+      <!-- Begin pdlib footer -->
+      <div id="drag-feedback-box"></div>
+        <script type="text/javascript"><!-- 
+        pd_setupPage();
+        // --></script>
+      <!-- End pdlib footer -->
 
     </metal:main>
   </metal:body>

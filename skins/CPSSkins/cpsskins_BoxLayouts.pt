@@ -194,10 +194,12 @@
 </metal:block>
 
 <!-- ============================================================ -->
-<metal:block define-macro="edit"
+<metal:block define-macro="portlet_edit"
  tal:define="portal_url here/portal_url;
+             portlet_id portlet/getId;
+             req_portlet request/form/selected_portlet|nothing;
              context_obj nocall:options/context_obj;
-             selected python: portlet == context_obj">
+             selected python: portlet == context_obj or portlet_id == req_portlet">
   <div class="title buttons">
     <a tal:attributes="href string:${portlet_url}/edit_form">
       <img src="" width="16" height="16" border="0" alt=""

@@ -1,8 +1,7 @@
 <metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
-  define="padding templet/padding|string:0;
-          boxedit boxedit|nothing">
-  
+  define="padding templet/padding|string:0">
+
     <tal:block define="slot_boxes python: btool.filterBoxes(boxes, slot=box_group)">
       <tal:block tal:condition="python: box_group != 'closed'">
         <tal:block repeat="box slot_boxes">

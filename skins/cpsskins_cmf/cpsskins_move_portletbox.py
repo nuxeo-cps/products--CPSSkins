@@ -11,4 +11,5 @@ ptltool.movePortlet(portlet=portlet, context=context, **kw)
 
 if REQUEST is not None:
      url = context.absolute_url() + '/portlet_manage_form'
+     url += '?selected_portlet=' + portlet.getId()
      REQUEST.RESPONSE.redirect(url)

@@ -729,7 +729,7 @@ font: 11px Verdana, Arial, Sans-Serif;
 cursor: pointer; cursor: hand;
 }
 
-.PortletDest_highlighted {
+.PortletBoxDest_highlighted {
 border-color: red;
 }
 

@@ -10,15 +10,19 @@
                fti portlet/getTypeInfo;
                portlet_type fti/title_or_id;
                portlet_icon fti/getIcon;
-               editable python:checkPerm('Manage Portlets', portlet)"
+               editable python:checkPerm('Manage Portlets', portlet);
+               req_portlet request/form/selected_portlet|nothing;
+               box_selected python: portlet == here or portlet_id == req_portlet"
    tal:attributes="portlet_rurl portlet_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group;
                    class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
-    <div class="PortletBoxDest"
+    <div
       tal:define="rel_depth python: here_depth - portlet_depth;
-                  thickness python: test(rel_depth < 3, 3 - rel_depth, 1)" 
-      tal:attributes="style string:border-width:1px ${thickness}px ${thickness}px 1px;
+                  thickness python: test(rel_depth < 3, 3 - rel_depth, 1);
+                  box_class python: box_selected and 'PortletBoxDest_highlighted' or 'PortletBoxDest'"
+      tal:attributes="class box_class;
+                      style string:border-width:1px ${thickness}px ${thickness}px 1px;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div class="BoxGroupBoxTitle">
@@ -39,7 +43,7 @@
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="src_ypos python: ypos and ypos or 0;
-                     src_slot group">
+                       src_slot group">
         <img width="16" height="16" alt=""
          tal:condition="portlet_icon"
          tal:attributes="src string:${portal_url}/${portlet_icon}" />

@@ -55,8 +55,8 @@
                     <div tal:attributes="class python: templet.getCSSAreaClass(level=1);
                                          style python: templet.getCSSLayoutStyle()">
                   <tal:block condition="isRenderable"
-                   content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi)" />
-                                     <tal:block condition="not:isRenderable">
+                   content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit)" />
+                  <tal:block condition="not:isRenderable">
                     <tal:block condition="templet/isMainContent|nothing">
                       <metal:block define-slot="maincontent" />
                       <br clear="all" />

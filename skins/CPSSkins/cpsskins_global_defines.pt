@@ -15,6 +15,7 @@ tal:define="tmtool here/portal_themes;
             global cpsskins_bodycolor theme_container/color|nothing;
             global cpsskins_language here/cpsskins_getCurrentLang;
             global cpsskins_url here/cpsskins_getCurrentURL;
+            global boxedit boxedit|nothing;
             dummy python: request.set('cpsskins_language', cpsskins_language);
             dummy python: request.set('context_obj', here);
             dummy python: request.set('cpsskins_url', cpsskins_url);
