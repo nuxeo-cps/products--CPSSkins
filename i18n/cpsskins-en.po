@@ -232,59 +232,59 @@ msgstr "Box body border width"
 
 
 msgid "_BoxBody menuin border color_"
-msgstr "Selected menu border color"
+msgstr "Selected menu item border color"
 
 
 msgid "_BoxBody menuin border style_"
-msgstr "Selected menu border style"
+msgstr "Selected menu item border style"
 
 
 msgid "_BoxBody menuin border width_"
-msgstr "Selected menu border width"
+msgstr "Selected menu item border width"
 
 
 msgid "_BoxBody menuin color_"
-msgstr "Selected menu color"
+msgstr "Selected menu item color"
 
 
 msgid "_BoxBody menuin icon_"
-msgstr "Selected menu icon"
+msgstr "Selected menu item icon"
 
 
 msgid "_BoxBody menuin margin_"
-msgstr "Selected menu margin"
+msgstr "Selected menu item margin"
 
 
 msgid "_BoxBody menuin padding_"
-msgstr "Selected menu padding"
+msgstr "Selected menu item padding"
 
 
 msgid "_BoxBody menuout border color_"
-msgstr "Menu border color"
+msgstr "Menu item border color"
 
 
 msgid "_BoxBody menuout border style_"
-msgstr "Menu border style"
+msgstr "Menu item border style"
 
 
 msgid "_BoxBody menuout border width_"
-msgstr "Menu border width"
+msgstr "Menu item border width"
 
 
 msgid "_BoxBody menuout color_"
-msgstr "Menu color"
+msgstr "Menu item color"
 
 
 msgid "_BoxBody menuout icon_"
-msgstr "Menu icon"
+msgstr "Menu item icon"
 
 
 msgid "_BoxBody menuout margin_"
-msgstr "Menu margin"
+msgstr "Menu item margin"
 
 
 msgid "_BoxBody menuout padding_"
-msgstr "Menu padding"
+msgstr "Menu item padding"
 
 
 msgid "_BoxBody padding_"
