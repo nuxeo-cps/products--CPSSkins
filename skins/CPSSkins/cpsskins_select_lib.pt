@@ -39,10 +39,10 @@ tal:define="
         <h1 tal:content="image/title" />
         <tal:block content="string:${image/size} bytes" />
         <tal:block content="string:(${image/width}x${image/height} px)" />
-        <img border="0" alt="" src=""
+        <img alt="" src=""
          tal:condition="python: image_cat == 'icons'"
          tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image/absolute_url" />
-        <img border="0" alt="" src=""
+        <img alt="" src=""
          tal:condition="python: image_cat == 'thumbnails'"
          tal:attributes="src image/absolute_url" />
         <div class="backgroundeditbox"

@@ -32,7 +32,7 @@ else:
 if link:
     tag += '<a href="%s">' % link
 
-tag += '<img src="%s/index_html" width="%s" height="%s" border="0" alt="%s" />' % \
+tag += '<img src="%s/index_html" width="%s" height="%s" alt="%s" />' % \
         (img_url, width, height, title)
 
 if link:

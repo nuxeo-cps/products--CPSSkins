@@ -21,13 +21,13 @@
       <tal:block condition="editable">
         <a href=""
         tal:attributes="href string:${context_urlc}/${action}?box_url=$box_url">
-          <img border="0" width="12" height="12"
+          <img width="12" height="12"
           tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
         </a>
         <a href=""
         tal:attributes="href string:${context_urlc}/box_delete?box_url=$box_url; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )">
-          <img border="0" width="12" height="12"
+          <img width="12" height="12"
           tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
         </a>
       </tal:block>

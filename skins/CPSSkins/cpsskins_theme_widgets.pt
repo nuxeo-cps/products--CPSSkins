@@ -16,7 +16,7 @@ tal:define="themes tmtool/getThemes;
           ">
           <td
           tal:attributes="class python: we_are_here and 'ltabselected' or 'ltab'">
-            <img src="" alt="" width="5" height="5" border="0"
+            <img src="" alt="" width="5" height="5"
             tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
           </td>
           <td
@@ -26,7 +26,7 @@ tal:define="themes tmtool/getThemes;
                  href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
                  style style">
                 <tal:block content="theme_title" />
-                <img src="" alt="" width="16" height="16" border="0"
+                <img src="" alt="" width="16" height="16"
                 tal:condition="python: theme_id in externalthemes"
                 tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
               </a>
@@ -38,14 +38,14 @@ tal:define="themes tmtool/getThemes;
                                contenturl theme_url;
                                notdefault python: not theme.isDefaultTheme() or None;
                                styles python:''">
-                <img src="" alt="" width="12" height="12" border="0"
+                <img src="" alt="" width="12" height="12"
                  tal:attributes="src string:${base_url}cpsskins_images/edit-12.png" />
               </span>
             </div>
           </td>
           <td
           tal:attributes="class python: we_are_here and 'rtabselected' or 'rtab'">
-            <img alt="" src="" width="5" height="5" border="0"
+            <img alt="" src="" width="5" height="5"
             tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
           </td>
           <td class="separator"></td>
@@ -57,7 +57,7 @@ tal:define="themes tmtool/getThemes;
 
 <metal:block define-macro="pagetabs"
 tal:define="pages theme_container/getPages;">
-  <table class="pageTabs" cellpadding="0" cellspacing="0" border="0" summary="">
+  <table class="pageTabs" cellpadding="0" cellspacing="0" summary="">
     <tr>
       <tal:block repeat="page pages">
         <td tal:define="
@@ -85,7 +85,7 @@ tal:define="pages theme_container/getPages;">
              notdefault python: not page.isDefaultPage() or None;
              title page_title;
              contenturl page_url">
-              <img src="" alt="" width="12" height="12" border="0"
+              <img src="" alt="" width="12" height="12"
                tal:attributes="src string:${base_url}cpsskins_images/edit-12.png" />
             </span>
           </div>
@@ -339,7 +339,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   tal:attributes="href string:${content_url}/cpsskins_move_content?direction=up;
                   title python: mcat and mcat(title) or title">
 
-    <img border="0" width="12" height="12"
+    <img width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveup.png" />
   </a>
   <a title="Move down"
@@ -349,7 +349,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   tal:attributes="href string:${content_url}/cpsskins_move_content?direction=down;
                   title python: mcat and mcat(title) or title">
 
-    <img border="0" width="12" height="12"
+    <img width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_movedown.png" />
   </a>
   <a title="Move left"
@@ -359,7 +359,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   tal:attributes="href string:${content_url}/cpsskins_move_content?direction=left;
                   title python: mcat and mcat(title) or title">
 
-    <img border="0" width="12" height="12"
+    <img width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveleft.png" />
   </a>
   <a title="Move right"
@@ -369,7 +369,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
   tal:attributes="href string:${content_url}/cpsskins_move_content?direction=right;
                   title python: mcat and mcat(title) or title">
 
-    <img border="0" width="12" height="12"
+    <img width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />
   </a>
   &nbsp;&nbsp; 
@@ -386,7 +386,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     tal:define="title string:_Insert a Templet here_"
     tal:attributes="onclick string:newWindow('${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&amp;content_ypos=$ypos');
                     title python: mcat and mcat(title) or title" >
-      <img border="0" width="12" height="12"
+      <img width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
     </a>
   </div>
@@ -439,7 +439,7 @@ tal:define="block_id pageblock/getId;
                       title python: mcat and mcat(title) or title">
 
         <img interactive="1"
-        border="0" width="12" height="12"
+        width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_moveup.png" />
       </a>
       <a tal:condition="pageblock/can_movedown|nothing"
@@ -448,7 +448,7 @@ tal:define="block_id pageblock/getId;
       tal:attributes="href string:${block_url}/cpsskins_move_pageblock?direction=down; 
                       title python: mcat and mcat(title) or title">
 
-        <img interactive="1" border="0" width="12" height="12"
+        <img interactive="1" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_movedown.png" />
       </a>
       &nbsp;&nbsp; 
@@ -458,10 +458,10 @@ tal:define="block_id pageblock/getId;
       tal:attributes="href string:${block_url}/cpsskins_object_toggle;
                       title python: mcat and mcat(title) or title">
 
-        <img interactive="1" border="0" width="12" height="12"
+        <img interactive="1" width="12" height="12"
         tal:condition="closed"
         tal:attributes="src string:${base_url}cpsskins_images/img_close.png" />
-        <img interactive="1" border="0" width="12" height="12"
+        <img interactive="1" width="12" height="12"
         tal:condition="not:closed"
         tal:attributes="src string:${base_url}cpsskins_images/img_open.png" />
       </a>
@@ -550,7 +550,7 @@ tal:define="block_id pageblock/getId;
            tal:define="title string:_Move this cell to the left_"
            tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=left&xpos=$x_pos; 
              title python: mcat and mcat(title) or title">
-          <img border="0" width="12" height="12"
+          <img width="12" height="12"
             tal:attributes="src string:${base_url}cpsskins_images/img_moveleft.png" />
         </a>
       </td>
@@ -562,7 +562,7 @@ tal:define="block_id pageblock/getId;
            tal:define="title string:_Move this cell to the right_"
            tal:attributes="href string:${block_url}/cpsskins_move_cell?dir=right&amp;xpos=$x_pos; 
              title python: mcat and mcat(title) or title">
-          <img border="0" width="12" height="12"
+          <img width="12" height="12"
             tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />
         </a>
       </td>
@@ -577,7 +577,7 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
   class="cellSizer" summary="Cell sizer">
     <tr>
       <td width="7px">
-        <img border="0" width="7" height="10"
+        <img width="7" height="10"
          tal:attributes="src string:${base_url}cpsskins_images/sizer_left.png" />
       </td>
       <td class="center">
@@ -611,7 +611,7 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
         </tal:block>
       </td>
       <td width="7px" align="right">
-        <img border="0" width="7" height="10"
+        <img width="7" height="10"
          tal:attributes="src string:${base_url}cpsskins_images/sizer_right.png" />
       </td>
     </tr>
@@ -651,7 +651,7 @@ tal:define="info cellstyle/getInfo|nothing;
     tal:define="title string:_Delete_"
     tal:attributes="href string:${del_action/url}; 
                     title python: mcat and mcat(title) or title">
-      <img border="0" width="12" height="12"
+      <img width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
     <a class="cellStyler" href="javascript:void(0)"
@@ -664,8 +664,7 @@ tal:define="info cellstyle/getInfo|nothing;
                     class python: cellstyle == here and 'cellStylerSelected' or class_string;">
       <tal:block content="cellstyle/color" />
       <img
-      tal:attributes="src string:${base_url}cpsskins_images/cell_styler.png"
-       border="0" />
+      tal:attributes="src string:${base_url}cpsskins_images/cell_styler.png" />
     </a>
     <form class="cellStyler" tal:condition="not:cellstyle"
      i18n:attributes="title"
@@ -696,7 +695,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
     tal:define="title string:_Delete_"
     tal:attributes="href string:${del_action/url};
                     title python: mcat and mcat(title) or title">
-      <img border="0" width="12" height="12"
+      <img width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
     <a href="javascript:void(0)"
@@ -706,7 +705,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
     tal:attributes="title python: mcat and mcat(title) or title;
                     onclick string:newWindow('${edit_action/url}');
                     class python: cellhider == here and 'cellHiderSelected' or 'cellHider'">
-      <img border="0" width="20" height="20"
+      <img width="20" height="20"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellhider.png" />
     </a>
     <form tal:condition="not:cellhider"
