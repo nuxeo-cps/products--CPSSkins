@@ -2122,7 +2122,7 @@ msgstr "Boîtes inutilisées"
 
 
 msgid "heading_unused_portlets"
-msgstr "Portles inutilisés"
+msgstr "Portlets inutilisés"
 
 
 msgid "menu_insert_box"
