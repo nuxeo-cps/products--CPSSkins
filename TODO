@@ -5,34 +5,6 @@
   * deleting cell stylers, cell hiders
   * moving cells
 
-2004-12-14:
-
-Refactoring:
-
-- move the Page Blocks into Pages to be able to use Page renderers that share
-  the same styles. Right now an entire Theme must be duplicated in order to
-  display different page layouts:
-
-
-            Theme                            Theme
-              |                                |
-      ----------------       ==>       -----------------
-     |                |               |        |        |
-  Page block        Styles          Page     Page       |
-                                      |        |        |
-                                    Page     Page     Styles
-                                    Block    Block
-
-
-  - dissociate between the notions of Theme renderer and Page renderer
-  - There should be a default Page in every Theme
-  - a Page can be displayed using ?theme=ThemeID&page=PageID
-  - local themes / pages can be refered to as 'ThemeID+PageID'
-
-  - theme migration / theme rebuild: move Page Blocks into a default Page if
-    none exists.
-
-
 2004-12-21:
 
 - make the macroless renderer more intelligent so that it uses DIVs instead
