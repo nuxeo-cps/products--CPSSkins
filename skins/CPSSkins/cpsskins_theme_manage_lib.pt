@@ -138,9 +138,8 @@
           </tal:block>
         </div>
       </tal:block>
-
       <a href="" alt=""
-      tal:attributes="onClick string:newWindow('${base_url}cpsskins_style_add?type_name=$stylecat')">
+      tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
         <img width="46" height="18" alt=""
          tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
       </a>
@@ -280,12 +279,11 @@
           </tal:block>
         </div>
       </tal:block>
-      <form action="cpsskins_palette_add" method="get">
-        <input type="hidden" name="type_name" value=""
-        tal:attributes="value palettecat" />
-        <input type="image" type="submit"
-        tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
-      </form>
+      <a href="" alt=""
+      tal:attributes="onClick string:newWindow('${base_url}/cpsskins_addpalette_form?type_name=$palettecat')">
+        <img width="46" height="18" alt=""
+         tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
+      </a>
     </tal:block>
 </metal:block>
 

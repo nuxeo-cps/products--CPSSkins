@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html tal:define="
+  base_url python:here.cpsskins_getBaseUrl();
+  mcat here/cpsskins_getlocalizer;
+  pss modules/Products/PythonScripts/standard;
+  type_name request/form/type_name|nothing">
+  <head>
+  </head>
+  <body>
+    <h1 i18n:translate=""
+    tal:define="title string:_Add_a_new_Style_"
+    tal:content="python: mcat and mcat(title) or title" />
+      <form action="cpsskins_style_add" method="get">
+        <input type="hidden" name="type_name"
+        tal:condition="type_name"
+        tal:attributes="value type_name" />
+        <input type="string" name="title"
+        tal:attributes="value type_name" />
+        <input type="submit" class="mainbutton"
+        i18n:attributes="value" tal:define="title string:_button_create_"
+        tal:attributes="value python: mcat and mcat(title) or title" />
+      </form>
+  </body>
+</html>
