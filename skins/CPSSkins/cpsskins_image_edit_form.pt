@@ -1,10 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
   <metal:block fill-slot="edit"
-  tal:define="tmtool here/portal_themes; 
-              view_mode tmtool/getViewMode;
-              edit_mode view_mode/edit_mode|request/form/edit_mode|nothing;
-              imagecat request/form/imagecat|nothing;
+  tal:define="imagecat request/form/imagecat|nothing;
               mtool here/portal_membership;
               checkPerm nocall:mtool/checkPermission">
     <tal:block condition="python: not checkPerm('Manage Themes', here)"> 

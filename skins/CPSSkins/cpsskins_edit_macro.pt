@@ -8,7 +8,7 @@ tal:define="global editing python: 1;
             cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
             view_mode tmtool/getViewMode;
             global edit_mode view_mode/edit_mode|nothing; 
-            global theme view_mode/theme|request/theme|nothing;
+            global theme view_mode/theme|nothing;
             global current_theme python: tmtool.getRequestedThemeName(context=here);
             global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
             display_url_simulation python: edit_mode != 'layout';

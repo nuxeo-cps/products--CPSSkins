@@ -21,7 +21,7 @@
 <metal:block define-macro="main"
  tal:define="base_url python: here.cpsskins_getBaseUrl();
 	  align python: theme_container.align; 
-          edit_mode edit_mode|nothing;
+          edit_mode edit_mode|string:wysiwyg;
           layout_edit_mode python: edit_mode == 'layout'; 
           mixed_edit_mode python: edit_mode == 'mixed'; 
           wysiwyg_edit_mode python: edit_mode == 'wysiwyg';

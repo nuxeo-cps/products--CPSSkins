@@ -1,10 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <metal:block use-macro="here/cpsskins_edit_macro/macros/edit" i18n:domain="cpsskins">
       <metal:block fill-slot="edit"
-    tal:define="tmtool here/portal_themes;
-                view_mode tmtool/getViewMode;
-                edit_mode view_mode/edit_mode|request/form/edit_mode|nothing; 
-                pss modules/Products/PythonScripts/standard;
+    tal:define="pss modules/Products/PythonScripts/standard;
                 content_ypos request/form/content_ypos|nothing; 
                 content_xpos request/form/content_xpos|nothing;">
     <h1 i18n:translate=""
@@ -16,14 +13,10 @@
           use-macro="here/cpsskins_theme_widgets/macros/content_add_form">
           </metal:block>
         </tal:block>
-        <input type="hidden" name="edit_mode"
-        tal:attributes="value edit_mode" />
         <input type="hidden" name="xpos"
         tal:attributes="value content_xpos" />
         <input type="hidden" name="ypos"
         tal:attributes="value content_ypos" />
-        <input type="hidden" name="theme"
-        tal:attributes="value current_theme" />
         <input type="submit" class="mainbutton"
         i18n:attributes="value" tal:define="title string:_button_create_"
         tal:attributes="value python: mcat and mcat(title) or title" />
