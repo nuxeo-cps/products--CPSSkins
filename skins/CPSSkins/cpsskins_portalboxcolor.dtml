@@ -15,6 +15,12 @@
 <dtml-if BoxTitle_bg_image>
   background-image:url(<dtml-var theme_url>/backgrounds/<dtml-var BoxTitle_bg_image>);
 </dtml-if>
+<dtml-if BoxTitle_bg_repeat>
+  background-repeat: <dtml-var BoxTitle_bg_repeat>;
+</dtml-if>
+<dtml-if BoxTitle_bg_position>
+  background-position: <dtml-var BoxTitle_bg_position>;
+</dtml-if>
 }
 
 <dtml-if BoxTitle_font_color>
@@ -31,6 +37,12 @@
 </dtml-if>
 <dtml-if BoxBody_bg_image>
   background-image: url(<dtml-var theme_url>/backgrounds/<dtml-var BoxBody_bg_image>);
+</dtml-if>
+<dtml-if BoxBody_bg_repeat>
+  background-repeat: <dtml-var BoxBody_bg_repeat>;
+</dtml-if>
+<dtml-if BoxBody_bg_position>
+  background-position: <dtml-var BoxBody_bg_position>;
 </dtml-if>
 }
 

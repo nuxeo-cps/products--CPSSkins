@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass
+from AccessControl import ClassSecurityInfo
 
 from BaseStyle import BaseStyle
 
@@ -67,12 +68,48 @@ class PortalBoxColor(BaseStyle):
          'category': 'box title',
          'palette': 'Palette Color'
         },
+        {'id': 'BoxTitle_bg_position',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Background position',
+         'visible': 'ifTitleBackgroundImage',
+         'category': 'box title',
+        },
+        {'id': 'BoxTitle_bg_repeat',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Background repeat',
+         'select_variable': 'listBackgroundRepeats',
+         'visible': 'ifTitleBackgroundImage',
+         'category': 'box title',
+         'default': 'repeat',
+         'i18n': 1,
+         'i18n_prefix': '_option_bg_',
+        },
         {'id': 'BoxBody_bg_color',
          'type': 'string',
          'mode': 'w',
          'label': 'BoxBody background color',
          'category': 'box body',
          'palette': 'Palette Color'
+        },
+        {'id': 'BoxBody_bg_position',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Background position',
+         'visible': 'ifBodyBackgroundImage',
+         'category': 'box body',
+        },
+        {'id': 'BoxBody_bg_repeat',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Background repeat',
+         'select_variable': 'listBackgroundRepeats',
+         'visible': 'ifBodyBackgroundImage',
+         'default': 'repeat',
+         'category': 'box body',
+         'i18n': 1,
+         'i18n_prefix': '_option_bg_',
         },
         {'id': 'BoxBody_border_color',
          'type': 'string',
@@ -150,10 +187,19 @@ class PortalBoxColor(BaseStyle):
         },
     )
 
+    security = ClassSecurityInfo()
+
     def __init__(self, id,
                  BoxTitle_bg_color = '#d0d0d0',
                  BoxTitle_border_color = '#999999',
+                 BoxTitle_font_color = 'Black',
+                 BoxTitle_bg_image = '',
+                 BoxTitle_bg_position = '',
+                 BoxTitle_bg_repeat = '',
                  BoxBody_bg_color = '#f3f3f9',
+                 BoxBody_bg_image = '',
+                 BoxBody_bg_position = '',
+                 BoxBody_bg_repeat = '',
                  BoxBody_border_color = '#999999',
                  BoxBody_menuout_color = '#f6f6fc',
                  BoxBody_menuin_color = '#bdd2ee',
@@ -161,14 +207,18 @@ class PortalBoxColor(BaseStyle):
                  BoxBody_menuout_border_color = '#f6f6fc',
                  BoxBody_menuin_icon = '',
                  BoxBody_menuout_icon = '',
-                 BoxTitle_font_color = 'Black',
-                 BoxTitle_bg_image = '',
-                 BoxBody_bg_image = '',
                        **kw):
         apply(BaseStyle.__init__, (self, id), kw)
         self.BoxTitle_bg_color = BoxTitle_bg_color
         self.BoxTitle_border_color = BoxTitle_border_color
+        self.BoxTitle_bg_image = BoxTitle_bg_image
+        self.BoxTitle_bg_position = BoxTitle_bg_position
+        self.BoxTitle_bg_repeat = BoxTitle_bg_repeat
+        self.BoxTitle_font_color = BoxTitle_font_color
         self.BoxBody_bg_color = BoxBody_bg_color
+        self.BoxBody_bg_image = BoxBody_bg_image
+        self.BoxBody_bg_position = BoxBody_bg_position
+        self.BoxBody_bg_repeat = BoxBody_bg_repeat
         self.BoxBody_border_color = BoxBody_border_color
         self.BoxBody_menuout_color = BoxBody_menuout_color
         self.BoxBody_menuin_color = BoxBody_menuin_color
@@ -176,9 +226,29 @@ class PortalBoxColor(BaseStyle):
         self.BoxBody_menuout_border_color = BoxBody_menuout_border_color
         self.BoxBody_menuin_icon = BoxBody_menuin_icon
         self.BoxBody_menuout_icon = BoxBody_menuout_icon
-        self.BoxTitle_font_color = BoxTitle_font_color
-        self.BoxTitle_bg_image = BoxTitle_bg_image
-        self.BoxBody_bg_image = BoxBody_bg_image
+
+    security.declarePublic('listBackgroundRepeats')
+    def listBackgroundRepeats(self):
+        """Return a list of background repeat options"""
+
+        list = ['repeat', 'repeat-x', 'repeat-y', 'no-repeat']
+        return list
+
+    security.declarePublic('ifTitleBackgroundImage')
+    def ifTitleBackgroundImage(self):
+        """Return True is there is a background image in the title"""
+
+        if self.BoxTitle_bg_image:
+            return 1
+        return None
+
+    security.declarePublic('ifBodyBackgroundImage')
+    def ifBodyBackgroundImage(self):
+        """Return True is there is a background image in the body"""
+
+        if self.BoxBody_bg_image:
+            return 1
+        return None
 
 InitializeClass(PortalBoxColor)
 

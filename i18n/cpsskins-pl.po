@@ -181,6 +181,14 @@ msgid "_Background image_"
 msgstr "Obrazek t³a"
 
 
+msgid "_Background position_"
+msgstr ""
+
+
+msgid "_Background repeat_"
+msgstr ""
+
+
 msgid "_Base path_"
 msgstr "¦cie¿ka podstawowa"
 

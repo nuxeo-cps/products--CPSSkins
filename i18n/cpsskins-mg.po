@@ -188,6 +188,14 @@ msgid "_Background image_"
 msgstr "Sarin'ny fond"
 
 
+msgid "_Background position_"
+msgstr ""
+
+
+msgid "_Background repeat_"
+msgstr ""
+
+
 msgid "_Base path_"
 msgstr "Lalana fototra"
 

@@ -179,6 +179,14 @@ msgid "_Background image_"
 msgstr "Image de fond"
 
 
+msgid "_Background position_"
+msgstr "Positionnement de l'image"
+
+
+msgid "_Background repeat_"
+msgstr "Etaler l'image"
+
+
 msgid "_Base path_"
 msgstr "Chemin de base"
 

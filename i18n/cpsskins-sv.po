@@ -179,6 +179,14 @@ msgid "_Background image_"
 msgstr "Bakgrundsbild"
 
 
+msgid "_Background position_"
+msgstr "Bildposition"
+
+
+msgid "_Background repeat_"
+msgstr "Bakgrundsbild upprepning"
+
+
 msgid "_Base path_"
 msgstr "Rotmapp"
 
