@@ -297,7 +297,7 @@ class PageBlock(ThemeFolder, StylableContent):
             table_tag.append('style="%s"' % \
                 self.getCSSLayoutStyle(layout_style))
         rendered_append = rendered.append
-        rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % \
+        rendered_append('<table cellpadding="0" cellspacing="0" summary="" %s><tr>' % \
             " ".join(table_tag))
 
         objects = self.getObjects(**kw)
