@@ -3,8 +3,22 @@
 <dtml-var manage_tabs>
 </dtml-let>
 
-<form action="manage_switchDebugMode" method="post">
+<h2>Theme editor key shortcut</h2>
+<form action="manage_setAccessKey" method="post">
+<p class="form-help">
+A shortcut key can be used to invoke the theme editor by pressing ALT+&lt;key&gt; or CTRL+&lt;key&gt;.<br/>
+The key is set by default to '<dtml-var "getDefaultAccessKey()">' but you may select another key.
+</p>
+<label for="key">Key:</label>
+<input id="key" type="text" value="<dtml-var accesskey>" name="accesskey" size="5" maxlength="1" />
+<input class="form-element" type="submit" value=" Accept " />
+</form>
 
+<h2>Crash shield</h2>
+<form action="manage_switchDebugMode" method="post">
+<p class="form-help">
+Deactivate the crash shield for debugging purposes (pages containing errors will crash)
+</p>
 <p class="form-element">
 <dtml-if expr="debug_mode">
 <p style="color: red">The crash shield is currently deactivated.</p>
@@ -14,6 +28,6 @@
 <input class="form-element" type="submit" value=" Deactivate the crash shield " />
 </dtml-if>
 </p>
-
 </form>
+
 <dtml-var manage_page_footer>

@@ -892,8 +892,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         for obj in self.objectValues('Portal Theme'):
             obj.rebuild(**kw)
 
-
+    #
     # Access key
+    #
+    security.declarePublic('getDefaultAccessKey')
+    def getDefaultAccessKey(self):
+        """Return the value of the default access key
+        """
+
+        return DEFAULT_ACCESSKEY
+
     security.declarePrivate('_getAccessKey')
     def _getAccessKey(self):
         """Return the value of the key used to access the tool
@@ -1193,6 +1201,14 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """Turn the debug mode on / off"""
 
         self.debug_mode = not self.debug_mode
+        if REQUEST is not None:
+            return self.manage_configureOptions(manage_tabs_message='Settings updated')
+
+    security.declareProtected(ManageThemes, 'manage_setAccessKey')
+    def manage_setAccessKey(self, accesskey=DEFAULT_ACCESSKEY, REQUEST=None):
+        """Set the access key"""
+
+        self.accesskey = accesskey
         if REQUEST is not None:
             return self.manage_configureOptions(manage_tabs_message='Settings updated')
 
