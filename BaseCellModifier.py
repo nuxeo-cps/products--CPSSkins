@@ -29,7 +29,6 @@ from Acquisition import aq_parent, aq_inner
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 
-from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.DynamicType import DynamicType
 
 from CPSSkinsPermissions import ManageThemes
@@ -54,7 +53,7 @@ factory_type_information = (
          {'id': 'view',
           'name': 'View',
           'action': 'cpsskins_default_view',
-          'permissions': (View,)
+          'permissions': ()
          },
          {'id': 'edit',
           'name': 'Edit',

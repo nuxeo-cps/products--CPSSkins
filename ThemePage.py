@@ -29,7 +29,6 @@ from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 from OFS.Folder import Folder
 
-from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.utils import getToolByName
 
 from CPSSkinsPermissions import ManageThemes
@@ -60,7 +59,7 @@ factory_type_information = (
          {'id': 'view',
           'name': 'View',
           'action': 'cpsskins_default_view',
-          'permissions': (View,)
+          'permissions': ()
          },
          {'id': 'edit',
           'name': 'Edit',

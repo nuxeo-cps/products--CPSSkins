@@ -7,7 +7,14 @@ from AccessControl import getSecurityManager, Unauthorized
 
 from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
-from Products.CMFCore.CMFCorePermissions import View, AccessContentsInformation
+
+try:
+    from Products.CMFCore.permissions \
+    import View, AccessContentsInformation
+except ImportError:
+    from Products.CMFCore.CMFCorePermissions \
+    import View, AccessContentsInformation
+
 from Products.CMFCore.DirectoryView import createDirectoryView
 
 from Products.CPSSkins.cpsskins_utils import detectPortalType

@@ -32,7 +32,6 @@ from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 from types import ListType, TupleType
 
-from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.DynamicType import DynamicType
 from Products.CMFCore.utils import getToolByName
 
@@ -79,7 +78,7 @@ factory_type_information = (
           'action': 'cpsskins_templet_view',
           'visible': 1,
           'category': 'object',
-          'permissions': (View,)
+          'permissions': ()
          },
          {'id': 'edit',
           'name': 'Edit',

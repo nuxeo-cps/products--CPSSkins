@@ -23,7 +23,10 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
   - 'Manage Themes' : Permission to manage themes
 """
 
-from Products.CMFCore.CMFCorePermissions import setDefaultRoles
+try:
+    from Products.CMFCore.permissions import setDefaultRoles
+except ImportError:
+    from Products.CMFCore.CMFCorePermissions import setDefaultRoles
 
 ManageThemes = 'Manage Themes'
 setDefaultRoles(ManageThemes, ('Manager', 'Owner', 'Theme Manager'))

@@ -27,7 +27,13 @@ from DateTime import DateTime
 from Acquisition import  aq_base
 from AccessControl import Unauthorized
 
-from Products.CMFCore.CMFCorePermissions import View, AccessContentsInformation
+try:
+    from Products.CMFCore.permissions \
+    import View, AccessContentsInformation
+except ImportError:
+    from Products.CMFCore.CMFCorePermissions \
+    import View, AccessContentsInformation
+
 from Products.CMFCore.utils import getToolByName, _getViewFor
 
 from CPSSkinsPermissions import ManageThemes

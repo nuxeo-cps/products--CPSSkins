@@ -48,7 +48,6 @@ from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
 
-from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.utils import getToolByName
 
 from RAMCache import SimpleRAMCache, RAMCache
@@ -85,7 +84,7 @@ factory_type_information = (
          {'id': 'view',
           'name': 'View',
           'action': 'cpsskins_theme_view',
-          'permissions': (View,)
+          'permissions': ()
          },
          {'id': 'edit',
           'name': '_Edit_',
