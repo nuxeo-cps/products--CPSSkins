@@ -79,7 +79,7 @@
                      tal:attributes="class python: templet.getCSSAreaClass(level=2);
                                      style python: templet.getCSSLayoutStyle()">
                       <tal:block condition="isRenderable"
-                       content="structure python: templet.render_cache(shield=1, context_obj=here)" />
+                       content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi)" />
 	              <tal:block condition="not:isRenderable">
                         <tal:block condition="templet/isMainContent|nothing">
 <!-- BEGIN Main Content -->

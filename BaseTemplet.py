@@ -42,6 +42,7 @@ from cpsskins_utils import rebuild_properties, callAction, \
                            getApplicableStylesFor, getStyleList, \
                            getAvailableLangs, getDefaultLang, html_slimmer
 
+
 factory_type_information = (
     {'id': 'Base Templet',
      'meta_type': 'Base Templet',
@@ -80,6 +81,7 @@ factory_type_information = (
      ),
     },
 )
+
 
 class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     """
@@ -264,6 +266,20 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     # RAM cache
     #
     cache_cleanup_date = 0
+
+    # Edge-Side-Includes
+    esi_code = """
+      <esi:try>
+        <esi:attempt>
+          <esi:include src="%s/render?context_rurl=%s" onerror="continue" />
+        </esi:attempt>
+        <esi:except>
+          <!--esi
+           This spot is reserved
+          -->
+        </esi:except>
+      </esi:try>
+    """
 
     def __init__(self, id, 
                  title = 'Templet',
@@ -958,8 +974,8 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     # Rendering
     #
     security.declarePublic('render')
-    def render(self, shield=0, **kw):
-        """Renders the templet."""
+    def render(self, shield=0,  **kw):
+        """Render the templet."""
 
         fail = 0
         if getattr(aq_base(self), 'render_action', None) is not None:
@@ -999,8 +1015,12 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         return html_slimmer(rendered)
 
     security.declarePublic('render_cache')
-    def render_cache(self, shield=0, **kw):
+    def render_cache(self, shield=0, enable_esi=0, **kw):
         """Renders the cached version of the templet."""
+
+        if enable_esi:
+            if self.isESIFragment():
+                return self.render_esi(**kw)
 
         if not self.cacheable:
             rendered = self.render(shield=shield, **kw)
@@ -1065,6 +1085,11 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                     break
         return css
 
+    security.declarePublic('render_esi')
+    def render_esi(self, context_rurl=None, **kw):
+        """Renders the ESI fragment code."""
+
+        return self.esi_code % (self.absolute_url(1), context_rurl)
 
     security.declarePublic('getStyle')
     def getStyle(self,  meta_type=None):
