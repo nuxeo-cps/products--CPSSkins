@@ -62,7 +62,7 @@
 
     <metal:block use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
 
-    <div class="mainEdit">
+    <div class="mainEdit" tal:attributes="style python: showPreview and 'width: 50%' or None">
       <tal:block condition="python: cat == 'Portlet'">
         <metal:block use-macro="here/cpsskins_form_widgets/macros/portlet_edit" />
       </tal:block>
@@ -72,7 +72,7 @@
       </tal:block>
     </div>
 
-    <br />
+    <br/>
     <form action="">
       <input class="standalone" type="submit" 
        onclick="window.opener.location.reload();window.close()"
