@@ -198,6 +198,9 @@ class PageBlock(ThemeFolder, StylableContent):
             if getattr(o, 'iscellmodifier', 0):
                 o.rebuild(**kw)
                 continue
+            if getattr(o, 'iscellblock', 0):
+                o.rebuild(**kw)
+                continue
             moveToLostAndFound(self, o)
  
     security.declarePrivate('getActions')
