@@ -34,7 +34,7 @@
   isImageBox here/aq_inner/aq_explicit/isImageBox|nothing;
   isFlashBox here/aq_inner/aq_explicit/isFlashBox|nothing;
   showPreview python: isPortalStyle or isPortalPalette;
-  dummy python: not (isPortalStyle or isPortalPalette) and tmtool.setViewMode(edited_url=context.absolute_url(1)) or None">
+  dummy python: not (isPortalStyle or isPortalPalette) and tmtool.setViewMode(edited_url=here.absolute_url(1)) or None">
 
   <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
     <tal:block define="dummy request/RESPONSE/unauthorized" />
