@@ -212,7 +212,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 rendered = portlet.render_cache(**kw)
 
             # do not render boxes with empty bodies
-            if rendered == '':
+            if not boxedit and rendered == '':
                 continue
 
             # open the box frame
