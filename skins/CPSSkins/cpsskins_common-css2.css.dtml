@@ -60,7 +60,7 @@ input.SearchBox {
 }
 
 .cpsskinsBox ul.cpsskinsMenu li a.noicon {
-  background-image: none;
+  background-image: none !important;
   padding-left: 2px !important;
 }
 
