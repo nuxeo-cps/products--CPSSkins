@@ -13,7 +13,7 @@
       <metal:block use-macro="here/cpsskins_theme_widgets/macros/theme_upload" />
       <br/>
       <form action="" method="post"
-        tal:attributes="action string:${portal_url}/cpsskins_themes_edit">
+        tal:attributes="action string:${base_url}cpsskins_themes_edit">
         <input type="hidden" name="theme"
         tal:attributes="value current_theme" />
         <input type="hidden" name="edit_mode" value=""    
@@ -50,7 +50,7 @@
                   tal:attributes="style python: theme_id == current_theme and 'background-color: #d0d0d0' or ''">
                   <td>
                     <img align="middle" alt=""
-                    tal:attributes="src string:${portal_url}/${theme/getIcon}" />
+                    tal:attributes="src string:${base_url}${theme/getIcon}" />
                     <a tal:attributes="href string:${theme/absolute_url}/edit_form?theme=$theme_id&edit_mode=$edit_mode;
                                        style python: default_theme and 'font-weight: bold' or ''"
                        tal:content="python: '%s (%s)' % (theme_id, theme.title_or_id())" />
@@ -92,7 +92,7 @@
         <input type="hidden" name="edit_mode" value=""    
         tal:attributes="value edit_mode" />   
         <input type="image" type="submit" 
-        tal:attributes="src string:${portal_url}/cpsskins_images/img_addtheme.png" />
+        tal:attributes="src string:${base_url}cpsskins_images/img_addtheme.png" />
       </form>
   </metal:block>
 </metal:block>

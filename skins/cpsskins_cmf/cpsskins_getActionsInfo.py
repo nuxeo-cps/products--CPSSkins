@@ -5,8 +5,8 @@ if obj is None:
 
 REQUEST = context.REQUEST
 tmtool = context.portal_themes
-portal_url = context.portal_url(relative=0)
 current_url = REQUEST.get('cpsskins_url', None)
+base_url = context.cpsskins_getBaseUrl()
 
 action_categories = getattr(obj, 'action_categories', None) 
 custom_action_categories = getattr(obj, 'custom_action_categories', []) 
@@ -53,7 +53,7 @@ for category in categories:
             if show_action_icons:
                 icon = getIconFor(category, action_id)
                 if icon:
-                    menustyle = 'background: url(%s/%s) no-repeat' % (portal_url, icon) 
+                    menustyle = 'background: url(%s%s) no-repeat' % (base_url, icon) 
             if we_are_here:
                 menuclass = 'submenuin'
             else:

@@ -1,8 +1,9 @@
 <html metal:define-macro="edit"
 tal:define="tmtool here/portal_themes; 
+            utool nocall:here/portal_url;
             portal_url here/portal_url;
             base_url here/cpsskins_getBaseUrl;
-            here_url here/absolute_url;
+            here_url python: base_url + utool.getRelativeUrl(here);
             mcat here/cpsskins_getlocalizer;
             cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
             edit_mode request/edit_mode|nothing;
@@ -10,6 +11,7 @@ tal:define="tmtool here/portal_themes;
             theme request/theme|nothing;
 	    global current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
 	    theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
+            theme_container_url python: utool.getRelativeUrl(theme_container);
 	    pagemargin theme_container/margin|nothing;
 	    bodycolor theme_container/color|nothing;
             scrollx request/form/scrollx|python:0;

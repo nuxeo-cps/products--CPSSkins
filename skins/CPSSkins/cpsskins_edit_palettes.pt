@@ -18,7 +18,7 @@
           <tal:block define="palettecat obj/getId">
             <tr>
               <td valign="top">
-                <img tal:attributes="src string:${portal_url}/${obj/getIcon}" />
+                <img tal:attributes="src string:${base_url}${obj/getIcon}" />
               </td>
               <td>
                 <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
@@ -52,7 +52,7 @@
             tal:attributes="onclick onclick_msg;
                             href string:${del_action/url}?edit_mode=$edit_mode&theme=$current_theme&goto=referer" >
               <img border="0" width="12" height="12"
-              tal:attributes="src string:${portal_url}/cpsskins_images/img_palette_delete.png" />
+              tal:attributes="src string:${base_url}cpsskins_images/img_palette_delete.png" />
             </a>
             <a tal:attributes="href string:${palette/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode&palette=$palettecat">
               <tal:block content="palette/title" />
@@ -71,7 +71,7 @@
         <input type="hidden" name="edit_mode" value=""
         tal:attributes="value edit_mode" />
         <input type="image" type="submit"
-        tal:attributes="src string:${portal_url}/cpsskins_images/img_addpalette.png" />
+        tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
       </form>
     </tal:block>
   </metal:block>

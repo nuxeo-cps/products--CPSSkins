@@ -22,13 +22,13 @@
         <a href=""
         tal:attributes="href string:${context_urlc}/${action}?box_url=$box_url">
           <img border="0" width="12" height="12"
-          tal:attributes="src string:$portal_url/cpsskins_images/img_edit.png" />
+          tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
         </a>
         <a href=""
         tal:attributes="href string:${context_urlc}/box_delete?box_url=$box_url; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )">
           <img border="0" width="12" height="12"
-          tal:attributes="src string:$portal_url/cpsskins_images/img_delete.png" />
+          tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
         </a>
       </tal:block>
       <tal:block condition="not:editable">
@@ -49,8 +49,7 @@
   </div>
 </metal:block>
 
-<metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="portal_url here/portal_url">
+<metal:block define-macro="contextual_menu" i18n:domain="cpsskins">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header" class="context-menu">
     <tal:block i18n:translate="menu_insert_box">Insert a box here</tal:block></div>
@@ -63,7 +62,7 @@
            tal:attributes="onmouseup string:Choice_insert('${box_type}')" >
         <img width="16" height="16" 
          tal:condition="box_icon" 
-         tal:attributes="src string:${portal_url}/$box_icon" />
+         tal:attributes="src string:${base_url}$box_icon" />
         <tal:block content="structure python: cpsmcat(box_name)" />
       </div>
     </tal:block>

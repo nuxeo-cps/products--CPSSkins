@@ -5,7 +5,6 @@ REQUEST=context.REQUEST
 context_obj = REQUEST.get('context_obj', context)
 context_url = context_obj.absolute_url()
 portal_calendar = context.portal_calendar
-portal_url = context.portal_url()
 
 current = DateTime()
 current_day = current.day()

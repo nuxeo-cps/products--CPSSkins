@@ -3,7 +3,6 @@
 
   <metal:block fill-slot="edit" i18n:domain="cpsskins"
   tal:define="tmtool here/portal_themes; 
-              portal_url here/portal_url;
               edit_mode request/edit_mode|nothing;
               theme request/form/theme|nothing;
               mtool here/portal_membership;
@@ -53,7 +52,7 @@
                     tal:define="templet_cacheable templet/cacheable|nothing">
                   <td>
                     <img align="middle"
-                    tal:attributes="src string:${portal_url}/${templet/getIcon}" />
+                    tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$theme&edit_mode=$edit_mode"
                      tal:content="python: templet.title_or_id()" />
                     <input type="hidden" name="paths" 

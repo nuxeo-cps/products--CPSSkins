@@ -1,6 +1,5 @@
 <metal:block define-macro="head"
-  tal:define="portal_url here/portal_url;
-              base_url here/cpsskins_getBaseUrl;
+  tal:define="base_url here/cpsskins_getBaseUrl;
               tmtool here/portal_themes;
               theme_url theme_container/absolute_url">
 <!-- CSS1 -->

@@ -70,12 +70,12 @@
                 <img class="colorSample" width="16" height="16" 
                 tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&palette=$palette');
                                 style string:background-color: $value;; ;
-                                src string: ${portal_url}/cpsskins_images/select_icon.gif"
+                                src string: ${base_url}cpsskins_images/select_icon.gif"
                 tal:condition="python: palette == 'Palette Color'" />
                 <img class="shapeSample" width="16" height="16"
                 tal:attributes="onClick string:newWindow('cpsskins_select_palette?prop=$id&palette=$palette');
                                 style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
-                                src string: ${portal_url}/cpsskins_images/select_icon.gif"
+                                src string: ${base_url}cpsskins_images/select_icon.gif"
                 tal:condition="python: palette == 'Palette Border'" />
               </tal:block>
 
@@ -83,34 +83,34 @@
                 <img class="slotSample" width="16" height="16"
                 tal:attributes="onClick string:newWindow('cpsskins_select_slot?prop=$id');
                                 style string:background-color: $value;; ;
-                                src string: ${portal_url}/cpsskins_images/select_icon.gif" />
+                                src string: ${base_url}cpsskins_images/select_icon.gif" />
               </tal:block>
 
               <tal:block condition="image">
                 <img alt="select image" width="16" height="16"
                 tal:attributes="onClick string:newWindow('cpsskins_select_image?prop=$id&image=$image');
-                                src string:${portal_url}/cpsskins_images/select_icon.gif"
+                                src string:${base_url}cpsskins_images/select_icon.gif"
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit images_"
                  tal:attributes="href string:${object_url}/cpsskins_edit_images?imagecat=$image&theme=$current_theme&edit_mode=$edit_mode&current_image=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
-                   tal:attributes="src string:${portal_url}/cpsskins_images/edit_icon.png" />
+                   tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
                 </a>
               </tal:block>
 
               <tal:block condition="python: style in style_meta_types">
                 <img alt="select image" width="16" height="16"
                 tal:attributes="onClick string:newWindow('cpsskins_select_style?prop=$id&style=$style');
-                                src string:${portal_url}/cpsskins_images/select_icon.gif"
+                                src string:${base_url}cpsskins_images/select_icon.gif"
                      border="0" />
                 <a i18n:attributes="title" i18n:domain="cpsskins"
                  tal:define="title string:_Edit styles_"
                  tal:attributes="href string:${object_url}/cpsskins_edit_styles?style=$style&theme=$current_theme&edit_mode=$edit_mode&current_style=$value;
                             title python: mcat and mcat(title) or title">
                   <img border="0" width="16" height="16"
-                   tal:attributes="src string:${portal_url}/cpsskins_images/edit_icon.png" />
+                   tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
                 </a>
               </tal:block>
 
@@ -217,7 +217,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalStyle">
           <strong>
-            <a tal:attributes="href string:${theme_container/absolute_url}/cpsskins_edit_styles?style=$stylecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_styles?style=$stylecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other styles_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -278,7 +278,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalPalette">
           <strong>
-            <a tal:attributes="href string:${theme_container/absolute_url}/cpsskins_edit_palettes?palette=$palettecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_palettes?palette=$palettecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other palettes_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -326,7 +326,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalImage">
           <strong>
-            <a tal:attributes="href string:${theme_container/absolute_url}/cpsskins_edit_images?imagecat=$imagecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_images?imagecat=$imagecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other images_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -374,7 +374,7 @@ tal:define="this_url request/URL;
       </td>
       <td align="left">
         <form name="importtheme" action="" 
-        tal:attributes="action string:${theme_container/absolute_url}/cpsskins_themes_manager">
+        tal:attributes="action string:${base_url}cpsskins_themes_manager">
           <input type="hidden" name="theme" value="" tal:attributes="value current_theme"/>
           <input type="hidden" name="edit_mode" value="" tal:attributes="value edit_mode"/>
           <input type="submit" class="ImportTheme"
@@ -398,7 +398,7 @@ tal:define="this_url request/URL;
       </td>
       <td align="left">
         <form name="exporttheme" action="" 
-        tal:attributes="action string:${theme_container/absolute_url}/manage_exportObject">
+        tal:attributes="action string:${here_url}/manage_exportObject">
           <input type="hidden" name="download" value="1" />
           <input type="submit" class="ExportTheme"
           tal:define="title string:_button_export_theme_"
@@ -450,7 +450,7 @@ tal:define="this_url request/URL;
               description ti/description|nothing;
               doctype python: ti and ti.Title() or nothing;">
   <div class="ObjectInfo">                               
-      <img tal:attributes="src string:${portal_url}/${here/getIcon}" alt="" width="16" height="16" />
+      <img tal:attributes="src string:${base_url}${here/getIcon}" alt="" width="16" height="16" />
       <strong tal:condition="doctype" 
        tal:define="title python: '_%s_' %doctype" 
        i18n:translate="" tal:content="python: mcat and mcat(title) or title" />:

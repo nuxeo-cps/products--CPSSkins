@@ -3,7 +3,6 @@
   <metal:block fill-slot="edit"
   tal:define="tmtool here/portal_themes; 
               current_theme request/form/theme|nothing; 
-              portal_url here/portal_url;
               base_url here/cpsskins_getBaseUrl;
               theme_container python: tmtool.getThemeContainer(theme=current_theme); 
               unused_styles theme_container/findOrphanedStyles|nothing; 
