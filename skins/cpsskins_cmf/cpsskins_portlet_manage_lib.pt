@@ -373,7 +373,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
          tal:content="bc/id" />
       </th>
     </tr>
-    <tal:block define="portlets python:ptltool.getPortlets(context=here, override=override)"
+    <tal:block define="portlets python:ptltool.getPortlets(context=here, override=override, visibility_check=0)"
                repeat="portlet portlets">
       <tr tal:define="ypos portlet/getOrder;
                       fti portlet/getTypeInfo;
