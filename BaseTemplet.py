@@ -40,7 +40,7 @@ from cpsskins_utils import rebuild_properties, callAction, \
                            getFreeId, verifyThemePerms, \
                            getObjectVisibility, canonizeId, \
                            getApplicableStylesFor, getStyleList, \
-                           getAvailableLangs, getDefaultLang
+                           getAvailableLangs, getDefaultLang, html_slimmer
 
 factory_type_information = (
     {'id': 'Base Templet',
@@ -982,7 +982,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
 
         if fail:
             rendered = self.cpsskins_brokentemplet(**kw)
-        return rendered
+        return html_slimmer(rendered)
 
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, **kw):

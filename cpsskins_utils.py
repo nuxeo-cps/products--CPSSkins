@@ -447,3 +447,12 @@ def css_slimmer(css):
     css = re.sub(r';}','}', css)
     css = re.sub(r',\n',',', css)
     return css
+
+def html_slimmer(html):
+    """ reduces the size of HTML code """
+
+    html = re.sub(r'>\s+<','> <', html)
+    html = re.sub(r'\n\s+\n','', html)
+    html = re.sub(r'\n','', html)
+    return html
+
