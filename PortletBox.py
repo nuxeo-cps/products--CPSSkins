@@ -196,7 +196,7 @@ class PortletBox(BaseTemplet, SimpleBox):
 
         ttool = getToolByName(self, 'portal_types')
         if ptype is None:
-            return
+            return None
 
         title = ''
         fti = ttool.getTypeInfo(ptype)
@@ -208,12 +208,7 @@ class PortletBox(BaseTemplet, SimpleBox):
     def BoxLayoutList(self):           
         """ Returns a list of orientations for this Templet"""
 
-        layouts = ['standard', 
-                   'one_frame', 
-                   'notitle', 
-                   'no_frames', 
-                   'notitle_noframe']
-        return layouts
+        return self.cpsskins_listBoxLayouts('PortletBox')
 
     #
     # Portlet interface.
@@ -237,6 +232,7 @@ class PortletBox(BaseTemplet, SimpleBox):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         if ptltool is not None:
             return ptltool.listPortletTypes()
+        return []
 
     security.declareProtected(ManageThemes, 'setPortletId')
     def setPortletId(self, portlet_id=None):
@@ -248,23 +244,23 @@ class PortletBox(BaseTemplet, SimpleBox):
     # CSS
     #
     def getCSSBoxLayoutStyle(self):
-        """Returns the CSS layout style for boxes inside this slot."""
-
+        """Returns the CSS layout style for boxes inside this slot.
+        """
         css = ''
         padding = self.padding
-
         if padding:
             if padding not in ('0', '0pt', '0in', '0pc', '0mm',
                                '0cm', '0px', '0em', '0ex'):
                 css += 'padding:%s;' % padding
-
         if css:
             return css
+        return None
+
     #
     # Rendering.
     #
     security.declarePublic('render')
-    def render(self, shield=0, **kw):
+    def render(self, **kw):
         """Renders the templet."""
 
         ptltool = getToolByName(self, 'portal_cpsportlets', None)

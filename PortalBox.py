@@ -265,14 +265,11 @@ class PortalBox(BaseTemplet, SimpleBox):
 
         css = ''
         padding = self.padding
-
         if padding:
             if padding not in ('0', '0pt', '0in', '0pc', '0mm',
                                '0cm', '0px', '0em', '0ex'):
                 css += 'padding:%s;' % padding
-
-        if css:
-            return css
+        return css
 
     #
     # Rendering
@@ -412,14 +409,8 @@ class PortalBox(BaseTemplet, SimpleBox):
     def BoxLayoutList(self):           
         """ Returns a list of orientations for this Templet"""
 
-        layouts = ['standard', 
-                   'one_frame', 
-                   'notitle', 
-                   'no_frames', 
-                   'notitle_noframe',
-                   'drawer',
-                   'drawer_notitle']
-        return layouts
+        return self.cpsskins_listBoxLayouts('PortalBox')
+
 
     security.declarePublic('getI18nProperties')
     def getI18nProperties(self):
@@ -433,6 +424,7 @@ class PortalBox(BaseTemplet, SimpleBox):
 
         if getattr(self, 'content', None) == 'actions':
             return 1
+        return None
 
     security.declarePublic('IfFoldersCategory')
     def IfFoldersCategory(self):           
@@ -440,6 +432,7 @@ class PortalBox(BaseTemplet, SimpleBox):
 
         if getattr(self, 'content', None) == 'folders':
             return 1
+        return None
 
     security.declarePublic('IfFoldersCategoryAndExistsBase')
     def IfFoldersCategoryAndExistsBase(self):           
@@ -459,6 +452,7 @@ class PortalBox(BaseTemplet, SimpleBox):
                          
         if getattr(self, 'content', None) == 'info':
             return 1    
+        return None
 
     security.declarePublic('PathsList')
     def PathsList(self):           
@@ -481,6 +475,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         if getattr(self, 'title_source', None) in \
                       ['Templet title', 'Folder title']:
             return 1
+        return None
 
     security.declarePublic('getBoxState')
     def getBoxState(self, REQUEST=None):           
@@ -496,6 +491,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         if REQUEST is not None:
             state = REQUEST.cookies.get(cookie_name, None)
             return state
+        return None
 
 InitializeClass(PortalBox)
 

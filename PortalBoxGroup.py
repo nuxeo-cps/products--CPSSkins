@@ -133,16 +133,14 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
     security.declarePublic('BoxLayoutList')
     def BoxLayoutList(self):           
-        """ Returns a list of orientations for this Templet"""
-
-        layouts = ['standard', 
-                   'one_frame', 
-                   'notitle', 
-                   'no_frames', 
-                   'notitle_noframe']
+        """Return a list of orientations for this Templet
+        """
+        layouts = self.cpsskins_listBoxLayouts('PortletBox')
         if self.hasPortlets():
-            layouts.extend(['min_max', 'min_max_close',
-                            'min_max_edit_close'])
+            layouts.extend(['min_max',
+                            'min_max_close',
+                            'min_max_edit_close'
+                           ])
         return layouts
 
     security.declarePublic('hasPortlets')
@@ -152,6 +150,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         if ptltool is not None:
             return 1
+        return None
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
@@ -169,9 +168,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
     security.declarePublic('getSlot')
     def getSlot(self):
-         """Return the slot name"""
+        """Return the slot name"""
 
-         return self.box_group
+        return self.box_group
 
     #
     # CSS
@@ -193,14 +192,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         css = ''
         padding = self.padding
-
         if padding:
             if padding not in ('0', '0pt', '0in', '0pc', '0mm',
                                '0cm', '0px', '0em', '0ex'):
                 css += 'padding:%s;' % padding
-
         if css:
             return css
+        return None
 
     #
     # Rendering.
