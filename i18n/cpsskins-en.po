@@ -363,6 +363,10 @@ msgid "_Calendar_"
 msgstr "Calendar"
 
 
+msgid "_Cell Block_"
+msgstr "Cell Block"
+
+
 msgid "_Cell Hider_"
 msgstr "Cell Hider"
 
@@ -1637,6 +1641,10 @@ msgstr "a calendar with monthly events"
 
 msgid "_calendarstyle_description_"
 msgstr "this style defines the calendar's visual appearance."
+
+
+msgid "_cellblock_description_"
+msgstr "a Cell Block allows to display several Templets horizontally inside a Page Block."
 
 
 msgid "_cellhider_description_"

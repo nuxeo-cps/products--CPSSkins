@@ -1,6 +1,6 @@
 <metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
-  define="padding templet/padding|string:0">
+  define="padding content/padding|string:0">
 
     <tal:block define="slot_boxes python: btool.filterBoxes(boxes, slot=box_group)">
       <tal:block tal:condition="python: box_group != 'closed'">
@@ -18,10 +18,10 @@
       </tal:block>
     </tal:block>
 
-    <div tal:define="rendered python: templet.render_cache(shield=1, context_obj=here, boxedit=boxedit);
+    <div tal:define="rendered python: content.render_cache(shield=1, context_obj=here, boxedit=boxedit);
                      margin here/margin|string:0"
          tal:condition="python: rendered != ''"
-         tal:attributes="style string:text-align:${templet/align};; padding:$margin"
+         tal:attributes="style string:text-align:${content/align};; padding:$margin"
          tal:content="structure rendered" />
   </tal:block>
 
@@ -29,12 +29,12 @@
     <div class="BoxGroupBoxSlotTitle">
       <tal:block define="title string:_Slot name_" i18n:translate=""
        content="python: mcat and mcat(title) or title" />:
-      <tal:block content="templet/box_group" />
+      <tal:block content="content/box_group" />
     </div>
-    <div tal:attributes="style string: padding:${templet/padding}">
-      <img tal:attributes="src string:${templet/getIcon}"
+    <div tal:attributes="style string: padding:${content/padding}">
+      <img tal:attributes="src string:${content/getIcon}"
        width="16" height="16" />
-      <tal:block content="templet/title" />
+      <tal:block content="content/title" />
     </div>
   </div>
 

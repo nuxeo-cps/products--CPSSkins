@@ -1707,3 +1707,9 @@ msgstr ""
 
 msgid "_No preview_"
 msgstr ""
+
+msgid "_Cell Block_"
+msgstr ""
+
+msgid "_cellblock_description_"
+msgstr ""

@@ -1,11 +1,11 @@
 <metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
-  define="padding templet/padding|string:0">
+  define="padding content/padding|string:0">
   
     <!-- Portlets -->
-    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (templet.boxcolor, templet.boxshape);
-                         style string:text-align:${templet/align};; padding:$padding"
-    tal:content="structure python: templet.render_cache(shield=1, context_obj=here)" />
+    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (content.boxcolor, content.boxshape);
+                         style string:text-align:${content/align};; padding:$padding"
+    tal:content="structure python: content.render_cache(shield=1, context_obj=here)" />
 
   </tal:block>
 
@@ -13,12 +13,12 @@
     <div class="BoxGroupBoxSlotTitle">
       <tal:block define="title string:_Slot name_" i18n:translate=""
        content="python: mcat and mcat(title) or title" />:
-      <tal:block content="templet/box_group" />
+      <tal:block content="content/box_group" />
     </div>
-    <div tal:attributes="style string: padding:${templet/padding}">
-      <img tal:attributes="src string:${templet/getIcon}"
+    <div tal:attributes="style string: padding:${content/padding}">
+      <img tal:attributes="src string:${content/getIcon}"
        width="16" height="16" />
-      <tal:block content="templet/title" />
+      <tal:block content="content/title" />
     </div>
   </div>
 

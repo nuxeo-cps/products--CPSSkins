@@ -48,18 +48,18 @@
             <tal:block 
              define="objects_in_xpos python: objects.get(x_pos, None)"
              condition="objects_in_xpos">
-              <tal:block repeat="templet python: objects_in_xpos['templets']">
-                <tr tal:condition="templet/isCacheable|nothing"
-                    tal:define="templet_cacheable templet/cacheable|nothing">
+              <tal:block repeat="content python: objects_in_xpos['contents']">
+                <tr tal:condition="content/isCacheable|nothing"
+                    tal:define="content_cacheable content/cacheable|nothing">
                   <td>
                     <img align="middle"
-                    tal:attributes="src string:${base_url}${templet/getIcon}" />
-                    <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$theme&edit_mode=$edit_mode"
-                     tal:content="python: templet.title_or_id()" />
+                    tal:attributes="src string:${base_url}${content/getIcon}" />
+                    <a tal:attributes="href string:${content/absolute_url}/edit_form?theme=$theme&edit_mode=$edit_mode"
+                     tal:content="python: content.title_or_id()" />
                     <input type="hidden" name="paths" 
-                    tal:attributes="value python: '/'.join(templet.getPhysicalPath())" />
+                    tal:attributes="value python: '/'.join(content.getPhysicalPath())" />
                   </td>
-                  <td tal:define="ti templet/getTypeInfo">
+                  <td tal:define="ti content/getTypeInfo">
                     <span tal:condition="ti" tal:content="ti/getId" />
                     <span tal:condition="not:ti" tal:content="string:?" />
                   </td>
@@ -69,13 +69,13 @@
                     tal:content="python: mcat and mcat(title) or title" />
                     <input type="checkbox" name="cache:list"
                     value="."
-                    tal:attributes="checked templet_cacheable; value templet/getId" />
+                    tal:attributes="checked content_cacheable; value content/getId" />
                   </td>
                   <td> 
                     <select name="cache_lifetimes:list">
-                      <tal:block repeat="lifetime templet/LifetimeList">
+                      <tal:block repeat="lifetime content/LifetimeList">
                         <option i18n:translate="" 
-                         tal:define="cache_lifetime templet/cache_lifetime|nothing;
+                         tal:define="cache_lifetime content/cache_lifetime|nothing;
                                      i18n_option string:_option_lifetime_${lifetime}_;
                                      i18n_lifetime python: mcat and mcat(i18n_option) or i18n_option"
                          tal:attributes="value lifetime;

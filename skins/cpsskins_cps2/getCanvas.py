@@ -20,15 +20,15 @@ for block in tmtool.getPageBlocks(theme=theme):
      objects = block.getObjects(REQUEST=REQUEST)
      if objects is None:
          continue
-     templet_list = []
+     content_list = []
      for x_pos in range(int(block.maxcols)):
         objects_in_xpos = objects.get(x_pos, None)
         if objects_in_xpos is None:
            continue
-        templets_in_xpos = objects_in_xpos['templets']
-        for templet in templets_in_xpos:
-              if getattr(templet.aq_explicit, 'isportalboxgroup', 0):
-                  position =  getattr(templet, 'position', None) 
+        contents_in_xpos = objects_in_xpos['contents']
+        for content in contents_in_xpos:
+              if getattr(content.aq_explicit, 'isportalboxgroup', 0):
+                  position =  getattr(content, 'position', None) 
               else: 
                   continue
               try: 
@@ -38,7 +38,7 @@ for block in tmtool.getPageBlocks(theme=theme):
 
               grid = {}
               grid['authorized_styles'] = ('box_left_template',)
-              grid['title'] = templet.title
+              grid['title'] = content.title
               directions = []
               direction = {}
               direction['icon'] = 'img_box_moveup.png'

@@ -47,7 +47,7 @@ function Choice_style(styleprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  new_url = pd_selected_item.getAttribute('templeturl');
+  new_url = pd_selected_item.getAttribute('contenturl');
   window.location = new_url + '/cpsskins_find_mystyles?styleprop=' + styleprop;
 }
 
@@ -55,7 +55,7 @@ function Choice_action(action) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  new_url = pd_selected_item.getAttribute('templeturl');
+  new_url = pd_selected_item.getAttribute('contenturl');
   window.location = new_url + '/cpsskins_templet_action?action=' + action;
 }
 
@@ -63,7 +63,7 @@ function Choice_align(alignprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
-  new_url = pd_selected_item.getAttribute('templeturl');
+  new_url = pd_selected_item.getAttribute('contenturl');
   window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
 }
 
@@ -79,7 +79,7 @@ function Templet_move(selected_items, target_node) {
   if (ypos == null) ypos = 0;
   dest_theme = dest.getAttribute('dest_theme');
   dest_pageblock = dest.getAttribute('dest_pageblock');
-  new_url = pd_selected_item.getAttribute('templeturl');
+  new_url = pd_selected_item.getAttribute('contenturl');
   new_url = new_url + '/cpsskins_move_templet?'
   new_url = new_url + 'ypos=' + ypos;
   if (xpos != null) new_url = new_url + '&xpos=' + xpos;

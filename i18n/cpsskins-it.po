@@ -365,6 +365,10 @@ msgid "_Calendar_"
 msgstr "Calendario/Agenda"
 
 
+msgid "_Cell Block_"
+msgstr ""
+
+
 msgid "_Cell Hider_"
 msgstr "Nasconditore del contenitore"
 
@@ -1639,6 +1643,10 @@ msgstr "Un'agenda mensile degli avvenimenti."
 
 msgid "_calendarstyle_description_"
 msgstr "in questa schermata puoi definire le impostazioni dell'aspetto con cui saranno visualizzati i calendari/agende mensili."
+
+
+msgid "_cellblock_description_"
+msgstr ""
 
 
 msgid "_cellhider_description_"

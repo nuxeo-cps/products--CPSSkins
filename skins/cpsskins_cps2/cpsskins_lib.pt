@@ -1,28 +1,28 @@
 <metal:block define-macro="portalboxgroup"
 tal:define="btool here/portal_boxes; 
-            padding templet/padding|string:0; 
+            padding content/padding|string:0; 
             box_group_int python: here.cpsskins_str_to_int(box_group); 
             boxlist python:box_group_int is not None and btool.getBoxes(xpos=box_group_int) or None; 
             renderlist python:boxlist and [box.render() for box in boxlist]; 
             oklist python:renderlist and filter(None, renderlist);"
 tal:condition="oklist">
   <div tal:repeat="box oklist" tal:condition="render_box"
-  tal:attributes="class string:BoxColor${templet/boxcolor} BoxShape${templet/boxshape}; 
+  tal:attributes="class string:BoxColor${content/boxcolor} BoxShape${content/boxshape}; 
                   style string:text-align: left;; 
                   padding:$padding 0 $padding 0">
     <tal:block replace="structure python: box"
     on-error="nothing" />
   </div>
   <div tal:condition="not:render_box"
-  tal:attributes="class string:BoxColor${templet/boxcolor} BoxShape${templet/boxshape}; 
+  tal:attributes="class string:BoxColor${content/boxcolor} BoxShape${content/boxshape}; 
                   style string:text-align: left;; 
                   padding:$padding 0 $padding 0">
     <div class="title">
     <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_nuxeo.png"
          width="16" height="16" />
-    <tal:block content="templet_title" />(
+    <tal:block content="content_title" />(
     <span style="font-weight: bold"
-    tal:content="templet/box_group" />)</div>
+    tal:content="content/box_group" />)</div>
     <div class="body">
       <a class="submenuout" href="#" style="display: block">
       <span class="menuouticon">&nbsp;</span>Item</a>

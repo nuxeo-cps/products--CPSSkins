@@ -53,6 +53,8 @@ try: ZopeTestCase.installProduct('CPSNewsLetters', quiet=1)
 except: pass
 try: ZopeTestCase.installProduct('CPSNavigation', quiet=1)
 except: pass
+try: ZopeTestCase.installProduct('CPSUserFolder', quiet=1)
+except: pass
 
 
 from AccessControl.SecurityManagement \

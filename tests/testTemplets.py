@@ -356,7 +356,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet.toggle()
         self.assertEquals(templet.closed, not state)
 
-    def test_getTempletPosition(self):
+    def test_getVerticalPosition(self):
         pageblock = self.pageblock
         templet1 = pageblock.addTemplet(type_name='Text Box Templet', \
                                         ypos=int(0))
@@ -364,9 +364,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
                                         ypos=int(1))
         templet3 = pageblock.addTemplet(type_name='Text Box Templet', \
                                         ypos=int(2))
-        pos1 = templet1.getTempletPosition()
-        pos2 = templet2.getTempletPosition()
-        pos3 = templet3.getTempletPosition()
+        pos1 = templet1.getVerticalPosition()
+        pos2 = templet2.getVerticalPosition()
+        pos3 = templet3.getVerticalPosition()
         self.assertEquals(pos1, int(0))
         self.assertEquals(pos2, int(1))
         self.assertEquals(pos3, int(2))

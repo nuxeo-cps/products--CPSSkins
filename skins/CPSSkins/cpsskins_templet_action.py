@@ -14,7 +14,7 @@ if action == 'insert':
         xpos = context.xpos
     except:
         return
-    ypos = context.getTempletPosition() 
+    ypos = context.getVerticalPosition()
     if ypos is None:
         return
     if ypos > 0:

@@ -13,19 +13,19 @@ define="tmtool here/portal_themes;
          repeat="x_pos python: range(int(maxcols))">
           <td tal:define="objects_in_xpos python: objects.get(x_pos, None)"
            tal:condition="objects_in_xpos">
-            <tal:block define="templets_in_xpos python: objects_in_xpos['templets']"
-             condition="templets_in_xpos"
-             repeat="templet templets_in_xpos">
-              <div tal:content="templet/title" class="TempletBox"
-               tal:condition="templet/aq_explicit/isPortalBox|nothing" />
+            <tal:block define="contents_in_xpos python: objects_in_xpos['contents']"
+             condition="contents_in_xpos"
+             repeat="content contents_in_xpos">
+              <div tal:content="content/title" class="TempletBox"
+               tal:condition="content/aq_explicit/isPortalBox|nothing" />
               <tal:block
-               condition="templet/aq_explicit/isMainContent|nothing"
+               condition="content/aq_explicit/isMainContent|nothing"
                content="structure boxes/1" />
               <tal:block
-               condition="templet/aq_explicit/isPortalBoxGroup|nothing"
-               define="group templet/box_group|nothing">
+               condition="content/aq_explicit/isPortalBoxGroup|nothing"
+               define="group content/box_group|nothing">
                 <div class="BoxGroupBoundingBox">
-                  <div tal:content="templet/title" class="BoxGroupBoxSlotTitle"/>
+                  <div tal:content="content/title" class="BoxGroupBoxSlotTitle"/>
                   <tal:block condition="group"
                   content="structure python: boxes[group]" />
                 </div>

@@ -367,6 +367,10 @@ msgid "_Calendar_"
 msgstr "Calendario"
 
 
+msgid "_Cell Block_"
+msgstr ""
+
+
 msgid "_Cell Hider_"
 msgstr "Escondedor de celda"
 
@@ -1654,6 +1658,10 @@ msgstr "un calendario con eventos mensuales"
 
 msgid "_calendarstyle_description_"
 msgstr "este estilo define el aspecto visual del calendario."
+
+
+msgid "_cellblock_description_"
+msgstr ""
 
 
 msgid "_cellhider_description_"

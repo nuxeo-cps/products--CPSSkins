@@ -365,6 +365,10 @@ msgid "_Calendar_"
 msgstr "Kalendarz"
 
 
+msgid "_Cell Block_"
+msgstr ""
+
+
 msgid "_Cell Hider_"
 msgstr "Ukrywanie komórki"
 
@@ -1639,6 +1643,10 @@ msgstr "Kalendarz z miesiêcznymi wydarzeniami"
 
 msgid "_calendarstyle_description_"
 msgstr "ten styl definiuje wygl±d kalendarza"
+
+
+msgid "_cellblock_description_"
+msgstr ""
 
 
 msgid "_cellhider_description_"

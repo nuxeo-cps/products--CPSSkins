@@ -23,7 +23,7 @@ tal:define="global editing python: 1;
     <metal:block
     use-macro="here/cpsskins_main_template_edit/macros/head" />
     <script type="text/javascript" src="cpsskins_pdlib.js"></script>
-    <script type="text/javascript" src="cpsskins_templet_edit.js"></script>
+    <script type="text/javascript" src="cpsskins_content_edit.js"></script>
     <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
   </head>
 
@@ -38,7 +38,7 @@ tal:define="global editing python: 1;
      <metal:block 
       use-macro="here/cpsskins_theme_widgets/macros/simulate_hierarchy" />
      <metal:block
-      use-macro="here/cpsskins_theme_widgets/macros/templet_add_panel" />
+      use-macro="here/cpsskins_theme_widgets/macros/content_add_panel" />
    </div>
 
    <div class="editspace">
@@ -77,22 +77,22 @@ tal:define="global editing python: 1;
           use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
           <metal:block
           use-macro="here/cpsskins_theme_widgets/macros/movecell" />
-          <tal:block condition="not:templets_in_xpos">
+          <tal:block condition="not:contents_in_xpos">
             <metal:block 
-            use-macro="here/cpsskins_theme_widgets/macros/insert_templet" />
+            use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
           </tal:block>
         </tal:block>
-        <tal:block condition="not:templets_in_xpos">
+        <tal:block condition="not:contents_in_xpos">
           <metal:block
           use-macro="here/cpsskins_theme_widgets/macros/emptycell" />
         </tal:block>
       </metal:block>
 
-      <metal:block fill-slot="templet_footer" 
+      <metal:block fill-slot="content_footer" 
       tal:condition="python: layout_edit_mode or mixed_edit_mode"
-      tal:define="ypos templet/getTempletPosition|nothing">
+      tal:define="ypos content/getVerticalPosition|nothing">
         <metal:block 
-        use-macro="here/cpsskins_theme_widgets/macros/insert_templet" />
+        use-macro="here/cpsskins_theme_widgets/macros/insert_content" />
       </metal:block>
 
       <metal:block fill-slot="cell_bottom">
@@ -104,15 +104,15 @@ tal:define="global editing python: 1;
        </tal:block>
       </metal:block>
 
-      <metal:block fill-slot="templet_titlebar">
-        <tal:block condition="templet/aq_explicit/isMainContent|nothing">
+      <metal:block fill-slot="content_titlebar">
+        <tal:block condition="content/aq_explicit/isMainContent|nothing">
           <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/edit_this_templet" />
+          use-macro="here/cpsskins_theme_widgets/macros/edit_this_content" />
         </tal:block>
-        <div tal:condition="python: templet == here"
-        tal:attributes="class python: (templet.closed and not layout_edit_mode) and 'TempletBoxTitleSelectedClosed' or 'TempletBoxTitleSelected'">
+        <div tal:condition="python: content == here"
+        tal:attributes="class python: (content.closed and not layout_edit_mode) and 'TempletBoxTitleSelectedClosed' or 'TempletBoxTitleSelected'">
           <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/templet_titlebar" />
+          use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
         </div>
       </metal:block>
 

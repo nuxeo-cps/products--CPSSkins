@@ -229,55 +229,55 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 
 
 <!-- Templets -->
-<metal:block define-macro="templet_titlebar" i18n:domain="cpsskins">
+<metal:block define-macro="content_titlebar" i18n:domain="cpsskins">
   <tal:block 
-  define="templet_url python: base_url + utool.getRelativeUrl(templet);
-	  closed templet/closed">
+  define="content_url python: base_url + utool.getRelativeUrl(content);
+	  closed content/closed">
   &nbsp; 
-  <a tal:condition="templet/can_moveup"
+  <a tal:condition="content/can_moveup"
   i18n:attributes="title"
   tal:define="title string:_Move up_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=up;
+  tal:attributes="href string:${content_url}/cpsskins_move_content?direction=up;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveup.png" />
   </a>
   <a title="Move down"
-  tal:condition="templet/can_movedown"
+  tal:condition="content/can_movedown"
   i18n:attributes="title"
   tal:define="title string:_Move down_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=down;
+  tal:attributes="href string:${content_url}/cpsskins_move_content?direction=down;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_movedown.png" />
   </a>
   <a title="Move left"
-  tal:condition="templet/can_moveleft"
+  tal:condition="content/can_moveleft"
   i18n:attributes="title"
   tal:define="title string:_Move left_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=left;
+  tal:attributes="href string:${content_url}/cpsskins_move_content?direction=left;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveleft.png" />
   </a>
   <a title="Move right"
-  tal:condition="templet/can_moveright"
+  tal:condition="content/can_moveright"
   i18n:attributes="title"
   tal:define="title string:_Move right_"
-  tal:attributes="href string:${templet_url}/cpsskins_move_templet?direction=right;
+  tal:attributes="href string:${content_url}/cpsskins_move_content?direction=right;
                   title python: mcat and mcat(title) or title">
 
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />
   </a>
   &nbsp;&nbsp; 
-  <a tal:condition="python: templet.can_toggle() and edit_mode == 'layout'"
+  <a tal:condition="python: content.can_toggle() and edit_mode == 'layout'"
   i18n:attributes="title"
   tal:define="title string:_Minimize / Maximize_"
-  tal:attributes="href string:${templet_url}/cpsskins_object_toggle;
+  tal:attributes="href string:${content_url}/cpsskins_object_toggle;
                   title python: mcat and mcat(title) or title">
     <img border="0" width="12" height="12" tal:condition="closed"
     tal:attributes="src string:${base_url}cpsskins_images/img_close.png" />
@@ -285,14 +285,14 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     tal:condition="not:closed"
     tal:attributes="src string:${base_url}cpsskins_images/img_open.png" />
   </a>
-  <a tal:condition="templet/can_delete"
+  <a tal:condition="content/can_delete"
   i18n:attributes="title"
   tal:define="title string:_Delete_;
               msg string:_Deleting this Templet, are you sure?_;
               msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
               onclick_msg python:'return window.confirm(\'%s\')' % msg"
   tal:attributes="onclick onclick_msg;
-                  href string:${templet_url}/cpsskins_object_delete;
+                  href string:${content_url}/cpsskins_object_delete;
                   title python: mcat and mcat(title) or title" >
     <img border="0" width="12" height="12"
     tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
@@ -300,27 +300,27 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   &nbsp;</tal:block>
 </metal:block>
 
-<metal:block define-macro="insert_templet" i18n:domain="cpsskins">
+<metal:block define-macro="insert_content" i18n:domain="cpsskins">
   <div class="TempletAddButton" 
    tal:attributes="xpos x_pos; 
                    ypos ypos;  
                    dest_pageblock pageblock_id">
     <a i18n:attributes="title"
     tal:define="title string:_Insert a Templet here_"
-    tal:attributes="href string:${pageblock/absolute_url}/add_templet_form?templet_xpos=$x_pos&templet_ypos=$ypos;
+    tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&content_ypos=$ypos;
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
-      tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
+      tal:attributes="src string:${base_url}cpsskins_images/img_addcontent.png" />
     </a>
   </div>
 </metal:block>
 
-<metal:block define-macro="edit_this_templet">
+<metal:block define-macro="edit_this_content">
   <div class="TempletEditThis"
-  tal:condition="python: templet != here">
+  tal:condition="python: content != here">
     <a
-    tal:attributes="href string:${templet/absolute_url}/edit_form;
-                    title string:${templet/title}">
+    tal:attributes="href string:${content/absolute_url}/edit_form;
+                    title string:${content/title}">
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
       <tal:block i18n:translate="" i18n:domain="cpsskins"
@@ -330,8 +330,8 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   </div>
 </metal:block>
 
-<metal:block define-macro="templet_add_form" i18n:domain="cpsskins">
-  <dl class="templetlist" tal:define="til here/cpsskins_listTemplets">
+<metal:block define-macro="content_add_form" i18n:domain="cpsskins">
+  <dl class="contentlist" tal:define="til here/cpsskins_listTemplets">
     <tal:block repeat="ti til">
       <dt tal:define="choice_id string:choice_${repeat/ti/number}">
         <input name="type_name" type="radio"
@@ -353,7 +353,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   <input type="hidden" name="title" tal:attributes="value title" />
 </metal:block>
 
-<metal:block define-macro="templet_add_panel" i18n:domain="cpsskins">
+<metal:block define-macro="content_add_panel" i18n:domain="cpsskins">
   <table class="templetbox" cellpadding="2" cellspacing="1"
        tal:define="til here/cpsskins_listTemplets">
     <tr>
@@ -653,7 +653,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
 <metal:block define-macro="emptycell" i18n:domain="cpsskins">
   <div class="TempletDest" i18n:attributes="title"
    style="border: 1px dashed red; padding: 8px"
-   tal:condition="not:templets_in_xpos"
+   tal:condition="not:contents_in_xpos"
    tal:define="title string:_You can drop a Templet into this area_"
    tal:attributes="xpos x_pos; 
                    ypos python: 0;

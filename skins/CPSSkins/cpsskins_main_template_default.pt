@@ -42,35 +42,36 @@
            define="objects_in_xpos python: objects.get(x_pos, None)"
            condition="objects_in_xpos">
             <td valign="top"
-             tal:define="templets_in_xpos python: objects_in_xpos['templets'];
+             tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                          cellsize python: objects_in_xpos['cellsizer'];
                          cellstyle python: objects_in_xpos['cellstyler']"
              tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;   
                              width python: cellsize and cellsize.cellwidth or None">
-              <tal:block repeat="templet templets_in_xpos">
-                <div tal:define="isRenderable python: templet.isRenderable();
-                                 rendered python: isRenderable and templet.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
+
+              <tal:block repeat="content contents_in_xpos">
+                <div tal:define="isRenderable python: content.isRenderable();
+                                 rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                      tal:condition="python: rendered or not isRenderable"
-                     tal:attributes="align python: templet.align;
-                                     style python: 'padding:%s' % templet.margin">
-                  <div tal:attributes="class python: templet.getCSSAreaClass(level=2);
-                                       style python: templet.getCSSLayoutStyle()">
+                     tal:attributes="align python: content.align;
+                                     style python: 'padding:%s' % content.margin">
+                  <div tal:attributes="class python: content.getCSSAreaClass(level=2);
+                                       style python: content.getCSSLayoutStyle()">
                     <tal:block condition="rendered"
                      content="structure rendered" />
                     <tal:block condition="not:isRenderable">
-                      <tal:block condition="templet/isMainContent|nothing">
+                      <tal:block condition="content/isMainContent|nothing">
                         <metal:block define-slot="maincontent" />
                         <br clear="all" />
                       </tal:block>
-                      <tal:block condition="templet/isPortalBoxGroup|nothing">
+                      <tal:block condition="content/isPortalBoxGroup|nothing">
                         <tal:block define="render_box python:1;
-                                           box_group templet/box_group|nothing">
+                                           box_group content/box_group|nothing">
                           <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
                         </tal:block>
                       </tal:block>
                     </tal:block>
                   </div>
-                </div>                
+                </div>
               </tal:block>
             </td>
           </tal:block>

@@ -109,7 +109,7 @@
 
 <metal:block define-macro="box_slot">
     <tal:block repeat="portlet portlets"
-     define="slot_class string:BoxColor${templet/boxcolor|nothing} BoxShape${templet/boxshape|nothing}">
+     define="slot_class string:BoxColor${content/boxcolor|nothing} BoxShape${content/boxshape|nothing}">
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
     </tal:block>
 </metal:block>
@@ -123,16 +123,16 @@
         <tal:block condition="maxcols"
          repeat="x_pos python: range(int(maxcols))">
           <tal:block define="objects_in_xpos python: objects.get(x_pos, None);
-                             templets_in_xpos python: objects_in_xpos['templets'];
+                             contents_in_xpos python: objects_in_xpos['contents'];
                              cellsize python: objects_in_xpos['cellsizer'];
                              cellwidth cellsize/cellwidth|nothing"
-                     condition="templets_in_xpos">
+                     condition="contents_in_xpos">
             <td tal:attributes="width cellwidth">
-              <tal:block repeat="templet templets_in_xpos">
-                <div class="TempletBox" tal:content="templet/title"
-                 tal:condition="templet/aq_explicit/isPortalBox|nothing" />
-                <tal:block condition="templet/aq_explicit/isPortalBoxGroup|nothing"
-                 define="group templet/box_group|nothing">
+              <tal:block repeat="content contents_in_xpos">
+                <div class="TempletBox" tal:content="content/title"
+                 tal:condition="content/aq_explicit/isPortalBox|nothing" />
+                <tal:block condition="content/aq_explicit/isPortalBoxGroup|nothing"
+                 define="group content/box_group|nothing">
                   <div class="BoxGroupBoundingBox">
                     <div tal:content="group" class="BoxGroupBoxSlotTitle" />
                     <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group)">

@@ -31,18 +31,18 @@
               <tal:block condition="maxcols"
               repeat="x_pos python: range(int(maxcols))">
                 <tal:block define="objects_in_xpos python: objects.get(x_pos, None);
-                                   templets_in_xpos python: objects_in_xpos['templets'];
+                                   contents_in_xpos python: objects_in_xpos['contents'];
                                    cellsize python: objects_in_xpos['cellsizer'];
                                    cellwidth cellsize/cellwidth|nothing"
-                           condition="templets_in_xpos">
+                           condition="contents_in_xpos">
                   <td tal:attributes="width cellwidth">
-                    <tal:block repeat="templet templets_in_xpos">
-                      <div tal:content="templet/title"
+                    <tal:block repeat="content contents_in_xpos">
+                      <div tal:content="content/title"
                       class="TempletBox"
-                      tal:condition="templet/aq_explicit/isPortalBox|nothing" />
-                      <tal:block condition="templet/aq_explicit/isMainContent|nothing"
+                      tal:condition="content/aq_explicit/isPortalBox|nothing" />
+                      <tal:block condition="content/aq_explicit/isMainContent|nothing"
                         define="default string:vertical;
-                                orientation templet/orientation|default">
+                                orientation content/orientation|default">
                         <div class="BoxGroupBoundingBox"
                           tal:define="group string:center">
                           <div i18n:translate=""
@@ -66,10 +66,10 @@
                           </tal:block>
                         </div>
                       </tal:block>
-                      <tal:block condition="templet/aq_explicit/isPortalBoxGroup|nothing"
-                                 define="group templet/box_group|nothing;
+                      <tal:block condition="content/aq_explicit/isPortalBoxGroup|nothing"
+                                 define="group content/box_group|nothing;
                                          default string:vertical;
-                                         orientation templet/orientation|default">
+                                         orientation content/orientation|default">
                         <div class="BoxGroupBoundingBox" tal:condition="python: group != 'closed'">
                           <div i18n:translate=""
                           tal:content="string:label_${group}"

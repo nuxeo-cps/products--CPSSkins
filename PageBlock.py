@@ -341,7 +341,7 @@ class PageBlock(ThemeFolder):
         """
  
         objects = {}
-        templets = {}
+        contents = {}
         cellstyler = {}
         cellsizer = {}
         cellhider = {}
@@ -349,7 +349,7 @@ class PageBlock(ThemeFolder):
 
         maxcols = self.maxcols
         for col in range(maxcols):
-            templets[col] = []
+            contents[col] = []
             cellstyler[col] = None
             cellsizer[col] = None
             cellhider[col] = None
@@ -367,8 +367,12 @@ class PageBlock(ThemeFolder):
             if cellvisibility[xpos] or edit:
                 if getattr(obj, 'isportaltemplet', 0):
                     if obj.getVisibility(REQUEST=REQUEST) or edit:
-                        templets[xpos].append(obj)
+                        contents[xpos].append(obj)
                         continue
+
+                if getattr(obj, 'iscellblock', 0):
+                    contents[xpos].append(obj)
+                    continue
 
                 if getattr(obj, 'iscellsizer', 0):
                     cellsizer[xpos] = obj
@@ -379,7 +383,7 @@ class PageBlock(ThemeFolder):
 
         for col in range(maxcols):
             if edit or cellvisibility[col]:
-                objects[col] = {'templets': templets[col], 
+                objects[col] = {'contents': contents[col], 
                                 'cellsizer': cellsizer[col], 
                                 'cellstyler': cellstyler[col],
                                 'cellhider': cellhider[col],

@@ -365,6 +365,10 @@ msgid "_Calendar_"
 msgstr "Agenda"
 
 
+msgid "_Cell Block_"
+msgstr ""
+
+
 msgid "_Cell Hider_"
 msgstr "Ocultador de célula"
 
@@ -1640,6 +1644,10 @@ msgstr "uma agenda com eventos mensais"
 
 msgid "_calendarstyle_description_"
 msgstr "este estilo define a aparência visual das agendas."
+
+
+msgid "_cellblock_description_"
+msgstr ""
 
 
 msgid "_cellhider_description_"

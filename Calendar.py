@@ -26,8 +26,6 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
-from Products.CMFCore.utils import getToolByName
-
 from BaseTemplet import BaseTemplet
 from cpsskins_utils import getStyleList
 

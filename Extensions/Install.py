@@ -302,7 +302,7 @@ def update(self):
         'Theme Folder',
     )
 
-    types_in_pageblocks = (
+    types_templets = (
         'Search Box Templet',
         'Action Box Templet',
         'Text Box Templet',
@@ -317,10 +317,16 @@ def update(self):
         'Main Content Templet',
         'Collapsible Menu Templet',
         'Portal Tab Templet',
+        )
+
+    types_in_pageblocks = types_templets + (
         'Cell Sizer',
         'Cell Styler',
         'Cell Hider',
+        'Cell Block',
         )
+
+    types_in_cellblocks = types_templets
 
     types_in_stylefolders = (
         'Area Shape',
@@ -345,12 +351,14 @@ def update(self):
     if checktool(self, 'portal_calendar'):
         types_in_stylefolders += ('Calendar Style',)
         types_in_pageblocks += ('Calendar Templet',)
+        types_in_cellblocks += ('Calendar Templet',)
     else:
         ptypes_to_delete += ('Calendar Templet', 'Calendar Style')
 
     # CPSPortlets
     if checktool(self, 'portal_cpsportlets'):
         types_in_pageblocks += ('Portlet Box Templet',)
+        types_in_cellblocks += ('Portlet Box Templet',)
     else:
         ptypes_to_delete += ('Portlet Box Templet',)
 
@@ -392,6 +400,7 @@ def update(self):
     pr("  Installing allowed content types")
     allowed_content_type = {
         'Page Block' : types_in_pageblocks,
+        'Cell Block' : types_in_cellblocks,
         'Portal Theme' : types_in_portalthemes,
         'Theme Folder' : types_in_themefolders + ('Portal Theme', 'Theme Folder'),
        }
