@@ -8,13 +8,16 @@ portal_path = context.portal_url.getPortalPath() + '/'
 ptltool = context.portal_cpsportlets
 portlets = ptltool.getPortlets(context=context, slot=dest_slot, sort=0)
 
+checkPerm = context.portal_membership.checkPermission
+
 if src_slot == dest_slot:
     found = 0
     for portlet in portlets: 
         order = portlet.getOrder()
         if order == dest_ypos and not found:
             found = 1
-            portlet.setOrder(src_ypos)
+            if checkPerm('Manage Portlets', portlet):
+                portlet.setOrder(src_ypos)
             if src_ypos == dest_ypos:
                 dest_ypos += 10
             break
@@ -27,7 +30,8 @@ else:
             found = 1
             new_ypos = order + 10
         if found:
-            portlet.setOrder(new_ypos)
+            if checkPerm('Manage Portlets', portlet):
+                portlet.setOrder(new_ypos)
             new_ypos += 10
 
 portlet = context.restrictedTraverse(portal_path + portlet_rurl)
