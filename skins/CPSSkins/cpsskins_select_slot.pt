@@ -15,7 +15,7 @@
       &nbsp;<span tal:content="slot" /> ...
       <div style="text-align: right"> 
         <a tal:define="title string:_select this slot_" i18n:translate=""
-        tal:attributes="href string:javascript:changeSelection('$slot', '$prop')"
+        tal:attributes="href string:javascript:selectSlot('$slot', '$prop')"
         tal:content="python: mcat and mcat(title) or title" />
       </div>
     </div>

@@ -11,7 +11,7 @@
                themes tmtool/getThemes">
     <div class="panel" tal:repeat="theme themes">
       <a tal:define="number repeat/theme/number"
-       tal:attributes="href string:javascript:changeSelection('$number', '$prop')">
+       tal:attributes="href string:javascript:selectTheme('$number', '$prop')">
         <div style="width: 250px"
          tal:define="preview theme/preview">
           <h1 tal:content="theme/title" />
