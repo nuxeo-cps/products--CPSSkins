@@ -192,3 +192,24 @@
     <metal:block define-slot="box_title">Box Title</metal:block>
   </a>
 </metal:block>
+
+<!-- ============================================================ -->
+<metal:block define-macro="edit">
+  <div class="PortletBoxDrag"
+   tal:define="ypos portlet/getOrder;
+               group portlet/getSlot"
+   tal:attributes="portlet_rurl portlet/getRelativeUrl;
+                   src_ypos python: ypos and ypos or 0;
+                   src_slot group">
+    <div class="PortletBoxDest"
+     tal:attributes="dest_slot group;
+                     dest_ypos python: ypos and ypos or 0">
+      <div class="BoxGroupBoxTitle">
+        <metal:block define-slot="box_title">Box Title</metal:block>
+      </div>
+      <div class="body">
+        <metal:block define-slot="box_body">Box Body</metal:block>
+      </div>
+    </div>
+  </div>
+</metal:block>

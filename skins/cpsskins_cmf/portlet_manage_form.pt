@@ -1,4 +1,5 @@
-<metal:html tal:define="cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+<metal:html tal:define="global boxedit python:1;
+                        cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                         mtool here/portal_membership;
                         checkPerm nocall:mtool/checkPermission">
   <metal:body use-macro="here/main_template/macros/master">

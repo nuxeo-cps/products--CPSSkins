@@ -1,6 +1,7 @@
 <metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
-  define="padding templet/padding|string:0">
+  define="padding templet/padding|string:0;
+          boxedit boxedit|nothing">
   
     <tal:block define="slot_boxes python: btool.filterBoxes(boxes, slot=box_group)">
       <tal:block tal:condition="python: box_group != 'closed'">
@@ -18,7 +19,7 @@
       </tal:block>
     </tal:block>
 
-    <div tal:define="rendered python: templet.render_cache(shield=1, context_obj=here);
+    <div tal:define="rendered python: templet.render_cache(shield=1, context_obj=here, boxedit=boxedit);
                      margin here/margin|string:0"
          tal:condition="python: rendered != ''"
          tal:attributes="style string:text-align:${templet/align};; padding:$margin"
