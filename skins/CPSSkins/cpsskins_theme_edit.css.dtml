@@ -1027,6 +1027,33 @@ cursor: crosshair;
   background-color: #ffffcc;
 }
 
+.navBreadCrumbs {
+  background-color: #f9f9f9;
+  padding: 5px;
+}
+
+.navBreadCrumbs a, .navSubFolders a {
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #f3f3f9;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.navSubFolders {
+  float: right;
+  padding: 5px;
+}
+
+.navSubFolders select {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f9;
+}
+.navSubFolders option {
+  font-size: small;
+}
+
 .tableFrame {
   border: 1px #ccc solid;
   background-color: #eae9e4;

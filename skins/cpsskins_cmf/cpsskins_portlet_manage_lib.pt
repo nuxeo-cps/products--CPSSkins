@@ -238,19 +238,29 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="breadcrumbs">
-  <div style="float: right">
-    <tal:block define="contents python: ptltool.getFolders(context=bmf)"
+  <div class="navSubFolders"
+   tal:define="contents python: ptltool.getFolders(context=bmf)"
+   tal:condition="contents">
+    <form tal:condition="python: len(contents) &gt;= 5"
+     action="cpsskins_url_redirect" method="get">
+      <select name="url" onChange="submit()">
+        <option value="">...</option>
+        <tal:block repeat="content contents">
+          <option
+           tal:attributes="value string:${content/absolute_url}/portlet_manage_form"
+           tal:content="content/title_or_id" />
+        </tal:block>
+      </select>
+    </form>
+    <tal:block condition="python: len(contents) &lt; 5"
      repeat="content contents">
-      <a href="" alt=""
-       tal:attributes="href string:${content/absolute_url}/portlet_manage_form;
-                       title content/title_or_id"
-       tal:content="content/id" />
-       <tal:block content="structure string:,&nbsp;"
-       condition="not:repeat/content/end" />
+      <a href="" tal:attributes="href string:${content/absolute_url}/portlet_manage_form"
+       tal:content="content/title_or_id" />
     </tal:block>
   </div>
-  <tal:block repeat="bc python: ptltool.getBreadCrumbs(context=here)">
+  <div class="navBreadCrumbs">
     <span class="portletBoxDest"
+     tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)"
      tal:omit-tag="not:bc/editable"
      tal:attributes="insert_url string:${base_url}${bc/rpath};
                      dest_rurl bc/rpath;
@@ -260,7 +270,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
        tal:attributes="href string:${base_url}${bc/rpath}/portlet_manage_form;
                        title bc/title" />
     </span>
-  </tal:block>
+  </div>
 </metal:block>
 
 <metal:block define-macro="main_canvas">
