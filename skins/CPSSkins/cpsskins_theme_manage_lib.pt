@@ -278,7 +278,7 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="themes_manager"
+<metal:block define-macro="themes_manager" i18n:domain="cpsskins"
   tal:define="themes python: tmtool.getThemes()">
     <h1 tal:define="title string:_Themes manager_"
     tal:content="python: mcat and mcat(title) or title"
@@ -510,12 +510,11 @@
             <tal:block repeat="style unused_styles">
               <tr>
                 <td width="50%">
+                  <img src="" alt=""
+                   tal:attributes="src string:${base_url}${style/getIcon}" />
                   <a href=""
-                   tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')">
-                    <img src="" alt=""
-                     tal:attributes="src string:${base_url}${style/getIcon}" />
-                    <span tal:content="style/getTitle" />
-                  </a>
+                   tal:attributes="onClick string:newWindow('${style/absolute_url}/edit_form')"
+                   tal:content="style/getTitle" />
                 </td>
                 <td width="25%">
                   <span tal:define="title python:'_%s_' % style.meta_type"
@@ -737,16 +736,4 @@
     </form>
   </div>
   <br style="clear: left" />
-</metal:block>
-
-<metal:block define-macro="set_default_theme">
-  <form name="setdefaulttheme" action=""
-   tal:attributes="action string:${theme_container_url}/cpsskins_setdefaulttheme">
-    <input type="hidden" name="default_theme"
-     tal:attributes="value current_theme" />
-    <input type="submit" class="themeDefault"
-     i18n:attributes="value" 
-     tal:define="title string:_button_set_theme_as_default_"
-     tal:attributes="value python: mcat and mcat(title) or title" />
-  </form>
 </metal:block>

@@ -43,7 +43,8 @@
       <metal:block use-macro="here/cpsskins_main_template_edit/macros/main" />
     </tal:block> 
 
-    <div class="editForm" tal:condition="python: panel in ['theme', 'cache_manager', 'theme_optimizer', 'theme_exporter']">
+    <div i18n:domain="cpsskins"
+     class="editForm" tal:condition="python: panel in ['theme', 'cache_manager', 'theme_optimizer', 'theme_exporter']">
       <h1>
         <tal:block define="title string:_Manage_"
          tal:content="python: mcat and mcat(title) or title"

@@ -56,12 +56,6 @@
   </div>
 
   <div class="editForm">
-    <tal:block condition="isImageBox">
-      <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
-    </tal:block>
-    <tal:block condition="isFlashBox">
-      <metal:block use-macro="here/cpsskins_form_widgets/macros/flashfile_upload" />
-    </tal:block>
 
     <metal:block use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
 
@@ -77,6 +71,13 @@
     </div>
 
     <br/>
+    <tal:block condition="isImageBox">
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/image_upload" />
+    </tal:block>
+    <tal:block condition="isFlashBox">
+      <metal:block use-macro="here/cpsskins_form_widgets/macros/flashfile_upload" />
+    </tal:block>
+
     <tal:block condition="showPreview">
       <h2 i18n:translate=""
        tal:define="title string:_Preview_"
