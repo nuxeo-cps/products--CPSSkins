@@ -2108,7 +2108,7 @@ msgstr "Alltid"
 
 
 msgid "_option_automatic_"
-msgstr "Automatisk kontroll"
+msgstr "Automatisk detektering"
 
 
 msgid "_option_bg_no-repeat_"
