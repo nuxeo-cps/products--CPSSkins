@@ -30,6 +30,7 @@ from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
+from ZODB.POSException import ConflictError
 from types import ListType, TupleType
 
 from Products.CMFCore.DynamicType import DynamicType
@@ -496,20 +497,18 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                     # crash shield
                     try:
                         rendered = apply(meth, (), kw)
+                    except ConflictError: # catch conflict errors
+                        raise
                     except:
-                        # attempt to rebuild
+                        self.rebuild()
+                        # try again to render it ...
                         try:
-                            self.rebuild()
-                        # rebuild failed
+                            rendered = apply(meth, (), kw)
+                        except ConflictError: # catch conflict errors
+                            raise
+                        # total failure
                         except:
                             fail = 1
-                        else:
-                            # try again to render it ...
-                            try:
-                                rendered = apply(meth, (), kw)
-                            # total failure
-                            except:
-                                fail = 1
                 # no crash shield
                 else:
                     rendered = apply(meth, (), kw)

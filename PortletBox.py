@@ -26,6 +26,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
+from ZODB.POSException import ConflictError
 
 from Products.CMFCore.utils import getToolByName
 
@@ -145,6 +146,8 @@ class PortletBox(BaseTemplet, SimpleBox):
         if shield:
             try:
                 body = portlet.render_cache(**kw)
+            except ConflictError: # catch conflict errors
+                raise
             except:
                 body = '<blink>!!!</blink>'
         else:
