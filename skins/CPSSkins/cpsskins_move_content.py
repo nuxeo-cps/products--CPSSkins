@@ -28,6 +28,8 @@ if not dest_page:
     req_theme, req_page = tmtool.getRequestedThemeAndPageName(editing=1)
     dest_page_container = dest_theme_container.getPageContainer(page=req_page)
     if dest_page_container is None:
+        dest_page_container = dest_theme_container.getDefaultPage()
+    if dest_page_container is None:
         dest_page_container = dest_theme_container.addThemePage()
     dest_page = dest_page_container.getId()
 
