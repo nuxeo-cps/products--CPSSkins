@@ -1,8 +1,8 @@
 ##parameters=REQUEST=None, **kw
 
 text = context.text
-i18n = getattr(context, 'i18n', 0)
-text_format = getattr(context, 'text_format', 'html')
+i18n = context.i18n
+text_format = context.text_format
 
 if i18n:
     mcat = context.cpsskins_getlocalizer(cat='default')
