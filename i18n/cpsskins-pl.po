@@ -1673,6 +1673,10 @@ msgid "_cellstyler_description_"
 msgstr "Styler komórki umo¿liwia modyfikacje stylu komórki."
 
 
+msgid "_clipboard_"
+msgstr ""
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Styl menu rozwijalnego"
 
@@ -1789,6 +1793,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Styl zwijania menu"
 
 
+msgid "_menu_Copy_"
+msgstr ""
+
+
 msgid "_menu_Delete_"
 msgstr "Kasowanie"
 
@@ -1819,6 +1827,10 @@ msgstr ""
 
 msgid "_menu_Insert_"
 msgstr "Wstaw"
+
+
+msgid "_menu_Paste_"
+msgstr ""
 
 
 msgid "_menu_Portal Box Color_"

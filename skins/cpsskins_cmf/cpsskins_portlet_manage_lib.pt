@@ -89,6 +89,14 @@
          define="title string:_menu_Edit_"
          content="python: mcat and mcat(title) or title" />
     </div>
+    <div class="context-menu-item" onmouseup="Choice_copy_to_clipboard()"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/copy-16.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Copy_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
     <div class="context-menu-item" onmouseup="Choice_insert()"
          filter="pd_selected_item">
        <img width="16" height="16" 
@@ -124,7 +132,23 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
  </div>
- <br style="clear:both" />
+</metal:block>
+
+<metal:block define-macro="clipboard" i18n:domain="cpsskins">
+  <div class="ClipboardBox"
+    tal:define="view_mode python: tmtool.getViewMode();
+                clipboard view_mode/clipboard|nothing"
+    tal:condition="clipboard">
+    <div class="title" i18n:translate=""
+     tal:define="title string:_clipboard_"
+     tal:content="python: mcat and mcat(title) or title" />
+    <div tal:define="portal_path python: utool.getPortalPath();
+                     portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None)">
+      <img src="" width="16" height="16" alt="" align="middle"
+       tal:attributes="src portlet/getIcon" />
+      <span tal:content="portlet/title_or_id" />
+    </div>
+  </div>
 </metal:block>
 
 <metal:block define-macro="empty_slot">

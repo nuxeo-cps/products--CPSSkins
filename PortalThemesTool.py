@@ -163,9 +163,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if portlets_panel is not None:
             session_dict['portlets_panel'] = portlets_panel
 
-        selected_portlets = kw.get('selected_portlet')
-        if selected_portlets is not None:
-            session_dict['selected_portlet'] = selected_portlets
+        selected_portlet = kw.get('selected_portlet')
+        if selected_portlet is not None:
+            session_dict['selected_portlet'] = selected_portlet
+
+        clipboard = kw.get('clipboard')
+        if clipboard is not None:
+            session_dict['clipboard'] = clipboard
 
         theme = kw.get('theme')
         if theme is not None:

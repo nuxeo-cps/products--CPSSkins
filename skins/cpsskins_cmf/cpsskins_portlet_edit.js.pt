@@ -96,6 +96,14 @@ function Choice_edit() {
   newWindow(portlet_url + '/edit_form');
 }
 
+function Choice_copy_to_clipboard() {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
+  window.location = 'cpsskins_copy_to_clipboard?object_rurl=' + portlet_rurl
+}
+
 function Choice_insert() {
   pd_hideContextMenu();
   if (pd_selected_item == null) 

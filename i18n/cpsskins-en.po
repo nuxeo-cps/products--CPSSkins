@@ -1671,6 +1671,10 @@ msgid "_cellstyler_description_"
 msgstr "a Cell Styler modifies the style of a cell."
 
 
+msgid "_clipboard_"
+msgstr "Clipboard"
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Collapsible menu style"
 
@@ -1787,6 +1791,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Collapsible menu style"
 
 
+msgid "_menu_Copy_"
+msgstr "Copy"
+
+
 msgid "_menu_Delete_"
 msgstr "Delete"
 
@@ -1817,6 +1825,10 @@ msgstr "Form style"
 
 msgid "_menu_Insert_"
 msgstr "Insert"
+
+
+msgid "_menu_Paste_"
+msgstr "Paste"
 
 
 msgid "_menu_Portal Box Color_"

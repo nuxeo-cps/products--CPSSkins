@@ -765,6 +765,25 @@ background: #f6f6f9;
 margin-bottom: 7px;
 }
 
+/* Clipboard */
+
+.ClipboardBox {
+position: absolute;
+right: 1em;
+top: 0.5em;
+border: 1px solid #666;
+background-color: #ffc;
+text-align: center;
+padding: 5px;
+width: 110px;
+-moz-border-radius: 8px;
+}
+
+.ClipboardBox .title {
+font-weight: bold;
+padding-bottom: 0.5em;
+}
+
 /* Portal Boxes */
 .PortalBoxDest, .PortalBoxDest_highlighted {
 border: 1px solid #666;

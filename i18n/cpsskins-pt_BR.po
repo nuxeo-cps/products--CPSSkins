@@ -1674,6 +1674,10 @@ msgid "_cellstyler_description_"
 msgstr "Um Estilizador de Célula modifica o estilo de uma célula."
 
 
+msgid "_clipboard_"
+msgstr ""
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Estilo do menu contrátil"
 
@@ -1790,6 +1794,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Estilo do menu contrátil"
 
 
+msgid "_menu_Copy_"
+msgstr ""
+
+
 msgid "_menu_Delete_"
 msgstr "Remover"
 
@@ -1820,6 +1828,10 @@ msgstr ""
 
 msgid "_menu_Insert_"
 msgstr "Inserir"
+
+
+msgid "_menu_Paste_"
+msgstr ""
 
 
 msgid "_menu_Portal Box Color_"

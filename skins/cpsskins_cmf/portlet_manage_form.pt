@@ -26,7 +26,10 @@
 <body>
   <div class="floatingheader">
    <metal:block 
+    use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />
+   <metal:block 
     use-macro="here/cpsskins_portlet_manage_lib/macros/navigate" />
+   <br style="clear:both" />
    <metal:block
     use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_panel" />
   </div>

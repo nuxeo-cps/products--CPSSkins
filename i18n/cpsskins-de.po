@@ -1671,6 +1671,10 @@ msgid "_cellstyler_description_"
 msgstr "ein Zellen-Styler passt den Stil einer Zelle an."
 
 
+msgid "_clipboard_"
+msgstr ""
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Stil eine zusammenklappbaren Menüs"
 
@@ -1787,6 +1791,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Stil des zusammenklappbaren Menüs"
 
 
+msgid "_menu_Copy_"
+msgstr ""
+
+
 msgid "_menu_Delete_"
 msgstr "Löschen"
 
@@ -1817,6 +1825,10 @@ msgstr ""
 
 msgid "_menu_Insert_"
 msgstr "Einfügen"
+
+
+msgid "_menu_Paste_"
+msgstr ""
 
 
 msgid "_menu_Portal Box Color_"

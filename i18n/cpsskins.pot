@@ -569,6 +569,12 @@ msgstr ""
 msgid "_menu_Insert_"
 msgstr ""
 
+msgid "_menu_Copy_"
+msgstr ""
+
+msgid "_menu_Paste_"
+msgstr ""
+
 msgid "_menu_Portal Box Color_"
 msgstr ""
 
@@ -1736,4 +1742,7 @@ msgid "portlet_browser_panel"
 msgstr ""
 
 msgid "unused_portlets_panel"
+msgstr ""
+
+msgid "_clipboard_"
 msgstr ""

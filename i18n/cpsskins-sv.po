@@ -1671,6 +1671,10 @@ msgid "_cellstyler_description_"
 msgstr ""
 
 
+msgid "_clipboard_"
+msgstr ""
+
+
 msgid "_collapsiblemenu_style_"
 msgstr ""
 
@@ -1787,6 +1791,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr ""
 
 
+msgid "_menu_Copy_"
+msgstr ""
+
+
 msgid "_menu_Delete_"
 msgstr "Ta bort"
 
@@ -1817,6 +1825,10 @@ msgstr ""
 
 msgid "_menu_Insert_"
 msgstr "Lägga till"
+
+
+msgid "_menu_Paste_"
+msgstr ""
 
 
 msgid "_menu_Portal Box Color_"

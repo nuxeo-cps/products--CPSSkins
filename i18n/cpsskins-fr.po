@@ -1673,6 +1673,10 @@ msgid "_cellstyler_description_"
 msgstr "un styleur modifie le style d'une cellule."
 
 
+msgid "_clipboard_"
+msgstr "Presse-papier"
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Style de menu extensible"
 
@@ -1789,6 +1793,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Style de menu extensible"
 
 
+msgid "_menu_Copy_"
+msgstr "Copier"
+
+
 msgid "_menu_Delete_"
 msgstr "Supprimer"
 
@@ -1819,6 +1827,10 @@ msgstr "Style des formulaires"
 
 msgid "_menu_Insert_"
 msgstr "Insérer"
+
+
+msgid "_menu_Paste_"
+msgstr "Coller"
 
 
 msgid "_menu_Portal Box Color_"

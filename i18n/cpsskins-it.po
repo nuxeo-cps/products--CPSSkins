@@ -1673,6 +1673,10 @@ msgid "_cellstyler_description_"
 msgstr "lo \"stilista\" consente di impostare lo stile del contenitore."
 
 
+msgid "_clipboard_"
+msgstr ""
+
+
 msgid "_collapsiblemenu_style_"
 msgstr "Stile del menù dinamico"
 
@@ -1789,6 +1793,10 @@ msgid "_menu_Collapsible Menu Style_"
 msgstr "Stile del menù dinamico"
 
 
+msgid "_menu_Copy_"
+msgstr ""
+
+
 msgid "_menu_Delete_"
 msgstr "Elimina"
 
@@ -1819,6 +1827,10 @@ msgstr "Stile del modulo"
 
 msgid "_menu_Insert_"
 msgstr "Inserisci"
+
+
+msgid "_menu_Paste_"
+msgstr ""
 
 
 msgid "_menu_Portal Box Color_"
