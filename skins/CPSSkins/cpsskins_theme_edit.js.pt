@@ -59,6 +59,7 @@ function selectStyle(style, select_id) {
 function newWindow(url) {
     mywindow=window.open(url, 'selector', "width=760, height=500, location=no, menubar=no, status=no, toolbar=no, scrollbars=yes, resizable=yes");
     mywindow.location.href = url;
+    mywindow.focus();
     if (mywindow.opener == null) mywindow.opener = self;
 }
 
