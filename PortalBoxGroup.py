@@ -177,12 +177,6 @@ class PortalBoxGroup(BaseTemplet):
 
          return self.box_group
 
-    security.declarePublic('applyBoxLayout')
-    def applyBoxLayout(self, **kw):
-        """Apply a box layout on the content"""
-
-        return self.cpsskins_renderBox(**kw)
-        
     #
     # Rendering.
     #
@@ -211,7 +205,8 @@ class PortalBoxGroup(BaseTemplet):
             else:
                 rendered = portlet.render_cache(**kw)
             # add the box decoration
-            rendered = self.applyBoxLayout(portlet=portlet)
+            rendered = self.cpsskins_renderBox(portlet=portlet,
+                                               rendered=rendered)
             all_rendered += rendered
         return all_rendered
 
