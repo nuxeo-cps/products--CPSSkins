@@ -26,6 +26,8 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
+import ExtensionClass
+
 BOX_LAYOUTS = {
     'standard': {
         'markup': """<div class="title">%s</div>
@@ -79,7 +81,7 @@ BOX_LAYOUTS = {
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
 
-class SimpleBox:
+class SimpleBox(ExtensionClass.Base):
     """
     Simple Box.
     """
