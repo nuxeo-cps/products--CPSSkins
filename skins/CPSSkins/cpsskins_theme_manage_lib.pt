@@ -106,8 +106,6 @@
             <th>&nbsp;</th>
             <th tal:define="title string:_Title_" i18n:translate=""
              tal:content="python: mcat and mcat(title) or title">Title</th>
-            <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
-             tal:content="python: mcat and mcat(title) or title">Preview</th>
           </tr>
           <tal:block repeat="style style_list">
             <tr tal:define="styleid style/getId;
@@ -124,19 +122,15 @@
               </td>
               <td>
                 <a href="javascript:void(0)"
-                 tal:attributes="onClick onclick_string"
+                 tal:attributes="onClick onclick_string;
+                                 onmouseover string:toggle('$styleid');
+                                 onmouseout string:toggle('$styleid')"
                  tal:content="python: style.title_or_id()" />
-              </td>
-              <td align="center" width="240px">
-                <div style="text-align: left; padding: 3px">
-                  <a href="javascript:void(0)"
-                   tal:content="structure python: style.preview()"
-                   tal:attributes="onClick onclick_string" />
-                </div>
               </td>
             </tr>
           </tal:block>
         </table>
+
         <br />
         <input type="submit" name="cutObjects:method"
          value="Cut" i18n:attributes="value"
@@ -163,6 +157,11 @@
            tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
         </a>
       </div>
+      <tal:block repeat="style style_list">
+        <div class="previewBox hidden"
+         tal:content="structure python: style.preview()"
+         tal:attributes="id style/getId" />
+      </tal:block>
     </tal:block>
 </metal:block>
 
@@ -193,7 +192,8 @@
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
 
-      <form tal:define="folder python: theme_container.getImageFolder(category=imagecat)"
+      <form tal:define="folder python: theme_container.getImageFolder(category=imagecat);
+                        images python: here.cpsskins_listImages(imagecat=imagecat)"
        action="" tal:attributes="action folder/absolute_url"
        name="objectItems" method="post">
         <table class="browser" summary="" cellpadding="0" cellspacing="0">
@@ -208,9 +208,8 @@
             <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
              tal:content="python: mcat and mcat(title) or title">Preview</th>
             <th>&nbsp;</th>
-            <th>&nbsp;</th>
           </tr>
-          <tal:block repeat="image python: here.cpsskins_listImages(imagecat=imagecat)">
+          <tal:block repeat="image images">
             <tr tal:define="imageid image/getId;
                             onclick_string string:newWindow('${image/absolute_url}/cpsskins_image_edit_form?imagecat=$imagecat');
                             even repeat/image/even;"
@@ -233,17 +232,17 @@
                                  onmouseout string:toggle('$imageid')"
                  tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat, inline=1)" />
               </td>
-              <td>
-                <div class="previewBox hidden"
-                 tal:attributes="id image/getId"
-                 tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat)" />
-              </td>
               <td tal:define="here nocall:image">
                 <metal:block use-macro="here/cpsskins_theme_widgets/macros/edit_online" />
               </td>
             </tr>
           </tal:block>
         </table>
+        <tal:block repeat="image images">
+          <div class="previewBox hidden"
+           tal:attributes="id image/getId"
+           tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat)" />
+        </tal:block>
         <br />
         <input type="submit" name="cutObjects:method"
          value="Cut" i18n:attributes="value"
@@ -316,7 +315,6 @@
              tal:content="python: mcat and mcat(title) or title">Value</th>
             <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
              tal:content="python: mcat and mcat(title) or title">Preview</th>
-            <th>&nbsp;</th>
           </tr>
           <tal:block repeat="palette palette_list">
             <tr tal:define="paletteid palette/getId;
@@ -345,14 +343,15 @@
                                  onmouseover string:toggle('$paletteid');
                                  onmouseout string:toggle('$paletteid')" />
               </td>
-              <td>
-                <div class="previewBox hidden"
-                 tal:attributes="id palette/getId"
-                 tal:content="structure python: palette.preview()" />
-              </td>
             </tr>
           </tal:block>
         </table>
+
+        <tal:block repeat="palette palette_list">
+          <div class="previewBox hidden"
+           tal:attributes="id palette/getId"
+           tal:content="structure python: palette.preview()" />
+        </tal:block>
         <br />
         <input type="submit" name="cutObjects:method"
          value="Cut" i18n:attributes="value"
@@ -414,9 +413,11 @@
               <tr tal:define="default_theme theme/default|nothing;
                               theme_id theme/id|nothing"
                   tal:attributes="style python: theme_id == current_theme and 'background-color: #d0d0d0' or ''">
-                  <td>
+                  <td width="16">
                     <img src="" align="middle" alt=""
                     tal:attributes="src string:${base_url}${theme/getIcon}" />
+                  </td>
+                  <td>
                     <a tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;themes_panel=theme&amp;reload=1;
                                        style python: default_theme and 'font-weight: bold' or ''"
                        tal:content="python: '%s (%s)' % (theme_id, theme.title_or_id())" />
