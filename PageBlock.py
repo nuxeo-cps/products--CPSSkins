@@ -222,9 +222,14 @@ class PageBlock(ThemeFolder, StylableContent):
                 margin_style = content.getCSSMarginStyle()
                 if margin_style:
                     rendered.append('<div style="%s">' % margin_style)
-                rendered.append('<div class="%s" style="%s">' % (
-                    content.getCSSAreaClass(level=2),
-                    content.getCSSLayoutStyle()))
+                layout_style = content.getCSSLayoutStyle()
+                area_class = content.getCSSAreaClass(level=2)
+                div_tag = []
+                if layout_style:
+                    div_tag.append('style="%s"' % layout_style)
+                if area_class:
+                    div_tag.append('class="%s"' % area_class)
+                rendered.append('<div %s>' % " ".join(div_tag))
                 rendered.append(content.render_cache(**kw))
                 rendered.append('</div>')
                 if margin_style:
