@@ -2,24 +2,41 @@
 CPSSkins - the visual theme editor for CMF, CPS and Plone. Version 2.2
 --------------------------------------------------------------------------
 
-==========================================================================
+
 CPSSkins 2.3.0 (development)
 Released: 2004-08-xx
 
 - Added a Portlet Box Templet.
   To be connected to CPSPortlets.
 
+- Updated the meta "generator" name to "CPSSkins 2.3"
+
 
 ==========================================================================
-CPSSkins 2.2 (final release)
-Released: 2004-08-xx
+CPSSkins 2.2 (stable release)
+Released: 2004-08-30
 
 - i18n: 
-  added Brazilian Portugese translation
+  added Brazilian Portuguese translation
   (Thanks to Mario Olimpio de Menezes <mario [at] curiango.ipen.br>)
 
   added support for PO filenames written as '...-xx_XX.po' (needed for
   pt_BR.po). i18n tests have been updated too.
+
+  fixed the internationalization in the Document Info Templet options.
+
+- Bug fix:
+  New images could not be uploaded to the Image Box when the Templet
+  was in the internationalized mode.
+
+- Theme editor / RAM cache:
+  The current language was not set correctly in the theme edition mode which 
+  would pollute the cache with content in the wrong language.
+
+  The RAM caches now also get cleared when entering and exiting the theme 
+  editor since the character coding may be different (cf. Plone).
+
+- Updated the meta "generator" name to "CPSSkins 2.2"
 
 
 ==========================================================================
