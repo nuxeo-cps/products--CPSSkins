@@ -227,25 +227,27 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         renderBoxLayout = self.renderBoxLayout
 
-        all_rendered = ''
+        all_rendered = []
         for portlet in portlets:
             # add the box frame
-            all_rendered += '<div style="%s"><div class="%s">' % \
-                             (boxstyle, boxclass)
+            all_rendered.extend('<div style="%s"><div class="%s">' % \
+                                 (boxstyle, boxclass)
+                               )
             rendered = portlet.render_cache(**kw)
             # add the box decoration
-            all_rendered += renderBoxLayout(boxlayout=boxlayout,
-                                            title=portlet.title,
-                                            body=html_slimmer(rendered),
-                                            portlet=portlet, **kw
-                                           )
-            all_rendered += '</div></div>'
+            all_rendered.extend(renderBoxLayout(boxlayout=boxlayout,
+                                                title=portlet.title,
+                                                body=html_slimmer(rendered),
+                                                portlet=portlet, **kw)
+                               )
+            all_rendered.extend('</div></div>')
 
+        rendered = ''.join(all_rendered)
         # draw a slot in edit mode
         if boxedit:
-            all_rendered = self.cpsskins_renderBoxSlot(slot=self, 
-                                                       rendered=all_rendered)
-        return all_rendered
+            rendered = self.cpsskins_renderBoxSlot(slot=self,
+                                                   rendered=rendered)
+        return rendered
 
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, **kw):

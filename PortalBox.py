@@ -284,19 +284,20 @@ class PortalBox(BaseTemplet, SimpleBox):
         body = self.render_skin(shield=shield, **kw)
         body = html_slimmer(body)
 
-        rendered_box = ''
+        rendered_box = []
         if body:
             # add the box frame
-            rendered_box += '<div style="%s"><div class="%s">' % (
-                            self.getCSSBoxLayoutStyle(),
-                            self.getCSSBoxClass())
+            rendered_box.extend('<div style="%s"><div class="%s">' % (
+                                 self.getCSSBoxLayoutStyle(),
+                                 self.getCSSBoxClass())
+                               )
             # add the box decoration
-            rendered_box += self.renderBoxLayout(boxlayout=self.boxlayout,
-                                                 title=self.render_title(**kw),
-                                                 body=body, **kw
-                                                )
-            rendered_box += '</div></div>'
-        return rendered_box
+            rendered_box.extend(self.renderBoxLayout(boxlayout=self.boxlayout,
+                                                     title=self.render_title(**kw),
+                                                     body=body, **kw)
+                               )
+            rendered_box.extend('</div></div>')
+        return ''.join(rendered_box)
 
     security.declarePublic('render_title')
     def render_title(self, **kw):

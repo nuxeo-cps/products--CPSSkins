@@ -281,20 +281,21 @@ class PortletBox(BaseTemplet, SimpleBox):
         body = portlet.render_cache(**kw)
         body = html_slimmer(body)
 
-        rendered_box = ''
+        rendered_box = []
         if body:
             # add the box frame
-            rendered_box += '<div style="%s"><div class="%s">' % (
-                            self.getCSSBoxLayoutStyle(),
-                            self.getCSSBoxClass())
+            rendered_box.extend('<div style="%s"><div class="%s">' % (
+                                 self.getCSSBoxLayoutStyle(),
+                                 self.getCSSBoxClass())
+                               )
             # add the box decoration
-            rendered_box += self.renderBoxLayout(boxlayout=self.boxlayout,
-                                                 title=self.title,
-                                                 body=body,
-                                                 portlet=portlet, **kw
-                                                )
-            rendered_box += '</div></div>'
-        return rendered_box
+            rendered_box.extend(self.renderBoxLayout(boxlayout=self.boxlayout,
+                                                     title=self.title,
+                                                     body=body,
+                                                     portlet=portlet, **kw)
+                               )
+            rendered_box.extend('</div></div>')
+        return ''.join(rendered_box)
 
     #
     # RAM Cache
