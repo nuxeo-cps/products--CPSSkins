@@ -40,7 +40,7 @@ def getViewMode(self):
 
 from Products.CPSSkins.PortalThemesTool import PortalThemesTool
 PortalThemesTool.setViewMode = setViewMode
-PortalThemesTool.getViewMode = setViewMode
+PortalThemesTool.getViewMode = getViewMode
 
 # This one is needed by ProxyTool.
 def get_selected_language(self):
