@@ -30,7 +30,8 @@
 </head>
 
 <body tal:attributes="
-  class string:color${page_container/color}">
+  style python: panel != 'wysiwyg' and 'background-color: #fff' or None;
+  class python: page_container and 'color%s' % page_container.color or None">
   <div class="floatingHeader">
    <metal:block 
     use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />
