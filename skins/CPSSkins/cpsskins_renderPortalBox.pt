@@ -1,7 +1,7 @@
-<div tal:attributes="class python: here.getCSSBoxClass()">
+<div tal:attributes="class options/boxclass|nothing">
   <div tal:define="title options/title;
                    body options/body;
-                   macro_path options/macro_path"
+                   macro_path options/macro_path|nothing"
        tal:attributes="style options/boxstyle|nothing"
        tal:condition="macro_path">
     <metal:block use-macro="macro_path">
@@ -14,4 +14,3 @@
     </metal:block>
   </div>
 </div>
-

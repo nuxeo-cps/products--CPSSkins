@@ -273,8 +273,8 @@ class PortletBox(BaseTemplet):
         boxclass = self.getCSSBoxClass()
         boxstyle = self.getCSSBoxLayoutStyle()
 
-        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
-                                             boxlayout, default=None)
+        macro_path = self.unrestrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+                                               boxlayout, default=None)
         if macro_path is None:
             return ''
 

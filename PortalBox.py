@@ -288,17 +288,19 @@ class PortalBox(BaseTemplet):
         if body:
 
             boxstyle = self.getCSSBoxLayoutStyle()
+            boxclass = self.getCSSBoxClass()
 
             boxlayout = self.boxlayout
-            macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
-                                             boxlayout, default=None)
+            macro_path = self.unrestrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+                                                   boxlayout, default=None)
             if macro_path is None:
                 return ''
 
             title = self.render_title(**kw)
-            rendered_box = self.cpsskins_renderPortalBox(title=title, 
+            rendered_box = self.cpsskins_renderPortalBox(title=title,
                                                          body=body,
                                                          boxstyle=boxstyle,
+                                                         boxclass=boxclass,
                                                          macro_path=macro_path)
 
         return rendered_box
