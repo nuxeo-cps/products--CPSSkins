@@ -327,33 +327,25 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 </metal:block>
 
 <metal:block define-macro="templet_add_form" i18n:domain="cpsskins">
-  <div class="templetlist" tal:define="til here/cpsskins_listTemplets">
-    <table>
+  <dl class="templetlist" tal:define="til here/cpsskins_listTemplets">
     <tal:block repeat="ti til">
-      <tr>
-        <td valign="top">
-          <input name="type_name" type="radio" tal:attributes="value ti/id" />
-        </td>
-        <td valign="top">
-          <img tal:attributes="src string:${base_url}${ti/getIcon}"
-               width="16" height="16" />
-        </td>
-      <td>
-        <strong>
-        <span tal:define="title python: '_%s_' % ti.Title()"
-              tal:content="python: mcat and mcat(title) or title"
-         i18n:translate="" />
-        </strong>
-        <p 
-         tal:define="title ti/description"
-         tal:content="python: mcat and mcat(title) or title"
-         i18n:translate="" />  
-      </td>
-    </tr>
+      <dt tal:define="choice_id string:choice_${repeat/ti/number}">
+        <input name="type_name" type="radio"
+         tal:attributes="value ti/id;
+                         id choice_id" />
+        <img width="16" height="16" alt=""
+         tal:attributes="src string:${base_url}${ti/getIcon}" />
+        <label for="" tal:attributes="for choice_id">
+          <strong tal:define="title python: '_%s_' % ti.Title()"
+                  tal:content="python: mcat and mcat(title) or title"
+                  i18n:translate="" />
+        </label>
+      </dt>
+      <dd tal:define="title ti/description"
+          tal:content="python: mcat and mcat(title) or title"
+          i18n:translate="" />  
     </tal:block>
-    </table>
-  </div>
-  <br />
+  </dl>
   <input type="hidden" name="title" tal:attributes="value title" />
 </metal:block>
 
