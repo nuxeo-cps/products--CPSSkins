@@ -380,7 +380,8 @@
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
 
-    <form action="manage_clearCache">
+    <form action="manage_clearCache"
+     tal:attributes="action string:${theme_container_url}/cpsskins_clear_cache">
       <table cellpadding="0" cellspacing="2" width="100%" summary="">
         <tr>
           <td>
