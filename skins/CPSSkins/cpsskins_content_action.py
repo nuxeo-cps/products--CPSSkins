@@ -6,18 +6,24 @@ if REQUEST is not None:
 tmtool = context.portal_themes
 action = kw.get('action', None)
 
+selected_obj = context
 if action == 'duplicate':
-    newobj = context.duplicate()
+    selected_obj = context.duplicate()
+    url = context.absolute_url() + '/cpsskins_theme_manage_form'
 
-    # set the content as selected
-    if newobj is not None:
-        tmtool.setViewMode(selected_content=newobj.getId())
+elif action == 'set_styles':
+    url = context.absolute_url() + '/edit_form?cat=style'
+
+elif action == 'set_layout':
+    url = context.absolute_url() + '/edit_form?cat=layout'
 
 if action == 'delete':
     tmtool.delObject(context)
     tmtool.clearViewMode('selected_content')
-
-url = context.portal_url() + '/cpsskins_theme_manage_form'
+    url = context.portal_url() + '/cpsskins_theme_manage_form'
+else:
+    # set the content as selected
+    tmtool.setViewMode(selected_content=selected_obj.getId())
 
 if REQUEST is not None:
     REQUEST.RESPONSE.redirect(url)

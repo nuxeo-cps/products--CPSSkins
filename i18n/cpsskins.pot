@@ -575,6 +575,9 @@ msgstr ""
 msgid "_menu_Set styles_"
 msgstr ""
 
+msgid "_menu_Set layout_"
+msgstr ""
+
 msgid "_menu_Set alignment_"
 msgstr ""
 

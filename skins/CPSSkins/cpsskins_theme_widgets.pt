@@ -76,6 +76,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
            alignments python: '|'.join(align_list);
            styles python: '|'.join([s['meta_type'] for s in styles_list]);
            isalignable python: page.isAlignable();
+           haslayout python: 1;
            title page_title;
            contenturl page_url">
             <div class="contentDest" tal:attributes="dest_page page_id">
@@ -188,6 +189,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          tal:attributes="src string:${base_url}cpsskins_images/edit-16.png" />
       <tal:block i18n:translate="" 
          define="title string:_menu_Edit_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
+    <div class="context-menu-item" onmouseup="Choice_edit_layout()"
+    tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('haslayout')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/edit_layout-16.png" />
+      <tal:block i18n:translate=""
+         define="title string:_menu_Set layout_"
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_edit_styles()"
@@ -408,6 +417,7 @@ tal:define="block_id pageblock/getId;
   <div class="ContextualMenu"
    tal:define="styles_list python: pageblock.getApplicableStyles()"
    tal:attributes="contenturl block_url;
+                   haslayout python: 1;
                    styles python: '|'.join([s['meta_type'] for s in styles_list]);
                    title block_title;
                    icon python: '/' + pageblock.getIcon()">

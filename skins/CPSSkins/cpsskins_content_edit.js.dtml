@@ -53,6 +53,7 @@ function Choice_style(styleprop) {
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
   new_url = new_url + '/cpsskins_find_mystyles?styleprop=' + styleprop;
   newWindow(new_url);
 }
@@ -62,6 +63,7 @@ function Choice_action(action, confirm_msg) {
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
   if (action == 'delete')
     if (! window.confirm(confirm_msg))
       return;
@@ -73,6 +75,7 @@ function Choice_edit() {
   if (pd_selected_item == null) 
     return;
   new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
   newWindow(new_url + '/edit_form');
 }
 
@@ -81,13 +84,25 @@ function Choice_edit_styles() {
   if (pd_selected_item == null) 
     return;
   new_url = pd_selected_item.getAttribute('contenturl');
-  newWindow(new_url + '/edit_form?cat=style');
+  if (new_url == null) return;
+  newWindow(new_url + '/cpsskins_content_action?action=set_styles');
 }
+
+function Choice_edit_layout() {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+    return;
+  new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
+  newWindow(new_url + '/cpsskins_content_action?action=set_layout');
+}
+
 function Choice_align(alignprop) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
+  if (new_url == null) return;
   window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
 }
 

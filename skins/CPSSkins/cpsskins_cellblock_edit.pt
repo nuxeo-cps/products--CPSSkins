@@ -55,6 +55,7 @@
                                  styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                  xpos x_pos;
                                  ypos ypos;
+                                 haslayout python: 1;
                                  isalignable python: content.isAlignable();
                                  alignments python: '|'.join(align_list);
                                  icon python: '/' + content.getIcon();

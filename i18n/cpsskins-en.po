@@ -1995,6 +1995,10 @@ msgid "_menu_Set alignment_"
 msgstr "Set alignment"
 
 
+msgid "_menu_Set layout_"
+msgstr "Set layout"
+
+
 msgid "_menu_Set styles_"
 msgstr "Set styles"
 

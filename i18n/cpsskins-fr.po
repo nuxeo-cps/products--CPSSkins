@@ -1997,6 +1997,10 @@ msgid "_menu_Set alignment_"
 msgstr "Aligner"
 
 
+msgid "_menu_Set layout_"
+msgstr "Mise en forme"
+
+
 msgid "_menu_Set styles_"
 msgstr "Styliser"
 
