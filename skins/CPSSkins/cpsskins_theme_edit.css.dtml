@@ -34,6 +34,15 @@
   margin-bottom: 15px;
 }
 
+.locationInfo {
+  font-size: 11px;
+  font-style: italic;
+  border-left: 8px solid #ccc;
+  padding: 4px;
+  margin-bottom: 15px;
+  background-color: #eee;
+}
+
 .previewBox {
   padding: 5px;
   border-style: solid;
