@@ -10,7 +10,7 @@ tal:define="tmtool here/portal_themes;
             theme request/theme|nothing;
 	    global current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
 	    theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
-            theme_container_url python: utool.getRelativeUrl(theme_container);
+            theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
 	    pagemargin theme_container/margin|nothing;
 	    bodycolor theme_container/color|nothing;
             scrollx request/form/scrollx|python:0;

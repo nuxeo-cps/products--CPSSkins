@@ -44,7 +44,6 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
 
 <metal:block define-macro="navigate" i18n:domain="cpsskins"
 tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ]; 
-            this_url request/URL; 
             mtool here/portal_membership;
             utool nocall:here/portal_url;
             theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
@@ -56,35 +55,35 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url python: '%s?edit_mode=%s&theme=%s&cat=%s' % (this_url, section, theme, cat);
+      tal:define="url python: '%s?edit_mode=%s&theme=%s&cat=%s' % (here_url, section, theme, cat);
                   title python:'_%s mode_' % section" i18n:translate=""
        tal:attributes="href url ; class python: edit_mode == section and 'selected' or '' ;"
       tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
     &nbsp;
     <a tal:attributes="href string:$url?$edit_string;
-                    class python: this_url == url and 'selected' or ''"
+                    class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_styles;
                 title string:_Styles_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href string:$url?$edit_string;
-                    class python: this_url == url and 'selected' or ''"
+                    class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_images;
                 title string:_Images_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href string:$url?$edit_string;
-                    class python: this_url == url and 'selected' or ''"
+                    class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/edit_palettes;
                 title string:_Palettes_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a tal:attributes="href string:$url?$edit_string;
-                    class python: this_url == url and 'selected' or ''"
+                    class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/manage_themes;
                 title string:_Themes manager_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href string:$url?$edit_string;
-                    class python: this_url == url and 'selected' or ''"
+                    class python: here_url == url and 'selected' or ''"
     tal:define="url string:${theme_container_url}/manage_cache;
                 title string:_Cache manager_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />

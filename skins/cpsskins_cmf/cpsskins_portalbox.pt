@@ -5,7 +5,6 @@
                    menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
                    item_style python: orientation == 'horizontal' and 'white-space: nowrap' or None;
                    content python: here.content">
-
   <tal:block condition="python: content == 'folders'">
     <tal:block define="level python: here.level;
                        base python: here.base;

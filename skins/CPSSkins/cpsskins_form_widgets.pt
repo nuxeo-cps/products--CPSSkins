@@ -180,8 +180,7 @@
 
 <!-- navigate between edit categories -->
 <metal:block define-macro="navigationtab" i18n:domain="cpsskins"
-tal:define="this_url request/URL; 
-            theme request/form/theme|nothing; 
+tal:define="theme request/form/theme|nothing; 
             cat request/form/cat|string:general; 
             stylecat request/form/style|nothing; 
             sections python: here.cpsskins_listEditCategories(); 
@@ -206,8 +205,7 @@ tal:define="this_url request/URL;
 
 <!-- navigate between style categories -->
 <metal:block define-macro="stylenavigation" i18n:domain="cpsskins"
-tal:define="this_url request/URL; 
-            isPortalStyle here/aq_explicit/isPortalStyle|nothing; 
+tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing; 
             theme request/form/theme|nothing; 
             stylecat request/form/style|nothing; 
             sections tmtool/listStyleTypes; 
@@ -217,7 +215,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalStyle">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_styles?style=$stylecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_styles?style=$stylecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other styles_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -267,8 +265,7 @@ tal:define="this_url request/URL;
 
 <!-- navigate between palette categories -->
 <metal:block define-macro="palettenavigation" i18n:domain="cpsskins"
-tal:define="this_url request/URL; 
-            isPortalPalette here/aq_explicit/isPortalPalette|nothing; 
+tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing; 
             theme request/form/theme|nothing; 
             palettecat request/form/palette|nothing; 
             sections here/cpsskins_listPalettes; 
@@ -278,7 +275,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalPalette">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_palettes?palette=$palettecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_palettes?palette=$palettecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other palettes_"
                tal:content="python: mcat and mcat(title) or title" />
@@ -314,8 +311,7 @@ tal:define="this_url request/URL;
 
 <!-- navigate between image categories -->
 <metal:block define-macro="imagenavigation" i18n:domain="cpsskins"
-tal:define="this_url request/URL; 
-            theme request/form/theme|nothing; 
+tal:define="theme request/form/theme|nothing; 
             meta_type here/meta_type|nothing;
             isPortalImage python: meta_type and meta_type == 'Portal Image' or None;
             imagecat request/form/imagecat|nothing; 
@@ -326,7 +322,7 @@ tal:define="this_url request/URL;
       <td align="left">
         <tal:block condition="isPortalImage">
           <strong>
-            <a tal:attributes="href string:${theme_container_url}cpsskins_edit_images?imagecat=$imagecat&theme=$theme&edit_mode=$edit_mode"
+            <a tal:attributes="href string:${theme_container_url}/cpsskins_edit_images?imagecat=$imagecat&theme=$theme&edit_mode=$edit_mode"
                i18n:translate="" class="link_up"
                tal:define="title string:_Other images_"
                tal:content="python: mcat and mcat(title) or title" />

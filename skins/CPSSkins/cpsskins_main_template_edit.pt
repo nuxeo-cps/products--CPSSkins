@@ -105,7 +105,7 @@
                                      styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                      isalignable python: templet.isAlignable();
                                      alignments python: '|'.join(align_list);
-                                     icon python: templet.getIcon();
+                                     icon python: '/' + templet.getIcon();
                                      title python: not ismaincontent and templet_title or None;
                                      edit_mode edit_mode;
                                      theme current_theme;">
