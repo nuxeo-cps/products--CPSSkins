@@ -1247,6 +1247,9 @@ msgstr ""
 msgid "_option_standard_"
 msgstr ""
 
+msgid "_option_plain_"
+msgstr ""
+
 msgid "_option_one_frame_"
 msgstr ""
 

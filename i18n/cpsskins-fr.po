@@ -2242,7 +2242,11 @@ msgstr "Documents en attente"
 
 
 msgid "_option_plain text_"
-msgstr "Texte simple"
+msgstr "Texte en clair"
+
+
+msgid "_option_plain_"
+msgstr "Sans formatage"
 
 
 msgid "_option_profiler_"

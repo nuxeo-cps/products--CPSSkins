@@ -32,6 +32,10 @@ BOX_LAYOUTS = {
                      <div class="body">%s</div>""",
         },
 
+    'plain': {
+        'markup': """%s""",
+        },
+
     'one_frame': {
         'markup': """<div class="body"><h4>%s</h4>%s</div>""",
         },
@@ -168,11 +172,12 @@ class SimpleBox:
             self.rebuild()
 
         # XXX move this to box layouts
-        orientation = getattr(self, 'orientation', '')
-        if orientation == 'horizontal':
-            boxclass.append('cpsskinsTab')
-        elif self.boxlayout != 'horizontal_menu':
-            boxclass.append('cpsskinsBox')
+        if self.boxlayout != 'plain':
+            orientation = getattr(self, 'orientation', '')
+            if orientation == 'horizontal':
+                boxclass.append('cpsskinsTab')
+            elif self.boxlayout != 'horizontal_menu':
+                boxclass.append('cpsskinsBox')
 
         if len(boxclass) > 0:
             return ' '.join(boxclass)
@@ -187,6 +192,8 @@ class SimpleBox:
         """
         if boxlayout == 'standard' or boxlayout == '': 
             return BOX_LAYOUTS['standard']['markup'] % (title, body)
+        if boxlayout == 'plain': 
+            return BOX_LAYOUTS['plain']['markup'] % body
         elif boxlayout == 'one_frame':
             return BOX_LAYOUTS['one_frame']['markup'] % (title, body)
         elif boxlayout == 'notitle':

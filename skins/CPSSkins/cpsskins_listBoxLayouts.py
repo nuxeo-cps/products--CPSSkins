@@ -2,6 +2,7 @@
 
 layouts_dict = {
 'PortalBox':  ['standard', 
+               'plain',
                'one_frame', 
                'notitle', 
                'no_frames', 
@@ -13,6 +14,7 @@ layouts_dict = {
                'horizontal_menu',
               ],
 'PortletBox': ['standard', 
+               'plain',
                'one_frame', 
                'notitle', 
                'no_frames', 
