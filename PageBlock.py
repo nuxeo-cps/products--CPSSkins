@@ -214,34 +214,48 @@ class PageBlock(ThemeFolder, StylableContent):
         layout_style = kw.get('layout_style')
         if layout_style is None:
             page_container = self.getContainer()
-            layout_style = page_container.getCSSLayoutStyle()
+            kw['layout_style'] = page_container.getCSSLayoutStyle()
 
-        if self.maxcols == 1:
+        kw['maxcols'] = maxcols = self.maxcols
+        if maxcols == 1 or kw.get('tableless'):
             rendered = self._renderDiv(**kw)
         else:
             rendered = self._renderTable(**kw)
         return rendered
 
     security.declarePrivate('_renderDiv')
-    def _renderDiv(self, layout_style='', **kw):
+    def _renderDiv(self, layout_style='', maxcols=0, **kw):
         """Render the page block using a <div> tag
         """
-        objects = self.getObjects(**kw)
-        if objects.has_key(0):
-            rendered = []
-            rendered_append = rendered.append
-            div_tag = []
-            div_tag.append('class="%s"' % self.getCSSClass())
-            if layout_style:
-                div_tag.append('style="%s"' % \
-                    self.getCSSLayoutStyle(layout_style))
-            rendered_append('<div %s>' % " ".join(div_tag))
+        rendered = []
+        main_tag = []
+        main_tag.append('class="%s"' % self.getCSSClass())
+        if layout_style:
+            main_tag.append('style="%s"' % \
+                self.getCSSLayoutStyle(layout_style))
+        rendered_append = rendered.append
+        rendered_append('<div %s>' % " ".join(main_tag))
 
-            objects_in_xpos = objects[0]
+        more_than_one_column = maxcols > 1
+        objects = self.getObjects(**kw)
+        for x_pos in range(maxcols):
+            if objects.has_key(x_pos):
+                objects_in_xpos = objects[x_pos]
+            else:
+                continue
+            cell_tag = []
+            cellsize = objects_in_xpos['cellsizer']
+            if more_than_one_column:
+                style_tag = ['float:left', 'overflow-x:hidden']
+            else:
+                style_tag = []
+            if cellsize:
+                style_tag.append(cellsize.getCSSLayoutStyle())
+            cell_tag.append('style="%s"' % ';'.join(style_tag))
             cellstyle = objects_in_xpos['cellstyler']
             if cellstyle:
-                rendered_append('<div class="%s">' % \
-                    cellstyle.getCSSClass(level=2))
+                cell_tag.append('class="%s"' % cellstyle.getCSSClass(level=2))
+            rendered_append('<div %s>' % " ".join(cell_tag))
             contents_in_xpos = objects_in_xpos['contents']
             for content in contents_in_xpos:
                 margin_style = content.getCSSMarginStyle()
@@ -260,12 +274,15 @@ class PageBlock(ThemeFolder, StylableContent):
                     '</div>'])
                 if margin_style:
                     rendered_append('</div>')
-            if cellstyle:
-                rendered_append('</div>')
+            if not contents_in_xpos:
+                rendered_append('<div>&nbsp;</div>')
             rendered_append('</div>')
-            return ''.join(rendered)
+        if more_than_one_column:
+            rendered_append(
+                '<br style="clear:left"/></div><div style="clear:left"></div>')
         else:
-            return ''
+            rendered_append('</div>')
+        return ''.join(rendered)
 
     security.declarePrivate('_renderTable')
     def _renderTable(self, layout_style='', **kw):
