@@ -251,7 +251,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         context_obj = None
         REQUEST = self.REQUEST
-        context_rurl = REQUEST.form.get('context_rurl');
+        context_rurl = REQUEST.form.get('context_rurl')
 
         if context_rurl is not None:
             utool = getToolByName(self, 'portal_url')
