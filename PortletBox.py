@@ -130,7 +130,7 @@ class PortletBox(BaseTemplet):
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
 
-        return 1
+        return None
 
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
@@ -291,12 +291,12 @@ class PortletBox(BaseTemplet):
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render(**kw)
+                    rendered = portlet.render_cache(**kw)
                 # could be anything
                 except:
                     rendered = self.cpsskins_brokentemplet(**kw)
             else:
-                rendered = portlet.render(**kw)
+                rendered = portlet.render_cache(**kw)
 
             title = self.title
             body = html_slimmer(rendered)
