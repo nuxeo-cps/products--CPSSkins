@@ -98,8 +98,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 		          'action' : 'manage_overview' }, )
                      + ( {'label' : 'RAM Cache', 
 		          'action' : 'manage_RAMCaches' }, )
-                     + ( {'label' : 'Debug', 
-		          'action' : 'manage_DebugMode' }, )
+                     + ( {'label' : 'Options', 
+		          'action' : 'manage_configureOptions' }, )
                      + ActionProviderBase.manage_options 
                      )
 
@@ -131,8 +131,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declareProtected(ManageThemes, 'manage_themesRebuild')
     manage_themesRebuild = DTMLFile('zmi/manage_themesRebuild', globals())
 
-    security.declareProtected(ManageThemes, 'manage_DebugMode')
-    manage_DebugMode = DTMLFile('zmi/manage_DebugMode', globals())
+    security.declareProtected(ManageThemes, 'manage_configureOptions')
+    manage_configureOptions = DTMLFile('zmi/manage_configureOptions', globals())
 
     security.declareProtected(ManageThemes, 'manage_overview')
     manage_overview = DTMLFile('zmi/explainPortalThemesTool', globals())
@@ -1194,7 +1194,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         self.debug_mode = not self.debug_mode
         if REQUEST is not None:
-            return self.manage_DebugMode(manage_tabs_message='Settings updated')
+            return self.manage_configureOptions(manage_tabs_message='Settings updated')
 
     security.declareProtected(ManageThemes, 'hasExternalEditor')
     def hasExternalEditor(self):

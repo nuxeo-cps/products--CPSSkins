@@ -1,5 +1,7 @@
 <dtml-var manage_page_header>
+<dtml-let management_view="'Rebuild'">
 <dtml-var manage_tabs>
+</dtml-let>
 
 <p>This will upgrade the theme settings to the current release.</p>
 

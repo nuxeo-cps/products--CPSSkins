@@ -1,5 +1,5 @@
 <dtml-var manage_page_header>
-<dtml-let management_view="'Debug'">
+<dtml-let management_view="'Options'">
 <dtml-var manage_tabs>
 </dtml-let>
 
