@@ -8,10 +8,6 @@ import CPSSkinsTestCase
 class TestBaseUrl(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
-        tmtool = self.portal.portal_themes
-        tmtool.manage_delObjects(tmtool.objectIds())
-        self.theme_container = tmtool.addPortalTheme(empty=1)
-        self.pageblock = self.theme_container.addPageBlock()
         self.REQUEST = self.portal.REQUEST
 
     def test_no_rewrite(self):
