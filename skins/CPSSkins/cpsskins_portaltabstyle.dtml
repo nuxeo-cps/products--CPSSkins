@@ -5,12 +5,13 @@ background:url(/&dtml-theme_url;/backgrounds/&dtml-Tabs_bg_image;) bottom repeat
 }
 </dtml-if>
 .PortalTab&dtml-title; ul {
-margin:0px;
-padding:0px;
+margin:0;
+padding:0;
 width: 100%;
 list-style-image:none;
+line-height: 100%;
 }
-.PortalTab&dtml-title; li {
+.PortalTab&dtml-title; ul li {
 list-style-type:none;
 float:left;
 overflow:visible;
@@ -18,7 +19,8 @@ white-space:nowrap;
 <dtml-if Tab_width>
 width: &dtml-Tab_width;;
 </dtml-if>
-margin:0px &dtml-HorizontalMargin; 0px 0px;
+margin:0 &dtml-HorizontalMargin; 0 0;
+padding:0;
 }
 .PortalTab&dtml-title; li a {
 display:block;
