@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Portal Tab Style',
      'meta_type': 'Portal Tab Style',
      'description': ('_portaltabstyle_description_'),
-     'icon': 'portaltab_style.gif',
+     'icon': 'portaltab_style.png',
      'product': 'CPSSkins',
      'factory': 'addPortalTabStyle',
      'immediate_view': 'cpsskins_edit_form',

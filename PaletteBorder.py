@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Palette Border',
      'meta_type': 'Palette Border',
      'description': ('_paletteborder_description_'),
-     'icon': 'palette_border.gif',
+     'icon': 'palette_border.png',
      'product': 'CPSSkins',
      'factory': 'addPaletteBorder',
      'immediate_view': 'cpsskins_edit_form',

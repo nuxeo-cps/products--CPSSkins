@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Area Color',
      'meta_type': 'Area Color',
      'description': ('_areacolor_description_'),
-     'icon': 'area_color.gif',
+     'icon': 'area_color.png',
      'product': 'CPSSkins',
      'factory': 'addAreaColor',
      'immediate_view': 'cpsskins_edit_form',

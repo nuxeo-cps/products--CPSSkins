@@ -48,7 +48,7 @@ factory_type_information = (
     {'id': 'Base Templet',
      'meta_type': 'Base Templet',
      'description': ('A Base Templet is the most basic templet.'),
-     'icon': 'templet_icon.gif',
+     'icon': 'templet_icon.png',
      'product': 'CPSSkins',
      'factory': 'addBaseTemplet',
      'immediate_view': 'cpsskins_edit_form',

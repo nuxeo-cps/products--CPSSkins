@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Theme Folder',
      'meta_type': 'Theme Folder',
      'description': ('A Theme Folder contain theme items.'),
-     'icon': 'themefolder.gif',
+     'icon': 'themefolder.png',
      'product': 'CPSSkins',
      'factory': 'addThemeFolder',
      'filter_content_types': 0,

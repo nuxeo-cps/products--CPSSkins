@@ -36,7 +36,7 @@ factory_type_information = (
     {'id': 'Portlet Box Templet',
      'description': ('_portletbox_templet_description_'),
      'meta_type': 'Portlet Box Templet',
-     'icon': 'portletbox_templet.gif',
+     'icon': 'portletbox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addPortletBox',
      'immediate_view': 'cpsskins_edit_form',

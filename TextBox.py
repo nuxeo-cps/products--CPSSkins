@@ -35,7 +35,7 @@ factory_type_information = (
     {'id': 'Text Box Templet',
      'meta_type': 'Text Box Templet',
      'description': ('_textbox_templet_description_'),
-     'icon': 'textbox_templet.gif',
+     'icon': 'textbox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addTextBox',
      'immediate_view': 'cpsskins_edit_form',

@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Calendar Templet',
      'meta_type': 'Calendar Templet',
      'description': ('_calendar_templet_description_'),
-     'icon': 'calendar_templet.gif',
+     'icon': 'calendar_templet.png',
      'product': 'CPSSkins',
      'factory': 'addCalendar',
      'immediate_view': 'cpsskins_edit_form',

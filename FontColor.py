@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Font Color',
      'meta_type': 'Font Color',
      'description': ('_fontcolor_description_'),
-     'icon': 'fontcolor.gif',
+     'icon': 'fontcolor.png',
      'product': 'CPSSkins',
      'factory': 'addFontColor',
      'immediate_view': 'cpsskins_edit_form',

@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Search Box Templet',
      'meta_type': 'Search Box Templet',
      'description': ('_searchbox_templet_description_'),
-     'icon': 'searchbox_templet.gif',
+     'icon': 'searchbox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addSearchBox',
      'immediate_view': 'cpsskins_edit_form',

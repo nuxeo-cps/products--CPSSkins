@@ -36,7 +36,7 @@ factory_type_information = (
     {'id': 'Base Palette',
      'meta_type': 'Base Palette',
      'description': ('A Base Palette is the most basic palette.'),
-     'icon': 'palette_icon.gif',
+     'icon': 'palette_icon.png',
      'product': 'CPSSkins',
      'factory': 'addBasePalette',
      'immediate_view': 'cpsskins_edit_form',

@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Calendar Style',
      'meta_type': 'Calendar Style',
      'description': ('_calendarstyle_description_'),
-     'icon': 'calendar_style.gif',
+     'icon': 'calendar_style.png',
      'product': 'CPSSkins',
      'factory': 'addCalendarStyle',
      'immediate_view': 'cpsskins_edit_form',

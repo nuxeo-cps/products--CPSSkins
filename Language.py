@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Language Templet',
      'meta_type': 'Language Templet',
      'description': ('_language_templet_description_'),
-     'icon': 'language_templet.gif',
+     'icon': 'language_templet.png',
      'product': 'CPSSkins',
      'factory': 'addLanguage',
      'immediate_view': 'cpsskins_edit_form',

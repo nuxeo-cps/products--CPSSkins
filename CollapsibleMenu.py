@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Collapsible Menu Templet',
      'meta_type': 'Collapsible Menu Templet',
      'description': ('_collapsiblemenu_templet_description_'),
-     'icon': 'collapsiblemenu_templet.gif',
+     'icon': 'collapsiblemenu_templet.png',
      'product': 'CPSSkins',
      'factory': 'addCollapsibleMenu',
      'immediate_view': 'cpsskins_edit_form',

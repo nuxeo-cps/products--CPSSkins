@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Portal Box Shape',
      'meta_type': 'Portal Box Shape',
      'description': ('_boxshape_description_'),
-     'icon': 'box_shape.gif',
+     'icon': 'box_shape.png',
      'product': 'CPSSkins',
      'factory': 'addPortalBoxShape',
      'immediate_view': 'cpsskins_edit_form',

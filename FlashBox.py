@@ -36,7 +36,7 @@ factory_type_information = (
     {'id': 'Flash Box Templet',
      'meta_type': 'Flash Box Templet',
      'description': ('_flashbox_templet_description_'),
-     'icon': 'flashbox_templet.gif',
+     'icon': 'flashbox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addFlashBox',
      'immediate_view': 'cpsskins_edit_form',

@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Palette Color',
      'meta_type': 'Palette Color',
      'description': ('_palettecolor_description_'),
-     'icon': 'palette_color.gif',
+     'icon': 'palette_color.png',
      'product': 'CPSSkins',
      'factory': 'addPaletteColor',
      'immediate_view': 'cpsskins_edit_form',

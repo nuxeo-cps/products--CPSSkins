@@ -43,7 +43,7 @@ factory_type_information = (
     {'id': 'Cell Block',
      'meta_type': 'Cell Block',
      'description': ('_cellblock_description_'),
-     'icon': 'cellblock.gif',
+     'icon': 'cellblock.png',
      'product': 'CPSSkins',
      'factory': 'addCellBlock',
      'immediate_view': 'cpsskins_edit_form',

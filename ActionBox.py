@@ -35,7 +35,7 @@ factory_type_information = (
     {'id': 'Action Box Templet',
      'meta_type': 'Action Box Templet',
      'description': ('_actionbox_templet_description_'),
-     'icon': 'actionbox_templet.gif',
+     'icon': 'actionbox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addActionBox',
      'immediate_view': 'cpsskins_edit_form',

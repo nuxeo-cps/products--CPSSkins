@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Theme Chooser Templet',
      'meta_type': 'Theme Chooser Templet',
      'description': ('_themechooser_templet_description_'),
-     'icon': 'themechooser_templet.gif',
+     'icon': 'themechooser_templet.png',
      'product': 'CPSSkins',
      'factory': 'addThemeChooser',
      'immediate_view': 'cpsskins_edit_form',

@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Breadcrumbs Templet',
      'meta_type': 'Breadcrumbs Templet',
      'description': ('_breadcrumbs_templet_description_'),
-     'icon': 'breadcrumbs_templet.gif',
+     'icon': 'breadcrumbs_templet.png',
      'product': 'CPSSkins',
      'factory': 'addBreadcrumbs',
      'immediate_view': 'cpsskins_edit_form',

@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Document Info Templet',
      'meta_type': 'Document Info Templet',
      'description': ('_documentinfo_templet_description_'),
-     'icon': 'documentinfo_templet.gif',
+     'icon': 'documentinfo_templet.png',
      'product': 'CPSSkins',
      'factory': 'addDocumentInfo',
      'immediate_view': 'cpsskins_edit_form',

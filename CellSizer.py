@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Cell Sizer',
      'meta_type': 'Cell Sizer',
      'description': ('_cellsizer_description_'),
-     'icon': 'cell_sizer.gif',
+     'icon': 'cell_sizer.png',
      'product': 'CPSSkins',
      'factory': 'addCellSizer',
      'immediate_view': 'cpsskins_edit_form',

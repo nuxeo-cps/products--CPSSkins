@@ -42,7 +42,7 @@ factory_type_information = (
     {'id': 'Page Block',
      'meta_type': 'Page Block',
      'description': ('_pageblock_description_'),
-     'icon': 'pageblock.gif',
+     'icon': 'pageblock.png',
      'product': 'CPSSkins',
      'factory': 'addPageBlock',
      'immediate_view': 'cpsskins_edit_form',

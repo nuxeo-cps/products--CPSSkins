@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Form Style',
      'meta_type': 'Form Style',
      'description': ('_formstyle_description_'),
-     'icon': 'form_style.gif',
+     'icon': 'form_style.png',
      'product': 'CPSSkins',
      'factory': 'addFormStyle',
      'immediate_view': 'cpsskins_edit_form',

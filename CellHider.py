@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Cell Hider',
      'meta_type': 'Cell Hider',
      'description': ('_cellhider_description_'),
-     'icon': 'cell_hider.gif',
+     'icon': 'cell_hider.png',
      'product': 'CPSSkins',
      'factory': 'addCellHider',
      'immediate_view': 'cpsskins_edit_form',

@@ -63,7 +63,7 @@ factory_type_information = (
     {'id': 'Portal Theme',
      'meta_type': 'Portal Theme',
      'description': ('_portaltheme_description_'),
-     'icon': 'portaltheme.gif',
+     'icon': 'portaltheme.png',
      'product': 'CPSSkins',
      'factory': 'addPortalTheme',
      'immediate_view': 'cpsskins_edit_form',

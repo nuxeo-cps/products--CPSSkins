@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Area Shape',
      'meta_type': 'Area Shape',
      'description': ('_areashape_description_'),
-     'icon': 'area_shape.gif',
+     'icon': 'area_shape.png',
      'product': 'CPSSkins',
      'factory': 'addAreaShape',
      'immediate_view': 'cpsskins_edit_form',

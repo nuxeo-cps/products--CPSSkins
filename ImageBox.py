@@ -38,7 +38,7 @@ factory_type_information = (
     {'id': 'Image Box Templet',
      'description': ('_imagebox_templet_description_'),
      'meta_type': 'Image Box Templet',
-     'icon': 'imagebox_templet.gif',
+     'icon': 'imagebox_templet.png',
      'product': 'CPSSkins',
      'factory': 'addImageBox',
      'immediate_view': 'cpsskins_edit_form',

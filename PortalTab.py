@@ -35,7 +35,7 @@ factory_type_information = (
     {'id': 'Portal Tab Templet',
      'meta_type': 'Portal Tab Templet',
      'description': ('_portaltab_templet_description_'),
-     'icon': 'portaltab_templet.gif',
+     'icon': 'portaltab_templet.png',
      'product': 'CPSSkins',
      'factory': 'addPortalTab',
      'immediate_view': 'cpsskins_edit_form',

@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Collapsible Menu Style',
      'meta_type': 'Collapsible Menu Style',
      'description': ('_collapsiblemenustyle_description_'),
-     'icon': 'collapsiblemenu_style.gif',
+     'icon': 'collapsiblemenu_style.png',
      'product': 'CPSSkins',
      'factory': 'addCollapsibleMenuStyle',
      'immediate_view': 'cpsskins_edit_form',

@@ -34,7 +34,7 @@ factory_type_information = (
     {'id': 'Cell Styler',
      'meta_type': 'Cell Styler',
      'description': ('_cellstyler_description_'),
-     'icon': 'cell_styler.gif',
+     'icon': 'cell_styler.png',
      'product': 'CPSSkins',
      'factory': 'addCellStyler',
      'immediate_view': 'cpsskins_edit_form',

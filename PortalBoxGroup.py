@@ -33,7 +33,7 @@ factory_type_information = (
     {'id': 'Portal Box Group Templet',
      'meta_type': 'Portal Box Group Templet',
      'description': ('_portalboxgroup_templet_description_'),
-     'icon': 'portalboxgroup_templet.gif',
+     'icon': 'portalboxgroup_templet.png',
      'product': 'CPSSkins',
      'factory': 'addPortalBoxGroup',
      'immediate_view': 'cpsskins_edit_form',

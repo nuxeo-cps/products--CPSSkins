@@ -39,7 +39,7 @@ factory_type_information = (
     {'id': 'Base Style',
      'meta_type': 'Base Style',
      'description': ('A Base Style is the most basic style.'),
-     'icon': 'style_icon.gif',
+     'icon': 'style_icon.png',
      'product': 'CPSSkins',
      'factory': 'addBaseStyle',
      'immediate_view': 'cpsskins_edit_form',

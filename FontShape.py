@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Font Shape',
      'meta_type': 'Font Shape',
      'description': ('_fontshape_description_'),
-     'icon': 'fontshape.gif',
+     'icon': 'fontshape.png',
      'product': 'CPSSkins',
      'factory': 'addFontShape',
      'immediate_view': 'cpsskins_edit_form',

@@ -31,7 +31,7 @@ factory_type_information = (
     {'id': 'Portal Box Color',
      'meta_type': 'Portal Box Color',
      'description': ('_boxcolor_description_'),
-     'icon': 'box_color.gif',
+     'icon': 'box_color.png',
      'product': 'CPSSkins',
      'factory': 'addPortalBoxColor',
      'immediate_view': 'cpsskins_edit_form',

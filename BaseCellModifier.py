@@ -39,7 +39,7 @@ factory_type_information = (
     {'id': 'Base Cell Modifier',
      'meta_type': 'Base CellModifier',
      'description': ('A Base Cell Modifier is the most basic cell modifier.'),
-     'icon': 'skinner_icon.gif',
+     'icon': 'skinner_icon.png',
      'product': 'CPSSkins',
      'factory': 'addBaseCellModifier',
      'immediate_view': 'cpsskins_edit_form',

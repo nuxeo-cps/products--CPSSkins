@@ -32,7 +32,7 @@ factory_type_information = (
     {'id': 'Main Content Templet',
      'meta_type': 'Main Content Templet',
      'description': ('_maincontent_templet_description_'),
-     'icon': 'maincontent_templet.gif',
+     'icon': 'maincontent_templet.png',
      'product': 'CPSSkins',
      'factory': 'addMainContent',
      'immediate_view': 'cpsskins_edit_form',
