@@ -227,7 +227,7 @@ class PageBlock(ThemeFolder, StylableContent):
         theme_container = tmtool.getPortalThemeRoot(self)
         type_name = kw.get('type_name', None)
         if type_name is None:
-            return
+            return None
         del kw['type_name']
 
         xpos = kw.get('xpos', 0)
@@ -239,7 +239,7 @@ class PageBlock(ThemeFolder, StylableContent):
             newpos = ypos 
         else:
             newpos = ypos + 1
-    
+
         id = getFreeId(self)
         self.invokeFactory(type_name, id, **kw)
         content = getattr(self.aq_explicit, id, None)
@@ -250,6 +250,7 @@ class PageBlock(ThemeFolder, StylableContent):
             theme_container.expireCSSCache()
             theme_container.expireJSCache()
             return content
+        return None
 
     security.declareProtected(ManageThemes, 'addCellHider')
     def addCellHider(self, **kw):
@@ -265,6 +266,7 @@ class PageBlock(ThemeFolder, StylableContent):
             if cellhider is not None:
                 verifyThemePerms(cellhider)
                 return cellhider
+        return None
 
     security.declareProtected(ManageThemes, 'addCellSizer')
     def addCellSizer(self, **kw):
@@ -283,6 +285,7 @@ class PageBlock(ThemeFolder, StylableContent):
             if cellsizer is not None:
                 verifyThemePerms(cellsizer)
                 return cellsizer
+        return None
 
     security.declareProtected(ManageThemes, 'addCellStyler')
     def addCellStyler(self, **kw):
@@ -298,6 +301,7 @@ class PageBlock(ThemeFolder, StylableContent):
             if cellstyler is not None:
                 verifyThemePerms(cellstyler)
                 return cellstyler
+        return None
 
     security.declareProtected(ManageThemes, 'moveCell')
     def moveCell(self, **kw):
@@ -309,7 +313,7 @@ class PageBlock(ThemeFolder, StylableContent):
         dir = kw.get('dir', None)
 
         if xpos is None or dir not in ['left', 'right']:
-            return 
+            return None
         
         delta = 0
         if dir == 'left' and int(xpos) > 0:
@@ -319,7 +323,7 @@ class PageBlock(ThemeFolder, StylableContent):
             delta = +1
 
         if delta == 0:
-            return
+            return None
 
         objects_src = []
         for obj in self.objectValues():
@@ -331,12 +335,12 @@ class PageBlock(ThemeFolder, StylableContent):
             if hasattr(obj, 'xpos') and int(obj.xpos) == int(xpos) + delta:
                 objects_dest.append(obj)
 
-
         for obj in objects_src:
             obj.xpos = obj.xpos + delta
 
         for obj in objects_dest:
             obj.xpos = obj.xpos - delta
+        return None
 
     security.declarePublic('getObjects')
     def getObjects(self, edit=0, **kw):
@@ -462,18 +466,19 @@ class PageBlock(ThemeFolder, StylableContent):
     security.declareProtected(ManageThemes, 'move')
     def move(self, direction=None):
         """
-        Move the page block into a direction 
+        Move the page block into a direction
         """
-    
+
         container = self.aq_parent
 
         if direction == 'up' and self.can_moveup():
             newpos = self.moveup_pos()
             return container.move_object_to_position(self.getId(), newpos)
-    
+
         if direction == 'down' and self.can_movedown():
             newpos = self.movedown_pos()
             return container.move_object_to_position(self.getId(), newpos)
+        return None
 
     security.declareProtected(ManageThemes, 'moveup')
     def moveup(self):
@@ -515,7 +520,7 @@ class PageBlock(ThemeFolder, StylableContent):
                 pos = container.get_object_position(obj.getId())
                 if pos < this_pos:
                     return 1
-        return
+        return None
 
     security.declarePublic('can_movedown')
     def can_movedown(self):
@@ -531,12 +536,12 @@ class PageBlock(ThemeFolder, StylableContent):
                 pos = container.get_object_position(obj.getId())
                 if pos > this_pos:
                     return 1
-        return
+        return None
 
     security.declarePublic('moveup_pos')
     def moveup_pos(self):
         """
-        Return the new position 
+        Return the new position
         """
 
         container = self.aq_parent
@@ -551,11 +556,12 @@ class PageBlock(ThemeFolder, StylableContent):
 
         if newpos >= 0:
            return newpos
+        return None
 
     security.declarePublic('movedown_pos')
     def movedown_pos(self):
         """
-        Return the new position 
+        Return the new position
         """
           
         container = self.aq_parent
@@ -564,9 +570,9 @@ class PageBlock(ThemeFolder, StylableContent):
             o = obj.aq_explicit
             if getattr(o, 'isportalpageblock', 0):
                 pos = container.get_object_position(obj.getId())
-                if  pos > this_pos:
-                    return pos      
-                                    
+                if pos > this_pos:
+                    return pos
+        return None
 
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):
