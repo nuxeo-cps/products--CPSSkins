@@ -407,7 +407,7 @@ class PortalTheme(ThemeFolder):
             REQUEST.RESPONSE.setHeader('Content-Type', 'text/css')
 
         cache = self.getCSSCache(create=1)
-        index = self.getPhysicalPath() + tuple(kw.items())
+        index = tuple(kw.items())
 
         cleanup_date = getattr(self, 'css_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
@@ -440,7 +440,7 @@ class PortalTheme(ThemeFolder):
             kw.update(REQUEST.form)
 
         cache = self.getJSCache(create=1)
-        index = self.getPhysicalPath() + tuple(kw.items())
+        index = tuple(kw.items())
 
         cleanup_date = getattr(self, 'js_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
@@ -1177,7 +1177,7 @@ class PortalTheme(ThemeFolder):
     def getTempletCache(self, create=0):
         """Returns the Templet RAM cache object"""
 
-        cacheid = '%s_%s' % (self.getId(), TEMPLET_RAMCACHE_ID)
+        cacheid = '_'.join((TEMPLET_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
         try:
             return self.caches[cacheid]
         except KeyError:
@@ -1189,7 +1189,7 @@ class PortalTheme(ThemeFolder):
     def getCSSCache(self, create=0):
         """ Returns the CSS RAM cache object"""
 
-        cacheid = '%s_%s' % (self.getId(), CSS_RAMCACHE_ID)
+        cacheid = '_'.join((CSS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
         try:
             return self.caches[cacheid]
         except KeyError:
@@ -1201,7 +1201,7 @@ class PortalTheme(ThemeFolder):
     def getJSCache(self, create=0):
         """ Returns the javascript RAM cache object"""
                  
-        cacheid = '%s_%s' % (self.getId(), JS_RAMCACHE_ID)
+        cacheid = '_'.join((JS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
         try:
             return self.caches[cacheid]
         except KeyError:
