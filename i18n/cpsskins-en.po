@@ -719,6 +719,10 @@ msgid "_H1_font_color_"
 msgstr "H1 font color"
 
 
+msgid "_H1_margin_"
+msgstr "H1 margin"
+
+
 msgid "_H1_padding_"
 msgstr "H1 padding"
 
@@ -749,6 +753,10 @@ msgstr "H2 font"
 
 msgid "_H2_font_color_"
 msgstr "H2 font color"
+
+
+msgid "_H2_margin_"
+msgstr "H2 margin"
 
 
 msgid "_H2_padding_"
@@ -783,6 +791,10 @@ msgid "_H3_font_color_"
 msgstr "H3 font color"
 
 
+msgid "_H3_margin_"
+msgstr "H3 margin"
+
+
 msgid "_H3_padding_"
 msgstr "H3 padding"
 
@@ -813,6 +825,10 @@ msgstr "H4, H5, H6 font"
 
 msgid "_H456_font_color_"
 msgstr "H4, H5, H6 font color"
+
+
+msgid "_H456_margin_"
+msgstr "H4, H5, H6 margin"
 
 
 msgid "_H456_padding_"

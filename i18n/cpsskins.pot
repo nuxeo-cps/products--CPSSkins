@@ -440,6 +440,18 @@ msgstr ""
 msgid "_H456_padding_"
 msgstr ""
 
+msgid "_H1_margin_"
+msgstr ""
+
+msgid "_H2_margin_"
+msgstr ""
+
+msgid "_H3_margin_"
+msgstr ""
+
+msgid "_H456_margin_"
+msgstr ""
+
 msgid "_H1_border_width_"
 msgstr ""
 

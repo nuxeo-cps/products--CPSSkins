@@ -728,6 +728,10 @@ msgid "_H1_font_color_"
 msgstr "Color del tipo (H1)"
 
 
+msgid "_H1_margin_"
+msgstr ""
+
+
 msgid "_H1_padding_"
 msgstr "Acolchado H1"
 
@@ -758,6 +762,10 @@ msgstr "Tipo de letra H2"
 
 msgid "_H2_font_color_"
 msgstr "Color del tipo (H2)"
+
+
+msgid "_H2_margin_"
+msgstr ""
 
 
 msgid "_H2_padding_"
@@ -792,6 +800,10 @@ msgid "_H3_font_color_"
 msgstr "Color del tipo (H3)"
 
 
+msgid "_H3_margin_"
+msgstr ""
+
+
 msgid "_H3_padding_"
 msgstr "Acolchado H3"
 
@@ -822,6 +834,10 @@ msgstr "Tipo de letra H4, H5, H6"
 
 msgid "_H456_font_color_"
 msgstr "Color del tipo (H4, H5, H6)"
+
+
+msgid "_H456_margin_"
+msgstr ""
 
 
 msgid "_H456_padding_"

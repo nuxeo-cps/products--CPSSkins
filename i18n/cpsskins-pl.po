@@ -721,6 +721,10 @@ msgid "_H1_font_color_"
 msgstr "H1 kolor czcionki"
 
 
+msgid "_H1_margin_"
+msgstr ""
+
+
 msgid "_H1_padding_"
 msgstr "H1 odstêp"
 
@@ -751,6 +755,10 @@ msgstr "H2 czcionka"
 
 msgid "_H2_font_color_"
 msgstr "H2 kolor czcionki"
+
+
+msgid "_H2_margin_"
+msgstr ""
 
 
 msgid "_H2_padding_"
@@ -785,6 +793,10 @@ msgid "_H3_font_color_"
 msgstr "H3 kolor czcionki"
 
 
+msgid "_H3_margin_"
+msgstr ""
+
+
 msgid "_H3_padding_"
 msgstr "H3 odstêp"
 
@@ -815,6 +827,10 @@ msgstr "H4, H5, H6 czcionka"
 
 msgid "_H456_font_color_"
 msgstr "H4, H5, H6 kolor czcionki"
+
+
+msgid "_H456_margin_"
+msgstr ""
 
 
 msgid "_H456_padding_"

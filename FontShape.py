@@ -72,6 +72,12 @@ class FontShape(BaseStyle):
          'label': 'H1_padding',
          'category' : 'H1'
         },
+        {'id': 'H1_margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'H1_margin',
+         'category' : 'H1'
+        },
         {'id': 'H1_border_width',
          'type': 'string',
          'mode': 'w',
@@ -95,6 +101,12 @@ class FontShape(BaseStyle):
          'type': 'string',
          'mode': 'w',
          'label': 'H2_padding',
+         'category' : 'H2'
+        },
+        {'id': 'H2_margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'H2_margin',
          'category' : 'H2'
         },
         {'id': 'H2_border_width',
@@ -123,6 +135,12 @@ class FontShape(BaseStyle):
          'label': 'H3_padding',
          'category': 'H3'
         },
+        {'id': 'H3_margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'H3_margin',
+         'category': 'H3'
+        },
         {'id': 'H3_border_width',
          'type': 'string',
          'mode': 'w',
@@ -147,6 +165,12 @@ class FontShape(BaseStyle):
          'type': 'string',
          'mode': 'w',
          'label': 'H456_padding',
+         'category': 'H456'
+        },
+        {'id': 'H456_margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'H456_margin',
          'category': 'H456'
         },
         {'id': 'H456_border_width',
@@ -214,18 +238,22 @@ class FontShape(BaseStyle):
                  Default_font = '11px Verdana, Arial, Helvetica, sans-serif',
                  H1_font = 'normal 150% Verdana, Arial, Helvetica, sans-serif',
                  H1_padding = '0.8em 0em 0em 0em',
+                 H1_margin = '',
                  H1_border_width = '1px',
                  H1_border_style = 'none',
                  H2_font = 'bold 125% Verdana, Arial, Helvetica, sans-serif',
                  H2_padding = '0.6em 0em 0em 0em',
+                 H2_margin = '',
                  H2_border_width = '1px',
                  H2_border_style = 'none',
                  H3_font = 'bold 120% Verdana, Arial, Helvetica, sans-serif',
                  H3_padding = '0.6em 0em 0em 0em',
+                 H3_margin = '',
                  H3_border_width = '1px',
                  H3_border_style = 'none',
                  H456_font = 'bold 115% Verdana, Arial, Helvetica, sans-serif',
                  H456_padding = '0.4em 0em 0em 0em',
+                 H456_margin = '',
                  H456_border_width = '1px',
                  H456_border_style = 'none',
                  P_font = '100% Verdana, Arial, Helvetica, sans-serif',
@@ -240,18 +268,22 @@ class FontShape(BaseStyle):
         self.Default_font = Default_font
         self.H1_font = H1_font
         self.H1_padding = H1_padding
+        self.H1_margin = H1_margin
         self.H1_border_width = H1_border_width
         self.H1_border_style = H1_border_style
         self.H2_font = H2_font
         self.H2_padding = H2_padding
+        self.H2_margin = H2_margin
         self.H2_border_width = H2_border_width
         self.H2_border_style = H2_border_style
         self.H3_font = H3_font
         self.H3_padding = H3_padding
+        self.H3_margin = H3_margin
         self.H3_border_width = H3_border_width
         self.H3_border_style = H3_border_style
         self.H456_font = H456_font
         self.H456_padding = H456_padding
+        self.H456_margin = H456_margin
         self.H456_border_width = H456_border_width
         self.H456_border_style = H456_border_style
         self.P_font = P_font

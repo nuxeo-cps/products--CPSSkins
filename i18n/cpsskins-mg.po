@@ -728,6 +728,10 @@ msgid "_H1_font_color_"
 msgstr "Lokon'ny soratra (H1)"
 
 
+msgid "_H1_margin_"
+msgstr ""
+
+
 msgid "_H1_padding_"
 msgstr "Faritra famenoana H1"
 
@@ -758,6 +762,10 @@ msgstr "Haben'ny soratra H2"
 
 msgid "_H2_font_color_"
 msgstr "Lokon'ny soratra (H2)"
+
+
+msgid "_H2_margin_"
+msgstr ""
 
 
 msgid "_H2_padding_"
@@ -792,6 +800,10 @@ msgid "_H3_font_color_"
 msgstr "Lokon'ny soratra (H3)"
 
 
+msgid "_H3_margin_"
+msgstr ""
+
+
 msgid "_H3_padding_"
 msgstr "Faritra famenoana H3"
 
@@ -822,6 +834,10 @@ msgstr "Haben'ny soratra H4, H5, H6"
 
 msgid "_H456_font_color_"
 msgstr "Lokon'ny soratra (H4, H5, H6)"
+
+
+msgid "_H456_margin_"
+msgstr ""
 
 
 msgid "_H456_padding_"
