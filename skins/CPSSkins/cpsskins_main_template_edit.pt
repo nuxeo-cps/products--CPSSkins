@@ -16,9 +16,6 @@
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
-  <script type="text/javascript" src="cpsskins_pdlib.js"></script>
-  <script type="text/javascript" src="cpsskins_content_edit.js"></script>
-  <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 <!-- Shortcut icon -->
 <tal:block content="structure python:theme_container.renderIcon()" />
 </metal:block>
