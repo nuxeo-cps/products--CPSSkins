@@ -4,8 +4,7 @@
   theme_container python: tmtool.getThemeContainer(theme=current_theme);
   current_page python: theme_container.getRequestedPageName(context_obj=here);
   page_container python: theme_container.getPageContainer(current_page);
-  page_renderer page_container/renderer;
-  macroless python: page_renderer == 'macroless'">
+  global macroless python: page_container.renderer == 'macroless'">
 
 <tal:block condition="macroless"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <metal:block use-macro="here/cpsskins_main_template_macroless/macros/master" />

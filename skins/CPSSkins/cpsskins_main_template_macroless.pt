@@ -1,6 +1,7 @@
 <metal:block define-macro="master">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
  tal:define="
+  atool here/portal_actions; 
   utool nocall:here/portal_url;
   tmtool here/portal_themes;
   mcat python: tmtool.getTranslationService();
@@ -8,6 +9,7 @@
   base_url python: here.cpsskins_getBaseUrl();
   cpsskins_language python: tmtool.getCurrentLang();
   cpsskins_url python: tmtool.getCurrentUrl();
+  actions python:atool.listFilteredActionsFor(here);
   dummy python: request.set('cpsskins_language', cpsskins_language);
   dummy python: request.set('cpsskins_url', cpsskins_url);
   dummy python: request.set('cpsskins_base_url', base_url);
@@ -40,8 +42,10 @@
 </metal:block>
 </head>
 <tal:block condition="nocall:page_container">
-  <body tal:attributes="class string:color${page_container/color};
-                        style string:margin:${page_container/margin};">
+  <body tal:define="bodycolor python: page_container.color;
+                    bodymargin python: page_container.margin"
+        tal:attributes="class python: bodycolor and 'color%s' % bodycolor or None;
+                        style python: bodymargin and 'margin:%s' % bodymargin or None">
   <metal:block define-macro="main">
     <tal:block content="structure python:tmtool.renderAccessKeys(actions=actions)" />
     <tal:block define="

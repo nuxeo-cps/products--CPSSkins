@@ -45,15 +45,15 @@
       <metal:block use-macro="here/?main_macro/macros/head" />
     </head>
     <body OnLoad="setFocus()"
-    tal:attributes="class string:color$cpsskins_bodycolor; 
-                    style string:margin:$cpsskins_pagemargin;"
+    tal:attributes="class cpsskins_bodyclass;
+                    style cpsskins_bodystyle"
      tal:condition="emptybody">
       <metal:block define-slot="body" />
       <metal:block define-slot="main" />
     </body>
     <body OnLoad="setFocus()"
-    tal:attributes="class string:color$cpsskins_bodycolor; 
-                    style string:margin:$cpsskins_pagemargin"
+    tal:attributes="class cpsskins_bodyclass;
+                    style cpsskins_bodystyle"
      tal:condition="not:emptybody">
       <metal:block
       use-macro="here/?main_macro/macros/main">

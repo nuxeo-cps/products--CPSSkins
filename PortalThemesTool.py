@@ -352,10 +352,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if page_renderer_id is None:
             page_renderer_id = 'default'
 
-        if page_renderer_id not in self.listPageRenderers():
+        elif page_renderer_id not in self.listPageRenderers():
             page_renderer_id = 'default'
 
-        if page_renderer_id == 'automatic':
+        elif page_renderer_id == 'automatic':
             page_renderer_id = 'default'
             info = self.cpsskins_browser_detection()
             browser = info[0]
