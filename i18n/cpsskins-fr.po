@@ -1125,6 +1125,10 @@ msgid "_Preview font color_"
 msgstr "Couleur du texte de prévisualisation des événements"
 
 
+msgid "_Preview_"
+msgstr "Aperçu"
+
+
 msgid "_Read more_"
 msgstr "Lire plus &gt;&gt;"
 

@@ -1123,6 +1123,10 @@ msgid "_Preview font color_"
 msgstr ""
 
 
+msgid "_Preview_"
+msgstr ""
+
+
 msgid "_Read more_"
 msgstr "Läs mer &gt;&gt;"
 

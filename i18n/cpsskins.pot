@@ -679,6 +679,9 @@ msgstr ""
 msgid "_thumbnails_"
 msgstr ""
 
+msgid "_Preview_"
+msgstr ""
+
 msgid "_Other images_"
 msgstr ""
 

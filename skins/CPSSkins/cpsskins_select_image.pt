@@ -23,7 +23,7 @@
             <td>
               <a tal:define="number repeat/image/number"
               tal:attributes="href string:javascript:changeSelection('$number', '$prop')">
-              <div style="height: 60px; width: 250px">
+              <div style="width: 250px">
                 <strong tal:content="image/title" />
                 <br />
                 <tal:block content="string:${image/size} bytes" />
@@ -32,6 +32,8 @@
                 <br />
                 <img border="0" tal:condition="python: imagecat == 'icons'"
                 tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image/absolute_url" />
+                <img border="0" tal:condition="python: imagecat == 'thumbnails'"
+                tal:attributes="src image/absolute_url" />
                 <div class="backgroundeditbox"
                 tal:condition="python: imagecat == 'backgrounds'"
                 tal:attributes="style string:background: url('${image/absolute_url}');;">

@@ -1126,6 +1126,10 @@ msgid "_Preview font color_"
 msgstr "Cor da fonte de previsão"
 
 
+msgid "_Preview_"
+msgstr ""
+
+
 msgid "_Read more_"
 msgstr "Ler mais"
 

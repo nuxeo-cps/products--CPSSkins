@@ -216,6 +216,14 @@ class PortalTheme(ThemeFolder):
          'i18n': 1, 
          'i18n_prefix': '_option_',
         },
+        {'id': 'preview',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Preview',
+         'select_variable': 'cpsskins_listThumbnails',
+         'category': 'about',
+         'image' : 'thumbnails'
+        },
         {'id': 'author', 
          'type': 'text', 
          'mode': 'w', 
@@ -254,6 +262,7 @@ class PortalTheme(ThemeFolder):
                  author = '',
                  copyright = '',
                  license = '',
+                 preview = '',
                  **kw):
         self.id = id
         self.title = title
@@ -267,6 +276,7 @@ class PortalTheme(ThemeFolder):
         self.author = author
         self.copyright = copyright
         self.license = license
+        self.preview = preview
 
     security.declarePublic('getTitle')
     def getTitle(self):

@@ -1125,6 +1125,10 @@ msgid "_Preview font color_"
 msgstr "Podgl±d koloru czcionki"
 
 
+msgid "_Preview_"
+msgstr ""
+
+
 msgid "_Read more_"
 msgstr "Czytaj wiêcej"
 
