@@ -3,7 +3,7 @@
 
 <dtml-if Tabs_bg_image>
 <dtml-var class> {
-  background: url(/<dtml-var theme_url>/backgrounds/<dtml-var Tabs_bg_image>) bottom repeat-x;
+  background: url(/<dtml-var theme_url>/backgrounds/<dtml-var Tabs_bg_image>) top repeat-x;
 } </dtml-if>
 
 <dtml-var class> ul li {
