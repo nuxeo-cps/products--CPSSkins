@@ -70,7 +70,7 @@ class PortalTab(BaseTemplet):
         'mode': 'w',
         'label': 'Show documents in folders',
         'category': 'folders',
-        'visible': 'IfFoldersCategory',
+        'visible': 'ifFoldersCategory',
         'default': 0,
        },
        {'id': 'show_add_items',
@@ -78,7 +78,7 @@ class PortalTab(BaseTemplet):
         'mode': 'w',
         'label': 'Show add items',
         'category': 'folders',
-        'visible': 'IfFoldersCategory',
+        'visible': 'ifFoldersCategory',
         'default': 1,
        },
        {'id': 'folder_items_i18n',
@@ -87,14 +87,14 @@ class PortalTab(BaseTemplet):
         'label': 'Translate folder items',
         'default': 0,
         'category': 'folders',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'level',
         'type': 'int',
         'mode': 'w',
         'label': 'Depth level',
         'category': 'folders',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'base',
         'type': 'selection',
@@ -102,7 +102,7 @@ class PortalTab(BaseTemplet):
         'label': 'Hierarchy base',
         'category': 'folders',
         'select_variable': 'cpsskins_listFolderRoots',
-        'visible': 'IfFoldersCategoryAndExistsBase'
+        'visible': 'ifFoldersCategoryAndExistsBase'
        },
        {'id': 'base_path',
         'type': 'selection',
@@ -110,7 +110,7 @@ class PortalTab(BaseTemplet):
         'label': 'Base path',
         'category': 'folders',
         'select_variable': 'listPaths',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'action_categories',
         'type': 'multiple selection',
@@ -118,21 +118,21 @@ class PortalTab(BaseTemplet):
         'label': 'Action categories',
         'select_variable': 'cpsskins_listActionCategories',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'custom_action_categories',
         'type': 'lines',
         'mode': 'w',
         'label': 'Custom action categories',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'invisible_actions',
         'type': 'lines',
         'mode': 'w',
         'label': 'Invisible actions',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'portaltabstyle',
         'type': 'selection',
@@ -217,28 +217,28 @@ class PortalTab(BaseTemplet):
 
         return ['folder_items_i18n',]
 
-    security.declarePublic('IfActionsCategory')
-    def IfActionsCategory(self):
+    security.declarePublic('ifActionsCategory')
+    def ifActionsCategory(self):
         """ Returns true if the box content is set 'actions' """
 
         if getattr(self, 'content', None) == 'actions':
             return 1
         return None
 
-    security.declarePublic('IfFoldersCategory')
-    def IfFoldersCategory(self):
+    security.declarePublic('ifFoldersCategory')
+    def ifFoldersCategory(self):
         """ Returns true if the box content is set 'folders' """
 
         if getattr(self, 'content', None) == 'folders':
             return 1
         return None
 
-    security.declarePublic('IfFoldersCategoryAndExistsBase')
-    def IfFoldersCategoryAndExistsBase(self):
+    security.declarePublic('ifFoldersCategoryAndExistsBase')
+    def ifFoldersCategoryAndExistsBase(self):
         """ Returns true if the box content is set 'folders'
             and if the folders have a base """
 
-        if not self.IfFoldersCategory():
+        if not self.ifFoldersCategory():
             return None
 
         if not self.cpsskins_ifExistsBase():
@@ -250,7 +250,7 @@ class PortalTab(BaseTemplet):
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()
-        if self.IfFoldersCategoryAndExistsBase():
+        if self.ifFoldersCategoryAndExistsBase():
             mount_points = self.cpsskins_getMountPoints()
             base = self.base
             if isinstance(base, StringType):

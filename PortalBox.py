@@ -76,7 +76,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'label': 'Translate the box title',
         'default': 0,
         'category': 'general',
-        'visible': 'IfCanTranslateTitleSource'
+        'visible': 'ifCanTranslateTitleSource'
        },
        {'id': 'content',
         'type': 'selection',
@@ -92,7 +92,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'mode': 'w',
         'label': 'Show documents in folders',
         'category': 'folders',
-        'visible': 'IfFoldersCategory',
+        'visible': 'ifFoldersCategory',
         'default': 0,
        },
        {'id': 'display_hidden_folders',
@@ -100,7 +100,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'mode': 'w',
         'label': 'Display hidden folders',
         'category': 'folders',
-        'visible': 'IfFoldersCategory',
+        'visible': 'ifFoldersCategory',
         'default': 0,
        },
        {'id': 'folder_items_i18n',
@@ -109,14 +109,14 @@ class PortalBox(BaseTemplet, SimpleBox):
         'label': 'Translate folder items',
         'default': 0,
         'category': 'folders',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'level',
         'type': 'int',
         'mode': 'w',
         'label': 'Depth level',
         'category': 'folders',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'base',
         'type': 'selection',
@@ -124,7 +124,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'label': 'Hierarchy base',
         'category': 'folders',
         'select_variable': 'cpsskins_listFolderRoots',
-        'visible': 'IfFoldersCategoryAndExistsBase'
+        'visible': 'ifFoldersCategoryAndExistsBase'
        },
        {'id': 'base_path',
         'type': 'selection',
@@ -132,7 +132,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'label': 'Base path',
         'category': 'folders',
         'select_variable': 'listPaths',
-        'visible': 'IfFoldersCategory'
+        'visible': 'ifFoldersCategory'
        },
        {'id': 'action_categories',
         'type': 'multiple selection',
@@ -140,21 +140,21 @@ class PortalBox(BaseTemplet, SimpleBox):
         'label': 'Action categories',
         'select_variable': 'cpsskins_listActionCategories',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'custom_action_categories',
         'type': 'lines',
         'mode': 'w',
         'label': 'Custom action categories',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'invisible_actions',
         'type': 'lines',
         'mode': 'w',
         'label': 'Invisible actions',
         'category': 'actions',
-        'visible': 'IfActionsCategory'
+        'visible': 'ifActionsCategory'
        },
        {'id': 'orientation',
         'type': 'selection',
@@ -170,7 +170,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'mode': 'w',
         'label': 'Info text',
         'category': 'general',
-        'visible': 'IfInfoCategory'
+        'visible': 'ifInfoCategory'
        },
     )
 
@@ -353,36 +353,36 @@ class PortalBox(BaseTemplet, SimpleBox):
 
         return ['box_title_i18n', 'folder_items_i18n']
 
-    security.declarePublic('IfActionsCategory')
-    def IfActionsCategory(self):
+    security.declarePublic('ifActionsCategory')
+    def ifActionsCategory(self):
         """ Returns true if the box content is set 'actions' """
 
         if getattr(self, 'content', None) == 'actions':
             return 1
         return None
 
-    security.declarePublic('IfFoldersCategory')
-    def IfFoldersCategory(self):
+    security.declarePublic('ifFoldersCategory')
+    def ifFoldersCategory(self):
         """ Returns true if the box content is set 'folders' """
 
         if getattr(self, 'content', None) == 'folders':
             return 1
         return None
 
-    security.declarePublic('IfFoldersCategoryAndExistsBase')
-    def IfFoldersCategoryAndExistsBase(self):
+    security.declarePublic('ifFoldersCategoryAndExistsBase')
+    def ifFoldersCategoryAndExistsBase(self):
         """ Returns true if the box content is set 'folders'
             and if the folders have a base """
 
-        if not self.IfFoldersCategory():
+        if not self.ifFoldersCategory():
             return None
 
         if not self.cpsskins_ifExistsBase():
             return None
         return 1
 
-    security.declarePublic('IfInfoCategory')
-    def IfInfoCategory(self):
+    security.declarePublic('ifInfoCategory')
+    def ifInfoCategory(self):
         """ Returns true if the box content is set 'info' """
 
         if getattr(self, 'content', None) == 'info':
@@ -403,8 +403,8 @@ class PortalBox(BaseTemplet, SimpleBox):
                     list = [p for p in list if p.startswith(mount_point)]
         return list
 
-    security.declarePublic('IfCanTranslateTitleSource')
-    def IfCanTranslateTitleSource(self):
+    security.declarePublic('ifCanTranslateTitleSource')
+    def ifCanTranslateTitleSource(self):
         """ Returns true if the title source can be translated """
 
         if getattr(self, 'title_source', None) in \

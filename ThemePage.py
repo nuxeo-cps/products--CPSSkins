@@ -127,7 +127,7 @@ class ThemePage(ThemeFolder, StylableContent):
          'label': 'Tableless',
          'category': 'general',
          'default': 0,
-         'visible': 'IfTablelessAllowed',
+         'visible': 'ifTablelessAllowed',
         },
         {'id': 'align',
          'type': 'selection',
@@ -234,8 +234,8 @@ class ThemePage(ThemeFolder, StylableContent):
         tmtool = getToolByName(self, 'portal_themes')
         return tmtool.listPageRenderers()
 
-    security.declarePublic('IfTablelessAllowed')
-    def IfTablelessAllowed(self):
+    security.declarePublic('ifTablelessAllowed')
+    def ifTablelessAllowed(self):
         """Return true if the page renderer supports tableless rendering"""
 
         return self.renderer in ('default', 'macroless')
