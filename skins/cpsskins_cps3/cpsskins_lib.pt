@@ -19,9 +19,11 @@
     </tal:block>
 
     <!-- Portlets -->
-    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (templet.boxcolor, templet.boxshape);
-                         style string:text-align:${templet/align};; padding:$padding"
-    tal:content="structure python: templet.render_cache(shield=1, context_obj=here)" />
+    <div tal:define="margin here/margin|string:0"
+         tal:attributes="style string:text-align:${templet/align};; padding:$margin">
+      <tal:block content="structure python: templet.render_cache(shield=1, context_obj=here)" />
+    </div>
+
   </tal:block>
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
   style="text-align: left">

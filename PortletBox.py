@@ -64,34 +64,65 @@ class PortletBox(BaseTemplet):
                      )
 
     _properties = BaseTemplet._properties + (
-       {'id': 'portlet_id', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Portlet id', 
-        'select_variable': 'cpsskins_select_portlet',
-        'category': 'none',
-       },
-       {'id': 'portlet_type', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Portlet type', 
-        'select_variable': 'PortletTypesList',
-        'category': 'general',
-        'i18n': 1,
-        'i18n_prefix': '',
-        'i18n_suffix': '',
-        'i18n_default_domain': 1,
-        'i18n_transform': 'getPortletTypeTitle',
-       },
+        {'id': 'portlet_id', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Portlet id', 
+         'select_variable': 'cpsskins_select_portlet',
+         'category': 'none',
+        },
+        {'id': 'portlet_type', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Portlet type', 
+         'select_variable': 'PortletTypesList',
+         'category': 'general',
+         'i18n': 1,
+         'i18n_prefix': '',
+         'i18n_suffix': '',
+         'i18n_default_domain': 1,
+         'i18n_transform': 'getPortletTypeTitle',
+        },
+        {'id': 'boxshape', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Box shape', 
+         'select_variable': 'BoxShapesList', 
+         'category': 'style', 
+         'style': 'Portal Box Shape'
+        },
+        {'id': 'boxcolor', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Box color', 
+         'select_variable': 'BoxColorsList', 
+         'category': 'style', 
+         'style': 'Portal Box Color'
+        },
+        {'id': 'boxlayout', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Box layout', 
+         'category': 'layout', 
+         'select_variable': 'BoxLayoutList',
+         'i18n': 1,
+         'i18n_prefix': '_option_',
+        },
     )
 
     def __init__(self, id, 
                  portlet_id = None, 
                  portlet_type = None,
+                 boxshape = 'LightSkins', 
+                 boxcolor = 'Gray', 
+                 boxlayout = 'standard',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.portlet_id = portlet_id
         self.portlet_type = portlet_type
+        self.boxshape = boxshape
+        self.boxcolor = boxcolor
+        self.boxlayout = boxlayout
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
@@ -166,6 +197,37 @@ class PortletBox(BaseTemplet):
             title = fti.title_or_id()
         return title
 
+    security.declarePublic('BoxShapesList')
+    def BoxShapesList(self):           
+        """ Returns a list of Portal Box Shape styles"""
+
+        tmtool = getToolByName(self, 'portal_themes')
+        styles = tmtool.findStylesFor(category = 'Portal Box Shape', 
+                                      object=self)
+        if styles: 
+            return styles['title']
+
+    security.declarePublic('BoxColorsList')
+    def BoxColorsList(self):           
+        """ Returns a list of Portal Box Color styles"""
+
+        tmtool = getToolByName(self, 'portal_themes')
+        styles = tmtool.findStylesFor(category = 'Portal Box Color', 
+                                      object=self)
+        if styles: 
+            return styles['title']
+
+    security.declarePublic('BoxLayoutList')
+    def BoxLayoutList(self):           
+        """ Returns a list of orientations for this Templet"""
+
+        layouts = ['standard', 
+                   'one_frame', 
+                   'notitle', 
+                   'no_frames', 
+                   'notitle_noframe']
+        return layouts
+
     #
     # Portlet interface.
     #
@@ -213,6 +275,9 @@ class PortletBox(BaseTemplet):
                     rendered = self.cpsskins_brokentemplet(**kw)
             else:
                 rendered = portlet.render(**kw)
+            # add the box decoration$
+            rendered = self.cpsskins_renderBox(portlet=portlet,
+                                               rendered=rendered)
         return rendered
 
     #
