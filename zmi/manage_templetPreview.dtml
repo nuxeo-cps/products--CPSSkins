@@ -11,7 +11,7 @@
 <div <dtml-if isAlignable>align="&dtml-align;"</dtml-if>
 style="<dtml-var getCSSLayoutStyle>"
 class="Color&dtml-color; Shape&dtml-shape; FontColor&dtml-fontcolor; FontShape&dtml-fontshape;">
-<dtml-var expr="context.render(shield=1)">
+<dtml-var expr="context.render(shield=1, context_obj=context)">
 </div>
 
 <dtml-var manage_page_footer>
