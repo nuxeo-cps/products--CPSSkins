@@ -193,6 +193,10 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         checkPerm = mtool.checkPermission
         portlets = ptltool.getPortlets(context, slot, **kw)
 
+        i18n_title = self.i18n_title
+        if i18n_title:
+            tmtool = getToolByName(self, 'portal_themes')
+            mcat = tmtool.getTranslationService(cat='default')
         boxedit = kw.get('boxedit')
         boxlayout = self.boxlayout
 
@@ -247,9 +251,12 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 all_rendered.extend('<div class="%s">' % boxclass)
 
             # add the box decoration
+            title = portlet.title
+            if i18n_title and mcat is not None:
+                title = mcat(title).encode("ISO-8859-15", 'ignore')
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
-                title=portlet.title,
+                title=title,
                 body=rendered,
                 **kw)
             if boxedit:

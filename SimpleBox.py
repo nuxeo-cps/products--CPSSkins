@@ -130,6 +130,13 @@ class SimpleBox(ExtensionClass.Base):
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
+       {'id': 'i18n_title',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Translate the box title',
+        'category': 'general',
+        'i18n': 1,
+       },
     )
 
     def __init__(self,
@@ -138,12 +145,14 @@ class SimpleBox(ExtensionClass.Base):
                  boxcorners='',
                  portaltabstyle='',
                  boxlayout = 'standard',
+                 i18n_title = 0,
                  **kw):
         self.boxshape = boxshape
         self.boxcolor = boxcolor
         self.boxcorners = boxcorners
         self.portaltabstyle = portaltabstyle
         self.boxlayout = boxlayout
+        self.i18n_title = i18n_title
 
     #
     # CSS

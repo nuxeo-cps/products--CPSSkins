@@ -161,6 +161,12 @@ class PortletBox(BaseTemplet, SimpleBox):
         else:
             body = portlet.render_cache(**kw)
 
+        title = self.title
+        if self.i18n_title:
+            tmtool = getToolByName(self, 'portal_themes')
+            mcat = tmtool.getTranslationService(cat='default')
+            if mcat is not None:
+                title = mcat(title).encode("ISO-8859-15", 'ignore')
         rendered_box = []
         if body:
             # add the box frame
@@ -171,7 +177,7 @@ class PortletBox(BaseTemplet, SimpleBox):
             # add the box decoration
             rendered_box.extend(self.renderBoxLayout(
                 boxlayout=self.boxlayout,
-                title=self.title,
+                title=title,
                 body=body,
                 portlet=portlet, **kw))
             # close the box frame
