@@ -403,12 +403,10 @@ msgid "_Cell Block_"
 msgstr "Cellblock"
 
 
-# , fuzzy
 msgid "_Cell Hider_"
 msgstr "Cell borttagare"
 
 
-# , fuzzy
 msgid "_Cell Sizer_"
 msgstr "Cell Sizer"
 
@@ -425,17 +423,14 @@ msgid "_Cellblock margin_"
 msgstr "Marginal"
 
 
-# , fuzzy
 msgid "_Collapsible Menu Style_"
 msgstr "Dynamisk meny stil"
 
 
-# , fuzzy
 msgid "_Collapsible Menu Templet_"
 msgstr "Dynamisk meny"
 
 
-# , fuzzy
 msgid "_Collapsible menu_"
 msgstr "Dynamisk meny"
 
@@ -532,7 +527,6 @@ msgid "_Deleting this style, are you sure?_"
 msgstr "Ta bort denna stil, är du säker?"
 
 
-# , fuzzy
 msgid "_Depth level_"
 msgstr "Djupnivå"
 
@@ -541,7 +535,6 @@ msgid "_Description_"
 msgstr "Beskrivning"
 
 
-# , fuzzy
 msgid "_Destination_slot_"
 msgstr "Destinations slot"
 
@@ -978,12 +971,10 @@ msgid "_Link (http://, mailto: ...)_"
 msgstr "Länk (http://, mailto: ...)"
 
 
-# , fuzzy
 msgid "_List orientation_"
 msgstr "Orientering lista"
 
 
-# , fuzzy
 msgid "_Location_"
 msgstr "Placering"
 
@@ -1216,7 +1207,6 @@ msgid "_Portal box shape_"
 msgstr "Rutfärg"
 
 
-# , fuzzy
 msgid "_Portal box title source_"
 msgstr "Titelvisning"
 
@@ -1477,7 +1467,6 @@ msgid "_The languages in which it is visible_"
 msgstr "Språken på vilka det är synligt"
 
 
-# , fuzzy
 msgid "_The visibility paths_"
 msgstr "Synlighetsområde (sökvägar)"
 
@@ -1518,7 +1507,6 @@ msgid "_Theme_"
 msgstr "Tema"
 
 
-# , fuzzy
 msgid "_Theme_rebuilt_"
 msgstr "Tema återskapat"
 
@@ -1559,7 +1547,6 @@ msgid "_Title_"
 msgstr "Titel"
 
 
-# , fuzzy
 msgid "_Today border color_"
 msgstr "Ramfärg (dagen) "
 
@@ -1932,7 +1919,6 @@ msgid "_fontshape_"
 msgstr "Fontstil"
 
 
-# , fuzzy
 msgid "_fontshape_description_"
 msgstr "denna stil definierar stilar för teckensnitt och länkar"
 
@@ -1941,7 +1927,6 @@ msgid "_formstyle_description_"
 msgstr "denna stil definierar utseende på formulär och formulärelement."
 
 
-# , fuzzy
 msgid "_general_"
 msgstr "Allmänt"
 
@@ -2154,7 +2139,6 @@ msgid "_option_compatible_"
 msgstr "Kompatibel NS4"
 
 
-# , fuzzy
 msgid "_option_debug_"
 msgstr "Debugläge"
 
@@ -2175,12 +2159,10 @@ msgid "_option_docinfo_title_"
 msgstr "Titel dokument"
 
 
-# , fuzzy
 msgid "_option_drawer_"
 msgstr "Fällbar ruta"
 
 
-# , fuzzy
 msgid "_option_drawer_notitle_"
 msgstr "Fällbar ruta utan titel"
 
@@ -2333,7 +2315,6 @@ msgid "_option_pending_"
 msgstr "Väntande dokument"
 
 
-# , fuzzy
 msgid "_option_plain text_"
 msgstr "Oformatterad text"
 
@@ -2342,7 +2323,6 @@ msgid "_option_plain_"
 msgstr "Plain"
 
 
-# , fuzzy
 msgid "_option_profiler_"
 msgstr "Profiler"
 
@@ -2431,27 +2411,22 @@ msgid "_pageblock_description_"
 msgstr "ett Sidblock består av Celler (kolumner). Utseendet på en Cell kan ändras genom att använda Cell Stilsättare, Cell Sizers och Cell Hiders."
 
 
-# , fuzzy
 msgid "_paletteborder_description_"
 msgstr "Dessa palett poster definierar formen på ramar använda i olika stilar."
 
 
-# , fuzzy
 msgid "_palettecolor_description_"
 msgstr "Dessa palett poster definierar färger använda i olika stilar"
 
 
-# , fuzzy
 msgid "_portalbox_templet_description_"
 msgstr "en box som visa kommandon, mappar, en loginruta, en textruta, mm.."
 
 
-# , fuzzy
 msgid "_portalboxgroup_templet_description_"
 msgstr "en slot som innehåller flera boxar eller portlets"
 
 
-# , fuzzy
 msgid "_portaltab_templet_description_"
 msgstr "tabbar som visar mappar, kommandon, mm."
 
@@ -2464,7 +2439,6 @@ msgid "_portaltabstyle_description_"
 msgstr "Denna stil definierar utseende på tabbar"
 
 
-# , fuzzy
 msgid "_portaltheme_description_"
 msgstr "ett portaltema ändrar utseende och layout på portalen. Temats layout består av horisontella sidblock."
 
@@ -2581,7 +2555,6 @@ msgid "description_portlets_visible_from"
 msgstr "Portlets synliga från"
 
 
-# , fuzzy
 msgid "description_unused_boxes"
 msgstr "Boxar som är osynliga pga att deras slot inte används i detta tema."
 
@@ -2590,7 +2563,6 @@ msgid "description_unused_boxes_deleted"
 msgstr "Ej använda rutor borttagna"
 
 
-# , fuzzy
 msgid "description_unused_portlets"
 msgstr "Portlets som är osynliga pga att deras slot inte används i detta tema."
 
@@ -2623,12 +2595,10 @@ msgid "menu_insert_portlet"
 msgstr "Infoga en portlet ..."
 
 
-# , fuzzy
 msgid "portlet_browser_panel"
 msgstr "Portlet väljare"
 
 
-# , fuzzy
 msgid "portlet_slots_panel"
 msgstr "Portlet slots"
 
