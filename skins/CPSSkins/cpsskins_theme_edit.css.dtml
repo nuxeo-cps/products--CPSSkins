@@ -199,7 +199,7 @@ vertical-align: top;
 
 .navigationtab, .navigationtab a {
 text-decoration: none;
-font: Bold 12px Verdana, arial, helvetica, sans-serif;
+font: 12px arial, helvetica, sans-serif;
 color: Black;
 }
 
@@ -239,7 +239,6 @@ color: Black;
 background-color : #e3e3e3;
 border-bottom: 1px solid #ccc;
 }
-
 
 /* main content */
 
