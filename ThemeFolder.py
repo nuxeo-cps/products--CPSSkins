@@ -176,7 +176,10 @@ class ThemeFolder(PortalFolder):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
-        items = self.cb_dataItems()
+        try:
+            items = self.cb_dataItems()
+        except KeyError:
+            items = []
         return len(items) > 0
 
 InitializeClass(ThemeFolder)
