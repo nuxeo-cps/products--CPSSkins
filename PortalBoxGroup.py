@@ -231,6 +231,7 @@ class PortalBoxGroup(BaseTemplet):
         portlets = ptltool.getPortlets(context, slot)
 
         boxedit = kw.get('boxedit')
+        boxlayout = self.boxlayout
         if boxedit:
             boxlayout = 'portlet_edit'
 
@@ -246,7 +247,7 @@ class PortalBoxGroup(BaseTemplet):
                              (boxstyle, boxclass)
             rendered = portlet.render_cache(**kw)
             # add the box decoration
-            all_rendered += renderBoxLayout(boxlayout=self.boxlayout,
+            all_rendered += renderBoxLayout(boxlayout=boxlayout,
                                             title=portlet.title,
                                             body=html_slimmer(rendered),
                                             portlet=portlet,
