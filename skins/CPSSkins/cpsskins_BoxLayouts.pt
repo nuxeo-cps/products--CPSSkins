@@ -98,7 +98,6 @@
 <!-- ============================================================ -->
 <metal:block define-macro="min_max"
   tal:define="state options/state;
-              state python: state and state or 'maximized';
               maximized python: state == 'maximized';
               portal_url here/portal_url;
               portlet_url options/url">
@@ -124,7 +123,6 @@
 <!-- ============================================================ -->
 <metal:block define-macro="min_max_close"
   tal:define="state options/state;
-              state python: state and state or 'maximized';
               maximized python: state == 'maximized';
               portal_url here/portal_url;
               portlet_url options/url">
