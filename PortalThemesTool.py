@@ -404,7 +404,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     #
     # Local themes
     #
-    security.declarePublic('getLocalThemeName')
+    security.declarePublic('getLocalThemeID')
     def getLocalThemeID(self):
         """Return the id of the attribute used to identify local themes.
         """
