@@ -151,13 +151,11 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
-            try:
-                action = ti.getActionById(actionid)
-                actioninfo['url'] = self.absolute_url() + '/' + \
-                                    self.restrictedTraverse(action).getId()
-            except:
-                continue 
-
+            action = ti.getActionById(actionid)
+            obj = self.unrestrictedTraverse(action, default=None)
+            if obj is None:
+                continue
+            actioninfo['url']  = self.absolute_url() + '/' + obj.getId()
             infoblock[actionid] = actioninfo
         return infoblock 
 

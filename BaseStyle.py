@@ -230,45 +230,55 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
         style_title = self.getTitle()
         meta_type = self.meta_type
-       
-        # XXX needs some refactoring 
+
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
         parents = []
 
         for obj in theme_container.getPageBlocks():
+            # page blocks
+            obj = obj.aq_inner.aq_explicit
             for pm in obj.propertyMap():
-                if pm.get('style', None) == meta_type:
-                    style_type = pm.get('id')
-                    style = getattr(obj, style_type, None)
-                    if style == style_title:
-                        rebuild_properties(obj)
-                        parents.append(obj)
-                        if newtitle is not None:
-                            obj.manage_changeProperties({style_type:newtitle})
+                if pm.get('style') != meta_type:
+                    continue
+                style_type = pm.get('id')
+                style = getattr(obj, style_type, None)
+                if style != style_title:
+                    continue
+                rebuild_properties(obj)
+                parents.append(obj)
+                if newtitle is None:
+                    continue
+                obj.edit(**{style_type:newtitle})
 
+            # cell blocks
             for obj2 in obj.objectValues():
-                if hasattr(obj2, 'propertyMap'):
-                    for pm in obj2.propertyMap():
-                        if pm.get('style', None) == meta_type:
-                            style_type = pm.get('id')
-                            style = getattr(obj2, style_type, None)
-                            if style == style_title:
-                                rebuild_properties(obj2)
-                                parents.append(obj2)
-                                if newtitle is not None:
-                                    obj2.edit(**{style_type:newtitle})
-
-        if hasattr(theme_container, 'propertyMap'):
-            for pm in theme_container.propertyMap():
-                if pm.get('style', None) == meta_type:
+                obj2 = obj2.aq_inner.aq_explicit
+                for pm in obj2.propertyMap():
+                    if pm.get('style') != meta_type:
+                        continue
                     style_type = pm.get('id')
-                    style = getattr(theme_container, style_type, None)
-                    if style == style_title:
-                        rebuild_properties(theme_container)
-                        parents.append(theme_container)
-                        if newtitle is not None:
-                            theme_container.manage_changeProperties({style_type:newtitle})
+                    style = getattr(obj2, style_type, None)
+                    if style != style_title:
+                        continue
+                    rebuild_properties(obj2)
+                    parents.append(obj2)
+                    if newtitle is None:
+                        continue
+                    obj2.edit(**{style_type:newtitle})
+
+        for pm in theme_container.propertyMap():
+            if pm.get('style') != meta_type:
+                continue
+            style_type = pm.get('id')
+            style = getattr(theme_container, style_type, None)
+            if style != style_title:
+                continue
+            rebuild_properties(theme_container)
+            parents.append(theme_container)
+            if newtitle is None:
+                continue
+            theme_container.edit(**{style_type:newtitle})
 
         return parents
 
@@ -370,12 +380,11 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
-            try:
-                action = ti.getActionById(actionid)
-                actioninfo['url'] = self.absolute_url() + '/' + \
-                                    self.restrictedTraverse(action).getId()
-            except:
-                continue 
+            action = ti.getActionById(actionid)
+            obj = self.unrestrictedTraverse(action, default=None)
+            if obj is None:
+                continue
+            actioninfo['url']  = self.absolute_url() + '/' + obj.getId()
             infoblock[actionid] = actioninfo
         return infoblock 
 
