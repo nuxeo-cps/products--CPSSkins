@@ -67,7 +67,7 @@ function Choice_align(alignprop) {
   window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
 }
 
-function move(selected_items, target_node) {
+function Content_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
@@ -88,7 +88,7 @@ function move(selected_items, target_node) {
   window.location = new_url
 }
 
-function add(selected_items, target_node) {
+function Content_add(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
@@ -108,7 +108,7 @@ function Content_checkmove(selected_items, target_node) {
 }
 
 function setupContentBoxDrag(node) {
-  pd_setupDragUI(node, move, Content_checkmove);
+  pd_setupDragUI(node, Content_move, Content_checkmove);
 }
 
 function setupContentEditMenu(node) {
@@ -124,7 +124,7 @@ function setupDestination(node) {
 }
 
 function setupContentAdd(node) {
-  pd_setupDragUI(node, add, Content_checkmove);
+  pd_setupDragUI(node, Content_add, Content_checkmove);
 }
 
 

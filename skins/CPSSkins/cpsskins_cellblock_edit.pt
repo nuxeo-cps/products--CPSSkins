@@ -30,22 +30,31 @@
           </div>
           <tal:block condition="contents_in_xpos"
            repeat="content contents_in_xpos">
-            <div class="ContentBoxDrag"
+            <div class="ContentBoxDrag ContentBoxEditMenu"
              tal:define="ypos python: content.getVerticalPosition();
                          isRenderable python: content.isRenderable();
+                         styles_list python: content.getApplicableStyles();
+                         align_list content/AlignList|nothing;
+                         padding_string python: content.margin and 'padding:%s' % content.margin or None;
                          rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
+                                 styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                  xpos x_pos;
                                  ypos ypos;
+                                 isalignable python: content.isAlignable();
+                                 alignments python: '|'.join(align_list);
+                                 icon python: '/' + content.getIcon();
+                                 title python: content.title;
                                  align python: content.align;
-                                 style python: 'padding:%s' % content.margin">
+                                 style padding_string">
               <div class="ContentDest"
                tal:attributes="xpos x_pos;
                                ypos ypos;
                                dest_block cellblock_rurl">
                 <div
-                 tal:attributes="class python: content.getCSSAreaClass(level=2);
+                 tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
+                                 class python: content.getCSSAreaClass(level=2);
                                  style python: content.getCSSLayoutStyle()"
                  tal:content="structure rendered" />
               </div>
