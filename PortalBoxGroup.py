@@ -252,6 +252,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 **kw)
             if boxedit:
                 kw['editable'] = checkPerm('Manage Portlets', portlet)
+                portlet_folder = portlet.getLocalFolder()
+                kw['portlet_folder_url'] = portlet_folder.absolute_url(1)
                 # wrap the edition markup around the box in edit mode
                 rendered = renderBoxLayout(
                     boxlayout='portlet_edit',
