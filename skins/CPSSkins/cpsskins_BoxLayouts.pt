@@ -12,7 +12,8 @@
 <!-- a framed box -->
 <metal:block define-macro="one_frame">
   <div class="body">
-      <metal:block define-slot="box_title">Box Title</metal:block>
+      <h4><metal:block define-slot="box_title">Box Title</metal:block></h4>
+      <br/>
       <metal:block define-slot="box_body">Box Body</metal:block>
   </div>
 </metal:block>
@@ -37,7 +38,7 @@
 </metal:block>
 
 <!-- ============================================================ -->
-<!-- A box with frameless body and no title-->
+<!-- A box with a frameless body and no title-->
 <metal:block define-macro="notitle_noframe">
   <div class="body" style="border: none">
      <metal:block define-slot="box_body">Box Body</metal:block>
