@@ -11,4 +11,10 @@ if getattr(context, 'portal_boxes', None) is not None:
            continue
        list.append(slot)
 
+    # remove hardcoded slot names
+    for pseudo_slot in ('folder_view', 'center'):
+        if pseudo_slot not in list: 
+            continue
+        list.remove(pseudo_slot)
+
 return list
