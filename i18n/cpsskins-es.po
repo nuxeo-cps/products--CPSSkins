@@ -1983,6 +1983,10 @@ msgid "_option_compatible_"
 msgstr ""
 
 
+msgid "_option_debug_"
+msgstr ""
+
+
 msgid "_option_default_"
 msgstr ""
 

@@ -1961,6 +1961,10 @@ msgid "_option_compatible_"
 msgstr "Compatible NS4"
 
 
+msgid "_option_debug_"
+msgstr "Mode debug"
+
+
 msgid "_option_default_"
 msgstr "Défaut"
 

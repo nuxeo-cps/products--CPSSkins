@@ -307,7 +307,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                      'compatible', 
                      'textonly', 
                      'automatic', 
-                     'profiler']
+                     'profiler',
+                     'debug']
         return renderers
 
     security.declarePublic('getThemeRenderer')
