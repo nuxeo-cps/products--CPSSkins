@@ -5,17 +5,17 @@
              slot_id slot/getSlot;
              fti slot/getTypeInfo;
              slot_icon fti/getIcon|nothing">
+  <div class="PortletSlotTitle" tal:content="slot_title" />
+  <div class="PortletBoxDest"
+   tal:attributes="dest_slot slot_id;
+                   dest_ypos python: 0">
     <div class="PortletBoxEditMenu"
      tal:attributes="icon slot_icon;
                      title slot_title;
                      src_ypos python: 0;
                      src_slot slot_id">
-      <div class="PortletSlotTitle" tal:content="slot_title" />
-      <div class="PortletBoxDest"
-       tal:condition="not:rendered"
-       tal:attributes="dest_slot slot_id;
-                       dest_ypos python: 0"
-       tal:content="structure string:&nbsp;" />
+      <div tal:condition="not:rendered" tal:content="structure string:&nbsp;" />
       <tal:block condition="rendered" content="structure rendered" />
     </div>
+  </div>
 </div>
