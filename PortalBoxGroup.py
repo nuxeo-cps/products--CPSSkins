@@ -29,7 +29,6 @@ from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
-from cpsskins_utils import html_slimmer
 
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
@@ -237,7 +236,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             # add the box decoration
             all_rendered.extend(renderBoxLayout(boxlayout=boxlayout,
                                                 title=portlet.title,
-                                                body=html_slimmer(rendered),
+                                                body=rendered,
                                                 portlet=portlet, **kw)
                                )
             all_rendered.extend('</div></div>')

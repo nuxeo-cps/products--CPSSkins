@@ -33,8 +33,6 @@ from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes
 
-from cpsskins_utils import html_slimmer
-
 factory_type_information = (
     {'id': 'Portlet Box Templet',
      'description': ('_portletbox_templet_description_'),
@@ -279,8 +277,6 @@ class PortletBox(BaseTemplet, SimpleBox):
             return ''
 
         body = portlet.render_cache(**kw)
-        body = html_slimmer(body)
-
         rendered_box = []
         if body:
             # add the box frame
