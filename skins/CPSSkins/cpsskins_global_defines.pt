@@ -1,5 +1,6 @@
 <metal:block define-macro="defines"
-tal:define="tmtool here/portal_themes; 
+tal:define="global here_url here_url|here/absolute_url;
+            tmtool here/portal_themes; 
             global mcat here/cpsskins_getlocalizer;
             view_mode tmtool/getViewMode;
             edit_mode view_mode/edit_mode|nothing;
