@@ -210,7 +210,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             if render_esi:
                 rendered = portlet.render_esi(**kw)
             else:
-                rendered = portlet.render_cache(**kw)
+                if shield:
+                    try:
+                        rendered = portlet.render_cache(**kw)
+                    except:
+                        rendered = '<blink>!!!</blink>'
+                else:
+                    rendered = portlet.render_cache(**kw)
 
             # do not render boxes with empty bodies
             if not boxedit and rendered == '':

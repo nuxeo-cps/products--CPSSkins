@@ -140,7 +140,7 @@
                            tal:attributes="class content_class; 
                                            style python: content.getCSSLayoutStyle()">
                         <tal:block condition="render_content"
-                         content="structure python: content.render_cache(shield=0, context_obj=context_obj, editing=1)" />
+                         content="structure python: content.render_cache(shield=shield, context_obj=context_obj, editing=1)" />
                         <tal:block condition="python: isPortalBoxGroup and not layout_panel">
                           <tal:block define="box_group content/box_group|nothing;
                                              render_box python: 0">

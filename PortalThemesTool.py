@@ -95,12 +95,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 		          'action' : 'manage_overview' }, )
                      + ( {'label' : 'RAM Cache', 
 		          'action' : 'manage_RAMCaches' }, )
+                     + ( {'label' : 'Debug', 
+		          'action' : 'manage_DebugMode' }, )
                      + ActionProviderBase.manage_options 
                      )
 
     def __init__(self):
         ThemeFolder.__init__(self, self.id)
         self.externalthemes = PersistentList()
+        self.debug_mode = 0
 
     #
     #   ActionProvider interface
@@ -123,6 +126,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                                           globals())
     security.declareProtected(ManageThemes, 'manage_themesRebuild')
     manage_themesRebuild = DTMLFile('zmi/manage_themesRebuild', globals())
+
+    security.declareProtected(ManageThemes, 'manage_DebugMode')
+    manage_DebugMode = DTMLFile('zmi/manage_DebugMode', globals())
 
     security.declareProtected(ManageThemes, 'manage_overview')
     manage_overview = DTMLFile('zmi/explainPortalThemesTool', globals())
@@ -307,8 +313,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                      'compatible', 
                      'textonly', 
                      'automatic', 
-                     'profiler',
-                     'debug']
+                     'profiler']
         return renderers
 
     security.declarePublic('getThemeRenderer')
@@ -1120,6 +1125,14 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return self.manage_externalThemes(themeid='', themeurl='', \
                     manage_tabs_message='Themes have been updated')
 
+    security.declareProtected(ManageThemes, 'manage_switchDebugMode')
+    def manage_switchDebugMode(self, REQUEST=None):
+        """Turn the debug mode on / off"""
+
+        self.debug_mode = not self.debug_mode
+
+        if REQUEST is not None:
+            return self.manage_DebugMode(manage_tabs_message='Settings updated')
     #
     # Private
     #

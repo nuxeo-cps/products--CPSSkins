@@ -748,7 +748,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                 fail = 1
 
         if fail:
-            rendered = self.cpsskins_brokentemplet(**kw)
+            rendered = '<blink>!!!</blink>'
         return html_slimmer(rendered)
 
     security.declarePublic('render_cache')

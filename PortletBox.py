@@ -231,7 +231,7 @@ class PortletBox(BaseTemplet, SimpleBox):
     # Rendering.
     #
     security.declarePublic('render')
-    def render(self, **kw):
+    def render(self, shield=1, **kw):
         """Renders the templet."""
 
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
@@ -243,7 +243,14 @@ class PortletBox(BaseTemplet, SimpleBox):
         if portlet is None:
             return ''
 
-        body = portlet.render_cache(**kw)
+        if shield:
+            try:
+                body = portlet.render_cache(**kw)
+            except:
+                body = '<blink>!!!</blink>'
+        else:
+            body = portlet.render_cache(**kw)
+
         rendered_box = []
         if body:
             # add the box frame

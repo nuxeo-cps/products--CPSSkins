@@ -1,0 +1,19 @@
+<dtml-var manage_page_header>
+<dtml-let management_view="'Debug'">
+<dtml-var manage_tabs>
+</dtml-let>
+
+<form action="manage_switchDebugMode" method="post">
+
+<p class="form-element">
+<dtml-if expr="debug_mode">
+<p style="color: red">The crash shield is currently deactivated.</p>
+<input class="form-element" type="submit" value=" Activate the crash shield " />
+<dtml-else>
+<p>The crash shield is currently activated.</p>
+<input class="form-element" type="submit" value=" Deactivate the crash shield " />
+</dtml-if>
+</p>
+
+</form>
+<dtml-var manage_page_footer>
