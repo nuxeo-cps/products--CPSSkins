@@ -1,9 +1,10 @@
-<dtml-let theme_url="getThemeContainer().absolute_url(relative=1)"
+<dtml-let base_url="cpsskins_getBaseUrl()"
+          theme_url="base_url + portal_url.getRelativeUrl(getThemeContainer())"
           class="'.portalTab' + title">
 
 <dtml-if Tabs_bg_image>
 <dtml-var class> {
-  background: url(/<dtml-var theme_url>/backgrounds/<dtml-var Tabs_bg_image>) top repeat-x;
+  background: url(<dtml-var theme_url>/backgrounds/<dtml-var Tabs_bg_image>) top repeat-x;
 } </dtml-if>
 
 <dtml-var class> ul.cpsskinsMenu li {
@@ -19,7 +20,7 @@
 
 <dtml-var class> ul.cpsskinsMenu li {
 <dtml-if Tab_right_bg_image>
-  background:url(/<dtml-var theme_url>/backgrounds/<dtml-var Tab_right_bg_image>) right top no-repeat;
+  background:url(<dtml-var theme_url>/backgrounds/<dtml-var Tab_right_bg_image>) right top no-repeat;
 </dtml-if>
 <dtml-if Tab_bottom_border_color>
   border-bottom:1px solid <dtml-var Tab_bottom_border_color>;
@@ -28,12 +29,12 @@
 
 <dtml-if Tab_left_bg_image>
 <dtml-var class> ul.cpsskinsMenu li a {
-  background:url(/<dtml-var theme_url>/backgrounds/<dtml-var Tab_left_bg_image>) left top no-repeat;
+  background:url(<dtml-var theme_url>/backgrounds/<dtml-var Tab_left_bg_image>) left top no-repeat;
 } </dtml-if>
 
 <dtml-var class> ul.cpsskinsMenu li.selected {
 <dtml-if TabIn_right_bg_image>
-  background:url(/<dtml-var theme_url>/backgrounds/<dtml-var TabIn_right_bg_image>) right top no-repeat;
+  background:url(<dtml-var theme_url>/backgrounds/<dtml-var TabIn_right_bg_image>) right top no-repeat;
 </dtml-if>
 <dtml-if TabIn_bottom_border_color>
   border-bottom:1px solid <dtml-var TabIn_bottom_border_color>;
@@ -42,7 +43,7 @@
 
 <dtml-if TabIn_left_bg_image>
 <dtml-var class> ul.cpsskinsMenu li.selected a {
-  background:url(/<dtml-var theme_url>/backgrounds/<dtml-var TabIn_left_bg_image>) left top no-repeat;
+  background:url(<dtml-var theme_url>/backgrounds/<dtml-var TabIn_left_bg_image>) left top no-repeat;
 } </dtml-if>
 
 </dtml-let>
