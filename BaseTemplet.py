@@ -504,7 +504,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         # a simple page reload will display the correct results.
         except AttributeError:
             self.rebuild()
-        return boxclass.strip()
+
+        if boxclass:
+            return boxclass.strip()
 
     security.declarePublic('VisibilityList')
     def VisibilityList(self):
