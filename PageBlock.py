@@ -392,6 +392,19 @@ class PageBlock(ThemeFolder, StylableContent):
                                }
         return objects
 
+    security.declarePublic('getTemplets')
+    def getTemplets(self):
+        """Get the list of Templets
+        """
+        templets = []
+        for obj in self.objectValues():
+            o = obj.aq_explicit
+            if getattr(o, 'isportaltemplet', 0):
+                templets.append(obj)
+            if getattr(o, 'iscellblock', 0):
+                templets.extend(obj.getTemplets())
+        return templets
+
     #
     # CSS
     #

@@ -290,6 +290,16 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
                            }
         return objects
 
+    security.declarePublic('getTemplets')
+    def getTemplets(self):
+        """Get the list of Templets
+        """
+        templets = []
+        for obj in self.objectValues():
+            if getattr(obj, 'isportaltemplet', 0):
+                templets.append(obj)
+        return templets
+
     security.declarePublic('getVisibility')
     def getVisibility(self, REQUEST=None, **kw):
         """Returns True if the Cell Block is visible."""

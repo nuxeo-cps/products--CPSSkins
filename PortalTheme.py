@@ -974,17 +974,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         Returns the list of templets.
         """
 
-        pageblocks = self.getPageBlocks()
         templets = []
-        for pageblock in pageblocks:
-             maxcols = getattr(pageblock, 'maxcols', None)
-             pageblock_closed = pageblock.closed
-             if maxcols is not None:
-                 maxcols = int(maxcols)
-             for obj in pageblock.objectValues():
-                 o = obj.aq_explicit
-                 if getattr(o, 'isportaltemplet', 0):
-                     templets.append(obj)
+        for pageblock in self.getPageBlocks():
+            templets.extend(pageblock.getTemplets())
         return templets 
 
     security.declareProtected(ManageThemes, 'getTempletByPath')
