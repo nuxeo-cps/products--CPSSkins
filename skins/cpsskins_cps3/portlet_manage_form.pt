@@ -68,7 +68,7 @@
            i18n:translate="description_delete_unused_portlets" 
            i18n:domain="cpsskins" 
            tal:attributes="href string:${context_urlc}/cpsskins_delete_unused_portlets?theme=$current_theme;
-                          onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )" >Delete unused box</a>
+                          onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )" >Delete unused portlets</a>
         </p>
         <table cellpadding="0" cellspacing="3">
           <tr>
