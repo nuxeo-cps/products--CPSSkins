@@ -51,8 +51,8 @@
           <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
         </tal:block>
 
-        <tal:block condition="python: panel == 'visibility'">
-          <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/visibility_panel" />
+        <tal:block condition="python: panel == 'site_structure'">
+          <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
         </tal:block> 
 
         <tal:block condition="python: panel == 'browser'">

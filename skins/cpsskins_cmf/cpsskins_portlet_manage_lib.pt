@@ -88,8 +88,8 @@
   <form action="" method="post" style="text-align:right"
    tal:attributes="action string:${here/absolute_url}/cpsskins_setViewMode">
     <select name="portlets_panel" onchange="submit()">
-      <option value="" disabled="disabled" selected="selected">Select panel ...</option>
-      <option value="visibility">Portlet visibility</option>
+      <option value="" disabled="disabled" selected="selected">Management panels ...</option>
+      <option value="site_structure">Site structure</option>
       <option value="unused">Unused portlets</option>
       <option value="browser">Portlet browser</option>
     </select>
@@ -178,9 +178,9 @@
   </table>
 </metal:block>
 
-<metal:block define-macro="visibility_panel"
+<metal:block define-macro="site_structure"
   tal:define="here_depth python: len(utool.getRelativeContentPath(here))">
-  <h2 i18n:translate="heading_portlet_visibility" i18n:domain="cpsskins">Portlet visibility</h2>
+  <h2 i18n:translate="heading_site_structure" i18n:domain="cpsskins">Site structure</h2>
   <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
     <span tal:content="context_url" />
   </p>
@@ -240,4 +240,33 @@
 
 <metal:block define-macro="browser_panel">
   <h2 i18n:translate="heading_portlet_browser" i18n:domain="cpsskins">Portlet browser</h2>
+  <tal:block define="portlets ptltool/listAllPortlets"
+             repeat="portlet portlets">
+    <tal:block define="ypos portlet/getOrder;
+                       fti portlet/getTypeInfo;
+                       portlet_id portlet/getId;
+                       portlet_type fti/title_or_id;
+                       portlet_icon fti/getIcon;
+                       portlet_url portlet/getURL;
+                       portlet_folder portlet/getLocalFolder;
+                       portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+                       portlet_rurl portlet/getRelativeUrl;
+                       group portlet/getSlot">
+      <div class="PortletBoxCopyDrag" style="padding: 2px"
+       tal:attributes="portlet_rurl portlet_rurl;
+                       src_rurl portlet_folder_rurl;
+                       src_ypos python: ypos and ypos or 0;
+                       src_slot group">
+        <div style="padding: 4px">
+          <img width="16" height="16" alt=""
+           tal:condition="portlet_icon"
+           tal:attributes="src string:${portal_url}/${portlet_icon};
+                           title python: cpsmcat(portlet_type)" />
+          <a tal:content="portlet/title"
+           tal:attributes="href string:${portlet/absolute_url}/edit_form" />
+          <p tal:content="portlet/description" />
+        </div>
+      </div>
+    </tal:block>
+  </tal:block>
 </metal:block>

@@ -15,7 +15,7 @@ if fullscreen in ['0', '1']:
     session_dict['fullscreen'] = int(fullscreen)
 
 portlets_panel = kw.get('portlets_panel')
-if portlets_panel in ['visibility', 'browser', 'unused']:
+if portlets_panel in ['site_structure', 'browser', 'unused']:
     session_dict['portlets_panel'] = portlets_panel
 
 selected_portlets = kw.get('selected_portlet')
