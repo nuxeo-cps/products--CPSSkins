@@ -41,7 +41,12 @@ People:
 - patch for cpsskins_cmf/cpsskins_getNavigationInfo.py
 
 * Stefan Undorf <sundorf@suncom.de>
+* Ralf Kraemer <ralf.kraemer@gkc-bonn.de>
 - German translation
 
 * Mario Olimpio de Menezes <mario@curiango.ipen.br>
 - Portuguese translation
+
+* Klara Sibeck <klara.sibeck@adm.chalmers.se>
+* Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+- Swedish translation
