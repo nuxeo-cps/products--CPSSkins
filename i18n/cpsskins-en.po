@@ -2220,5 +2220,5 @@ msgstr "Insert a box ..."
 
 
 msgid "menu_insert_portlet"
-msgstr "Insert a portlet"
+msgstr "Insert a portlet ..."
 
