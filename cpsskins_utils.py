@@ -25,11 +25,12 @@ import random
 
 from DateTime import DateTime
 from Acquisition import  aq_base
+from AccessControl import Unauthorized
 
 from Products.CMFCore.CMFCorePermissions import View, AccessContentsInformation
-from CPSSkinsPermissions import ManageThemes
-
 from Products.CMFCore.utils import getToolByName, _getViewFor
+
+from CPSSkinsPermissions import ManageThemes
 
 def rebuild_properties(obj):
     """ This method rebuilds an object's property map (_properties) and
@@ -429,9 +430,10 @@ def moveToLostAndFound(self, obj):
         manage_perms = newobj.manage_permission
         manage_perms(View, roles=['Manager'], acquire=0)
         manage_perms(AccessContentsInformation, roles=['Manager'], acquire=0)
-    except:
+    except Unauthorized:
         pass
-    container.manage_delObjects(obj.getId())
+    else:
+        container.manage_delObjects(obj.getId())
     return 1
 
 def css_slimmer(css):
