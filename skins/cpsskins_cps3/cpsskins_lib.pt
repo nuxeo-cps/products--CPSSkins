@@ -26,7 +26,7 @@
   </tal:block>
 
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
-  style="text-align: left">
+  tal:attributes="style string:text-align:left;; padding:${here/padding}">
   <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_nuxeo.png"
        width="16" height="16" />
   <tal:block content="templet_title" />(
