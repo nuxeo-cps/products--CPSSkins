@@ -656,7 +656,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         # method themes
         published = REQUEST.get('PUBLISHED')
         if published is not None:
-            theme = self.getThemeByMethod(published.getId())
+            try:
+                published = published.getId()
+            except AttributeError:
+                pass
+            theme = self.getThemeByMethod(published)
             if theme is not None and theme.find('+') > 0:
                 theme = theme.split('+')[0]
             return theme

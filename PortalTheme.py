@@ -395,7 +395,11 @@ class PortalTheme(ThemeFolder, StylableContent):
         tmtool = getToolByName(self, 'portal_themes')
         published = REQUEST.get('PUBLISHED')
         if published is not None:
-            meth_theme = tmtool.getThemeByMethod(published.getId())
+            try:
+                published = published.getId()
+            except AttributeError:
+                pass
+            meth_theme = tmtool.getThemeByMethod(published)
             if meth_theme is not None and meth_theme.find('+') > 0:
                 theme, page = meth_theme.split('+')
                 if theme == self.getId() and page:
