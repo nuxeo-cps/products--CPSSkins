@@ -1,8 +1,8 @@
 
 
 # CPS Portlets
-if hasattr(context, 'portal_cpsportlets'):
-    return context.portal_portlets.getPortletSlots()
+if getattr(context, 'portal_cpsportlets', None) is not None:
+    return context.portal_cpsportlets.getPortletSlots()
 
 # Fallback to CPS Boxes
 list = []

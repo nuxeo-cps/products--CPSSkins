@@ -325,7 +325,7 @@ def update(self):
     has_cmfcalendar = 0
     try:
         getToolByName(self, 'portal_calendar')
-    except:
+    except AttributeError:
         pass
     else:
         has_cmfcalendar = 1
@@ -336,7 +336,7 @@ def update(self):
     has_cpsportlets = 0
     try:
         getToolByName(self, 'portal_cpsportlets')
-    except:
+    except AttributeError:
         pass
     else:
         has_cpsportlets = 1
