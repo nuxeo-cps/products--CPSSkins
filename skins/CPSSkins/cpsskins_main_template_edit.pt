@@ -67,7 +67,7 @@
              tal:define="templets_in_xpos python: objects_in_xpos['templets'];
                          cellsize python: objects_in_xpos['cellsizer'];
                          cellstyle python: objects_in_xpos['cellstyler']"
-             tal:attributes="class python: pageblock.getCSSAreaClass(); 
+             tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
                              width python: cellsize and cellsize.cellwidth or None">
               <metal:block define-slot="cell_top"
                tal:replace="nothing"></metal:block>
