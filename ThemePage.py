@@ -260,9 +260,11 @@ class ThemePage(ThemeFolder, StylableContent):
     # CSS
     #
     security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self):
+    def getCSSLayoutStyle(self, level=2):
         """Returns the CSS layout style for this theme."""
 
+        if level == 1:
+            return ''
         align = self.align
         if align == 'left':
             return 'margin-left:0px;margin-right:auto;'

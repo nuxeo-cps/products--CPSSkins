@@ -192,9 +192,11 @@ class PageBlock(ThemeFolder, StylableContent):
         return ' '.join(areaclass)
 
     security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self, layout_style=''):
+    def getCSSLayoutStyle(self, layout_style='', level=2):
         """Returns the CSS area style for this Page Block.
         """
+        if level == 1:
+            return ''
         css = layout_style
         height = self.height
         if height:

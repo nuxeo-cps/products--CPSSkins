@@ -339,9 +339,11 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         return ''
 
     security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self):
+    def getCSSLayoutStyle(self, level=2):
         """Returns the CSS layout style for this CellBlock."""
 
+        if level == 1:
+            return ''
         css = ''
         height = self.height
         if height:

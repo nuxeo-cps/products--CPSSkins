@@ -413,9 +413,14 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         return ''
 
     security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self):
-        """Returns the CSS layout style for this Templet."""
+    def getCSSLayoutStyle(self, level=2):
+        """Returns the CSS layout style for this Templet.
+        level = 1 for CSS1 browsers
+        level = 2 for CSS2 browsers
+        """
 
+        if level == 1:
+            return ''
         padding = self.padding
         height = self.templet_height
         css = 'text-align: %s;' % self.align

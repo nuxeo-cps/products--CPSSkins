@@ -38,7 +38,7 @@
                           cellsize python: objects_in_xpos['cellsizer'];
                           cellstyle python: objects_in_xpos['cellstyler']"
                tal:attributes="class python: cellstyle and cellstyle.getCSSClass(level=1) or None;
-                               style python: cellsize and cellsize.getCSSLayoutStyle() or None">
+                               style python: cellsize and cellsize.getCSSLayoutStyle(level=1) or None">
                 <tal:block condition="not:contents_in_xpos" 
                            content="structure string:&nbsp;" />
                 <tal:block repeat="content contents_in_xpos">
@@ -49,7 +49,7 @@
                    tal:attributes="style margin_style"
                    tal:omit-tag="not:margin_style">
                     <div tal:attributes="class python: content.getCSSClass(level=1);
-                                         style python: content.getCSSLayoutStyle()">
+                                         style python: content.getCSSLayoutStyle(level=1)">
                   <tal:block condition="isRenderable"
                    content="structure rendered" />
                   <tal:block condition="not:isRenderable">
