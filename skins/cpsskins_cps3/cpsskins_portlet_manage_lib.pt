@@ -1,11 +1,13 @@
 <metal:block define-macro="box">
   <div class="BoxGroupBoxSlot PortletBoxDrag"
    tal:define="ypos portlet/getOrder;
+               portlet_id portlet/getId;
                portlet_url portlet/getURL;
+               portlet_rurl portlet/getRelativeUrl;
                fti portlet/getTypeInfo;
                portlet_title fti/title_or_id;
                portlet_icon fti/getIcon"
-   tal:attributes="portlet_rurl portlet/getRelativeUrl;
+   tal:attributes="portlet_rurl portlet_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group">
     <div class="PortletBoxDest" 
@@ -16,6 +18,12 @@
         tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
           <img border="0" width="12" height="12"
           tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
+        </a>
+        <a href=""
+        tal:attributes="href string:${here/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id; 
+                        onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )">
+          <img border="0" width="12" height="12"
+          tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
         </a>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
