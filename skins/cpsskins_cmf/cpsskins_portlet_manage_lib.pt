@@ -161,7 +161,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                        src_ypos python: ypos and ypos or 0;
                        src_slot portlet/getSlot;">
         <img src="" width="16" height="16" alt="" align="middle"
-         tal:attributes="src portlet/getIcon" />
+         tal:attributes="src python: '/' + portlet.getIcon()" />
         <span tal:content="portlet/title_or_id" />
       </div>
     </div>
@@ -334,16 +334,23 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     <tal:block define="ypos portlet/getOrder;
                        fti portlet/getTypeInfo;
                        portlet_id portlet/getId;
+                       portlet_title portlet/title_or_id;
                        portlet_type fti/title_or_id;
                        portlet_icon fti/getIcon;
                        portlet_url portlet/getURL;
                        portlet_folder portlet/getLocalFolder;
                        portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
                        portlet_rurl portlet/getRelativeUrl;
+                       folder_url python: base_url + utool.getRelativeUrl(here);
                        group portlet/getSlot;
                        selected python: portlet_id == selected_portlet">
-      <div class="PortletBoxCopyDrag" style="padding: 2px"
+      <div class="PortletBoxEditMenu" style="padding: 2px"
        tal:attributes="portlet_rurl portlet_rurl;
+                       portlet_folder python: base_url + portlet_folder_rurl;
+                       icon portlet_icon;
+                       title portlet_title;
+                       folder_url folder_url;
+                       portlet_id portlet_id;
                        src_rurl portlet_folder_rurl;
                        src_ypos python: ypos and ypos or 0;
                        src_slot group">
