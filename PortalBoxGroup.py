@@ -229,6 +229,10 @@ class PortalBoxGroup(BaseTemplet):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         if ptltool is None:
             return index
+
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
         slot = self.getSlot()
         context = kw.get('context')
         portlets = ptltool.getPortlets(context, slot)
@@ -237,7 +241,17 @@ class PortalBoxGroup(BaseTemplet):
         # (the portlet's id is unique per instance, hence we can use it as a
         # cache index key for the portlet).
         for portlet in portlets:
-            index += (portlet.getId(),) + portlet.getCacheIndex()
+            index += (portlet.getId(),)
+            # custom cache index computed by the portlet
+            index += portlet.getCustomCacheIndex()
+            # cache parameters
+            params =  portlet.getCacheParams()
+            if 'url' in params:
+                index += (REQUEST.get('PATH_TRANSLATED', '/'), )
+            if 'i18n' in params:
+                index += (REQUEST.get('cpsskins_language', 'en'), )
+            if 'user' in params:
+                index += (str(REQUEST.get('AUTHENTICATED_USER')), )
         return index
 
 InitializeClass(PortalBoxGroup)
