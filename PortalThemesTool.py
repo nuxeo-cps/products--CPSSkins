@@ -30,9 +30,11 @@ from DateTime import DateTime
 
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
-from ZODB.PersistentList import PersistentList
 from Acquisition import aq_base, aq_parent, aq_inner
 from types import StringType, TupleType
+
+try: from ZODB.PersistentList import PersistentList
+except ImportError: from persistent.list import PersistentList
 
 from Products.CMFCore.ActionProviderBase import ActionProviderBase
 from Products.CMFCore.ActionInformation import ActionInformation
