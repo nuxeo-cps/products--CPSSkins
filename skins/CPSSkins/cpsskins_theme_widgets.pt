@@ -60,7 +60,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
   <table class="pageTabs" cellpadding="0" cellspacing="0" border="0" summary="">
     <tr>
       <tal:block repeat="page pages">
-        <tal:block define="
+        <td tal:define="
           page_title page/title_or_id;
           page_id page/getId;
           page_url python: base_url + utool.getRelativeUrl(page);
@@ -68,25 +68,28 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           default_page python: page['default'];
           styles_list python: page.getApplicableStyles();
           align_list page/listHorizontalAlignments|nothing;
-          style python: default_page and 'text-decoration: underline' or '';">
-          <td tal:attributes="
-             pageid python: not we_are_here and page_id or None;
-             icon python: '/' + page.getIcon();
-             alignments python: '|'.join(align_list);
-             styles python: '|'.join([s['meta_type'] for s in styles_list]);
-             isalignable python: page.isAlignable();
-             title page_title;
-             class python: we_are_here and 'ContextualMenu selected' or 'ContextualMenu';
-             contenturl page_url">
-            <a interactive="1" tal:attributes="
-              href string:${tmtool_url}/setViewMode?page=$page_id&amp;scrolly=0&amp;reload=1;
-              style style"
-            tal:content="page_title" />
-          </td>
-        </tal:block>
+          style python: default_page and 'text-decoration: underline' or '';"
+        tal:attributes="class python: we_are_here and 'selected' or None">
+          <div class="ContextualMenu" tal:attributes="
+           pageid python: not we_are_here and page_id or None;
+           icon python: '/' + page.getIcon();
+           alignments python: '|'.join(align_list);
+           styles python: '|'.join([s['meta_type'] for s in styles_list]);
+           isalignable python: page.isAlignable();
+           title page_title;
+           contenturl page_url">
+            <div class="contentDest" tal:attributes="dest_page page_id">
+              <a interactive="1" tal:attributes="
+                href string:${tmtool_url}/setViewMode?page=$page_id&amp;scrolly=0&amp;reload=1;
+                style style"
+              tal:content="page_title" />
+            </div>
+          </div>
+        </td>
       </tal:block>
       <td>
-        <a tal:attributes="href string:${theme_container_url}/cpsskins_page_add"
+        <a class="addItem"
+         tal:attributes="href string:${theme_container_url}/cpsskins_page_add"
          tal:content="structure string:&nbsp;+&nbsp;" />
       </td>
     </tr>

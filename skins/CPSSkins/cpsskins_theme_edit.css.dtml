@@ -268,7 +268,6 @@ div.simulate_hierarchies {
 }
 
 .pageTabs td {
-  padding: 0px 20px 0px 20px;
   background-color: #e3e3e3;
   border: 1px solid #999;
   -moz-border-radius: 10px 10px 0 0;
@@ -284,6 +283,17 @@ div.simulate_hierarchies {
   text-decoration: none;
 }
 
+.pageTabs .ContextualMenu, .pageTabs .ContextualMenu_highlighted {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.pageTabs a.addItem {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Edit form */
 .editForm {
   font: 10px Arial, Helvetica, sans-serif;
   padding-left: 15px;
