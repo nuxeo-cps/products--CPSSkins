@@ -47,7 +47,7 @@
     </div> 
 
     <div class="statusmessage" i18n:translate=""
-         tal:define="psm options/portal_status_message|nothing"
+         tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
          tal:condition="psm"
          tal:content="psm" />
 

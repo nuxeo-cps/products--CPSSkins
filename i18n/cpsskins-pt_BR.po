@@ -1418,6 +1418,10 @@ msgid "_Theme_"
 msgstr ""
 
 
+msgid "_Theme_rebuilt_"
+msgstr ""
+
+
 msgid "_Themes manager_"
 msgstr "Administrador de temas"
 
