@@ -16,8 +16,7 @@
                    src_slot group;
                    class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
     <div class="PortletBoxDest"
-      tal:define="thickness python: box_selected and 2 or 1;
-                  box_style string:border-width:1px ${thickness}px ${thickness}px 1px"
+      tal:define="box_style python: box_selected and 'border: 1px dashed Black' or 'border: 1px solid #666'"
       tal:attributes="style box_style;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
@@ -29,7 +28,6 @@
             <img border="0" width="12" height="12" alt=""
             tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
           </a>
-          <tal:block content="structure string:&raquo;" condition="box_selected" />
           <a tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
             <tal:block content="portlet_title" />
           </a>
@@ -41,13 +39,13 @@
         <img width="16" height="16" alt=""
         tal:condition="portlet_icon"
         tal:attributes="src string:${portal_url}/${portlet_icon}" />
-        <strong tal:content="structure python: cpsmcat(portlet_type)" />
+        <em tal:content="structure python: cpsmcat(portlet_type)" />
         <p>
-        <tal:block i18n:translate="listingheader_location" />:
-        <tal:block content="python: '/' + portlet_folder.absolute_url(1)" />
+          <tal:block i18n:translate="listingheader_location" />:
+          <em tal:content="python: '/' + portlet_folder.absolute_url(1)" />
         </p>
         <p>
-        Order: <tal:block content="portlet/getOrder" />
+          Order: <tal:block content="portlet/getOrder" />
         </p>
       </div>
     </div>

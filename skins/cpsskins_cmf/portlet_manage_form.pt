@@ -116,7 +116,7 @@
                             vrange_stop python: vrange[1];
                             selected python: portlet_id == selected_portlet">
                 <td tal:attributes="colspan python: portlet_depth"></td>
-                <td style="border-bottom: 1px solid #ccc">
+                <td style="border-bottom: 1px dotted #ccc">
                   <img width="16" height="16" alt=""
                    tal:condition="portlet_icon"
                    tal:attributes="src string:${portal_url}/${portlet_icon};
