@@ -402,7 +402,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Text Box Templet',
                                        ypos=int(0))
         style = self.page_container.addPortalStyle(type_name='Area Color')
-        templet.setStyle(style, meta_type='Area Color')
+        templet.setStyle(style)
         self.assert_(templet.color == style.getTitle())
 
     def test_getStyle(self):
