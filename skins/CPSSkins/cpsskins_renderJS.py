@@ -22,7 +22,7 @@ if ptltool is not None and page_container is not None:
             continue
         ptype_id = ti.getId()
         # XXX: use the cache
-        if ptype_id not in done_types:
+        if ptype_id not in done_types or ptype_id == 'Custom Portlet':
             js += portlet.render_js()
             done_types.append(ptype_id)
 
