@@ -49,6 +49,13 @@ input.SearchBox {
 
 .cpsskinsBox .body ul li a {
   display: block;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.cpsskinsBox .body ul li a.noicon {
+  background-image: none;
+  padding-left: 2px !important;
 }
 
 /* horizontal layout (tabs) */
@@ -62,6 +69,8 @@ input.SearchBox {
 
 .cpsskinsTab .body ul li a {
   display: inline;
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 
 /* Buttons (min/max/close/edit) */

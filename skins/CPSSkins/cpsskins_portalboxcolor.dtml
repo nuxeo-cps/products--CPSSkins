@@ -64,8 +64,6 @@
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
 <dtml-let url="absolute_url(relative=1)">
   background-image: url(/<dtml-var url>);
-  background-repeat: no-repeat;
-  background-position: left center;
   padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
@@ -78,18 +76,10 @@
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
 <dtml-let url="absolute_url(relative=1)">
   background-image: url(/<dtml-var url>);
-  background-repeat: no-repeat;
-  background-position: left center;
   padding-left: <dtml-var "_.int(width)+4">px !important;
 </dtml-let>
 </dtml-with>
 </dtml-with>
-} </dtml-if>
-
-<dtml-if expr="BoxBody_menuin_icon or BoxBody_menuout_icon">
-<dtml-var class> .body ul li a.noicon {
-  background-image: none;
-  padding-left: 2px !important;
 } </dtml-if>
 
 </dtml-let>
