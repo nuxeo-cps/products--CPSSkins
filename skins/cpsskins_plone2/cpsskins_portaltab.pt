@@ -44,8 +44,8 @@ tal:define="context_obj nocall:options/context_obj;
           </a>
         </li>
       </tal:block>
-      <div style="clear:left" />
     </ul>
+    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
  <tal:block condition="python: content == 'actions'">
@@ -64,8 +64,8 @@ tal:define="context_obj nocall:options/context_obj;
               </li>
          </tal:block>
       </tal:block>
-      <div style="clear:left" />
     </ul>
+    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
 </div>

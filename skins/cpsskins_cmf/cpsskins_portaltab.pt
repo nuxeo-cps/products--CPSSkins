@@ -48,8 +48,8 @@ tal:define="mcat python: request.get('cpsskins_mcat');
           </a>
         </li>
       </tal:block>
-    <div style="clear:left" />
     </ul>
+    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
  <tal:block condition="python: content == 'actions'">
@@ -69,8 +69,8 @@ tal:define="mcat python: request.get('cpsskins_mcat');
               </li>
          </tal:block>
       </tal:block>
-    <div style="clear:left" />
     </ul>
+    <div style="clear:left" ></div>
   </tal:block>
  </tal:block>
 </div>
