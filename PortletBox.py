@@ -79,7 +79,6 @@ class PortletBox(BaseTemplet):
         'label': 'Portlet type', 
         'select_variable': 'cpsskins_listPortletTypes',
         'category': 'general',
-        'visible': 'showPortletTypes',
         'i18n': 1,
        },
     )
@@ -126,32 +125,33 @@ class PortletBox(BaseTemplet):
         or creates a new global portlet.
         """
 
-        if self.getPortletId() is None:
-            ptype_id = kw.get('portlet_type', None) 
-            if ptype_id is not None:
-                # Create a global portlet on the fly and associate
-                # the portlet id to this portlet box.
- 
-                # XXX CPS3 specific - should it be here?
-                ptltool = getToolByName(self, 'portal_cpsportlets')
-                portlet_id = ptltool.createPortlet(ptype_id=ptype_id, isglobal=(1))
+        portlet_type = kw.get('portlet_type', None) 
+        if portlet_type is not None:
+            ptype_id = self.getPortletType()
+
+            # XXX CPS3 specific - should it be here?
+            ptltool = getToolByName(self, 'portal_cpsportlets')
+
+            # Create a global portlet on the fly and associate
+            # the portlet id to this portlet box.
+            if self.getPortletId() is None:
+                portlet_id = ptltool.createPortlet(ptype_id=portlet_type, isglobal=1)
                 if portlet_id is not None:
                     kw.update({'portlet_id': portlet_id}) 
 
+            # Modify an existing portlet:
+            elif portlet_type != ptype_id:
+                old_portlet_id = self.getPortletId()
+                portlet_id = ptltool.createPortlet(ptype_id=portlet_type, isglobal=1)
+                if portlet_id is not None:
+                    kw.update({'portlet_id': portlet_id}) 
+                res = ptltool.deletePortlet(portlet_id=old_portlet_id, isglobal=1)
+                if res:
+                    # XXX: what to do?
+                    pass
+
         self.manage_changeProperties(**kw)
         self.expireCache()
-
-    #
-    # Object attributes.
-    #
-    security.declarePublic('showPortletTypes')
-    def showPortletTypes(self):
-        """Returns true if the portal type selector 
-           should be shown.
-        """
-
-        if self.getPortletId() is None:
-            return 1
 
     #
     # Portlet interface.
