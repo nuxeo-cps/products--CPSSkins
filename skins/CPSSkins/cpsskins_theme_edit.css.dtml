@@ -331,11 +331,6 @@ div.simulate_hierarchies {
   padding-top: 6px;
 }
 
-.themeTabs .ContextualMenu, .themeTabs .ContextualMenu_highlighted {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
 .themeTabs img {
   vertical-align: top;
 }
@@ -396,6 +391,8 @@ div.simulate_hierarchies {
   background-color: #e3e3e3;
   border: 1px solid #999;
   -moz-border-radius: 10px 10px 0 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .pageTabs td.selected {
@@ -408,15 +405,15 @@ div.simulate_hierarchies {
   text-decoration: none;
 }
 
-.pageTabs .ContextualMenu, .pageTabs .ContextualMenu_highlighted {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .pageTabs a.addItem {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.pageTabs img {
+  vertical-align: top;
+}
+
 
 /* Edit form */
 .editForm {
