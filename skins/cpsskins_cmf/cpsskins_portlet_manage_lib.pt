@@ -220,6 +220,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
    dest_ypos python: 0">
     <div class="PortletBoxEditMenu" style="padding: 20px"
      tal:attributes="src_ypos python: 0;
+                     portlet_folder here_url;
                      src_slot group">
     </div>
   </div>
