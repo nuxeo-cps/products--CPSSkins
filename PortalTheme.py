@@ -1297,9 +1297,9 @@ class PortalTheme(ThemeFolder, StylableContent):
 
 InitializeClass(PortalTheme)
 
-def addPortalTheme(dispatcher, id, REQUEST=None):
+def addPortalTheme(dispatcher, id, REQUEST=None, **kw):
     """Add a Portal Theme."""
-    ob = PortalTheme(id)
+    ob = PortalTheme(id, **kw)
     container = dispatcher.Destination()
     container._setObject(id, ob)
     if REQUEST is not None:
