@@ -27,7 +27,7 @@
   </tal:block>
 
   <div class="boxGroupBoundingBox" tal:condition="not:render_box">
-    <div class="boxGroupBoxSlotTitle">
+    <div class="boxGroupBoxSlotTitle" i18n:domain="cpsskins">
       <tal:block define="title string:_Slot name_" i18n:translate=""
        content="python: mcat and mcat(title) or title" />:
       <tal:block content="content/box_group" />

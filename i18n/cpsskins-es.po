@@ -1675,6 +1675,10 @@ msgid "_button_clear_the_cache_"
 msgstr ""
 
 
+msgid "_button_close_"
+msgstr ""
+
+
 msgid "_button_create_"
 msgstr "Crear"
 

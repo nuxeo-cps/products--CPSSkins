@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html tal:define="
+<html i18n:domain="cpsskins" tal:define="
   base_url python:here.cpsskins_getBaseUrl();
   imagecat request/form/imagecat|nothing;
   mcat here/cpsskins_getlocalizer;
@@ -53,7 +53,7 @@
     <form action="">
       <input class="standalone" type="submit" 
        onclick="window.opener.location.reload();window.close()"
-       value="button_close" i18n:attributes="value" />
+       value="_button_close_" i18n:attributes="value" />
     </form>
   </div>
 </body>

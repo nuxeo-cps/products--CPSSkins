@@ -1670,6 +1670,10 @@ msgid "_button_clear_the_cache_"
 msgstr "Purger le cache"
 
 
+msgid "_button_close_"
+msgstr ""
+
+
 msgid "_button_create_"
 msgstr "Foronina"
 

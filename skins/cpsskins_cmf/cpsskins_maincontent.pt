@@ -1,5 +1,5 @@
 <tal:block define="mcat python: request.get('cpsskins_mcat')">
-  <h1 i18n:translate=""
+  <h1 i18n:translate="" i18n:domain="cpsskins"
    tal:define="title string:_Main content_"
    tal:content="python: mcat and mcat(title) or title "/>
 </tal:block>

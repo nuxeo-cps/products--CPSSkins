@@ -1824,3 +1824,6 @@ msgstr ""
 
 msgid "_Macroless_"
 msgstr ""
+
+msgid "_button_close_"
+msgstr ""

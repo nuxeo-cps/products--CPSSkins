@@ -65,7 +65,7 @@
   </tal:block>
 </metal:block>
 
-<metal:block define-macro="styles"
+<metal:block define-macro="styles" i18n:domain="cpsskins"
   tal:define="current_style request/form/current_style|nothing;
               pss modules/Products/PythonScripts/standard; 
               stylecat request/form/style|nothing">
@@ -141,7 +141,7 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="images"
+<metal:block define-macro="images" i18n:domain="cpsskins"
   tal:define="current_image request/form/current_image|nothing; 
               imagecat request/form/imagecat|nothing; 
               sections here/cpsskins_listImageCategories;
@@ -212,7 +212,7 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="palettes"
+<metal:block define-macro="palettes" i18n:domain="cpsskins"
   tal:define="pss modules/Products/PythonScripts/standard;
               palettecat request/form/palette|nothing">
     <metal:block use-macro="here/cpsskins_form_widgets/macros/palettenavigation"/>
@@ -276,7 +276,7 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="themes_manager"
+<metal:block define-macro="themes_manager" i18n:domain="cpsskins"
   tal:define="themes python: tmtool.getThemes();
               current_theme request/form/theme|nothing">
     <h1 tal:define="title string:_Themes manager_"
@@ -500,7 +500,7 @@
   </form>
 </metal:block>
 
-<metal:block define-macro="theme_optimizer" tal:define="
+<metal:block define-macro="theme_optimizer" i18n:domain="cpsskins" tal:define="
   dummy theme_container/rebuild;
   unused_styles theme_container/findOrphanedStyles|nothing; 
   identical_styles theme_container/findIdenticalStyles|nothing; 
