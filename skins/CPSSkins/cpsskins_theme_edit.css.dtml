@@ -51,7 +51,6 @@
   font: 10px Verdana, Arial, Helvetica, sans-serif;
   position: absolute;
   border: 2px outset Menu;
-  filter: alpha(opacity=90);
   background-image: url(<dtml-var base_url>cpsskins_images/bg_context-menu.png);
   color: MenuText;
   cursor: default;
@@ -74,8 +73,8 @@
 }
 
 .context-menu-item img, .context-menu-item_highlighted img {
-  padding-right: 0.17em;
-  padding-left: 0.2em;
+  margin-right: 0.17em;
+  margin-left: 0.2em;
   vertical-align: middle;
 }
 
@@ -98,8 +97,8 @@
 }
 
 .context-menu-header img {
-  padding-right: 0.2em;
-  padding-left: 0.1em;
+  margin-right: 0.2em;
+  margin-left: 0.1em;
   vertical-align: middle;
 }
 
@@ -220,7 +219,7 @@ div.simulate_hierarchies {
 }
 
 .themeTabs tr {
-  background-color: #000000;
+  background-color: Black;
   height: 17px;
 }
 

@@ -9,6 +9,7 @@
 <!-- CSS2 -->
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="cpsskins_msie.css"><![endif]-->
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
   <script type="text/javascript" src="cpsskins_pdlib.js"></script>

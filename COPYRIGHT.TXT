@@ -74,3 +74,7 @@ translation service (PTS) of zope
 - ESI code: 
 Copyright (c) 2004 Simon Eisenmann <simon@longsleep.org>
 http://longsleep.org/howto/squidwithzopeandesi
+
+- Transparent PNG fix for IE
+Copyright (c) 2002 by Erik Arvidsson <erik@eae.net>
+for WebFX (http://webfx.eae.net) http://webfx.eae.net/license.html
