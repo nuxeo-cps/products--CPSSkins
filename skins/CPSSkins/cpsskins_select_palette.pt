@@ -1,46 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html tal:define="tmtool here/portal_themes; 
-                  current_theme python: tmtool.getRequestedThemeName(REQUEST=request);">
-
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${base_url}cpsskins_custom.css?theme=$current_theme" />
+                  base_url python: request.get('cpsskins_base_url', '');
+                  current_theme python: tmtool.getRequestedThemeName(context=here);">
   <head>
-    <script type="text/javascript">
-      <!--
-      function changeSelection(value, textfield_id) {
-          opener.value = value;
-          opener.textfield_restart(textfield_id);
-          self.close;
-      }
-      //-->
-    </script>
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_custom.css?theme=$current_theme" />
+    <script type="text/javascript" 
+    tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
   </head>
-  <body>
-    <tal:block define="tmtool here/portal_themes; 
-                       prop request/form/prop|nothing; 
-                       palette_cat request/form/palette|nothing; 
-                       palettes python: tmtool.listPalettes(palette_cat, here)['object']">
-
-      <tal:block repeat="palette palettes">
-        <table class="panel">
-          <tr>
-            <td onMouseover="this.style.backgroundColor='#fff'"
-                onMouseout="this.style.background='#eee'">
-              <a tal:define="value palette/value"
-              tal:attributes="onClick string:javascript:changeSelection('$value', '$prop')">
-                <strong tal:content="palette/title|nothing" />
-                <br />
-                <span tal:content="value" />
-                <br />
-                <br />
-                <tal:block content="structure python: palette.preview()" />
-              </a>
-            </td>
-          </tr>
-        </table>
-      </tal:block>
-    </tal:block>
+  <body tal:define="prop request/form/prop|nothing; 
+                    palette_cat request/form/palette|nothing; 
+                    palettes python: tmtool.listPalettes(palette_cat, here)['object']">
+    <div class="panel" tal:repeat="palette palettes">
+      <div onMouseover="this.style.backgroundColor='#fff'"
+           onMouseout="this.style.background='#eee'">
+        <a tal:define="value palette/value"
+         tal:attributes="onClick string:javascript:changeSelection('$value', '$prop')">
+          <h1 tal:content="palette/title|nothing" />
+          <p tal:content="value" />
+          <tal:block content="structure python: palette.preview()" />
+        </a>
+      </div>
+    </div>
   </body>
 </html>

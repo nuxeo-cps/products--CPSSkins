@@ -1,32 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html tal:define="mcat python: request.get('cpsskins_mcat');
-                  portal_url here/portal_url">
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${portal_url}/cpsskins_theme_edit.css" />
+<html tal:define="base_url python: request.get('cpsskins_base_url', '');
+                  mcat python: request.get('cpsskins_mcat')">
   <head>
-    <script type="text/javascript">
-      <!--
-      function changeSelection(value, textfield_id) {
-          opener.value = value;
-          opener.textfield_restart(textfield_id);
-          self.close;
-      }
-      //-->
-    </script>
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
+    <script type="text/javascript" 
+    tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
   </head>
-  <body>
-    <tal:block define="prop request/form/prop|nothing;
-                       slots here/cpsskins_listSlots">
-      <div class="slotselector" tal:repeat="slot slots">
-        <img tal:attributes="src string:${portal_url}/cpsskins_images/boxslot.gif" 
-         width="16" height="16" alt="" />
-        &nbsp;<span tal:content="slot" /> ...
-        <div style="text-align: right"> 
-          <a tal:define="title string:_select this slot_" i18n:translate=""
-          tal:attributes="href string:javascript:changeSelection('$slot', '$prop')"
-          tal:content="python: mcat and mcat(title) or title" />
-        </div>
+  <body tal:define="prop request/form/prop|nothing;
+                    slots here/cpsskins_listSlots">
+    <div class="slotselector" tal:repeat="slot slots">
+      <img tal:attributes="src string:${base_url}cpsskins_images/boxslot.gif" 
+       width="16" height="16" alt="" />
+      &nbsp;<span tal:content="slot" /> ...
+      <div style="text-align: right"> 
+        <a tal:define="title string:_select this slot_" i18n:translate=""
+        tal:attributes="href string:javascript:changeSelection('$slot', '$prop')"
+        tal:content="python: mcat and mcat(title) or title" />
       </div>
-    </tal:block>
+    </div>
   </body>
 </html>

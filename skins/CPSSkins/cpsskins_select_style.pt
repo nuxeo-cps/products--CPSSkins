@@ -1,44 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html tal:define="tmtool here/portal_themes; 
+                  base_url python: request.get('cpsskins_base_url', '');
                   current_theme python: tmtool.getRequestedThemeName(REQUEST=request); 
-                  theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);">
-
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${here/portal_url}/cpsskins_theme_edit.css" />
-  <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${theme_container/absolute_url}/renderCSS" />
+                  theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme)">
   <head>
-    <script type="text/javascript">
-      <!--
-      function changeSelection(style, select_id) {
-          opener.style = style-1;
-          opener.selection_restart(select_id);
-          self.close;
-      }
-      //-->
-    </script>
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${theme_container/absolute_url}/renderCSS" />
+    <script type="text/javascript" 
+    tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
   </head>
-  <body>
-    <tal:block tal:define="tmtool here/portal_themes; 
-                           prop request/form/prop|nothing; 
-                           style_cat request/form/style|nothing; 
-                           styles python: tmtool.findStylesFor(style_cat, here)['object']">
-      <tal:block repeat="style styles">
-        <table class="panel">
-          <tr>
-            <td onMouseover="this.style.backgroundColor='#fff'"
-                onMouseout="this.style.background='#eee'">
-              <strong tal:content="style/title|nothing" />
-              <a tal:define="number repeat/style/number" tyle="background-color: white"
-              tal:attributes="onClick string:javascript:changeSelection('$number', '$prop')">
-                <br />
-                <br />
-                <tal:block content="structure python: style.preview()" />
-              </a>
-            </td>
-          </tr>
-        </table>
-      </tal:block>
-    </tal:block>
+  <body tal:define="prop request/form/prop|nothing; 
+                    style_cat request/form/style|nothing; 
+                    styles python: tmtool.findStylesFor(style_cat, here)['object']">
+    <div class="panel" tal:repeat="style styles">
+      <div onMouseover="this.style.backgroundColor='#fff'"
+           onMouseout="this.style.background='#eee'">
+        <h1 tal:content="style/title|nothing" />
+        <a tal:define="number repeat/style/number" tyle="background-color: white"
+         tal:attributes="onClick string:javascript:changeSelection('$number', '$prop')">
+          <tal:block content="structure python: style.preview()" />
+        </a>
+      </div>
+    </div>
   </body>
 </html>
