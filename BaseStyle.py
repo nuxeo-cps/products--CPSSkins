@@ -23,7 +23,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass, DTMLFile
-from Acquisition import aq_base
+from Acquisition import aq_base, aq_inner, aq_parent
 from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
@@ -84,7 +84,6 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
     meta_type = None
     portal_type = None
-
     isportalstyle = 1
 
     manage_options = ( PropertyManager.manage_options      # Properties
@@ -154,47 +153,26 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
         return getattr(self, 'title', None)
 
-    security.declareProtected(ManageThemes, 'rebuild')
-    def rebuild(self, **kw):
-        """Rebuilds this style."""
+    #
+    # Rendering
+    #
+    security.declarePublic('render')
+    def render(self, **kw):
+        """Renders the style."""
 
-        setperms = kw.get('setperms', 0)
-        canonizeId(self)
-        rebuild_properties(self)
-        if setperms:
-            verifyThemePerms(self)
+        return renderMeth(self, 'render_method', **kw)
+
+    security.declareProtected(ManageThemes, 'preview')
+    def preview(self, **kw):
+        """Renders a preview of the style."""
+
+        return renderMeth(self, 'preview_action', **kw)
 
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):
         """Call the edit action."""
 
         return callAction(self, 'edit', **kw)
-
-    security.declareProtected(ManageThemes, 'edit')
-    def edit(self, **kw):
-        """Default edit method, changes the properties."""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        theme_container = tmtool.getPortalThemeRoot(self)
-        title = kw.get('title', None)
-        current_title = self.getTitle()
-        if title is None:
-            title = current_title
-        title = canonizeStyleTitle(title)
-        if title != current_title:
-            styles_dir = theme_container.getStylesFolder()
-            title = getFreeTitle(styles_dir, title)
-        self.findParents(newtitle=title)
-        kw['title'] = title
-
-        # remove unknown properties
-        for prop in kw.keys():
-            if self.hasProperty(prop):
-                continue
-            del kw[prop]
-
-        self.manage_changeProperties(**kw)
-        theme_container.expireCSSCache()
 
     security.declarePublic('getStyleImages')
     def getStyleImages(self):
@@ -236,49 +214,50 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         theme_container = tmtool.getPortalThemeRoot(self)
         parents = []
 
-        for obj in theme_container.getPageBlocks():
-            # page blocks
-            for pm in aq_base(obj).propertyMap():
-                if pm.get('style') != meta_type:
-                    continue
-                style_type = pm.get('id')
-                style = getattr(obj, style_type, None)
-                if style != style_title:
-                    continue
-                rebuild_properties(obj)
-                parents.append(obj)
-                if newtitle is None:
-                    continue
-                obj.edit(**{style_type:newtitle})
-
-            # cell blocks
-            for obj2 in obj.objectValues():
-                for pm in aq_base(obj2).propertyMap():
+        for page in theme_container.getPages():
+            for obj in page.getPageBlocks():
+                # page blocks
+                for pm in aq_base(obj).propertyMap():
                     if pm.get('style') != meta_type:
                         continue
                     style_type = pm.get('id')
-                    style = getattr(obj2, style_type, None)
+                    style = getattr(obj, style_type, None)
                     if style != style_title:
                         continue
-                    rebuild_properties(obj2)
-                    parents.append(obj2)
+                    rebuild_properties(obj)
+                    parents.append(obj)
                     if newtitle is None:
                         continue
-                    obj2.edit(**{style_type:newtitle})
+                    obj.edit(**{style_type:newtitle})
 
-        for pm in theme_container.propertyMap():
-            if pm.get('style') != meta_type:
-                continue
-            style_type = pm.get('id')
-            style = getattr(theme_container.aq_inner.aq_explicit, style_type, None)
-            if style != style_title:
-                continue
-            rebuild_properties(theme_container)
-            parents.append(theme_container)
-            if newtitle is None:
-                continue
-            theme_container.edit(**{style_type:newtitle})
+                # cell blocks
+                for obj2 in obj.objectValues():
+                    for pm in aq_base(obj2).propertyMap():
+                        if pm.get('style') != meta_type:
+                            continue
+                        style_type = pm.get('id')
+                        style = getattr(obj2, style_type, None)
+                        if style != style_title:
+                            continue
+                        rebuild_properties(obj2)
+                        parents.append(obj2)
+                        if newtitle is None:
+                            continue
+                        obj2.edit(**{style_type:newtitle})
 
+            for pm in page.propertyMap():
+                if pm.get('style') != meta_type:
+                    continue
+                style_type = pm.get('id')
+                style = getattr(theme_container.aq_inner.aq_explicit,
+                    style_type, None)
+                if style != style_title:
+                    continue
+                rebuild_properties(theme_container)
+                parents.append(theme_container)
+                if newtitle is None:
+                    continue
+                page.edit(**{style_type:newtitle})
         return parents
 
     security.declarePublic('isOrphan')
@@ -290,6 +269,52 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
        	    return 1
         return None
 
+    #
+    # Actions
+    #
+    security.declareProtected(ManageThemes, 'edit')
+    def edit(self, **kw):
+        """Default edit method, changes the properties."""
+
+        tmtool = getToolByName(self, 'portal_themes')
+        theme_container = tmtool.getPortalThemeRoot(self)
+        title = kw.get('title', None)
+        current_title = self.getTitle()
+        if title is None:
+            title = current_title
+        title = canonizeStyleTitle(title)
+        if title != current_title:
+            styles_dir = theme_container.getStylesFolder()
+            title = getFreeTitle(styles_dir, title)
+        self.findParents(newtitle=title)
+        kw['title'] = title
+
+        # remove unknown properties
+        for prop in kw.keys():
+            if self.hasProperty(prop):
+                continue
+            del kw[prop]
+
+        self.manage_changeProperties(**kw)
+        theme_container.expireCSSCache()
+
+    security.declareProtected(ManageThemes, 'duplicate')
+    def duplicate(self):
+        """Duplicate a Style."""
+
+        tmtool = getToolByName(self, 'portal_themes')
+        theme_container = tmtool.getThemeContainer()
+        theme_container.invalidateCSSCache()
+        container = self.getContainer()
+        newid = getFreeId(container)
+        container.manage_clone(self, newid)
+        newobj = getattr(container, newid, None)
+        newobj.rebuild()
+        newtitle = getFreeTitle(container, self.getTitle())
+        newobj.manage_changeProperties({'title':newtitle})
+        verifyThemePerms(newobj)
+        return newobj
+
     security.declareProtected(ManageThemes, 'copy_to_theme')
     def copy_to_theme(self, dest_theme=None, REQUEST=None):
         """Copies the style to another theme.
@@ -298,7 +323,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
 
         if dest_theme is None:
             return self
-        container = self.aq_parent
+        container = self.getContainer()
 
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
@@ -344,23 +369,6 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
                 style.edit({img['prop']:new_id})
         return style
 
-    security.declareProtected(ManageThemes, 'duplicate')
-    def duplicate(self):
-        """Duplicate a Style."""
-        
-        tmtool = getToolByName(self, 'portal_themes')
-        theme_container = tmtool.getThemeContainer()
-        theme_container.invalidateCSSCache()
-        container = self.aq_parent
-        newid = getFreeId(container)
-        container.manage_clone(self, newid)
-        newobj = getattr(container, newid, None)
-        newobj.rebuild()
-        newtitle = getFreeTitle(container, self.getTitle())
-        newobj.manage_changeProperties({'title':newtitle})
-        verifyThemePerms(newobj)
-        return newobj
-
     security.declarePublic('can_delete')
     def can_delete(self):
         """Can the style be deleted?"""
@@ -387,17 +395,31 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             infoblock[actionid] = actioninfo
         return infoblock 
 
-    security.declareProtected(ManageThemes, 'preview')
-    def preview(self, **kw):
-        """Renders a preview of the style."""
+    security.declarePublic('getContainer')
+    def getContainer(self):
+        """Return the style's container"""
 
-        return renderMeth(self, 'preview_action', **kw)
+        return aq_parent(aq_inner(self))
 
-    security.declarePublic('render')
-    def render(self, **kw):
-        """Renders the style."""
+    security.declarePublic('getThemeContainer')
+    def getThemeContainer(self):
+        """Return the style's theme container"""
 
-        return renderMeth(self, 'render_action', **kw)
+        return aq_parent(aq_inner(aq_parent(aq_inner(self))))
+    #
+    # Theme management
+    #
+    security.declareProtected(ManageThemes, 'rebuild')
+    def rebuild(self, **kw):
+        """Rebuilds this style."""
+
+        setperms = kw.get('setperms', 0)
+        canonizeId(self)
+        rebuild_properties(self)
+        if setperms:
+            verifyThemePerms(self)
+
+
 
 InitializeClass(BaseStyle)
 

@@ -25,6 +25,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent, aq_inner
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 
@@ -162,6 +163,12 @@ class BaseCellModifier(DynamicType, PropertyManager, SimpleItem):
         """Can the cell sizer be deleted ?"""
            
         return 1
+
+    security.declarePublic('getContainer')
+    def getContainer(self):
+        """Return the cell modifier's container"""
+
+        return aq_parent(aq_inner(self))
 
 InitializeClass(BaseCellModifier)
 

@@ -28,6 +28,7 @@ from CPSSkinsInstaller import manage_addInstaller
 from PortalThemesTool import PortalThemesTool
 
 import PortalTheme
+import ThemePage
 import ThemeFolder
 
 import PageBlock
@@ -79,6 +80,7 @@ tools = (PortalThemesTool, )
 
 portalthemeClasses = (
     PortalTheme.PortalTheme,
+    ThemePage.ThemePage,
     ThemeFolder.ThemeFolder,
 )
 
@@ -133,6 +135,7 @@ paletteClasses = (
 
 contentConstructors = (
     PortalTheme.addPortalTheme,
+    ThemePage.addThemePage,
     PageBlock.addPageBlock,
     CellBlock.addCellBlock,
     MainContent.addMainContent,
@@ -172,6 +175,7 @@ contentConstructors = (
 
 fti = (
     PortalTheme.factory_type_information +
+    ThemePage.factory_type_information +
     PageBlock.factory_type_information +
     CellBlock.factory_type_information +
     MainContent.factory_type_information +
@@ -259,6 +263,7 @@ def initialize(registrar):
 
     for classname, icon in (
         (PortalTheme.PortalTheme, 'portaltheme.png'),
+        (ThemePage.ThemePage, 'themepage.png'),
         (ThemeFolder.ThemeFolder, 'themefolder.png'),
         (PageBlock.PageBlock, 'pageblock.png'),
         (CellBlock.CellBlock, 'cellblock.png'),

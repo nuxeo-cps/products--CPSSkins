@@ -50,7 +50,7 @@ class Breadcrumbs(BaseTemplet):
     meta_type = 'Breadcrumbs Templet'
     portal_type = 'Breadcrumbs Templet'
 
-    render_action = 'cpsskins_breadcrumbs'
+    render_method = 'cpsskins_breadcrumbs'
 
     security = ClassSecurityInfo()
 

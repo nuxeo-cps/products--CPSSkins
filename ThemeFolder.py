@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent, aq_inner
 
 from Products.CMFCore.PortalFolder import PortalFolder
 
@@ -56,11 +57,9 @@ class ThemeFolder(PortalFolder):
 
     meta_type = "Theme Folder"
     portal_type = "Theme Folder"
-
     isthemefolder = 1
 
-    manage_options = ( PortalFolder.manage_options[0:1] +
-                       PortalFolder.manage_options[2:3] )
+    manage_options = ( PortalFolder.manage_options[0:3] )
 
     security = ClassSecurityInfo()
 
@@ -105,11 +104,17 @@ class ThemeFolder(PortalFolder):
         self._objects = tuple(objects)
         return 1
 
+    security.declarePublic('getContainer')
+    def getContainer(self):
+        """Return the page block's container"""
+
+        return aq_parent(aq_inner(self))
+
 InitializeClass(ThemeFolder)
 
-def addThemeFolder(dispatcher, id, REQUEST=None):
+def addThemeFolder(dispatcher, id, REQUEST=None, **kw):
     """Add a Theme Folder."""
-    ob = ThemeFolder(id)
+    ob = ThemeFolder(id, **kw)
     container = dispatcher.Destination()
     container._setObject(id, ob)
     if REQUEST is not None:

@@ -4,7 +4,7 @@ if boxid is None or state is None:
    return
 
 tmtool = context.portal_themes
-current_theme = tmtool.getRequestedThemeName(REQUEST=REQUEST)
+current_theme = tmtool.getRequestedThemeName(context_obj=context)
 cookie_name = 'cpsskins_%s_%s' % (current_theme, boxid)
 
 if REQUEST is not None:
@@ -16,4 +16,4 @@ if REQUEST is not None:
        RESPONSE.expireCookie(cookie_name)
 
    url = REQUEST['HTTP_REFERER']
-   REQUEST.RESPONSE.redirect(url)   
+   REQUEST.RESPONSE.redirect(url)

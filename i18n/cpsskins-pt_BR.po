@@ -470,6 +470,10 @@ msgid "_December_"
 msgstr "Dezembro"
 
 
+msgid "_Default page_"
+msgstr ""
+
+
 msgid "_Default theme_"
 msgstr "Tema padrão"
 
@@ -494,28 +498,8 @@ msgid "_Delete_"
 msgstr "Remover"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr "Removendo este Modelo; você tem certeza?"
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Removendo este ocultador de célula; você tem certeza?"
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Removendo este ajustador de tamanho de célula; você tem certeza?"
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Removendo este estilizador de célula; você tem certeza?"
-
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Removendo esta imagem; você tem certeza?"
-
-
-msgid "_Deleting this page block, are you sure?_"
-msgstr "Removendo este bloco de página; você tem certeza?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
@@ -571,6 +555,14 @@ msgstr "Editar estilos"
 
 
 msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit the page_"
+msgstr ""
+
+
+msgid "_Edit the theme_"
 msgstr ""
 
 
@@ -950,6 +942,10 @@ msgid "_Main content_"
 msgstr "Conteúdo principal"
 
 
+msgid "_Manage_"
+msgstr ""
+
+
 msgid "_March_"
 msgstr "Março"
 
@@ -1076,6 +1072,10 @@ msgstr "Preenchimento do parágrafo"
 
 msgid "_Page Block_"
 msgstr "Bloco de Página"
+
+
+msgid "_Page renderer_"
+msgstr ""
 
 
 msgid "_Palette Border_"
@@ -1392,6 +1392,10 @@ msgstr "Caminhos de visibilidade"
 
 msgid "_Theme Chooser Templet_"
 msgstr "Modelo do selecionador de tema"
+
+
+msgid "_Theme Page_"
+msgstr ""
 
 
 msgid "_Theme chooser_"
@@ -1774,8 +1778,12 @@ msgid "_colors_"
 msgstr "Cores"
 
 
-msgid "_default_tab_"
-msgstr "Aba padrão"
+msgid "_confirm delete_"
+msgstr ""
+
+
+msgid "_default tab_"
+msgstr ""
 
 
 msgid "_documentinfo_templet_description_"
@@ -1842,8 +1850,16 @@ msgid "_maincontent_templet_description_"
 msgstr "a área de conteúdo principal onde os documentos são mostrados"
 
 
+msgid "_menu item_"
+msgstr ""
+
+
 msgid "_menu_Align center_"
 msgstr "Alinhado ao centro"
+
+
+msgid "_menu_Align justify_"
+msgstr ""
 
 
 msgid "_menu_Align left_"
@@ -2070,6 +2086,10 @@ msgid "_option_inline_"
 msgstr "Largura do título"
 
 
+msgid "_option_justify_"
+msgstr ""
+
+
 msgid "_option_language names_"
 msgstr "Nomes dos idiomas"
 
@@ -2206,6 +2226,10 @@ msgid "_option_stx_"
 msgstr "Texto estruturado"
 
 
+msgid "_option_tableless_"
+msgstr ""
+
+
 msgid "_option_text and icons_"
 msgstr "Texto e ícones"
 
@@ -2298,8 +2322,12 @@ msgid "_select this slot_"
 msgstr ""
 
 
-msgid "_selected_tab_"
-msgstr "Aba selecionada"
+msgid "_selected menu item_"
+msgstr ""
+
+
+msgid "_selected tab_"
+msgstr ""
 
 
 msgid "_set as default style_"
@@ -2328,6 +2356,10 @@ msgstr "uma caixa que mostra texto plano ou HTML"
 
 msgid "_themechooser_templet_description_"
 msgstr "um seletor de temas para visitantes (cookies devem ser habilitados)"
+
+
+msgid "_themepage_description_"
+msgstr ""
 
 
 msgid "_thumbnails_"
@@ -2415,6 +2447,10 @@ msgstr ""
 
 
 msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_image_uploaded"
 msgstr ""
 
 

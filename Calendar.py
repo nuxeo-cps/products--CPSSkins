@@ -50,8 +50,8 @@ class Calendar(BaseTemplet):
     meta_type = 'Calendar Templet'
     portal_type = 'Calendar Templet'
 
-    render_action = 'cpsskins_calendar'
-    javascript_render_action = 'cpsskins_calendar.js'
+    render_method = 'cpsskins_calendar'
+    javascript_render_method = 'cpsskins_calendar.js'
 
     security = ClassSecurityInfo()
 
@@ -88,7 +88,7 @@ class Calendar(BaseTemplet):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Calendar Style', 
-        'select_variable': 'CalendarStylesList', 
+        'select_variable': 'listCalendarStyles', 
         'category': 'style',
         'style': 'Calendar Style'
        },

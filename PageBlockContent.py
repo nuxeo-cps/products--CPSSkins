@@ -24,7 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_base
+from Acquisition import aq_base, aq_inner, aq_parent
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 
@@ -45,7 +45,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def getVerticalPosition(self):
         """Return the object's ypos position."""
 
-        container = self.aq_parent
+        container = self.getContainer()
         return container.get_object_position(self.getId())
 
     security.declarePublic('moveleft_pos')
@@ -68,7 +68,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def moveup_pos(self):
         """Returns the new position."""
 
-        container = self.aq_parent
+        container = self.getContainer()
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
@@ -87,7 +87,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def movedown_pos(self):
         """Returns the new position."""
 
-        container = self.aq_parent
+        container = self.getContainer()
         this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
@@ -122,7 +122,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Can the templet be moved up?"""
 
         # find a page block above it
-        container = self.aq_parent
+        container = self.getContainer()
         if container.can_moveup():
             return 1
 
@@ -144,11 +144,10 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def can_movedown(self):
         """Can the templet be moved down?"""
 
-        container = self.aq_parent
+        container = self.getContainer()
         if container.can_movedown():
             return 1
 
-        container = self.aq_parent
         this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
             o = aq_base(obj)
@@ -166,7 +165,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def can_moveright(self):
         """Can the templet be moved to the right?"""
 
-        container = self.aq_parent 
+        container = self.getContainer()
         maxcols = getattr(container, 'maxcols', None)
         if maxcols is None:
             return None
@@ -192,7 +191,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def duplicate(self):
         """Duplicates a Templet."""
 
-        container = self.aq_parent
+        container = self.getContainer()
         src_ypos = self.getVerticalPosition()
         newid = getFreeId(container)
         container.manage_clone(self, newid)
@@ -232,7 +231,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         new_xpos = int(xpos)
         self.xpos = new_xpos
 
-        src_container = self.aq_parent
+        src_container = self.getContainer()
         src_block = utool.getRelativeUrl(src_container)
         if dest_block is None:
             dest_block = src_block
@@ -265,7 +264,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         return None
 
     security.declareProtected(ManageThemes, 'copy_to_theme')
-    def copy_to_theme(self, dest_theme=None, REQUEST=None):
+    def copy_to_theme(self, dest_theme=None, dest_page=None, REQUEST=None):
         """Copies the Templet to another theme.
            The copied object is placed into the first available Page Block.
            returns the copied object
@@ -274,13 +273,14 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         tmtool = getToolByName(self, 'portal_themes')
         if dest_theme is None:
             return None
-        container = self.aq_parent
+        container = self.getContainer()
         dest_theme_container = tmtool.getThemeContainer(theme=dest_theme)
         if dest_theme_container is None:
             return None
 
         dest_container = None
-        pageblocks = dest_theme_container.getPageBlocks()
+        page_container = dest_theme_container.getPageContainer(dest_page)
+        pageblocks = page_container.getPageBlocks()
         if pageblocks:
             dest_container = pageblocks[0]
         else:
@@ -306,7 +306,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """
 
         templet = self
-        container = self.aq_parent 
+        container = self.getContainer()
         if direction == 'left' and self.can_moveleft():
             self.xpos = self.moveleft_pos()
 
@@ -321,7 +321,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                 cookie = container.manage_cutObjects(self.getId(), 
                                                      REQUEST=REQUEST)
                 pos =  container.moveup_pos()
-                theme_container = container.aq_parent
+                theme_container = container.getContainer()
                 for obj in theme_container.objectValues():
                     if theme_container.get_object_position(obj.getId()) == pos:
                         obj.manage_pasteObjects(cookie)
@@ -338,7 +338,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                 cookie = container.manage_cutObjects(self.getId(), 
                                                      REQUEST=REQUEST)
                 pos =  container.movedown_pos()
-                theme_container = container.aq_parent
+                theme_container = container.getContainer()
                 for obj in theme_container.objectValues():
                     if theme_container.get_object_position(obj.getId()) == pos:
                         obj.manage_pasteObjects(cookie)
@@ -388,42 +388,31 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
     def change_alignment(self, alignment=None):
         """Aligns the templet."""
 
-        if alignment in ['left', 'center', 'right']:
+        if alignment in self.listHorizontalAlignments():
             self.setProperty('align', alignment)
 
-    security.declarePublic('getStyle')
-    def getStyle(self,  meta_type=None):
-        """Gets a style associated to this Templet by meta type."""
+    security.declareProtected(ManageThemes, 'setProperty')
+    def setProperty(self, prop=None, value=None):
+        """Sets a property."""
 
-        tmtool = getToolByName(self, 'portal_themes')
-        theme_container = tmtool.getPortalThemeRoot(self)
-        for propid in self.propertyIds():
-            for obj in self.propertyMap():
-                if obj['id'] != propid:                
-                    continue
-                if obj.get('style', None) != meta_type:
-                    continue
-                style_title = getattr(self, propid, None)
-                styles = theme_container.findStyles(title=style_title)
-                if len(styles) > 0: 
-                    return styles[0]
-
-    security.declareProtected(ManageThemes, 'setStyle')
-    def setStyle(self, style=None, meta_type=None):
-        """Sets a style to this Templet."""
-
-        if style is None:
-            return
-        prop_id = None 
-        for propid in self.propertyIds():
-            for obj in self.propertyMap():
-                if obj['id'] != propid:                
-                    continue
-                if obj.get('style', None) == meta_type:
-                    prop_id = propid
-                    break
-        if prop_id is not None:
-            self.manage_changeProperties(**{prop_id: style.getTitle()})
+        if value is not None and self.hasProperty(prop):
+            self.manage_changeProperties(**{prop:value})
             self.expireCache()
+
+    security.declarePublic('getContainer')
+    def getContainer(self):
+        """Return the content's container"""
+
+        return aq_parent(aq_inner(self))
+
+    #
+    # Properties
+    #
+    security.declarePublic('listHorizontalAlignments')
+    def listHorizontalAlignments(self):
+        """Returns a list of alignments for this object."""
+
+        list = ['left', 'center', 'right', 'justify']
+        return list
 
 InitializeClass(PageBlockContent)

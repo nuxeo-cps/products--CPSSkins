@@ -193,7 +193,7 @@ def canonizeId(self):
         new_id = new_id[len('copy_of_'):]
 
     if new_id != current_id:
-        container = self.aq_parent
+        container = self.getContainer()
         new_id = getFreeId(container)
         container.manage_renameObject(current_id, new_id)
 
@@ -417,7 +417,7 @@ def moveToLostAndFound(self, obj):
     """ moves the object to the lost+found folder of the theme"""
 
     tmtool = getToolByName(self, 'portal_themes')
-    container = obj.aq_parent
+    container = obj.getContainer()
     cookie = container.manage_copyObjects(obj.getId())
     theme_container = tmtool.getPortalThemeRoot(object=obj)
     lost_and_found = theme_container.getLostAndFoundFolder(create=1)

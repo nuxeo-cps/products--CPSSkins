@@ -13,7 +13,8 @@ class TestCellBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)
-        self.pageblock = self.theme_container.addPageBlock()
+        self.page_container = self.theme_container.addThemePage()
+        self.pageblock = self.page_container.addPageBlock()
 
     def test_CellBlock(self):
         pageblock = self.pageblock

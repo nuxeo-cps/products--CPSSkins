@@ -11,12 +11,13 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${here/absolute_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" tal:attributes="src string:${here/absolute_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 <!-- Shortcut icon -->
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
-<metal:block define-macro="main"
-  tal:define="benchmarktimer here/cpsskins_benchmarktimer|nothing">
+<metal:block define-macro="main" 
+ tal:condition="nocall:page_container"
+ tal:define="benchmarktimer here/cpsskins_benchmarktimer|nothing">
   <tal:block condition="not:benchmarktimer">
     <span tal:define="title string:_The benchmark timer is not installed_"
      tal:content="python: mcat and mcat(title) or title" />
@@ -30,9 +31,9 @@
       <span tal:replace="CPSSkins_BMT/start" />
   <tal:block define="context_rurl request/form/context_rurl|nothing;
               context_obj python: here.cpsskins_getContextObj(context_rurl);
-              pageblock_style python: theme_container.getCSSLayoutStyle();
+              pageblock_style python: page_container.getCSSLayoutStyle();
               dummy python: request.set('cpsskins_mcat', mcat)"
-    tal:repeat="pageblock python: theme_container.getPageBlocks()">
+    tal:repeat="pageblock python: page_container.getPageBlocks()">
       <b tal:define="title python: pageblock.title"
          tal:replace="python:CPSSkins_bmt_mark('--------- [%s] %s ' % (title, '-' *(37-len(title))))" />
       <table cellpadding="0" cellspacing="0"
@@ -40,8 +41,8 @@
                   height python: pageblock['height'];
                   height_style python: height and 'height:%s' % height or ''"
       tal:attributes="width python: pageblock['width'];
-		      style string:$pageblock_style $height_style;
-		      class python: pageblock.getCSSAreaClass();
+                      style string:$pageblock_style $height_style;
+                      class python: pageblock.getCSSAreaClass();
                       summary python: pageblock['title']">
         <tr>
           <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
@@ -100,5 +101,5 @@
     <span tal:replace="structure CPSSkins_bmt_elapsed" />
     <span tal:replace="structure request/other/bench_mark_profiler|nothing" />
   </tal:block>
-</tal:block>
+  </tal:block>
 </metal:block>

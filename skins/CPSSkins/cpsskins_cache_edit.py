@@ -1,6 +1,6 @@
 ##parameters=REQUEST=None, theme=None, **kw
 tmtool = context.portal_themes
-mcat = context.cpsskins_getlocalizer()
+mcat = tmtool.getTranslationService()
 
 if REQUEST is not None:
     kw.update(REQUEST.form)

@@ -1,3 +1,10 @@
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/javascript' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+</dtml-let>
+
 <!--
 function OnMouseOver(srcEle, title, color) {
   TempColor = srcEle.style.backgroundColor;
@@ -70,4 +77,5 @@ function saveScrollCoordinates(formid) {
   document[formid].scrollx.value = document.body.scrollLeft + document.documentElement.scrollLeft;
   document[formid].scrolly.value = document.body.scrollTop + document.documentElement.scrollTop;
 } 
+
 //-->

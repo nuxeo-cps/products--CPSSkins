@@ -50,7 +50,7 @@ class MainContent(BaseTemplet):
     meta_type = 'Main Content Templet'
     portal_type = 'Main Content Templet'
 
-    render_action = 'cpsskins_maincontent'
+    render_method = 'cpsskins_maincontent'
 
     ismaincontent = 1
 

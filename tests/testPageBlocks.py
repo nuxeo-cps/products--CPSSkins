@@ -11,11 +11,12 @@ class TestPageBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)
-        self.pageblock = self.theme_container.addPageBlock()
+        self.page_container = self.theme_container.addThemePage()
+        self.pageblock = self.page_container.addPageBlock()
 
     def test_move_PageBlock_up(self):
         pageblock1 = self.pageblock
-        pageblock2 = self.theme_container.addPageBlock()
+        pageblock2 = self.page_container.addPageBlock()
         pageblock2.move('up')
         pos1 = pageblock1.getVerticalPosition()
         pos2 = pageblock2.getVerticalPosition()
@@ -23,15 +24,15 @@ class TestPageBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_move_PageBlock_down(self):
         pageblock1 = self.pageblock
-        pageblock2 = self.theme_container.addPageBlock()
+        pageblock2 = self.page_container.addPageBlock()
         pageblock1.move('down')
         pos1 = pageblock1.getVerticalPosition()
         pos2 = pageblock2.getVerticalPosition()
         self.assert_(pos1 > pos2)
 
     def test_getPageBlocks(self):
-        self.theme_container.addPageBlock()
-        self.assert_(len(self.theme_container.getPageBlocks()) == int(2))
+        self.page_container.addPageBlock()
+        self.assert_(len(self.page_container.getPageBlocks()) == int(2))
 
     def test_moveCell_right(self):
         pageblock = self.pageblock

@@ -106,7 +106,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
     meta_type = None
     portal_type = None
-
     isportaltemplet = 1
 
     manage_options = ( PropertyManager.manage_options     # Properties
@@ -149,7 +148,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'label': 'Cache lifetime',  
          'category': 'Caching',
          'visible': 'isCached',
-         'select_variable': 'LifetimeList',
+         'select_variable': 'listLifeTimes',
          'default': '60',
          'i18n': 1,
          'i18n_prefix': '_option_lifetime_',
@@ -178,7 +177,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Horizontal alignment', 
-         'select_variable': 'AlignList', 
+         'select_variable': 'listHorizontalAlignments', 
          'category': 'layout',
          'visible': 'IsAlignable',
          'i18n': 1,
@@ -206,7 +205,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Font color', 
-         'select_variable': 'FontColorsList', 
+         'select_variable': 'listFontColors', 
          'style': 'Font Color', 
          'category': 'style',
         },
@@ -214,7 +213,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Font shape', 
-         'select_variable': 'FontShapesList', 
+         'select_variable': 'listFontShapes', 
          'style': 'Font Shape', 
          'category': 'style',
         },
@@ -222,7 +221,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Templet shape', 
-         'select_variable': 'AreaShapesList', 
+         'select_variable': 'listAreaShapes', 
          'style': 'Area Shape', 
          'category': 'style',
         },
@@ -230,7 +229,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Templet color', 
-         'select_variable': 'AreaColorsList', 
+         'select_variable': 'listAreaColors', 
          'style': 'Area Color',  
          'category': 'style',
         },
@@ -238,7 +237,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Form style', 
-         'select_variable': 'FormStyleList', 
+         'select_variable': 'listFormStyles', 
          'style': 'Form Style',  
          'category': 'style',
         },
@@ -246,7 +245,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'selection',  
          'mode': 'w', 
          'label': 'Visibility criteria', 
-         'select_variable': 'VisibilityList', 
+         'select_variable': 'listVisibilityModes', 
          'category': 'visibility',
          'default': 'always',
          'i18n': 1,
@@ -264,9 +263,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'type': 'multiple selection', 
          'mode': 'w', 
          'label': 'The languages in which it is visible', 
-         'select_variable': 'LanguagesList', 
+         'select_variable': 'listLanguages', 
          'category': 'visibility',
-         'visible': 'LanguagesList',
+         'visible': 'listLanguages',
         },
         {'id': 'esi_fragment', 
          'type': 'boolean', 
@@ -407,13 +406,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             return 1
         return None
 
-    security.declarePublic('AlignList')
-    def AlignList(self):
-        """Returns a list of alignments for this object."""
-
-        list = ['left', 'center', 'right']
-        return list
-
     #
     # CSS
     #
@@ -486,35 +478,144 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             return ' '.join(areaclass)
         return ''
 
-    security.declarePublic('VisibilityList')
-    def VisibilityList(self):
-        """Returns a list of visibility criteria."""
 
-        list = ['always', 
-                'everywhere_except_in', 
-                'only_in', 
-                'starting_from', 
-                'up_till', 
-                'if_authenticated', 
-                'if_anonymous', 
-                'if_secure_connection' ]
-        return list
+    #
+    # Rendering
+    #
+    security.declarePublic('render')
+    def render(self, shield=0, **kw):
+        """Render the templet."""
+
+        return self.render_skin(shield=shield, **kw)
+
+    security.declarePublic('render_skin')
+    def render_skin(self, shield=0,  **kw):
+        """Render the templet's skin."""
+
+        fail = 0
+        if getattr(aq_base(self), 'render_method', None) is not None:
+            actionid = self.render_method
+        else:
+            fail = 1
+ 
+        rendered = ''
+        if not fail: 
+            meth = getattr(self, actionid, None)
+            if meth is not None:
+                if shield:
+                    # crash shield
+                    try:
+                        rendered = apply(meth, (), kw)
+                    except:
+                        # attempt to rebuild 
+                        try:
+                            self.rebuild()
+                        # rebuild failed
+                        except:
+                            fail = 1
+                        else:
+                            # try again to render it ...
+                            try:
+                                rendered = apply(meth, (), kw)
+                            # total failure
+                            except:
+                                fail = 1
+                # no crash shield
+                else:
+                    rendered = apply(meth, (), kw)
+            else:
+                fail = 1
+
+        if fail:
+            rendered = '<blink>!!!</blink>'
+        return html_slimmer(rendered)
+
+    security.declarePublic('render_cache')
+    def render_cache(self, shield=0, enable_esi=0, **kw):
+        """Renders the cached version of the templet."""
+
+        if enable_esi:
+            if self.isESIFragment():
+                return self.render_esi(**kw)
+
+        if not self.cacheable:
+            rendered = self.render(shield=shield, **kw)
+        else:
+            now = time.time()
+            templet_path = self.getPhysicalPath()
+            index = (templet_path, ) + self.getCacheIndex(**kw)
+            cache = self.getTempletCache()
+            last_cleanup = cache.getLastCleanup(id=templet_path)
+            lifetime = getattr(self, 'cache_lifetime', 60)
+            cleanup_date = getattr(self, 'cache_cleanup_date', 0)
+
+            # ZEO
+            if cleanup_date > last_cleanup:
+                cache.delEntries(templet_path)
+
+            rendered = None
+            if last_cleanup is not None and now < last_cleanup + int(lifetime):
+                rendered = cache.getEntry(index)
+            else:
+                cache.delEntries(templet_path)
+
+            if rendered is None:
+                rendered = self.render(shield=shield, **kw)
+                cache.setEntry(index, rendered)
+
+        return rendered
+
+    security.declarePublic('render_js')
+    def render_js(self, **kw):
+        """Renders the javascript code used by the Templet."""
+
+        rendered = None
+        if getattr(aq_base(self), 'javascript_render_method', None) is None:
+            return None
+        meth = getattr(self, self.javascript_render_method, None)
+        if meth is not None:
+            rendered = apply(meth, (), kw)
+        return rendered
+
+    security.declarePublic('render_css')
+    def render_css(self, **kw):
+        """Renders the CSS code used by the Templet."""
+
+        tmtool = getToolByName(self, 'portal_themes')
+        theme_container = tmtool.getPortalThemeRoot(self)
+        styles_dir = theme_container.getStylesFolder()
+
+        css = ''
+        for propid in self.propertyIds():
+            prop_map = self.propertyMap()
+            for obj in prop_map:            
+                if obj['id'] == propid:                
+                    if not obj.has_key('style'):
+                        continue
+                    style_type = obj.get('style')
+                    this_style = getattr(self, propid)
+                    style_obj = [s 
+                                 for s in styles_dir.objectValues(style_type)
+                                 if s.getTitle() == this_style]
+                    if style_obj:
+                        css += style_obj[0].render()
+                    break
+        return css
+
+    security.declarePublic('render_esi')
+    def render_esi(self, **kw):
+        """Renders the ESI fragment code."""
+
+        utool = getToolByName(self, 'portal_url')
+        context_obj = kw.get('context_obj')
+        context_rurl = utool.getRelativeUrl(context_obj)
+        return ESI_CODE % (self.absolute_url(), context_rurl)
 
     security.declarePublic('getI18nProperties')
     def getI18nProperties(self):
         """Returns the list of i18n properties."""
 
         return []
-
-    security.declareProtected(ManageThemes, 'rebuild')
-    def rebuild(self, **kw):
-        """Rebuilds this templet."""
-
-        setperms = kw.get('setperms', 0)
-        canonizeId(self)
-        rebuild_properties(self)
-        if setperms:
-            verifyThemePerms(self)
 
     security.declarePublic('getVisibility')
     def getVisibility(self, **kw):
@@ -542,14 +643,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         self.manage_changeProperties(**kw)
         self.expireCache()
-
-    security.declareProtected(ManageThemes, 'setProperty')
-    def setProperty(self, prop=None, value=None):
-        """Sets a property."""
-
-        if value is not None and self.hasProperty(prop):
-            self.manage_changeProperties(**{prop:value})
-            self.expireCache()
 
     #
     # RAM Cache
@@ -698,155 +791,35 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         self.cache_cleanup_date = time.time()
 
     #
-    # Rendering
+    # Theme management
     #
-    security.declarePublic('render')
-    def render(self, shield=0, **kw):
-        """Render the templet."""
+    security.declareProtected(ManageThemes, 'rebuild')
+    def rebuild(self, **kw):
+        """Rebuilds this templet."""
 
-        return self.render_skin(shield=shield, **kw)
-
-    security.declarePublic('render_skin')
-    def render_skin(self, shield=0,  **kw):
-        """Render the templet's skin."""
-
-        fail = 0
-        if getattr(aq_base(self), 'render_action', None) is not None:
-            actionid = self.render_action
-        else:
-            fail = 1
- 
-        rendered = ''
-        if not fail: 
-            meth = getattr(self, actionid, None)
-            if meth is not None:
-                if shield:
-                    # crash shield
-                    try:
-                        rendered = apply(meth, (), kw)
-                    except:
-                        # attempt to rebuild 
-                        try:
-                            self.rebuild()
-                        # rebuild failed
-                        except:
-                            fail = 1
-                        else:
-                            # try again to render it ...
-                            try:
-                                rendered = apply(meth, (), kw)
-                            # total failure
-                            except:
-                                fail = 1
-                # no crash shield
-                else:
-                    rendered = apply(meth, (), kw)
-            else:
-                fail = 1
-
-        if fail:
-            rendered = '<blink>!!!</blink>'
-        return html_slimmer(rendered)
-
-    security.declarePublic('render_cache')
-    def render_cache(self, shield=0, enable_esi=0, **kw):
-        """Renders the cached version of the templet."""
-
-        if enable_esi:
-            if self.isESIFragment():
-                return self.render_esi(**kw)
-
-        if not self.cacheable:
-            rendered = self.render(shield=shield, **kw)
-        else:
-            now = time.time()
-            templet_path = self.getPhysicalPath()
-            index = (templet_path, ) + self.getCacheIndex(**kw)
-            cache = self.getTempletCache()
-            last_cleanup = cache.getLastCleanup(id=templet_path)
-            lifetime = getattr(self, 'cache_lifetime', 60)
-            cleanup_date = getattr(self, 'cache_cleanup_date', 0)
-
-            # ZEO
-            if cleanup_date > last_cleanup:
-                cache.delEntries(templet_path)
-
-            rendered = None
-            if last_cleanup is not None and now < last_cleanup + int(lifetime):
-                rendered = cache.getEntry(index)
-            else:
-                cache.delEntries(templet_path)
-
-            if rendered is None:
-                rendered = self.render(shield=shield, **kw)
-                cache.setEntry(index, rendered)
-
-        return rendered
-
-    security.declarePublic('render_js')
-    def render_js(self, **kw):
-        """Renders the javascript code used by the Templet."""
-
-        rendered = None
-        if getattr(aq_base(self), 'javascript_render_action', None) is None:
-            return ''
-        meth = getattr(self, self.javascript_render_action, None)
-        if meth is not None:
-            rendered = apply(meth, (), kw)
-        return rendered
-
-    security.declarePublic('render_css')
-    def render_css(self, **kw):
-        """Renders the CSS code used by the Templet."""
-
-        tmtool = getToolByName(self, 'portal_themes')
-        theme_container = tmtool.getPortalThemeRoot(self)
-        styles_dir = theme_container.getStylesFolder()
-
-        css = ''
-        for propid in self.propertyIds():
-            prop_map = self.propertyMap()
-            for obj in prop_map:            
-                if obj['id'] == propid:                
-                    if not obj.has_key('style'):
-                        continue
-                    style_type = obj.get('style')
-                    this_style = getattr(self, propid)
-                    style_obj = [s 
-                                 for s in styles_dir.objectValues(style_type)
-                                 if s.getTitle() == this_style]
-                    if style_obj:
-                        css += style_obj[0].render()
-                    break
-        return css
-
-    security.declarePublic('render_esi')
-    def render_esi(self, **kw):
-        """Renders the ESI fragment code."""
-
-        utool = getToolByName(self, 'portal_url')
-        context_obj = kw.get('context_obj')
-        context_rurl = utool.getRelativeUrl(context_obj)
-        return ESI_CODE % (self.absolute_url(), context_rurl)
+        setperms = kw.get('setperms', 0)
+        canonizeId(self)
+        rebuild_properties(self)
+        if setperms:
+            verifyThemePerms(self)
 
     #
     # Theme properties
     #
-
     security.declarePublic('isCacheable')
     def isCacheable(self):
         """Returns true if the Templet is cacheable."""
 
         return getattr(self, 'cacheable', 0) 
 
-    security.declarePublic('LanguagesList')
-    def LanguagesList(self):           
+    security.declarePublic('listLanguages')
+    def listLanguages(self):           
         """Returns a list of languages."""
 
         return getAvailableLangs(self)
 
-    security.declarePublic('LfetimeList')
-    def LifetimeList(self):           
+    security.declarePublic('listLifeTimes')
+    def listLifeTimes(self):           
         """Returns a list of cache lifetimes in seconds."""
 
         list = ['10', '30', '60', '300', '600', '900', '1800', '3600']
@@ -857,6 +830,22 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """Returns the code name of the default language."""
            
         return getDefaultLang(self)
+
+    security.declarePublic('listVisibilityModes')
+    def listVisibilityModes(self):
+        """Returns a list of visibility criteria."""
+
+        list = ['always', 
+                'everywhere_except_in', 
+                'only_in', 
+                'starting_from', 
+                'up_till', 
+                'if_authenticated', 
+                'if_anonymous', 
+                'if_secure_connection' ]
+        return list
+
+
 
 InitializeClass(BaseTemplet)
 

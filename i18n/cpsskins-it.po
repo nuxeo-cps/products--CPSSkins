@@ -469,6 +469,10 @@ msgid "_December_"
 msgstr "Dicembre"
 
 
+msgid "_Default page_"
+msgstr ""
+
+
 msgid "_Default theme_"
 msgstr "Imposta come tema di default"
 
@@ -493,28 +497,8 @@ msgid "_Delete_"
 msgstr "Elimina"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr "Stai eliminando questo templet. Sei sicuro?"
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Stai eliminando questo nasconditore di contenitore. Sei sicuro?"
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Stai eliminando questo dimensionatore di contenitore. Sei sicuro?"
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Stai eliminando questo stilista di contenitore. Sei sicuro?"
-
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Stai eliminando questa immagine. Sei sicuro?"
-
-
-msgid "_Deleting this page block, are you sure?_"
-msgstr "Stai eliminando questo blocco di pagina. Sei sicuro?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
@@ -570,6 +554,14 @@ msgstr "Modifica gli stili"
 
 
 msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit the page_"
+msgstr ""
+
+
+msgid "_Edit the theme_"
 msgstr ""
 
 
@@ -949,6 +941,10 @@ msgid "_Main content_"
 msgstr "Regione principale"
 
 
+msgid "_Manage_"
+msgstr ""
+
+
 msgid "_March_"
 msgstr "Marzo"
 
@@ -1075,6 +1071,10 @@ msgstr "Spazio di riempimento dei paragrafi"
 
 msgid "_Page Block_"
 msgstr "Blocco di pagina"
+
+
+msgid "_Page renderer_"
+msgstr ""
 
 
 msgid "_Palette Border_"
@@ -1391,6 +1391,10 @@ msgstr "Percorsi di visualizzazione"
 
 msgid "_Theme Chooser Templet_"
 msgstr "Selettore di temi"
+
+
+msgid "_Theme Page_"
+msgstr ""
 
 
 msgid "_Theme chooser_"
@@ -1773,8 +1777,12 @@ msgid "_colors_"
 msgstr "Colori"
 
 
-msgid "_default_tab_"
-msgstr "Linguetta non selezionata"
+msgid "_confirm delete_"
+msgstr ""
+
+
+msgid "_default tab_"
+msgstr ""
 
 
 msgid "_documentinfo_templet_description_"
@@ -1841,8 +1849,16 @@ msgid "_maincontent_templet_description_"
 msgstr "E' l'area principale all'interno della quale vengono visualizzati i contenuti."
 
 
+msgid "_menu item_"
+msgstr ""
+
+
 msgid "_menu_Align center_"
 msgstr "Allinea al centro"
+
+
+msgid "_menu_Align justify_"
+msgstr ""
 
 
 msgid "_menu_Align left_"
@@ -2069,6 +2085,10 @@ msgid "_option_inline_"
 msgstr "Larghezza del titolo"
 
 
+msgid "_option_justify_"
+msgstr ""
+
+
 msgid "_option_language names_"
 msgstr "Nome delle lingue"
 
@@ -2205,6 +2225,10 @@ msgid "_option_stx_"
 msgstr "Testo Strutturato (Zope STX)"
 
 
+msgid "_option_tableless_"
+msgstr ""
+
+
 msgid "_option_text and icons_"
 msgstr "Testo ed icone"
 
@@ -2297,8 +2321,12 @@ msgid "_select this slot_"
 msgstr "seleziona questo alloggiamento"
 
 
-msgid "_selected_tab_"
-msgstr "Linguetta selezionata"
+msgid "_selected menu item_"
+msgstr ""
+
+
+msgid "_selected tab_"
+msgstr ""
 
 
 msgid "_set as default style_"
@@ -2327,6 +2355,10 @@ msgstr "Una casella di testo in formato semplice o HTML."
 
 msgid "_themechooser_templet_description_"
 msgstr "Un selezionatore di temi per i visitatori del portale. (I cookie devono essere abilitati)."
+
+
+msgid "_themepage_description_"
+msgstr ""
 
 
 msgid "_thumbnails_"
@@ -2414,6 +2446,10 @@ msgstr ""
 
 
 msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_image_uploaded"
 msgstr ""
 
 

@@ -44,11 +44,11 @@
           <tal:block condition="contents_in_xpos"
            repeat="content contents_in_xpos">
 
-            <div class="ContentBoxDrag ContentBoxEditMenu"
+            <div class="ContentBoxDrag ContextualMenu"
              tal:define="ypos python: content.getVerticalPosition();
                          isRenderable python: content.isRenderable();
                          styles_list python: content.getApplicableStyles();
-                         align_list content/AlignList|nothing;
+                         align_list content/listHorizontalAlignments|nothing;
                          padding_string python: content.margin and 'padding:%s' % content.margin or None;
                          rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);

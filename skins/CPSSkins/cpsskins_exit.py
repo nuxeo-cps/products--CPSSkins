@@ -9,7 +9,11 @@ if view_mode and view_mode.has_key('current_url'):
 else:
     url = context.portal_url()
 
-tmtool.clearViewMode('theme', 'edit_mode', 'current_url')
+tmtool.clearViewMode(
+    'theme',
+    'page',
+    'edit_mode',
+    'current_url')
 
 if REQUEST is not None:
     REQUEST.RESPONSE.redirect(url)

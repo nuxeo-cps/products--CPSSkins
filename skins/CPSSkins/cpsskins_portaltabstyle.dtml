@@ -1,4 +1,4 @@
-<dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)"
+<dtml-let theme_url="getThemeContainer().absolute_url(relative=1)"
           class="'.portalTab' + title">
 
 <dtml-if Tabs_bg_image>

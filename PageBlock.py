@@ -86,7 +86,6 @@ class PageBlock(ThemeFolder, StylableContent):
 
     meta_type = "Page Block"
     portal_type = "Page Block"
-
     isportalpageblock = 1
 
     manage_options = ( Folder.manage_options )
@@ -111,35 +110,35 @@ class PageBlock(ThemeFolder, StylableContent):
          'type': 'string', 
          'mode': 'w', 
          'label': 'Width', 
-         'category': 'general' 
+         'category': 'layout' 
         },
         {'id': 'height', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'Height', 
-         'category': 'general'
+         'category': 'layout'
         },
         {'id': 'maxcols', 
          'type': 'int', 
          'mode': 'w', 
          'label': 'Number of columns', 
-         'category': 'general'
+         'category': 'layout'
         },
         {'id': 'shape', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Shape', 
-         'select_variable': 'AreaShapesList', 
+         'select_variable': 'listAreaShapes', 
          'style': 'Area Shape', 
-         'category' : 'general'
+         'category' : 'style'
         },
         {'id': 'color', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Color', 
-         'select_variable': 'AreaColorsList', 
+         'select_variable': 'listAreaColors', 
          'style': 'Area Color', 
-         'category' : 'general'
+         'category' : 'style'
         },
       )
 
@@ -175,6 +174,23 @@ class PageBlock(ThemeFolder, StylableContent):
         This is needed to catalog correctly in the presence of VHM.
         """
         return self.getIcon(1)
+
+    #
+    # CSS
+    #
+    security.declarePublic('getCSSAreaClass')
+    def getCSSAreaClass(self):
+        """Returns the CSS area class for this Page Block."""
+
+        areaclass = None
+        shape = self.shape
+        color = self.color
+        areaclass = []
+        if shape:
+            areaclass.append('shape%s' % shape)
+        if color:
+            areaclass.append('color%s' % color)
+        return ' '.join(areaclass)
 
     #
     # Rendering
@@ -238,34 +254,6 @@ class PageBlock(ThemeFolder, StylableContent):
         rendered.append('</tr></table>')
 
         return ''.join(rendered)
-
-    security.declareProtected(ManageThemes, 'rebuild')
-    def rebuild(self, **kw):
-        """                  
-        Rebuild this page block
-        """              
-                         
-        setperms = kw.get('setperms', 0)
-        canonizeId(self)
-        rebuild_properties(self)
-        if setperms:
-            verifyThemePerms(self)
-
-        for (id, o) in self.objectItems():
-            if isBroken(aq_base(o)):
-                self.manage_delObjects(id)
-                continue
-            if getattr(aq_base(o), 'isportaltemplet', 0):
-                o.rebuild(**kw)
-                continue
-            if getattr(aq_base(o), 'iscellmodifier', 0):
-                o.rebuild(**kw)
-                continue
-            if getattr(aq_base(o), 'iscellblock', 0):
-                o.rebuild(**kw)
-                continue
-            moveToLostAndFound(self, o)
-
     security.declarePrivate('getActions')
     def getActions(self):
         """Returns the list of actions"""
@@ -280,6 +268,9 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         return callAction(self, 'addcontent', **kw)
 
+    #
+    # Factories
+    #
     security.declareProtected(ManageThemes, 'addContent')
     def addContent(self, **kw):
         """
@@ -367,45 +358,9 @@ class PageBlock(ThemeFolder, StylableContent):
                 return cellstyler
         return None
 
-    security.declareProtected(ManageThemes, 'moveCell')
-    def moveCell(self, **kw):
-        """
-        Move a cell into a given direction.
-        """
-
-        xpos = kw.get('xpos', None)
-        dir = kw.get('dir', None)
-
-        if xpos is None or dir not in ['left', 'right']:
-            return None
-        
-        delta = 0
-        if dir == 'left' and int(xpos) > 0:
-            delta = -1
-        
-        if dir == 'right' and int(xpos) <= int(self.maxcols):
-            delta = +1
-
-        if delta == 0:
-            return None
-
-        objects_src = []
-        for obj in self.objectValues():
-            if hasattr(obj, 'xpos') and int(obj.xpos) == int(xpos):
-                objects_src.append(obj)
-
-        objects_dest = []
-        for obj in self.objectValues():
-            if hasattr(obj, 'xpos') and int(obj.xpos) == int(xpos) + delta:
-                objects_dest.append(obj)
-
-        for obj in objects_src:
-            obj.xpos = obj.xpos + delta
-
-        for obj in objects_dest:
-            obj.xpos = obj.xpos - delta
-        return None
-
+    #
+    # Pagelets (Page elements)
+    #
     security.declarePublic('getObjects')
     def getObjects(self, edit=0, **kw):
         """
@@ -480,22 +435,8 @@ class PageBlock(ThemeFolder, StylableContent):
         return templets
 
     #
-    # CSS
+    # Actions
     #
-    security.declarePublic('getCSSAreaClass')
-    def getCSSAreaClass(self):
-        """Returns the CSS area class for this Page Block."""
-
-        areaclass = None
-        shape = self.shape
-        color = self.color
-        areaclass = []
-        if shape:
-            areaclass.append('shape%s' % shape)
-        if color:
-            areaclass.append('color%s' % color)
-        return ' '.join(areaclass)
-
     security.declarePublic('can_toggle')
     def can_toggle(self):
         """
@@ -526,8 +467,47 @@ class PageBlock(ThemeFolder, StylableContent):
         Return the page block's ypos in the theme folder
         """
 
-        container = self.aq_parent
+        container = self.getContainer()
         return container.get_object_position(self.getId())
+
+    security.declareProtected(ManageThemes, 'moveCell')
+    def moveCell(self, **kw):
+        """
+        Move a cell into a given direction.
+        """
+
+        xpos = kw.get('xpos', None)
+        dir = kw.get('dir', None)
+
+        if xpos is None or dir not in ['left', 'right']:
+            return None
+        
+        delta = 0
+        if dir == 'left' and int(xpos) > 0:
+            delta = -1
+        
+        if dir == 'right' and int(xpos) <= int(self.maxcols):
+            delta = +1
+
+        if delta == 0:
+            return None
+
+        objects_src = []
+        for obj in self.objectValues():
+            if hasattr(obj, 'xpos') and int(obj.xpos) == int(xpos):
+                objects_src.append(obj)
+
+        objects_dest = []
+        for obj in self.objectValues():
+            if hasattr(obj, 'xpos') and int(obj.xpos) == int(xpos) + delta:
+                objects_dest.append(obj)
+
+        for obj in objects_src:
+            obj.xpos = obj.xpos + delta
+
+        for obj in objects_dest:
+            obj.xpos = obj.xpos - delta
+        return None
 
     security.declareProtected(ManageThemes, 'move')
     def move(self, direction=None):
@@ -535,7 +515,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Move the page block into a direction
         """
 
-        container = self.aq_parent
+        container = self.getContainer()
 
         if direction == 'up' and self.can_moveup():
             newpos = self.moveup_pos()
@@ -578,7 +558,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Can the page block be moved up?
         """
 
-        container = self.aq_parent
+        container = self.getContainer()
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
             if getattr(aq_base(obj), 'isportalpageblock', 0):
@@ -593,7 +573,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Can the page block be moved down?
         """
 
-        container = self.aq_parent
+        container = self.getContainer()
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
             if getattr(aq_base(obj), 'isportalpageblock', 0):
@@ -608,7 +588,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Return the new position
         """
 
-        container = self.aq_parent
+        container = self.getContainer()
         this_pos = container.get_object_position(self.getId())
         newpos = -1
         for obj in container.objectValues():
@@ -626,8 +606,8 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         Return the new position
         """
-          
-        container = self.aq_parent
+
+        container = self.getContainer()
         this_pos = container.get_object_position(self.getId())
         for obj in container.objectValues():
             if not getattr(aq_base(obj), 'isportalpageblock', 0):
@@ -636,6 +616,49 @@ class PageBlock(ThemeFolder, StylableContent):
             if pos > this_pos:
                 return pos
         return None
+
+    security.declareProtected(ManageThemes, 'duplicate')
+    def duplicate(self):
+        """Duplicate this page block
+        """
+        container = self.getContainer()
+        newid = getFreeId(container)
+        container.manage_clone(self, newid)
+        newobj = getattr(container, newid, None)
+        verifyThemePerms(newobj)
+        newpos = container.get_object_position(self.getId())
+        container.move_object_to_position(newobj.getId(), newpos)
+        return newobj
+
+    #
+    # Theme management
+    #
+    security.declareProtected(ManageThemes, 'rebuild')
+    def rebuild(self, **kw):
+        """                  
+        Rebuild this page block
+        """              
+                         
+        setperms = kw.get('setperms', 0)
+        canonizeId(self)
+        rebuild_properties(self)
+        if setperms:
+            verifyThemePerms(self)
+
+        for (id, o) in self.objectItems():
+            if isBroken(aq_base(o)):
+                self.manage_delObjects(id)
+                continue
+            if getattr(aq_base(o), 'isportaltemplet', 0):
+                o.rebuild(**kw)
+                continue
+            if getattr(aq_base(o), 'iscellmodifier', 0):
+                o.rebuild(**kw)
+                continue
+            if getattr(aq_base(o), 'iscellblock', 0):
+                o.rebuild(**kw)
+                continue
+            moveToLostAndFound(self, o)
 
     security.declareProtected(ManageThemes, 'edit_form')
     def edit_form(self, **kw):
@@ -664,7 +687,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Delete the page block 
         """
 
-        theme_container = self.aq_parent
+        theme_container = self.getContainer()
         theme_container.manage_delObjects(self.getId())
 
 InitializeClass(PageBlock)

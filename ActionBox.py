@@ -52,7 +52,7 @@ class ActionBox(BaseTemplet):
     meta_type = 'Action Box Templet'
     portal_type = 'Action Box Templet'
 
-    render_action = 'cpsskins_actionbox'
+    render_method = 'cpsskins_actionbox'
 
     security = ClassSecurityInfo()
 
@@ -61,14 +61,14 @@ class ActionBox(BaseTemplet):
          'type': 'multiple selection', 
          'mode': 'w', 
          'label': 'Action categories',  
-         'select_variable': 'actionIconsList', 
+         'select_variable': 'listActionIcons', 
          'category': 'general'
         },
         {'id': 'style', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Appearance', 
-         'select_variable': 'StyleList', 
+         'select_variable': 'listLayoutModes', 
          'category': 'layout',
          'i18n': 1, 
          'i18n_prefix': '_option_',
@@ -77,7 +77,7 @@ class ActionBox(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Box orientation', 
-         'select_variable': 'OrientationList', 
+         'select_variable': 'listOrientations', 
          'category': 'layout',
          'default': 'vertical',
          'i18n': 1, 
@@ -118,8 +118,8 @@ class ActionBox(BaseTemplet):
             params.append('lang')
         return params
 
-    security.declarePublic('StyleList')
-    def StyleList(self):
+    security.declarePublic('listLayoutModes')
+    def listLayoutModes(self):
         """Returns a list of styles or layouts for this Templet"""
 
         list = ['text only', 
@@ -127,15 +127,15 @@ class ActionBox(BaseTemplet):
                 'icons only']
         return list
 
-    security.declarePublic('OrientationList')
-    def OrientationList(self):           
+    security.declarePublic('listOrientations')
+    def listOrientations(self):           
         """Returns a list of orientations for this Templet"""
                                    
         list = [ 'horizontal', 'vertical']
         return list  
 
-    security.declarePublic('actionIconsList')
-    def actionIconsList(self):           
+    security.declarePublic('listActionIcons')
+    def listActionIcons(self):           
         """Returns a list of action icons in category:id format"""
 
         actions = []

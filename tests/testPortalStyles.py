@@ -162,7 +162,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_findParents_for_Templet(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
-        pageblock = theme_container.addPageBlock()
+        page_container = theme_container.addThemePage()
+        pageblock = page_container.addPageBlock()
         templet = pageblock.addContent(type_name='Text Box Templet') 
         templet.color = style.getTitle()
         parents = style.findParents()
@@ -171,7 +172,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_findParents_PageBlock(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
-        pageblock = theme_container.addPageBlock()
+        page_container = theme_container.addThemePage()
+        pageblock = page_container.addPageBlock()
         templet = pageblock.addContent(type_name='Text Box Templet') 
         pageblock.color = style.getTitle()
         parents = style.findParents()
@@ -180,7 +182,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_findParents_CellStyler(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
-        pageblock = theme_container.addPageBlock()
+        page_container = theme_container.addThemePage()
+        pageblock = page_container.addPageBlock()
         cellstyler = pageblock.addCellStyler(**{'xpos':0}) 
         cellstyler.color = style.getTitle()
         parents = style.findParents()
@@ -189,7 +192,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_findParents_PageBlock_Templet_CellStyler(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
-        pageblock = theme_container.addPageBlock()
+        page_container = theme_container.addThemePage()
+        pageblock = page_container.addPageBlock()
         templet = pageblock.addContent(type_name='Text Box Templet')
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
         templet.color = style.getTitle() 
@@ -204,7 +208,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_isOrphan(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
-        pageblock = theme_container.addPageBlock()
+        page_container = theme_container.addThemePage()
+        pageblock = page_container.addPageBlock()
         templet = pageblock.addContent(type_name='Text Box Templet')
         self.assert_(style.isOrphan())
         templet.color = style.getTitle()

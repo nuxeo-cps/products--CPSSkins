@@ -2,7 +2,8 @@
 <html i18n:domain="cpsskins" tal:define="
   base_url python:here.cpsskins_getBaseUrl();
   imagecat request/form/imagecat|nothing;
-  mcat here/cpsskins_getlocalizer;
+  tmtool here/portal_themes;
+  mcat python: tmtool.getTranslationService();
   mtool here/portal_membership;
   checkPerm nocall:mtool/checkPermission">
 <head>

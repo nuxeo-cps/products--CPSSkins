@@ -469,6 +469,10 @@ msgid "_December_"
 msgstr ""
 
 
+msgid "_Default page_"
+msgstr ""
+
+
 msgid "_Default theme_"
 msgstr "Domy¶lny motyw"
 
@@ -493,27 +497,7 @@ msgid "_Delete_"
 msgstr "Kasuj"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr ""
-
-
 msgid "_Deleting this image, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this page block, are you sure?_"
 msgstr ""
 
 
@@ -570,6 +554,14 @@ msgstr "Edycja stylów"
 
 
 msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit the page_"
+msgstr ""
+
+
+msgid "_Edit the theme_"
 msgstr ""
 
 
@@ -949,6 +941,10 @@ msgid "_Main content_"
 msgstr "G³ówna zawarto¶æ"
 
 
+msgid "_Manage_"
+msgstr ""
+
+
 msgid "_March_"
 msgstr ""
 
@@ -1075,6 +1071,10 @@ msgstr "Odstêp paragrafu"
 
 msgid "_Page Block_"
 msgstr "Blok strony"
+
+
+msgid "_Page renderer_"
+msgstr ""
 
 
 msgid "_Palette Border_"
@@ -1391,6 +1391,10 @@ msgstr "Widoczna ¶cie¿ka"
 
 msgid "_Theme Chooser Templet_"
 msgstr "Szablon wyboru motywów"
+
+
+msgid "_Theme Page_"
+msgstr ""
 
 
 msgid "_Theme chooser_"
@@ -1773,7 +1777,11 @@ msgid "_colors_"
 msgstr "Kolory"
 
 
-msgid "_default_tab_"
+msgid "_confirm delete_"
+msgstr ""
+
+
+msgid "_default tab_"
 msgstr ""
 
 
@@ -1841,8 +1849,16 @@ msgid "_maincontent_templet_description_"
 msgstr "G³ówny obszar dokumentu w którym jest wy¶wietlona zawarto¶æ"
 
 
+msgid "_menu item_"
+msgstr ""
+
+
 msgid "_menu_Align center_"
 msgstr "Centrowanie"
+
+
+msgid "_menu_Align justify_"
+msgstr ""
 
 
 msgid "_menu_Align left_"
@@ -2069,6 +2085,10 @@ msgid "_option_inline_"
 msgstr ""
 
 
+msgid "_option_justify_"
+msgstr ""
+
+
 msgid "_option_language names_"
 msgstr ""
 
@@ -2205,6 +2225,10 @@ msgid "_option_stx_"
 msgstr ""
 
 
+msgid "_option_tableless_"
+msgstr ""
+
+
 msgid "_option_text and icons_"
 msgstr ""
 
@@ -2297,7 +2321,11 @@ msgid "_select this slot_"
 msgstr ""
 
 
-msgid "_selected_tab_"
+msgid "_selected menu item_"
+msgstr ""
+
+
+msgid "_selected tab_"
 msgstr ""
 
 
@@ -2327,6 +2355,10 @@ msgstr "ramka wy¶wietlaj±ca czysty tekst lub format HTML"
 
 msgid "_themechooser_templet_description_"
 msgstr "wybór motywu dla odwiedzaj±cych (musi byæ w³±czony mechanizm cookie)"
+
+
+msgid "_themepage_description_"
+msgstr ""
 
 
 msgid "_thumbnails_"
@@ -2414,6 +2446,10 @@ msgstr ""
 
 
 msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_image_uploaded"
 msgstr ""
 
 

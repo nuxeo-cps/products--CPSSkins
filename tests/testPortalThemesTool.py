@@ -57,11 +57,6 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         self.assertEquals(tmtool.getThemeContainer(parent=1), tmtool)
 
-    def test_getPageBlocks(self):
-        tmtool = self.portal.portal_themes
-        self.assertEquals([p.getId() for p in tmtool.getPageBlocks(theme='theme1')], ['main', 'pageblock1'])
-        self.assertEquals([p.getId() for p in tmtool.getPageBlocks(theme='empty')], [])
-
     def test_findStylesFor(self):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']

@@ -1,7 +1,10 @@
 ##parameters=REQUEST=None
 
 tmtool = context.portal_themes
-theme =  tmtool.getRequestedThemeName(REQUEST=REQUEST);
+theme = tmtool.getRequestedThemeName()
+theme_container = tmtool.getThemeContainer(theme=theme)
+page = theme_container.getRequestedPageName(context_obj=here)
+page_container = theme_container.getPageContainer(page=page)
 
 boxes_styles = context.boxes_styles_get()
 
@@ -10,13 +13,13 @@ for i in range(10):
    dict[i] = {
         'authorized_styles': ('box_left_template',),
         'title': '',
-        'directions': [      
+        'directions': [
            { 'icon': 'img_box_moveup.png', 'xpos': -1, 'ypos_move': -1 },
            { 'icon': 'img_box_movedown.png', 'xpos': -1, 'ypos_move': 1 },
-        ]                    
+        ]
    }
 
-for block in tmtool.getPageBlocks(theme=theme):
+for block in page_container.getPageBlocks():
      objects = block.getObjects(REQUEST=REQUEST)
      if objects is None:
          continue

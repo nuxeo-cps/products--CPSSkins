@@ -4,16 +4,20 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName(context=context)
+theme = tmtool.getRequestedThemeName(context_obj=context)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
 direction = kw.get('direction', None)
 dest_block = kw.get('dest_block', None)
 dest_theme = kw.get('dest_theme', None)
+dest_page = kw.get('dest_page', None)
 
 if dest_theme and dest_theme != theme:
-    newobj = context.copy_to_theme(dest_theme=dest_theme)
+    dest_theme_container = tmtool.getThemeContainer(dest_theme)
+    if dest_page is None:
+        dest_page = dest_theme_container.getRequestedPageName(context_obj=context)
+    newobj = context.copy_to_theme(dest_theme, dest_page)
     for category in context.getApplicableStyles():
         style_propid = category['id']
         style = getattr(context, style_propid, None)
@@ -24,7 +28,7 @@ if dest_theme and dest_theme != theme:
         if len(styles) > 0:
            if len(styles['object']) > 0:
                 style_to_copy = styles['object'][0]
-                newstyle = style_to_copy.copy_to_theme(dest_theme=dest_theme)
+                newstyle = style_to_copy.copy_to_theme(dest_theme)
                 prop_dict = {style_propid:newstyle.getTitle()}
                 newobj.edit(**prop_dict)
     theme = dest_theme

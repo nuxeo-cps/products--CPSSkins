@@ -50,7 +50,7 @@ class PortalTab(BaseTemplet):
     meta_type = 'Portal Tab Templet'
     portal_type = 'Portal Tab Templet'
 
-    render_action = 'cpsskins_portaltab'
+    render_method = 'cpsskins_portaltab'
 
     security = ClassSecurityInfo()
 
@@ -59,7 +59,7 @@ class PortalTab(BaseTemplet):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Portal box content', 
-        'select_variable': 'ContentList', 
+        'select_variable': 'listDisplayModes', 
         'category': 'general',
         'i18n': 1,
         'i18n_prefix': '_option_',
@@ -108,7 +108,7 @@ class PortalTab(BaseTemplet):
         'mode': 'w', 
         'label': 'Base path', 
         'category': 'folders', 
-        'select_variable': 'PathsList', 
+        'select_variable': 'listPaths', 
         'visible': 'IfFoldersCategory'
        },
        {'id': 'action_categories', 
@@ -137,7 +137,7 @@ class PortalTab(BaseTemplet):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Tab style', 
-        'select_variable': 'PortalTabStylesList', 
+        'select_variable': 'listTabStyles', 
         'category': 'style', 
         'style': 'Portal Tab Style'
        },
@@ -196,8 +196,8 @@ class PortalTab(BaseTemplet):
 
         return params
 
-    security.declarePublic('ContentList')
-    def ContentList(self):           
+    security.declarePublic('listDisplayModes')
+    def listDisplayModes(self):           
         """ Returns a list of contents for this Templet's body"""
 
         list = [ 'actions', 
@@ -244,8 +244,8 @@ class PortalTab(BaseTemplet):
             return None
         return 1   
 
-    security.declarePublic('PathsList')
-    def PathsList(self):           
+    security.declarePublic('listPaths')
+    def listPaths(self):           
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()

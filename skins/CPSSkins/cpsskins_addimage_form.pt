@@ -3,8 +3,8 @@
   base_url python:here.cpsskins_getBaseUrl();
   mtool here/portal_membership;
   utool nocall:here/portal_url;
-  mcat here/cpsskins_getlocalizer;
   tmtool here/portal_themes; 
+  mcat python: tmtool.getTranslationService();
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
   view_mode tmtool/getViewMode;
   theme view_mode/theme|request/form/theme|nothing;

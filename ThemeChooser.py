@@ -49,8 +49,7 @@ class ThemeChooser(BaseTemplet):
     """
     meta_type = 'Theme Chooser Templet'
     portal_type = 'Theme Chooser Templet'
-
-    render_action = 'cpsskins_themechooser'
+    render_method = 'cpsskins_themechooser'
 
     security = ClassSecurityInfo()
 

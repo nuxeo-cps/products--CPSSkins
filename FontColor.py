@@ -49,7 +49,7 @@ class FontColor(BaseStyle):
     meta_type = 'Font Color'
     portal_type = 'Font Color'
 
-    render_action = 'cpsskins_fontcolor'
+    render_method = 'cpsskins_fontcolor'
     preview_action = 'cpsskins_fontcolor_preview'
 
     _properties = BaseStyle._properties + (

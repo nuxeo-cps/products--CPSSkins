@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html tal:define="global boxedit python:1;
                   utool nocall:here/portal_url;
-                  mcat python: here.cpsskins_getlocalizer();
+                  tmtool here/portal_themes;
+                  mcat python: tmtool.getTranslationService();
                   mtool here/portal_membership;
                   ptltool nocall:here/portal_cpsportlets;
                   tmtool here/portal_themes;
@@ -14,7 +15,7 @@
                   clipboard view_mode/clipboard|nothing;
                   portal_path python: utool.getPortalPath();
                   clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + clipboard, default=None) or nothing;
-                  cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+                  cpsmcat python: tmtool.getTranslationService(cat='default');
                   checkPerm nocall:mtool/checkPermission">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <head>

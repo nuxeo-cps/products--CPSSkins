@@ -5,7 +5,8 @@ i18n = context.i18n
 text_format = context.text_format
 
 if i18n:
-    mcat = context.cpsskins_getlocalizer(cat='default')
+    tmtool = context.portal_themes
+    mcat = tmtool.getTranslationService(cat='default')
     if mcat is not None:
         text = mcat(text)
 

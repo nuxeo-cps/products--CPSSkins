@@ -49,7 +49,7 @@ class CalendarStyle(BaseStyle):
     meta_type = 'Calendar Style'
     portal_type = 'Calendar Style'
 
-    render_action = 'cpsskins_calendarstyle'
+    render_method = 'cpsskins_calendarstyle'
     preview_action = 'cpsskins_calendarstyle_preview'
 
     _properties = BaseStyle._properties + (

@@ -220,127 +220,127 @@ msgstr "Forme de la boîte"
 
 
 msgid "_BoxBody background color_"
-msgstr "Couleur d'arrière-plan du corps de la boîte"
+msgstr "Couleur d'arrière-plan"
 
 
 msgid "_BoxBody background image_"
-msgstr "Couleur du fond du corps de la boîte"
+msgstr "Couleur du fond"
 
 
 msgid "_BoxBody border color_"
-msgstr "Couleur de bordure du corps de la boîte"
+msgstr "Couleur de bordure"
 
 
 msgid "_BoxBody border style_"
-msgstr "Style de bordure du corps de la boîte"
+msgstr "Style de bordure"
 
 
 msgid "_BoxBody border width_"
-msgstr "Epaisseur de bordure du corps de la boîte"
+msgstr "Epaisseur de la bordure"
 
 
 msgid "_BoxBody menuin border color_"
-msgstr "Couleur des bordures de menus sélectionnés"
+msgstr "Couleur des bordures"
 
 
 msgid "_BoxBody menuin border style_"
-msgstr "Style de bordure des menus sélectionnés"
+msgstr "Style de bordure"
 
 
 msgid "_BoxBody menuin border width_"
-msgstr "Epaisseur de bordure des menus sélectionnés"
+msgstr "Epaisseur de la bordure"
 
 
 msgid "_BoxBody menuin color_"
-msgstr "Couleur d'arrière-plan des menus sélectionnés"
+msgstr "Couleur d'arrière-plan"
 
 
 msgid "_BoxBody menuin icon_"
-msgstr "Icône des menus sélectionnés"
+msgstr "Icône"
 
 
 msgid "_BoxBody menuin margin_"
-msgstr "Marges des menus sélectionnés"
+msgstr "Marges"
 
 
 msgid "_BoxBody menuin padding_"
-msgstr "Remplissage des menus sélectionnés"
+msgstr "Remplissage"
 
 
 msgid "_BoxBody menuout border color_"
-msgstr "Couleur de bordure de menus"
+msgstr "Couleur de bordure"
 
 
 msgid "_BoxBody menuout border style_"
-msgstr "Style de bordure des menus"
+msgstr "Style de bordure"
 
 
 msgid "_BoxBody menuout border width_"
-msgstr "Epaisseur de bordure des menus"
+msgstr "Epaisseur de bordure"
 
 
 msgid "_BoxBody menuout color_"
-msgstr "Couleur d'arrière-plan des menus"
+msgstr "Couleur d'arrière-plan"
 
 
 msgid "_BoxBody menuout icon_"
-msgstr "Icône des menus"
+msgstr "Icône"
 
 
 msgid "_BoxBody menuout margin_"
-msgstr "Marges des menus"
+msgstr "Marges"
 
 
 msgid "_BoxBody menuout padding_"
-msgstr "Espace de remplissage des menus"
+msgstr "Espace de remplissage"
 
 
 msgid "_BoxBody padding_"
-msgstr "Espace de remplissage du corps de la boîte"
+msgstr "Espace de remplissage"
 
 
 msgid "_BoxBody text align_"
-msgstr "Alignement du texte du corps de la boîte"
+msgstr "Alignement du texte"
 
 
 msgid "_BoxTitle background color_"
-msgstr "Couleur d'arrière-plan du titre de la boîte"
+msgstr "Couleur d'arrière-plan"
 
 
 msgid "_BoxTitle background image_"
-msgstr "Image d'arrière-plan du titre de la boîte"
+msgstr "Image d'arrière-plan"
 
 
 msgid "_BoxTitle border color_"
-msgstr "Couleur de bordure du titre de la boîte"
+msgstr "Couleur de bordure"
 
 
 msgid "_BoxTitle border style_"
-msgstr "Style de bordure du titre de la boîte"
+msgstr "Style de bordure"
 
 
 msgid "_BoxTitle border width_"
-msgstr "Epaisseur de bordure du titre de la boîte"
+msgstr "Epaisseur de bordure"
 
 
 msgid "_BoxTitle display_"
-msgstr "Critères d'affichage du titre de la boîte"
+msgstr "Critères d'affichage"
 
 
 msgid "_BoxTitle font color_"
-msgstr "Couleurs de caractères du titre de la boîte"
+msgstr "Couleurs de caractères"
 
 
 msgid "_BoxTitle font_"
-msgstr "Polices de caractère du titre de la boîte"
+msgstr "Polices de caractère"
 
 
 msgid "_BoxTitle padding_"
-msgstr "Espace de remplissage du titre de la boîte"
+msgstr "Espace de remplissage"
 
 
 msgid "_BoxTitle text align_"
-msgstr "Alignement du texte du titre de la boîte"
+msgstr "Alignement du texte"
 
 
 msgid "_Breadcrumbs Templet_"
@@ -467,6 +467,10 @@ msgid "_December_"
 msgstr "Décembre"
 
 
+msgid "_Default page_"
+msgstr "Page par défaut"
+
+
 msgid "_Default theme_"
 msgstr "Thème par défaut"
 
@@ -491,28 +495,8 @@ msgid "_Delete_"
 msgstr "Supprimer"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr "Supprimer ce Templet, êtes-vous sûr?"
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Supprimer cet effaceur de cellule, êtes-vous sûr?"
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Supprimer ce dimensionneur de cellule, êtes-vous sûr?"
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Supprimer ce styleur de cellule, êtes-vous sûr?"
-
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Supprimer cette image, êtes-vous sûr?"
-
-
-msgid "_Deleting this page block, are you sure?_"
-msgstr "Supprimer ce bloc, êtes-vous sûr?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
@@ -569,6 +553,14 @@ msgstr "Editer les styles"
 
 msgid "_Edit the current style_"
 msgstr "Editer ce style"
+
+
+msgid "_Edit the page_"
+msgstr "Editer la page"
+
+
+msgid "_Edit the theme_"
+msgstr "Edit le thème"
 
 
 msgid "_Edit this page block_"
@@ -947,6 +939,10 @@ msgid "_Main content_"
 msgstr "Région principale"
 
 
+msgid "_Manage_"
+msgstr "Gérer"
+
+
 msgid "_March_"
 msgstr "Mars"
 
@@ -1075,6 +1071,10 @@ msgstr "Espace de remplissage des paragraphes"
 
 msgid "_Page Block_"
 msgstr "Bloc"
+
+
+msgid "_Page renderer_"
+msgstr "Générateur de page"
 
 
 msgid "_Palette Border_"
@@ -1393,6 +1393,10 @@ msgid "_Theme Chooser Templet_"
 msgstr "Sélecteur de thème"
 
 
+msgid "_Theme Page_"
+msgstr "Page de thème"
+
+
 msgid "_Theme chooser_"
 msgstr "Sélecteur de thème"
 
@@ -1622,11 +1626,11 @@ msgstr "Images d'arrière-plan"
 
 
 msgid "_box body_"
-msgstr "Corps de la boîte"
+msgstr "Corps"
 
 
 msgid "_box title_"
-msgstr "Titre de la boîte"
+msgstr "Titre"
 
 
 msgid "_boxcolor_"
@@ -1634,7 +1638,7 @@ msgstr "Couleur des boîtes"
 
 
 msgid "_boxcolor_description_"
-msgstr "ce style définit la couleurs de boîtes du portail."
+msgstr "ce style définit les couleurs de boîtes du portail."
 
 
 msgid "_boxcorners_description_"
@@ -1773,7 +1777,11 @@ msgid "_colors_"
 msgstr "Couleurs"
 
 
-msgid "_default_tab_"
+msgid "_confirm delete_"
+msgstr "Confirmer la suppression?"
+
+
+msgid "_default tab_"
 msgstr "Onglet non-sélectionné"
 
 
@@ -1841,8 +1849,16 @@ msgid "_maincontent_templet_description_"
 msgstr "le région principale dans laquelle les documents sont affichés."
 
 
+msgid "_menu item_"
+msgstr "Entrée"
+
+
 msgid "_menu_Align center_"
 msgstr "Centré"
+
+
+msgid "_menu_Align justify_"
+msgstr "Justifié"
 
 
 msgid "_menu_Align left_"
@@ -2069,6 +2085,10 @@ msgid "_option_inline_"
 msgstr "Largeur du titre"
 
 
+msgid "_option_justify_"
+msgstr "Justifié"
+
+
 msgid "_option_language names_"
 msgstr "Nom des langues"
 
@@ -2205,6 +2225,10 @@ msgid "_option_stx_"
 msgstr "Format Structured Text (STX)"
 
 
+msgid "_option_tableless_"
+msgstr "Sans tables"
+
+
 msgid "_option_text and icons_"
 msgstr "Texte et icônes"
 
@@ -2297,7 +2321,11 @@ msgid "_select this slot_"
 msgstr "sélectionner ce slot"
 
 
-msgid "_selected_tab_"
+msgid "_selected menu item_"
+msgstr "Entrée sélectionnée"
+
+
+msgid "_selected tab_"
 msgstr "Onglet sélectionné"
 
 
@@ -2327,6 +2355,10 @@ msgstr "une boîte de texte au format simple ou HTML."
 
 msgid "_themechooser_templet_description_"
 msgstr "un sélectionneur de thème pour les visiteurs du site (utilise les 'cookies')."
+
+
+msgid "_themepage_description_"
+msgstr "Une page de thème est composée de blocs horizontaux."
 
 
 msgid "_thumbnails_"
@@ -2415,6 +2447,10 @@ msgstr "Explorateur"
 
 msgid "portlet_slots_panel"
 msgstr "Canvas"
+
+
+msgid "psm_image_uploaded"
+msgstr "Image transférée"
 
 
 msgid "psm_portlet_deleted"

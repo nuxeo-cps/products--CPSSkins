@@ -51,7 +51,7 @@ class DocumentInfo(BaseTemplet):
     meta_type = 'Document Info Templet'
     portal_type = 'Document Info Templet'
 
-    render_action = 'cpsskins_documentinfo'
+    render_method = 'cpsskins_documentinfo'
 
     security = ClassSecurityInfo()
 
@@ -60,7 +60,7 @@ class DocumentInfo(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Content', 
-         'select_variable': 'ContentList',
+         'select_variable': 'listDisplayModes',
          'i18n': 1,
          'i18n_prefix': '_option_docinfo_',
         },
@@ -85,8 +85,8 @@ class DocumentInfo(BaseTemplet):
         params = ['lang', 'object:path']
         return params
 
-    security.declarePublic('ContentList')
-    def ContentList(self):
+    security.declarePublic('listDisplayModes')
+    def listDisplayModes(self):
         """ Returns a list of styles or layouts for this Templet"""
 
         list = ['title', 'last_modified', 'created_by']

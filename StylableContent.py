@@ -25,6 +25,9 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
 
+from Products.CMFCore.utils import getToolByName
+
+from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import getStyleList, getApplicableStylesFor
 
 class StylableContent:
@@ -33,68 +36,68 @@ class StylableContent:
 
     security = ClassSecurityInfo()
 
-    security.declarePublic('AreaColorsList')
-    def AreaColorsList(self):           
+    security.declarePublic('listAreaColors')
+    def listAreaColors(self):           
         """Returns a list of Area Color styles."""
 
         return getStyleList(self, 'Area Color')
 
-    security.declarePublic('AreaShapesList')
-    def AreaShapesList(self):           
+    security.declarePublic('listAreaShapes')
+    def listAreaShapes(self):           
         """Returns a list of Area Shape styles."""
 
         return getStyleList(self, 'Area Shape')
 
-    security.declarePublic('FontColorsList')
-    def FontColorsList(self):           
+    security.declarePublic('listFontColors')
+    def listFontColors(self):           
         """Returns a list of Font Color styles."""
 
         return getStyleList(self, 'Font Color')
 
-    security.declarePublic('FontShapesList')
-    def FontShapesList(self):           
+    security.declarePublic('listFontShapes')
+    def listFontShapes(self):           
         """Returns a list of Font Shape styles."""
 
         return getStyleList(self, 'Font Shape')
 
-    security.declarePublic('FormStyleList')
-    def FormStyleList(self):           
+    security.declarePublic('listFormStyles')
+    def listFormStyles(self):           
         """Returns a list of formstyles."""
 
         return getStyleList(self, 'Form Style')
 
-    security.declarePublic('BoxShapesList')
-    def BoxShapesList(self):           
+    security.declarePublic('listBoxShapes')
+    def listBoxShapes(self):           
         """ Returns a list of Portal Box Shape styles"""
 
         return getStyleList(self, 'Portal Box Shape')
 
-    security.declarePublic('BoxColorsList')
-    def BoxColorsList(self):           
+    security.declarePublic('listBoxColors')
+    def listBoxColors(self):           
         """ Returns a list of Portal Box Color styles"""
 
         return getStyleList(self, 'Portal Box Color')
 
-    security.declarePublic('BoxCornersList')
-    def BoxCornersList(self):           
+    security.declarePublic('listBoxCorners')
+    def listBoxCorners(self):           
         """ Returns a list of Box Corner styles"""
 
         return getStyleList(self, 'Box Corners')
 
-    security.declarePublic('PortalTabStylesList')
-    def PortalTabStylesList(self):           
+    security.declarePublic('listTabStyles')
+    def listTabStyles(self):           
         """ Returns a list of Portal Tab styles"""
 
         return getStyleList(self, 'Portal Tab Style')
 
-    security.declarePublic('CalendarStylesList')
-    def CalendarStylesList(self):           
+    security.declarePublic('listCalendarStyles')
+    def listCalendarStyles(self):           
         """ Returns a list of Calendar styles"""
 
         return getStyleList(self, 'Calendar Style')
 
-    security.declarePublic('CollapsibleMenuStylesList')
-    def CollapsibleMenuStylesList(self):           
+    security.declarePublic('listCollapsibleMenuStyles')
+    def listCollapsibleMenuStyles(self):           
         """ Returns a list of Collapsible Menu styles"""
 
         return getStyleList(self, 'Collapsible Menu Style')
@@ -109,5 +112,40 @@ class StylableContent:
         """
 
         return getApplicableStylesFor(self)
+
+    security.declarePublic('getStyle')
+    def getStyle(self,  meta_type=None):
+        """Get a style associated to this object by meta type.
+        """
+        tmtool = getToolByName(self, 'portal_themes')
+        theme_container = tmtool.getPortalThemeRoot(self)
+        for propid in self.propertyIds():
+            for obj in self.propertyMap():
+                if obj['id'] != propid:                
+                    continue
+                if obj.get('style', None) != meta_type:
+                    continue
+                style_title = getattr(self, propid, None)
+                styles = theme_container.findStyles(title=style_title)
+                if len(styles) > 0: 
+                    return styles[0]
+
+    security.declareProtected(ManageThemes, 'setStyle')
+    def setStyle(self, style=None, meta_type=None):
+        """Sets a style to this object."""
+
+        if style is None:
+            return
+        prop_id = None 
+        for propid in self.propertyIds():
+            for obj in self.propertyMap():
+                if obj['id'] != propid:
+                    continue
+                if obj.get('style', None) == meta_type:
+                    prop_id = propid
+                    break
+        if prop_id is not None:
+            self.manage_changeProperties(**{prop_id: style.getTitle()})
+            self.expireCache()
 
 InitializeClass(StylableContent)

@@ -102,8 +102,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         return self.hasPortlets()
 
-    security.declarePublic('BoxLayoutList')
-    def BoxLayoutList(self):           
+    security.declarePublic('listBoxLayouts')
+    def listBoxLayouts(self):           
         """Return a list of orientations for this Templet
         """
         layouts = self.cpsskins_listBoxLayouts('PortletBox')

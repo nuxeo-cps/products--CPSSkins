@@ -192,7 +192,8 @@
 
   <tal:block condition="python: content == 'language'"
   i18n:domain="cpsskins">
-    <tal:block define="lc python: here.cpsskins_getlocalizer(root=1); 
+    <tal:block define="tmtool here/portal_themes;
+                       lc python: tmtool.getTranslationService(root=1); 
                        langs python: lc and lc.get_languages_map() or []; 
                        tr_langs python: here.cpsskins_translateLangs(langs)"
                condition="python: len(langs) > 1">

@@ -8,13 +8,14 @@ tal:define="base_url here/cpsskins_getBaseUrl;
   border="0" summary="">
     <tr>
       <tal:block repeat="theme themes">
-        <tal:block
-        tal:define="theme_id theme/id;
-                    theme_title theme/title;
-                    we_are_here python: theme_id == current_theme; 
-                    default_theme python: theme['default'];
-                    style python: default_theme and 'text-decoration: underline' or '';
-                    style python: theme_id in externalthemes and style + ';; color: #aaa' or style;
+        <tal:block define="
+             theme_id theme/id;
+             theme_title theme/title;
+             theme_url python: base_url + utool.getRelativeUrl(theme);
+             we_are_here python: theme_id == current_theme; 
+             default_theme python: theme['default'];
+             style python: default_theme and 'text-decoration: underline' or '';
+             style python: theme_id in externalthemes and style + ';; color: #aaa' or style;
           ">
           <td
           tal:attributes="class python: we_are_here and 'ltabselected' or 'ltab'">
@@ -24,13 +25,21 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="contentDest" tal:attributes="dest_theme theme_id">
-              <a 
-              tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
-                              style style"
-              tal:content="theme_title" />
-              <img src="" alt="" width="16" height="16" border="0"
-              tal:condition="python: theme_id in externalthemes"
-              tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
+              <div class="ContextualMenu"
+               tal:attributes="themeid python: not we_are_here and theme_id or None;
+                               icon python: '/' + theme.getIcon();
+                               title theme_title;
+                               contenturl theme_url;
+                               styles python:''">
+                <a interactive="1" tal:attributes="
+                   href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
+                   style style">
+                  <tal:block content="theme_title" />
+                  <img src="" alt="" width="16" height="16" border="0"
+                  tal:condition="python: theme_id in externalthemes"
+                  tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
+                </a>
+              </div>
             </div>
           </td>
           <td
@@ -41,6 +50,45 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           <td class="separator"></td>
         </tal:block>
       </tal:block>
+    </tr>
+  </table>
+</metal:block>
+
+<metal:block define-macro="pagetabs"
+tal:define="base_url here/cpsskins_getBaseUrl;
+            pages theme_container/getPages;">
+  <table class="pageTabs" cellpadding="0" cellspacing="0" border="0" summary="">
+    <tr>
+      <tal:block repeat="page pages">
+        <tal:block define="
+          page_title page/title_or_id;
+          page_id page/getId;
+          page_url python: base_url + utool.getRelativeUrl(page);
+          we_are_here python: page_id == current_page;
+          default_page python: page['default'];
+          styles_list python: page.getApplicableStyles();
+          align_list page/listHorizontalAlignments|nothing;
+          style python: default_page and 'text-decoration: underline' or '';">
+          <td tal:attributes="
+             pageid python: not we_are_here and page_id or None;
+             icon python: '/' + page.getIcon();
+             alignments python: '|'.join(align_list);
+             styles python: '|'.join([s['meta_type'] for s in styles_list]);
+             isalignable python: page.isAlignable();
+             title page_title;
+             class python: we_are_here and 'ContextualMenu selected' or 'ContextualMenu';
+             contenturl page_url">
+            <a interactive="1" tal:attributes="
+              href string:${tmtool_url}/setViewMode?page=$page_id&amp;scrolly=0&amp;reload=1;
+              style style"
+            tal:content="page_title" />
+          </td>
+        </tal:block>
+      </tal:block>
+      <td>
+        <a tal:attributes="href string:${theme_container_url}/cpsskins_page_add"
+         tal:content="structure string:&nbsp;+&nbsp;" />
+      </td>
     </tr>
   </table>
 </metal:block>
@@ -61,13 +109,6 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
        tal:attributes="href url; class python: panel == section and 'selected' or None;"
        tal:content="python:mcat and mcat(title) or title" />
     </tal:block>
-    &nbsp;
-    <a i18n:translate=""
-     tal:define="title string:_Theme_;
-                 url string:${tmtool_url}/setViewMode?themes_panel=theme&amp;reload=1"
-     tal:attributes="href url;
-                     class python: panel in ['theme', 'theme_optimizer', 'cache_manager'] and 'selected' or ''"
-     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a tal:attributes="href url;
                     class python: panel=='palettes' and 'selected' or ''"
@@ -133,7 +174,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
 </metal:block>
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="tmtool here/portal_themes">
+  tal:define="tmtool here/portal_themes;
+              cpsskins_mcat python: tmtool.getTranslationService(cat='cpsskins');">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
          filter="Content_prepare_element_menu(pd_filter_object)"></div>
@@ -146,7 +188,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_edit_styles()"
-         filter="pd_selected_item">
+    tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('styles')">
       <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/edit_styles-16.png" />
       <tal:block i18n:translate="" 
@@ -154,7 +196,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_insert()"
-         filter="pd_selected_item">
+    tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('blockurl')">
        <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/insert-16.png" />
        <tal:block i18n:translate="" 
@@ -169,7 +211,9 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          define="title string:_menu_Duplicate_"
          content="python: mcat and mcat(title) or title" />
     </div>
-    <div class="context-menu-item" onmouseup="Choice_action('delete')"
+    <div class="context-menu-item" 
+     tal:define="msg python: cpsskins_mcat('_confirm delete_')"
+     tal:attributes="onmouseup python:'Choice_action(\'delete\', \'%s\')' % msg"
          filter="pd_selected_item">
        <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
@@ -216,6 +260,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          define="title string:_menu_Align right_"
          content="python: mcat and mcat(title) or title" />
     </div>
+    <div class="context-menu-item" onmouseup="Choice_align('justify')"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('justify') >= 0)">
+       <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/align_justify.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Align justify_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
   </div>
 </metal:block>
 
@@ -223,7 +275,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
 <metal:block define-macro="content_titlebar" i18n:domain="cpsskins">
   <tal:block 
   define="content_url python: base_url + utool.getRelativeUrl(content);
-	  closed content/closed">
+          closed content/closed">
   &nbsp; 
   <a tal:condition="content/can_moveup"
   i18n:attributes="title"
@@ -276,19 +328,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     tal:condition="not:closed"
     tal:attributes="src string:${base_url}cpsskins_images/img_open.png" />
   </a>
-  <a tal:condition="content/can_delete"
-  i18n:attributes="title"
-  tal:define="title string:_Delete_;
-              msg string:_Deleting this Templet, are you sure?_;
-              msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-              onclick_msg python:'return window.confirm(\'%s\')' % msg"
-  tal:attributes="onclick onclick_msg;
-                  href string:${content_url}/cpsskins_object_delete;
-                  title python: mcat and mcat(title) or title" >
-    <img border="0" width="12" height="12"
-    tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
-  </a>
-  &nbsp;</tal:block>
+  </tal:block>
 </metal:block>
 
 <metal:block define-macro="insert_content" i18n:domain="cpsskins">
@@ -330,25 +370,30 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
 tal:define="block_id pageblock/getId;
             block_rurl python: utool.getRelativeUrl(pageblock);
             block_url python: base_url + utool.getRelativeUrl(pageblock);
+            block_title pageblock/title_or_id;
+            block_width pageblock/width;
             closed pageblock/closed|nothing;
             stylecat request/form/style|nothing">
+  <div class="ContextualMenu"
+   tal:define="styles_list python: pageblock.getApplicableStyles()"
+   tal:attributes="contenturl block_url;
+                   styles python: '|'.join([s['meta_type'] for s in styles_list]);
+                   title block_title;
+                   icon python: '/' + pageblock.getIcon()">
   <table
-  tal:define="onMouseover_string string:OnMouseOver(this, '${pageblock/title}', '#ccff33');; ; 
-              onMouseout_string string:OnMouseOut(this);; ;"
-   tal:attributes="width string:${pageblock/width|nothing}; 
-                   onMouseover onMouseover_string; 
-                   onMouseout onMouseout_string; 
+   tal:attributes="width block_width;
                    class python: pageblock==here and 'pageBlockBoxTitleSelected' or 'pageBlockBoxTitle'; 
-                   style python: theme_container.getCSSLayoutStyle()">
+                   style python: page_container.getCSSLayoutStyle()">
     <tr>
-      <td>&nbsp; 
+      <td class="no">&nbsp;
       <a tal:condition="pageblock/can_moveup|nothing"
       i18n:attributes="title" 
       tal:define="title string:_Move up_"
       tal:attributes="href string:${block_url}/cpsskins_move_pageblock?direction=up;
                       title python: mcat and mcat(title) or title">
 
-        <img border="0" width="12" height="12"
+        <img interactive="1"
+        border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_moveup.png" />
       </a>
       <a tal:condition="pageblock/can_movedown|nothing"
@@ -357,7 +402,7 @@ tal:define="block_id pageblock/getId;
       tal:attributes="href string:${block_url}/cpsskins_move_pageblock?direction=down; 
                       title python: mcat and mcat(title) or title">
 
-        <img border="0" width="12" height="12"
+        <img interactive="1" border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_movedown.png" />
       </a>
       &nbsp;&nbsp; 
@@ -367,32 +412,12 @@ tal:define="block_id pageblock/getId;
       tal:attributes="href string:${block_url}/cpsskins_object_toggle;
                       title python: mcat and mcat(title) or title">
 
-        <img border="0" width="12" height="12"
+        <img interactive="1" border="0" width="12" height="12"
         tal:condition="closed"
         tal:attributes="src string:${base_url}cpsskins_images/img_close.png" />
-        <img border="0" width="12" height="12"
+        <img interactive="1" border="0" width="12" height="12"
         tal:condition="not:closed"
         tal:attributes="src string:${base_url}cpsskins_images/img_open.png" />
-      </a>
-      <a tal:condition="pageblock/can_delete|nothing"
-      i18n:attributes="title" 
-      tal:define="title string:_Delete_;
-                  msg string:_Deleting this page block, are you sure?_;
-                  msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                  onclick_msg python:'return window.confirm(\'%s\')' % msg"
-      tal:attributes="onclick onclick_msg;
-                      href string:${block_url}/cpsskins_object_delete; 
-                      title python: mcat and mcat(title) or title" >
-        <img border="0" width="12" height="12"
-        tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
-      </a>
-      &nbsp;&nbsp;
-      <a i18n:attributes="title"
-      tal:define="title string:_Edit this page block_"
-      tal:attributes="onclick string:newWindow('${block_url}/edit_form');
-                      title python: mcat and mcat(title) or title" >
-        <img border="0" width="12" height="12"
-        tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
       </a>
       </td>
       <td>
@@ -401,33 +426,37 @@ tal:define="block_id pageblock/getId;
                      submit_string string:saveScrollCoordinates('${name}');;submit()"
          tal:attributes="name name;
                          action string:${block_url}/cpsskins_edit">
-         <input type="hidden" name="scrollx" value="0">
-         <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="redirect_url"
-          tal:attributes="value string:${base_url}/cpsskins_theme_manage_form"> 
-         <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
-          tal:content="python: mcat and mcat(title) or title" />:
-         <input name="title" type="text" size="12"
-          tal:attributes="value pageblock/title; onchange submit_string" />&nbsp;
-         <label for="maxcols" tal:define="title string:_Width_" i18n:translate=""
-          tal:content="python: mcat and mcat(title) or title" />:
-         <input name="width" type="text" size="4"
-          tal:attributes="value pageblock/width; onchange submit_string" />&nbsp;
-         <label for="maxcols" tal:define="title string:_Columns_" i18n:translate=""
-          tal:content="python: mcat and mcat(title) or title" />:
-         <input name="maxcols" type="string" size="2"
-          tal:attributes="value pageblock/maxcols; onchange submit_string" />
+          <input type="hidden" name="scrollx" value="0" />
+          <input type="hidden" name="scrolly" value="0" /> 
+          <input type="hidden" name="redirect_url"
+           tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" /> 
+          <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />:
+          <input interactive="1"
+           name="title" type="text" size="12"
+           tal:attributes="value block_title; onchange submit_string" />&nbsp;
+          <label for="maxcols" tal:define="title string:_Width_" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />:
+          <input interactive="1"
+           name="width" type="text" size="4"
+           tal:attributes="value block_width; onchange submit_string" />&nbsp;
+          <label for="maxcols" tal:define="title string:_Columns_" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />:
+          <input interactive="1"
+           name="maxcols" type="string" size="2"
+           tal:attributes="value pageblock/maxcols; onchange submit_string" />
         </form>
       </td>
     </tr>
   </table>
+  </div>
 </metal:block>
 
 <metal:block define-macro="add_pageblock" i18n:domain="cpsskins">
   <div class="pageBlockAddButton"
-   tal:define="theme_container_url python: base_url + utool.getRelativeUrl(theme_container)">
+   tal:define="page_container_url python: base_url + utool.getRelativeUrl(page_container)">
     <form action=""
-    tal:attributes="action string:${theme_container_url}/cpsskins_pageblock_add">
+    tal:attributes="action string:${page_container_url}/cpsskins_pageblock_add">
       <input type="hidden" name="pageblock_ypos"
       tal:attributes="value pageblock_ypos|nothing" />
       <input type="image" i18n:attributes="title"
@@ -437,7 +466,6 @@ tal:define="block_id pageblock/getId;
     </form>
   </div>
 </metal:block>
-
 
 <!-- Cells -->
 <metal:block define-macro="movecell" i18n:domain="cpsskins">
@@ -490,10 +518,10 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
            tal:attributes="name name;
                            action string:${cellsize_url}/cpsskins_edit;
                            onSubmit string:saveScrollCoordinates('${name}')">
-           <input type="hidden" name="scrollx" value="0">
-           <input type="hidden" name="scrolly" value="0"> 
+           <input type="hidden" name="scrollx" value="0" />
+           <input type="hidden" name="scrolly" value="0" /> 
            <input type="hidden" name="redirect_url"
-            tal:attributes="value string:${base_url}/cpsskins_theme_manage_form"> 
+            tal:attributes="value string:${base_url}/cpsskins_theme_manage_form" />
            <input name="cellwidth"
             type="text" size="4" tal:attributes="value cellwidth" />
           </form>
@@ -504,8 +532,8 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
            tal:attributes="name name;
                            action string:${block_url}/cpsskins_cellsizer_add;
                            onSubmit string:saveScrollCoordinates('${name}')">
-            <input type="hidden" name="scrollx" value="0">
-            <input type="hidden" name="scrolly" value="0"> 
+            <input type="hidden" name="scrollx" value="0" />
+            <input type="hidden" name="scrolly" value="0" /> 
             <input type="hidden" name="xpos" tal:attributes="value x_pos" />
             <input name="cellwidth"
              type="text" size="4" tal:attributes="value cellwidth" />
@@ -550,13 +578,9 @@ tal:define="info cellstyle/getInfo|nothing;
   <div class="cellStyler">
     <a tal:condition="del_action/can_delete|nothing"
     i18n:attributes="title"
-    tal:define="title string:_Delete_;
-                msg string:_Deleting this cell styler, are you sure?_;
-                msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                onclick_msg python:'return window.confirm(\'%s\')' % msg"
-    tal:attributes="onclick onclick_msg;
-                    href string:${del_action/url}; 
-                    title python: mcat and mcat(title) or title" >
+    tal:define="title string:_Delete_"
+    tal:attributes="href string:${del_action/url}; 
+                    title python: mcat and mcat(title) or title">
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
@@ -581,14 +605,13 @@ tal:define="info cellstyle/getInfo|nothing;
      tal:attributes="name name;
                      title python: mcat and mcat(title) or title;
                      action string:${pageblock/absolute_url}/cpsskins_cellstyler_add">
-      <input type="hidden" name="scrollx" value="0">
-      <input type="hidden" name="scrolly" value="0"> 
-      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos"> 
+      <input type="hidden" name="scrollx" value="0" />
+      <input type="hidden" name="scrolly" value="0" />
+      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos" />
       <input type="image" width="16" height="16"
        tal:attributes="onclick submit_string;
                        src string:${base_url}cpsskins_images/cell_styler_add.png" />
     </form>
-
   </div>
 </metal:block>
 
@@ -600,13 +623,9 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
   <div class="cellHider">
     <a tal:condition="del_action/can_delete|nothing"
     i18n:attributes="title"
-    tal:define="title string:_Delete_;
-                msg string:_Deleting this cell hider, are you sure?_;
-                msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                onclick_msg python:'return window.confirm(\'%s\')' % msg"
-    tal:attributes="onclick onclick_msg;
-                    href string:${del_action/url};
-                    title python: mcat and mcat(title) or title" >
+    tal:define="title string:_Delete_"
+    tal:attributes="href string:${del_action/url};
+                    title python: mcat and mcat(title) or title">
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
     </a>
@@ -628,9 +647,9 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
      tal:attributes="name name;
                      title python: mcat and mcat(title) or title;
                      action string:${pageblock/absolute_url}/cpsskins_cellhider_add">
-      <input type="hidden" name="scrollx" value="0">
-      <input type="hidden" name="scrolly" value="0"> 
-      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos"> 
+      <input type="hidden" name="scrollx" value="0" />
+      <input type="hidden" name="scrolly" value="0" /> 
+      <input type="hidden" name="xpos" value="" tal:attributes="value x_pos" /> 
       <input type="image" width="16" height="16"
        tal:attributes="onclick submit_string;
                        src string:${base_url}cpsskins_images/img_addcellhider.png" />

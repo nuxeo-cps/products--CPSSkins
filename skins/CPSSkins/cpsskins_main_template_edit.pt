@@ -14,34 +14,34 @@
   tal:attributes="href string:${base_url}cpsskins_msie.css" />
 <tal:comment replace="structure string:&lt;![endif]--&gt;" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
   <script type="text/javascript" src="cpsskins_pdlib.js"></script>
   <script type="text/javascript" src="cpsskins_content_edit.js"></script>
   <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 <!-- Shortcut icon -->
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
-<metal:block define-macro="main"
- tal:define="base_url python: here.cpsskins_getBaseUrl();
-          align python: theme_container.align; 
-          panel panel|string:wysiwyg;
-          layout_panel python: panel == 'layout'; 
-          mixed_panel python: panel == 'mixed'; 
-          wysiwyg_panel python: panel == 'wysiwyg';
-          pageblock_style python: theme_container.getCSSLayoutStyle();
-          context_rurl request/form/context_rurl|nothing;
-          context_obj python: here.cpsskins_getContextObj(context_rurl);
-          cpsskins_language tmtool/getCurrentLang;
-          mcat python: here.cpsskins_getlocalizer();
-          dummy python: request.set('cpsskins_language', cpsskins_language);
-          dummy python: request.set('cpsskins_mcat', mcat)">
+<metal:block define-macro="main" tal:condition="nocall:page_container">
+  <tal:block define="
+    base_url python: here.cpsskins_getBaseUrl();
+    panel panel|string:wysiwyg;
+    layout_panel python: panel == 'layout'; 
+    mixed_panel python: panel == 'mixed'; 
+    wysiwyg_panel python: panel == 'wysiwyg';
+    pageblock_style python: page_container.getCSSLayoutStyle();
+    context_rurl request/form/context_rurl|nothing;
+    context_obj python: here.cpsskins_getContextObj(context_rurl);
+    cpsskins_language tmtool/getCurrentLang;
+    mcat python: tmtool.getTranslationService(cat='cpsskins');
+    dummy python: request.set('cpsskins_language', cpsskins_language);
+    dummy python: request.set('cpsskins_mcat', mcat)">
 
   <tal:block condition="layout_panel" define="pageblock_ypos python: 0">
     <metal:block use-macro="here/cpsskins_theme_widgets/macros/add_pageblock" />
   </tal:block>
 
   <tal:block 
-  repeat="pageblock python: theme_container.getPageBlocks(edit=1)">
+  repeat="pageblock python: page_container.getPageBlocks(filter=0)">
 
     <tal:block condition="not:wysiwyg_panel">
       <a tal:attributes="name pageblock/id"></a>
@@ -98,7 +98,7 @@
                                special_content isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
                                boxdragclass python: (not iscellblock or layout_panel) and 'ContentBoxDrag' or '';
-                               boxeditmenuclass python: (not iscellblock or context != content) and 'ContentBoxEditMenu' or '';"
+                               boxeditmenuclass python: (not iscellblock or context != content) and 'ContextualMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
@@ -118,7 +118,7 @@
 				style python: style + ';;cursor: crosshair';
                                 content_class python: content.getCSSAreaClass(level=2);
                                 styles_list python: content.getApplicableStyles();
-                                align_list content/AlignList|nothing"
+                                align_list content/listHorizontalAlignments|nothing"
                      tal:condition="python: special_content or render_content or render_as_title or layout_panel"
                      tal:attributes="style style;
 		                     xpos x_pos;
@@ -174,10 +174,12 @@
   </tal:block>
 
   <metal:block use-macro="here/cpsskins_theme_widgets/macros/contextual_menu" />
+
   <!-- Begin pdlib footer -->
   <div id="drag-feedback-box"></div>
   <script type="text/javascript"><!-- 
    pd_setupPage();
   // --></script>
   <!-- End pdlib footer -->
+  </tal:block>
 </metal:block>

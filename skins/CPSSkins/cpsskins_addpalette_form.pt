@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html i18n:domain="cpsskins" tal:define="
   base_url python:here.cpsskins_getBaseUrl();
-  mcat here/cpsskins_getlocalizer;
+  tmtool here/portal_themes;
+  mcat python: tmtool.getTranslationService();
   type_name request/form/type_name|nothing">
   <head>
     <link rel="Stylesheet" type="text/css"

@@ -306,8 +306,12 @@ def update(self):
     # portal types
     pr_h3("Portal types")
     types_in_portalthemes = (
-        'Page Block',
+        'Theme Page',
         'Theme Folder',
+    )
+
+    types_in_themepages = (
+        'Page Block',
     )
 
     types_templets = (
@@ -375,11 +379,13 @@ def update(self):
 
     types_in_themefolders = types_in_stylefolders + \
                             types_in_palettefolders + \
-                            types_in_pageblocks 
+                            types_in_themepages + \
+                            types_in_pageblocks
 
     ptypes = {
     'CPSSkins' : ('Portal Theme', ) +
                  types_in_portalthemes +
+                 types_in_themepages +
                  types_in_pageblocks + 
                  types_in_stylefolders + 
                  types_in_palettefolders
@@ -410,10 +416,12 @@ def update(self):
     
     pr("  Installing allowed content types")
     allowed_content_type = {
+        'Theme Page' : types_in_themepages,
         'Page Block' : types_in_pageblocks,
         'Cell Block' : types_in_cellblocks,
         'Portal Theme' : types_in_portalthemes,
-        'Theme Folder' : types_in_themefolders + ('Portal Theme', 'Theme Folder'),
+        'Theme Folder' : types_in_themefolders + (
+            'Portal Theme', 'Theme Page', 'Theme Folder'),
        }
 
     for ptype in allowed_content_type.keys():

@@ -50,7 +50,7 @@ class SearchBox(BaseTemplet):
     meta_type = 'Search Box Templet'
     portal_type = 'Search Box Templet'
 
-    render_action = 'cpsskins_searchbox'
+    render_method = 'cpsskins_searchbox'
 
     security = ClassSecurityInfo()
 
@@ -59,7 +59,7 @@ class SearchBox(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Style', 
-         'select_variable': 'StyleList',
+         'select_variable': 'listLayoutModes',
          'i18n': 1, 
          'i18n_prefix': '_option_searchbox_'
         },
@@ -84,8 +84,8 @@ class SearchBox(BaseTemplet):
         params = ['lang']
         return params
 
-    security.declarePublic('StyleList')
-    def StyleList(self):
+    security.declarePublic('listLayoutModes')
+    def listLayoutModes(self):
         """Returns a list of styles or layouts for this Templet."""
 
         list = ['advanced', 'compact']

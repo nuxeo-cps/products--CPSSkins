@@ -50,7 +50,7 @@ class Language(BaseTemplet):
     meta_type = 'Language Templet'
     portal_type = 'Language Templet'
 
-    render_action = 'cpsskins_language'
+    render_method = 'cpsskins_language'
    
     security = ClassSecurityInfo()
 
@@ -59,7 +59,7 @@ class Language(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Appearance', 
-         'select_variable': 'StyleList',
+         'select_variable': 'listLayoutModes',
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
@@ -92,8 +92,8 @@ class Language(BaseTemplet):
         params = ['lang']
         return params
 
-    security.declarePublic('StyleList')
-    def StyleList(self):
+    security.declarePublic('listLayoutModes')
+    def listLayoutModes(self):
         """ Returns a list of styles or layouts for this Templet"""
 
         list = ['flags', 'dropdown list', 'language names']

@@ -1,5 +1,11 @@
-<!--
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/javascript' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+</dtml-let>
 
+<!--
 /* PDLib */
 
 function Content_prepare_element_menu(header) {
@@ -51,11 +57,14 @@ function Choice_style(styleprop) {
   newWindow(new_url);
 }
 
-function Choice_action(action) {
+function Choice_action(action, confirm_msg) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
+  if (action == 'delete')
+    if (! window.confirm(confirm_msg))
+      return;
   window.location = new_url + '/cpsskins_content_action?action=' + action;
 }
 
@@ -138,7 +147,7 @@ function setupContentBoxDrag(node) {
   pd_setupDragUI(node, Content_move, Content_checkmove);
 }
 
-function setupContentEditMenu(node) {
+function setupContextualMenu(node) {
   pd_setupContextMenu(node, 'choice-context-menu', null, true);
 }
 
@@ -155,7 +164,7 @@ function setupContentAdd(node) {
 }
 
 pd_node_setup['ContentBoxDrag'] = setupContentBoxDrag;
-pd_node_setup['ContentBoxEditMenu'] = setupContentEditMenu;
+pd_node_setup['ContextualMenu'] = setupContextualMenu;
 pd_node_setup['contentDest'] = setupDestination;
 pd_node_setup['ContentAdd'] = setupContentAdd;
 //-->

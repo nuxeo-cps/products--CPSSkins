@@ -186,6 +186,11 @@ body>div.floatingHeader {
   background-color: #dfb;
 }
 
+.formClose {
+  margin-top: 20px;
+  text-align: center;
+}
+
 /* URL simulation menu */ 
 
 div.simulate_hierarchies {
@@ -253,6 +258,32 @@ div.simulate_hierarchies {
   border-bottom: 1px solid #ccc;
 }
 
+/* Page tabs */
+.pageTabs {
+  text-align: center;
+  font: 11px Arial, Helvetica, sans-serif;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 15px;
+  margin-top: 7px;
+}
+
+.pageTabs td {
+  padding: 0px 20px 0px 20px;
+  background-color: #e3e3e3;
+  border: 1px solid #999;
+  -moz-border-radius: 10px 10px 0 0;
+}
+
+.pageTabs td.selected {
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.pageTabs a {
+  color: Black;
+  text-decoration: none;
+}
+
 .editForm {
   font: 10px Arial, Helvetica, sans-serif;
   padding-left: 15px;
@@ -274,7 +305,7 @@ div.simulate_hierarchies {
   font-size: 150%;
   border-left: 10px solid #cc3;
   padding-left: 10px;
-  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .editForm > form {
@@ -289,10 +320,9 @@ div.simulate_hierarchies {
 }
 
 .stylePreview {
-  position: absolute;
-  right:15px;
+  padding: 10px;
+  background-color: White;
   border: 1px solid #ccc;
-  width: 30%;
 }
 
 /* main content */
@@ -316,25 +346,27 @@ div.simulate_hierarchies {
   background: none !important;
 }
 
-.editNavigationTab input {
+.editNavigationTab a {
   border-color: #999;
-  border-bottom-color: #ccf;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-color: #999;
   margin-left: 2px;
-  margin-bottom: 0px;
   padding: 0 10px 0 10px;
-  font: bold 12px Arial, sans-serif !important;
+  font: 12px Arial, sans-serif !important;
   color: Black !important;
   background: #dddde0;
   -moz-border-radius: 10px 10px 0 0;
+  text-decoration: none;
 }
 
-.editNavigationTab input.selected {
-  border-bottom-color: #ddd;
+.editNavigationTab a.selected {
+  border-bottom-color: #f0f0f0;
   background: #f6f6f6;
   padding: 0px 10px 0 10px;
 }
 
-.editNavigationTab input:hover {
+.editNavigationTab a:hover {
   background: #f6f6f6;
 }
 
@@ -615,7 +647,6 @@ vertical-align: middle;
 }
 
 div.addItem {
-  clear: both;
   padding: 0px 0px 15px 15px;
 }
 

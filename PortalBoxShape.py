@@ -50,7 +50,7 @@ class PortalBoxShape(BaseStyle):
     meta_type = 'Portal Box Shape'
     portal_type = 'Portal Box Shape'
 
-    render_action = 'cpsskins_portalboxshape'
+    render_method = 'cpsskins_portalboxshape'
     preview_action = 'cpsskins_portalboxshape_preview'
 
     security = ClassSecurityInfo()
@@ -60,32 +60,32 @@ class PortalBoxShape(BaseStyle):
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxTitle font', 
-         'category':'box title'
+         'category':'box title',
         },
         {'id': 'BoxTitle_border_style', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxTitle border style', 
          'category': 'box title', 
-         'palette': 'Palette Border'
+         'palette': 'Palette Border',
         },
         {'id': 'BoxTitle_border_width', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxTitle border width', 
-         'category': 'box title'
+         'category': 'box title',
         },
         {'id': 'BoxTitle_padding', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxTitle padding', 
-         'category': 'box title'
+         'category': 'box title',
         },
         {'id': 'BoxTitle_display', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'BoxTitle display', 
-         'select_variable': 'DisplayStylesList', 
+         'select_variable': 'listDisplayStyles', 
          'category': 'box title',
          'i18n': 1,
          'i18n_prefix': '_option_',
@@ -95,69 +95,69 @@ class PortalBoxShape(BaseStyle):
          'mode': 'w', 
          'label': 'BoxBody border style', 
          'category': 'box body', 
-         'palette': 'Palette Border'
+         'palette': 'Palette Border',
         },
         {'id': 'BoxBody_border_width', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody border width', 
-         'category': 'box body'
+         'category': 'box body',
         },
         {'id': 'BoxBody_padding', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody padding', 
-         'category':'box body'
+         'category':'box body',
         },
         {'id': 'BoxBody_menuin_padding', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuin padding', 
-         'category': 'box body'
+         'category': 'selected menu item',
         },
         {'id': 'BoxBody_menuout_padding', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout padding', 
-         'category': 'box body'
+         'category': 'menu item',
         },
         {'id': 'BoxBody_menuout_border_style', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout border style', 
-         'category': 'box body', 
-         'palette': 'Palette Border'
+         'palette': 'Palette Border',
+         'category': 'menu item',
         },
         {'id': 'BoxBody_menuout_border_width', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout border width', 
-         'category': 'box body'
+         'category': 'menu item',
         },
         {'id': 'BoxBody_menuout_margin', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout margin', 
-         'category': 'box body'
+         'category': 'menu item',
         },
         {'id': 'BoxBody_menuin_border_style', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuin border style', 
-         'category': 'box body',  
-         'palette': 'Palette Border'
+         'palette': 'Palette Border',
+         'category': 'selected menu item',
         },
         {'id': 'BoxBody_menuin_border_width', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuin border width', 
-         'category': 'box body'
+         'category': 'selected menu item',
         },
         {'id': 'BoxBody_menuin_margin', 
          'type': 'string', 
          'mode': 'w', 
-         'label': 'BoxBody menuin margin', 
-         'category':'box body'
+         'label': 'BoxBody menuin margin',
+         'category': 'selected menu item',
         },
     )
 
@@ -197,8 +197,8 @@ class PortalBoxShape(BaseStyle):
         self.BoxBody_menuout_border_width = BoxBody_menuout_border_width
         self.BoxBody_menuout_margin = BoxBody_menuout_margin
 
-    security.declarePublic('DisplayStylesList')
-    def DisplayStylesList(self):              
+    security.declarePublic('listDisplayStyles')
+    def listDisplayStyles(self):              
         """ Returns a list of display styles"""
 
         list = ['block', 'inline']

@@ -1,6 +1,7 @@
 ##parameters=langs=None
 
-mcat = context.cpsskins_getlocalizer()
+tmtool = context.portal_themes
+mcat = tmtool.getTranslationService()
 
 tr_langs = []
 for lang in langs:

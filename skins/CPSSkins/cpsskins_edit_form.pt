@@ -4,18 +4,16 @@
   mtool here/portal_membership;
   utool nocall:here/portal_url;
   tmtool here/portal_themes; 
-  mcat here/cpsskins_getlocalizer;
-  cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
+  mcat python: tmtool.getTranslationService();
+  cpsskins_mcat python: tmtool.getTranslationService(cat='cpsskins');
   here_url python:here.absolute_url();
   checkPerm nocall:mtool/checkPermission;
   view_mode tmtool/getViewMode;
   theme view_mode/theme|nothing;
-  current_theme python: tmtool.getRequestedThemeName(context=here);
-  theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
+  current_theme python: tmtool.getRequestedThemeName(context_obj=here);
+  theme_container python: tmtool.getThemeContainer(theme=current_theme);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
-  cat request/form/cat|nothing;
-  isPortalStyle here/aq_explicit/isPortalStyle|nothing;
-  isPortalPalette here/aq_explicit/isPortalPalette|nothing;">
+  cat request/form/cat|nothing">
 <head>
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${base_url}cpsskins_common.css" />
@@ -28,10 +26,13 @@
   <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 </head>
 <body tal:define="
-  isPortalTheme here/aq_explicit/isPortalTheme|nothing;
-  isPortletBox here/aq_explicit/isPortletBox|nothing;
-  isImageBox here/aq_explicit/isImageBox|nothing;
-  isFlashBox here/aq_explicit/isFlashBox|nothing;
+  isPortalTheme here/aq_inner/aq_explicit/isPortalTheme|nothing;
+  isThemePage here/aq_inner/aq_explicit/isThemePage|nothing;
+  isPortletBox here/aq_inner/aq_explicit/isPortletBox|nothing;
+  isPortalStyle here/aq_inner/aq_explicit/isPortalStyle|nothing;
+  isPortalPalette here/aq_inner/aq_explicit/isPortalPalette|nothing;
+  isImageBox here/aq_inner/aq_explicit/isImageBox|nothing;
+  isFlashBox here/aq_inner/aq_explicit/isFlashBox|nothing;
   showPreview python: isPortalStyle or isPortalPalette">
 
   <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
@@ -39,7 +40,13 @@
   </tal:block>
 
   <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
-  <div class="editForm">
+
+  <div class="statusmessage" i18n:translate=""
+   tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
+   tal:condition="psm"
+   tal:content="psm" />
+
+  <div class="editForm" i18n:domain="cpsskins">
     <h1>
       <tal:block define="title string:_Edit_"
        tal:content="python: mcat and mcat(title) or title"
@@ -47,9 +54,6 @@
       '<tal:block replace="here/title|nothing" />'
     </h1>
   </div>
-
-  <div tal:condition="showPreview" class="stylePreview"
-   tal:content="structure python: here.preview()" />
 
   <div class="editForm">
     <tal:block condition="isImageBox">
@@ -61,19 +65,27 @@
 
     <metal:block use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
 
-    <div class="mainEdit" tal:attributes="style python: showPreview and 'width: 50%' or None">
+    <div class="mainEdit">
       <tal:block condition="python: cat == 'Portlet'">
         <metal:block use-macro="here/cpsskins_form_widgets/macros/portlet_edit" />
       </tal:block>
 
-      <tal:block condition="python: cat != 'Portlet'">
+      <tal:block condition="python: cat != 'Portlet'"
+       define="show_selector python: 1">
         <metal:block use-macro="here/cpsskins_form_widgets/macros/edit_form" />
       </tal:block>
     </div>
 
     <br/>
-    <form action="">
-      <input class="standalone" type="submit"
+    <tal:block condition="showPreview">
+      <h2 i18n:translate=""
+       tal:define="title string:_Preview_"
+       tal:content="python: mcat and mcat(title) or title" />
+      <div class="stylePreview" tal:content="structure python: here.preview()" />
+    </tal:block>
+
+    <form action="" class="formClose">
+      <input class="standalone" type="submit" 
        onclick="window.opener.location.reload();window.close()"
        value="_button_close_" i18n:attributes="value" />
     </form>

@@ -25,7 +25,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_parent, aq_inner, aq_base
+from Acquisition import aq_base
 from OFS.Folder import Folder
 
 from Products.CMFCore.CMFCorePermissions import View
@@ -128,7 +128,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Shape', 
-         'select_variable': 'AreaShapesList', 
+         'select_variable': 'listAreaShapes', 
          'style': 'Area Shape', 
          'category' : 'style'
         },
@@ -136,7 +136,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Color', 
-         'select_variable': 'AreaColorsList', 
+         'select_variable': 'listAreaColors', 
          'style': 'Area Color', 
          'category' : 'style'
         },
@@ -310,7 +310,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     def getVerticalPosition(self):
         """Return the page block's ypos in the theme folder."""
 
-        container = self.aq_parent
+        container = self.getContainer()
         return container.get_object_position(self.getId())
 
     #
@@ -397,7 +397,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         if type_name == self.meta_type:
             kw['xpos'] = self.xpos
             kw['ypos'] = self.getVerticalPosition()
-            container = aq_parent(aq_inner(self))
+            container = self.getContainer()
             return container.addContent(**kw)
 
         del kw['type_name']

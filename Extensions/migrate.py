@@ -171,6 +171,5 @@ def migrate(self):
     else:
         pr(" %s already removed" % CPSSKINS_RAMCACHE_ID)
 
-
     logf("END:  CPSSkins Migrate")
     return '\n'.join(log)

@@ -50,7 +50,7 @@ class FontShape(BaseStyle):
     meta_type = 'Font Shape'
     portal_type = 'Font Shape'
 
-    render_action = 'cpsskins_fontshape'
+    render_method = 'cpsskins_fontshape'
     preview_action = 'cpsskins_fontshape_preview'
 
     _properties = BaseStyle._properties + (

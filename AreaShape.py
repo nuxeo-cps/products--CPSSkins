@@ -49,7 +49,7 @@ class AreaShape(BaseStyle):
     meta_type = 'Area Shape'
     portal_type = 'Area Shape'
 
-    render_action = 'cpsskins_areashape'
+    render_method = 'cpsskins_areashape'
     preview_action = 'cpsskins_areashape_preview'
 
     security = ClassSecurityInfo()
@@ -70,7 +70,7 @@ class AreaShape(BaseStyle):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Area text transform',
-         'select_variable': 'TextTransformList',
+         'select_variable': 'listTextTransforms',
          'default': 'none',
          'i18n': 1,
          'i18n_prefix': '_option_text_transform_',
@@ -88,8 +88,8 @@ class AreaShape(BaseStyle):
         self.Area_border_width = Area_border_width
         self.Area_text_transform = Area_text_transform
 
-    security.declarePublic('TextTransformList')
-    def TextTransformList(self):
+    security.declarePublic('listTextTransforms')
+    def listTextTransforms(self):
         """Return a list of text transformations"""
 
         list = ['none', 'capitalize', 'uppercase', 'lowercase']

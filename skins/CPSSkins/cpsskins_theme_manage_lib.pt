@@ -153,13 +153,13 @@
       i18n:translate="" />
       <dl>
       <tal:block repeat="imagecat sections">
-        <dd><img tal:attributes="src string:${base_url}themefolder.png" align="top" />
+        <dt><img tal:attributes="src string:${base_url}themefolder.png" align="top" />
             <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);
                            title python:'_%s_' % imagecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?imagecat=$imagecat_quoted"
                i18n:translate="" 
                tal:content="python: mcat and mcat(title) or title" />
-        </dd>
+        </dt>
       </tal:block>
     </dl>
     </tal:block>
@@ -242,6 +242,32 @@
       <h1 tal:define="title python:'_%s_' % palettecat"
       tal:content="python: mcat and mcat(title) or title" 
       i18n:translate="" />
+      <table border="0" cellpadding="2" cellspacing="0" width="100%" summary="">
+        <tal:block repeat="palette palette_list">
+          <tr>
+            <td>
+              <img src="" align="middle" alt=""
+              tal:attributes="src string:${base_url}${palette/getIcon}" />
+              <a tal:attributes="
+                onClick string:newWindow('${palette/absolute_url}/edit_form?palette=$palettecat')"
+                tal:content="python: palette.title_or_id()" />
+            </td>
+            <td>
+              <tal:block content="palette/value" />
+            </td>
+            <td>
+              <a tal:attributes="onmouseover string:toggle('${palette/getId}');
+                                 onmouseout string:toggle('${palette/getId}')"
+                 tal:content="string:preview" />
+            </td>
+            <td>
+              <div class="hidden" style="position: absolute; right: 50px; top: 50px"
+               tal:attributes="id palette/getId"
+               tal:content="structure python: palette.preview()" />
+            </td>
+          </tr>
+        </tal:block>
+      </table>
       <div class="addItem">
         <a href="" alt=""
         tal:attributes="onClick string:newWindow('${base_url}/cpsskins_addpalette_form?type_name=$palettecat')">
@@ -249,36 +275,11 @@
            tal:attributes="src string:${base_url}cpsskins_images/img_addpalette.png" />
         </a>
       </div>
-      <tal:block repeat="palette palette_list">
-        <div class="editPreview" style="float:left; margin: 5px">
-          <tal:block define="info palette/getInfo; del_action info/delete|nothing; edit_action info/edit|nothing;">
-
-            <a title="Delete"
-            tal:condition="del_action/can_delete|nothing"
-            tal:define="msg string:_Deleting this palette entry, are you sure?_;
-                        msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                        onclick_msg python:'return window.confirm(\'%s\')' % msg"
-            tal:attributes="onclick onclick_msg;
-                            href string:${del_action/url}?goto=referer" >
-              <img border="0" width="12" height="12"
-              tal:attributes="src string:${base_url}cpsskins_images/img_palette_delete.png" />
-            </a>
-            <a href=""
-             tal:attributes="onClick string:newWindow('${palette/absolute_url}/edit_form?palette=$palettecat')">
-              <tal:block content="palette/title" />
-              <br />
-              <br />
-              <tal:block content="structure python: palette.preview()" />
-            </a>
-          </tal:block>
-        </div>
-      </tal:block>
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="themes_manager" i18n:domain="cpsskins"
-  tal:define="themes python: tmtool.getThemes();
-              current_theme request/form/theme|nothing">
+<metal:block define-macro="themes_manager"
+  tal:define="themes python: tmtool.getThemes()">
     <h1 tal:define="title string:_Themes manager_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
@@ -300,11 +301,6 @@
                   tal:define="title string:_Default theme_"
                   tal:content="python: mcat and mcat(title) or title" />
              </td>
-             <td>
-                 <strong i18n:translate="" 
-                  tal:define="title string:_Theme renderer_"
-                  tal:content="python: mcat and mcat(title) or title" />
-             </td>
              <td align="center">
                  <strong i18n:translate="" 
                   tal:define="title string:_Delete theme?_"
@@ -313,9 +309,7 @@
           </tr>
           <tal:block repeat="theme themes">
               <tr tal:define="default_theme theme/default|nothing;
-                              theme_renderer theme/theme_renderer|nothing;
-                              theme_id theme/id|nothing;
-                              renderers tmtool/listThemeRenderers"
+                              theme_id theme/id|nothing"
                   tal:attributes="style python: theme_id == current_theme and 'background-color: #d0d0d0' or ''">
                   <td>
                     <img src="" align="middle" alt=""
@@ -328,17 +322,6 @@
                     <input type="radio" name="default_theme:list"
                     value="."
                     tal:attributes="checked default_theme; value theme_id" />
-                  </td>
-                  <td>
-                     <select name="theme_renderers">
-                       <tal:block repeat="renderer renderers">
-                         <option i18n:translate=""
-                          tal:define="title python: '_option_%s_' % renderer"
-                          tal:attributes="value renderer;
-                                           selected python: renderer == theme_renderer"
-                                 tal:content="python: mcat and mcat(title) or title" />
-                       </tal:block>
-                     </select>
                   </td>
                   <td align="center">
                     <input type="checkbox" name="delete_themes:list"
@@ -388,7 +371,7 @@
     <form action="cpsskins_cache_edit" method="post">
       <table border="0" cellpadding="2" cellspacing="0"
       width="100%" summary="">
-        <tal:block repeat="pageblock theme_container/getPageBlocks|nothing">
+        <tal:block repeat="pageblock python: page_container.getPageBlocks()">
           <tr>
             <td colspan="4">
               <h3 tal:content="pageblock/title_or_id" />
@@ -426,7 +409,7 @@
                   </td>
                   <td> 
                     <select name="cache_lifetimes:list">
-                      <tal:block repeat="lifetime content/LifetimeList">
+                      <tal:block repeat="lifetime content/listLifeTimes">
                         <option i18n:translate="" 
                          tal:define="cache_lifetime content/cache_lifetime|nothing;
                                      i18n_option string:_option_lifetime_${lifetime}_;
@@ -465,9 +448,6 @@
 
 <metal:block define-macro="theme_exporter" i18n:domain="cpsskins" tal:define="
   io_tool here/portal_io|nothing">
-  <h1 tal:define="title string:_Theme export_"
-   tal:content="python: mcat and mcat(title) or title"
-   i18n:translate="" />
   <tal:block condition="io_tool">
     <tal:block define="exporter string:CPSSkinsExporter;
                        exporters io_tool/listExportModules;
@@ -508,12 +488,16 @@
   uncached_templets theme_container/findUncachedTemplets|nothing;
   i18n_templets theme_container/getI18nTemplets|nothing;
   optimized python: not (unused_styles or invisible_templets or uncached_templets or identical_styles or i18n_templets)">
-    <h1 tal:define="title string:_Theme optimizer_"
+    <h2 tal:define="title string:_Theme optimizer_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
     <tal:block condition="not:optimized">
       <form action="" method="post"
       tal:attributes="action string:${base_url}cpsskins_theme_optimize">
+        <input type="hidden" name="theme" value="" 
+         tal:attributes="value current_theme" />
+        <input type="hidden" name="page" value="" 
+         tal:attributes="value current_page" />
         <tal:block tal:condition="unused_styles">
           <h3 tal:define="title string:_Styles_"
           tal:content="python: mcat and mcat(title) or title"
@@ -751,16 +735,18 @@
        i18n:attributes="value" 
        tal:attributes="value python: mcat and mcat(title) or title" />
     </form>
-    <form name="setdefaulttheme" action="" style="float: left; padding: 3px"
-     tal:condition="python: not getattr(theme_container, 'default', None)"
-     tal:attributes="action string:${theme_container_url}/cpsskins_setdefaulttheme">
-      <input type="hidden" name="default_theme"
-       tal:attributes="value current_theme" />
-      <input type="submit" class="themeDefault"
-       i18n:attributes="value" 
-       tal:define="title string:_button_set_theme_as_default_"
-       tal:attributes="value python: mcat and mcat(title) or title" />
-    </form>
   </div>
   <br style="clear: left" />
+</metal:block>
+
+<metal:block define-macro="set_default_theme">
+  <form name="setdefaulttheme" action=""
+   tal:attributes="action string:${theme_container_url}/cpsskins_setdefaulttheme">
+    <input type="hidden" name="default_theme"
+     tal:attributes="value current_theme" />
+    <input type="submit" class="themeDefault"
+     i18n:attributes="value" 
+     tal:define="title string:_button_set_theme_as_default_"
+     tal:attributes="value python: mcat and mcat(title) or title" />
+  </form>
 </metal:block>

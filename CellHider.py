@@ -60,7 +60,7 @@ class CellHider(BaseCellModifier):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Visibility criteria', 
-         'select_variable': 'VisibilityList', 
+         'select_variable': 'listVisibilityModes', 
          'category': 'general'
         },
         {'id': 'visibility_paths', 
@@ -75,9 +75,9 @@ class CellHider(BaseCellModifier):
          'type': 'multiple selection', 
          'mode': 'w', 
          'label': 'The languages in which it is visible', 
-         'select_variable': 'LanguagesList', 
+         'select_variable': 'listLanguages', 
          'category': 'general',
-         'visible': 'LanguagesList'
+         'visible': 'listLanguages'
         },
     )
 
@@ -116,8 +116,8 @@ class CellHider(BaseCellModifier):
 
         return getObjectVisibility(self, **kw)
 
-    security.declarePublic('VisibilityList')
-    def VisibilityList(self):
+    security.declarePublic('listVisibilityModes')
+    def listVisibilityModes(self):
         """ Returns a list of visibility criteria """
 
         list = ['always', 
@@ -130,8 +130,8 @@ class CellHider(BaseCellModifier):
                 'if_secure_connection' ]
         return list
 
-    security.declarePublic('LanguagesList')
-    def LanguagesList(self):           
+    security.declarePublic('listLanguages')
+    def listLanguages(self):           
         """ Returns a list of languages """
 
         return getAvailableLangs(self)

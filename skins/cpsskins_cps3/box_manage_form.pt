@@ -23,7 +23,7 @@
     </metal:header>
     <metal:main fill-slot="main">
       <tal:block define="tmtool here/portal_themes">
-        <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
+        <tal:block repeat="block python: page_container.getPageBlocks()">
           <table cellpadding="0" cellspacing="3" width="100%">
             <tr valign="top"
             tal:define="objects python: block.getObjects();

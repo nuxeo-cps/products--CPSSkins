@@ -51,7 +51,7 @@ class FormStyle(BaseStyle):
     meta_type = 'Form Style'
     portal_type = 'Form Style'
 
-    render_action = 'cpsskins_formstyle'
+    render_method = 'cpsskins_formstyle'
     preview_action = 'cpsskins_formstyle_preview'
 
     security = ClassSecurityInfo()

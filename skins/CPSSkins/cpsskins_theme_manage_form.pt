@@ -3,9 +3,9 @@
 <html tal:define="
   global boxedit python:1;
   utool nocall:here/portal_url;
-  mcat python: here.cpsskins_getlocalizer();
   mtool here/portal_membership;
   tmtool here/portal_themes;
+  mcat python: tmtool.getTranslationService();
   base_url python: here.cpsskins_getBaseUrl();
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
@@ -15,16 +15,13 @@
   panel view_mode/themes_panel|string:wysiwyg;
   selected_content view_mode/selected_content|nothing;
   portal_path python: utool.getPortalPath();
-  cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+  cpsmcat python: tmtool.getTranslationService(cat='default');
   cpsskins_mcat python: request.get('cpsskins_mcat');
   checkPerm nocall:mtool/checkPermission">
 <head>
   <metal:block use-macro="here/cpsskins_main_template_edit/macros/head" />
   <style type="text/css" media="all"
    tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
-  <script language="JavaScript"><!--
-  javascript:window.history.forward(1);
-  //--></script>
 </head>
 
 <body tal:attributes="onload string:javascript:scrollToCoordinates(${scrollx},${scrolly})">
@@ -42,21 +39,25 @@
   <div class="editSpace">
    <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
     <tal:block condition="python: panel in ['wysiwyg', 'layout', 'mixed']">
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />
       <metal:block use-macro="here/cpsskins_main_template_edit/macros/main" />
     </tal:block> 
 
     <div class="editForm" tal:condition="python: panel in ['theme', 'cache_manager', 'theme_optimizer', 'theme_exporter']">
-      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
-    </div> 
-
-    <div class="statusmessage" i18n:translate="" i18n:domain="cpsskins"
+      <h1>
+        <tal:block define="title string:_Manage_"
+         tal:content="python: mcat and mcat(title) or title"
+         i18n:translate="" />
+        '<tal:block replace="theme_container/title|nothing" />'
+      </h1>
+      <div class="statusmessage" i18n:translate=""
          tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
          tal:condition="psm"
          tal:content="psm" />
 
-    <div class="editForm" tal:condition="python: panel == 'theme'">
-      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_manager" />
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
     </div> 
+
     <div class="editForm" tal:condition="python: panel == 'styles'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/styles" />
     </div> 

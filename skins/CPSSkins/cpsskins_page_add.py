@@ -4,20 +4,19 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.addPortalTheme()
-if theme is None:
+
+theme_container = context
+if not getattr(theme_container.aq_inner.aq_explicit, 'isportaltheme', 0):
     return
 
-themeid = theme.getId()
+page_container = theme_container.addThemePage()
+if page_container is None:
+    return
 
-tmtool.setDefaultTheme(themeid)
-theme.setTitle(themeid)
+page = page_container.getId()
 
 # switch to the new theme
-tmtool.setViewMode(theme=themeid)
-
-# set the edit mode to 'Mixed'
-tmtool.setViewMode(edit_mode='mixed')
+tmtool.setViewMode(page=page)
 
 url = context.portal_url() + '/cpsskins_theme_manage_form'
 if REQUEST is None:

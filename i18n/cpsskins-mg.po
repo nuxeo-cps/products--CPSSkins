@@ -476,6 +476,10 @@ msgid "_December_"
 msgstr "Desambra"
 
 
+msgid "_Default page_"
+msgstr ""
+
+
 msgid "_Default theme_"
 msgstr "Thème par défaut"
 
@@ -500,28 +504,8 @@ msgid "_Delete_"
 msgstr "Mamono"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr "tapa-kevitra ny hamono io Templet io ve ianao?"
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Tapa-kevitra ny hamono io effaceur de cellule io ve ianao?"
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Tapa-kevitra ny hamono io dimensionneur de cellule io ve ianao?"
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Tapa-kevitra ny hamono io styleur de cellule io ve ianao?"
-
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Tapa-kevitra ny hamono io sary io ve ianao?"
-
-
-msgid "_Deleting this page block, are you sure?_"
-msgstr "Tapa-kevitra ny hamono io bloc io ve ianao?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
@@ -577,6 +561,14 @@ msgstr "Manova ireo styles"
 
 
 msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit the page_"
+msgstr ""
+
+
+msgid "_Edit the theme_"
 msgstr ""
 
 
@@ -956,6 +948,10 @@ msgid "_Main content_"
 msgstr "Région principale"
 
 
+msgid "_Manage_"
+msgstr ""
+
+
 msgid "_March_"
 msgstr "Martsa"
 
@@ -1084,6 +1080,10 @@ msgstr "Espace de remplissage des paragraphes"
 
 msgid "_Page Block_"
 msgstr "Bloc"
+
+
+msgid "_Page renderer_"
+msgstr ""
 
 
 msgid "_Palette Border_"
@@ -1400,6 +1400,10 @@ msgstr "Visible dans les rubriques:"
 
 msgid "_Theme Chooser Templet_"
 msgstr "Fifidiana thème"
+
+
+msgid "_Theme Page_"
+msgstr ""
 
 
 msgid "_Theme chooser_"
@@ -1782,8 +1786,12 @@ msgid "_colors_"
 msgstr "Loko"
 
 
-msgid "_default_tab_"
-msgstr "Onglet non-sélectionné"
+msgid "_confirm delete_"
+msgstr ""
+
+
+msgid "_default tab_"
+msgstr ""
 
 
 msgid "_documentinfo_templet_description_"
@@ -1850,8 +1858,16 @@ msgid "_maincontent_templet_description_"
 msgstr "le région principale dans laquelle les documents sont affichés."
 
 
+msgid "_menu item_"
+msgstr ""
+
+
 msgid "_menu_Align center_"
 msgstr "Eo afovoany"
+
+
+msgid "_menu_Align justify_"
+msgstr ""
 
 
 msgid "_menu_Align left_"
@@ -2078,6 +2094,10 @@ msgid "_option_inline_"
 msgstr "Sakan'ny lohateny"
 
 
+msgid "_option_justify_"
+msgstr ""
+
+
 msgid "_option_language names_"
 msgstr "Anaran'ireo fiteny"
 
@@ -2214,6 +2234,10 @@ msgid "_option_stx_"
 msgstr "Format Structured Text (STX)"
 
 
+msgid "_option_tableless_"
+msgstr ""
+
+
 msgid "_option_text and icons_"
 msgstr "Lahatsoratra sy icônes"
 
@@ -2306,8 +2330,12 @@ msgid "_select this slot_"
 msgstr ""
 
 
-msgid "_selected_tab_"
-msgstr "Onglet nofiadiana "
+msgid "_selected menu item_"
+msgstr ""
+
+
+msgid "_selected tab_"
+msgstr ""
 
 
 msgid "_set as default style_"
@@ -2336,6 +2364,10 @@ msgstr "boaty misy lahatsoratra amin'ny format tsotra na HTML. "
 
 msgid "_themechooser_templet_description_"
 msgstr "fifidianana thème ho an'ireo mpitsidika ny tranonkala (mampiasa cookies)."
+
+
+msgid "_themepage_description_"
+msgstr ""
 
 
 msgid "_thumbnails_"
@@ -2423,6 +2455,10 @@ msgstr ""
 
 
 msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_image_uploaded"
 msgstr ""
 
 

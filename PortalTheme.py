@@ -128,7 +128,7 @@ factory_type_information = (
 
 SHORTCUT_ICON_HTML = """
 <link rel="icon" href="%s" type="%s" />
-<link rel="shortcut icon" type="image/x-icon" href="%s" type="%s" />
+<link rel="shortcut icon" href="%s" type="%s" />
 """
 
 class PortalTheme(ThemeFolder, StylableContent):
@@ -163,17 +163,11 @@ class PortalTheme(ThemeFolder, StylableContent):
          'label':'Title', 
          'category': 'general'
         },
-        {'id': 'margin', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Margin', 
-         'category': 'layout'
-        },
         {'id': 'default', 
          'type': 'boolean', 
          'mode': 'w', 
-         'label': 'Default', 
-         'category': 'none',
+         'label': 'Default theme', 
+         'category': 'general',
          'default': 0,
         },
         {'id': 'esi', 
@@ -183,23 +177,6 @@ class PortalTheme(ThemeFolder, StylableContent):
          'category': 'general',
          'default': 0,
         },
-        {'id': 'align', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Align', 
-         'select_variable': 'AlignList', 
-         'category': 'layout',
-         'i18n': 1,
-         'i18n_prefix': '_option_',
-        },
-        {'id': 'color', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Area background color', 
-         'select_variable': 'AreaColorsList', 
-         'style': 'Area Color',
-         'category': 'style'
-        },
         {'id': 'shortcut_icon', 
          'type': 'selection', 
          'mode': 'w', 
@@ -208,25 +185,8 @@ class PortalTheme(ThemeFolder, StylableContent):
          'category': 'style', 
          'image' : 'icons'
         },
-        {'id': 'theme_renderer', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Theme renderer', 
-         'select_variable' : 'listThemeRenderers',  
-         'category': 'general',
-         'i18n': 1, 
-         'i18n_prefix': '_option_',
-        },
-        {'id': 'preview',
-         'type': 'selection',
-         'mode': 'w',
-         'label': 'Preview',
-         'select_variable': 'cpsskins_listThumbnails',
-         'category': 'about',
-         'image' : 'thumbnails'
-        },
-        {'id': 'author', 
-         'type': 'text', 
+        {'id': 'author',
+         'type': 'text',
          'mode': 'w', 
          'label': 'Author', 
          'category' : 'about'
@@ -253,31 +213,21 @@ class PortalTheme(ThemeFolder, StylableContent):
 
     def __init__(self, id, 
                  title = 'Portal Theme',
-                 color = 'Transparent',
-                 align = 'center',
-                 margin = '0.5em',
                  default = 0,
                  esi = 0,
                  shortcut_icon = '',
-                 theme_renderer = 'default',
                  author = '',
                  copyright = '',
                  license = '',
-                 preview = '',
                  **kw):
         self.id = id
         self.title = title
-        self.color = color
-        self.align = align
-        self.margin = margin
         self.default = default
         self.esi = esi
         self.shortcut_icon = shortcut_icon
-        self.theme_renderer = theme_renderer
         self.author = author
         self.copyright = copyright
         self.license = license
-        self.preview = preview
 
     security.declarePublic('getTitle')
     def getTitle(self):
@@ -303,146 +253,6 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         return getattr(self, 'default', None)
 
-    security.declarePublic('AlignList')
-    def AlignList(self):
-        """ Returns a list of alignments for this object"""
-
-        list = ['left', 'center', 'right']
-        return list
-
-    security.declarePublic('listThemeRenderers')
-    def listThemeRenderers(self):
-        """ returns the list of theme renderers """
-
-        tmtool = getToolByName(self, 'portal_themes')
-        return tmtool.listThemeRenderers()
-
-    security.declareProtected(ManageThemes, 'manage_rebuild')
-    def manage_rebuild(self, setperms=0, REQUEST=None):
-        """
-        Rebuild this theme
-        """
-
-        self.rebuild(setperms=setperms)
-        if REQUEST is not None:
-            REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_main')
-
-    security.declareProtected(ManageThemes, 'createThemeSkeleton')
-    def createThemeSkeleton(self):
-        """
-        Creates a theme skeleton
-        """
-
-        themefolders = self.cpsskins_listImageCategories()
-        themefolders.extend(['styles', 'palettes'])
-
-        for themefolder in themefolders:
-            self.invokeFactory('Theme Folder', id=themefolder)
-
-    security.declareProtected(ManageThemes, 'rebuild')
-    def rebuild(self, **kw):
-        """
-        Rebuild the theme
-        """
-
-        setperms = kw.get('setperms', 0)
-        canonizeId(self)
-        rebuild_properties(self) 
-        if setperms:
-            verifyThemePerms(self)
-
-        # check the presence of theme folders
-        themefolders = self.cpsskins_listImageCategories()
-        themefolders.extend(['styles', 'palettes'])
-
-        for themefolder in themefolders:
-            backupid = themefolder + '-bak'
-            objs = self.objectIds()
-            if backupid in objs:
-                self.manage_delObjects([backupid])
-
-            if themefolder not in objs:
-                try:
-                    self.invokeFactory('Theme Folder', id=themefolder)
-                except Unauthorized:
-                    pass
-                continue
-
-            else:
-                folder = getattr(self.aq_inner.aq_explicit, themefolder)
-                if getattr(aq_base(folder), 'isthemefolder', 0):
-                    continue
-
-                self.manage_renameObjects([themefolder], [backupid])
-                backup_folder = getattr(self.aq_inner.aq_explicit, backupid)
-                objects = backup_folder.objectIds()
-                cookie = backup_folder.manage_cutObjects(objects)
-                self.invokeFactory('Theme Folder', themefolder)
-                new_folder = getattr(self.aq_inner.aq_explicit, themefolder, None)
-                if new_folder is not None:
-                    new_folder.manage_pasteObjects(cookie)
-                    self.manage_delObjects([backupid])
-
-        # move disallowed objects to lost+found
-        for (id, o) in self.objectItems():
-            if getattr(aq_base(o), 'isportalpageblock', 0):
-                continue
-            if getattr(aq_base(o), 'isthemefolder', 0):
-                continue
-            moveToLostAndFound(self, o)
-
-        for obj in self.getPageBlocks():
-            obj.rebuild(**kw)
-
-        for obj in self.findStyles():
-            obj.rebuild(**kw)
-
-        styles_dir = self.getStylesFolder()
-        for (id, obj) in styles_dir.objectItems():
-            if isBroken(aq_base(obj)):
-                styles_dir.manage_delObjects(id)
-                continue
-            if getattr(aq_base(obj), 'isportalstyle', 0):
-                continue
-            moveToLostAndFound(self, obj)
-
-        palettes_dir = self.getPalettesFolder()
-        for (id, obj) in palettes_dir.objectItems():
-            if isBroken(aq_base(obj)):
-                palettes_dir.manage_delObjects(id)
-                continue
-            if getattr(aq_base(obj), 'isportalpalette', 0):
-                continue
-            moveToLostAndFound(self, obj)
-
-        ids = self.objectIds()
-        for themefolder in themefolders:
-            if themefolder not in ids:
-                continue
-            obj = getattr(self, themefolder, None)
-            if obj is not None and setperms:
-                verifyThemePerms(obj)
-
-        self.clearCache()
-
-    #
-    # CSS
-    #
-    security.declarePublic('getCSSLayoutStyle')
-    def getCSSLayoutStyle(self):
-        """Returns the CSS layout style for this theme."""
-
-        align = self.align
-        if align == 'left':
-            return 'margin-left:0px;margin-right:auto;'
-
-        elif align == 'right':
-            return 'margin-left:auto;margin-right:0px;'
-
-        elif align == 'center':
-            return 'margin-left:auto;margin-right:auto;'
-        return ''
-
     #
     # Rendering
     #
@@ -450,11 +260,10 @@ class PortalTheme(ThemeFolder, StylableContent):
     def render(self, **kw):
         """Render the theme"""
 
-        rendered = []
-        kw['layout_style'] = self.getCSSLayoutStyle()
-        for pageblock in self.getPageBlocks():
-            rendered.append(pageblock.render(**kw))
-        return ''.join(rendered)
+        page = self.getRequestedPage(**kw)
+        if page is not None:
+            return page.render(**kw)
+        return ''
 
     security.declarePublic('renderIcon')
     def renderIcon(self):
@@ -522,7 +331,10 @@ class PortalTheme(ThemeFolder, StylableContent):
         if js is None:
             js = ''
             done_types = []
-            for templet in self.getTemplets():
+            page = self.getPageContainer(**kw)
+            if page is None:
+                return ''
+            for templet in page.getTemplets():
                 ti = templet.getTypeInfo()
                 if ti is None:
                     continue
@@ -537,69 +349,123 @@ class PortalTheme(ThemeFolder, StylableContent):
         return js  
 
     #
-    # RAM Cache
+    # Pagelets (Page elements)
     #
-    security.declareProtected(ManageThemes, 'clearCache')
-    def clearCache(self, REQUEST=None, **kw):
-        """Clears the local RAM caches."""
 
-        templetcache = self.getTempletCache()
-        if templetcache is not None:
-            templetcache.invalidate()
-
-        csscache = self.getCSSCache()
-        if csscache is not None:
-            csscache.invalidate()
-        
-        jscache = self.getJSCache()
-        if jscache is not None:
-            jscache.invalidate()
-
-    security.declareProtected(ManageThemes, 'expireCSSCache')
-    def expireCSSCache(self):
-        """Expires the CSS RAM cache for this theme.
- 
-           In a ZEO environment, the information will propagate
-           between all ZEO instances as long as the theme still
-           exists.
+    # Pages
+    security.declarePublic('getRequestedPageName')
+    def getRequestedPageName(self, **kw):
+        """Gets the name of the requested page.
         """
 
-        self.css_cache_cleanup_date = time.time()
+        REQUEST = self.REQUEST
+        FORM = REQUEST.form
 
-    security.declareProtected(ManageThemes, 'expireJSCache')
-    def expireJSCache(self):
-        """Expires the JS RAM cache for this theme.
- 
-           In a ZEO environment, the information will propagate
-           between all ZEO instances as long as the theme still
-           exists.
+        # selected by writing ?page=... in the URL
+        page_id = FORM.get('page')
+        if page_id is not None:
+            return page_id
+
+        # session variable (used in edition mode)
+        view_mode = self.getViewMode()
+        page = view_mode and view_mode.get('page') or None
+        page_container = self.getPageContainer(page)
+        if page_container is not None:
+            return page
+
+        # local theme + page
+        tmtool = getToolByName(self, 'portal_themes')
+        local_theme = tmtool.getLocalThemeName(**kw)
+        if local_theme is not None:
+            if local_theme.find('+') > 0:
+                theme, page = local_theme.split('+')
+                if theme == self.getId():
+                    return page
+
+        # default page
+        return self.getDefaultPageName()
+
+    security.declarePublic('getRequestedPage')
+    def getRequestedPage(self, **kw):
+        """Gets the requested page.
         """
 
-        self.js_cache_cleanup_date = time.time()
+        page = self.getRequestedPageName(**kw)
+        return self.getPageContainer(page)
 
-    #
-    # Theme objects
-    #
-    security.declarePublic('getPageBlocks')
-    def getPageBlocks(self, edit=0):
+    security.declarePublic('getPages')
+    def getPages(self, edit=0):
         """ returns a list of page blocks sorted by ypos"""
 
-        pageblocks = self.objectValues('Page Block')
-        if edit:
-            return pageblocks
-        return [p for p in pageblocks if not p.closed and p.maxcols]
+        return self.objectValues('Theme Page')
 
+    security.declarePublic('getPageContainer')
+    def getPageContainer(self, page=None):
+        """ return a page by id"""
 
-    security.declarePublic('getSlots')
-    def getSlots(self):
-        """Return the list of slots used in this theme.
+        if page is None:
+            return None
+        for page_container in self.getPages():
+            if page_container.getId() == page:
+                return page_container
+        return None
+
+    security.declarePublic('getDefaultPage')
+    def getDefaultPage(self):
+        """ return the id of the default page"""
+
+        pages = self.getPages()
+        for page in pages:
+            if page.isDefaultPage():
+                return page
+        if pages:
+            return pages[0]
+        return None
+
+    security.declarePublic('getDefaultPageName')
+    def getDefaultPageName(self, REQUEST=None):
+        """ gets the default page name
+        """
+        default_page = self.getDefaultPage()
+        if default_page is not None:
+            return default_page.getId()
+        return None
+
+    # templets
+    security.declareProtected(ManageThemes, 'getTemplets')
+    def getTemplets(self):
+        """
+        Returns the list of templets.
         """
 
-        slots = []
-        for templet in self.getTemplets():
-            if getattr(aq_base(templet), 'isportalboxgroup', 0):
-                slots.append(templet.getSlot())
-        return slots
+        templets = []
+        for page in self.getPages():
+            templets.extend(page.getTemplets())
+        return templets
+
+    security.declareProtected(ManageThemes, 'getTempletByPath')
+    def getTempletByPath(self, templet_path=None):
+        """
+        Returns a Templet by its physical path.
+        """
+
+        if templet_path is None:
+            return None
+        return self.unrestrictedTraverse(templet_path, default=None)
+
+    #
+    # Styles
+    #
+    security.declarePublic('getDefaultStyle')
+    def getDefaultStyle(self, meta_type=None):
+        """ Gets the default style name by type
+        """
+
+        styles = self.getStyles(meta_type=meta_type) 
+        for style in styles:
+            if style.isDefaultStyle():
+                return style.title
+        return ''
 
     security.declarePublic('getStyles')
     def getStyles(self, meta_type=None):
@@ -615,61 +481,6 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
 
         id = 'styles'
-        folder = getattr(self.aq_inner.aq_explicit, id, None)
-        if folder is not None:
-            if not getattr(aq_base(folder), 'isthemefolder', 0):
-                return None
-        return getattr(self, id, None)
-
-    security.declarePublic('getPalettesFolder')
-    def getPalettesFolder(self):
-        """
-        Returns the palettes folder object
-        """
-
-        id = 'palettes'
-        folder = getattr(self.aq_inner.aq_explicit, id, None)
-        if folder is not None:
-            if not getattr(aq_base(folder), 'isthemefolder', 0):
-                return None 
-        return getattr(self, id, None)
-
-    security.declarePublic('getDefaultStyle')
-    def getDefaultStyle(self, meta_type=None):
-        """ Gets the default style name by type
-        """
-
-        styles = self.getStyles(meta_type=meta_type) 
-        for style in styles:
-            if style.isDefaultStyle():
-                return style.title
-        return ''
-
-    security.declareProtected(ManageThemes, 'getLostAndFoundFolder')
-    def getLostAndFoundFolder(self, create=0):
-        """
-        Returns the 'lost+found' folder. 
-        """
-
-        id = 'LOST-AND-FOUND'
-        folder = getattr(self.aq_inner.aq_explicit, id, None)
-        exists = 0
-        if folder is not None:
-            if getattr(aq_base(folder), 'isthemefolder', 0):
-                exists = 1 
-        if not exists and create:
-            self.invokeFactory('Theme Folder', id)
-        return getattr(self.aq_inner.aq_explicit, id, None)
-
-    security.declarePublic('getImageFolder')
-    def getImageFolder(self, category=None):
-        """
-        Returns the image folder by category 
-        """
-
-        if category not in self.cpsskins_listImageCategories():
-            return None
-        id = category
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
             if not getattr(aq_base(folder), 'isthemefolder', 0):
@@ -715,6 +526,21 @@ class PortalTheme(ThemeFolder, StylableContent):
                 dict[meta_type] = identical_styles
         return dict
 
+    security.declareProtected(ManageThemes, 'findOrphanedStyles')
+    def findOrphanedStyles(self, **kw):
+        """
+        Returns the list of styles that are not used.
+        """
+
+        stylesfolder = self.getStylesFolder()
+        list = []
+        for style in stylesfolder.objectValues():
+            if getattr(aq_base(style), 'isOrphan', None) is None:
+                continue
+            if style.isOrphan():
+                list.append(style)
+        return list
+
     security.declarePublic('getDefaultStyleByType')
     def getDefaultStyleByType(self, meta_type=None):
         """
@@ -753,6 +579,55 @@ class PortalTheme(ThemeFolder, StylableContent):
                 final_groups.append(group)
         return final_groups
 
+
+    #
+    # Palettes
+    #
+    security.declarePublic('getPalettesFolder')
+    def getPalettesFolder(self):
+        """
+        Returns the palettes folder object
+        """
+
+        id = 'palettes'
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
+        if folder is not None:
+            if not getattr(aq_base(folder), 'isthemefolder', 0):
+                return None 
+        return getattr(self, id, None)
+
+    security.declareProtected(ManageThemes, 'getLostAndFoundFolder')
+    def getLostAndFoundFolder(self, create=0):
+        """
+        Returns the 'lost+found' folder. 
+        """
+
+        id = 'LOST-AND-FOUND'
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
+        exists = 0
+        if folder is not None:
+            if getattr(aq_base(folder), 'isthemefolder', 0):
+                exists = 1 
+        if not exists and create:
+            self.invokeFactory('Theme Folder', id)
+        return getattr(self.aq_inner.aq_explicit, id, None)
+
+    security.declarePublic('getImageFolder')
+    def getImageFolder(self, category=None):
+        """
+        Returns the image folder by category 
+        """
+
+        if category not in self.cpsskins_listImageCategories():
+            return None
+        id = category
+        folder = getattr(self.aq_inner.aq_explicit, id, None)
+        if folder is not None:
+            if not getattr(aq_base(folder), 'isthemefolder', 0):
+                return None
+        return getattr(self, id, None)
+
+
     security.declarePublic('findUncachedTemplets')
     def findUncachedTemplets(self):
         """
@@ -763,30 +638,26 @@ class PortalTheme(ThemeFolder, StylableContent):
         for templet in self.getTemplets():
             if not templet.isCacheable():
                 continue
-            if not getattr(templet, 'cacheable', 0):
+            if not templet.cacheable:
                 list.append(templet)
         return list
 
-    security.declareProtected(ManageThemes, 'addPageBlock')
-    def addPageBlock(self, **kw):
+    #
+    # Factories
+    #
+    security.declareProtected(ManageThemes, 'addThemePage')
+    def addThemePage(self, **kw):
+        """Add a Theme Page. Returns the Page.
         """
-        Add a Page Block. Returns the Page Block object
-        """
-
         id = getFreeId(self)
-        self.invokeFactory('Page Block', title='PageBlock', id=id)
-        pageblock = getattr(self.aq_inner.aq_explicit, id, None)
-        if pageblock is not None:
-            ypos = kw.get('pageblock_ypos', None)
-            if ypos:
-                self.move_object_to_position(pageblock.getId(), int(ypos))
-            return pageblock
-        return None
+        self.invokeFactory('Theme Page', id=id, **kw)
+        themepage = getattr(self.aq_inner.aq_explicit, id, None)
+        if themepage is not None:
+            return themepage
 
     security.declareProtected(ManageThemes, 'addPortalPalette')
     def addPortalPalette(self, **kw):
-        """
-        Add a Portal Palette. Returns the Portal Palette's id
+        """Add a Portal Palette. Returns the Portal Palette's id
         """
 
         type_name = kw.get('type_name', None)
@@ -867,49 +738,11 @@ class PortalTheme(ThemeFolder, StylableContent):
             return style
         return None
 
-    security.declareProtected(ManageThemes, 'editPortalImage')
-    def editPortalImage(self, **kw):
-        """
-        Edit a Portal Image.
-        """
-
-        file = kw.get('file', None)
-        if file is None:
-            return None
-
-        imagecat = kw.get('imagecat', '')
-        if imagecat not in self.cpsskins_listImageCategories():
-            return None
-
-        # rebuild the theme to create the image folders.
-        if imagecat not in self.objectIds():
-            self.rebuild()
-
-        images_dir = getattr(self, imagecat, None)
-        if images_dir is None:
-            return None
-
-        id = kw.get('id', None)
-        if id is None:
-            return None
-
-        img = getattr(images_dir, id, None)
-        if img is None:
-            return None
-        # create a thumbnail
-        if imagecat == 'thumbnails':
-            file = self._createThumbnail(file)
-        img.manage_upload(file)
-
-        self.expireCSSCache()
-        return img
-
     security.declareProtected(ManageThemes, 'addPortalImage')
     def addPortalImage(self, **kw):
         """
         Add a Portal Image.
         """
-
         imagecat = kw.get('imagecat', '')
         if imagecat not in self.cpsskins_listImageCategories():
             return None
@@ -951,85 +784,85 @@ class PortalTheme(ThemeFolder, StylableContent):
         kw['id'] = id
         self.editPortalImage(**kw)
         img.manage_changeProperties(title=title)
-
         return img
 
-    security.declareProtected(ManageThemes, 'findOrphanedStyles')
-    def findOrphanedStyles(self, **kw):
+    security.declareProtected(ManageThemes, 'editPortalImage')
+    def editPortalImage(self, **kw):
         """
-        Returns the list of styles that are not used.
-        """
-
-        stylesfolder = self.getStylesFolder()
-        list = []
-        for style in stylesfolder.objectValues():
-            if getattr(aq_base(style), 'isOrphan', None) is None:
-                continue
-            if style.isOrphan():
-                list.append(style)
-        return list
-
-    security.declareProtected(ManageThemes, 'getTemplets')
-    def getTemplets(self):
-        """
-        Returns the list of templets.
+        Edit a Portal Image.
         """
 
-        templets = []
-        for pageblock in self.getPageBlocks():
-            templets.extend(pageblock.getTemplets())
-        return templets 
-
-    security.declareProtected(ManageThemes, 'getTempletByPath')
-    def getTempletByPath(self, templet_path=None):
-        """
-        Returns a Templet by its physical path.
-        """
-
-        if templet_path is None:
+        file = kw.get('file', None)
+        if file is None:
             return None
-        return self.unrestrictedTraverse(templet_path, default=None)
 
-    security.declareProtected(ManageThemes, 'getI18nTemplets')
-    def getI18nTemplets(self, **kw):
-        """
-        Returns the list of templets that are translated
+        imagecat = kw.get('imagecat', '')
+        if imagecat not in self.cpsskins_listImageCategories():
+            return None
+
+        # rebuild the theme to create the image folders.
+        if imagecat not in self.objectIds():
+            self.rebuild()
+
+        images_dir = getattr(self, imagecat, None)
+        if images_dir is None:
+            return None
+
+        id = kw.get('id', None)
+        if id is None:
+            return None
+
+        img = getattr(images_dir, id, None)
+        if img is None:
+            return None
+        # create a thumbnail
+        if imagecat == 'thumbnails':
+            file = self._createThumbnail(file)
+        img.manage_upload(file)
+
+        self.expireCSSCache()
+        return img
+
+    #
+    # RAM Cache
+    #
+    security.declareProtected(ManageThemes, 'clearCache')
+    def clearCache(self, REQUEST=None, **kw):
+        """Clears the local RAM caches."""
+
+        templetcache = self.getTempletCache()
+        if templetcache is not None:
+            templetcache.invalidate()
+
+        csscache = self.getCSSCache()
+        if csscache is not None:
+            csscache.invalidate()
+        
+        jscache = self.getJSCache()
+        if jscache is not None:
+            jscache.invalidate()
+
+    security.declareProtected(ManageThemes, 'expireCSSCache')
+    def expireCSSCache(self):
+        """Expires the CSS RAM cache for this theme.
+ 
+           In a ZEO environment, the information will propagate
+           between all ZEO instances as long as the theme still
+           exists.
         """
 
-        i18n_templets = []
-        for templet in self.getTemplets():
-            for prop_id in templet.getI18nProperties():
-                if getattr(templet, prop_id, 0) == 1 and \
-                           templet not in i18n_templets:
-                    i18n_templets.append(templet)
-        return i18n_templets 
+        self.css_cache_cleanup_date = time.time()
 
-    security.declareProtected(ManageThemes, 'getInvisibleTemplets')
-    def getInvisibleTemplets(self, **kw):
-        """
-        Returns the list of invisible templets.
+    security.declareProtected(ManageThemes, 'expireJSCache')
+    def expireJSCache(self):
+        """Expires the JS RAM cache for this theme.
+ 
+           In a ZEO environment, the information will propagate
+           between all ZEO instances as long as the theme still
+           exists.
         """
 
-        invisible_templets = []
-        pageblocks = self.getPageBlocks()
-        for pageblock in pageblocks:
-            maxcols = getattr(pageblock, 'maxcols', None)
-            pageblock_closed = pageblock.closed
-            if maxcols is not None:
-                maxcols = int(maxcols)
-            for obj in pageblock.objectValues():
-                if not getattr(aq_base(obj), 'isportaltemplet', 0):
-                    continue
-                if obj.closed:
-                    invisible_templets.append(obj)
-                    continue
-                if pageblock_closed:
-                    invisible_templets.append(obj)
-                    continue
-                xpos = getattr(obj, 'xpos', None)
-                if xpos is not None and xpos >= maxcols:
-                    invisible_templets.append(obj)
-        return invisible_templets
+        self.js_cache_cleanup_date = time.time()
 
     #
     # Action aliases
@@ -1062,6 +895,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
         return callAction(self, 'edit_images', **kw)
 
+    #
+    # Theme management
+    #
     security.declareProtected(ManageThemes, 'manage_cache')
     def manage_cache(self, **kw):
         """
@@ -1075,6 +911,152 @@ class PortalTheme(ThemeFolder, StylableContent):
         Call the 'manage themes' action.
         """
         return callAction(self, 'manage_themes', **kw)
+
+
+    security.declareProtected(ManageThemes, 'manage_rebuild')
+    def manage_rebuild(self, setperms=0, REQUEST=None):
+        """
+        Rebuild this theme
+        """
+
+        self.rebuild(setperms=setperms)
+        if REQUEST is not None:
+            REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_main')
+
+    security.declareProtected(ManageThemes, 'createThemeSkeleton')
+    def createThemeSkeleton(self):
+        """
+        Creates a theme skeleton
+        """
+
+        themefolders = self.cpsskins_listImageCategories()
+        themefolders.extend(['styles', 'palettes'])
+
+        for themefolder in themefolders:
+            self.invokeFactory('Theme Folder', id=themefolder)
+
+    security.declareProtected('Manage Themes', 'setDefaultPage')
+    def setDefaultPage(self, default_page=None, REQUEST=None):
+        """Set the default page.
+        """
+        for page in self.getPages():
+            if page.getId() == default_page:
+                page.default = 1
+            else:
+                page.default = 0
+
+    security.declareProtected(ManageThemes, 'rebuild')
+    def rebuild(self, **kw):
+        """
+        Rebuild the theme
+        """
+
+        mtool = getToolByName(self, 'portal_membership')
+
+        # set permissions
+        setperms = kw.get('setperms', 0)
+        canonizeId(self)
+        if setperms:
+            verifyThemePerms(self)
+
+        # Check the presence of pages
+        pages = self.getPages()
+        if len(pages) == 0 and mtool.checkPermission(ManageThemes, self):
+            o = aq_base(self)
+            # create a default page
+            page = self.addThemePage(
+                title='Default Page',
+                color=getattr(o, 'color', ''),
+                shape=getattr(o, 'shape', ''),
+                align=getattr(o, 'align', 'center'),
+                renderer=getattr(o, 'theme_renderer', 'default'))
+            # move the page blocks to the page
+            for pageblock in self.objectValues('Page Block'):
+                cookie = self.manage_cutObjects(pageblock.getId())
+                page.manage_pasteObjects(cookie)
+
+        # check the presence of theme folders
+        themefolders = self.cpsskins_listImageCategories()
+        themefolders.extend(['styles', 'palettes'])
+
+        for themefolder in themefolders:
+            backupid = themefolder + '-bak'
+            objs = self.objectIds()
+            if backupid in objs:
+                self.manage_delObjects([backupid])
+
+            if themefolder not in objs:
+                try:
+                    self.invokeFactory('Theme Folder', id=themefolder)
+                except Unauthorized:
+                    pass
+                continue
+
+            else:
+                folder = getattr(self.aq_inner.aq_explicit, themefolder)
+                if getattr(aq_base(folder), 'isthemefolder', 0):
+                    continue
+
+                self.manage_renameObjects([themefolder], [backupid])
+                backup_folder = getattr(self.aq_inner.aq_explicit, backupid)
+                objects = backup_folder.objectIds()
+                cookie = backup_folder.manage_cutObjects(objects)
+                self.invokeFactory('Theme Folder', themefolder)
+                new_folder = getattr(self.aq_inner.aq_explicit, themefolder, None)
+                if new_folder is not None:
+                    new_folder.manage_pasteObjects(cookie)
+                    self.manage_delObjects([backupid])
+
+        # move disallowed objects to lost+found
+        for (id, o) in self.objectItems():
+            if getattr(aq_base(o), 'isportalthemepage', 0):
+                continue
+            if getattr(aq_base(o), 'isthemefolder', 0):
+                continue
+            # XXX page blocks are still allowed but must be moved
+            if getattr(aq_base(o), 'isportalpageblock', 0):
+                continue
+            moveToLostAndFound(self, o)
+
+        for obj in self.getPages():
+            obj.rebuild(**kw)
+
+        for obj in self.findStyles():
+            obj.rebuild(**kw)
+
+        # Styles
+        styles_dir = self.getStylesFolder()
+        for (id, obj) in styles_dir.objectItems():
+            if isBroken(aq_base(obj)):
+                styles_dir.manage_delObjects(id)
+                continue
+            if getattr(aq_base(obj), 'isportalstyle', 0):
+                continue
+            moveToLostAndFound(self, obj)
+
+        # Palettes
+        palettes_dir = self.getPalettesFolder()
+        for (id, obj) in palettes_dir.objectItems():
+            if isBroken(aq_base(obj)):
+                palettes_dir.manage_delObjects(id)
+                continue
+            if getattr(aq_base(obj), 'isportalpalette', 0):
+                continue
+            moveToLostAndFound(self, obj)
+
+        ids = self.objectIds()
+        for themefolder in themefolders:
+            if themefolder not in ids:
+                continue
+            obj = getattr(self, themefolder, None)
+            if obj is not None and setperms:
+                verifyThemePerms(obj)
+
+        # rebuild the theme properties
+        rebuild_properties(self)
+
+        # invalidate the cache
+        self.clearCache()
 
     #
     # Local methods
@@ -1092,6 +1074,11 @@ class PortalTheme(ThemeFolder, StylableContent):
             del kw[prop]
 
         self.manage_changeProperties(**kw)
+
+        # default theme
+        tmtool = getToolByName(self, 'portal_themes')
+        if kw.get('default', 0):
+            tmtool.setDefaultTheme(default_theme=self.getId())
 
     security.declarePublic('get_object_position')
     def get_object_position(self, id):

@@ -2,23 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
  tal:define="
   utool nocall:here/portal_url;
-  mcat here/cpsskins_getlocalizer;
+  tmtool here/portal_themes;
+  mcat python: tmtool.getTranslationService();
   here_url here/absolute_url;
-  cpsskins_language tmtool/getCurrentLang;
-  cpsskins_url here/cpsskins_getCurrentURL;
-  shield not:tmtool/debug_mode|python:1;
+  base_url python: here.cpsskins_getBaseUrl();
+  cpsskins_language python: tmtool.getCurrentLang();
+  cpsskins_url python: here.cpsskins_getCurrentURL();
   dummy python: request.set('cpsskins_language', cpsskins_language);
   dummy python: request.set('cpsskins_url', cpsskins_url);
-  dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());
+  dummy python: request.set('cpsskins_base_url', base_url);
   dummy python: request.set('cpsskins_mcat', mcat)"
  tal:attributes="lang cpsskins_language;
                  xml:lang cpsskins_language">
 <head>
 <title tal:content="here/title_or_id|nothing" />
 <metal:block define-macro="head"
- tal:define="base_url python: here.cpsskins_getBaseUrl();
-             theme_url python: base_url + utool.getRelativeUrl(theme_container);
-             charset here/cpsskins_getCharset;
+ tal:define="charset here/cpsskins_getCharset;
              theme_url python: base_url + utool.getRelativeUrl(theme_container);">
   <tal:block define="dummy python:request.RESPONSE.setHeader(
    'Content-Type', 'text/html;; charset=%s' % charset)" />
@@ -34,16 +33,18 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 <!-- Shortcut icon -->
   <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 </head>
-  <body tal:attributes="class string:color${theme_container/color};
-                        style string:margin:${theme_container/margin};">
+<tal:block condition="nocall:page_container">
+  <body tal:attributes="class string:color${page_container/color};
+                        style string:margin:${page_container/margin};">
   <metal:block define-macro="main">
-    <tal:block content="structure python: theme_container.render(context_obj=here)" />
+    <tal:block content="structure python: page_container.render(context_obj=here)" />
   </metal:block>
   </body>
+</tal:block>
 </html>
 </metal:block>

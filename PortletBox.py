@@ -54,7 +54,6 @@ class PortletBox(BaseTemplet, SimpleBox):
     """
     meta_type = 'Portlet Box Templet'
     portal_type = 'Portlet Box Templet'
-
     isportletbox = 1
 
     security = ClassSecurityInfo()
@@ -77,7 +76,7 @@ class PortletBox(BaseTemplet, SimpleBox):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Portlet type', 
-         'select_variable': 'PortletTypesList',
+         'select_variable': 'listPortletTypes',
          'category': 'general',
          'i18n': 1,
          'i18n_prefix': '',
@@ -114,6 +113,65 @@ class PortletBox(BaseTemplet, SimpleBox):
 
         return self.isportletbox
 
+    #
+    # CSS
+    #
+    def getCSSBoxLayoutStyle(self):
+        """Returns the CSS layout style for boxes inside this slot.
+        """
+        padding = self.padding
+        if padding:
+            if padding not in ('0', '0pt', '0in', '0pc', '0mm',
+                               '0cm', '0px', '0em', '0ex'):
+                return 'padding:%s;' % padding
+        return ''
+
+    #
+    # Rendering.
+    #
+    security.declarePublic('render')
+    def render(self, shield=1, **kw):
+        """Renders the templet."""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return ''
+        portlet_id = self.getPortletId()
+        portlet = ptltool.getPortletById(portlet_id)
+
+        if portlet is None:
+            return ''
+
+        if shield:
+            try:
+                body = portlet.render_cache(**kw)
+            except:
+                body = '<blink>!!!</blink>'
+        else:
+            body = portlet.render_cache(**kw)
+
+        rendered_box = []
+        if body:
+            # add the box frame
+            boxstyle = self.getCSSBoxLayoutStyle()
+            if boxstyle:
+                rendered_box.extend('<div style="%s">' % boxstyle)
+            rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
+            # add the box decoration
+            rendered_box.extend(self.renderBoxLayout(
+                boxlayout=self.boxlayout,
+                title=self.title,
+                body=body,
+                portlet=portlet, **kw))
+            # close the box frame
+            rendered_box.extend('</div>')
+            if boxstyle:
+                rendered_box.extend('</div>')
+        return ''.join(rendered_box)
+
+    #
+    # Actions
+    #
     security.declareProtected(ManageThemes, 'edit')
     def edit(self, **kw):
         """
@@ -175,8 +233,8 @@ class PortletBox(BaseTemplet, SimpleBox):
             title = fti.title_or_id()
         return title
 
-    security.declarePublic('BoxLayoutList')
-    def BoxLayoutList(self):           
+    security.declarePublic('listBoxLayouts')
+    def listBoxLayouts(self):           
         """ Returns a list of orientations for this Templet"""
 
         return self.cpsskins_listBoxLayouts('PortletBox')
@@ -196,8 +254,8 @@ class PortletBox(BaseTemplet, SimpleBox):
 
         return self.portlet_type
 
-    security.declarePublic('PortletTypesList')
-    def PortletTypesList(self):
+    security.declarePublic('listPortletTypes')
+    def listPortletTypes(self):
         """Returns the list of available portlets types."""
 
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
@@ -212,72 +270,12 @@ class PortletBox(BaseTemplet, SimpleBox):
         self.portlet_id = portlet_id
 
     #
-    # CSS
-    #
-    def getCSSBoxLayoutStyle(self):
-        """Returns the CSS layout style for boxes inside this slot.
-        """
-        css = ''
-        padding = self.padding
-        if padding:
-            if padding not in ('0', '0pt', '0in', '0pc', '0mm',
-                               '0cm', '0px', '0em', '0ex'):
-                css += 'padding:%s;' % padding
-        if css:
-            return css
-        return None
-
-    #
-    # Rendering.
-    #
-    security.declarePublic('render')
-    def render(self, shield=1, **kw):
-        """Renders the templet."""
-
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        if ptltool is None:
-            return ''
-        portlet_id = self.getPortletId()
-        portlet = ptltool.getPortletById(portlet_id)
-
-        if portlet is None:
-            return ''
-
-        if shield:
-            try:
-                body = portlet.render_cache(**kw)
-            except:
-                body = '<blink>!!!</blink>'
-        else:
-            body = portlet.render_cache(**kw)
-
-        rendered_box = []
-        if body:
-            # add the box frame
-            boxstyle = self.getCSSBoxLayoutStyle()
-            if boxstyle:
-                rendered_box.extend('<div style="%s">' % boxstyle)
-            rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
-            # add the box decoration
-            rendered_box.extend(self.renderBoxLayout(
-                boxlayout=self.boxlayout,
-                title=self.title,
-                body=body,
-                portlet=portlet, **kw))
-            # close the box frame
-            rendered_box.extend('</div>')
-            if boxstyle:
-                rendered_box.extend('</div>')
-        return ''.join(rendered_box)
-
-    #
     # RAM Cache
     #
     security.declarePublic('getCustomCacheIndex')
     def getCustomCacheIndex(self, **kw):
         """Returns the custom RAM cache index as a tuple (var1, var2, ...)
-        """
-        
+        """        
         # CPSPortlets
         # overriding BaseTemplet's getCustomCacheIndex()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
@@ -293,7 +291,6 @@ InitializeClass(PortletBox)
 
 def addPortletBox(dispatcher, id, REQUEST=None, **kw):
     """Add an Portlet Box Templet."""
-
     ob = PortletBox(id, **kw)
     dispatcher._setObject(id, ob)
     if REQUEST is not None:

@@ -50,7 +50,7 @@ class CollapsibleMenu(BaseTemplet):
     meta_type = 'Collapsible Menu Templet'
     portal_type = 'Collapsible Menu Templet'
 
-    render_action = 'cpsskins_collapsiblemenu'
+    render_method = 'cpsskins_collapsiblemenu'
 
     security = ClassSecurityInfo()
 
@@ -101,13 +101,13 @@ class CollapsibleMenu(BaseTemplet):
         'mode':'w', 
         'label': 'Base path', 
         'category': 'folders', 
-        'select_variable': 'PathsList'
+        'select_variable': 'listPaths'
        },
        {'id': 'collapsiblemenu_style', 
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Collapsible Menu Style', 
-        'select_variable': 'CollapsibleMenuStylesList', 
+        'select_variable': 'listCollapsibleMenuStyles', 
         'category': 'style',
         'style': 'Collapsible Menu Style'
        },
@@ -148,8 +148,8 @@ class CollapsibleMenu(BaseTemplet):
             params.append('lang')
         return params
 
-    security.declarePublic('PathsList')
-    def PathsList(self):           
+    security.declarePublic('listPaths')
+    def listPaths(self):           
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()

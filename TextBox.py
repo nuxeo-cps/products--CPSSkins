@@ -53,7 +53,7 @@ class TextBox(BaseTemplet):
     meta_type = 'Text Box Templet'
     portal_type = 'Text Box Templet'
 
-    render_action = 'cpsskins_textbox'
+    render_method = 'cpsskins_textbox'
 
     security = ClassSecurityInfo()
 
@@ -67,7 +67,7 @@ class TextBox(BaseTemplet):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Text format',
-         'select_variable': 'TextFormatList',
+         'select_variable': 'listTextFormats',
          'default': 'html',
          'i18n': 1,
          'i18n_prefix': '_option_',
@@ -115,8 +115,8 @@ class TextBox(BaseTemplet):
             params.append('lang')
         return params
 
-    security.declarePublic('TextFormatList')
-    def TextFormatList(self):
+    security.declarePublic('listTextFormats')
+    def listTextFormats(self):
         """ return a list of render formats (stx, plain, html) """ 
                              
         return ['html', 'plain text', 'stx']

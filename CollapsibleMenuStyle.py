@@ -49,7 +49,7 @@ class CollapsibleMenuStyle(BaseStyle):
     meta_type = 'Collapsible Menu Style'
     portal_type = 'Collapsible Menu Style'
 
-    render_action = 'cpsskins_collapsiblemenustyle'
+    render_method = 'cpsskins_collapsiblemenustyle'
     preview_action = 'cpsskins_collapsiblemenustyle_preview'
 
     _properties = BaseStyle._properties + (

@@ -1,4 +1,4 @@
-<dtml-let theme_url="aq_parent.aq_parent.absolute_url(1)"
+<dtml-let theme_url="getThemeContainer().absolute_url(1)"
           class="'.boxColor' + title">
 
 <dtml-var class> .title { 
@@ -60,7 +60,7 @@
 
 <dtml-if BoxBody_menuout_icon>
 <dtml-var class> .body ul li a {
-<dtml-with expr="aq_parent.aq_parent.icons">
+<dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
 <dtml-let url="absolute_url(relative=1)">
   background-image: url(/<dtml-var url>);
@@ -72,7 +72,7 @@
 
 <dtml-if BoxBody_menuin_icon>
 <dtml-var class> .body ul li.selected a {
-<dtml-with expr="aq_parent.aq_parent.icons">
+<dtml-with expr="getThemeContainer().icons">
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
 <dtml-let url="absolute_url(relative=1)">
   background-image: url(/<dtml-var url>);

@@ -8,7 +8,7 @@ if meta_type is None:
     return
 
 tmtool = context.portal_themes 
-theme = tmtool.getRequestedThemeName(context=context)
+theme = tmtool.getRequestedThemeName(context_obj=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
 
 mystyle_objs = theme_container.findStyles(meta_type=meta_type)

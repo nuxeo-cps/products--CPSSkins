@@ -49,7 +49,7 @@ class PortalBoxColor(BaseStyle):
     meta_type = 'Portal Box Color'
     portal_type = 'Portal Box Color'
 
-    render_action = 'cpsskins_portalboxcolor'
+    render_method = 'cpsskins_portalboxcolor'
     preview_action = 'cpsskins_portalboxcolor_preview'
 
     _properties = BaseStyle._properties + (
@@ -85,36 +85,36 @@ class PortalBoxColor(BaseStyle):
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout color',  
-         'category': 'box body', 
-         'palette': 'Palette Color'
+         'palette': 'Palette Color',
+         'category':'menu item',
         },
         {'id': 'BoxBody_menuout_border_color', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuout border color',  
-         'category': 'box body', 
-         'palette': 'Palette Color'
+         'palette': 'Palette Color',
+         'category':'menu item',
         },
         {'id': 'BoxBody_menuin_color', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuin color',  
-         'category': 'box body', 
-         'palette': 'Palette Color'
+         'palette': 'Palette Color',
+         'category':'selected menu item',
         },
         {'id': 'BoxBody_menuin_border_color', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxBody menuin border color',  
-         'category': 'box body', 
-         'palette': 'Palette Color'
+         'palette': 'Palette Color',
+         'category':'selected menu item',
         },
         {'id': 'BoxTitle_font_color', 
          'type': 'string', 
          'mode': 'w', 
          'label': 'BoxTitle font color',  
          'category': 'box title', 
-         'palette': 'Palette Color'
+         'palette': 'Palette Color',
         },
         {'id': 'BoxTitle_bg_image', 
          'type': 'selection', 
@@ -122,31 +122,32 @@ class PortalBoxColor(BaseStyle):
          'label': 'BoxTitle background image', 
          'select_variable': 'cpsskins_listBackgrounds',  
          'category': 'box title', 
-         'image': 'backgrounds' 
+         'image': 'backgrounds', 
         },
         {'id': 'BoxBody_bg_image', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'BoxBody background image', 
          'select_variable': 'cpsskins_listBackgrounds', 
-         'category': 'box body', 
-         'image': 'backgrounds' 
+         'category': 'box body',
+         'image': 'backgrounds',
         },
         {'id': 'BoxBody_menuin_icon', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'BoxBody menuin icon',  
          'select_variable': 'cpsskins_listIcons',  
-         'category': 'box body', 
-         'image': 'icons'
+         'image': 'icons',
+         'category':'selected menu item',
         },
         {'id': 'BoxBody_menuout_icon', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'BoxBody menuout icon', 
-         'select_variable': 'cpsskins_listIcons',  
-         'category': 'box body', 
-         'image': 'icons'},
+         'select_variable': 'cpsskins_listIcons',
+         'category':'menu item',
+         'image': 'icons',
+        },
     )
 
     def __init__(self, id, 

@@ -51,7 +51,7 @@ class AreaColor(BaseStyle):
     meta_type = 'Area Color'
     portal_type = 'Area Color'
 
-    render_action = 'cpsskins_areacolor'
+    render_method = 'cpsskins_areacolor'
     preview_action = 'cpsskins_areacolor_preview'
 
     security = ClassSecurityInfo()
@@ -86,7 +86,7 @@ class AreaColor(BaseStyle):
          'type': 'selection',
          'mode': 'w', 
          'label': 'Area background repeat',
-         'select_variable': 'BackgroundRepeatList',
+         'select_variable': 'listBackgroundRepeats',
          'visible': 'ifBackgroundImage',
          'default': 'repeat',
          'i18n': 1,
@@ -117,8 +117,8 @@ class AreaColor(BaseStyle):
         self.Area_bg_repeat = Area_bg_repeat
         self.Area_font_color = Area_font_color
 
-    security.declarePublic('BackgroundRepeatList')
-    def BackgroundRepeatList(self):           
+    security.declarePublic('listBackgroundRepeats')
+    def listBackgroundRepeats(self):           
         """Return a list of background repeat options"""
 
         list = ['repeat', 'repeat-x', 'repeat-y', 'no-repeat']

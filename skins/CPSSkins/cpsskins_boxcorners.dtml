@@ -9,7 +9,7 @@
 </dtml-if>
 }
 
-<dtml-with expr="aq_parent.aq_parent.backgrounds">
+<dtml-with expr="getThemeContainer().backgrounds">
 <dtml-var class> .rbtop div {
 <dtml-with expr="_.getitem(TopLeft_bg_image)">
   background: url(/<dtml-var expr="absolute_url(1)">) no-repeat top left;

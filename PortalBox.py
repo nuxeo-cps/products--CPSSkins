@@ -54,7 +54,7 @@ class PortalBox(BaseTemplet, SimpleBox):
     meta_type = 'Portal Box Templet'
     portal_type = 'Portal Box Templet'
 
-    render_action = 'cpsskins_portalbox'
+    render_method = 'cpsskins_portalbox'
 
     security = ClassSecurityInfo()
 
@@ -64,7 +64,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'type': 'selection', 
          'mode': 'w', 
          'label': 'Portal box title source', 
-         'select_variable': 'TitleSourceList', 
+         'select_variable': 'listTitleSources', 
          'category': 'general',
          'i18n': 1,
          'i18n_prefix': '_option_',
@@ -81,7 +81,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Portal box content', 
-        'select_variable': 'ContentList', 
+        'select_variable': 'listDisplayModes', 
         'category': 'general',
         'i18n': 1,
         'i18n_prefix': '_option_',
@@ -130,7 +130,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'mode': 'w', 
         'label': 'Base path', 
         'category': 'folders', 
-        'select_variable': 'PathsList', 
+        'select_variable': 'listPaths', 
         'visible': 'IfFoldersCategory'
        },
        {'id': 'action_categories', 
@@ -159,7 +159,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         'type': 'selection', 
         'mode': 'w', 
         'label': 'List orientation', 
-        'select_variable': 'OrientationList', 
+        'select_variable': 'listOrientations', 
         'category': 'layout',
         'i18n': 1,
         'i18n_prefix': '_option_',
@@ -336,8 +336,8 @@ class PortalBox(BaseTemplet, SimpleBox):
                 
         return params
 
-    security.declarePublic('TitleSourceList')
-    def TitleSourceList(self):           
+    security.declarePublic('listTitleSources')
+    def listTitleSources(self):           
         """ Returns a list of contents for this Templet's title"""
                                    
         list = ['Templet title', 
@@ -346,8 +346,8 @@ class PortalBox(BaseTemplet, SimpleBox):
                  'Folder title']
         return list  
 
-    security.declarePublic('ContentList')
-    def ContentList(self):           
+    security.declarePublic('listDisplayModes')
+    def listDisplayModes(self):           
         """ Returns a list of contents for this Templet's body"""
 
         list = ['actions', 
@@ -362,8 +362,8 @@ class PortalBox(BaseTemplet, SimpleBox):
                 'language']
         return list
 
-    security.declarePublic('OrientationList')
-    def OrientationList(self):           
+    security.declarePublic('listOrientations')
+    def listOrientations(self):           
         """ Returns a list of orientations for this Templet"""
                                    
         list = ['horizontal', 'vertical']
@@ -412,8 +412,8 @@ class PortalBox(BaseTemplet, SimpleBox):
             return 1    
         return None
 
-    security.declarePublic('PathsList')
-    def PathsList(self):           
+    security.declarePublic('listPaths')
+    def listPaths(self):           
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()
@@ -451,8 +451,8 @@ class PortalBox(BaseTemplet, SimpleBox):
             return state
         return None
 
-    security.declarePublic('BoxLayoutList')
-    def BoxLayoutList(self):           
+    security.declarePublic('listBoxLayouts')
+    def listBoxLayouts(self):           
         """ Returns a list of orientations for this Templet"""
 
         return self.cpsskins_listBoxLayouts('PortalBox')

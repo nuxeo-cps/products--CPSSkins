@@ -228,7 +228,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="main_canvas">
-  <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
+  <tal:block repeat="block python: page_container.getPageBlocks()">
     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slots" />
   </tal:block>
 </metal:block>

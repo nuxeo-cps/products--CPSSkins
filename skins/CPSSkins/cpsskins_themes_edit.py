@@ -7,7 +7,7 @@ if REQUEST is not None:
 
 themes_folder = tmtool.getThemeContainer(parent=1)
 themes = tmtool.getThemes()   
-mcat = context.cpsskins_getlocalizer()
+mcat = tmtool.getTranslationService()
 
 default_theme_list =  kw.get('default_theme', [])
 if default_theme_list is not None:
@@ -17,7 +17,6 @@ if default_theme_list is not None:
 current_theme = kw['theme']
 del kw['theme']
 
-theme_renderers = kw['theme_renderers']
 themes_to_delete = kw.get('delete_themes', [])
 themes_to_delete = filter(lambda s, l=themes_folder.objectIds(): s in l, \
                           themes_to_delete)
@@ -25,7 +24,6 @@ themes_to_delete = filter(lambda s, l=themes_folder.objectIds(): s in l, \
 for i in range(len(themes)):
     params = {}
     theme = themes[i]
-    params['theme_renderer'] = theme_renderers[i]
     theme.edit(**params)
 
 for theme_id in themes_to_delete:
@@ -33,7 +31,7 @@ for theme_id in themes_to_delete:
         continue
     tmtool.delObject(themes_folder[theme_id])
 
-theme_container = tmtool.getEffectiveThemeContainer(theme=default_theme)
+theme_container = tmtool.getThemeContainer(theme=default_theme)
 
 if REQUEST is not None:
      url = context.portal_url() + '/cpsskins_theme_manage_form'

@@ -15,9 +15,9 @@ tal:define="
 </metal:block>
 
 <metal:block define-macro="styles"
-tal:define="
-  styles python: tmtool.findStylesFor(style_cat, here)['object']">
-  <div class="panel" tal:repeat="style styles">
+tal:define="styles python: tmtool.findStylesFor(style_cat, here)"
+tal:condition="python: len(styles) &gt; 0">
+  <div class="panel" tal:repeat="style python: styles['object']">
     <div onMouseover="this.style.backgroundColor='#fff'"
          onMouseout="this.style.background='#eee'">
       <h1 tal:content="style/title|nothing" />

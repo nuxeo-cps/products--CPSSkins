@@ -13,13 +13,12 @@ class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
             tmtool.manage_delObjects(['PortalTheme'])
         self.theme_container = tmtool.addPortalTheme()
         self.portal.REQUEST.SESSION = {}
-        self.portal.REQUEST.set('cpsskins_mcat', self.portal.cpsskins_getlocalizer())
+        self.portal.REQUEST.set('cpsskins_mcat', tmtool.getTranslationService())
 
     def test_1(self):
         self.assert_(self.portal.index_html())
         self.assert_(self.portal.login_form())
         self.assert_(self.portal.search_form())
-        self.assert_(self.portal.reconfig_form())
 
 def test_suite():
     suite = unittest.TestSuite()

@@ -54,7 +54,7 @@ class FlashBox(File, BaseTemplet):
     meta_type = 'Flash Box Templet'
     portal_type = 'Flash Box Templet'
 
-    render_action = 'cpsskins_flashbox'
+    render_method = 'cpsskins_flashbox'
 
     security = ClassSecurityInfo()
     manage_options = File.manage_options

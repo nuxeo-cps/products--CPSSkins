@@ -1,17 +1,18 @@
-##parameters=theme=None, REQUEST=None, **kw
+##parameters=theme=None, page=None, REQUEST=None, **kw
 
 if REQUEST is not None:
     REQUEST.RESPONSE.setHeader('Content-Type', 'text/javascript')
 
 tmtool = context.portal_themes
 theme_container = tmtool.getThemeContainer(theme=theme)
-js = theme_container.renderJS()
+page_container = theme_container.getPageContainer(page=page)
+js = theme_container.renderJS(page=page)
 
 # CPS Portlets
 ptltool = getattr(context, 'portal_cpsportlets', None)
-if ptltool is not None:
+if ptltool is not None and page_container is not None:
     portlets = ptltool.getPortlets(context)
-    slots = theme_container.getSlots()
+    slots = page_container.getSlots()
     done_types = []
     for portlet in portlets:
         if portlet.getSlot() not in slots:

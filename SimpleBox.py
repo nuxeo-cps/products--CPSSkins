@@ -25,7 +25,6 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Products.CMFCore.utils import getToolByName
 
 BOX_LAYOUTS = {
 # standard box
@@ -62,7 +61,7 @@ class SimpleBox:
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Box shape', 
-        'select_variable': 'BoxShapesList', 
+        'select_variable': 'listBoxShapes', 
         'category': 'style', 
         'style': 'Portal Box Shape'
        },
@@ -70,7 +69,7 @@ class SimpleBox:
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Box color', 
-        'select_variable': 'BoxColorsList', 
+        'select_variable': 'listBoxColors', 
         'category': 'style', 
         'style': 'Portal Box Color'
        },
@@ -78,7 +77,7 @@ class SimpleBox:
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Box corners', 
-        'select_variable': 'BoxCornersList', 
+        'select_variable': 'listBoxCorners', 
         'category': 'style', 
         'style': 'Box Corners'
        },
@@ -87,7 +86,7 @@ class SimpleBox:
         'mode': 'w', 
         'label': 'Box layout', 
         'category': 'layout', 
-        'select_variable': 'BoxLayoutList',
+        'select_variable': 'listBoxLayouts',
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
@@ -105,47 +104,14 @@ class SimpleBox:
         self.boxlayout = boxlayout
 
     #
-    # Rendering
+    # CSS
     #
-    security.declarePublic('renderBoxLayout')
-    def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
-        """Render the box layout.
-        """
-        if boxlayout == 'standard' or boxlayout == '': 
-            return BOX_LAYOUTS['standard'] % (title, body)
-        elif boxlayout == 'one_frame':
-            return BOX_LAYOUTS['one_frame'] % (title, body)
-        elif boxlayout == 'notitle':
-            return BOX_LAYOUTS['notitle'] % body
-        elif boxlayout == 'no_frames':
-            return BOX_LAYOUTS['no_frames'] % (title, body)
-        elif boxlayout == 'notitle_noframe':
-            return BOX_LAYOUTS['notitle_noframe'] % body
-        elif boxlayout == 'rounded_box':
-            return BOX_LAYOUTS['rounded_box'] % (title, body)
-        elif boxlayout == 'rounded_box_notitle':
-            return BOX_LAYOUTS['rounded_box_notitle'] % body
-
-        macro_path = self.restrictedTraverse('%s/macros/%s' %\
-                                             (BOX_LAYOUT_MACRO, boxlayout),
-                                             default=None
-                                            )
-        if macro_path is None:
-            return ''
-
-        rendered = self.cpsskins_renderBoxLayout(title=title,
-                                                 body=body,
-                                                 macro_path=macro_path,
-                                                 **kw)
-        return rendered
-
     security.declarePublic('getCSSBoxClass')
     def getCSSBoxClass(self):
         """Return the CSS box class for this Templet.
         """
 
         boxclass = []
-
         try:
             boxcolor = self.boxcolor
             boxshape = self.boxshape
@@ -172,5 +138,39 @@ class SimpleBox:
             return ' '.join(boxclass)
         return ''
 
+    #
+    # Rendering
+    #
+    security.declarePublic('renderBoxLayout')
+    def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
+        """Render the box layout.
+        """
+        if boxlayout == 'standard' or boxlayout == '': 
+            return BOX_LAYOUTS['standard'] % (title, body)
+        elif boxlayout == 'one_frame':
+            return BOX_LAYOUTS['one_frame'] % (title, body)
+        elif boxlayout == 'notitle':
+            return BOX_LAYOUTS['notitle'] % body
+        elif boxlayout == 'no_frames':
+            return BOX_LAYOUTS['no_frames'] % (title, body)
+        elif boxlayout == 'notitle_noframe':
+            return BOX_LAYOUTS['notitle_noframe'] % body
+        elif boxlayout == 'rounded_box':
+            return BOX_LAYOUTS['rounded_box'] % (title, body)
+        elif boxlayout == 'rounded_box_notitle':
+            return BOX_LAYOUTS['rounded_box_notitle'] % body
+
+        macro_path = self.restrictedTraverse(
+            '%s/macros/%s' % (BOX_LAYOUT_MACRO, boxlayout),
+            default=None)
+
+        if macro_path is None:
+            return ''
+        rendered = self.cpsskins_renderBoxLayout(
+            title=title,
+            body=body,
+            macro_path=macro_path,
+            **kw)
+        return rendered
 
 InitializeClass(SimpleBox)

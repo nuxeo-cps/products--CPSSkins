@@ -59,14 +59,14 @@ class CellStyler(BaseCellModifier, StylableContent):
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Shape', 
-         'select_variable': 'AreaShapesList',
+         'select_variable': 'listAreaShapes',
          'style' : 'Area Shape'
         },
         {'id': 'color', 
          'type': 'selection', 
          'mode': 'w', 
          'label': 'Color', 
-         'select_variable': 'AreaColorsList',
+         'select_variable': 'listAreaColors',
          'style' : 'Area Color'
         },
     )

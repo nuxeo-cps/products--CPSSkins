@@ -14,10 +14,11 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)
-        self.pageblock = self.theme_container.addPageBlock()
+        self.page_container = self.theme_container.addThemePage()
+        self.pageblock = self.page_container.addPageBlock()
         atool = self.portal.portal_actions
         self.portal.REQUEST.SESSION = {}
-        self.portal.REQUEST.set('cpsskins_mcat', self.portal.cpsskins_getlocalizer())
+        self.portal.REQUEST.set('cpsskins_mcat', tmtool.getTranslationService())
         self.portal.REQUEST.set('cpsskins_cmfactions', atool.listFilteredActionsFor(self.portal))
         self.portal.REQUEST.set('cpsskins_language', 'en')
 
@@ -38,7 +39,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        for style in templet.StyleList():
+        for style in templet.listLayoutModes():
             templet.style = style
             templet.render(context_obj=self.portal)
 
@@ -59,7 +60,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet')
         templet.text = '<h2>Welcome to CPSSkins!</h2>'
-        for text_format in templet.TextFormatList():
+        for text_format in templet.listTextFormats():
             templet.text_format = text_format
             templet.i18n = 1
             templet.render(context_obj=self.portal)
@@ -81,7 +82,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Portal Box Shape', 'id': 'boxshape'}, \
              {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}, \
              {'meta_type': 'Box Corners', 'id': 'boxcorners'} ])
-        for content in templet.ContentList():
+        for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
 
@@ -89,7 +90,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Templet')
         self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
-        for title_source in templet.TitleSourceList():
+        for title_source in templet.listTitleSources():
             templet.title_source = title_source
             templet.box_title_i18n = 1
             templet.render(context_obj=self.portal)
@@ -100,7 +101,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Portal Box Templet')
         self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
-        for boxlayout in templet.BoxLayoutList():
+        for boxlayout in templet.listBoxLayouts():
             templet.boxlayout = boxlayout
             templet.render(context_obj=self.portal)
 
@@ -139,7 +140,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        for style in templet.StyleList():
+        for style in templet.listLayoutModes():
             templet.style = style
             templet.render(context_obj=self.portal)
 
@@ -235,10 +236,10 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        for style in templet.OrientationList():
+        for style in templet.listOrientations():
             templet.style = style
             templet.render(context_obj=self.portal)
-        for style in templet.StyleList():
+        for style in templet.listLayoutModes():
             templet.style = style
             templet.render(context_obj=self.portal)
 
@@ -253,7 +254,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        for content in templet.ContentList():
+        for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
 
@@ -283,7 +284,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'}] )
-        for content in templet.ContentList():
+        for content in templet.listDisplayModes():
             templet.content = content 
             templet.render(context_obj=self.portal)
 
@@ -340,7 +341,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         utool = self.portal.portal_url
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet')
-        dest_pageblock = self.theme_container.addPageBlock()
+        dest_pageblock = self.page_container.addPageBlock()
         dest_block = utool.getRelativeUrl(dest_pageblock)
         moved_templet = templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(1))
         self.assert_(dest_pageblock.objectValues('Text Box Templet')[0] == moved_templet)
@@ -386,7 +387,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet', \
                                        ypos=int(0))
-        style = self.theme_container.addPortalStyle(type_name='Area Color')
+        style = self.page_container.addPortalStyle(type_name='Area Color')
         templet.setStyle(style, meta_type='Area Color')        
         self.assert_(templet.color == style.getTitle())
 
@@ -394,7 +395,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet', \
                                        ypos=int(0))
-        style = self.theme_container.addPortalStyle(type_name='Area Color')
+        style = self.page_container.addPortalStyle(type_name='Area Color')
         templet.color = style.getTitle()
         found_style = templet.getStyle(meta_type='Area Color')        
         self.assert_(templet.color == found_style.getTitle())

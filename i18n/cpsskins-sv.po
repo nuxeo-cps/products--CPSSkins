@@ -467,6 +467,10 @@ msgid "_December_"
 msgstr "December"
 
 
+msgid "_Default page_"
+msgstr ""
+
+
 msgid "_Default theme_"
 msgstr ""
 
@@ -491,27 +495,7 @@ msgid "_Delete_"
 msgstr "Ta bort"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr ""
-
-
 msgid "_Deleting this image, are you sure?_"
-msgstr ""
-
-
-msgid "_Deleting this page block, are you sure?_"
 msgstr ""
 
 
@@ -568,6 +552,14 @@ msgstr "Redigera stiler"
 
 
 msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit the page_"
+msgstr ""
+
+
+msgid "_Edit the theme_"
 msgstr ""
 
 
@@ -947,6 +939,10 @@ msgid "_Main content_"
 msgstr ""
 
 
+msgid "_Manage_"
+msgstr ""
+
+
 msgid "_March_"
 msgstr "Mars"
 
@@ -1072,6 +1068,10 @@ msgstr ""
 
 
 msgid "_Page Block_"
+msgstr ""
+
+
+msgid "_Page renderer_"
 msgstr ""
 
 
@@ -1388,6 +1388,10 @@ msgstr ""
 
 
 msgid "_Theme Chooser Templet_"
+msgstr ""
+
+
+msgid "_Theme Page_"
 msgstr ""
 
 
@@ -1771,7 +1775,11 @@ msgid "_colors_"
 msgstr "Färger"
 
 
-msgid "_default_tab_"
+msgid "_confirm delete_"
+msgstr ""
+
+
+msgid "_default tab_"
 msgstr ""
 
 
@@ -1839,7 +1847,15 @@ msgid "_maincontent_templet_description_"
 msgstr "Huvud delen där alla dokument visas."
 
 
+msgid "_menu item_"
+msgstr ""
+
+
 msgid "_menu_Align center_"
+msgstr ""
+
+
+msgid "_menu_Align justify_"
 msgstr ""
 
 
@@ -2067,6 +2083,10 @@ msgid "_option_inline_"
 msgstr ""
 
 
+msgid "_option_justify_"
+msgstr ""
+
+
 msgid "_option_language names_"
 msgstr ""
 
@@ -2203,6 +2223,10 @@ msgid "_option_stx_"
 msgstr ""
 
 
+msgid "_option_tableless_"
+msgstr ""
+
+
 msgid "_option_text and icons_"
 msgstr ""
 
@@ -2295,7 +2319,11 @@ msgid "_select this slot_"
 msgstr ""
 
 
-msgid "_selected_tab_"
+msgid "_selected menu item_"
+msgstr ""
+
+
+msgid "_selected tab_"
 msgstr ""
 
 
@@ -2324,6 +2352,10 @@ msgstr ""
 
 
 msgid "_themechooser_templet_description_"
+msgstr ""
+
+
+msgid "_themepage_description_"
 msgstr ""
 
 
@@ -2412,6 +2444,10 @@ msgstr ""
 
 
 msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_image_uploaded"
 msgstr ""
 
 

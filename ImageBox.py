@@ -55,7 +55,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
     meta_type = 'Image Box Templet'
     portal_type = 'Image Box Templet'
 
-    render_action = 'cpsskins_imagebox'
+    render_method = 'cpsskins_imagebox'
 
     security = ClassSecurityInfo()
 
@@ -187,8 +187,8 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         self.expireCache()
 
         if REQUEST is not None:
-            url = REQUEST['HTTP_REFERER'] 
-            REQUEST.RESPONSE.redirect(url)
+            url = self.absolute_url()
+            REQUEST.RESPONSE.redirect(url + '/edit_form?portal_status_message=psm_image_uploaded')
 
     security.declarePublic('getI18nImages')
     def getI18nImages(self):

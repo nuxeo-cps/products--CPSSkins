@@ -25,3 +25,18 @@ UPGRADING from CPSSkins 2.2 to 2.3
 
   Instead of 'normal' or 'bold' use for instance:
   'bold 10pt Arial'
+
+
+* Theme layouts now have "pages". Each theme can have several pages that
+  share the same styles, palettes, images, etc ...
+
+  To set up the new layout architecture, run:
+  - 'cpsskinsupdate' (see above)
+
+  Then to upgrade existing themes, run:
+  - 'cpsskinsmigrate' (see above)
+
+  Existing themes can also be upgraded to the new theme format by using the
+  'Rebuild' option in the 'portal_themes' tool.
+
+  Imported themes need not be upgraded since they are automatically rebuilt.

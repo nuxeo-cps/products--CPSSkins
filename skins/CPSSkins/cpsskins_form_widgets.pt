@@ -98,79 +98,6 @@
                           tal:content="value">content</textarea>
               </tal:block>
 
-              <tal:block condition="palette">
-                <img class="colorSample" width="16" height="16" 
-                tal:attributes="onClick string:select('$palette', '$id');
-                                style string:background-color: $value;; ;
-                                src string: ${base_url}cpsskins_images/select_icon.png"
-                tal:condition="python: palette == 'Palette Color'" />
-                <img class="shapeSample" width="16" height="16"
-                tal:attributes="onClick string:select('$palette', '$id');
-                                style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
-                                src string: ${base_url}cpsskins_images/select_icon.png"
-                tal:condition="python: palette == 'Palette Border'" />
-                <div class="panelFrame"
-                 tal:define="palette_cat palette"
-                 tal:condition="python: palette_cat not in select_panels"
-                 tal:attributes="id palette_cat">
-                  <tal:block define="dummy python: select_panels.append(palette_cat)">
-                    <metal:block use-macro="here/cpsskins_select_lib/macros/palettes" />
-                  </tal:block>
-                </div>
-              </tal:block>
-
-              <tal:block condition="slot"
-               define="slot_cat string:slots">
-                <img class="slotSample" width="16" height="16"
-                tal:attributes="onClick string:select('$slot_cat', '$id');
-                                style string:background-color: $value;; ;
-                                src string: ${base_url}cpsskins_images/select_icon.png" />
-                <div class="panelFrame"
-                 tal:condition="python: slot_cat not in select_panels"
-                 tal:attributes="id slot_cat">
-                  <tal:block define="dummy python: select_panels.append(slot_cat)">
-                    <metal:block use-macro="here/cpsskins_select_lib/macros/slots" />
-                  </tal:block>
-                </div>
-              </tal:block>
-
-              <tal:block condition="image">
-                <img alt="select image" width="16" height="16"
-                 tal:attributes="onClick string:select('$image', '$id');
-                                src string:${base_url}cpsskins_images/select_icon.png" />
-                <div class="panelFrame"
-                 tal:define="image_cat image"
-                 tal:condition="python: image_cat not in select_panels"
-                 tal:attributes="id image_cat">
-                  <tal:block define="dummy python: select_panels.append(image_cat)">
-                    <metal:block use-macro="here/cpsskins_select_lib/macros/images" />
-                  </tal:block>
-                </div>
-              </tal:block>
-
-              <tal:block condition="python: style in style_meta_types">
-                <img i18n:attributes="title" alt="select" width="16" height="16" border="0"
-                 tal:define="title string:_Select a style_"
-                 tal:attributes="onClick string:select('$style', '$id');
-                                 src string:${base_url}cpsskins_images/select_icon.png;
-                                 title python: mcat and mcat(title) or title" />
-                <a i18n:attributes="title" i18n:domain="cpsskins"
-                 tal:define="title string:_Edit the current style_"
-                 tal:attributes="href string:${object_url}/cpsskins_edit_style?stylecat=$style&amp;style=$value;
-                            title python: mcat and mcat(title) or title">
-                  <img border="0" width="16" height="16" alt="edit"
-                   tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
-                </a>
-                <div class="panelFrame"
-                 tal:define="style_cat style"
-                 tal:condition="python: style_cat not in select_panels"
-                 tal:attributes="id style_cat">
-                  <tal:block define="dummy python: select_panels.append(style_cat)">
-                    <metal:block use-macro="here/cpsskins_select_lib/macros/styles" />
-                  </tal:block>
-                </div>
-              </tal:block>
-
               <select tal:condition="python: ftype == 'multiple'"
               name="keep_portal_type" multiple="multiple"
               tal:attributes="name string:${id}:list;">
@@ -200,6 +127,10 @@
               <input tal:condition="python: ftype == 'multiple'"
               type="hidden" name="name" value=""
               tal:attributes="name string:${id}:tokens:default" />
+
+              <tal:block condition="show_selector|nothing">
+                <metal:block use-macro="here/cpsskins_form_widgets/macros/selectors" />
+              </tal:block>
             </metal:block>
           </metal:block>
         </tal:block>
@@ -210,6 +141,82 @@
     </metal:block>
   </metal:block>
 </metal:block>
+
+<metal:block define-macro="selectors">
+  <tal:block condition="palette">
+    <img class="colorSample" width="16" height="16" 
+     tal:attributes="onClick string:select('$palette', '$id');
+                     style string:background-color: $value;; ;
+                     src string: ${base_url}cpsskins_images/select_icon.png"
+     tal:condition="python: palette == 'Palette Color'" />
+    <img class="shapeSample" width="16" height="16"
+     tal:attributes="onClick string:select('$palette', '$id');
+                     style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
+                     src string: ${base_url}cpsskins_images/select_icon.png"
+     tal:condition="python: palette == 'Palette Border'" />
+    <div class="panelFrame"
+     tal:define="palette_cat palette"
+     tal:condition="python: palette_cat not in select_panels"
+     tal:attributes="id palette_cat">
+      <tal:block define="dummy python: select_panels.append(palette_cat)">
+        <metal:block use-macro="here/cpsskins_select_lib/macros/palettes" />
+      </tal:block>
+    </div>
+  </tal:block>
+
+  <tal:block condition="slot"
+   define="slot_cat string:slots">
+    <img class="slotSample" width="16" height="16"
+     tal:attributes="onClick string:select('$slot_cat', '$id');
+                     style string:background-color: $value;; ;
+                     src string: ${base_url}cpsskins_images/select_icon.png" />
+    <div class="panelFrame"
+     tal:condition="python: slot_cat not in select_panels"
+     tal:attributes="id slot_cat">
+      <tal:block define="dummy python: select_panels.append(slot_cat)">
+        <metal:block use-macro="here/cpsskins_select_lib/macros/slots" />
+      </tal:block>
+    </div>
+   </tal:block>
+
+   <tal:block condition="image">
+    <img alt="select image" width="16" height="16"
+     tal:attributes="onClick string:select('$image', '$id');
+                     src string:${base_url}cpsskins_images/select_icon.png" />
+    <div class="panelFrame"
+     tal:define="image_cat image"
+     tal:condition="python: image_cat not in select_panels"
+     tal:attributes="id image_cat">
+      <tal:block define="dummy python: select_panels.append(image_cat)">
+        <metal:block use-macro="here/cpsskins_select_lib/macros/images" />
+      </tal:block>
+    </div>
+  </tal:block>
+
+  <tal:block condition="python: style in style_meta_types">
+    <img i18n:attributes="title" alt="select" width="16" height="16" border="0"
+     tal:define="title string:_Select a style_"
+     tal:attributes="onClick string:select('$style', '$id');
+                     src string:${base_url}cpsskins_images/select_icon.png;
+                     title python: mcat and mcat(title) or title" />
+      <a i18n:attributes="title" i18n:domain="cpsskins"
+       tal:define="title string:_Edit the current style_"
+       tal:attributes="href string:${object_url}/cpsskins_edit_style?stylecat=$style&amp;style=$value;
+                       title python: mcat and mcat(title) or title">
+        <img border="0" width="16" height="16" alt="edit"
+         tal:attributes="src string:${base_url}cpsskins_images/edit_icon.png" />
+      </a>
+    <div class="panelFrame"
+     tal:define="style_cat style"
+     tal:condition="python: style_cat not in select_panels"
+     tal:attributes="id style_cat">
+      <tal:block define="dummy python: select_panels.append(style_cat)">
+        <metal:block use-macro="here/cpsskins_select_lib/macros/styles" />
+      </tal:block>
+    </div>
+  </tal:block>
+</metal:block>
+
 
 <!-- form -->
 <metal:block define-macro="form">
@@ -237,22 +244,18 @@
 
 <!-- navigate between edit categories -->
 <metal:block define-macro="navigationtab" i18n:domain="cpsskins"
-tal:define="theme request/form/theme|nothing; 
-            cat request/form/cat|string:general; 
-            sections python: here.cpsskins_listEditCategories(); 
-            object_url here/absolute_url;">
-  <form name="edittabs" class="editNavigationTab"
-   action="cpsskins_edit" method="post"
-   onSubmit="saveScrollCoordinates('edittabs')">
-    <input type="hidden" name="scrollx" value="0">
-    <input type="hidden" name="scrolly" value="0"> 
+tal:define="cat request/form/cat|string:general;
+            object nocall:object|nocall:here;
+            sections python: object.cpsskins_listEditCategories();">
+  <div class="editNavigationTab">
     <tal:block repeat="section sections">
-      <input type="submit" name="cat"
-       tal:define="title python: '_%s_' % section" i18n:attributes="value"
-       tal:attributes="value section;
-                       class python: section == cat and 'selected' or ''" />
+      <a i18n:translate=""
+       tal:define="title python: '_%s_' % section"
+       tal:attributes="href string:${request/URL0}?cat=$section;
+                       class python: section == cat and 'selected' or ''"
+       tal:content="python: mcat and mcat(title) or title "/>
     </tal:block>
-  </form>
+  </div>
 </metal:block>
 <!-- End navigate between edit categories -->
 

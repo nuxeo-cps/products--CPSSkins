@@ -1,3 +1,10 @@
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/javascript' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+</dtml-let>
+
 // Copyright (c) 2002 Zope Corporation and Contributors.
 // All Rights Reserved.
 //
@@ -399,14 +406,6 @@ function pd_startDragSelect(v) {
 function pd_itemOnMousedown(mo, e, move_func, checkmove_func, box) {
   if (!e)
     e = event;
-  var target = e.target || e.srcElement;
-  if (target.nodeName) {
-    var name = target.nodeName.toLowerCase();
-    if (name == "input" || name == "select" || name == "a") {
-      // Allow interaction with the widget or link.
-      return true;
-    }
-  }
   if (e.button == 0 || e.button == 1) {
     pd_hideContextMenu();
     if (!box)
@@ -451,6 +450,15 @@ function pd_itemOnContextMenu(mo, e, contextMenuId, box) {
     e = event;
   if (!box)
     box = mo;
+  var target = e.target || e.srcElement;
+  if (target.getAttribute) {
+    f = target.getAttribute("interactive");
+    if (f) {
+      // Allow interaction with the widget or link.
+      return true;
+    }
+  }
+
   if (!pd_isSelected(box)) {
     pd_clearSelection();
     pd_select(box);

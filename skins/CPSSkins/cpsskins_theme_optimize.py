@@ -1,11 +1,11 @@
-##parameters=REQUEST=None, **kw
+##parameters=REQUEST=None, theme=None, page=None, **kw
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName(context=context)
-theme_container = tmtool.getEffectiveThemeContainer(theme=theme)
+theme_container = tmtool.getThemeContainer(theme=theme)
+page_container = theme_container.getPageContainer(page=page)
 
 styles_dir = theme_container.getStylesFolder()
 
@@ -57,7 +57,7 @@ styles_dir.manage_delObjects(styles_to_delete)
 #
 
 if templets_to_delete:
-    pageblocks =  theme_container.getPageBlocks()
+    pageblocks =  page_container.getPageBlocks()
     for pageblock in pageblocks:
         maxcols = pageblock['maxcols']
         objects = pageblock.getObjects(REQUEST=REQUEST) 
@@ -76,7 +76,7 @@ if templets_to_delete:
 #                   
                     
 if templets_to_cache:
-    pageblocks =  theme_container.getPageBlocks()
+    pageblocks =  page_container.getPageBlocks()
     for pageblock in pageblocks: 
         maxcols = pageblock['maxcols']
         objects = pageblock.getObjects(REQUEST=REQUEST) 
@@ -94,7 +94,7 @@ if templets_to_cache:
 # Items to translate
 #
 
-i18n_templets = theme_container.getI18nTemplets()
+i18n_templets = page_container.getI18nTemplets()
 for templet in i18n_templets:
     i18n_templet_id = templet.getId()
     i18n_props = templet.getI18nProperties()

@@ -11,61 +11,67 @@
   <style type="text/css" media="all"
   tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
-  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
+  <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
 <!-- Shortcut icon -->
 <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
-<metal:block define-macro="main">
+<metal:block define-macro="main" tal:condition="nocall:page_container">
   <tal:block define="context_rurl request/form/context_rurl|nothing;
                      context_obj python: here.cpsskins_getContextObj(context_rurl);
                      pageblock_style python: page_container.getCSSLayoutStyle();
                      dummy python: request.set('cpsskins_mcat', mcat)"
-   tal:repeat="pageblock python: page_container.getPageBlocks(filter=0)">
-    <table cellpadding="0" cellspacing="0" summary=""
+   tal:repeat="pageblock python: page_container.getPageBlocks()">
+    <div
     tal:define="maxcols python: pageblock['maxcols']; 
                 height python: pageblock['height'];
-                height_style python: height and 'height:%s' % height or ''"
-    tal:attributes="width python: pageblock['width'];
-                    style string:$pageblock_style $height_style;
-                    class python: pageblock.getCSSAreaClass();
-                    summary python: pageblock['title']">
-       <tr>
+                width python: pageblock['width'];
+                height_style python: height and 'height:%s;;' % height or None;
+                width_style python: width and 'width:%s;;' % width or None"
+    tal:attributes="style string:$pageblock_style $width_style $height_style;
+                    class python:pageblock.getCSSAreaClass()">
         <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
                    repeat="x_pos python: range(int(maxcols))">
-          <tal:block 
+          <tal:block
            define="objects_in_xpos python: objects.get(x_pos, None)"
            condition="objects_in_xpos">
-            <td valign="top"
+            <div
              tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                          cellsize python: objects_in_xpos['cellsizer'];
-                         cellstyle python: objects_in_xpos['cellstyler']"
-             tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;   
-                             width python: cellsize and cellsize.cellwidth or None">
+                         cellstyle python: objects_in_xpos['cellstyler'];
+                         cellwidth python: cellsize and cellsize.cellwidth or '';
+                         style python: cellwidth and 'width: %s;;' % cellwidth or None"
+             tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
+                             style string: $style float: left;; overflow-x: hidden">
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
-                                 isRenderable not:content/isMainContent|nothing;
+                                 isRenderable python: content.isRenderable();
                                  rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                      tal:condition="python: rendered or not isRenderable"
                      tal:attributes="style margin_style"
                      tal:omit-tag="not:margin_style">
                   <div tal:attributes="class python: content.getCSSAreaClass(level=2);
-                                       style python: content.getCSSLayoutStyle();
-                                       title content/title_or_id">
-                    <tal:block condition="rendered"
-                     content="structure rendered" />
+                                       style python: content.getCSSLayoutStyle()">
+                    <tal:block condition="rendered" content="structure rendered" />
                     <tal:block condition="not:isRenderable">
                       <tal:block condition="content/isMainContent|nothing">
                         <metal:block define-slot="maincontent" />
                         <br clear="all" />
                       </tal:block>
+                      <tal:block condition="content/isPortalBoxGroup|nothing">
+                        <tal:block define="render_box python:1;
+                                           box_group content/box_group|nothing">
+                          <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                        </tal:block>
+                      </tal:block>
                     </tal:block>
                   </div>
                 </div>
               </tal:block>
-            </td>
+            </div>
           </tal:block>
         </tal:block>
-      </tr>
-    </table>
+      <br style="clear:left" />
+    </div>
+    <div style="clear:left" />
   </tal:block>
 </metal:block>

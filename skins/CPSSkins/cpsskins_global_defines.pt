@@ -1,21 +1,24 @@
 <metal:block define-macro="defines"
 tal:define="global here_url here_url|here/absolute_url;
             tmtool here/portal_themes; 
-            global mcat here/cpsskins_getlocalizer;
-            global current_theme python: tmtool.getRequestedThemeName(context=here);
-            global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme);
-            theme_renderer theme_container/theme_renderer|nothing;
-            global renderer python: tmtool.getThemeRenderer(theme_renderer=theme_renderer);
+            global mcat python: tmtool.getTranslationService();
+            global base_url python: here.cpsskins_getBaseUrl();
+            global current_theme python: tmtool.getRequestedThemeName(context_obj=here);
+            global theme_container python: tmtool.getThemeContainer(theme=current_theme);
+            global current_page python: theme_container.getRequestedPageName(context_obj=here);
+            global page_container python: theme_container.getPageContainer(current_page);
+            page_renderer_id page_container/renderer|nothing;
+            global renderer python: tmtool.getPageRenderer(page_renderer_id);
             global main_macro python: 'cpsskins_main_template_%s' % renderer;
             global enable_esi theme_container/esi|nothing;
-            global cpsskins_pagemargin theme_container/margin|nothing;
-            global cpsskins_bodycolor theme_container/color|nothing;
+            global cpsskins_pagemargin page_container/margin|nothing;
+            global cpsskins_bodycolor page_container/color|nothing;
             global cpsskins_language tmtool/getCurrentLang;
             global cpsskins_url here/cpsskins_getCurrentURL;
             global boxedit boxedit|nothing;
             global shield not:tmtool/debug_mode|python:1;
             dummy python: request.set('cpsskins_language', cpsskins_language);
             dummy python: request.set('cpsskins_url', cpsskins_url);
-            dummy python: request.set('cpsskins_base_url', here.cpsskins_getBaseUrl());
+            dummy python: request.set('cpsskins_base_url', base_url);
             dummy python: enable_esi and here.cpsskins_set_esi_header();
 "/>

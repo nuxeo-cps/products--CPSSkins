@@ -220,127 +220,127 @@ msgstr "Portal box shape"
 
 
 msgid "_BoxBody background color_"
-msgstr "Box body background color"
+msgstr "Background color"
 
 
 msgid "_BoxBody background image_"
-msgstr "Box body background image"
+msgstr "Background image"
 
 
 msgid "_BoxBody border color_"
-msgstr "Box body border color"
+msgstr "Border color"
 
 
 msgid "_BoxBody border style_"
-msgstr "Box body border style"
+msgstr "Border style"
 
 
 msgid "_BoxBody border width_"
-msgstr "Box body border width"
+msgstr "Border width"
 
 
 msgid "_BoxBody menuin border color_"
-msgstr "Selected menu item border color"
+msgstr "Border color"
 
 
 msgid "_BoxBody menuin border style_"
-msgstr "Selected menu item border style"
+msgstr "Border style"
 
 
 msgid "_BoxBody menuin border width_"
-msgstr "Selected menu item border width"
+msgstr "Border width"
 
 
 msgid "_BoxBody menuin color_"
-msgstr "Selected menu item color"
+msgstr "Color"
 
 
 msgid "_BoxBody menuin icon_"
-msgstr "Selected menu item icon"
+msgstr "Icon"
 
 
 msgid "_BoxBody menuin margin_"
-msgstr "Selected menu item margin"
+msgstr "Margin"
 
 
 msgid "_BoxBody menuin padding_"
-msgstr "Selected menu item padding"
+msgstr "Padding"
 
 
 msgid "_BoxBody menuout border color_"
-msgstr "Menu item border color"
+msgstr "Border color"
 
 
 msgid "_BoxBody menuout border style_"
-msgstr "Menu item border style"
+msgstr "Border style"
 
 
 msgid "_BoxBody menuout border width_"
-msgstr "Menu item border width"
+msgstr "Border width"
 
 
 msgid "_BoxBody menuout color_"
-msgstr "Menu item color"
+msgstr "Color"
 
 
 msgid "_BoxBody menuout icon_"
-msgstr "Menu item icon"
+msgstr "Icon"
 
 
 msgid "_BoxBody menuout margin_"
-msgstr "Menu item margin"
+msgstr "Margin"
 
 
 msgid "_BoxBody menuout padding_"
-msgstr "Menu item padding"
+msgstr "Padding"
 
 
 msgid "_BoxBody padding_"
-msgstr "Box body padding"
+msgstr "Padding"
 
 
 msgid "_BoxBody text align_"
-msgstr "Box body text alignment"
+msgstr "Text alignment"
 
 
 msgid "_BoxTitle background color_"
-msgstr "Box title background color"
+msgstr "Background color"
 
 
 msgid "_BoxTitle background image_"
-msgstr "Box title background image"
+msgstr "Background image"
 
 
 msgid "_BoxTitle border color_"
-msgstr "Box title border color"
+msgstr "Border color"
 
 
 msgid "_BoxTitle border style_"
-msgstr "Box title border style"
+msgstr "Border style"
 
 
 msgid "_BoxTitle border width_"
-msgstr "Box title border width"
+msgstr "Border width"
 
 
 msgid "_BoxTitle display_"
-msgstr "Box title display"
+msgstr "Display"
 
 
 msgid "_BoxTitle font color_"
-msgstr "Box title font color"
+msgstr "Font color"
 
 
 msgid "_BoxTitle font_"
-msgstr "Box title font"
+msgstr "Font"
 
 
 msgid "_BoxTitle padding_"
-msgstr "Box title padding"
+msgstr "Padding"
 
 
 msgid "_BoxTitle text align_"
-msgstr "Box title text alignment"
+msgstr "Text alignment"
 
 
 msgid "_Breadcrumbs Templet_"
@@ -467,6 +467,10 @@ msgid "_December_"
 msgstr "December"
 
 
+msgid "_Default page_"
+msgstr "Default page"
+
+
 msgid "_Default theme_"
 msgstr "Default theme"
 
@@ -491,28 +495,8 @@ msgid "_Delete_"
 msgstr "Delete"
 
 
-msgid "_Deleting this Templet, are you sure?_"
-msgstr "Deleting this Templet, are you sure?"
-
-
-msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Deleting this cell hider, are you sure?"
-
-
-msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Deleting this cell sizer, are you sure?"
-
-
-msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Deleting this cell styler, are you sure?"
-
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Deleting this image, are you sure?"
-
-
-msgid "_Deleting this page block, are you sure?_"
-msgstr "Deleting this page block, are you sure?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
@@ -569,6 +553,14 @@ msgstr "Edit styles"
 
 msgid "_Edit the current style_"
 msgstr "Edit the current style"
+
+
+msgid "_Edit the page_"
+msgstr "Edit the page"
+
+
+msgid "_Edit the theme_"
+msgstr "Edit the theme"
 
 
 msgid "_Edit this page block_"
@@ -947,6 +939,10 @@ msgid "_Main content_"
 msgstr "Main content"
 
 
+msgid "_Manage_"
+msgstr "Manage"
+
+
 msgid "_March_"
 msgstr "March"
 
@@ -1073,6 +1069,10 @@ msgstr "Paragraph padding"
 
 msgid "_Page Block_"
 msgstr "Page Block"
+
+
+msgid "_Page renderer_"
+msgstr "Page renderer"
 
 
 msgid "_Palette Border_"
@@ -1391,6 +1391,10 @@ msgid "_Theme Chooser Templet_"
 msgstr "Theme Chooser Templet"
 
 
+msgid "_Theme Page_"
+msgstr "Theme Page"
+
+
 msgid "_Theme chooser_"
 msgstr "Theme chooser"
 
@@ -1620,11 +1624,11 @@ msgstr "Backgrounds"
 
 
 msgid "_box body_"
-msgstr "Box body"
+msgstr "Body"
 
 
 msgid "_box title_"
-msgstr "Box title"
+msgstr "Title"
 
 
 msgid "_boxcolor_"
@@ -1771,7 +1775,11 @@ msgid "_colors_"
 msgstr "Colors"
 
 
-msgid "_default_tab_"
+msgid "_confirm delete_"
+msgstr "Deleting, are you sure?"
+
+
+msgid "_default tab_"
 msgstr "Default tab"
 
 
@@ -1839,8 +1847,16 @@ msgid "_maincontent_templet_description_"
 msgstr "the main content area where documents are displayed"
 
 
+msgid "_menu item_"
+msgstr "Menu item"
+
+
 msgid "_menu_Align center_"
 msgstr "Center-aligned"
+
+
+msgid "_menu_Align justify_"
+msgstr "Justified"
 
 
 msgid "_menu_Align left_"
@@ -2067,6 +2083,10 @@ msgid "_option_inline_"
 msgstr "Title width"
 
 
+msgid "_option_justify_"
+msgstr "Justify"
+
+
 msgid "_option_language names_"
 msgstr "Language names"
 
@@ -2203,6 +2223,10 @@ msgid "_option_stx_"
 msgstr "Structured Text"
 
 
+msgid "_option_tableless_"
+msgstr "Tableless"
+
+
 msgid "_option_text and icons_"
 msgstr "Text and icons"
 
@@ -2295,7 +2319,11 @@ msgid "_select this slot_"
 msgstr "select this slot"
 
 
-msgid "_selected_tab_"
+msgid "_selected menu item_"
+msgstr "Selected menu item"
+
+
+msgid "_selected tab_"
 msgstr "Selected tab"
 
 
@@ -2325,6 +2353,10 @@ msgstr "a box that displays plain text or HTML"
 
 msgid "_themechooser_templet_description_"
 msgstr "a theme selector for visitors (cookies must be enabled)"
+
+
+msgid "_themepage_description_"
+msgstr "a Theme Page is composed of Page Blocks stacked on top of one another."
 
 
 msgid "_thumbnails_"
@@ -2413,6 +2445,10 @@ msgstr "Portlet browser"
 
 msgid "portlet_slots_panel"
 msgstr "Portlet slots"
+
+
+msgid "psm_image_uploaded"
+msgstr "Image uploaded"
 
 
 msgid "psm_portlet_deleted"

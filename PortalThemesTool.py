@@ -173,6 +173,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                       'selected_content',
                       'clipboard',
                       'theme',
+                      'page',
                       'edit_mode',
                       'current_url',
                       'scrollx',
@@ -186,6 +187,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         # reload the page
         if reload and REQUEST is not None:
             redirect_url = REQUEST['HTTP_REFERER']
+            if '?' in redirect_url:
+                redirect_url = redirect_url.split('?')[0]
             REQUEST.RESPONSE.redirect(redirect_url)
 
     security.declarePublic('clearViewMode')
@@ -222,7 +225,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return None
 
     security.declarePublic('findStylesFor')
-    def findStylesFor(self, category=None, object=None, title=None ):
+    def findStylesFor(self, category=None, object=None, title=None):
         """ Gets the list of available styles:
             - by meta type ('category') 
             - for a given object ('object') 
@@ -309,39 +312,31 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         return [s.Metatype() for s in self.listStyleTypes()]
 
-    security.declarePublic('getPageBlocks')
-    def getPageBlocks(self, theme=None):
-        """Returns a list of page blocks sorted in vertical order."""
-
-        theme_container =  self.getEffectiveThemeContainer(theme=theme)
-        if theme_container is None:
-            return None
-        return theme_container.getPageBlocks()
-
-    security.declarePublic('listThemeRenderers')
-    def listThemeRenderers(self):
-        """ returns the list of theme renderers """
+    security.declarePublic('listPageRenderers')
+    def listPageRenderers(self):
+        """ returns the list of page renderers """
 
         renderers = ['default', 
                      'compatible', 
                      'textonly', 
                      'automatic', 
                      'profiler',
-                     'macroless']
+                     'macroless',
+                     'tableless']
         return renderers
 
-    security.declarePublic('getThemeRenderer')
-    def getThemeRenderer(self, theme_renderer=None):
-        """ returns the name of the theme renderer """
+    security.declarePublic('getPageRenderer')
+    def getPageRenderer(self, page_renderer_id=None):
+        """ returns the name of the page renderer """
 
-        if theme_renderer is None:
-            theme_renderer = 'default'
+        if page_renderer_id is None:
+            page_renderer_id = 'default'
 
-        if theme_renderer not in self.listThemeRenderers():
-            theme_renderer = 'default'
+        if page_renderer_id not in self.listPageRenderers():
+            page_renderer_id = 'default'
 
-        if theme_renderer == 'automatic':
-            theme_renderer = 'default'
+        if page_renderer_id == 'automatic':
+            page_renderer_id = 'default'
             info = self.cpsskins_browser_detection()
             browser = info[0]
             version = info[1]
@@ -350,7 +345,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             if browser in ['Lynx', 'Links']:
                 theme_renderer = 'textonly'
 
-        return theme_renderer
+        return page_renderer_id
     
     security.declarePublic('getThemeContainer')
     def getThemeContainer(self, theme=None, parent=None ):
@@ -472,7 +467,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         """
 
-        context = kw.get('context')
+        context = kw.get('context_obj')
         if context is None:
             return None
 
@@ -491,7 +486,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if bmf is None:
             bmf = context
 
-        # get portlets from the root to current path
+        # get themes from the root to current path
         utool = getToolByName(self, 'portal_url')
         rpath = utool.getRelativeContentPath(bmf)
         bmf_depth = len(rpath)
@@ -614,7 +609,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
 
         REQUEST = self.REQUEST
-
         FORM = REQUEST.form
         # selected by writing ?pp=1 in the URL
         if FORM.get('pp') == '1':
@@ -637,26 +631,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme_cookie is not None:
             return theme_cookie
 
-        # local theme
+
+        # local theme + page
         local_theme = self.getLocalThemeName(**kw)
         if local_theme is not None:
+            if local_theme.find('+') > 0:
+                local_theme = local_theme.split('+')[0]
             return local_theme
 
         # default theme
         return self.getDefaultThemeName()
-
-    def getEffectiveThemeContainer(self, theme=None):
-        """Gets a theme container by theme name - if available.
-        """
-
-        if theme is not None:
-            # theme explicitly specified
-            theme_container = self.getThemeContainer(theme=theme)
-            if theme_container is not None:
-                return theme_container
-
-        default_theme_container = self.getThemeContainer(theme='default')
-        return default_theme_container
 
     security.declarePublic('getThemes')
     def getThemes(self):
@@ -756,7 +740,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if object is None:
             return
 
-        container = object.aq_parent
+        container = aq_parent(aq_inner(object))
         theme_container = self.getPortalThemeRoot(object)
 
         # the object is a style
@@ -788,7 +772,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         if empty:
             return theme
-        pageblock = theme.addPageBlock()
+        themepage = theme.addThemePage()
+        pageblock = themepage.addPageBlock()
         if pageblock is not None:
             maincontent = pageblock.addContent(type_name='Main Content Templet')
             maincontent.edit(xpos=int(1))
@@ -800,7 +785,29 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         col2.edit(cellwidth='60%') 
         col3.edit(cellwidth='20%') 
         return theme
-      
+
+    security.declarePublic('getTranslationService')
+    def getTranslationService(self, root=0, cat=''):
+        """Return the translation service
+        """
+        portal_messages = getToolByName(self, 'portal_messages', None)
+        if portal_messages is not None:
+            return portal_messages
+
+        # CMF / Plone1 / CPS3 
+        localizer = getToolByName(self, 'Localizer', None)
+        if localizer is not None:
+            if root:
+                return localizer
+            if cat:
+                return getattr(localizer, cat, None)
+
+            # Localizer without translation service
+            ts = getToolByName(self, 'translation_service', None)
+            if ts is None:
+                return getattr(localizer, 'default', None)
+        return None
+
     #
     # Theme management
     #
@@ -825,9 +832,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             size += theme.getCacheSize()
         return size
 
-    #
-    # Theme management
-    #
     security.declareProtected(ManageThemes, 'importTheme')
     def importTheme(self, file=None, REQUEST=None):
         """ Imports a theme from a .zexp file
@@ -1144,7 +1148,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """Turn the debug mode on / off"""
 
         self.debug_mode = not self.debug_mode
-
         if REQUEST is not None:
             return self.manage_DebugMode(manage_tabs_message='Settings updated')
     #
