@@ -123,8 +123,9 @@
       tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=closed">
        <img src="" width="16" height="16" alt="" 
        tal:attributes="src string:${base_url}cpsskins_images/button_close.png" /></a>
-      <a
-       tal:attributes="href string:${portlet_url}/edit_form">
+      <a tal:define="url string:${portlet_url}/edit_form"
+       tal:attributes="href url;
+                       onClick string:window.open('${url}', '', 'width=760, height=500, location=no, menubar=no, status=no, toolbar=no, scrollbars=yes');; return false">
        <img src="" width="16" height="16" alt=""
        tal:attributes="src string:${base_url}cpsskins_images/button_edit.png" /></a>
       <a tal:condition="not:maximized"
