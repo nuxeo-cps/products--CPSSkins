@@ -165,7 +165,7 @@ class PortalBoxShape(BaseStyle):
                  BoxTitle_border_style = 'none solid none none',
                  BoxTitle_border_width = '1px',
                  BoxTitle_padding = '0em 1.2em 0em 0.9em',
-                 BoxTitle_display = 'inline-block',
+                 BoxTitle_display = 'inline',
                  BoxTitle_font = '12px arial, sans-serif',
                  BoxBody_border_style = 'none solid solid none',
                  BoxBody_border_width = '1px',
@@ -174,10 +174,10 @@ class PortalBoxShape(BaseStyle):
                  BoxBody_menuout_padding = '1px 4px 1px 13px',
                  BoxBody_menuin_border_style = 'inset',
                  BoxBody_menuin_border_width = '1px',
-                 BoxBody_menuin_margin = '0em',
+                 BoxBody_menuin_margin = '',
                  BoxBody_menuout_border_style = 'none',
                  BoxBody_menuout_border_width = '1px',
-                 BoxBody_menuout_margin = '0em',
+                 BoxBody_menuout_margin = '',
                  **kw):
         apply(BaseStyle.__init__, (self, id), kw)
         self.BoxTitle_border_style = BoxTitle_border_style

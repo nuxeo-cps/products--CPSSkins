@@ -257,7 +257,7 @@ class FontShape(BaseStyle):
                  H456_border_width = '1px',
                  H456_border_style = 'none',
                  P_font = '100% Verdana, Arial, Helvetica, sans-serif',
-                 STRONG_font = 'bold 100%',
+                 STRONG_font = '',
                  P_padding = '0em',
                  A_link_decoration = 'none',
                  A_visited_decoration = 'none',
