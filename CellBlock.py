@@ -237,6 +237,9 @@ class CellBlock(ThemeFolder, PageBlockContent):
             if getattr(o, 'isportaltemplet', 0):
                 o.rebuild(**kw)
                 continue
+            if getattr(o, 'iscellmodifier', 0):
+                o.rebuild(**kw)
+                continue
             moveToLostAndFound(self, o)
  
     security.declarePrivate('getActions')
@@ -255,10 +258,12 @@ class CellBlock(ThemeFolder, PageBlockContent):
  
         objects = {}
         contents = {}
+        cellsizer = {}
 
         maxcols = self.maxcols
         for col in range(maxcols):
             contents[col] = []
+            cellsizer[col] = None
 
         for obj in self.objectValues():
             xpos = getattr(obj, 'xpos', 0)
@@ -269,8 +274,13 @@ class CellBlock(ThemeFolder, PageBlockContent):
                 contents[xpos].append(obj)
                 continue
 
+            if getattr(obj, 'iscellsizer', 0):
+                cellsizer[xpos] = obj
+                continue
+
         for col in range(maxcols):
             objects[col] = {'contents': contents[col], 
+                            'cellsizer': cellsizer[col],
                            }
         return objects
 

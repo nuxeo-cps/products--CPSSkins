@@ -326,7 +326,9 @@ def update(self):
         'Cell Block',
         )
 
-    types_in_cellblocks = types_templets
+    types_in_cellblocks = types_templets + (
+        'Cell Sizer',
+        )
 
     types_in_stylefolders = (
         'Area Shape',
