@@ -361,8 +361,10 @@ def getStyleList(self, meta_type):
 
     tmtool = getToolByName(self, 'portal_themes')
     styles = tmtool.findStylesFor(category = meta_type, object=self)
+    style_titles = ['']
     if styles:
-        return styles['title']
+        style_titles.extend(styles['title'])
+    return style_titles
 
 def getDefaultLang(self):
     """ Returns the code name of the current language """

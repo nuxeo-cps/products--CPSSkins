@@ -51,7 +51,7 @@ function selectSlot(value, textfield_id) {
 }
 
 function selectStyle(style, select_id) {
-    opener.style = style-1;
+    opener.style = style;
     opener.selection_restart(select_id);
     self.close;
 }
