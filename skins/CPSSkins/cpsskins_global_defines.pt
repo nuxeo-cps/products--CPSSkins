@@ -2,7 +2,7 @@
 tal:define="tmtool here/portal_themes; 
             global mcat here/cpsskins_getlocalizer;
             view_mode tmtool/getViewMode;
-            global edit_mode view_mode/edit_mode|request/form/edit_mode|nothing; 
+            edit_mode view_mode/edit_mode|nothing;
             global current_theme python: tmtool.getRequestedThemeName(context=here);
             global theme_container python: tmtool.getEffectiveThemeContainer(theme=current_theme); 
             theme_renderer theme_container/theme_renderer|nothing;

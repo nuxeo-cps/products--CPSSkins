@@ -205,10 +205,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         session[VIEW_MODE_SESSION_KEY] = session_dict
 
-        if REQUEST is not None:
-            redirect_url = REQUEST['HTTP_REFERER']
-            REQUEST.RESPONSE.redirect(redirect_url)
-
     security.declarePublic('getPortalThemeRoot')
     def getPortalThemeRoot(self, object=None):
         """ Gets the portal theme root container of a given object """
@@ -579,9 +575,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return theme_cookie
 
         # local theme
-        cpsskins_theme = self.getLocalThemeName(**kw)
-        if cpsskins_theme is not None:
-            return cpsskins_theme
+        local_theme = self.getLocalThemeName(**kw)
+        if local_theme is not None:
+            return local_theme
 
         # default theme
         return self.getDefaultThemeName()
