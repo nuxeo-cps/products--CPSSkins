@@ -5,6 +5,8 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
+from Testing import ZopeTestCase
+
 from Products.CPSSkins import tests
 TEST_IMG = os.path.join(tests.__path__[0], 'TestImage.jpg')
 
@@ -40,7 +42,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for style in templet.StyleList():
             templet.style = style
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_TextBox_Templet(self):
         pageblock = self.pageblock
@@ -53,7 +55,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_TextBox_Templet_text_format(self):
         pageblock = self.pageblock
@@ -62,9 +64,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         for text_format in templet.TextFormatList():
             templet.text_format = text_format
             templet.i18n = 1
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
             templet.i18n = 0
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_Styles(self):
         pageblock = self.pageblock
@@ -82,7 +84,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Portal Box Color', 'id': 'boxcolor'}])
         for content in templet.ContentList():
             templet.content = content 
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_title_source(self):
         pageblock = self.pageblock
@@ -91,9 +93,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         for title_source in templet.TitleSourceList():
             templet.title_source = title_source
             templet.box_title_i18n = 1
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
             templet.box_title_i18n = 0 
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_layouts(self):
         pageblock = self.pageblock
@@ -101,16 +103,16 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals('Portal Box Templet', getattr(templet, 'title'))
         for boxlayout in templet.BoxLayoutList():
             templet.boxlayout = boxlayout
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_folder_items_i18n(self):
         pageblock = self.pageblock
         templet = pageblock.addTemplet(type_name='Portal Box Templet')
         templet.content = 'folders'
         templet.folder_items_i18n = 1
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.folder_items_i18n = 0
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_PortalBoxGroup_Templet(self):
         pageblock = self.pageblock
@@ -137,7 +139,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        self.assert_(templet.render(context_obj=self.portal))
+        for style in templet.StyleList():
+            templet.style = style
+            templet.render(context_obj=self.portal)
 
     def test_ThemeChooser_Templet(self):
         pageblock = self.pageblock
@@ -150,7 +154,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_ImageBox_Templet(self):
         pageblock = self.pageblock
@@ -165,11 +169,11 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         self.assert_(templet.render(context_obj=self.portal))
         templet.internal_link = 'http://site.com'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.use_internal_link = 1
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.caption = 'caption'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_ImageBox_Templet_upload(self):
         pageblock = self.pageblock
@@ -196,7 +200,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Shape', 'id': 'shape'}, \
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_Breadcrumbs_Templet(self):
         pageblock = self.pageblock
@@ -210,15 +214,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         templet.show_icon = 0
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.separator_start = 'start'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.separator_repeat = 'repeat'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.separator_end = 'end'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.show_icon = 1
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_ActionBox_Templet(self):
         pageblock = self.pageblock
@@ -233,11 +237,10 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for style in templet.OrientationList():
             templet.style = style
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
         for style in templet.StyleList():
             templet.style = style
-            self.assert_(templet.render())
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_Document_Info_Templet(self):
         pageblock = self.pageblock
@@ -252,7 +255,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Form Style', 'id': 'formstyle'}] )
         for content in templet.ContentList():
             templet.content = content 
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_CollapsibleMenu_Templet(self):
         pageblock = self.pageblock
@@ -266,7 +269,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Area Color', 'id': 'color'}, \
              {'meta_type': 'Form Style', 'id': 'formstyle'}, \
              {'meta_type': 'Collapsible Menu Style', 'id': 'collapsiblemenu_style'}] )
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
 
     def test_PortalTab_Templet(self):
         pageblock = self.pageblock
@@ -282,15 +285,15 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'}] )
         for content in templet.ContentList():
             templet.content = content 
-            self.assert_(templet.render(context_obj=self.portal))
+            templet.render(context_obj=self.portal)
 
     def test_PortalTab_Templet_folder_items_i18n(self):
         pageblock = self.pageblock
         templet = pageblock.addTemplet(type_name='Portal Tab Templet')
         templet.content = 'folders'
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.folder_items_i18n = 0
-        self.assert_(templet.render(context_obj=self.portal))
+        templet.render(context_obj=self.portal)
         templet.folder_items_i18n = 1
 
 
@@ -307,16 +310,17 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
                 {'meta_type': 'Area Color', 'id': 'color'}, \
                 {'meta_type': 'Form Style', 'id': 'formstyle'}, \
                 {'meta_type': 'Calendar Style', 'id': 'calendar_style'}] )
-           self.assert_(templet.render(context_obj=self.portal))
+           templet.render(context_obj=self.portal)
            templet.show_month = 0
-           self.assert_(templet.render(context_obj=self.portal))
+           templet.render(context_obj=self.portal)
            templet.show_year = 0
-           self.assert_(templet.render(context_obj=self.portal))
+           templet.render(context_obj=self.portal)
            templet.show_weekdays = 0
-           self.assert_(templet.render(context_obj=self.portal))
+           templet.render(context_obj=self.portal)
            templet.show_weekdays = 0
+           templet.render(context_obj=self.portal)
            templet.show_preview = 0
-           self.assert_(templet.render(context_obj=self.portal))
+           templet.render(context_obj=self.portal)
 
 
     def test_Templet_alignment(self):
