@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2004 Chalmers University of Technology
+# Copyright (c) 2003-2005 Chalmers University of Technology
 # Authors : Jean-Marc Orliaguet <jmo@ita.chalmers.se>
 #
 # This program is free software; you can redistribute it and/or modify

@@ -1,6 +1,6 @@
 - Miscellaneous code:
-Copyright (c) 2003-2004 Jean-Marc Orliaguet <jmo@ita.chalmers.se>
-Copyright (c) 2003-2004 Chalmers University of Technology
+Copyright (c) 2003-2005 Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+Copyright (c) 2003-2005 Chalmers University of Technology
 Copyright (c) 2003 Centre de Recherche en Informatique ENSMP Fontainebleau <http://cri.ensmp.fr>
 Copyright (c) 2003 Benoît PIN <mailto:pin@cri.ensmp.fr>
 Copyright (c) 2002, 2003, 2004 Nuxeo SARL <http://nuxeo.com>
