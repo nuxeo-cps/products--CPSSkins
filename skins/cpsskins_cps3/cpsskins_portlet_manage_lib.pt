@@ -24,7 +24,7 @@
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
   tal:define="portal_url here/portal_url;
               ttool here/portal_types;
-              ptltool here/portal_cpsportlets">
+              ptltool nocall:here/portal_cpsportlets">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header" class="context-menu">
       <tal:block i18n:translate="menu_insert_portlet" i18n:domain="cpsskins">
