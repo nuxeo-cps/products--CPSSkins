@@ -117,6 +117,7 @@ input.SearchBox {
   float: left;
   display: block;
   text-decoration: none;
+  margin-left: 0 !important;
 }
 /* Commented Backslash Hack
    hides rule from IE5-Mac \*/
