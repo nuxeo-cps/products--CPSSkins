@@ -45,7 +45,7 @@ except ImportError:
 
 from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
-from AccessControl import ClassSecurityInfo
+from AccessControl import ClassSecurityInfo, Unauthorized
 
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.utils import getToolByName
@@ -362,9 +362,12 @@ class PortalTheme(ThemeFolder, StylableContent):
                 self.manage_delObjects([backupid])
 
             if themefolder not in objs:
-                self.invokeFactory('Theme Folder', id=themefolder)
+                try:
+                    self.invokeFactory('Theme Folder', id=themefolder)
+                except Unauthorized:
+                    pass
                 continue
-        
+
             else:
                 folder = getattr(self.aq_explicit, themefolder)
                 f = folder.aq_explicit
