@@ -41,6 +41,10 @@ BOX_LAYOUTS = {
 <div class="body" style="border: none">%s</div>""",
 # rounded box
 'rounded_box': """<div class="rbtop"><div></div></div>
+<div class="title">%s</div><div class="body">%s</div>
+<div class="rbbot"><div></div></div>""",
+# rounded box without title
+'rounded_box_notitle': """<div class="rbtop"><div></div></div>
 <div class="body">%s</div><div class="rbbot"><div></div></div>""",
 }
 
@@ -118,7 +122,9 @@ class SimpleBox:
         elif boxlayout == 'notitle_noframe':
             return BOX_LAYOUTS['notitle_noframe'] % body
         elif boxlayout == 'rounded_box':
-            return BOX_LAYOUTS['rounded_box'] % body
+            return BOX_LAYOUTS['rounded_box'] % (title, body)
+        elif boxlayout == 'rounded_box_notitle':
+            return BOX_LAYOUTS['rounded_box_notitle'] % body
 
         macro_path = self.restrictedTraverse('%s/macros/%s' %\
                                              (BOX_LAYOUT_MACRO, boxlayout),

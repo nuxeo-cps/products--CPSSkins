@@ -2126,6 +2126,10 @@ msgid "_option_rounded_box_"
 msgstr ""
 
 
+msgid "_option_rounded_box_notitle_"
+msgstr ""
+
+
 msgid "_option_searchbox_advanced_"
 msgstr "Avançado"
 
