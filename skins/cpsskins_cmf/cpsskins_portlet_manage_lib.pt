@@ -181,7 +181,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
        tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a class="exit"
-       tal:attributes="href here_url"
+       tal:attributes="href string:${here_url}/"
        tal:define="title string:_Exit_" i18n:translate=""
        tal:content="python:mcat and mcat(title) or title" />
  </div>
