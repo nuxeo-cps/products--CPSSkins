@@ -68,3 +68,13 @@ padding: &dtml-BoxBody_menuin_padding;;
 margin: &dtml-BoxBody_menuin_margin;;
 </dtml-if>
 }
+
+.BoxShape&dtml-title; .buttons {
+display:block;
+padding-right:1px;
+padding-bottom:1px;
+padding-top:1px;
+}
+.BoxShape&dtml-title; .buttons a {
+float:right;
+}
