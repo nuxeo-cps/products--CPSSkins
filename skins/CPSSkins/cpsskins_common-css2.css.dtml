@@ -42,13 +42,16 @@ input.SearchBox {
 
 /* backward compatibility with CPS 3.2 */
 .menu, .menu li, .menu a, .menu li:hover, .menu a:hover {
-  float: none;
   background: none;
   border: none;
   white-space: normal;
 }
 
-.menu li a:hover {
+.menu, .menu li a, .menu li {
+  float: none;
+}
+
+.menu li a:hover, .menu li.selected a {
   color: inherit;
   background: none;
 }
