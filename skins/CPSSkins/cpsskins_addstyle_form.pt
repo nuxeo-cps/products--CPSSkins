@@ -3,15 +3,16 @@
   base_url python:here.cpsskins_getBaseUrl();
   mcat here/cpsskins_getlocalizer;
   type_name request/form/type_name|nothing">
-  <head>
-    <link rel="Stylesheet" type="text/css"
-    tal:attributes="href string:${base_url}cpsskins_common.css" />
-    <style type="text/css" media="all"
-    tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
-    <style type="text/css" media="all"
-    tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
-  </head>
-  <body class="editForm">
+<head>
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+</head>
+<body>
+  <div class="editForm">
     <h1 i18n:translate=""
     tal:define="title string:_Add_a_new_style_"
     tal:content="python: mcat and mcat(title) or title" />
@@ -25,5 +26,6 @@
         i18n:attributes="value" tal:define="title string:_button_create_"
         tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
-  </body>
+  </div>
+</body>
 </html>

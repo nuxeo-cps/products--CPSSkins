@@ -71,14 +71,14 @@
         <metal:block use-macro="here/cpsskins_form_widgets/macros/edit_form" />
       </tal:block>
     </div>
+
+    <br />
+    <form action="">
+      <input class="standalone" type="submit" 
+       onclick="window.opener.location.reload();window.close()"
+       value="button_close" i18n:attributes="value" />
+    </form>
   </div>
 
-  <br/>
-  <form action="">
-    <input class="standalone" type="submit" 
-     onclick="window.opener.location.reload();window.close()"
-     value="button_close" i18n:attributes="value" />
-  </form>
-
-  </body>
+</body>
 </html>

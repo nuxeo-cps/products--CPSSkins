@@ -9,10 +9,16 @@
   view_mode tmtool/getViewMode;
   theme view_mode/theme|request/form/theme|nothing;
   edit_mode view_mode|edit_mode|nothing;">
-<head></head>
-  <body>
-    <metal:block use-macro="here/cpsskins_form_widgets/macros/imagenavigation" />
-
+<head>
+  <link rel="Stylesheet" type="text/css"
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+  <style type="text/css" media="all"
+  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+</head>
+<body>
+  <div class="editForm">
     <h1 tal:define="title string:_Add an image_"
      tal:content="python: mcat and mcat(title) or title" i18n:translate="" />
     <form action="cpsskins_image_add" method="post"
@@ -33,5 +39,6 @@
         </tr>
       </table>
     </form>
-  </body>
+  </div>
+</body>
 </html>
