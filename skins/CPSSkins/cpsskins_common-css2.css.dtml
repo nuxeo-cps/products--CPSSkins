@@ -48,6 +48,7 @@ input.SearchBox {
   padding: 0px;
   line-height: normal;
   list-style-type: none;
+  display: inline;
 }
 
 .cpsskinsBox .body ul li a {
