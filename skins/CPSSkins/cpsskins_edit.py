@@ -16,6 +16,8 @@ tmtool.setViewMode(scrolly=scrolly)
 
 # category
 cat = kw.get('cat')
+if getattr(context.aq_explicit, 'isportletbox', 0) and kw.get('portlet_type'):
+    cat = 'Portlet'
 
 # redirect url
 url = kw.get('redirect_url')
