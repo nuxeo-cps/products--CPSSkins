@@ -1958,3 +1958,6 @@ msgstr ""
 
 msgid "_Some items can be pasted here_"
 msgstr ""
+
+msgid "_Destination_slot_"
+msgstr ""

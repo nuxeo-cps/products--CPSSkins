@@ -535,6 +535,10 @@ msgid "_Description_"
 msgstr "Description"
 
 
+msgid "_Destination_slot_"
+msgstr "Slot de destination"
+
+
 msgid "_Display a contextual icon_"
 msgstr "Afficher l'icône de l'objet courrant"
 

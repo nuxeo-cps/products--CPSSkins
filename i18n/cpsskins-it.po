@@ -537,6 +537,10 @@ msgid "_Description_"
 msgstr "Descrizione"
 
 
+msgid "_Destination_slot_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr "Visualizza l'icona associata all'oggetto corrente"
 

@@ -14,6 +14,7 @@
                    insert_url folder_url">
     <div class="portletBoxEditMenu"
      tal:attributes="icon slot_icon;
+                     insert_url folder_url;
                      folder_url folder_url;
                      folder_editable folder_editable;
                      title slot_title;

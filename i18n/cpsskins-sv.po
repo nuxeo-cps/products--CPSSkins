@@ -535,6 +535,10 @@ msgid "_Description_"
 msgstr ""
 
 
+msgid "_Destination_slot_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr ""
 

@@ -183,6 +183,7 @@
      tal:attributes="class python: editable and 'portletBoxDrag portletBoxEditMenu' or 'portletBoxEditMenu';
                      portlet_rurl portlet_rurl;
                      portlet_url string:${base_url}${portlet_rurl};
+                     insert_url folder_url;
                      src_rurl portlet_folder_rurl;
                      src_ypos python: ypos and ypos or 0;
                      src_slot group;

@@ -39,6 +39,13 @@
           <tal:block content="here/title_or_id" />
           &nbsp;&nbsp;<tal:block content="python: '/' + here.absolute_url(1)" />
         </div>
+        <div tal:condition="not:slot" style="float:right">
+          <label for="slot" i18n:translate="_Destination_slot_">Destination slot</label>
+          <select id="slot" name="slot">
+            <option tal:repeat="slot here/cpsskins_listSlots"
+             tal:content="slot" />
+          </select>
+        </div>
         <tal:block condition="not:ptype_id">
           <metal:block
            use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_form" />
@@ -47,6 +54,7 @@
         tal:condition="ptype_id"
         tal:attributes="value ptype_id" />
         <input type="hidden" name="slot"
+        tal:condition="slot"
         tal:attributes="value slot" />
         <input type="hidden" name="order"
         tal:attributes="value order" />

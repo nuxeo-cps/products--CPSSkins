@@ -213,11 +213,12 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <div class="portletBoxDest" style="margin:4px"
    tal:condition="python:len(portlets) == 0"
    tal:attributes="dest_slot group;
-                   insert_url folder_url;
-                   dest_ypos python: 0">
+                   dest_ypos python: 0;
+                   insert_url folder_url">
     <div class="portletBoxEditMenu"
      tal:attributes="title slot_title;
                      src_ypos python: 0;
+                     insert_url folder_url;
                      folder_url folder_url;
                      folder_editable folder_editable;
                      icon slot_icon;

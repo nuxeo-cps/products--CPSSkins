@@ -544,6 +544,10 @@ msgid "_Description_"
 msgstr ""
 
 
+msgid "_Destination_slot_"
+msgstr ""
+
+
 msgid "_Display a contextual icon_"
 msgstr "Afficher l'icône de l'objet courant"
 
