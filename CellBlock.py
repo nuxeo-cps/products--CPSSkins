@@ -335,9 +335,8 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
 
         css = ''
         height = self.height
-
         if height:
-            css += 'height:%s' % height
+            css = 'height:%s' % height
         return css
 
     security.declarePublic('getCSSAreaClass')

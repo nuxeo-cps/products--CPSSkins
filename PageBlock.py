@@ -422,9 +422,12 @@ class PageBlock(ThemeFolder, StylableContent):
         areaclass = None
         shape = self.shape
         color = self.color
-        if shape and color:
-            areaclass = 'Shape%s Color%s' % (shape, color)
-        return areaclass
+        areaclass = []
+        if shape:
+            areaclass.append('Shape%s' % shape)
+        if color:
+            areaclass.append('Color%s' % color)
+        return ' '.join(areaclass)
 
     security.declarePublic('can_toggle')
     def can_toggle(self):

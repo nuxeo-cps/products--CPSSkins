@@ -455,28 +455,27 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
            level = 2 for CSS2 browsers
         """
 
-        areaclass = ''
-
+        areaclass = []
         try:
             color = self.color
             fontcolor = self.fontcolor
             fontshape = self.fontshape
 
             if color:
-                areaclass += 'Color%s ' % color
+                areaclass.append('Color%s' % color)
             if fontcolor:
-                areaclass += 'FontColor%s ' % fontcolor
+                areaclass.append('FontColor%s' % fontcolor)
             if fontshape:
-                areaclass += 'FontShape%s ' % fontshape
+                areaclass.append('FontShape%s' % fontshape)
 
             if level == 2:
                 shape = self.shape
                 formstyle = self.formstyle
 
                 if shape:
-                    areaclass += 'Shape%s ' % shape
+                    areaclass.append('Shape%s' % shape)
                 if formstyle:
-                    areaclass += 'FormStyle%s ' % formstyle
+                    areaclass.append('FormStyle%s' % formstyle)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.
@@ -484,7 +483,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             self.rebuild()
 
         if areaclass:
-            return areaclass.strip()
+            return ' '.join(areaclass)
         return ''
 
     security.declarePublic('getCSSBoxClass')
@@ -492,16 +491,14 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """Return the CSS box class for this Templet.
         """
 
-        boxclass = ''
-
+        boxclass = []
         try:
             boxcolor = self.boxcolor
             boxshape = self.boxshape
-
             if boxcolor:
-                boxclass += 'BoxColor%s ' % boxcolor
+                boxclass.append('BoxColor%s' % boxcolor)
             if boxshape:
-                boxclass += 'BoxShape%s ' % boxshape
+                boxclass.append('BoxShape%s' % boxshape)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.
@@ -509,7 +506,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             self.rebuild()
 
         if boxclass:
-            return boxclass.strip()
+            return ' '.join(boxclass)
         return ''
 
     security.declarePublic('VisibilityList')
