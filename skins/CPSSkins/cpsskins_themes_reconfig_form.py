@@ -1,6 +1,7 @@
 ##parameters=REQUEST=None, **kw
 
 tmtool = context.portal_themes
+tmtool.manage_clearCaches()
 
 if REQUEST is None:
     REQUEST = context.REQUEST
