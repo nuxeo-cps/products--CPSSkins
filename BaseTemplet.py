@@ -356,12 +356,6 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         return 1
 
-    security.declarePublic('isCacheable')
-    def isCacheable(self):
-        """Returns true if the Templet can be cached in RAM."""
-
-        return 1
-
     security.declarePublic('isCached')
     def isCached(self):
         """Returns true if the Templet is being cached."""
