@@ -1,0 +1,13 @@
+
+2004-11-28:
+
+- Redesign the theme editor interface to separate the edit forms
+  from the theme edition canvas. This is meant to remove the dependency
+  on the main master slot, simplify navigation and improve responsiveness.
+
+- use popups for editing theme objects instead of relying on inline edit forms
+
+- unify the theme editor interface and the portlet editor (reuse components)
+
+- use a single page for editing themes (e.g. cpsskins_theme_manage_form)
+  with different panels.
