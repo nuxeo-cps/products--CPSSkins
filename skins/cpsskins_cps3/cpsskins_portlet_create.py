@@ -1,11 +1,13 @@
-##parameters=type_name=None, slot=None, order=None, REQUEST=None
+##parameters=REQUEST=None, **kw
+
+if REQUEST is not None:
+    kw.update(REQUEST.form)
+
+ptype_id = kw.get('ptype_id')
 
 ptltool = context.portal_cpsportlets
-if type_name is not None:
-    portlet_id = ptltool.createPortlet(ptype_id=type_name, 
-                                       slot=slot, 
-                                       order=order,
-                                       context=context)
+if ptype_id is not None:
+    portlet_id = ptltool.createPortlet(context=context, **kw)
 
 if REQUEST is not None:
     redirect_url = REQUEST.get('HTTP_REFERER')
