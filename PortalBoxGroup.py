@@ -140,7 +140,7 @@ class PortalBoxGroup(BaseTemplet):
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
 
-        return self.hasPortlets()
+        return None
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
@@ -202,12 +202,12 @@ class PortalBoxGroup(BaseTemplet):
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render()
+                    rendered = portlet.render_cache()
                 # could be anything
                 except:
                     rendered = self.cpsskins_brokentemplet()
             else:
-                rendered = portlet.render()
+                rendered = portlet.render_cache()
             # add the box decoration
             rendered = self.applyBoxLayout(title=portlet.getTitle(),
                                            body=rendered,
@@ -216,42 +216,6 @@ class PortalBoxGroup(BaseTemplet):
             all_rendered += rendered
 
         return all_rendered
-
-    #
-    # RAM Cache
-    #
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None, **kw):
-        """Returns the RAM cache index as a tuple (var1, var2, ...)
-        """
-       
-        index = ()
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        if ptltool is None:
-            return index
-
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        slot = self.getSlot()
-        context = kw.get('context')
-        portlets = ptltool.getPortlets(context, slot)
-        param_dict = {
-            'url': (REQUEST.get('PATH_TRANSLATED', '/'), ),
-            'i18n': (REQUEST.get('cpsskins_language', 'en'), ),
-            'user': (str(REQUEST.get('AUTHENTICATED_USER')), ),
-        }
-        # compute the total index by aggregating all portlet cache indexes.
-        # (the portlet's id is unique per instance, hence we can use it as a
-        # cache index key for the portlet).
-        for portlet in portlets:
-            index += (portlet.getId(),)
-            # custom cache index computed by the portlet
-            index += portlet.getCustomCacheIndex()
-            # cache parameters
-            for param in portlet.getCacheParams():
-                index += param_dict.get(param)
-        return index
 
 InitializeClass(PortalBoxGroup)
 
