@@ -489,10 +489,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             for obj in styles_dir.objectValues():
                 o = obj.aq_inner.aq_explicit
                 if getattr(o, 'isportalstyle', 0):
-                    try:
-                        css += obj.render(**kw) 
-                    except:
-                        pass
+                    css += obj.render(**kw)
             css = css_slimmer(css)
             cache.setEntry(index, css)
         return css
