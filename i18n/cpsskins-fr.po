@@ -2089,6 +2089,10 @@ msgid "_option_horizontal_"
 msgstr "En horizontal"
 
 
+msgid "_option_horizontal_menu_"
+msgstr "Menu horizontal"
+
+
 msgid "_option_html_"
 msgstr "HTML"
 

@@ -2087,6 +2087,10 @@ msgid "_option_horizontal_"
 msgstr "Horizontal"
 
 
+msgid "_option_horizontal_menu_"
+msgstr "Horizontal menu"
+
+
 msgid "_option_html_"
 msgstr "HTML"
 

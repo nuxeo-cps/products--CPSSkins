@@ -10,6 +10,7 @@ layouts_dict = {
                'drawer_notitle',
                'rounded_box',
                'rounded_box_notitle',
+               'horizontal_menu',
               ],
 'PortletBox': ['standard', 
                'one_frame', 
@@ -18,6 +19,7 @@ layouts_dict = {
                'notitle_noframe',
                'rounded_box',
                'rounded_box_notitle',
+               'horizontal_menu',
               ]
 }
 return layouts_dict[boxtype]

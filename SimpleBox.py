@@ -45,6 +45,8 @@ BOX_LAYOUTS = {
 # rounded box without title
 'rounded_box_notitle': """<div class="rbtop"><div></div></div>
 <div class="body">%s</div><div class="rbbot"><div></div></div>""",
+# horizontal menu
+'horizontal_menu': """<div class="cpsskinsTabs body">%s<div>""",
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -131,20 +133,22 @@ class SimpleBox:
                 boxclass.append('boxColor%s' % boxcolor)
             if boxshape:
                 boxclass.append('boxShape%s' % boxshape)
+            # XXX: move 'cpsskinsBoxCorners' to the box layout
             if boxcorners:
                 boxclass.append('boxCorner%s cpsskinsBoxCorners' % boxcorners)
             if portaltabstyle:
-                boxclass.append('portalTab%s cpsskinsTabs' % portaltabstyle)
+                boxclass.append('portalTab%s' % portaltabstyle)
 
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.
         except AttributeError:
             self.rebuild()
 
+        # XXX move this to box layouts
         orientation = getattr(self, 'orientation', '')
         if orientation == 'horizontal':
             boxclass.append('cpsskinsTab')
-        else:
+        elif orientation == 'vertical':
             boxclass.append('cpsskinsBox')
 
         if boxclass:
@@ -172,6 +176,8 @@ class SimpleBox:
             return BOX_LAYOUTS['rounded_box'] % (title, body)
         elif boxlayout == 'rounded_box_notitle':
             return BOX_LAYOUTS['rounded_box_notitle'] % body
+        elif boxlayout == 'horizontal_menu':
+            return BOX_LAYOUTS['horizontal_menu'] % body
 
         macro_path = self.restrictedTraverse(
             '%s/macros/%s' % (BOX_LAYOUT_MACRO, boxlayout),
