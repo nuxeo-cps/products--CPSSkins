@@ -1,3 +1,4 @@
+from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 
 import zLOG
@@ -39,7 +40,7 @@ def migrate(self):
 
     pr_h2("Starting CPSSkins migrate")
 
-    theme_container = getattr(portal, 'portal_themes', None)
+    theme_container = getToolByName(portal, 'portal_themes', None)
     if theme_container is None:
         portal.manage_addProduct['CPSSkins'].manage_addTool('Portal Themes Tool', None)
     
@@ -65,7 +66,14 @@ def migrate(self):
     else:
         pr("  Themes have been rebuilt")
 
-    pr("  Removing obsolete cache attributes: ")
+    pr_h3("Checking the presence of the debug mode option")
+    if getattr(aq_base(theme_container), 'debug_mode', None) is None:
+        pr("  setting the debug mode to 0.")
+        theme_container.debug_mode = 0
+    else:
+        pr("  debug mode already set.")
+
+    pr_h3("  Removing obsolete cache attributes: ")
     for theme in theme_container.getThemes():
         for templet in theme.getTemplets():
             for oldattr in ('cache', 'cache_last_update', \
