@@ -13,6 +13,9 @@ page_container = theme_container.addThemePage()
 if page_container is None:
     return
 
+# add a default page block
+page_container.addPageBlock()
+
 page = page_container.getId()
 
 # switch to the new theme
