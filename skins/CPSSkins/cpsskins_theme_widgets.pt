@@ -226,9 +226,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </div>
     <div class="separator"></div>
     <div class="context-menu-submenu">
-      <ul onmouseover="javascript:toggle('style-submenu')"
-          onmouseout="javascript:toggle('style-submenu')">
-        <li>
+      <ul>
+        <li onmouseover="javascript:show('style-submenu');hide('align-submenu')">
           <div class="context-menu-item">
             <img width="16" height="16" 
              tal:attributes="src string:${base_url}cpsskins_images/set_style-16.png" />
@@ -256,9 +255,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </div>
     <div class="separator"></div>
     <div class="context-menu-submenu">
-      <ul onmouseover="javascript:toggle('align-submenu')"
-          onmouseout="javascript:toggle('align-submenu')">
-        <li>
+      <ul>
+        <li onmouseover="javascript:show('align-submenu');hide('style-submenu')">
           <div class="context-menu-item">
             <img width="16" height="16" 
              tal:attributes="src string:${base_url}cpsskins_images/set_style-16.png" />
