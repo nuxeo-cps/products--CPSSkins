@@ -12,5 +12,11 @@ color:&dtml-Area_font_color;;
 <dtml-if Area_bg_image>
 background-image: url(&dtml-theme_url;/backgrounds/&dtml-Area_bg_image;);
 </dtml-if>
+<dtml-if Area_bg_repeat>
+background-repeat:&dtml-Area_bg_repeat;;
+</dtml-if>
+<dtml-if Area_bg_position>
+background-position:&dtml-Area_bg_position;;
+</dtml-if>
 }
 </dtml-let>

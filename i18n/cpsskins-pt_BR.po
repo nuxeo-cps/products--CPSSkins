@@ -104,6 +104,14 @@ msgid "_Area background image_"
 msgstr "Imagem de fundo"
 
 
+msgid "_Area background position_"
+msgstr ""
+
+
+msgid "_Area background repeat_"
+msgstr ""
+
+
 msgid "_Area border color_"
 msgstr "Cor da borda"
 
@@ -154,10 +162,6 @@ msgstr "Cor da borda de baixo"
 
 msgid "_Box color_"
 msgstr "Cor da caixa do Portal"
-
-
-msgid "_Box group_"
-msgstr "Grupo da caixa do Portal"
 
 
 msgid "_Box layout_"
@@ -1046,6 +1050,18 @@ msgid "_Portal box_"
 msgstr "Caixa do Portal"
 
 
+msgid "_Portlet Box Templet_"
+msgstr ""
+
+
+msgid "_Portlet type_"
+msgstr ""
+
+
+msgid "_Portlet_"
+msgstr ""
+
+
 msgid "_Preview background color_"
 msgstr "Cor de fundo de previsão"
 
@@ -1144,6 +1160,10 @@ msgstr "Mostrar ano"
 
 msgid "_Simulate this URL ..._"
 msgstr "Simular esta URL ..."
+
+
+msgid "_Slot name_"
+msgstr ""
 
 
 msgid "_Start string_"
@@ -1742,6 +1762,22 @@ msgid "_option_automatic_"
 msgstr "Detecção automática"
 
 
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+
+msgid "_option_bg_repeat_"
+msgstr ""
+
+
 msgid "_option_block_"
 msgstr "Largura da caixa"
 
@@ -1878,6 +1914,14 @@ msgid "_option_login_"
 msgstr "Formulário de Login"
 
 
+msgid "_option_min_max_"
+msgstr ""
+
+
+msgid "_option_min_max_close_"
+msgstr ""
+
+
 msgid "_option_no_frames_"
 msgstr "Sem quadros"
 
@@ -1998,6 +2042,10 @@ msgid "_portaltheme_description_"
 msgstr "Um Tema de Portal modifica a aparência e o layout do portal. O layout do Tema é composto de Blocos de Página horizontais."
 
 
+msgid "_portletbox_templet_description_"
+msgstr ""
+
+
 msgid "_searchbox_Advanced_search"
 msgstr "Busca avançada"
 
@@ -2008,6 +2056,10 @@ msgstr "Busca"
 
 msgid "_searchbox_templet_description_"
 msgstr "uma caixa com um campo de entrada para busca no site"
+
+
+msgid "_select this slot_"
+msgstr ""
 
 
 msgid "_selected_tab_"
@@ -2054,8 +2106,24 @@ msgid "_wysiwyg mode_"
 msgstr "Modo WYSIWYG"
 
 
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+
 msgid "description_delete_unused_boxes"
 msgstr "Remover caixas não utilizadas"
+
+
+msgid "description_delete_unused_portlets"
+msgstr ""
+
+
+msgid "description_portlets_visible_from"
+msgstr ""
 
 
 msgid "description_unused_boxes"
@@ -2066,10 +2134,26 @@ msgid "description_unused_boxes_deleted"
 msgstr "Caixas não utilizadas removidas"
 
 
+msgid "description_unused_portlets"
+msgstr ""
+
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+
 msgid "heading_unused_boxes"
 msgstr "Caixas não utilizadas"
 
 
+msgid "heading_unused_portlets"
+msgstr ""
+
+
 msgid "menu_insert_box"
 msgstr "Inserir uma caixa ..."
+
+
+msgid "menu_insert_portlet"
+msgstr ""
 

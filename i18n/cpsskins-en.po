@@ -103,6 +103,14 @@ msgid "_Area background image_"
 msgstr "Background image"
 
 
+msgid "_Area background position_"
+msgstr "Image position"
+
+
+msgid "_Area background repeat_"
+msgstr "Repeat the image"
+
+
 msgid "_Area border color_"
 msgstr "Border color"
 
@@ -1749,6 +1757,22 @@ msgstr "Always"
 
 msgid "_option_automatic_"
 msgstr "Automatic detection"
+
+
+msgid "_option_bg_no-repeat_"
+msgstr "Do not repeat"
+
+
+msgid "_option_bg_repeat-x_"
+msgstr "Horizontally"
+
+
+msgid "_option_bg_repeat-y_"
+msgstr "Vertically"
+
+
+msgid "_option_bg_repeat_"
+msgstr "To cover the area"
 
 
 msgid "_option_block_"

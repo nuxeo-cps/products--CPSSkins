@@ -106,6 +106,14 @@ msgid "_Area background image_"
 msgstr "Imagen de fondo"
 
 
+msgid "_Area background position_"
+msgstr ""
+
+
+msgid "_Area background repeat_"
+msgstr ""
+
+
 msgid "_Area border color_"
 msgstr "Color del borde"
 
@@ -1772,6 +1780,22 @@ msgstr ""
 
 
 msgid "_option_automatic_"
+msgstr ""
+
+
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+
+msgid "_option_bg_repeat_"
 msgstr ""
 
 

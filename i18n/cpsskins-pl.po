@@ -105,6 +105,14 @@ msgid "_Area background image_"
 msgstr "Obrazek t³a"
 
 
+msgid "_Area background position_"
+msgstr ""
+
+
+msgid "_Area background repeat_"
+msgstr ""
+
+
 msgid "_Area border color_"
 msgstr "Kolor ramki"
 
@@ -1750,6 +1758,22 @@ msgstr ""
 
 
 msgid "_option_automatic_"
+msgstr ""
+
+
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+
+msgid "_option_bg_repeat_"
 msgstr ""
 
 

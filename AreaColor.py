@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 from Globals import InitializeClass
+from AccessControl import ClassSecurityInfo
 
 from BaseStyle import BaseStyle
 
@@ -53,6 +54,8 @@ class AreaColor(BaseStyle):
     render_action = 'cpsskins_areacolor'
     preview_action = 'cpsskins_areacolor_preview'
 
+    security = ClassSecurityInfo()
+
     _properties = BaseStyle._properties + (
         {'id': 'Area_border_color', 
          'type': 'string', 
@@ -73,6 +76,22 @@ class AreaColor(BaseStyle):
          'select_variable' : 'cpsskins_listBackgrounds', 
          'image': 'backgrounds'
         },
+        {'id': 'Area_bg_position',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area background position',
+         'visible': 'ifBackgroundImage',
+        },
+        {'id': 'Area_bg_repeat',
+         'type': 'selection',
+         'mode': 'w', 
+         'label': 'Area background repeat',
+         'select_variable': 'BackgroundRepeatList',
+         'visible': 'ifBackgroundImage',
+         'default': 'repeat',
+         'i18n': 1,
+         'i18n_prefix': '_option_bg_',
+        },
         {'id': 'Area_font_color', 
          'type': 'string', 
          'mode': 'w', 
@@ -85,6 +104,8 @@ class AreaColor(BaseStyle):
                  Area_border_color = '#CCC',
                  Area_bg_color = '#FFF',
                  Area_bg_image = '',
+                 Area_bg_position = '',
+                 Area_bg_repeat = '',
                  Area_font_color = '#000000',
                  **kw):
 
@@ -92,7 +113,24 @@ class AreaColor(BaseStyle):
         self.Area_border_color = Area_border_color
         self.Area_bg_color = Area_bg_color
         self.Area_bg_image = Area_bg_image
+        self.Area_bg_position = Area_bg_position
+        self.Area_bg_repeat = Area_bg_repeat
         self.Area_font_color = Area_font_color
+
+    security.declarePublic('BackgroundRepeatList')
+    def BackgroundRepeatList(self):           
+        """Return a list of background repeat options"""
+
+        list = ['repeat', 'repeat-x', 'repeat-y', 'no-repeat']
+        return list
+
+    security.declarePublic('ifBackgroundImage')
+    def ifBackgroundImage(self):           
+        """Return True is there is a backround image"""
+
+        if self.Area_bg_image:
+            return 1
+
 
 InitializeClass(AreaColor)
 

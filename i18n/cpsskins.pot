@@ -1602,3 +1602,21 @@ msgstr ""
 
 msgid "_option_min_max_close_"
 msgstr ""
+
+msgid "_option_bg_repeat_"
+msgstr ""
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+msgid "_Area background position_"
+msgstr ""
+
+msgid "_Area background repeat_"
+msgstr ""
