@@ -1089,7 +1089,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     def render_esi(self, context_rurl=None, **kw):
         """Renders the ESI fragment code."""
 
-        return self.esi_code % (self.absolute_url(1), context_rurl)
+        return self.esi_code % (self.absolute_url(), context_rurl)
 
     security.declarePublic('getStyle')
     def getStyle(self,  meta_type=None):
