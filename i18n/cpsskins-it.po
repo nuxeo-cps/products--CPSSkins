@@ -1,19 +1,21 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CPSSkins messages\n"
+"Project-Id-Version: CPSSkins 2.3.0\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2004-08-13 14:47+0100\n"
-"Last-Translator: Fabio NOSARI <fabnos@fastwebnet.it>\n"
-"Language-Team: it <>\n"
+"PO-Revision-Date: 2004-10-01 12:13+0100\n"
+"Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
+"Language-Team: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: it\n"
 "Language-Name: Italiano\n"
-"Preferred-Encodings: utf-8 latin1\n"
+"Preferred-Encodings: latin1 utf-8\n"
 "Domain: cpsskins\n"
-"X-Is-Fallback-For: it-ch\n"
+"Preferred-encodings: utf-8 latin1\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
 
 msgid "_(default style)_"
 msgstr "(stile di default)"
@@ -52,11 +54,11 @@ msgstr "Decorazione dei collegamenti già percorsi"
 
 
 msgid "_Action Box Templet_"
-msgstr "Casella di utilità"
+msgstr "Contenitore per le azioni"
 
 
 msgid "_Action box_"
-msgstr "Casella di azioni"
+msgstr "Contenitore per le azioni"
 
 
 msgid "_Action categories_"
@@ -64,15 +66,15 @@ msgstr "Categorie di azioni"
 
 
 msgid "_Add a column_"
-msgstr "Aggiungi una colonna"
+msgstr "Inserisci  una colonna"
 
 
 msgid "_Add an image_"
-msgstr "Aggiungi un'immagine"
+msgstr "Inserisci  un'immagine"
 
 
 msgid "_Add_a_new_Templet_"
-msgstr "Aggiungi un nuovo Templet"
+msgstr "Inserisci  un nuovo templet"
 
 
 msgid "_Align_"
@@ -80,7 +82,7 @@ msgstr "Allineamento"
 
 
 msgid "_Appearance_"
-msgstr "Aspetto"
+msgstr "Visualizza con"
 
 
 msgid "_April_"
@@ -88,39 +90,39 @@ msgstr "Aprile"
 
 
 msgid "_Area Color_"
-msgstr "Colore delle aree"
+msgstr "Colori delle aree"
 
 
 msgid "_Area Shape_"
-msgstr "Forma delle aree"
+msgstr "Forme delle aree"
 
 
 msgid "_Area active background color_"
-msgstr ""
+msgstr "Colore di sfondo dell'area attiva"
 
 
 msgid "_Area active border color_"
-msgstr ""
+msgstr "Colore del bordo dell'area attiva"
 
 
 msgid "_Area background color_"
-msgstr "Colore di sfondo "
+msgstr "Colore del motivo di sfondo "
 
 
 msgid "_Area background image_"
-msgstr "Immagine di sfondo "
+msgstr "Motivo di sfondo"
 
 
 msgid "_Area background position_"
-msgstr ""
+msgstr "Posiziona il motivo di sfondo"
 
 
 msgid "_Area background repeat_"
-msgstr ""
+msgstr "Ripeti il motivo di sfondo"
 
 
 msgid "_Area border color_"
-msgstr "Colore del bordo "
+msgstr "Colore del bordo"
 
 
 msgid "_Area border style_"
@@ -128,23 +130,23 @@ msgstr "Stile del bordo"
 
 
 msgid "_Area border width_"
-msgstr "Larghezza del bordo dell'area"
+msgstr "Larghezza del bordo"
 
 
 msgid "_Area color_"
-msgstr "Colore delle aree"
+msgstr "Colori delle aree"
 
 
 msgid "_Area font color_"
-msgstr "Colore del testo"
+msgstr "Colore dei caratteri"
 
 
 msgid "_Area shape_"
-msgstr "Contorno delle aree"
+msgstr "Forme delle aree"
 
 
 msgid "_Area text transform_"
-msgstr ""
+msgstr "Trasforma il testo"
 
 
 msgid "_August_"
@@ -172,39 +174,39 @@ msgstr "Colore del bordo inferiore"
 
 
 msgid "_Box color_"
-msgstr "Colore della casella"
+msgstr "Colore del contenitore"
 
 
 msgid "_Box layout_"
-msgstr "Aspetto della casella"
+msgstr "Aspetto del contenitore"
 
 
 msgid "_Box orientation_"
-msgstr "Disposizione della casella"
+msgstr "Disposizione del contenitore"
 
 
 msgid "_Box shape_"
-msgstr "Forma della casella"
+msgstr "Bordo del contenitore"
 
 
 msgid "_BoxBody background color_"
-msgstr "Colore di sfondo del corpo della casella"
+msgstr "Colore di sfondo del corpo del contenitore"
 
 
 msgid "_BoxBody background image_"
-msgstr "Immagine di sfondo del corpo della casella"
+msgstr "Immagine di sfondo del corpo del contenitore"
 
 
 msgid "_BoxBody border color_"
-msgstr "Colore del bordo del corpo della casella"
+msgstr "Colore del bordo del corpo del contenitore"
 
 
 msgid "_BoxBody border style_"
-msgstr "Stile del bordo del corpo della casella"
+msgstr "Stile del bordo del corpo del contenitore"
 
 
 msgid "_BoxBody border width_"
-msgstr "Larghezza del bordo del corpo della casella"
+msgstr "Larghezza del bordo del corpo del contenitore"
 
 
 msgid "_BoxBody menuin border color_"
@@ -256,7 +258,7 @@ msgstr "Icona dei menù"
 
 
 msgid "_BoxBody menuout margin_"
-msgstr "Contorno dei menù"
+msgstr "Margini dei menù"
 
 
 msgid "_BoxBody menuout padding_"
@@ -264,51 +266,51 @@ msgstr "Spazio di contorno dei menù"
 
 
 msgid "_BoxBody padding_"
-msgstr "Spazio di contorno al corpo della casella"
+msgstr "Spazio di contorno al corpo del contenitore"
 
 
 msgid "_BoxBody text align_"
-msgstr "Allineamento del testo contenuto nel corpo della casella"
+msgstr "Allineamento del testo contenuto nel corpo del contenitore"
 
 
 msgid "_BoxTitle background color_"
-msgstr "Colore di sfondo del titolo della casella"
+msgstr "Colore di sfondo del titolo del contenitore"
 
 
 msgid "_BoxTitle background image_"
-msgstr "Immagine di sfondo del titolo della casella"
+msgstr "Immagine di sfondo del titolo del contenitore"
 
 
 msgid "_BoxTitle border color_"
-msgstr "Colore del bordo del titolo della casella"
+msgstr "Colore del bordo del titolo del contenitore"
 
 
 msgid "_BoxTitle border style_"
-msgstr "Stile del bordo della parte di casella contenente il titolo"
+msgstr "Stile del bordo della parte di contenitore contenente il titolo"
 
 
 msgid "_BoxTitle border width_"
-msgstr "Larghezza del bordo della parte di casella contenente il titolo "
+msgstr "Larghezza del bordo della parte di contenitore contenente il titolo "
 
 
 msgid "_BoxTitle display_"
-msgstr "Criteri di visualizzazione del titolo della casella"
+msgstr "Criteri di visualizzazione del titolo del contenitore"
 
 
 msgid "_BoxTitle font color_"
-msgstr "Colore dei caratteri del titolo della casella"
+msgstr "Colore dei caratteri del titolo del contenitore"
 
 
 msgid "_BoxTitle font weight_"
-msgstr "Dimensione dei caratteri del titolo della casella"
+msgstr "Dimensione dei caratteri del titolo del contenitore"
 
 
 msgid "_BoxTitle padding_"
-msgstr "Spazio di contorno al titolo della casella"
+msgstr "Spazio di contorno al titolo del contenitore"
 
 
 msgid "_BoxTitle text align_"
-msgstr "Allineamento del testo contenuto nel titolo della casella"
+msgstr "Allineamento del testo contenuto nel titolo del contenitore"
 
 
 msgid "_Breadcrumbs Templet_"
@@ -316,11 +318,11 @@ msgstr "Percorso di navigazione"
 
 
 msgid "_Breadcrumbs_"
-msgstr "Percorso di navigazione"
+msgstr "Percorsi di navigazione"
 
 
 msgid "_Broken Templet!_"
-msgstr "Templet interrotta!"
+msgstr "Templet interrotto!"
 
 
 msgid "_Cache effectivity_"
@@ -332,11 +334,11 @@ msgstr "Tempo di durata della cache RAM"
 
 
 msgid "_Cache manager_"
-msgstr "Gestisci la cache RAM per i Templets"
+msgstr "Gestisci la cache RAM dei templets"
 
 
 msgid "_Cache parameters updated_"
-msgstr "I parametri di cache RAM sono stati modificati"
+msgstr "I parametri di cache RAM sono stati modificati."
 
 
 msgid "_Cacheable in RAM_"
@@ -352,39 +354,39 @@ msgstr "Cache RAM"
 
 
 msgid "_Calendar Style_"
-msgstr "Stile del calendario"
+msgstr "Stili dei calendari/agende"
 
 
 msgid "_Calendar Templet_"
-msgstr "Calendario"
+msgstr "Calendario/Agenda"
 
 
 msgid "_Calendar_"
-msgstr "Calendario"
+msgstr "Calendario/Agenda"
 
 
 msgid "_Cell Hider_"
-msgstr "Nasconditore di casella"
+msgstr "Nasconditore del contenitore"
 
 
 msgid "_Cell Sizer_"
-msgstr "Dimensionatore di casella"
+msgstr "Dimensionatore del contenitore"
 
 
 msgid "_Cell Styler_"
-msgstr "Stilista di casella"
+msgstr "Stilista del contenitore"
 
 
 msgid "_Cell width_"
-msgstr "Larghezza della casella"
+msgstr "Larghezza del contenitore"
 
 
 msgid "_Click here to edit the Main Content Templet_"
-msgstr "Seguendo questo collegamento, puoi modificare il contenuto del Templet della regione principale."
+msgstr "Seguendo questo collegamento, puoi modificare il contenuto del templet della regione principale."
 
 
 msgid "_Collapsible Menu Style_"
-msgstr "Stile dei menù dinamici"
+msgstr "Stili dei menù dinamici"
 
 
 msgid "_Collapsible Menu Templet_"
@@ -412,7 +414,7 @@ msgstr "Creato da:"
 
 
 msgid "_Custom action categories_"
-msgstr "Categorie di azioni supplementari"
+msgstr "Inserisci altre categorie di azioni "
 
 
 msgid "_Days background color_"
@@ -436,7 +438,7 @@ msgstr "Tipo di carattere di default"
 
 
 msgid "_Delete Templet?_"
-msgstr "Vuoi eliminare questo Templet?"
+msgstr "Vuoi eliminare questo templet?"
 
 
 msgid "_Delete style?_"
@@ -452,35 +454,35 @@ msgstr "Elimina"
 
 
 msgid "_Deleting this Templet, are you sure?_"
-msgstr "Sto eliminando questo Templet. Sei sicuro?"
+msgstr "Stai eliminando questo templet. Sei sicuro?"
 
 
 msgid "_Deleting this cell hider, are you sure?_"
-msgstr "Sto eliminando questo nasconditore di casella. Sei sicuro?"
+msgstr "Stai eliminando questo nasconditore di contenitore. Sei sicuro?"
 
 
 msgid "_Deleting this cell sizer, are you sure?_"
-msgstr "Sto eliminando questo dimensionatore di casella. Sei sicuro?"
+msgstr "Stai eliminando questo dimensionatore di contenitore. Sei sicuro?"
 
 
 msgid "_Deleting this cell styler, are you sure?_"
-msgstr "Sto eliminando questo stilista di casella. Sei sicuro?"
+msgstr "Stai eliminando questo stilista di contenitore. Sei sicuro?"
 
 
 msgid "_Deleting this image, are you sure?_"
-msgstr "Sto eliminando questa immagine. Sei sicuro?"
+msgstr "Stai eliminando questa immagine. Sei sicuro?"
 
 
 msgid "_Deleting this page block, are you sure?_"
-msgstr "Sto eliminando questo blocco di pagina. Sei sicuro?"
+msgstr "Stai eliminando questo blocco di pagina. Sei sicuro?"
 
 
 msgid "_Deleting this palette entry, are you sure?_"
-msgstr "Sto eliminando questo elemento dalla raccolta. Sei sicuro?"
+msgstr "Stai eliminando questo elemento dalla raccolta. Sei sicuro?"
 
 
 msgid "_Deleting this style, are you sure?_"
-msgstr "Sto eliminando questo stile. Sei sicuro?"
+msgstr "Stai eliminando questo stile. Sei sicuro?"
 
 
 msgid "_Depth level_"
@@ -488,7 +490,7 @@ msgstr "Profondità relativa del livello"
 
 
 msgid "_Display a contextual icon_"
-msgstr "Visualizza l'icona dell'oggetto corrente"
+msgstr "Visualizza l'icona associata all'oggetto corrente"
 
 
 msgid "_Display hidden folders_"
@@ -500,11 +502,11 @@ msgstr "Visualizza il titolo in modalità testuale"
 
 
 msgid "_Document Info Templet_"
-msgstr "Informazioni sul documento"
+msgstr "Contenitore di informazioni sull'oggetto"
 
 
 msgid "_Document info_"
-msgstr "Casella di informazioni"
+msgstr "Contenitore per delle informazioni"
 
 
 msgid "_ESI fragment_"
@@ -512,7 +514,7 @@ msgstr "Frammento ESI (Edge Sides Includes)"
 
 
 msgid "_ESI_"
-msgstr "ESI"
+msgstr "ESI (Edge Sides Includes)"
 
 
 msgid "_Edit images_"
@@ -520,7 +522,7 @@ msgstr "Modifica le immagini"
 
 
 msgid "_Edit palettes_"
-msgstr "Modifica le tavolozze"
+msgstr "Modifica le raccolte"
 
 
 msgid "_Edit styles_"
@@ -536,7 +538,7 @@ msgstr "Modifica"
 
 
 msgid "_Elements_"
-msgstr ""
+msgstr "Elementi"
 
 
 msgid "_Enable ESI_"
@@ -548,15 +550,15 @@ msgstr "Marcatore di fine stringa"
 
 
 msgid "_Event background color_"
-msgstr "Colore di sfondo delle ricorrenze"
+msgstr "Colore di sfondo degli avvenimenti"
 
 
 msgid "_Event border color_"
-msgstr "Colore del bordo delle ricorrenze"
+msgstr "Colore del bordo degli avvenimenti"
 
 
 msgid "_Event font color_"
-msgstr "Colore del carattere delle ricorrenze"
+msgstr "Colore del carattere degli avvenimenti"
 
 
 msgid "_Exit_"
@@ -568,11 +570,11 @@ msgstr "Febbraio"
 
 
 msgid "_Flash Box Templet_"
-msgstr "Casella Flash TM"
+msgstr "Contenitore per le animazioni Flash TM"
 
 
 msgid "_Flash box_"
-msgstr "Casella contenente un'animazione Flash TM"
+msgstr "Contenitore per le animazioni Flash TM"
 
 
 msgid "_Flash caption_"
@@ -588,11 +590,11 @@ msgstr "Dimensione orizzontale dell'animazione"
 
 
 msgid "_Font Color_"
-msgstr "Colore dei caratteri"
+msgstr "Colori dei caratteri"
 
 
 msgid "_Font Shape_"
-msgstr "Tipo di caratteri"
+msgstr "Tipi di caratteri"
 
 
 msgid "_Font color_"
@@ -608,19 +610,19 @@ msgstr "Non ricordo la mia password!"
 
 
 msgid "_Form Style_"
-msgstr ""
+msgstr "Stili dei moduli"
 
 
 msgid "_Form padding_"
-msgstr ""
+msgstr "Spazio di riempimento del modulo"
 
 
 msgid "_Form style_"
-msgstr ""
+msgstr "Stili dei moduli"
 
 
 msgid "_Form_"
-msgstr ""
+msgstr "Modulo"
 
 
 msgid "_Fr_"
@@ -636,7 +638,7 @@ msgstr "H1"
 
 
 msgid "_H1_bg_color_"
-msgstr ""
+msgstr "Colore di sfondo H1"
 
 
 msgid "_H1_border_color_"
@@ -668,7 +670,7 @@ msgstr "H2"
 
 
 msgid "_H2_bg_color_"
-msgstr ""
+msgstr "Colore di sfondo H2"
 
 
 msgid "_H2_border_color_"
@@ -700,7 +702,7 @@ msgstr "H3"
 
 
 msgid "_H3_bg_color_"
-msgstr ""
+msgstr "Colore di sfondo H3"
 
 
 msgid "_H3_border_color_"
@@ -732,31 +734,31 @@ msgstr "H4, H5, H6"
 
 
 msgid "_H456_bg_color_"
-msgstr ""
+msgstr "Colore di sfondo H4, H5, H6"
 
 
 msgid "_H456_border_color_"
-msgstr "Colore del bordo H4, H5, H6"
+msgstr "Colore del bordo H456"
 
 
 msgid "_H456_border_style_"
-msgstr "Stile del bordo H4, H5, H6"
+msgstr "Stile del bordo H456"
 
 
 msgid "_H456_border_width_"
-msgstr "Larghezza del bordo H4, H5, H6"
+msgstr "Larghezza del bordo H456"
 
 
 msgid "_H456_font_"
-msgstr "Tipo di carattere H4, H5, H6"
+msgstr "Tipo di carattere H456"
 
 
 msgid "_H456_font_color_"
-msgstr "Colore del carattere H4, H5, H6"
+msgstr "Colore del carattere H456"
 
 
 msgid "_H456_padding_"
-msgstr "Spazio di riempimento H4, H5, H6"
+msgstr "Spazio di riempimento H456"
 
 
 msgid "_Header background color_"
@@ -772,7 +774,7 @@ msgstr "Altezza"
 
 
 msgid "_Hidden in text mode_"
-msgstr "Non visualizzabile in modalità testuale"
+msgstr "Nascondi in modalità testuale"
 
 
 msgid "_Hide current language_"
@@ -792,7 +794,7 @@ msgstr "Elenchi di base"
 
 
 msgid "_Horizontal alignment_"
-msgstr "Allineamento orizzontale"
+msgstr "Allineamento orizzontale del templet"
 
 
 msgid "_Horizontal margin_"
@@ -800,7 +802,7 @@ msgstr "Spaziatura orizzontale"
 
 
 msgid "_Horizontal padding_"
-msgstr "Spazio di riempimento orizzontale <br>all'interno del margine del Templet "
+msgstr "Spazio di riempimento orizzontale <br>all'interno del margine del templet "
 
 
 msgid "_Icon size_"
@@ -808,11 +810,11 @@ msgstr "Dimensioni dell'icona"
 
 
 msgid "_Image Box Templet_"
-msgstr "Casella di immagine"
+msgstr "Contenitore per le immagini"
 
 
 msgid "_Image box_"
-msgstr "Casella di immagine"
+msgstr "Contenitore per le immagini"
 
 
 msgid "_Image caption_"
@@ -828,7 +830,7 @@ msgstr "Testo di informazione"
 
 
 msgid "_Insert a Templet here_"
-msgstr "Inserisci un Templet in questa posizione"
+msgstr "Inserisci un templet in questa posizione"
 
 
 msgid "_Insert a page block_"
@@ -868,7 +870,7 @@ msgstr "Selettore della lingua"
 
 
 msgid "_Last modified:_"
-msgstr "Ultima modifica:"
+msgstr "Data di ultima modifica:"
 
 
 msgid "_Left-side image_"
@@ -892,7 +894,7 @@ msgstr "Autenticati"
 
 
 msgid "_Main Content Templet_"
-msgstr "Contenuto del Templet della regione principale"
+msgstr "Contenuto del templet della regione principale"
 
 
 msgid "_Main content_"
@@ -904,11 +906,11 @@ msgstr "Marzo"
 
 
 msgid "_Margin_"
-msgstr "Larghezza dei margini"
+msgstr "Margine"
 
 
 msgid "_Maximum number of items_"
-msgstr "Imposta il numero massimo di <br>inserimenti nei sotto-menù"
+msgstr "Imposta il numero massimo di inserimenti nei sotto-menù"
 
 
 msgid "_May_"
@@ -960,11 +962,11 @@ msgstr "Sposta a destra"
 
 
 msgid "_Move this cell to the left_"
-msgstr "Sposta questa casella verso sinistra"
+msgstr "Sposta questo contenitore verso sinistra"
 
 
 msgid "_Move this cell to the right_"
-msgstr "Sposta questa casella verso destra"
+msgstr "Sposta questo contenitore verso destra"
 
 
 msgid "_Move up_"
@@ -972,7 +974,7 @@ msgstr "Sposta in alto"
 
 
 msgid "_No items published since your last log-in_"
-msgstr "Non esistono documenti pubblicati dopo il tuo ultimo ingresso nel Portale"
+msgstr "Non esistono documenti pubblicati dopo il tuo ultimo ingresso nel portale"
 
 
 msgid "_Not available in layout mode_"
@@ -1032,31 +1034,31 @@ msgstr "Colori"
 
 
 msgid "_Palettes_"
-msgstr "Tavolozze"
+msgstr "Archivio"
 
 
 msgid "_Password_"
-msgstr "Inserisci la tua password"
+msgstr "Password"
 
 
 msgid "_Portal Box Color_"
-msgstr "Colore delle caselle"
+msgstr "Colori dei contenitori"
 
 
 msgid "_Portal Box Group Templet_"
-msgstr "Gruppo di caselle"
+msgstr "Gruppo di contenitori predefiniti"
 
 
 msgid "_Portal Box Shape_"
-msgstr "Forma delle caselle"
+msgstr "Disegni dei contenitori"
 
 
 msgid "_Portal Box Templet_"
-msgstr "Casella del portale"
+msgstr "Contenitore del portale"
 
 
 msgid "_Portal Tab Style_"
-msgstr "Stile delle linguette"
+msgstr "Stili delle linguette"
 
 
 msgid "_Portal Tab Templet_"
@@ -1072,55 +1074,55 @@ msgstr "Tema"
 
 
 msgid "_Portal box color_"
-msgstr "Colore delle caselle"
+msgstr "Colori dei contenitori"
 
 
 msgid "_Portal box content_"
-msgstr "Contenuto della casella"
+msgstr "Contenuto del contenitore"
 
 
 msgid "_Portal box group_"
-msgstr "Gruppo di caselle"
+msgstr "Gruppo di contenitori"
 
 
 msgid "_Portal box shape_"
-msgstr "Forma delle caselle"
+msgstr "Disegni dei contenitori"
 
 
 msgid "_Portal box title source_"
-msgstr "Origine del titolo della casella (o nome dell'utente connesso, o stato del flusso di lavoro)"
+msgstr "Origine del titolo del contenitore (o nome dell'utente connesso, o stato del flusso di lavoro)"
 
 
 msgid "_Portal box_"
-msgstr "Casella del portale"
+msgstr "Contenitore del portale"
 
 
 msgid "_Portlet Box Templet_"
-msgstr ""
+msgstr "Contenitore per i portlet"
 
 
 msgid "_Portlet type_"
-msgstr ""
+msgstr "Tipo di portlet"
 
 
 msgid "_Portlet_"
-msgstr ""
+msgstr "Portlet"
 
 
 msgid "_Preview background color_"
-msgstr "Colore di sfondo dell'anteprima <br>delle ricorrenze"
+msgstr "Colore di sfondo dell'anteprima degli avvenimenti"
 
 
 msgid "_Preview border color_"
-msgstr "Colore del bordo dell'anteprima <br>delle ricorrenze"
+msgstr "Colore del bordo dell'anteprima degli avvenimenti"
 
 
 msgid "_Preview font color_"
-msgstr "Colore del carattere dell'anteprima delle ricorrenze"
+msgstr "Colore del carattere dell'anteprima degli avvenimenti"
 
 
 msgid "_Read more_"
-msgstr "Maggiori dettagli"
+msgstr "Maggiori dettagli/Approfondimenti"
 
 
 msgid "_Remove a column_"
@@ -1144,11 +1146,11 @@ msgstr "Sa"
 
 
 msgid "_Search Box Templet_"
-msgstr "Casella di ricerca"
+msgstr "Contenitore per la ricerca"
 
 
 msgid "_Search box_"
-msgstr "Casella di ricerca"
+msgstr "Contenitore per la ricerca"
 
 
 msgid "_See the error log_"
@@ -1168,7 +1170,7 @@ msgstr "Definisci la percentuale di larghezza "
 
 
 msgid "_Shape_"
-msgstr "Contorno della casella"
+msgstr "Contorni"
 
 
 msgid "_Shortcut icon_"
@@ -1180,7 +1182,7 @@ msgstr "Visualizza l'icona delle azioni"
 
 
 msgid "_Show add items_"
-msgstr ""
+msgstr "Visualizza un pulsante per inserire nuovi oggetti"
 
 
 msgid "_Show all categories_"
@@ -1188,7 +1190,7 @@ msgstr "Visualizza tutte le categorie"
 
 
 msgid "_Show documents in folders_"
-msgstr "Visualizza anche i documenti<br> contenuti nelle cartelle"
+msgstr "Visualizza anche i documenti contenuti nelle cartelle/folders"
 
 
 msgid "_Show month_"
@@ -1196,7 +1198,7 @@ msgstr "Visualizza il mese"
 
 
 msgid "_Show preview_"
-msgstr "Visualizza anteprima <br>delle ricorrenze"
+msgstr "Visualizza anteprima degli avvenimenti"
 
 
 msgid "_Show weekdays_"
@@ -1208,11 +1210,11 @@ msgstr "Visualizza l'anno"
 
 
 msgid "_Simulate this URL ..._"
-msgstr "Simula questo percorso ..."
+msgstr "Simula questo percorso URL ..."
 
 
 msgid "_Slot name_"
-msgstr ""
+msgstr "Nome dell'alloggiamento"
 
 
 msgid "_Start string_"
@@ -1228,7 +1230,7 @@ msgstr "Stili"
 
 
 msgid "_Stylize this cell_"
-msgstr "Stilizza questa casella"
+msgstr "Stilizza questo contenitore"
 
 
 msgid "_Su_"
@@ -1272,27 +1274,27 @@ msgstr "Stile delle linguette"
 
 
 msgid "_Tab width_"
-msgstr ""
+msgstr "Larghezza delle linguette"
 
 
 msgid "_Templet color_"
-msgstr "Colore del Templet"
+msgstr "Colore del templet"
 
 
 msgid "_Templet height_"
-msgstr "Altezza del Templet"
+msgstr "Altezza del templet"
 
 
 msgid "_Templet margin_"
-msgstr "Margine del Templet"
+msgstr "Spessore del margine del templet"
 
 
 msgid "_Templet padding_"
-msgstr "Spazio di riempimento interno<br> al margine del Templet"
+msgstr "Spazio di riempimento interno al margine del templet"
 
 
 msgid "_Templet shape_"
-msgstr "Contorno del Templet"
+msgstr "Tipo di contorno del templet"
 
 
 msgid "_Templets_"
@@ -1300,11 +1302,11 @@ msgstr "Templets"
 
 
 msgid "_Text Box Templet_"
-msgstr "Casella di testo"
+msgstr "Contenitore per il testo"
 
 
 msgid "_Text box_"
-msgstr "Casella di testo"
+msgstr "Contenitore per il testo"
 
 
 msgid "_Text format_"
@@ -1316,7 +1318,7 @@ msgstr "Gi"
 
 
 msgid "_The benchmark timer is not installed_"
-msgstr "L'applicativo per monitorare le prestazioni non é installato"
+msgstr "L'applicativo per monitorare le prestazioni non é installato."
 
 
 msgid "_The languages in which it is visible_"
@@ -1352,11 +1354,11 @@ msgstr "Amministra i temi"
 
 
 msgid "_These Templets are invisible and can be deleted:_"
-msgstr "Questi Templets non sono visualizzabili e possono essere eliminati:"
+msgstr "Questi templet non sono visualizzabili e possono essere eliminati:"
 
 
 msgid "_These Templets could be cached in memory for faster rendering:_"
-msgstr "Puoi inserire nella cache RAM questi Templets. Questo renderà la loro visualizzazione più rapida."
+msgstr "Puoi inserire nella cache RAM questi templets.<br>Questo renderà la loro visualizzazione più rapida."
 
 
 msgid "_These styles are identical and can be merged together:_"
@@ -1372,7 +1374,7 @@ msgstr "Questo sarà lo stile utilizzato per default"
 
 
 msgid "_This theme is completely optimized_"
-msgstr "Questo tema è stato completamente ottimizzato"
+msgstr "Questo tema è stato completamente ottimizzato."
 
 
 msgid "_Title_"
@@ -1380,7 +1382,7 @@ msgstr "Titolo "
 
 
 msgid "_Today border color_"
-msgstr "Colore del bordo per <br>la data odierna"
+msgstr "Colore del bordo per la data odierna"
 
 
 msgid "_Top menu background color_"
@@ -1444,7 +1446,7 @@ msgstr "Ma"
 
 
 msgid "_Use internal link?_"
-msgstr "Utilizzi un collegamento interno?"
+msgstr "Utilizzi un collegamento interno ?"
 
 
 msgid "_Use the cache?_"
@@ -1456,15 +1458,15 @@ msgstr "Utilizza questo come stile di default"
 
 
 msgid "_Username_"
-msgstr "Inserisci il tuo nome utente"
+msgstr "Nome di autenticazione"
 
 
 msgid "_Vertical padding_"
-msgstr "Spazio di riempimento verticale <br>all'interno del margine del Templet "
+msgstr "Spazio di riempimento verticale all'interno del margine del templet "
 
 
 msgid "_Visibility criteria_"
-msgstr "Visualizzabile"
+msgstr "Quando visualizzare"
 
 
 msgid "_We_"
@@ -1492,7 +1494,7 @@ msgstr "Anno"
 
 
 msgid "_You can drop a Templet into this area_"
-msgstr "Puoi inserire un Templet in questa area"
+msgstr "Puoi inserire/trascinare un templet in questa area"
 
 
 msgid "_Your text_"
@@ -1508,7 +1510,7 @@ msgstr "A proposito di ..."
 
 
 msgid "_actionbox_templet_description_"
-msgstr "una barra delle applicazioni contenente pulsanti di azione evidenziati da icone."
+msgstr "Una barra delle applicazioni contenente pulsanti di azione evidenziati da icone."
 
 
 msgid "_actions_"
@@ -1520,7 +1522,7 @@ msgstr "in questa schermata puoi definire le impostazioni per il motivo di sfond
 
 
 msgid "_areashape_description_"
-msgstr "in questa schermata puoi definire le impostazioni per il titolo, lo stile e lo spessore del bordo di un'area."
+msgstr "in questa schermata puoi definire le impostazioni per il titolo, lo stile e lo spessore del contorno di un'area."
 
 
 msgid "_backgrounds_"
@@ -1528,31 +1530,31 @@ msgstr "Motivi di sfondo"
 
 
 msgid "_box body_"
-msgstr "Corpo della casella"
+msgstr "Corpo del contenitore"
 
 
 msgid "_box title_"
-msgstr "Titolo della casella"
+msgstr "Titolo del contenitore"
 
 
 msgid "_boxcolor_"
-msgstr "Colore della casella"
+msgstr "Colore del contenitore"
 
 
 msgid "_boxcolor_description_"
-msgstr "in questa schermata puoi definire le impostazioni per i colori delle caselle del portale."
+msgstr "in questa schermata puoi definire le impostazioni per i colori dei contenitori del portale."
 
 
 msgid "_boxshape_"
-msgstr "Forma della casella"
+msgstr "Bordo del contenitore"
 
 
 msgid "_boxshape_description_"
-msgstr "in questa schermata puoi definire le impostazioni per l'aspetto delle caselle del portale."
+msgstr "in questa schermata puoi definire le impostazioni per l'aspetto dei contenitori del portale."
 
 
 msgid "_breadcrumbs_templet_description_"
-msgstr "un percorso di navigazione dalla radice del portale fino alla pagina corrente."
+msgstr "Un percorso di navigazione dalla radice del portale fino alla pagina corrente."
 
 
 msgid "_button_clear_the_cache_"
@@ -1560,7 +1562,7 @@ msgstr "Resetta la cache RAM "
 
 
 msgid "_button_create_"
-msgstr "Aggiungi"
+msgstr "Inserisci "
 
 
 msgid "_button_delete_"
@@ -1572,7 +1574,7 @@ msgstr "Esporta questo tema (formato .zexp)"
 
 
 msgid "_button_import_theme_"
-msgstr "Importa un tema"
+msgstr "Importa il tema"
 
 
 msgid "_button_import_themes_"
@@ -1596,7 +1598,7 @@ msgstr "Reimposta questo tema"
 
 
 msgid "_button_set_theme_as_default_"
-msgstr "Imposta questo come tema di default"
+msgstr "Imposta questo, come tema di default"
 
 
 msgid "_button_upload_flashfile_"
@@ -1608,27 +1610,27 @@ msgstr "Trasferisci l'immagine"
 
 
 msgid "_calendar_style_"
-msgstr "Stile del calendario"
+msgstr "Stile del calendario/agenda"
 
 
 msgid "_calendar_templet_description_"
-msgstr "un'agenda mensile delle ricorrenze."
+msgstr "Un'agenda mensile degli avvenimenti."
 
 
 msgid "_calendarstyle_description_"
-msgstr "in questa schermata puoi definire le impostazioni dell'aspetto con cui saranno visualizzati i calendari mensili."
+msgstr "in questa schermata puoi definire le impostazioni dell'aspetto con cui saranno visualizzati i calendari/agende mensili."
 
 
 msgid "_cellhider_description_"
-msgstr "il \"nasconditore\" imposta la possibilità o meno di visualizzare la casella ."
+msgstr "il \"nasconditore\" imposta la possibilità o meno di visualizzare il contenitore."
 
 
 msgid "_cellsizer_description_"
-msgstr "il \"dimensionatore\" consente di impostare la larghezza della casella."
+msgstr "il \"dimensionatore\" consente di impostare la larghezza del contenitore."
 
 
 msgid "_cellstyler_description_"
-msgstr "lo \"stilista\" consente di impostare lo stile della casella."
+msgstr "lo \"stilista\" consente di impostare lo stile del contenitore."
 
 
 msgid "_collapsiblemenu_style_"
@@ -1636,11 +1638,11 @@ msgstr "Stile del menù dinamico"
 
 
 msgid "_collapsiblemenu_templet_description_"
-msgstr "un menù dinamico che offre la possibilità di visualizzare il contenuto delle cartelle."
+msgstr "Un menù dinamico che offre la possibilità di visualizzare il contenuto delle cartelle."
 
 
 msgid "_collapsiblemenustyle_description_"
-msgstr "in questa schermata puoi definire le impostazioni dell'aspetto (forme e colori) con cui saranno visualizzabili i menù dinamici."
+msgstr "linguette orizzontali che visualizzano cartelle, azioni, ecc."
 
 
 msgid "_color_"
@@ -1656,11 +1658,11 @@ msgstr "Linguetta non selezionata"
 
 
 msgid "_documentinfo_templet_description_"
-msgstr "informazioni sul documento corrente. <br>Per esempio: il suo titolo, la data di ultima modifica, il nome dell'autore, ecc."
+msgstr "Informazioni sull'oggetto corrente. <br>Per esempio: il suo titolo, la data di ultima modifica, il nome dell'autore, ecc."
 
 
 msgid "_flashbox_templet_description_"
-msgstr "una casella contenente un file in formato Macromedia Flash (TM) con il titolo dell'animazione."
+msgstr "Una casella contenente un file in formato Macromedia Flash TM con il titolo dell'animazione."
 
 
 msgid "_folders_"
@@ -1684,7 +1686,7 @@ msgstr "in questa schermata puoi definire le impostazioni per il titolo, la gran
 
 
 msgid "_formstyle_description_"
-msgstr ""
+msgstr "in questa schermata puoi definire l'aspetto del corpo e degli elementi di un modulo."
 
 
 msgid "_general_"
@@ -1696,7 +1698,7 @@ msgstr "Icone"
 
 
 msgid "_imagebox_templet_description_"
-msgstr "una casella contenente un'immagine con titolo ed il suo collegamento interno od esterno."
+msgstr "Una casella contenente un'immagine con titolo ed il suo collegamento interno od esterno."
 
 
 msgid "_info_"
@@ -1704,7 +1706,7 @@ msgstr "Informazioni"
 
 
 msgid "_language_templet_description_"
-msgstr "un selettore per la scelta delle lingue."
+msgstr "Un selettore per la scelta delle lingue."
 
 
 msgid "_layout mode_"
@@ -1716,7 +1718,7 @@ msgstr "Aspetto"
 
 
 msgid "_maincontent_templet_description_"
-msgstr "è l'area principale all'interno della quale vengono visualizzati i contenuti."
+msgstr "E' l'area principale all'interno della quale vengono visualizzati i contenuti."
 
 
 msgid "_menu_Align center_"
@@ -1740,7 +1742,7 @@ msgstr "Forma dell'area"
 
 
 msgid "_menu_Calendar Style_"
-msgstr "Stile del calendario"
+msgstr "Stile del calendario/agenda"
 
 
 msgid "_menu_Collapsible Menu Style_"
@@ -1768,7 +1770,7 @@ msgstr "Tipo di carattere"
 
 
 msgid "_menu_Form Style_"
-msgstr ""
+msgstr "Stile del modulo"
 
 
 msgid "_menu_Insert_"
@@ -1776,11 +1778,11 @@ msgstr "Inserisci"
 
 
 msgid "_menu_Portal Box Color_"
-msgstr "Colore della casella"
+msgstr "Colore del contenitore"
 
 
 msgid "_menu_Portal Box Shape_"
-msgstr "Forma della casella"
+msgstr "Disegno del contenitore"
 
 
 msgid "_menu_Portal Tab Style_"
@@ -1796,7 +1798,7 @@ msgstr "Titolo dalla cartella"
 
 
 msgid "_option_Templet title_"
-msgstr "Titolo del Templet"
+msgstr "Titolo del templet"
 
 
 msgid "_option_Username_"
@@ -1824,23 +1826,23 @@ msgstr "Rileva automaticamente"
 
 
 msgid "_option_bg_no-repeat_"
-msgstr ""
+msgstr "Non ripetere"
 
 
 msgid "_option_bg_repeat-x_"
-msgstr ""
+msgstr "Orizzontalmente"
 
 
 msgid "_option_bg_repeat-y_"
-msgstr ""
+msgstr "Verticalmente"
 
 
 msgid "_option_bg_repeat_"
-msgstr ""
+msgstr "Su tutta l'area"
 
 
 msgid "_option_block_"
-msgstr "Larghezza della casella"
+msgstr "Larghezza del contenitore"
 
 
 msgid "_option_center_"
@@ -1856,23 +1858,23 @@ msgstr "Default"
 
 
 msgid "_option_docinfo_created_by_"
-msgstr ""
+msgstr "Creato da"
 
 
 msgid "_option_docinfo_last_modified_"
-msgstr ""
+msgstr "Data di ultima modifica"
 
 
 msgid "_option_docinfo_title_"
-msgstr ""
+msgstr "Titolo"
 
 
 msgid "_option_drawer_"
-msgstr "Casella fluttuante a comparsa/scomparsa"
+msgstr "Contenitore fluttuante a comparsa/scomparsa"
 
 
 msgid "_option_drawer_notitle_"
-msgstr "Casella fluttuante a comparsa/scomparsa senza titolo"
+msgstr "Contenitore fluttuante a comparsa/scomparsa senza titolo"
 
 
 msgid "_option_dropdown list_"
@@ -1880,7 +1882,7 @@ msgstr "Lista scorrevole"
 
 
 msgid "_option_events_"
-msgstr "Ricorrenze"
+msgstr "Avvenimenti"
 
 
 msgid "_option_everywhere_except_in_"
@@ -1976,31 +1978,31 @@ msgstr "Schermata di autenticazione"
 
 
 msgid "_option_min_max_"
-msgstr ""
+msgstr "Contenitore min/max"
 
 
 msgid "_option_min_max_close_"
-msgstr ""
+msgstr "Contenitore min/max/chiuso"
 
 
 msgid "_option_min_max_edit_close_"
-msgstr ""
+msgstr "Contenitore min/max/modifica/chiuso"
 
 
 msgid "_option_no_frames_"
-msgstr "Casella senza bordo"
+msgstr "Contenitore senza bordo"
 
 
 msgid "_option_notitle_"
-msgstr "Casella con bordo ma senza titolo"
+msgstr "Contenitore con bordo ma senza titolo"
 
 
 msgid "_option_notitle_noframe_"
-msgstr "Casella senza bordo e senza titolo"
+msgstr "Contenitore senza bordo e senza titolo"
 
 
 msgid "_option_one_frame_"
-msgstr "Casella con bordo"
+msgstr "Contenitore con bordo"
 
 
 msgid "_option_only_in_"
@@ -2008,7 +2010,7 @@ msgstr "Solo in ..."
 
 
 msgid "_option_pending_"
-msgstr "Documenti in attesa"
+msgstr "Oggetti in attesa di pubblicazione"
 
 
 msgid "_option_plain text_"
@@ -2016,15 +2018,15 @@ msgstr "Testo semplice"
 
 
 msgid "_option_profiler_"
-msgstr "Con profilo dettagliato"
+msgstr "Con BENCHMARK/profilo dettagliato"
 
 
 msgid "_option_recent_"
-msgstr "Documenti recenti"
+msgstr "Oggetti recenti"
 
 
 msgid "_option_related_"
-msgstr "Vedi anche documenti correlati ..."
+msgstr "Vedi anche oggetti correlati ..."
 
 
 msgid "_option_right_"
@@ -2032,15 +2034,15 @@ msgstr "A destra"
 
 
 msgid "_option_searchbox_advanced_"
-msgstr ""
+msgstr "Avanzata"
 
 
 msgid "_option_searchbox_compact_"
-msgstr ""
+msgstr "Semplice/Compatta"
 
 
 msgid "_option_standard_"
-msgstr "Casella semplice"
+msgstr "Contenitore predefinito"
 
 
 msgid "_option_starting_from_"
@@ -2048,7 +2050,7 @@ msgstr "A partire da ..."
 
 
 msgid "_option_stx_"
-msgstr "Testo Strutturato (STX)"
+msgstr "Testo Strutturato (Zope STX)"
 
 
 msgid "_option_text and icons_"
@@ -2060,19 +2062,19 @@ msgstr "Solo testo"
 
 
 msgid "_option_text_transform_capitalize_"
-msgstr ""
+msgstr "Prima Lettera Di Ogni Parola In Maiuscolo"
 
 
 msgid "_option_text_transform_lowercase_"
-msgstr ""
+msgstr "testo in minuscolo"
 
 
 msgid "_option_text_transform_none_"
-msgstr ""
+msgstr "Non modificare"
 
 
 msgid "_option_text_transform_uppercase_"
-msgstr ""
+msgstr "TESTO IN MAIUSCOLO"
 
 
 msgid "_option_textonly_"
@@ -2088,7 +2090,7 @@ msgstr "Verticale"
 
 
 msgid "_pageblock_description_"
-msgstr "un blocco di pagina è composto da più caselle (colonne).<br> L'aspetto con cui saranno visualizzate le caselle può essere modificato utilizzando i comandi che impostano lo stile, la dimensione e la modalità di visualizzazione della casella."
+msgstr "un blocco di pagina è composto da più contenitori (colonne).<br> L'aspetto con cui saranno visualizzati i contenitori può essere modificato utilizzando i comandi che impostano lo stile, la dimensione e la modalità di visualizzazione del contenitore."
 
 
 msgid "_paletteborder_description_"
@@ -2100,15 +2102,15 @@ msgstr "modifica un colore esistente o crea un nuovo colore che potrà essere uti
 
 
 msgid "_portalbox_templet_description_"
-msgstr "una casella di base del portale che può contenere e visualizzare delle azioni, delle cartelle, degli elenchi, una casella di informazione, ecc."
+msgstr "Una casella generica del portale che può contenere e visualizzare delle azioni, delle cartelle, degli elenchi, una casella di informazione, ecc."
 
 
 msgid "_portalboxgroup_templet_description_"
-msgstr "una zona di visualizzazione delle caselle originali del portale."
+msgstr "Un alloggiamento contenente le caselle originali (di default) di CPS  e di Plone."
 
 
 msgid "_portaltab_templet_description_"
-msgstr "in questa schermata puoi definire l'uso delle linguette orizzontali per visualizzare degli elenchi, delle cartelle ed il loro contenuto, delle azioni, dei comandi, etc."
+msgstr "Le linguette orizzontali che visualizzano cartelle, azioni, ecc."
 
 
 msgid "_portaltabstyle_"
@@ -2120,11 +2122,11 @@ msgstr "queste impostazioni definiscono lo stile delle linguette a sviluppo oriz
 
 
 msgid "_portaltheme_description_"
-msgstr "un tema rappresenta l'aspetto e la modalità di visualizzazione con cui si presenterà il Portale.<br> La struttura della pagina è costituita dall'impilamento di più <STRONG>\"Blocchi di pagina\" </STRONG> orizzontali. "
+msgstr "un tema rappresenta l'aspetto e la modalità di visualizzazione con cui si presenterà il portale.<br> La struttura della pagina è costituita dall'impilamento di più <STRONG>\"Blocchi di pagina\" </STRONG> orizzontali. "
 
 
 msgid "_portletbox_templet_description_"
-msgstr ""
+msgstr "Una casella contenente un portlet."
 
 
 msgid "_searchbox_Advanced_search"
@@ -2136,11 +2138,11 @@ msgstr "Ricerca"
 
 
 msgid "_searchbox_templet_description_"
-msgstr "una casella contenente un campo che permette di effettuare delle ricerche degli oggetti presenti nel portale."
+msgstr "Una casella contenente un campo che permette di effettuare delle ricerche degli oggetti presenti nel portale."
 
 
 msgid "_select this slot_"
-msgstr ""
+msgstr "seleziona questo alloggiamento"
 
 
 msgid "_selected_tab_"
@@ -2148,11 +2150,11 @@ msgstr "Linguetta selezionata"
 
 
 msgid "_set as default style_"
-msgstr "Da utilizzare come stile di default"
+msgstr "Imposta/Da utilizzare come stile di default"
 
 
 msgid "_shape_"
-msgstr "Forma dell'area"
+msgstr "Contorno"
 
 
 msgid "_style_"
@@ -2168,11 +2170,11 @@ msgstr "Sotto-menù"
 
 
 msgid "_textbox_templet_description_"
-msgstr "una casella di testo in formato semplice o HTML."
+msgstr "Una casella di testo in formato semplice o HTML."
 
 
 msgid "_themechooser_templet_description_"
-msgstr "un selezionatore di temi per i visitatori del portale. (I cookie devono essere abilitati)."
+msgstr "Un selezionatore di temi per i visitatori del portale. (I cookie devono essere abilitati)."
 
 
 msgid "_topmenu_"
@@ -2188,11 +2190,11 @@ msgstr "Modalità WYSIWYG"
 
 
 msgid "description_confirm_delete_portlet"
-msgstr ""
+msgstr "Stai eliminando questo portlet. Sei sicuro?"
 
 
 msgid "description_confirm_delete_unused_portlets"
-msgstr ""
+msgstr "Stai eliminando tutti i portlets non utilizzati. Sei sicuro?"
 
 
 msgid "description_delete_unused_boxes"
@@ -2200,45 +2202,45 @@ msgstr "Elimina le caselle non utilizzate"
 
 
 msgid "description_delete_unused_portlets"
-msgstr ""
+msgstr "Elimina i portlets non utilizzati"
 
 
 msgid "description_portlets_visible_from"
-msgstr ""
+msgstr "Portlets visualizzabili a partire da"
 
 
 msgid "description_unused_boxes"
-msgstr "Queste caselle non sono visualizzabili in quanto il loro alloggiamento non è presente nella struttura di questo tema."
+msgstr "Questi contenitori  non sono visualizzabili in quanto il loro alloggiamento non è presente nella struttura di questo tema."
 
 
 msgid "description_unused_boxes_deleted"
-msgstr "Le caselle non utilizzate sono state eliminate"
+msgstr "Le caselle non utilizzate sono state eliminate."
 
 
 msgid "description_unused_portlets"
-msgstr ""
+msgstr "Questi portlets non sono visualizzabili in quanto il loro alloggiamento non è presente nella struttura di questo tema."
 
 
 msgid "heading_portlet_manage_form"
-msgstr ""
+msgstr "Gestione dei portlets"
 
 
 msgid "heading_unused_boxes"
-msgstr "Caselle non utilizzate"
+msgstr "Contenitori non utilizzati"
 
 
 msgid "heading_unused_portlets"
-msgstr ""
+msgstr "Portlets non utilizzati"
 
 
 msgid "menu_insert_box"
-msgstr "Inserisci una casella ..."
+msgstr "Inserisci un contenitore ..."
 
 
 msgid "menu_insert_portlet"
-msgstr ""
+msgstr "Inserisci un portlet ..."
 
 
 msgid "psm_portlet_deleted"
-msgstr ""
+msgstr "Il portlet è stato eliminato."
 
