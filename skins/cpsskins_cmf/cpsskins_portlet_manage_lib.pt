@@ -159,8 +159,7 @@
 </metal:block>
 
 <metal:block define-macro="navigate"
-tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'portlet_browser', 'unused_portlets' ];
-            tmtool_url python: base_url + utool.getRelativeUrl(tmtool)">
+tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'portlet_browser', 'unused_portlets']">
   <div class="mainFormTab">
     &nbsp;
     <tal:block repeat="section sections">
@@ -236,6 +235,17 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
      define="slot_class string:boxColor${content/boxcolor|nothing} boxShape${content/boxshape|nothing}">
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
     </tal:block>
+</metal:block>
+
+<metal:block define-macro="override_control">
+  <div style="float:right">
+    <a i18n:translate="" tal:condition="not:override"
+    tal:attributes="href string:${tmtool_url}/setViewMode?portlets_override=1&reload=1"
+    >override</a>
+    <a i18n:translate="" tal:condition="override"
+    tal:attributes="href string:${tmtool_url}/setViewMode?portlets_override=0&reload=1"
+    >not override</a>
+  </div>
 </metal:block>
 
 <metal:block define-macro="breadcrumbs">
@@ -314,7 +324,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                  tal:define="slot_icon python: '/' + content.getIcon();
                              slot_title content/title_or_id">
                   <div tal:content="group" class="boxGroupBoxSlotTitle" />
-                  <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group)">
+                  <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group, override=override)">
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
                   </tal:block>
@@ -365,7 +375,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
          tal:content="bc/id" />
       </th>
     </tr>
-    <tal:block define="portlets python:ptltool.getPortlets(context=here)"
+    <tal:block define="portlets python:ptltool.getPortlets(context=here, override=override)"
                repeat="portlet portlets">
       <tr tal:define="ypos portlet/getOrder;
                       fti portlet/getTypeInfo;
