@@ -16,6 +16,7 @@
  tal:attributes="lang cpsskins_language;
                  xml:lang cpsskins_language">
 <head>
+<title tal:content="here/title_or_id|nothing" />
 <metal:block define-macro="head"
  tal:define="charset here/cpsskins_getCharset;
              theme_url python: base_url + utool.getRelativeUrl(theme_container);">
