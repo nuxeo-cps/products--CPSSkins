@@ -52,7 +52,7 @@
       shield not:tmtool/debug_mode|python:1;
       enable_esi theme_container/esi|nothing;
       context_obj python: tmtool.getContextObj(context)"
-    content="structure python: page_container.render(shield=shield, context_obj=context_obj, enable_esi=enable_esi, theme=current_theme, page=current_page)" />
+    content="structure python: page_container.render(shield=shield, context_obj=context_obj, enable_esi=enable_esi, theme=current_theme, page=current_page, tableless=tableless)" />
   </metal:block>
   </body>
 </tal:block>

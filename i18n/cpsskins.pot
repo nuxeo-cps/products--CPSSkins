@@ -1967,3 +1967,6 @@ msgstr ""
 
 msgid "_Hide_overriden_portlets_"
 msgstr ""
+
+msgid "_Tableless_"
+msgstr ""

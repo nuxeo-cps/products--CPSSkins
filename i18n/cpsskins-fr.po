@@ -1417,6 +1417,10 @@ msgid "_Tab width_"
 msgstr "Largeur des onglets"
 
 
+msgid "_Tableless_"
+msgstr "Sans-tables"
+
+
 msgid "_Templet color_"
 msgstr "Couleurs du cadre"
 

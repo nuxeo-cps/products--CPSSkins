@@ -362,12 +362,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                      'textonly',
                      'automatic',
                      'profiler',
-                     'macroless',
-                     'tableless']
+                     'macroless']
         return renderers
 
     security.declarePublic('getPageRenderer')
-    def getPageRenderer(self, page_renderer_id=None):
+    def getPageRenderer(self, page_renderer_id=None, tableless=0):
         """ returns the name of the page renderer """
 
         if page_renderer_id is None:
@@ -375,6 +374,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         elif page_renderer_id not in self.listPageRenderers():
             page_renderer_id = 'default'
+
+        elif page_renderer_id == 'default' and tableless:
+            page_renderer_id = 'tableless'
 
         elif page_renderer_id == 'automatic':
             page_renderer_id = 'default'

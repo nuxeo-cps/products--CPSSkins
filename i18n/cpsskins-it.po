@@ -1417,6 +1417,10 @@ msgid "_Tab width_"
 msgstr "Larghezza delle linguette"
 
 
+msgid "_Tableless_"
+msgstr ""
+
+
 msgid "_Templet color_"
 msgstr "Colore del templet"
 

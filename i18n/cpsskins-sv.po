@@ -1415,6 +1415,10 @@ msgid "_Tab width_"
 msgstr ""
 
 
+msgid "_Tableless_"
+msgstr ""
+
+
 msgid "_Templet color_"
 msgstr ""
 

@@ -1417,6 +1417,10 @@ msgid "_Tab width_"
 msgstr "Szeroko¶æ nag³ówka"
 
 
+msgid "_Tableless_"
+msgstr ""
+
+
 msgid "_Templet color_"
 msgstr "Kolor szablonu"
 

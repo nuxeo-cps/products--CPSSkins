@@ -121,6 +121,14 @@ class ThemePage(ThemeFolder, StylableContent):
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
+        {'id': 'tableless',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Tableless',
+         'category': 'general',
+         'default': 0,
+         'visible': 'IfTablelessAllowed',
+        },
         {'id': 'align',
          'type': 'selection',
          'mode': 'w',
@@ -157,6 +165,7 @@ class ThemePage(ThemeFolder, StylableContent):
     def __init__(self, id,
                  title = '',
                  renderer = 'default',
+                 tableless = 0,
                  align = '',
                  shape = '',
                  color = '',
@@ -167,6 +176,7 @@ class ThemePage(ThemeFolder, StylableContent):
         self.id = id
         self.title = title
         self.renderer = renderer
+        self.tableless = tableless
         self.align = align
         self.shape = shape
         self.color = color
@@ -223,6 +233,12 @@ class ThemePage(ThemeFolder, StylableContent):
 
         tmtool = getToolByName(self, 'portal_themes')
         return tmtool.listPageRenderers()
+
+    security.declarePublic('IfTablelessAllowed')
+    def IfTablelessAllowed(self):
+        """Return true if the page renderer supports tableless rendering"""
+
+        return self.renderer in ('default', 'macroless')
 
     #
     # CSS
