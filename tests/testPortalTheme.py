@@ -6,8 +6,6 @@ import unittest
 import CPSSkinsTestCase
 from Products.CPSSkins.cpsskins_utils import getFreeTitle
 
-from Testing import ZopeTestCase
-
 class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):

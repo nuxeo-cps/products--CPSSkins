@@ -4,7 +4,6 @@ if __name__ == '__main__':
 
 import unittest
 import CPSSkinsTestCase
-from Testing import ZopeTestCase
 
 class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
 

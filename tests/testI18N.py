@@ -14,10 +14,8 @@ if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
 import CPSSkinsTestCase
-import unittest,re
-from re import match
+import unittest
 from glob import glob
-from Testing import ZopeTestCase
 from gettext import GNUTranslations
 from msgfmt import Msgfmt, PoSyntaxError
 

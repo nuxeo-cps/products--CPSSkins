@@ -5,7 +5,6 @@ if __name__ == '__main__':
 import unittest
 import time
 import CPSSkinsTestCase
-from Testing import ZopeTestCase
 
 class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
 
