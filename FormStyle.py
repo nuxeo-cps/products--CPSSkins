@@ -166,12 +166,12 @@ class FormStyle(BaseStyle):
         apply(BaseStyle.__init__, (self, id), kw)
         self.Form_padding = Form_padding
         self.Form_border_color = Form_border_color
-        self.Form_active_border_color = Form_active_border_color
         self.Form_border_style = Form_border_style
         self.Form_border_width = Form_border_width
         self.Form_bg_color = Form_bg_color
         self.Form_font_color = Form_font_color
         self.Element_border_color = Element_border_color
+        self.Element_active_border_color = Element_active_border_color
         self.Element_border_style = Element_border_style
         self.Element_border_width = Element_border_width
         self.Element_bg_color = Element_bg_color
