@@ -173,13 +173,13 @@ class PortletBox(BaseTemplet):
     def getPortletId(self):
         """Returns the id of the associated portlet."""
 
-        return getattr(self, 'portlet_id', None)
+        return self.portlet_id
 
     security.declarePublic('getPortletType')
     def getPortletType(self):
         """Returns the portal type of the associated portlet."""
 
-        return getattr(self, 'portlet_type', None)
+        return self.portlet_type
 
     security.declarePublic('PortletTypesList')
     def PortletTypesList(self):
@@ -223,11 +223,11 @@ class PortletBox(BaseTemplet):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
        
-        index = (self.getPortletId(), )
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        portlet_id = self.getPortletId()
+        index = (portlet_id, )
         if ptltool is None:
             return index
-        portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
         index += portlet.getCacheIndex()
         return index
