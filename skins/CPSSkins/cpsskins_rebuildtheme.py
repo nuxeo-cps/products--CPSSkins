@@ -3,6 +3,9 @@
 if getattr(context.aq_inner.aq_explicit, 'isportaltheme', 0):
     context.rebuild(setperms=1)
 
+    tmtool = context.portal_themes
+    tmtool.setViewMode(themes_panel='theme')
+
 if REQUEST is not None:
     url = context.portal_url() + '/cpsskins_theme_manage_form' +\
           '?portal_status_message=_Theme_rebuilt_'
