@@ -25,4 +25,4 @@ if ptltool is not None and page_container is not None:
             js += portlet.render_js()
             done_types.append(ptype_id)
 
-return '<!--\n%s\n-->' % js
+return '<!--\n%s\n//-->' % js

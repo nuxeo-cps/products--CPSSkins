@@ -351,7 +351,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 if js_code:
                     js += js_code
             cache.setEntry(index, js)
-        return '<!--\n%s\n// -->' % js
+        return '<!--\n%s\n//-->' % js
 
     security.declarePublic('setCacheHeaders')
     def setCacheHeaders(self, content_type='', editing=0, **kw):
