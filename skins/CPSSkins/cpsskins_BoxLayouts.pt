@@ -195,7 +195,9 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="edit"
- tal:define="portal_url here/portal_url">
+ tal:define="portal_url here/portal_url;
+             context_obj nocall:options/context_obj;
+             selected python: portlet == context_obj">
   <div class="title buttons">
     <a tal:attributes="href string:${portlet_url}/edit_form">
       <img src="" width="16" height="16" border="0" alt=""
@@ -211,7 +213,8 @@
                    src_slot group">
     <div class="PortletBoxDest"
      tal:attributes="dest_slot group;
-                     dest_ypos python: ypos and ypos or 0">
+                     dest_ypos python: ypos and ypos or 0;
+                     style python:selected and 'border: 2px solid red' or ''">
       <div class="body">
         <metal:block define-slot="box_body">Box Body</metal:block>
       </div>
