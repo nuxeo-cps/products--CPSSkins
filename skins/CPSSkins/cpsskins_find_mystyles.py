@@ -11,6 +11,9 @@ tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName(context_obj=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
 
+# set the edited object's url
+tmtool.setViewMode(edited_url=context.absolute_url(1))
+
 mystyle_objs = theme_container.findStyles(meta_type=meta_type)
 
 if len(mystyle_objs) == 0:
@@ -30,7 +33,7 @@ for s in tmtool.findStylesFor(meta_type, context)['object']:
 if style is None:
     return
 
-context.setStyle(style=style, meta_type=meta_type)
+context.setStyle(style=style)
 
 url = style.absolute_url() + '/edit_form?' + \
      'style=' + meta_type

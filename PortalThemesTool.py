@@ -175,6 +175,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                       'portlets_panel',
                       'selected_portlet',
                       'selected_content',
+                      'edited_url',
                       'clipboard',
                       'theme',
                       'page',

@@ -131,12 +131,13 @@ class StylableContent:
                     return styles[0]
 
     security.declareProtected(ManageThemes, 'setStyle')
-    def setStyle(self, style=None, meta_type=None):
+    def setStyle(self, style=None):
         """Sets a style to this object."""
 
         if style is None:
             return
         prop_id = None 
+        meta_type = style.meta_type
         for propid in self.propertyIds():
             for obj in self.propertyMap():
                 if obj['id'] != propid:
