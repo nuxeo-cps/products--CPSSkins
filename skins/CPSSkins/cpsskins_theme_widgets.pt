@@ -427,7 +427,7 @@ tal:define="pageblock_id pageblock/getId;
                   msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                   onclick_msg python:'return window.confirm(\'%s\')' % msg"
       tal:attributes="onclick onclick_msg;
-                      href string:${pageblock_url}/cpsskins_object_delete?edit_mode=$edit_mode&theme=$current_theme; 
+                      href string:${pageblock_url}/cpsskins_object_delete; 
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
@@ -435,7 +435,7 @@ tal:define="pageblock_id pageblock/getId;
       &nbsp;&nbsp;
       <a i18n:attributes="title"
       tal:define="title string:_Edit this page block_"
-      tal:attributes="href string:${pageblock_url}/edit_form?edit_mode=${edit_mode}&theme=$current_theme#mainedit;
+      tal:attributes="href string:${pageblock_url}/edit_form#mainedit;
                       title python: mcat and mcat(title) or title" >
         <img border="0" width="12" height="12"
         tal:attributes="src string:${base_url}cpsskins_images/img_edit.png" />
@@ -449,8 +449,6 @@ tal:define="pageblock_id pageblock/getId;
                          action string:${pageblock_url}/cpsskins_edit">
          <input type="hidden" name="scrollx" value="0">
          <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="theme" tal:attributes="value current_theme" />
-         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
          <label for="maxcols" tal:define="title string:_Title_" i18n:translate=""
           tal:content="python: mcat and mcat(title) or title" />:
          <input name="title" type="text" size="12"
@@ -476,8 +474,6 @@ tal:define="pageblock_id pageblock/getId;
     tal:attributes="action string:${theme_container_url}/cpsskins_pageblock_add">
       <input type="hidden" name="pageblock_ypos"
       tal:attributes="value pageblock_ypos|nothing" />
-      <input type="hidden" name="theme"
-      tal:attributes="value current_theme" />
       <input type="image" i18n:attributes="title"
       tal:define="title string:_Insert a page block_"
       tal:attributes="src string:${base_url}cpsskins_images/img_addpageblock.png;
@@ -540,8 +536,6 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
                            onSubmit string:saveScrollCoordinates('${name}')">
            <input type="hidden" name="scrollx" value="0">
            <input type="hidden" name="scrolly" value="0"> 
-           <input type="hidden" name="theme" tal:attributes="value current_theme" />
-           <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
            <input name="cellwidth"
             type="text" size="4" tal:attributes="value cellwidth" />
           </form>
@@ -555,8 +549,6 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
             <input type="hidden" name="scrollx" value="0">
             <input type="hidden" name="scrolly" value="0"> 
             <input type="hidden" name="xpos" tal:attributes="value x_pos" />
-            <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-            <input type="hidden" name="theme" tal:attributes="value current_theme" />
             <input name="cellwidth"
              type="text" size="4" tal:attributes="value cellwidth" />
           </form>
@@ -582,7 +574,7 @@ tal:define="info cellstyle/getInfo|nothing;
                 msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                 onclick_msg python:'return window.confirm(\'%s\')' % msg"
     tal:attributes="onclick onclick_msg;
-                    href string:${del_action/url}?theme=$current_theme&edit_mode=$edit_mode; 
+                    href string:${del_action/url}; 
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
@@ -593,7 +585,7 @@ tal:define="info cellstyle/getInfo|nothing;
                 title string:_Stylize this cell_"
      i18n:attributes="title"
     tal:attributes="title python: mcat and mcat(title) or title; 
-                    href string:${edit_action/url}?edit_mode=${edit_mode}&theme=${current_theme}; 
+                    href string:${edit_action/url}; 
                     class python: cellstyle == here and 'CellStylerSelected' or class_string;">
       <tal:block content="cellstyle/color" />
       <img
@@ -604,7 +596,7 @@ tal:define="info cellstyle/getInfo|nothing;
     i18n:attributes="title"
     tal:define="title string:_Stylize this cell_"
     tal:attributes="title python: mcat and mcat(title) or title; 
-                    href string:${pageblock/absolute_url}/cpsskins_cellstyler_add?xpos=${x_pos}&edit_mode=${edit_mode}&theme=${current_theme}">
+                    href string:${pageblock/absolute_url}/cpsskins_cellstyler_add?xpos=${x_pos}">
       <img border="0" width="16" height="16"
       tal:attributes="src string:${base_url}cpsskins_images/cell_styler_add.png" />
     </a>
@@ -624,7 +616,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
                 msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
                 onclick_msg python:'return window.confirm(\'%s\')' % msg"
     tal:attributes="onclick onclick_msg;
-                    href string:${del_action/url}?theme=$current_theme&edit_mode=$edit_mode; 
+                    href string:${del_action/url};
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellmod_delete.png" />
@@ -634,7 +626,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
      i18n:attributes="title"
      tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
-                    href string:${edit_action/url}?edit_mode=${edit_mode}&theme=${current_theme}; 
+                    href string:${edit_action/url}; 
                     class python: cellhider == here and 'CellHiderSelected' or 'CellHider'">
       <img border="0" width="20" height="20"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellhider.png" />
@@ -643,7 +635,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
     i18n:attributes="title"
     tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
-                    href string:${pageblock/absolute_url}/cpsskins_cellhider_add?xpos=${x_pos}&edit_mode=${edit_mode}&theme=${current_theme}">
+                    href string:${pageblock/absolute_url}/cpsskins_cellhider_add?xpos=${x_pos}">
       <img border="0" width="16" height="16"
       tal:attributes="src string:${base_url}cpsskins_images/img_addcellhider.png"
        border="0" />
