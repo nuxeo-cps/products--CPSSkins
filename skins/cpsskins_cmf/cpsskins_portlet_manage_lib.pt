@@ -349,7 +349,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
           <div 
            tal:attributes="portlet_rurl portlet_rurl;
                            portlet_url string:${base_url}${portlet_rurl};
-                           folder_url string:${base_url}${portlet_folder_rurl};
+                           portlet_folder_url string:${base_url}${portlet_folder_rurl};
+                           folder_url context_url;
                            icon portlet_icon;
                            title portlet_title;
                            portlet_id portlet_id;
