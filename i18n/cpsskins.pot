@@ -1800,3 +1800,9 @@ msgstr ""
 
 msgid "_option_debug_"
 msgstr ""
+
+msgid "_Add_a_new_style_"
+msgstr ""
+
+msgid "_Add_a_new_palette_entry_"
+msgstr ""

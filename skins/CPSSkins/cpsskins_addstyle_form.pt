@@ -2,13 +2,18 @@
 <html tal:define="
   base_url python:here.cpsskins_getBaseUrl();
   mcat here/cpsskins_getlocalizer;
-  pss modules/Products/PythonScripts/standard;
   type_name request/form/type_name|nothing">
   <head>
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_common.css" />
+    <style type="text/css" media="all"
+    tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+    <style type="text/css" media="all"
+    tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
   </head>
-  <body>
+  <body class="editForm">
     <h1 i18n:translate=""
-    tal:define="title string:_Add_a_new_Style_"
+    tal:define="title string:_Add_a_new_style_"
     tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_style_add" method="get">
         <input type="hidden" name="type_name"

@@ -74,28 +74,21 @@
       <h1 tal:define="title string:_Edit styles_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <table cellpadding="3" cellspacing="0" border="0" summary="">
+      <dl>
         <tal:block repeat="obj tmtool/listStyleTypes">
-          <tal:block define="stylecat obj/getId">
-            <tr>
-              <td valign="top">
-                <img tal:attributes="src string:${base_url}${obj/getIcon}" 
-                 alt="*" width="16" height="16" />
-              </td>
-              <td>
-                <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
-                               title python:'_%s_' % stylecat"
-                   tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?style=$stylecat_quoted"
-                   i18n:translate="" style="text-decoration: none"
-                   tal:content="python: mcat and mcat(title) or title" />
-                <p tal:define="title obj/description"
-                i18n:translate=""
-                tal:content="python: mcat and mcat(title) or title" />
-              </td>
-            </tr>
-          </tal:block>
+          <dt tal:define="stylecat obj/getId">
+            <img width="16" height="16" alt="" align="top"
+             tal:attributes="src string:${base_url}${obj/getIcon}" />
+            <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
+                           title python:'_%s_' % stylecat"
+               tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?style=$stylecat_quoted"
+               i18n:translate=""
+               tal:content="python: mcat and mcat(title) or title" />
+          </dt>
+          <dd tal:define="title obj/description" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
-      </table>
+      </dl>
     </tal:block>
     <tal:block condition="stylecat"
     define="styles python: tmtool.findStylesFor(stylecat, theme_container); 
@@ -156,22 +149,17 @@
       <h1 tal:define="title string:_Edit images_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <table cellpadding="3" cellspacing="0" border="0" summary="">
-        <tal:block repeat="imagecat sections">
-          <tr>
-            <td>
-              <img tal:attributes="src string:${base_url}themefolder.png" />
-            </td>
-            <td>
-              <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);
-                             title python:'_%s_' % imagecat"
-                 tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?imagecat=$imagecat_quoted"
-                 i18n:translate="" 
-                 tal:content="python: mcat and mcat(title) or title" />
-            </td>
-          </tr>
-        </tal:block>
-      </table>
+      <dl>
+      <tal:block repeat="imagecat sections">
+        <dd><img tal:attributes="src string:${base_url}themefolder.png" align="top" />
+            <a tal:define="imagecat_quoted python: pss.url_quote_plus(imagecat);
+                           title python:'_%s_' % imagecat"
+               tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?imagecat=$imagecat_quoted"
+               i18n:translate="" 
+               tal:content="python: mcat and mcat(title) or title" />
+        </dd>
+      </tal:block>
+    </dl>
     </tal:block>
     <tal:block condition="python: imagecat in sections">
       <h1 tal:define="title python:'_%s_' % imagecat"
@@ -227,27 +215,21 @@
       <h1 tal:define="title string:_Edit palettes_"
        tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <table cellpadding="3" cellspacing="0" border="0" summary="">
+      <dl>
         <tal:block repeat="obj here/cpsskins_listPalettes">
-          <tal:block define="palettecat obj/getId">
-            <tr>
-              <td valign="top">
-                <img tal:attributes="src string:${base_url}${obj/getIcon}" />
-              </td>
-              <td>
-                <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
-                               title python:'_%s_' % palettecat"
-                   tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?palette=$palettecat_quoted"
-                   i18n:translate=""
-                   tal:content="python: mcat and mcat(title) or title" />
-                <p tal:define="title obj/description"
-                i18n:translate=""
-                tal:content="python: mcat and mcat(title) or title" />
-              </td>
-            </tr>
-          </tal:block>
+          <dt tal:define="palettecat obj/getId">
+            <img width="16" height="16" alt="" align="top"
+             tal:attributes="src string:${base_url}${obj/getIcon}" />
+            <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
+                           title python:'_%s_' % palettecat"
+               tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?palette=$palettecat_quoted"
+               i18n:translate=""
+               tal:content="python: mcat and mcat(title) or title" />
+          </dt>
+          <dd tal:define="title obj/description" i18n:translate=""
+           tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
-      </table>
+      </dl>
     </tal:block>
     <tal:block condition="palettecat"
     define="palettes python: tmtool.listPalettes(palettecat, theme_container);

@@ -42,29 +42,29 @@
       <metal:block use-macro="here/cpsskins_main_template_edit/macros/main" />
     </tal:block> 
 
-    <tal:block condition="python: panel == 'theme'">
+    <div class="editForm" tal:condition="python: panel == 'theme'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_manager" />
-    </tal:block> 
-    <tal:block condition="python: panel == 'styles'">
+    </div> 
+    <div class="editForm" tal:condition="python: panel == 'styles'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/styles" />
-    </tal:block> 
-    <tal:block condition="python: panel == 'images'">
+    </div> 
+    <div class="editForm" tal:condition="python: panel == 'images'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/images" />
-    </tal:block> 
-    <tal:block condition="python: panel == 'palettes'">
+    </div> 
+    <div class="editForm" tal:condition="python: panel == 'palettes'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/palettes" />
-    </tal:block> 
+    </div> 
 
-    <tal:block condition="python: panel == 'cache_manager'">
+    <div class="editForm" tal:condition="python: panel == 'cache_manager'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/cache_manager" />
-    </tal:block> 
-    <tal:block condition="python: panel == 'theme_optimizer'">
+    </div> 
+    <div class="editForm" tal:condition="python: panel == 'theme_optimizer'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_optimizer" />
-    </tal:block> 
+    </div> 
 
-    <tal:block condition="python: panel == 'themes_manager'">
+    <div class="editForm" tal:condition="python: panel == 'themes_manager'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/themes_manager" />
-    </tal:block> 
+    </div> 
   </div>
 
   </body>

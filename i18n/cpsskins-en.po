@@ -79,6 +79,14 @@ msgid "_Add_a_new_Templet_"
 msgstr "Add a new Templet"
 
 
+msgid "_Add_a_new_palette_entry_"
+msgstr "Add a new palettre entry"
+
+
+msgid "_Add_a_new_style_"
+msgstr "Add a new style"
+
+
 msgid "_Add_a_portlet_"
 msgstr "Add a portlet"
 

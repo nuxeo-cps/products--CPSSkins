@@ -259,7 +259,11 @@ div.simulate_hierarchies {
   padding-right: 15px;
 }
 
-.editForm h1 {
+.editForm dl a {
+  text-decoration: none;
+}
+
+.editForm > h1 {
   font-size: 170%;
   border-left: 12px solid #ffcc00;
   padding-left: 7px;

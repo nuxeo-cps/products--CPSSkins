@@ -81,6 +81,14 @@ msgid "_Add_a_new_Templet_"
 msgstr "Dodaj nowy Szablon"
 
 
+msgid "_Add_a_new_palette_entry_"
+msgstr ""
+
+
+msgid "_Add_a_new_style_"
+msgstr ""
+
+
 msgid "_Add_a_portlet_"
 msgstr ""
 
