@@ -985,14 +985,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         global_actions = actions.get('global')
         if global_actions is None:
             return rendered
-        theme_manage_action = [ac for ac in global_actions if ac['id'] == THEME_CONFIG_ACTION_ID]
+        theme_manage_action = [ac for ac in global_actions
+            if ac.get('id') == THEME_CONFIG_ACTION_ID]
 
         if len(theme_manage_action) > 0:
             action = theme_manage_action[0]
         else:
             return rendered
 
-        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'], self.getAccessKey())
+        rendered = '<a href="%s" accesskey="%s"></a>' % \
+            (action['url'], self.getAccessKey())
         return rendered
 
     #
