@@ -754,7 +754,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                         if session:
                             month = session.get('calendar_month',  None)
                 if month:
-                    index_string = month
+                    index_string = str(month)
 
             # current year
             elif param == 'year':
@@ -766,7 +766,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                         if session:
                             year = session.get('calendar_year',  None)
                 if year:
-                    index_string = year
+                    index_string = str(year)
 
             if index_string:
                 index += (prefix + '_' + index_string,)
