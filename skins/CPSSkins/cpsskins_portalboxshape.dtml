@@ -57,3 +57,10 @@ margin:&dtml-BoxBody_menuin_margin;;
 padding:&dtml-BoxBody_menuin_padding;;
 </dtml-if>
 }
+.BoxShape&dtml-title; .buttons { 
+display:block;
+padding-right:0
+}
+.BoxShape&dtml-title; .buttons a { 
+float:right;
+}
