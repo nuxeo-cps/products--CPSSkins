@@ -1,3 +1,8 @@
+Installing themes through products
+==================================
+
+XML format (requires CPSIO 0.3.0)
+---------------------------------
 
 Concept code showing how to install themes saved in XML format
 from the filesystem (requires CPSIO >= 0.3.0)
