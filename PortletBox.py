@@ -233,10 +233,12 @@ class PortletBox(BaseTemplet):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
+        context = REQUEST.get('context_obj', self)
+        folder_url = context.absolute_url(1)
         portlet = ptltool.getPortletById(portlet_id)
         param_dict = {
-            'url': (REQUEST.get('PATH_TRANSLATED', '/'), ),
-            'i18n': (REQUEST.get('cpsskins_language', 'en'), ),
+            'url': (REQUEST.get('cpsskins_url'), ),
+            'folder': (folder_url, ),
             'user': (str(REQUEST.get('AUTHENTICATED_USER')), ),
         }
         if portlet is not None:
@@ -244,6 +246,8 @@ class PortletBox(BaseTemplet):
             index += portlet.getCustomCacheIndex()
             # cache parameters
             for param in portlet.getCacheParams():
+                if not param_dict.has_key(param):
+                    continue
                 index += param_dict.get(param)
         return index
 
