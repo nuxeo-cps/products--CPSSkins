@@ -222,7 +222,7 @@ def detectPortalType(self):
 
     # CPS3
     cps_version = getattr(portal, 'cps_version', '')
-    if cps_version.startswith('CPS3'):
+    if cps_version[0] == '3':
         return 'CPS3'
 
     if meta_type == 'CPSDefault Site':
