@@ -279,6 +279,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         parents = self.findParents()
         if len(parents) == 0:
        	    return 1
+        return None
 
     security.declareProtected(ManageThemes, 'copy_to_theme')
     def copy_to_theme(self, dest_theme=None, REQUEST=None):
@@ -287,7 +288,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         """
 
         if dest_theme is None:
-            return
+            return self
         container = self.aq_parent
 
         tmtool = getToolByName(self, 'portal_themes')

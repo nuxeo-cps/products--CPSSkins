@@ -30,6 +30,7 @@ from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
+from types import ListType, TupleType
 
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.DynamicType import DynamicType
@@ -362,6 +363,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         if self.isCacheable():
             return getattr(self, 'cacheable', 0)
+        return None
 
     security.declarePublic('isESIFragment')
     def isESIFragment(self):
@@ -403,6 +405,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                         'starting_from',
                         'up_till']:
             return 1
+        return None
 
     security.declarePublic('AlignList')
     def AlignList(self):
@@ -423,6 +426,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             if margin not in ('0', '0pt', '0in', '0pc', '0mm',
                               '0cm', '0px', '0em', '0ex'):
                 return 'padding: %s' % margin
+        return ''
 
     security.declarePublic('getCSSLayoutStyle')
     def getCSSLayoutStyle(self):
@@ -442,6 +446,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         if css:
             return css
+        return ''
 
     security.declarePublic('getCSSAreaClass')
     def getCSSAreaClass(self, level=2):
@@ -480,6 +485,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         if areaclass:
             return areaclass.strip()
+        return ''
 
     security.declarePublic('getCSSBoxClass')
     def getCSSBoxClass(self):
@@ -504,6 +510,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         if boxclass:
             return boxclass.strip()
+        return ''
 
     security.declarePublic('VisibilityList')
     def VisibilityList(self):
@@ -598,21 +605,20 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         if REQUEST is None:
             REQUEST = self.REQUEST
 
-        def getOptions(param):
+        def getOptions(p):
              """extract cache parameter options
              """
              res = []
-             opts = param.split(':')[1].split(',')
-             for opt in opts:
-                 if opt[0] == '(' and opt[-1] == ')':
-                     opt = getattr(self, opt[1:-1], None)
-                     if opt is None:
+             for o in p.split(':')[1].split(','):
+                 if o[0] == '(' and o[-1] == ')':
+                     o = getattr(self, o[1:-1], None)
+                     if o is None:
                          continue
-                     if isinstance(opt, ListType) or\
-                        isinstance(opt, TupleType):
-                         res.extend(opt)
+                     if isinstance(o, ListType) or\
+                        isinstance(o, TupleType):
+                         res.extend(o)
                          continue
-                 res.append(str(opt))
+                 res.append(str(o))
              return res
 
         context = kw.get('context_obj')
@@ -740,6 +746,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         else:
             fail = 1
  
+        rendered = ''
         if not fail: 
             meth = getattr(self, actionid, None)
             if meth is not None:
@@ -816,6 +823,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             if meth is not None:
                 rendered = apply(meth, (), kw)
                 return rendered  
+        return ''
 
     security.declarePublic('render_css')
     def render_css(self, **kw):

@@ -130,7 +130,7 @@ class AreaColor(BaseStyle):
 
         if self.Area_bg_image:
             return 1
-
+        return None
 
 InitializeClass(AreaColor)
 

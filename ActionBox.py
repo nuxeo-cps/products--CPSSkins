@@ -107,6 +107,7 @@ class ActionBox(BaseTemplet):
 
         if getattr(self, 'orientation', '') == 'vertical':
             return 1
+        return None
 
     security.declarePublic('getCacheParams')
     def getCacheParams(self):
