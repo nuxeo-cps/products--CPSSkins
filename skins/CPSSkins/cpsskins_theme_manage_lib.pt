@@ -387,7 +387,6 @@
     <h1 tal:define="title string:_Themes manager_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
-      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_upload" />
       <form action="" method="post"
         tal:attributes="action string:${base_url}cpsskins_themes_edit">
         <input type="hidden" name="theme"
@@ -442,6 +441,7 @@
           tal:attributes="value python:mcat and mcat(title) or title" />
         </div>
       </form>
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_upload" />
       <div class="addItem">
         <form action="cpsskins_theme_add" method="get">
           <input type="image" type="submit" 
