@@ -1,5 +1,5 @@
 <metal:block define-macro="box">
-  <div class="BoxGroupBoxSlot PortalBoxDrag" 
+  <div
   tal:define="box_url box/url;
               box_obj python: box['box'];
               ypos box/settings/order|nothing;
@@ -11,7 +11,8 @@
               editable python:checkPerm('Manage Boxes', box_obj)"
   tal:attributes="box_url box_url; 
                   src_ypos python: ypos and ypos or 0;
-                  src_slot group">
+                  src_slot group;
+                  class python: editable and 'BoxGroupBoxSlot PortletBoxDrag' or 'BoxGroupBoxSlot'">
     <div class="PortalBoxDest" 
       tal:attributes="dest_slot group; 
                       dest_ypos python: ypos and ypos or 0">
