@@ -19,7 +19,9 @@
     </tal:block>
 
     <!-- Portlets -->
-    <tal:block content="structure python: templet.render_cache(shield=1, context=here)" />
+    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (templet.boxcolor, templet.boxshape);
+                         style string:text-align:${templet/align};; padding:$padding"
+    tal:content="structure python: templet.render_cache(shield=1, context=here)" />
 
   </tal:block>
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"

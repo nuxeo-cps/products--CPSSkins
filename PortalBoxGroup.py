@@ -79,17 +79,29 @@ class PortalBoxGroup(BaseTemplet):
          'category': 'style', 
          'style': 'Portal Box Color'
         },
+       {'id': 'boxlayout', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Box layout', 
+        'category': 'layout', 
+        'select_variable': 'BoxLayoutList',
+        'visible': 'hasPortlets',
+        'i18n': 1,
+        'i18n_prefix': '_option_',
+       },
     )
 
     def __init__(self, id,
                  box_group = '0',
                  boxshape = 'LightSkins', 
                  boxcolor = 'Gray', 
+                 boxlayout = 'standard',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.box_group = box_group
         self.boxshape = boxshape
         self.boxcolor = boxcolor
+        self.boxlayout = boxlayout
 
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):
@@ -101,16 +113,34 @@ class PortalBoxGroup(BaseTemplet):
     def isAlignable(self):
         """ Returns true if the Templet can be aligned horizontally """
 
-        return None
+        return self.hasPortlets()
+
+    security.declarePublic('BoxLayoutList')
+    def BoxLayoutList(self):           
+        """ Returns a list of orientations for this Templet"""
+
+        layouts = ['standard', 
+                   'one_frame', 
+                   'notitle', 
+                   'no_frames', 
+                   'notitle_noframe',
+                   'drawer',
+                   'drawer_notitle']
+        return layouts
+
+    security.declarePublic('hasPortlets')
+    def hasPortlets(self):
+        """Return true if CPSPortlets is installed"""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            return 1
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
 
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        if ptltool is not None:
-            # XXX should also ask the Portlet's schema
-            return 1
+        return self.hasPortlets()
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
@@ -140,13 +170,18 @@ class PortalBoxGroup(BaseTemplet):
         if styles: 
             return styles['title']
 
-
     security.declarePublic('getSlot')
     def getSlot(self):
          """Return the slot name"""
 
          return self.box_group
 
+    security.declarePublic('applyBoxLayout')
+    def applyBoxLayout(self, title='', body=''):
+        """Apply a box layout on the content"""
+
+        return self.cpsskins_renderBox(title=title, body=body)
+        
     #
     # Rendering.
     #
@@ -154,8 +189,7 @@ class PortalBoxGroup(BaseTemplet):
     def render(self, shield=0, **kw):
         """Renders the templet."""
 
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        if ptltool is None:
+        if not self.hasPortlets():
             return ''
         context = kw.get('context')
         slot = self.getSlot()
@@ -173,6 +207,7 @@ class PortalBoxGroup(BaseTemplet):
                     rendered = self.cpsskins_brokentemplet()
             else:
                 rendered = portlet.render()
+            rendered = self.applyBoxLayout(title='test', body=rendered)
             all_rendered += rendered
 
         return all_rendered
