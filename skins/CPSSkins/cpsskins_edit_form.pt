@@ -39,6 +39,9 @@
           </td>
         </tr>
       </table>
+      <tal:block condition="isPortalStyle" define="style here">
+        <metal:block use-macro="here/cpsskins_form_widgets/macros/show_style_parents" />
+      </tal:block>
       <br />
       <metal:block
        use-macro="here/cpsskins_form_widgets/macros/navigationtab" />

@@ -448,3 +448,18 @@ tal:define="theme request/form/theme|nothing;
 <metal:block define-macro="portlet_edit" i18n:domain="cpsskins">
   <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
 </metal:block>
+
+<metal:block define-macro="show_style_parents" i18n:domain="cpsskins"
+  tal:define="parents style/findParents">
+  <p tal:condition="python: len(parents) > 0">
+    <em tal:define="title string:_This style is used by:_"
+     tal:content="python: mcat and mcat(title) or title"
+     i18n:translate="" />
+    <em tal:repeat="parent parents">
+      <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
+       align="middle" alt="" width="16" height="16" />
+      <a href="" tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
+       tal:content="parent/title_or_id" />&nbsp;&nbsp;
+    </em>
+  </p>
+</metal:block>
