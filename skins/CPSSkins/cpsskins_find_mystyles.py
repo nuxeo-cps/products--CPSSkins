@@ -8,7 +8,7 @@ if meta_type is None:
     return
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName()
+theme = tmtool.getRequestedThemeName(editing=1)
 theme_container = tmtool.getThemeContainer(theme=theme)
 
 # set the edited object's url

@@ -4,7 +4,7 @@ tmtool = context.portal_themes
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-theme = tmtool.getRequestedThemeName()
+theme = tmtool.getRequestedThemeName(editing=1)
 theme_container = tmtool.getThemeContainer(theme=theme)
 
 content = context.addContent(**kw)

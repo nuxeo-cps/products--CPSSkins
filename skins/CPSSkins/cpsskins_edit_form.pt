@@ -10,7 +10,7 @@
   checkPerm nocall:mtool/checkPermission;
   view_mode tmtool/getViewMode;
   theme view_mode/theme|nothing;
-  current_theme python: tmtool.getRequestedThemeName(context_obj=here);
+  current_theme python: tmtool.getRequestedThemeName(context_obj=here, editing=1);
   theme_container python: tmtool.getThemeContainer(theme=current_theme);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
   cat request/form/cat|nothing">
