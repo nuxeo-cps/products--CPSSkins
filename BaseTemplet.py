@@ -31,6 +31,7 @@ from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 from ZODB.POSException import ConflictError
+from zLOG import LOG, DEBUG
 from types import ListType, TupleType
 
 from Products.CMFCore.DynamicType import DynamicType
@@ -508,6 +509,13 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                             raise
                         # total failure
                         except:
+                            LOG('CPSSkins.BaseTemplet:', DEBUG,
+                            """The templet with id %s could not be rendered """
+                            """because it contains errors. To obtain a """
+                            """detailed error log please deactivate """
+                            """CPSSkins' built-in crash shield in """
+                            """portal_themes > Options > Deactivate """
+                            """the crash shield.""" % self.getId())
                             fail = 1
                 # no crash shield
                 else:

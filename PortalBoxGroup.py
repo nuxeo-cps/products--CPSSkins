@@ -26,6 +26,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from ZODB.POSException import ConflictError
+from zLOG import LOG, DEBUG
 
 from Products.CMFCore.utils import getToolByName
 
@@ -222,6 +223,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                     except ConflictError: # catch conflict errors
                         raise
                     except:
+                        LOG('CPSSkins.PortalBoxGroup:', DEBUG,
+                        """The portlet with id %s could not be rendered """
+                        """because it contains errors. To obtain a """
+                        """detailed error log please deactivate """
+                        """CPSSkins' built-in crash shield in """
+                        """portal_themes > Options > Deactivate """
+                        """the crash shield.""" % portlet.getId())
                         rendered = '<blink>!!!</blink>'
                 else:
                     rendered = portlet.render_cache(**kw)
