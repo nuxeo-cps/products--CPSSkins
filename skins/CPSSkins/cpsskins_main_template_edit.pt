@@ -1,15 +1,16 @@
 <metal:block define-macro="head"
   tal:define="portal_url here/portal_url;
+              base_url here/cpsskins_getBaseUrl;
               tmtool here/portal_themes;
               theme_url theme_container/absolute_url">
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${portal_url}/cpsskins_common.css" />
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${theme_url}/renderCSS" />
 <!-- CSS2 -->
   <style type="text/css" media="all"
-  tal:content="string: @import url(${portal_url}/cpsskins_common-css2.css);" />
+  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here/absolute_url}/cpsskins_renderJS?theme=$current_theme"></script>
 <!-- Shortcut icon -->
@@ -25,7 +26,8 @@
 </tal:block>
 </metal:block>
 <metal:block define-macro="main"
- tal:define="edit_mode request/form/edit_mode|nothing;
+ tal:define="utool nocall:here/portal_url;
+          edit_mode request/form/edit_mode|nothing;
           current_theme request/form/theme|nothing;
 	  align python: theme_container.align; 
           layout_edit_mode python: edit_mode == 'layout'; 
@@ -49,6 +51,7 @@
     tal:define="closed python: pageblock['closed'];		 
                 maxcols python: pageblock['maxcols']; 
                 pageblock_id python: pageblock['id'];
+                pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
                 height python: pageblock['height'];
                 height_style python: height and 'height:%s' % height or ''"
     tal:condition="python: (not closed and maxcols)"
@@ -85,7 +88,7 @@
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
-                                       pageblock_url python: pageblock.absolute_url();
+                                       pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
                                        class python: ismaincontent and 'TempletDestMain' or 'TempletDest';
                                        dest_pageblock pageblock_id">
                     <div
@@ -106,7 +109,7 @@
                      tal:attributes="align python: templet.align;
                                      style style;
 	                             class string: $class $boxdragclass $boxeditmenuclass; 
-                                     templeturl python: templet.absolute_url(); 
+                                     templeturl python: base_url + utool.getRelativeUrl(templet); 
                                      styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                      isalignable python: templet.isAlignable();
                                      alignments python: '|'.join(align_list);

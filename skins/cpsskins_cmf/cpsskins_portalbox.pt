@@ -2,6 +2,7 @@
                    context_rurl request/form/context_rurl|nothing;
                    context_obj python: here.cpsskins_getContextObj(context_rurl);
                    portal_url here/portal_url;
+                   base_url here/cpsskins_getBaseUrl;
                    orientation python: here.orientation;
                    menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
                    item_style python: orientation == 'horizontal' and 'white-space: nowrap' or None;
@@ -19,7 +20,12 @@
                        i18n python: here.folder_items_i18n"
                condition="python: menuentries or create_url">
       <tal:block condition="i18n" repeat="menuentry menuentries">
-        <tal:block define="menu_url python: menuentry['url']; menu_selected python: menuentry['selected']; menu_title python: menuentry['title']; menu_title python: mcat and mcat(menu_title) or menu_title; menuclass python: menu_selected and 'submenuin' or 'submenuout'; iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
+        <tal:block define="menu_url python: menuentry['url']; 
+                           menu_selected python: menuentry['selected']; 
+                           menu_title python: menuentry['title']; 
+                           menu_title python: mcat and mcat(menu_title) or menu_title; 
+                           menuclass python: menu_selected and 'submenuin' or 'submenuout'; 
+                           iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
           <a href=""
           tal:attributes="href menu_url; class menuclass; style menustyle">
             <span tal:attributes="class iconclass">&nbsp;</span>
@@ -31,7 +37,11 @@
 
       <tal:block condition="not:i18n"
       repeat="menuentry menuentries">
-        <tal:block define="menu_url python: menuentry['url']; menu_selected python: menuentry['selected']; menu_title python: menuentry['title']; menuclass python: menu_selected and 'submenuin' or 'submenuout'; iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
+        <tal:block define="menu_url python: menuentry['url']; 
+                           menu_selected python: menuentry['selected']; 
+                           menu_title python: menuentry['title'];  
+                           menuclass python: menu_selected and 'submenuin' or 'submenuout'; 
+                           iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
           <a href=""
           tal:attributes="href menu_url; class menuclass; style menustyle">
             <span tal:attributes="class iconclass">&nbsp;</span>
@@ -52,7 +62,15 @@
     <tal:block define="wtool here/portal_workflow; actioninfos python: here.cpsskins_getActionsInfo(here, context_obj); space python: orientation == 'vertical' and 'margin-top: 9px;;' or ''"
                condition="actioninfos">
       <tal:block repeat="actioninfo actioninfos">
-        <tal:block define="we_are_here python: actioninfo['we_are_here']; title python: actioninfo['title']; title python: mcat and mcat(title) or title; url python: actioninfo['url']; class python: actioninfo['class']; style python: actioninfo['style']; newcat python: actioninfo['newcat']; style python: newcat and style + space or ''; iconclass python: we_are_here and 'menuinicon' or 'menuouticon'">
+        <tal:block define="we_are_here python: actioninfo['we_are_here']; 
+                           title python: actioninfo['title']; 
+                           title python: mcat and mcat(title) or title; 
+                           url python: actioninfo['url']; 
+                           class python: actioninfo['class']; 
+                           style python: actioninfo['style']; 
+                           newcat python: actioninfo['newcat']; 
+                           style python: newcat and style + space or ''; 
+                           iconclass python: we_are_here and 'menuinicon' or 'menuouticon'">
 
           <a tal:attributes="style string: $style $menustyle; class class; href url">
 
@@ -66,10 +84,14 @@
   </tal:block>
 
   <tal:block condition="python: content == 'about'">
-    <tal:block define="content here/content|nothing; modification_date context_obj/ModificationDate; creator context_obj/Creator; ti python: context_obj.getTypeInfo(); doctype python: ti and ti.Title() or nothing; creator_home python:container.portal_membership.getHomeUrl(creator)">
-
+    <tal:block define="content here/content|nothing; 
+                       modification_date context_obj/ModificationDate; 
+                       creator context_obj/Creator; 
+                       ti python: context_obj.getTypeInfo(); 
+                       doctype python: ti and ti.Title() or nothing; 
+                       creator_home python:container.portal_membership.getHomeUrl(creator)">
       <p>
-        <img tal:attributes="src string:$portal_url/${context_obj/getIcon}"
+        <img tal:attributes="src string:${base_url}${context_obj/getIcon}"
              alt="" />
         <tal:block condition="doctype" i18n:translate=""
         content="python: mcat and mcat(doctype) or doctype" />
@@ -97,7 +119,7 @@
   <tal:block condition="python: content == 'login'"
   i18n:domain="cpsskins">
     <form action="logged_in" method="post"
-    tal:attributes="action string:$portal_url/logged_in">
+    tal:attributes="action string:${base_url}logged_in">
       <input type="hidden" name="came_from" value=""
       tal:define="came_from request/came_from|nothing"
       tal:condition="came_from" tal:attributes="value came_from" />
@@ -119,13 +141,17 @@
       tal:attributes="value python: mcat and mcat(title) or title" />
     </form>
     <br />
-    <a tal:attributes="href string:$portal_url/mail_password_form"
+    <a tal:attributes="href string:${base_url}mail_password_form"
     i18n:translate=""
     tal:define="title string:_Forgot your password?_"
     tal:content="python: mcat and mcat(title) or title" />
   </tal:block>
+
   <tal:block condition="python: content == 'info'">
-    <tal:block define="info python: here.info; info python: mcat and mcat(info) or info; pss modules/Products/PythonScripts/standard; structured_text here/structured_text|nothing;"
+    <tal:block define="info python: here.info; 
+                       info python: mcat and mcat(info) or info; 
+                       pss modules/Products/PythonScripts/standard; 
+                       structured_text here/structured_text|nothing;"
                condition="info"
                content="structure python:pss.structured_text(info)" />
   </tal:block>
@@ -135,7 +161,7 @@
       <div tal:repeat="related RelatedDocuments"
       class="submenuout">
         <img src=""
-        tal:attributes="src string:$portal_url/${related/icon}; alt context_obj/title" />
+        tal:attributes="src string:${base_url}${related/icon}; alt context_obj/title" />
         <a href="" tal:attributes="href string:${related/url}/view"
         tal:content="related/title" />
       </div>
@@ -143,13 +169,14 @@
   </tal:block>
 
   <tal:block condition="python: content == 'recent'">
-    <tal:block define="isAnon here/portal_membership/isAnonymousUser; results here/cpsskins_RecentDocuments"
+    <tal:block define="isAnon here/portal_membership/isAnonymousUser; 
+                       results here/cpsskins_RecentDocuments"
                condition="not:isAnon">
       <tal:block condition="results">
         <tal:block tal:repeat="obj results">
           <div class="submenuout">
             <img src=""
-            tal:attributes="src string:$portal_url/${obj/icon}; alt obj/title" />
+            tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
             <a href="" tal:attributes="href string:${obj/url}/view"
             tal:content="obj/title" />
           </div>
@@ -167,7 +194,7 @@
       <tal:block tal:repeat="obj results">
         <div class="submenuout">
         <img src=""
-        tal:attributes="src string:$portal_url/${obj/icon}; alt obj/title" />
+        tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
         <a href="" tal:attributes="href string:${obj/url}/view"
         tal:content="obj/title" />, 
         <tal:block define="location obj/location"
@@ -184,7 +211,7 @@
       <tal:block tal:repeat="obj results">
         <div class="submenuout">
           <img src=""
-          tal:attributes="src string:$portal_url/${obj/icon}; alt obj/title" />
+          tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
           <a href=""
           tal:attributes="href string:${obj/absolute_url}/view"
           tal:content="obj/title_or_id" />
@@ -192,16 +219,19 @@
       </tal:block>
     </tal:block>
   </tal:block>
+
   <tal:block condition="python: content == 'language'"
   i18n:domain="cpsskins">
-    <tal:block define="lc python: here.cpsskins_getlocalizer(root=1); langs python: lc and lc.get_languages_map() or []; tr_langs python: here.cpsskins_translateLangs(langs)"
-               condition="python: len(langs) &gt; 1">
-      <tal:block tal:condition="python:len(tr_langs) &lt;= 8"
+    <tal:block define="lc python: here.cpsskins_getlocalizer(root=1); 
+                       langs python: lc and lc.get_languages_map() or []; 
+                       tr_langs python: here.cpsskins_translateLangs(langs)"
+               condition="python: len(langs) > 1">
+      <tal:block tal:condition="python:len(tr_langs) <= 8"
       tal:repeat="lang tr_langs">
         <strong tal:omit-tag="python: not lang['selected']"
         tal:define="lang_id python: lang['id']; title python: lang['title']">
           <img width="15" height="12" alt=""
-          tal:attributes="src string:$portal_url/cpsskins_images/flag-${lang_id}.gif; title title" />
+          tal:attributes="src string:${base_url}cpsskins_images/flag-${lang_id}.gif; title title" />
           <a href=""
           tal:attributes="href string:${lc/absolute_url}/changeLanguage?lang=${lang_id}"
              tal:content="title" />

@@ -4,6 +4,7 @@
   tal:define="tmtool here/portal_themes; 
               current_theme request/form/theme|nothing; 
               portal_url here/portal_url;
+              base_url here/cpsskins_getBaseUrl;
               theme_container python: tmtool.getThemeContainer(theme=current_theme); 
               unused_styles theme_container/findOrphanedStyles|nothing; 
               identical_styles theme_container/findIdenticalStyles|nothing; 
@@ -16,7 +17,7 @@
     i18n:translate="" />
     <tal:block condition="not:optimized">
       <form action="" method="post"
-      tal:attributes="action string:$portal_url/cpsskins_theme_optimize">
+      tal:attributes="action string:${base_url}cpsskins_theme_optimize">
         <input type="hidden" name="theme"
         tal:attributes="value current_theme" />
         <input type="hidden" name="edit_mode"
@@ -34,7 +35,7 @@
               <tr>
                 <td width="50%">
                   <a tal:attributes="href string:${style/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
-                    <img tal:attributes="src string:$portal_url/${style/getIcon}" />
+                    <img tal:attributes="src string:${base_url}${style/getIcon}" />
                     <span tal:content="style/getTitle" />
                   </a>
                 </td>
@@ -79,7 +80,7 @@
                       <td>
                         <a tal:attributes="href string:${style/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
 
-                          <img tal:attributes="src string:$portal_url/${style/getIcon}" />
+                          <img tal:attributes="src string:${base_url}${style/getIcon}" />
                           <span tal:content="style/getTitle" />
                         </a>
                       </td>
@@ -111,7 +112,7 @@
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
                 <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
-                  <img tal:attributes="src string:$portal_url/${templet/getIcon}" />
+                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                   <tal:block content="templet/getTitle" />
                 </a>
               </td>
@@ -150,7 +151,7 @@
               <tr>
                 <td width="50%">
                   <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
-                    <img tal:attributes="src string:$portal_url/${templet/getIcon}" />
+                    <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
                   </a>
                 </td>
@@ -182,7 +183,7 @@
               <tr>
                 <td width="50%">
                   <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode&cat=general">
-                    <img tal:attributes="src string:$portal_url/${templet/getIcon}" />
+                    <img tal:attributes="src string:${base_url}${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
                   </a>
                 </td>

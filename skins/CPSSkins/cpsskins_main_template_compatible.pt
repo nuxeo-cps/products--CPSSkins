@@ -1,11 +1,12 @@
 <metal:block define-macro="head" 
   tal:define="portal_url here/portal_url;
+              base_url here/cpsskins_getBaseUrl;
               tmtool here/portal_themes;
               theme_url theme_container/absolute_url">
   <meta name="generator" content="CPSSkins 2.3" />
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
-  tal:attributes="href string:${portal_url}/cpsskins_common.css" />
+  tal:attributes="href string:${base_url}cpsskins_common.css" />
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${theme_url}/renderCSS" />
   <style type="text/css">

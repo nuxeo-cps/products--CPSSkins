@@ -1,6 +1,7 @@
 <html metal:define-macro="edit"
 tal:define="tmtool here/portal_themes; 
             portal_url here/portal_url;
+            base_url here/cpsskins_getBaseUrl;
             here_url here/absolute_url;
             mcat here/cpsskins_getlocalizer;
             cpsskins_mcat python: here.cpsskins_getlocalizer(cat='cpsskins');
@@ -15,7 +16,7 @@ tal:define="tmtool here/portal_themes;
             scrolly request/form/scrolly|python:0">
   <head>
     <style type="text/css" media="all"
-    tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
+    tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
     <metal:block
     use-macro="here/cpsskins_main_template_edit/macros/head" />
     <script type="text/javascript" src="cpsskins_pdlib.js"></script>
