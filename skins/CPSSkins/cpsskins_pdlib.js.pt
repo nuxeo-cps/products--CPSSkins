@@ -13,7 +13,7 @@
 // A library for manipulating objects on a page with object selection,
 // context menus, and drag and drop.  Mostly DOM 2 oriented, with bits
 // for IE compatibility.
-// $Id$
+// $Id: cpsskins_pdlib.js.pt,v 1.1.1.1 2004/08/26 15:34:54 jmorliaguet Exp
 
 // The following variables and functions are documented for use by
 // scripts that use this library:
@@ -105,6 +105,17 @@ function pd_highlight(node, state) {
 // Context menu functions
 //
 
+function getScrollX() {
+  var scroll_x = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
+  return scroll_x;  
+}    
+
+function getScrollY() {
+  var scroll_y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  return scroll_y;  
+}    
+
+
 function pd_showContextMenu(menunode, e) {
   if (!e)
     e = event;
@@ -113,8 +124,8 @@ function pd_showContextMenu(menunode, e) {
   var page_w = window.innerWidth || document.body.clientWidth;
   var page_h = window.innerHeight || document.body.clientHeight;
   // have to check documentElement in some IE6 releases
-  var page_x = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
-  var page_y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  var scroll_x = getScrollX();
+  var scroll_y = getScrollY();
 
   if (menunode.offsetWidth >= pd_max_contextmenu_width) {
     // It's likely that the browser ignored "display: table"
@@ -126,18 +137,18 @@ function pd_showContextMenu(menunode, e) {
   if (page_w - e.clientX < menunode.offsetWidth) {
     // Close to the right edge
     menunode.style.left = '' + (
-      page_x + e.clientX - menunode.offsetWidth - 1) + 'px';
+      scroll_x + e.clientX - menunode.offsetWidth - 1) + 'px';
   }
   else {
-    menunode.style.left = '' + (page_x + e.clientX + 1) + 'px';
+    menunode.style.left = '' + (scroll_x + e.clientX + 1) + 'px';
   }
   if (page_h - e.clientY < menunode.offsetHeight) {
     // Close to the bottom
     menunode.style.top = '' + (
-      page_y + e.clientY - menunode.offsetHeight - 1) + 'px';
+      scroll_y + e.clientY - menunode.offsetHeight - 1) + 'px';
   }
   else {
-    menunode.style.top = '' + (page_y + e.clientY + 1) + 'px';
+    menunode.style.top = '' + (scroll_y + e.clientY + 1) + 'px';
   }
 
   pd_open_context_menu = menunode;
@@ -178,8 +189,8 @@ function pd_DragEvent(e, move_func, checkmove_func) {
   this.target = null;
   this.move_func = move_func;
   this.checkmove_func = checkmove_func;
-  this.start_x = e.pageX ? e.pageX : e.clientX + document.body.scrollLeft;
-  this.start_y = e.pageY ? e.pageY : e.clientY + document.body.scrollTop;
+  this.start_x = e.pageX ? e.pageX : e.clientX + getScrollX();
+  this.start_y = e.pageY ? e.pageY : e.clientY + getScrollY();
   this.feedback_node = document.getElementById("drag-feedback-box");
   this.began_moving = false;
   this.revealed = [];
@@ -249,8 +260,8 @@ function pd_dragging(e) {
     return;
   if (!e)
     e = event;
-  var x = e.pageX ? e.pageX : e.clientX + document.body.scrollLeft;
-  var y = e.pageY ? e.pageY : e.clientY + document.body.scrollTop;
+  var x = e.pageX ? e.pageX : e.clientX + getScrollX();
+  var y = e.pageY ? e.pageY : e.clientY + getScrollY();
 
   if (!pd_drag_event.began_moving) {
     if (Math.abs(x - pd_drag_event.start_x) <= 3 &&

@@ -26,8 +26,12 @@ Plone and its visual design is Copyright (c) 2000-2004 by Alexander Limi, Alan R
 - PDLib:
 Copyright (c) 2002 Zope Corporation and Contributors.
 source code covered by the ZPL version 2.0 (see ZPL.TXT)
+
 Copyright (c) 2002-2003 Shane Hathaway <shane@hathawaymix.org>
 CompositePage-0.2 http://hathawaymix.org/Software/CompositePage
+
+Copyright (c) 2004 CompositePack Contributors.
+http://cvs.sf.net/viewcvs.py/collective/CompositePack/plone/
 
 - Color Picker Script from Flooble.com:
 For more information, visit http://www.flooble.com/scripts/colorpicker.php
