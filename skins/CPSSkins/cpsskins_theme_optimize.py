@@ -1,11 +1,10 @@
-##parameters=REQUEST=None, theme=None, page=None, **kw
+##parameters=REQUEST=None, theme=None, **kw
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
 theme_container = tmtool.getThemeContainer(theme=theme)
-page_container = theme_container.getPageContainer(page=page)
 
 styles_dir = theme_container.getStylesFolder()
 
@@ -55,20 +54,20 @@ styles_dir.manage_delObjects(styles_to_delete)
 #
 
 if templets_to_delete:
-    for templet in theme_container.getTemplets():
-        id = templet.getId()
-        if id in templets_to_delete:
+    for templet_path in templets_to_delete:
+        templet = context.restrictedTraverse(templet_path, default=None)
+        if templet is not None:
              pageblock = templet.getContainer()
-             pageblock.manage_delObjects([id])
+             pageblock.manage_delObjects([templet.getId()])
 
 #
 # Templets to cache
 #
 
 if templets_to_cache:
-    for templet in theme_container.getTemplets():
-        id = templet.getId()
-        if id in templets_to_cache:
+    for templet_path in templets_to_cache:
+        templet = context.restrictedTraverse(templet_path, default=None)
+        if templet is not None:
             templet.edit(cacheable=1)
 
 #

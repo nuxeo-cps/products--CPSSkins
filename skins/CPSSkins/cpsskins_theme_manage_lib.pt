@@ -778,7 +778,7 @@
                   <input type="checkbox"
                   name="delete_templets:list" value="."
                   checked="checked"
-                  tal:attributes="value templet/getId" />
+                  tal:attributes="value python: '/'.join(templet.getPhysicalPath())" />
                 </td>
               </tr>
             </tal:block>
@@ -813,7 +813,7 @@
                   <input type="checkbox"
                   name="cached_templets:list" value="."
                   checked="checked"
-                  tal:attributes="value templet/getId" />
+                  tal:attributes="value python: '/'.join(templet.getPhysicalPath())" />
                 </td>
               </tr>
             </tal:block>
