@@ -577,7 +577,7 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
         </tal:block>
         <tal:block condition="not:cellsize">
           <form action="" method="post"
-           tal:define="name string:cellsizer_add_${pageblock_id}"
+           tal:define="name string:cellsizer_add_${pageblock_id}_${x_pos}"
            tal:attributes="name name;
                            action string:${pageblock/absolute_url}/cpsskins_cellsizer_add;
                            onSubmit string:saveScrollCoordinates('${name}')">
