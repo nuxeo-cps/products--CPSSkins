@@ -32,6 +32,7 @@ JS_RAMCACHE_ID = 'js'
 # Thumbnails
 THUMBNAIL_WIDTH = 200
 THUMBNAIL_HEIGHT = 160
+THUMBNAIL_IMAGE_FORMAT = 'PNG'
 
 import os
 import string
@@ -883,6 +884,8 @@ class PortalTheme(ThemeFolder):
             return
 
         img = getattr(images_dir, id, None)
+        if img is None:
+            return
         # create a thumbnail
         if imagecat == 'thumbnails':
             file = self._createThumbnail(file)
@@ -916,7 +919,10 @@ class PortalTheme(ThemeFolder):
 
         ids = images_dir.objectIds()
         prefix = title.split('.')[0]
-        ext = title.split('.')[1]
+        if imagecat == 'thumbnails':
+            ext = THUMBNAIL_IMAGE_FORMAT
+        else:
+            ext = title.split('.')[1]
 
         i = 0
         while 1:
@@ -1308,17 +1314,15 @@ class PortalTheme(ThemeFolder):
             return
 
         width, height = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
-
         if isPILAvailable:
             try:
                 img = PIL.Image.open(file)
             except IOError:
                 pass
             else:
-                img.thumbnail((width, height), PIL.Image.ANTIALIAS)
+                image = img.resize((width, height), PIL.Image.ANTIALIAS)
                 file.seek(0)
-                img.save(file, img.format)
-
+                image.save(file, THUMBNAIL_IMAGE_FORMAT)
         return file
 
 
