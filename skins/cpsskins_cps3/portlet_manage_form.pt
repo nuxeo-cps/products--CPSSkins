@@ -76,10 +76,10 @@
                 <div class="BoxGroupBoundingBox" 
                   tal:define="group hidden_slot">
                   <div i18n:translate=""
-                       tal:content="string:label_${hidden_slot}"
+                       tal:content="hidden_slot"
                        class="BoxGroupBoxSlotTitleHidden">
                   </div>
-                  <tal:block define="portlets python:ptltool.getPortlets(here)">
+                  <tal:block define="portlets python:ptltool.getPortlets(here, hidden_slot)">
                     <tal:block repeat="portlet portlets">
                       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
                     </tal:block>
