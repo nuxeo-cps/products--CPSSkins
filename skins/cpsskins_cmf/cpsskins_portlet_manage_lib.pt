@@ -22,7 +22,6 @@
     <div class="PortletBoxDest"
      tal:define="box_style python: box_selected and 'border: 1px dashed Black' or 'border: none'"
       tal:attributes="style box_style;
-                      dest_rurl portlet_folder_rurl;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
       <div tal:attributes="class slot_class">
@@ -309,8 +308,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                            src_ypos python: ypos and ypos or 0;
                            src_slot group">
             <div class="PortletBoxDest"
-             tal:attributes="dest_slot group;
-                             dest_rurl portlet_folder_rurl;
+             tal:attributes="dest_rurl portlet_folder_rurl;
                              dest_ypos python: ypos and ypos or 0">
               <div class="PortletInfo"
                tal:attributes="style python: selected and 'border-style: dashed' or ''">
