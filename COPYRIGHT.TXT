@@ -78,3 +78,7 @@ http://longsleep.org/howto/squidwithzopeandesi
 - Transparent PNG fix for IE
 Copyright (c) 2002 by Erik Arvidsson <erik@eae.net>
 for WebFX (http://webfx.eae.net) http://webfx.eae.net/license.html
+
+- Drop-down menus
+Copyright (c) 1998-2004 A List Apart Magazine
+http://www.alistapart.com/copyright/#disclaimer

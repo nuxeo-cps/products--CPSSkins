@@ -11,6 +11,9 @@ http://developer.ximian.com/themes/icons/
 * Floating toolbar:
 http://devnull.tagsoup.com/fixed/ 
 
+* Drop-down menus:
+http://www.htmldog.com/articles/suckerfish/dropdowns/
+http://www.alistapart.com/articles/dropdowns/
 
 People:
 
