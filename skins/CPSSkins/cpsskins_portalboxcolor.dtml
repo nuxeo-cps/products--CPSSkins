@@ -10,7 +10,7 @@ border-color:&dtml-BoxTitle_border_color;;
 color: &dtml-BoxTitle_font_color;;
 </dtml-if>
 <dtml-if BoxTitle_bg_image>
-background-image:url(&dtml-theme_url;/backgrounds/&dtml-BoxTitle_bg_image;);
+background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxTitle_bg_image;);
 </dtml-if>
 }
 <dtml-if BoxTitle_font_color>
@@ -26,7 +26,7 @@ background-color:&dtml-BoxBody_bg_color;;
 border-color:&dtml-BoxBody_border_color;;
 </dtml-if>
 <dtml-if BoxBody_bg_image>
-background-image:url(&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
+background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
 </dtml-if>
 }
 <dtml-if BoxBody_menuout_icon>
@@ -35,7 +35,7 @@ background-image:url(&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
 <dtml-with expr="_.getitem(BoxBody_menuout_icon)">
 padding-left:<dtml-var width>px;
 <dtml-let url="absolute_url(relative=1)">
-background:url(<dtml-var url>) no-repeat left center;
+background:url(/<dtml-var url>) no-repeat left center;
 </dtml-let>
 </dtml-with>
 </dtml-with>
@@ -47,7 +47,7 @@ background:url(<dtml-var url>) no-repeat left center;
 <dtml-with expr="_.getitem(BoxBody_menuin_icon)">
 padding-left: <dtml-var width>px;
 <dtml-let url="absolute_url(relative=1)">
-background:url(<dtml-var url>) no-repeat left center;
+background:url(/<dtml-var url>) no-repeat left center;
 </dtml-let>
 </dtml-with>
 </dtml-with>
@@ -90,7 +90,7 @@ list-style-position:inside;
 }
 .BoxColor&dtml-title; .body li {
 <dtml-if BoxBody_menuout_icon>
-list-style-image:url(&dtml-theme_url;/icons/&dtml-BoxBody_menuout_icon;);
+list-style-image:url(/&dtml-theme_url;/icons/&dtml-BoxBody_menuout_icon;);
 </dtml-if>
 }
 </dtml-let>
