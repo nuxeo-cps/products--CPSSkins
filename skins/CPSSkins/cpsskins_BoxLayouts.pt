@@ -195,8 +195,11 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="portlet_edit"
- tal:define="base_url python: request.get('cpsskins_base_url', '');
+ tal:define="utool nocall:here/portal_url;
+             base_url python: request.get('cpsskins_base_url', '');
              portlet_id portlet/getId;
+             portlet_folder portlet/getLocalFolder;
+             portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
              view_mode here/cpsskins_getViewMode;
              selected_portlet view_mode/selected_portlet|nothing;
              selected python: portlet_id == selected_portlet">
@@ -211,10 +214,12 @@
    tal:define="ypos portlet/getOrder;
                group portlet/getSlot"
    tal:attributes="portlet_rurl portlet/getRelativeUrl;
+                   src_rurl portlet_folder_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group">
     <div class="PortletBoxDest"
-     tal:attributes="dest_slot group;
+     tal:attributes="dest_rurl portlet_folder_rurl;
+                     dest_slot group;
                      dest_ypos python: ypos and ypos or 0;
                      style python:selected and 'border: 1px dashed Black' or 'border:none'">
       <div class="body">
