@@ -216,6 +216,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
      tal:attributes="src_ypos python: 0;
                      folder_url folder_url;
                      folder_editable folder_editable;
+                     icon slot_icon;
+                     title slot_title;
                      src_slot group">
     </div>
   </div>
@@ -248,13 +250,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                    condition="contents_in_xpos">
           <td tal:attributes="width cellwidth">
             <tal:block repeat="content contents_in_xpos">
-              <div class="templetBox" tal:content="content/title"
+              <div class="templetBox"
+               tal:content="content/title_or_id"
                tal:condition="content/aq_explicit/isPortalBox|nothing" />
               <tal:block condition="content/aq_explicit/isPortalBoxGroup|nothing"
                define="group content/box_group|nothing">
                 <div class="boxGroupBoundingBox"
                  tal:define="slot_icon python: '/' + content.getIcon();
-                             slot_title python: content.Title()">
+                             slot_title content/title_or_id">
                   <div tal:content="group" class="boxGroupBoxSlotTitle" />
                   <tal:block define="folder_url context_url;
                                      folder_editable context_editable;
@@ -288,7 +291,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
           <div tal:content="hidden_slot"
            class="boxGroupBoxSlotTitleHidden">
           </div>
-          <tal:block define="folder_url context_url;
+          <tal:block define="slot_title hidden_slot;
+                             slot_icon python: '';
+                             folder_url context_url;
                              folder_editable context_editable;
                              portlets python:ptltool.getPortlets(here, hidden_slot)">
             <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
