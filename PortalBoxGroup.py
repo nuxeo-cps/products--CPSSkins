@@ -29,6 +29,8 @@ from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
 
+from cpsskins_utils import html_slimmer
+
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
      'meta_type': 'Portal Box Group Templet',
@@ -241,12 +243,17 @@ class PortalBoxGroup(BaseTemplet):
                     rendered = self.cpsskins_brokentemplet()
             else:
                 rendered = portlet.render_cache(**kw)
+
+            title = portlet.title
+            body = html_slimmer(rendered)
+
             # add the box decoration
-            rendered = self.cpsskins_renderPortletBox(portlet=portlet,
+            rendered = self.cpsskins_renderPortletBox(title=title,
+                                                      body=body,
                                                       boxclass=boxclass,
                                                       boxstyle=boxstyle,
                                                       macro_path=macro_path,
-                                                      rendered=rendered, 
+                                                      portlet=portlet,
                                                       **kw)
             all_rendered += rendered
         return all_rendered
