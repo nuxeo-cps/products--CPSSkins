@@ -8,12 +8,12 @@ tmtool = context.portal_themes
 current_url = REQUEST.get('cpsskins_url', None)
 base_url = REQUEST.get('cpsskins_base_url', '')
 
-action_categories = getattr(obj, 'action_categories', None) 
-custom_action_categories = getattr(obj, 'custom_action_categories', []) 
-show_action_icons = getattr(obj, 'show_action_icons', None) 
-invisible_actions = getattr(obj, 'invisible_actions', []) 
+action_categories = obj.action_categories
+custom_action_categories = obj.custom_action_categories
+show_action_icons = obj.show_action_icons
+invisible_actions = obj.invisible_actions 
 
-categories = action_categories
+categories = action_categories[:]
 if custom_action_categories:
     if custom_action_categories[0] != '':
        categories += custom_action_categories
