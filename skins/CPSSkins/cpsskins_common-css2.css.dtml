@@ -50,6 +50,7 @@ input.SearchBox {
 
 .menu li a:hover {
   color: inherit;
+  background: none;
 }
 
 /* Portal boxes */
