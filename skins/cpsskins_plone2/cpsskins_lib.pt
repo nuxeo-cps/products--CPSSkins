@@ -21,12 +21,11 @@
      <tal:block metal:use-macro="here/global_contentviews/macros/content_actions" />
     </tal:block>
 
-    <!-- CPS Portlets -->
-    <div tal:define="margin here/margin|string:0"
-         tal:attributes="style string:text-align:${templet/align};; padding:$margin">
-      <tal:block content="structure python: templet.render_cache(shield=1, context_obj=here)" />
-    </div>
-
+    <div tal:define="rendered python: templet.render_cache(shield=1, context_obj=here);
+                     margin here/margin|string:0"
+         tal:condition="python: rendered != ''"
+         tal:attributes="style string:text-align:${templet/align};; padding:$margin"
+         tal:content="structure rendered" />
   </tal:block>
 
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
