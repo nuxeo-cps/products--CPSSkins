@@ -1,9 +1,8 @@
 <metal:block define-macro="edit_form">
   <tal:block define="ptltool here/portal_cpsportlets;
                      portlet_id here/portlet_id|nothing;
-                     redirect_url python: here.absolute_url() + '/edit_form?' + request.get('QUERY_STRING');
                      portlet python: ptltool.getPortletById(portlet_id)"
              condition="nocall:portlet">
-   <div tal:replace="structure python:portlet.render(layout_mode='edit', redirect_url=redirect_url)" />
+   <div tal:replace="structure python:portlet.render(layout_mode='edit')" />
   </tal:block>
 </metal:block>
