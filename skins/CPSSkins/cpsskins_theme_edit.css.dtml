@@ -328,7 +328,7 @@ div.simulate_hierarchies {
   margin-bottom: 3px;
   margin-top: 0px;
   text-align: center;
-  padding-top: 6px;
+  padding-top: 4px;
 }
 
 .themeTabs img {
