@@ -30,6 +30,13 @@ class TestBaseUrl(CPSSkinsTestCase.CPSSkinsTestCase):
         expected = '/site/'
         self.assert_(base_url == expected)
 
+    def test_rewrite_vh_sub(self):
+        self.REQUEST.set('PATH_INFO',
+            '/VirtualHostBase/http/localhost:80/site/VirtualHostRoot/_vh_site/sub/folder/')
+        base_url = self.portal.cpsskins_getBaseUrl()
+        expected = '/site/'
+        self.assert_(base_url == expected)
+
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestBaseUrl))
