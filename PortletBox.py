@@ -226,24 +226,25 @@ class PortletBox(BaseTemplet):
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlet_id = self.getPortletId()
         index = (portlet_id, )
+
         if ptltool is None:
             return index
-        portlet = ptltool.getPortletById(portlet_id)
 
-        url_index = (REQUEST.get('PATH_TRANSLATED', '/'), )
-        i18n_index = (REQUEST.get('cpsskins_language', 'en'), )
-        user_index = (str(REQUEST.get('AUTHENTICATED_USER')), )
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        portlet = ptltool.getPortletById(portlet_id)
+        param_dict = {
+            'url': (REQUEST.get('PATH_TRANSLATED', '/'), ),
+            'i18n': (REQUEST.get('cpsskins_language', 'en'), ),
+            'user': (str(REQUEST.get('AUTHENTICATED_USER')), ),
+        }
         if portlet is not None:
             # custom cache index computed by the portlet
             index += portlet.getCustomCacheIndex()
             # cache parameters
-            params =  portlet.getCacheParams()
-            if 'url' in params:
-                index += url_index
-            if 'i18n' in params:
-                index += i18n_index
-            if 'user' in params:
-                index += user_index
+            for param in portlet.getCacheParams():
+                index += param_dict.get(param)
         return index
 
 InitializeClass(PortletBox)
