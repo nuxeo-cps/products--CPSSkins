@@ -3,10 +3,12 @@ define="tmtool here/portal_themes;
         portal_url here/portal_url;
         cookie_id tmtool/getThemeCookieID;
         available_themes tmtool/getThemeAndPageNames;
+        selected_themes here/themes;
         current_theme python: here.REQUEST.cookies.get(cookie_id, None)">
   <tal:block condition="available_themes" 
    repeat="theme available_themes">
     <a href=""
+     tal:condition="python: theme in selected_themes"
      tal:define="themepage python: theme.replace('+', '%2B')"
      tal:attributes="href string:$portal_url/cpsskins_setcookie?theme=$themepage" 
      tal:content="theme" />
