@@ -1,4 +1,4 @@
-<div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (here.boxcolor, here.boxshape)">
+<div tal:attributes="class python: here.getCSSBoxClass()">
   <div tal:define="title options/title;
                    body options/body;
                    boxlayout here/boxlayout;

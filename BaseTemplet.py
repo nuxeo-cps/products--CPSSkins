@@ -442,27 +442,52 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """
 
         areaclass = ''
+        color = self.color
+        shape = self.shape
+        fontcolor = self.fontcolor
+        fontshape = self.fontshape
+        formstyle = self.formstyle
+
         try:
-            if level == 1:
-                areaclass = \
-                    'Color%s FontColor%s FontShape%s' %\
-                         (self.color,
-                          self.fontcolor,
-                          self.fontshape)
-            elif level == 2:
-                areaclass = \
-                    'Shape%s Color%s FontColor%s FontShape%s FormStyle%s' %\
-                         (self.shape,
-                          self.color,
-                          self.fontcolor,
-                          self.fontshape,
-                          self.formstyle)
+            if color:
+                areaclass += 'Color%s ' % color
+            if fontcolor:
+                areaclass += 'FontColor%s ' % fontcolor
+            if fontshape:
+                areaclass += 'FontShape%s ' % fontshape
+
+            if level == 2:
+                if shape:
+                    areaclass += 'Shape%s ' % shape
+                if formstyle:
+                    areaclass += 'FormStyle%s ' % formstyle
+
         # rebuild the templet if some attributes are missing.
         # a simple page reload will display the correct results.
         except AttributeError:
             self.rebuild()
-        return areaclass
+        return areaclass.strip()
 
+    security.declarePublic('getCSSBoxClass')
+    def getCSSBoxClass(self):
+        """Return the CSS box class for this Templet.
+        """
+
+        boxclass = ''
+        boxcolor = self.boxcolor
+        boxshape = self.boxshape
+
+        try:
+            if boxcolor:
+                boxclass += 'BoxColor%s ' % boxcolor
+            if boxshape:
+                boxclass += 'BoxShape%s ' % boxshape
+
+        # rebuild the templet if some attributes are missing.
+        # a simple page reload will display the correct results.
+        except AttributeError:
+            self.rebuild()
+        return boxclass.strip()
 
     security.declarePublic('VisibilityList')
     def VisibilityList(self):
