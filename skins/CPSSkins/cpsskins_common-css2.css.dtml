@@ -9,29 +9,70 @@
 /* misc table elements */
 
 input,select,textarea {
-border: 1px solid #336699;
-background-color: #f9f9f9;
-margin: 3px;
+  border: 1px solid #336699;
+  background-color: #f9f9f9;
+  margin: 3px;
 }
 
 input[type="radio"], input[type="checkbox"] {
-border: 1px solid red;
+  border: 1px solid red;
 }
 
 .fileview {
-padding: 3px;
+  padding: 3px;
 }
 
 .statusmessage {
-padding: 3px;
-margin-bottom: 9px;
+  padding: 3px;
+  margin-bottom: 9px;
 }
 
 input.SearchBox {
-background: url("<dtml-var portal_url>/cpsskins_images/search_icon.png"); 
-background-repeat: no-repeat;
-background-position: center left;
-padding: 2px 2px 2px 20px;
-background-color: #fcfcfc;
-border: 1px solid #b0b0b0;
+  background: url("<dtml-var portal_url>/cpsskins_images/search_icon.png"); 
+  background-repeat: no-repeat;
+  background-position: center left;
+  padding: 2px 2px 2px 20px;
+  background-color: #fcfcfc;
+  border: 1px solid #b0b0b0;
+}
+
+/* Portal boxes */
+
+/* Standard vertical layout */
+.cpsskinsBox .body ul, .cpsskinsBox .body ul li {
+  margin: 0px;
+  padding: 0px;
+  line-height: normal;
+  list-style-type: none;
+  display: inline;
+}
+
+.cpsskinsBox .body ul li a {
+  display: block;
+}
+
+/* horizontal layout (tabs) */
+.cpsskinsTab .body ul, .cpsskinsTab .body ul li {
+  margin: 0px;
+  padding: 0px;
+  line-height: normal;
+  list-style-type: none;
+  display: inline;
+}
+
+.cpsskinsTab .body ul li a {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* Buttons (min/max/close/edit) */
+.cpsskinsBox .buttons {
+  display: block;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+.cpsskinsBox .buttons a {
+  float: right;
 }

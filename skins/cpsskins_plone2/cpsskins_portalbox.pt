@@ -1,13 +1,9 @@
 <tal:block i18n:domain="plone"
            define="context_obj nocall:options/context_obj;
                    base_url python: request.get('cpsskins_base_url', '');
-                   orientation python: here.orientation;
-                   menustyle python: orientation == 'horizontal' and 'display:inline' or None;
-                   linkstyle python: orientation == 'horizontal' and 'display:inline;; white-space: nowrap' or '';
                    content python: here.content">
   <tal:block condition="python: content == 'folders'">
     <ul
-     tal:attributes="style menustyle"
      tal:define="level python: here.level;
                  base python: here.base;
                  show_docs python: here.show_docs;
@@ -22,17 +18,16 @@
         <li tal:define="menu_url python: menuentry['url']; 
                         menu_selected python: menuentry['selected']; 
                         menu_title python: menuentry['title']; 
-                        menuclass python: menu_selected and 'selected' or ''"
-         tal:attributes="style menustyle; class menuclass">
+                        itemclass python: menu_selected and 'selected' or None"
+         tal:attributes="class itemclass">
           <a href="" i18n:translate="" tal:condition="i18n"
-          tal:attributes="href menu_url; style linkstyle" tal:content="menu_title" />
+          tal:attributes="href menu_url" tal:content="menu_title" />
           <a href="" tal:condition="not:i18n"
-          tal:attributes="href menu_url; style linkstyle" tal:content="menu_title" /></li>
+          tal:attributes="href menu_url" tal:content="menu_title" /></li>
       </tal:block>
-      <li tal:condition="create_url"
-       tal:attributes="style menustyle">
+      <li tal:condition="create_url">
         <a tal:define="title string:_Add content_"
-         tal:attributes="href create_url; style menustyle; title title"
+         tal:attributes="href create_url; title title"
          tal:content="string:+" i18n:attributes="title" /></li>
     </ul>
 
@@ -40,10 +35,8 @@
 
   <tal:block condition="python: content == 'actions'">
     <ul
-     tal:attributes="style menustyle"
      tal:define="wtool here/portal_workflow;
                  actioninfos python: here.cpsskins_getActionsInfo(here, context_obj);
-                 space python: orientation == 'vertical' and 'margin-top: 9px;;' or ''"
      tal:condition="actioninfos">
       <tal:block repeat="actioninfo actioninfos">
         <li tal:define="we_are_here python: actioninfo['we_are_here']; 
@@ -51,13 +44,13 @@
                         url python: actioninfo['url']; 
                         class python: actioninfo['class']; 
                         newcat python: actioninfo['newcat']; 
-                        menustyle python: newcat and menustyle + space or menustyle; 
-                        menuclass python: we_are_here and 'selected' or ''"
-          tal:attributes="class menuclass; style menustyle">
-        <a href="" i18n:translate="" tal:attributes="href url; style linkstyle" tal:content="title" /></li>
+                        itemclass python: we_are_here and 'selected' or None"
+          tal:attributes="class itemclass">
+        <a href="" i18n:translate="" tal:attributes="href url" tal:content="title" /></li>
       </tal:block>
     </ul>
   </tal:block>
+
   <tal:block condition="python: content == 'about'"
   i18n:domain="cpsskins">
     <tal:block define="content here/content|nothing;

@@ -28,18 +28,7 @@ padding: &dtml-BoxBody_padding;;
 </dtml-if>
 }
 
-.BoxShape&dtml-title; .body ul,
-.BoxShape&dtml-title; .body ul li {
-margin: 0px;
-padding: 0px;
-line-height: normal;
-list-style-type: none;
-display: inline;
-}
-
 .BoxShape&dtml-title; .body ul li a {
-display: block;
-
 <dtml-if BoxBody_menuout_border_style>
 border-style:&dtml-BoxBody_menuout_border_style;;
 </dtml-if>
@@ -67,14 +56,4 @@ padding: &dtml-BoxBody_menuin_padding;;
 <dtml-if BoxBody_menuin_margin>
 margin: &dtml-BoxBody_menuin_margin;;
 </dtml-if>
-}
-
-.BoxShape&dtml-title; .buttons {
-display:block;
-padding-right:1px;
-padding-bottom:1px;
-padding-top:1px;
-}
-.BoxShape&dtml-title; .buttons a {
-float:right;
 }

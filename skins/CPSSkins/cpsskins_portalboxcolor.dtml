@@ -32,20 +32,10 @@ background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
 </dtml-if>
 }
 
-.BoxColor&dtml-title; .body ul {
-list-style-type: none;
-margin: 0; padding: 0;
-}
-
-.BoxColor&dtml-title; .body li {
-display: inline;
-}
-
 .BoxColor&dtml-title; .body ul li a {
 <dtml-if BoxBody_menuout_border_color>
 border-color:&dtml-BoxBody_menuout_border_color;;
 </dtml-if>
-display: block;
 }
 
 .BoxColor&dtml-title; .body ul li.selected a {

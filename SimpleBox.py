@@ -145,6 +145,7 @@ class SimpleBox:
         """
 
         boxclass = []
+
         try:
             boxcolor = self.boxcolor
             boxshape = self.boxshape
@@ -160,6 +161,12 @@ class SimpleBox:
         # a simple page reload will display the correct results.
         except AttributeError:
             self.rebuild()
+
+        orientation = getattr(self, 'orientation', '')
+        if orientation == 'horizontal':
+            boxclass.append('cpsskinsTab')
+        else:
+            boxclass.append('cpsskinsBox')
 
         if boxclass:
             return ' '.join(boxclass)
