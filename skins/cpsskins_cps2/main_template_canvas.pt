@@ -1,7 +1,12 @@
 <link rel="Stylesheet" type="text/css" href="cpsskins_theme_edit.css" />
 <tal:block
-define="boxes options/boxes">
-  <tal:block
+define="boxes options/boxes;
+        tmtool here/portal_themes;
+        current_theme python: tmtool.getRequestedThemeName(context_obj=here);
+        theme_container python: tmtool.getThemeContainer(theme=current_theme);
+        current_page python: theme_container.getEffectivePageName(context_obj=here);
+        page_container python: theme_container.getPageContainer(current_page)">
+  <tal:block 
    repeat="block python: page_container.getPageBlocks()">
     <table width="100%" cellpadding="0" cellspacing="3">
       <tr valign="top"

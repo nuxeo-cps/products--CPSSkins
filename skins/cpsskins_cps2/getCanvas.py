@@ -3,7 +3,7 @@
 tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName()
 theme_container = tmtool.getThemeContainer(theme=theme)
-page = theme_container.getEffectivePageName(context_obj=here)
+page = theme_container.getEffectivePageName(context_obj=context)
 page_container = theme_container.getPageContainer(page=page)
 
 boxes_styles = context.boxes_styles_get()
