@@ -478,8 +478,6 @@ tal:define="pageblock_url pageblock/absolute_url;
       <td align="right">
         <form action="" method="post" style="margin:0"
         tal:define="maxcols pageblock/maxcols|nothing; 
-                    maxcols_inc python: int(maxcols) + 1; 
-                    maxcols_dec python: maxcols > 1 and int(maxcols) -1 or int(0);
                     name string:pb_maxcols_${pageblock_id}"
          tal:attributes="name name;
                          action string:${pageblock_url}/cpsskins_edit;
@@ -488,12 +486,8 @@ tal:define="pageblock_url pageblock/absolute_url;
          <input type="hidden" name="scrolly" value="0"> 
          <input type="hidden" name="theme" tal:attributes="value theme" />
          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-          <input name="maxcols" type="image" width="24" height="24"
-           tal:attributes="src string:${portal_url}/cpsskins_images/resize-left.gif;
-                           value maxcols_dec" />
-          <input name="maxcols" type="image" width="24" height="24"
-           tal:attributes="src string:${portal_url}/cpsskins_images/resize-right.gif;
-                           value maxcols_inc" />
+         <input name="maxcols" type="string" size="2"
+          tal:attributes="value maxcols" />
         </form>
       </td>
     </tr>
