@@ -108,7 +108,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
                  **kw) :
         apply(Image.__init__,
                 (self, id, title, file, content_type, precondition))
-        apply(BaseTemplet.__init__, (self, id), kw)
+        apply(BaseTemplet.__init__, (self, id, title), kw)
         self.i18n = i18n
         self.caption = caption
         self.link = link

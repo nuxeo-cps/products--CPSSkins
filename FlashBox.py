@@ -101,7 +101,7 @@ class FlashBox(File, BaseTemplet):
                  file, content_type, precondition, subject, description,
                  contributors, effective_date, expiration_date,
                  format, language, rights))
-        apply(BaseTemplet.__init__, (self, id), kw)
+        apply(BaseTemplet.__init__, (self, id, title), kw)
         self.caption = caption
         self.flash_width = flash_width
         self.flash_height = flash_height
