@@ -32,10 +32,12 @@ function toggle(panelId) {
 
 function selectImage(value) {
   document.data[current_field].selectedIndex = value
+  document.data.submit();
 }
 
 function selectPalette(value) {
   document.data[current_field].value = value;
+  document.data.submit();
 }
 
 function selectTheme(value) {
