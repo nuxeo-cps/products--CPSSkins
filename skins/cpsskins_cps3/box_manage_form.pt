@@ -5,7 +5,7 @@
        tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
       <script type="text/javascript" src="cpsskins_pdlib.js"></script>
       <script type="text/javascript" src="cpsskins_portalbox_edit.js"></script>
-    </metal:head> 
+    </metal:head>
     <metal:header fill-slot="header"
     tal:define="global context_urlc python:here.getContextUrl(utool=utool, concat=1)">
       <tal:security condition="python:not checkPerm('Manage Boxes', here)">
@@ -17,7 +17,7 @@
       </div>
       <h2 i18n:translate="heading_box_manage_form">Boxes
       management</h2>
-      <p i18n:translate="">description_visible_box_from 
+      <p i18n:translate="">description_visible_box_from
       <span i18n:name="context_url"
       tal:content="context_url" /></p>
     </metal:header>
@@ -27,7 +27,7 @@
         <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
           <table cellpadding="0" cellspacing="3" width="100%">
             <tr valign="top"
-            tal:define="objects python: block.getObjects(REQUEST=request); 
+            tal:define="objects python: block.getObjects(REQUEST=request);
                         maxcols block/maxcols|nothing">
               <tal:block condition="maxcols"
               repeat="x_pos python: range(int(maxcols))">
@@ -60,7 +60,7 @@
                           <div i18n:translate=""
                           tal:content="string:label_folder_view"
                           class="BoxGroupBoxSlotTitle" />
-                          <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1); 
+                          <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                              sboxes python:btool.filterBoxes(sboxes, slot='folder_view', keep_closed=1)">
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box_slot" />
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/empty_slot" />
@@ -75,7 +75,7 @@
                           <div i18n:translate=""
                           tal:content="string:label_${group}"
                           class="BoxGroupBoxSlotTitle" />
-                          <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1); 
+                          <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                              sboxes python:btool.filterBoxes(sboxes, slot=group, keep_closed=1)">
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box_slot" />
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/empty_slot" />
@@ -92,11 +92,11 @@
 
         <h3 i18n:translate="heading_unused_boxes" i18n:domain="cpsskins">Unused boxes</h3>
         <p i18n:translate="description_unused_boxes" i18n:domain="cpsskins">Unused boxes</p>
-        <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+        <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)"
                condition="hidden_slots">
         <p style="text-align: right">
         <a
-           i18n:translate="description_delete_unused_boxes" 
+           i18n:translate="description_delete_unused_boxes"
            i18n:domain="cpsskins" 
            tal:attributes="href string:${context_urlc}/cpsskins_delete_unused_boxes?theme=$current_theme;
                           onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete'), )" >Delete unused box</a>
@@ -104,13 +104,13 @@
         <table cellpadding="0" cellspacing="3">
           <tr>
              <td valign="top" tal:repeat="hidden_slot hidden_slots">
-                <div class="BoxGroupBoundingBox" 
+                <div class="BoxGroupBoundingBox"
                   tal:define="group hidden_slot">
                   <div i18n:translate=""
                        tal:content="string:label_${hidden_slot}"
                        class="BoxGroupBoxSlotTitleHidden">
                   </div>
-                  <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1); 
+                  <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                  sboxes python:btool.filterBoxes(sboxes, slot=hidden_slot, keep_closed=1)">
                     <tal:block repeat="box sboxes">
                       <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box" />
@@ -127,7 +127,7 @@
 
     <!-- Begin pdlib footer -->
     <div id="drag-feedback-box"></div>
-      <script type="text/javascript"><!-- 
+      <script type="text/javascript"><!--
       pd_setupPage();
       // --></script>
     <!-- End pdlib footer -->
