@@ -4,12 +4,12 @@ if __name__ == '__main__':
 
 import unittest
 import CPSSkinsTestCase
+from Testing import ZopeTestCase
 
 class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
-        self.login('root')
-
+        self.login('cpsskins_root')
         self.portal.REQUEST.SESSION = {}
         self.sections = self.portal['sections'] 
         for s in ['section1', 'section2']:
