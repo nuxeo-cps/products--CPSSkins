@@ -27,26 +27,50 @@ from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
 BOX_LAYOUTS = {
-# standard box
-'standard': """<div class="title">%s</div><div class="body">%s</div>""",
-# one frame
-'one_frame': """<div class="body"><h4>%s</h4>%s</div>""",
-# no title no frame
-'notitle_noframe': """<div class="body" style="border: none">%s</div>""",
-# no title
-'notitle': """<div class="body">%s</div>""",
-# no frames
-'no_frames': """<div class="title" style="border: none">%s</div>
-<div class="body" style="border: none">%s</div>""",
-# rounded box
-'rounded_box': """<div class="rbtop"><div></div></div>
-<div class="title">%s</div><div class="body">%s</div>
-<div class="rbbot"><div></div></div>""",
-# rounded box without title
-'rounded_box_notitle': """<div class="rbtop"><div></div></div>
-<div class="body">%s</div><div class="rbbot"><div></div></div>""",
-# horizontal menu
-'horizontal_menu': """<div class="cpsskinsTabs body">%s<div>""",
+    'standard': {
+        'markup': """<div class="title">%s</div>
+                     <div class="body">%s</div>""",
+        },
+
+    'one_frame': {
+        'markup': """<div class="body"><h4>%s</h4>%s</div>""",
+        },
+
+    'notitle_noframe': {
+        'markup': """<div class="body" style="border: none">%s</div>""",
+        },
+
+    'notitle': {
+        'markup': """<div class="body">%s</div>""",
+        },
+
+    'no_frames': {
+        'markup': """<div class="title" style="border: none">%s</div>
+                     <div class="body" style="border: none">%s</div>
+                  """,
+        },
+
+    'rounded_box': { 
+        'markup': """<div class="cpsskinsBoxCorners">
+                     <div class="rbtop"><div></div></div>
+                     <div class="title">%s</div>
+                     <div class="body">%s</div>
+                     <div class="rbbot"><div></div></div></div>
+                  """,
+        },
+
+    'rounded_box_notitle': {
+        'markup': """<div class="cpsskinsBoxCorners">
+                     <div class="rbtop"><div></div></div>
+                     <div class="body">%s</div>
+                     <div class="rbbot"><div></div></div>
+                     </div>
+                  """,
+        },
+
+    'horizontal_menu': {
+        'markup': """<div class="cpsskinsTabs body">%s<div>""",
+        },
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -133,9 +157,8 @@ class SimpleBox:
                 boxclass.append('boxColor%s' % boxcolor)
             if boxshape:
                 boxclass.append('boxShape%s' % boxshape)
-            # XXX: move 'cpsskinsBoxCorners' to the box layout
             if boxcorners:
-                boxclass.append('boxCorner%s cpsskinsBoxCorners' % boxcorners)
+                boxclass.append('boxCorner%s' % boxcorners)
             if portaltabstyle:
                 boxclass.append('portalTab%s' % portaltabstyle)
 
@@ -151,7 +174,7 @@ class SimpleBox:
         elif self.boxlayout != 'horizontal_menu':
             boxclass.append('cpsskinsBox')
 
-        if boxclass:
+        if len(boxclass) > 0:
             return ' '.join(boxclass)
         return ''
 
@@ -163,21 +186,21 @@ class SimpleBox:
         """Render the box layout.
         """
         if boxlayout == 'standard' or boxlayout == '': 
-            return BOX_LAYOUTS['standard'] % (title, body)
+            return BOX_LAYOUTS['standard']['markup'] % (title, body)
         elif boxlayout == 'one_frame':
-            return BOX_LAYOUTS['one_frame'] % (title, body)
+            return BOX_LAYOUTS['one_frame']['markup'] % (title, body)
         elif boxlayout == 'notitle':
-            return BOX_LAYOUTS['notitle'] % body
+            return BOX_LAYOUTS['notitle']['markup'] % body
         elif boxlayout == 'no_frames':
-            return BOX_LAYOUTS['no_frames'] % (title, body)
+            return BOX_LAYOUTS['no_frames']['markup'] % (title, body)
         elif boxlayout == 'notitle_noframe':
-            return BOX_LAYOUTS['notitle_noframe'] % body
+            return BOX_LAYOUTS['notitle_noframe']['markup'] % body
         elif boxlayout == 'rounded_box':
-            return BOX_LAYOUTS['rounded_box'] % (title, body)
+            return BOX_LAYOUTS['rounded_box']['markup'] % (title, body)
         elif boxlayout == 'rounded_box_notitle':
-            return BOX_LAYOUTS['rounded_box_notitle'] % body
+            return BOX_LAYOUTS['rounded_box_notitle']['markup'] % body
         elif boxlayout == 'horizontal_menu':
-            return BOX_LAYOUTS['horizontal_menu'] % body
+            return BOX_LAYOUTS['horizontal_menu']['markup'] % body
 
         macro_path = self.restrictedTraverse(
             '%s/macros/%s' % (BOX_LAYOUT_MACRO, boxlayout),
