@@ -460,9 +460,10 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                            nb_portlets python: len(portlets)"
          condition="python: nb_portlets > 0">
           <li><a href=""
-               tal:attributes="href string:${request/URL0}?topic=$key"
-               tal:content="topics_voc/?key" />
+               tal:attributes="href string:${request/URL0}?topic=$key">
+               <tal:block content="topics_voc/?key" />
               (<tal:block content="nb_portlets" />)
+            </a>
           </li>
         </tal:block>
       </tal:block>
