@@ -292,7 +292,6 @@ def update(self):
         'Image Box Templet',
         'Flash Box Templet',
         'Portal Box Templet',
-        'Portlet Box Templet',
         'Document Info Templet',
         'Theme Chooser Templet',
         'Language Templet',
@@ -355,13 +354,17 @@ def update(self):
                  types_in_palettefolders
                }
 
-
+    ptypes_to_delete = ()
     if has_cmfcalendar == 0:
-        ptypes_to_delete = ['Calendar Templet', 'Calendar Style']
-        for ptype in ptypes_to_delete:             
-            if ptype in ttool.objectIds():
-                pr("  Portal type '%s' deleted" % ptype)
-                ttool.manage_delObjects([ptype])
+        ptypes_to_delete += ('Calendar Templet', 'Calendar Style')
+
+    if has_cpsportlets == 0:
+        ptypes_to_delete += ('Portlet Box Templet',)
+
+    for ptype in ptypes_to_delete:             
+        if ptype in ttool.objectIds():
+            pr("  Portal type '%s' deleted" % ptype)
+            ttool.manage_delObjects([ptype])
 
     ptypes_installed = ttool.objectIds()
     for prod in ptypes.keys():
