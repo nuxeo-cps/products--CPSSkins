@@ -143,11 +143,12 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     tal:define="view_mode python: tmtool.getViewMode();
                 clipboard view_mode/clipboard|nothing"
     tal:condition="clipboard">
-    <div i18n:translate=""
+    <strong i18n:translate=""
      tal:define="title string:_clipboard_"
      tal:content="python: mcat and mcat(title) or title" />
     <div tal:define="portal_path python: utool.getPortalPath();
-                     portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None)">
+                     portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None)"
+     tal:condition="nocall:portlet">
       <div class="PortletBoxDrag"
        tal:define="ypos portlet/getOrder;
                    portlet_folder portlet/getLocalFolder;

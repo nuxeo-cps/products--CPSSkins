@@ -232,7 +232,7 @@
                    icon portlet_icon;
                    title portlet_title;
                    portlet_id portlet_id;
-                   portlet_folder portlet_folder_rurl;
+                   portlet_folder string:${base_url}${portlet_folder_rurl};
                    folder_url string:${base_url}${portlet_folder_rurl}">
     <div class="PortletBoxDest"
      tal:attributes="dest_rurl portlet_folder_rurl;
