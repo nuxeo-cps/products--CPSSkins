@@ -47,6 +47,26 @@ function Portlet_prepare_element_menu(header) {
   return true;
 }
 
+function Portlet_add(selected_items, target_node) {
+  if (!selected_items.length)
+    return;
+  target_node.style.border = "1px solid transparent";
+  dest = findDescendant(target_node, 'PortletBoxDest')
+  if (dest == null)
+     return;
+  ptype_id = pd_selected_item.getAttribute('ptype_id');
+  dest_rurl = dest.getAttribute('dest_rurl');
+  dest_slot = dest.getAttribute('dest_slot');
+  dest_ypos = dest.getAttribute('dest_ypos');
+  create_url = 'cpsskins_portlet_add?ptype_id=' + ptype_id + '&slot=' + dest_slot + '&order=' + dest_ypos;
+  if (dest_rurl != null) create_url = create_url + '&dest_rurl=' + dest_rurl;
+  newWindow(create_url);
+}
+
+function Portlet_checkmove(selected_items, target_node) {
+  return true;
+}
+
 function PortletBox_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
@@ -115,9 +135,14 @@ function setupDestination(node) {
   pd_setupDropTarget(node, 1);
 }
 
+function setupPortletAdd(node) {
+  pd_setupDragUI(node, Portlet_add, Portlet_checkmove);
+}
+
 pd_node_setup['PortletBoxDrag'] = setupPortletBoxDrag;
 pd_node_setup['PortletBoxEditMenu'] = setupPortletBoxEditMenu;
 pd_node_setup['PortletBoxDest'] = setupDestination;
+pd_node_setup['PortletAdd'] = setupPortletAdd;
 
 //-->
 
