@@ -216,7 +216,7 @@
        tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
       <dl>
-        <tal:block repeat="obj here/cpsskins_listPalettes">
+        <tal:block repeat="obj tmtool/listPaletteTypes">
           <dt tal:define="palettecat obj/getId">
             <img width="16" height="16" alt="" align="top"
              tal:attributes="src string:${base_url}${obj/getIcon}" />

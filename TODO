@@ -1,8 +1,6 @@
 
 2004-11-29:
 
-- fix the style selection pop-up window.
-
 - save scroll coordinates when:
   * deleting cell stylers, cell hiders
   * moving cells

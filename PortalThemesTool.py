@@ -278,6 +278,18 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         palette['object'] = object_list
         return palette
 
+    security.declarePublic('listPaletteTypes')
+    def listPaletteTypes(self):
+        """Gets the list of palette types.
+           Returns the type information.
+        """
+
+        list = []
+        for ti in self.portal_types.listTypeInfo():
+            if ti.getActionById('isportalpalette', None):
+                list.append(ti)
+        return list
+
     security.declarePublic('listStyleTypes')
     def listStyleTypes(self):
         """Gets the list of style types.
