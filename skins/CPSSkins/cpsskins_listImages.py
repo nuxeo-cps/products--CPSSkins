@@ -13,7 +13,8 @@ themeroot = tmtool.getPortalThemeRoot(context)
 
 images_dir = themeroot.getImageFolder(category=imagecat)
 if images_dir is None:
-    return
+    themeroot.rebuild()
+    return []
 
 images = ['']
 for obj in images_dir.objectValues():
