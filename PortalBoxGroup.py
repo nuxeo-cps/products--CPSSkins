@@ -171,9 +171,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             if padding not in ('0', '0pt', '0in', '0pc', '0mm',
                                '0cm', '0px', '0em', '0ex'):
                 css += 'padding:%s;' % padding
-        if css:
-            return css
-        return None
+        return css
 
     #
     # Rendering.
@@ -233,8 +231,10 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 continue
 
             # open the box frame
-            all_rendered.extend(
-                '<div style="%s"><div class="%s">' % (boxstyle, boxclass))
+            if boxstyle:
+                all_rendered.extend('<div style="%s">' % boxstyle)
+            if boxclass:
+                all_rendered.extend('<div class="%s">' % boxclass)
 
             # add the box decoration
             rendered = renderBoxLayout(
@@ -251,7 +251,10 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                     **kw)
             all_rendered.extend(rendered)
             # close the box frame
-            all_rendered.extend('</div></div>')
+            if boxstyle:
+                all_rendered.extend('</div>')
+            if boxclass:
+                all_rendered.extend('</div>')
 
         rendered = ''.join(all_rendered)
         # wrap a box slot in edit mode
