@@ -1,5 +1,5 @@
 <metal:block define-macro="navigationtab"
-tal:define="base_url python: request.get('cpsskins_base_url', '');
+tal:define="base_url here/cpsskins_getBaseUrl;
             current_theme python: tmtool.getRequestedThemeName(REQUEST=request);
             themes tmtool/getThemes;
             externalthemes tmtool/getExternalThemeIds">
@@ -309,7 +309,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     tal:attributes="href string:${pageblock/absolute_url}/add_content_form?content_xpos=$x_pos&content_ypos=$ypos;
                     title python: mcat and mcat(title) or title" >
       <img border="0" width="12" height="12"
-      tal:attributes="src string:${base_url}cpsskins_images/img_addcontent.png" />
+      tal:attributes="src string:${base_url}cpsskins_images/img_addtemplet.png" />
     </a>
   </div>
 </metal:block>
