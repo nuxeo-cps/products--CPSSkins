@@ -390,7 +390,6 @@ tal:define="pageblock_url pageblock/absolute_url;
 		   onMouseout onMouseout_string; 
 		   class python: pageblock==here and 'PageBlockBoxTitleSelected' or 'PageBlockBoxTitle'; 
 		   style string:margin-left:${marginleft};; margin-right:${marginright};; ;">
-
     <tr>
       <td>&nbsp; 
       <a tal:condition="pageblock/can_moveup|nothing"
@@ -437,7 +436,7 @@ tal:define="pageblock_url pageblock/absolute_url;
         <img border="0" width="12" height="12"
         tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
       </a>
-      &nbsp;&nbsp; 
+      &nbsp;&nbsp;
       <a i18n:attributes="title"
       tal:define="title string:_Edit this page block_"
       tal:attributes="href string:${pageblock_url}/edit_form?edit_mode=${edit_mode}&theme=$current_theme;
@@ -445,7 +444,20 @@ tal:define="pageblock_url pageblock/absolute_url;
         <img border="0" width="12" height="12"
         tal:attributes="src string:${portal_url}/cpsskins_images/img_edit.png" />
       </a>
-      <span tal:content="pageblock/title" />
+      </td>
+      <td align="right">
+        <form action=""
+         tal:attributes="action string:${pageblock_url}/cpsskins_edit">
+          <input name="title" onchange="submit()"
+           type="text" size="12" tal:attributes="value pageblock/title" />
+        </form>
+      </td>
+      <td align="left">
+        <form action=""
+         tal:attributes="action string:${pageblock_url}/cpsskins_edit">
+          <input name="width" onchange="submit()"
+           type="text" size="4" tal:attributes="value pageblock/width" />
+        </form>
       </td>
       <td align="right">
         <tal:block

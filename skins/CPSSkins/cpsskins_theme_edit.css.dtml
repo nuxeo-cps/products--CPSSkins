@@ -494,6 +494,15 @@ padding: 1px;
 color: Black;
 }
 
+.PageBlockBoxTitle form {
+padding:0;
+margin:0;
+}
+
+.PageBlockBoxTitle input {
+text-align: center;
+}
+
 .PageBlockBoxTitleSelected {
 border-color: #f00;
 background-color: #ccff33;
