@@ -14,7 +14,7 @@ for res in results:
                    'title': res.title_or_id(),
                    'icon': res.getIcon(),
                    'location': '',
-                   'start': start and DateTime(start.strftime('%m/%d/%y')).ISO() or '',
+                   'start': start and start.ISO() or '',
                   })
 return events
 
