@@ -80,7 +80,7 @@ function Templet_move(selected_items, target_node) {
   dest_theme = dest.getAttribute('dest_theme');
   dest_pageblock = dest.getAttribute('dest_pageblock');
   new_url = pd_selected_item.getAttribute('contenturl');
-  new_url = new_url + '/cpsskins_move_templet?'
+  new_url = new_url + '/cpsskins_move_content?'
   new_url = new_url + 'ypos=' + ypos;
   if (xpos != null) new_url = new_url + '&xpos=' + xpos;
   if (dest_pageblock != null) new_url = new_url + '&dest_pageblock=' + dest_pageblock;

@@ -198,8 +198,6 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """
 
         tmtool = getToolByName(self, 'portal_themes')
-        if pageblock is None:
-            return
         if xpos is None:
             return
         if ypos is None:
@@ -210,6 +208,8 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         self.xpos = new_xpos
         container = self.aq_parent
         src_pageblock = container.getId()
+        if pageblock is None:
+            pageblock = src_pageblock
         theme_container = container.aq_parent
         current_ypos = container.get_object_position(self.getId())
 

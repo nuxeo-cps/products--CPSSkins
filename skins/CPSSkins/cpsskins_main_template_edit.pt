@@ -77,17 +77,18 @@
                  tal:replace="nothing"></metal:block>
                 <div 
                    tal:define="ismaincontent python: getattr(content, 'ismaincontent', 0);
+                               iscellblock python: getattr(content, 'iscellblock', 0);
                                isPortalBoxGroup python: getattr(content, 'isportalboxgroup', 0);
                                special_content python: ismaincontent or isPortalBoxGroup;
                                ypos python: content.getVerticalPosition();
 		               hover_effect python: not ismaincontent; 
-                               boxdragclass python: (not ismaincontent) and 'TempletBoxDrag' or '';
-                               boxeditmenuclass python: (not ismaincontent) and 'TempletBoxEditMenu' or '';"
+                               boxdragclass python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'TempletBoxDrag' or '';
+                               boxeditmenuclass python: not ismaincontent and 'TempletBoxEditMenu' or '';"
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
                                        pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
-                                       class python: ismaincontent and 'TempletDestMain' or 'TempletDest';
+                                       class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'TempletDest' or '';
                                        dest_pageblock pageblock_id">
                     <div
                     tal:define="content_title python: content.title;
@@ -122,7 +123,7 @@
                            tal:attributes="class content_class; 
 	                                   style python: content.getCSSLayoutStyle()">
                         <tal:block condition="render_content"
-                         content="structure python: content.render_cache(shield=1, context_obj=context_obj)" />
+                         content="structure python: content.render_cache(shield=1, context_obj=context_obj, editing=1)" />
                         <tal:block condition="ismaincontent">
 <!-- BEGIN Main Content -->
                           <metal:block define-slot="maincontent" />

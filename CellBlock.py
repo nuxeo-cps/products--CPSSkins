@@ -192,7 +192,10 @@ class CellBlock(ThemeFolder, PageBlockContent):
     def render_skin(self, shield=0,  **kw):
         """Render the cellblock's skin."""
 
-        return self.cpsskins_cellblock(**kw)
+        if kw.get('editing'):
+            return self.cpsskins_cellblock_edit(**kw)
+        else:
+            return self.cpsskins_cellblock(**kw)
 
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, enable_esi=0, **kw):

@@ -1,0 +1,58 @@
+<table cellpadding="0" cellspacing="0" border="0" width="100%"
+ tal:define="utool nocall:here/portal_url;
+             mcat python: request.get('cpsskins_mcat');
+             enable_esi options/enable_esi|nothing;
+             boxedit options/boxedit|nothing;
+             context_obj nocall:options/context_obj;
+             maxcols python: context['maxcols'];
+             base_url python: request.get('cpsskins_base_url', '')"
+ tal:condition="maxcols"
+ tal:attributes="summary python: context['title'];
+                 class python: context.getCSSAreaClass(level=2);
+                 style python: context.getCSSLayoutStyle()">
+  <tr>
+    <tal:block define="objects python: context.getObjects(REQUEST=request)"
+               repeat="x_pos python: range(int(maxcols))">
+      <tal:block 
+       define="objects_in_xpos python: objects.get(x_pos, None)">
+        <td valign="top"
+         tal:define="contents_in_xpos python: objects_in_xpos['contents']">
+
+  <div class="TempletDest" i18n:attributes="title"
+   style="border: 1px dashed red; padding: 8px"
+   tal:condition="not:contents_in_xpos"
+   tal:define="title string:_You can drop a Templet into this area_"
+   tal:attributes="xpos x_pos; 
+                   ypos python: 0;
+                   title python: mcat and mcat(title) or title;
+                   ">
+  </div>
+
+
+          <tal:block condition="contents_in_xpos"
+           repeat="content contents_in_xpos">
+            <div class="TempletBoxDrag"
+             tal:define="ypos python: content.getVerticalPosition();
+                         isRenderable python: content.isRenderable();
+                         rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
+                 tal:condition="rendered"
+                 tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
+                                 xpos x_pos;
+                                 ypos ypos;
+                                 align python: content.align;
+                                 style python: 'padding:%s' % content.margin">
+              <div class="TempletDest"
+               tal:attributes="xpos x_pos;
+                               ypos ypos">
+                <div
+                 tal:attributes="class python: content.getCSSAreaClass(level=2);
+                                 style python: content.getCSSLayoutStyle()"
+                 tal:content="structure rendered" />
+              </div>
+            </div>
+          </tal:block>
+        </td>
+      </tal:block>
+    </tal:block>
+  </tr>
+</table>
