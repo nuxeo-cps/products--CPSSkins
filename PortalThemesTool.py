@@ -970,10 +970,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
-        base_url = REQUEST.get('cpsskins_base_url')
-        if base_url is None:
-            base_url = self.cpsskins_getBaseUrl()
-
         actions = REQUEST.get('cpsskins_cmfactions')
         if actions is None:
             atool = getToolByName(self, 'portal_actions')
@@ -989,7 +985,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         else:
             return rendered
 
-        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'].strip(), self._getAccessKey())
+        rendered = '<a href="%s" accesskey="%s"></a>' % (action['url'], self._getAccessKey())
         return rendered
 
     #
