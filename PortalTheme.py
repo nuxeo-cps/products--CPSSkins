@@ -758,8 +758,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         if styles_dir is None:
             return None
 
-        titles = [getattr(obj, 'title', None) \
-                  for obj in styles_dir.objectValues()]
+        titles = [obj.title for obj in styles_dir.objectValues(type_name)]
         i = 0
         while 1:
             if title not in titles:
