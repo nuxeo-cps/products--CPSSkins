@@ -16,9 +16,10 @@
           <tal:block repeat="templet templets_in_xpos">
             <tal:block
              define="isRenderable python: templet.isRenderable();
+                     rendered python: isRenderable and templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi) or None;
                      display_title templet/display_title_in_text_mode|nothing;
                      hidden_in_text_mode templet/hidden_in_text_mode|nothing"
-             condition="not:hidden_in_text_mode">
+             condition="python: not hidden_in_text_mode and (rendered or not isRenderable)">
               <tal:block 
                define="templet_title templet/title|nothing"
                condition="python: templet_title and display_title">
@@ -26,7 +27,7 @@
                  i18n:translate="" />
               </tal:block>
               <tal:block condition="isRenderable"
-               content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi)" />
+               content="structure rendered" />
               <tal:block condition="not:isRenderable">
                 <tal:block condition="templet/isMainContent|nothing">
                   <metal:block define-slot="maincontent" />

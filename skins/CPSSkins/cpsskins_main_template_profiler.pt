@@ -72,15 +72,17 @@
                 <tal:block repeat="templet templets_in_xpos">
                 <!-- Templet profiling START -->
                   <div
-                   tal:define="isRenderable python: templet.isRenderable()"
+                   tal:define="isRenderable python: templet.isRenderable();
+                               rendered python: isRenderable and templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit) or None"
+                   tal:condition="python: rendered or not isRenderable"
                    tal:attributes="align python: templet.align;
                                    style python: 'padding:%s' % templet.margin">
                     <div
                      tal:attributes="class python: templet.getCSSAreaClass(level=2);
                                      style python: templet.getCSSLayoutStyle()">
                       <tal:block condition="isRenderable"
-                       content="structure python: templet.render_cache(shield=1, context_obj=here, context_rurl=context_rurl, enable_esi=enable_esi, boxedit=boxedit)" />
-	              <tal:block condition="not:isRenderable">
+                       content="structure rendered" />
+                      <tal:block condition="not:isRenderable">
                         <tal:block condition="templet/isMainContent|nothing">
 <!-- BEGIN Main Content -->
                           <metal:block define-slot="maincontent" />
