@@ -135,9 +135,6 @@
           </metal:block>
         </tal:block>
       </tal:block>
-      <input tal:define="theme request/form/theme|nothing"
-      tal:condition="theme" name="theme" value=""
-      tal:attributes="value theme" type="hidden" />
     </metal:block>
   </metal:block>
 </metal:block>
@@ -262,7 +259,6 @@ tal:define="cat request/form/cat|string:general;
 <!-- navigate between style categories -->
 <metal:block define-macro="stylenavigation" i18n:domain="cpsskins"
 tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing; 
-            theme request/form/theme|nothing; 
             stylecat request/form/style|nothing; 
             sections tmtool/listStyleTypes; 
             object_url here/absolute_url;">
@@ -326,7 +322,6 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
 <!-- navigate between palette categories -->
 <metal:block define-macro="palettenavigation" i18n:domain="cpsskins"
 tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing; 
-            theme request/form/theme|nothing; 
             palettecat request/form/palette|nothing; 
             sections tmtool/listPaletteTypes; 
             object_url here/absolute_url;">
@@ -364,8 +359,7 @@ tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing;
 
 <!-- navigate between image categories -->
 <metal:block define-macro="imagenavigation" i18n:domain="cpsskins"
-tal:define="theme request/form/theme|nothing; 
-            meta_type here/meta_type|nothing;
+tal:define="meta_type here/meta_type|nothing;
             isPortalImage python: meta_type and meta_type == 'Portal Image' or None;
             imagecat request/form/imagecat|nothing; 
             sections here/cpsskins_listImageCategories;

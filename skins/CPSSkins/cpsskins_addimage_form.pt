@@ -7,7 +7,7 @@
   mcat python: tmtool.getTranslationService();
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
   view_mode tmtool/getViewMode;
-  theme view_mode/theme|request/form/theme|nothing;
+  theme view_mode/theme|nothing;
   edit_mode view_mode|edit_mode|nothing;">
 <head>
   <link rel="Stylesheet" type="text/css"
