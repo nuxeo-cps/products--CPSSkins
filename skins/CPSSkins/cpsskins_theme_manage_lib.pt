@@ -356,7 +356,6 @@
 </metal:block>
 
 <metal:block define-macro="cache_manager">
-  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
     <h1 tal:define="title string:_Cache manager_"
      tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
@@ -446,16 +445,18 @@
 </metal:block>
 
 <metal:block define-macro="theme_manager">
-  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
   <tal:block define="object theme_container;
                      redirect_url string:${base_url}/cpsskins_theme_manage_form">
+    <h1 tal:define="title string:_Edit_">
+     <tal:block i18n:translate="" content="python: mcat and mcat(title) or title" />
+    '<tal:block replace="theme_container/title|nothing" />'
+    </h1>
     <metal:block use-macro="here/cpsskins_form_widgets/macros/edit_form" />
   </tal:block>
 </metal:block>
 
 <metal:block define-macro="theme_exporter" tal:define="
   io_tool here/portal_io|nothing">
-  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
   <h1 tal:define="title string:_Theme export_"
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" />
@@ -499,7 +500,6 @@
   uncached_templets theme_container/findUncachedTemplets|nothing;
   i18n_templets theme_container/getI18nTemplets|nothing;
   optimized python: not (unused_styles or invisible_templets or uncached_templets or identical_styles or i18n_templets)">
-  <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
     <h1 tal:define="title string:_Theme optimizer_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />

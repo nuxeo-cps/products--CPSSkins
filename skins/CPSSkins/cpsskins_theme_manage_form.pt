@@ -42,11 +42,14 @@
       <metal:block use-macro="here/cpsskins_main_template_edit/macros/main" />
     </tal:block> 
 
-    <div class="statusmessage"
+    <div class="editForm" tal:condition="python: panel in ['theme', 'cache_manager', 'theme_optimizer', 'theme_exporter']">
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
+    </div> 
+
+    <div class="statusmessage" i18n:translate=""
          tal:define="psm options/portal_status_message|nothing"
          tal:condition="psm"
-         tal:content="psm"
-         i18n:translate="" />
+         tal:content="psm" />
 
     <div class="editForm" tal:condition="python: panel == 'theme'">
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/theme_manager" />
