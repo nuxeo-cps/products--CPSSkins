@@ -491,7 +491,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         rpath = utool.getRelativeContentPath(bmf)
         bmf_depth = len(rpath)
         obj = utool.getPortalObject()
-        localtheme = ''
+        localtheme = None
         level = bmf_depth
         for elem in ('',) + rpath:
             if not elem:
@@ -503,6 +503,38 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 localtheme = theme
         return localtheme
 
+    security.declarePublic('getLocalThemes')
+    def getLocalThemes(self, folder=None, **kw):
+        """Return the list of local themes in a given context.
+        """
+
+        if folder is None:
+            return []
+
+        local_theme_id = self.getLocalThemeID()
+        if getattr(aq_base(folder), local_theme_id, None) is None:
+            return []
+
+        theme_obj = getattr(folder, local_theme_id)
+        if theme_obj and callable(theme_obj):
+            theme_obj = apply(theme_obj, ())
+        if isinstance(theme_obj, StringType):
+            theme_obj = (theme_obj, )
+        if not isinstance(theme_obj, TupleType):
+            return []
+
+        themes = []
+        for l in theme_obj:
+            if l.find(':') < 0:
+                themes.append(((0,0), l))
+                continue
+            nm, theme = l.split(':')
+            if nm.find('-') < 0:
+                continue
+            n, m = nm.split('-')
+            themes.append(((int(n), int(m)), theme))
+        return themes
+
     security.declarePrivate('_getLocalTheme')
     def _getLocalTheme(self, folder=None, level=None):
         """ Return the name of the first theme assigned to a given level
@@ -512,33 +544,59 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if level is None:
             return None
 
-        local_theme_id = self.getLocalThemeID()
-        if getattr(aq_base(folder), local_theme_id, None) is None:
-            return None
-
-        theme_obj = getattr(folder, local_theme_id)
-        if theme_obj and callable(theme_obj):
-            theme_obj = apply(theme_obj, ())
-        if isinstance(theme_obj, StringType):
-            theme_obj = (theme_obj, )
-        if not isinstance(theme_obj, TupleType):
+        themes = self.getLocalThemes(folder=folder)
+        if themes is None:
             return None
 
         level = int(level)
-        for l in theme_obj:
-            if l.find(':') < 0:
-                return l
-            nm, theme = l.split(':')
-            if nm.find('-') < 0:
-                continue
-            n, m = nm.split('-')
-            n = int(n)
-            m = int(m)
+        for (n, m), theme in themes:
             if n > 0 and n > level:
                 continue
             if m > 0 and m < level:
                 continue
             return theme
+
+        return None
+
+    security.declarePublic('getLocalThemesAncestor')
+    def getLocalThemesAncestor(self, context=None):
+        """Return the first ancestor folder in a given context
+           in which local themes are defined.
+        """
+
+        if context is None:
+            return None
+
+        local_theme_id = self.getLocalThemeID()
+        # nothing is acquired
+        if getattr(context, local_theme_id, None) is None:
+            return None
+        # we want an ancestor
+        if context.hasProperty(local_theme_id):
+            return None
+
+        container = context
+        while 1:
+            try:
+                container = aq_parent(aq_inner(container))
+            except AttributeError:
+                break
+            # check for an object in the container
+            try:
+                container_ids = container.objectIds()
+            except AttributeError:
+                pass
+            else:
+                if local_theme_id in container_ids:
+                    return container
+            # check for a property of the container
+            try:
+                prop = container.hasProperty(local_theme_id)
+            except AttributeError:
+                pass
+            else:
+                if prop:
+                    return container
         return None
 
     #

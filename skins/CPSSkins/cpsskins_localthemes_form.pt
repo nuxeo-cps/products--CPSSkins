@@ -1,0 +1,114 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+  <metal:head fill-slot="head_slot">
+    <link rel="Stylesheet" type="text/css"
+    tal:attributes="href string:${base_url}cpsskins_theme_edit.css" />
+    <script type="text/javascript" 
+    tal:attributes="src string:${base_url}cpsskins_theme_edit.js" />
+  </metal:head>
+
+  <body metal:fill-slot="main"
+  tal:define="tmtool here/portal_themes;
+              themes tmtool/getThemes;
+              localtheme_propid tmtool/getLocalThemeID;
+              local_themes python: tmtool.getLocalThemes(folder=here);
+              iseditable python: localtheme_propid not in context.objectIds()">
+
+    <h1>Manage local themes</h1>
+
+    <tal:block condition="iseditable">
+      <em>You can associate several themes to this folder.</em>
+
+      <h2>Current theme</h2>
+      <strong tal:content="theme_container/title_or_id" />
+      <span tal:define="ancestor python: tmtool.getLocalThemesAncestor(context=here)"
+      tal:condition="ancestor">
+        is inherited from
+        <strong>
+          <a tal:attributes="href string:${ancestor/absolute_url}/cpsskins_localthemes_form"
+             tal:content="ancestor/title_or_id" />
+        </strong>
+      </span>
+
+      <h2>Associated themes</h2>
+      <p tal:condition="not:local_themes">
+        <span>No local theme is currently associated to this folder.</span>
+      </p>
+
+      <ul tal:condition="local_themes">
+        <em>Local themes can be stacked together. The top layer is the most visible.</em>
+        <tal:block repeat="theme local_themes">
+          <tal:block define="theme_name python: theme[1];
+                             theme_interval python: theme[0];
+                             interval_start python: theme_interval[0];
+                             interval_end python: theme_interval[1];
+                             theme_container python: tmtool.getThemeContainer(theme=theme_name)">
+            <h3 tal:content="theme_container/title_or_id" />
+
+            <p>
+              <span tal:condition="python: interval_start == 0">
+                Visible in this folder
+              </span>
+
+              <span tal:condition="python: interval_end == 0">
+                and in all the subfolders.
+              </span>
+
+              <span tal:condition="python: interval_end > interval_start and interval_start > 0">
+                Visible starting from the subfolders of level
+                <tal:block content="interval_start" />
+              </span>
+
+              <span tal:condition="python: interval_end > interval_start">
+                and in all subfolders up to the level
+                <tal:block content="interval_end" />
+              </span>
+
+              <span tal:condition="python: interval_end == interval_start and interval_start > 0">
+                Visible in the subfolders of level
+                <tal:block content="interval_end" />
+              </span>
+            </p>
+
+            <div>
+              <img
+               tal:define="preview theme_container/preview|nothing"
+               tal:condition="preview" width="100px" height="80px"
+               tal:attributes="src string:${theme_container/absolute_url}/thumbnails/${preview}" />
+            </div>
+
+          </tal:block>
+        </tal:block>
+      </ul>
+
+      <h2>Add a theme</h2>
+      <form name="data" action="theme_edit_form" method="get"
+      tal:attributes="action string:${here/absolute_url}/cpsskins_localthemes_edit">
+
+        <table border="0">
+          <tr>
+            <th>Theme:</th>
+            <td tal:define="select_id string:theme_id">
+              <select tal:attributes="name select_id">
+                <option value="" selected="selected"></option>
+                <option 
+                tal:repeat="theme themes"
+                tal:attributes="value theme/getId"
+                tal:content="theme/title_or_id">Theme</option>
+              </select>
+              <img width="16" height="16"
+               tal:attributes="onClick string:newWindow('cpsskins_select_theme?prop=$select_id');
+                               src string: ${base_url}cpsskins_images/select_icon.gif" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="button_select"
+              i18n:attributes="value" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </tal:block>
+  </body>
+</html>
