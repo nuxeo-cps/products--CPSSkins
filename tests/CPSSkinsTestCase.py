@@ -5,6 +5,9 @@
 from Testing import ZopeTestCase
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
+from AccessControl.SecurityManagement \
+    import newSecurityManager, noSecurityManager
+
 ZopeTestCase.installProduct('PageTemplates', quiet=1)
 ZopeTestCase.installProduct('PythonScripts', quiet=1)
 ZopeTestCase.installProduct('ExternalMethod', quiet=1)
@@ -127,13 +130,36 @@ class CPSSkinsInstaller:
         self._quiet = quiet
 
     def install(self, portal_id, target, quiet):
+        self.addUsers()
+        self.login()
         self.fixupCMFCalendar(portal_id, quiet)
         self.setup(portal_id, target, quiet)
         if localizer==1:
             self.fixupTranslationServices(portal_id)
         self.install_themes(portal_id, quiet)
         self.fixupErrorLog(portal_id) 
-        
+
+    def addUsers(self):
+        users = (
+            {'id': 'cpsskins_root',
+             'roles': ['Manager']
+            },
+            {'id': 'cpsskins_user',
+             'roles': ['Member']
+            },
+            {'id': 'cpsskins_theme_manager',
+             'roles': ['Member', 'ThemeManager'],
+            })
+
+        for user in users:
+            uf = self.app.acl_users
+            uf._doAddUser(user['id'], 'secret', user['roles'], [])
+
+    def login(self):
+        uf = self.app.acl_users
+        user = uf.getUserById('cpsskins_root').__of__(uf)
+        newSecurityManager(None, user)
+
     def setup(self, portal_id, target, quiet):
         portal = getattr(self.app, portal_id)
         if not quiet: 
@@ -182,6 +208,9 @@ class CPSSkinsInstaller:
             portal._setObject('install_cmfcalendar', install)
             portal.install_cmfcalendar()
 
+    def logout(self):
+        noSecurityManager()
+        get_transaction().commit()
 
 def optimize():
     '''Significantly reduces portal creation time.'''
@@ -223,14 +252,6 @@ if target == 'Plone2':
    app = ZopeTestCase.app()
    Plone2TestCase.setupPloneSite(app)
 
-portal = getattr(app, portal_id)
-users = ({'id': 'cpsskins_root', 'roles': ['Manager']},
-         {'id': 'cpsskins_user', 'roles': ['Member']},
-         {'id': 'cpsskins_theme_manager', 'roles': ['Member', 'ThemeManager']},
-        )
-         
-for user in users:
-    portal.acl_users._doAddUser(user['id'], 'secret', user['roles'], [])
 
 ZopeTestCase.utils.setupCoreSessions(app)
 CPSSkinsInstaller(app).install(portal_id, target, quiet=0)
