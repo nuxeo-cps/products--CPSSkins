@@ -1,13 +1,13 @@
 
-How to benchmark a theme:
-~~~~~~~~~~~~~~~~~~~~~~~~
+How to benchmark a theme
+========================
 
-* In the theme configuration menu choose the 'profiler' theme renderer.
+In the theme configuration menu choose the **profiler** theme renderer.
 
-Here is a typical output:
+Here is a typical output ::
 
-Profiling lvl:-1 cpsskins_main_template_profiler:
-t       mark       delta t
+ Profiling lvl:-1 cpsskins_main_template_profiler:
+ t       mark       delta t
  0.0000: Start      + 0.0000
  0.0000: --------- [top] ----------------------------------  + 0.0000
  0.0100: CPSSkins: banner..................................  + 0.0100
