@@ -16,11 +16,12 @@ class TestFunctional(ZopeTestCase.Functional,
 
     def afterSetUp(self):
         tmtool = self.portal.portal_themes
+        self.tmtool = tmtool
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)
         self.basic_auth = '%s:secret' % self.login_id
         self.theme_url = self.theme_container.absolute_url(1)
-
+        self.portal.REQUEST.SESSION = {}
 
 class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     """Base class for testing as 'Manager' or as 'ThemeManager'
@@ -28,17 +29,20 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
 
     # Viewing edit screens
     def test_edit_mode_layout(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'layout')
+        self.tmtool.setViewMode(edit_mode='layout')
+        test_url = '/%s/edit_form' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_OK)
 
     def test_edit_mode_wysiwyg(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'wysiwyg')
+        self.tmtool.setViewMode(edit_mode='wysiwyg')
+        test_url = '/%s/edit_form' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_OK)
 
     def test_edit_mode_mixed(self):
-        test_url = '/%s/edit_form?edit_mode=%s' % (self.theme_url, 'mixed')
+        self.tmtool.setViewMode(edit_mode='mixed')
+        test_url = '/%s/edit_form' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_OK)
 
@@ -111,7 +115,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         self.assert_(len(pageblock.getObjects()[0]['cellstyler']) == 1)
 
 
-    def test_addTemplet(self):
+    def test_addContent(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = 2
@@ -157,7 +161,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_Templet_toggle(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.closed = 0
         test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -172,7 +176,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_Templet_delete(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.closed = 0
         test_url = '/%s/cpsskins_object_delete' % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -212,7 +216,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -224,7 +228,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -233,29 +237,33 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         self.assert_(len(pageblock.getObjects()[1]['templets']) == 0)
 
     def test_move_Templet_inside_same_PageBlock(self):
+        utool = self.portal.portal_url
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
         templet_id = pageblock.objectValues('Text Box Templet')[0].getId()
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s' \
-           % (templet.absolute_url(1), 0, 0, pageblock.getId())
+        dest_block = utool.getRelativeUrl(pageblock_dest)
+        test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
+           % (templet.absolute_url(1), 0, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
         templet_moved_id = pageblock.objectValues('Text Box Templet')[0].getId()
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
         self.assert_(templet_id == templet_moved_id)
 
     def test_move_Templet_between_different_PageBlocks(self):
+        utool = self.portal.portal_url
         theme_container = self.theme_container
         pageblock_src = theme_container.addPageBlock()
         pageblock_dest = theme_container.addPageBlock()
         pageblock_dest.maxcols = int(2)
-        templet = pageblock_src.addTemplet(type_name='Text Box Templet')
+        templet = pageblock_src.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         templet_id = pageblock_src.objectValues('Text Box Templet')[0].getId()
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s' \
-           % (templet.absolute_url(1), 1, 0, pageblock_dest.getId())
+        dest_block = utool.getRelativeUrl(pageblock_dest)
+        test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
+           % (templet.absolute_url(1), 1, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
         templet_moved_id = pageblock_dest.objectValues('Text Box Templet')[0].getId()
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
@@ -264,16 +272,18 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_copy_Templet_to_another_Theme(self):
         theme_container = self.theme_container
         tmtool = self.portal.portal_themes
+        utool = self.portal.portal_url
         dest_theme_container = tmtool.addPortalTheme(empty=1)
         pageblock_src = theme_container.addPageBlock()
         pageblock_dest = dest_theme_container.addPageBlock()
         pageblock_dest.maxcols = int(2)
-        templet = pageblock_src.addTemplet(type_name='Text Box Templet')
+        templet = pageblock_src.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         templet_id = templet.getId()
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s&dest_theme=%s' \
+        dest_block = utool.getRelativeUrl(pageblock_dest)
+        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_block=%s&dest_theme=%s' \
            % (templet.absolute_url(1), 1, 0, 
-              pageblock_dest.getId(), dest_theme_container.getId())
+              dest_block, dest_theme_container.getId())
         response = self.publish(test_url, self.basic_auth)
         templet_copied = pageblock_dest.objectValues('Text Box Templet')[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
@@ -291,7 +301,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_duplicate_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_templet_action?action=duplicate' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -302,7 +312,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_delete_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_templet_action?action=delete' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -313,7 +323,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_edit_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_templet_action?action=edit' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)                      
@@ -329,7 +339,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
     def test_findStyle_for_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_find_mystyles?styleprop=color' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -413,7 +423,7 @@ class TestFunctionalAsMember(TestFunctional):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -425,7 +435,7 @@ class TestFunctionalAsMember(TestFunctional):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -437,10 +447,10 @@ class TestFunctionalAsMember(TestFunctional):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
         templet_id = pageblock.objectValues('Text Box Templet')[0].getId()
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s' \
+        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_block=%s' \
            % (templet.absolute_url(1), 0, 0, pageblock.getId())
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
@@ -450,14 +460,14 @@ class TestFunctionalAsMember(TestFunctional):
         pageblock_src = theme_container.addPageBlock()
         pageblock_dest = theme_container.addPageBlock()
         pageblock_dest.maxcols = int(2)
-        templet = pageblock_src.addTemplet(type_name='Text Box Templet')
+        templet = pageblock_src.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s' \
+        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_block=%s' \
            % (templet.absolute_url(1), 1, 0, pageblock_dest.getId())
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
 
-    def test_addTemplet(self):
+    def test_addContent(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
         pageblock.maxcols = 2
@@ -469,15 +479,17 @@ class TestFunctionalAsMember(TestFunctional):
     def test_copy_Templet_to_another_Theme(self):
         theme_container = self.theme_container
         tmtool = self.portal.portal_themes
+        utool = self.portal.portal_url
         dest_theme_container = tmtool.addPortalTheme(empty=1)
         pageblock_src = theme_container.addPageBlock()
         pageblock_dest = dest_theme_container.addPageBlock()
         pageblock_dest.maxcols = int(2)
-        templet = pageblock_src.addTemplet(type_name='Text Box Templet')
+        templet = pageblock_src.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         templet_id = templet.getId()
-        test_url = '/%s/cpsskins_move_templet?xpos=%s&ypos=%s&dest_pageblock=%s&dest_theme=%s' \
-           % (templet.absolute_url(1), 1, 0, pageblock_dest.getId(), dest_theme_container.getId())
+        dest_block = utool.getRelativeUrl(pageblock_dest)
+        test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s&dest_theme=%s' \
+           % (templet.absolute_url(1), 1, 0, dest_block, dest_theme_container.getId())
         response = self.publish(test_url, self.basic_auth)
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
 
@@ -503,7 +515,7 @@ class TestFunctionalAsMember(TestFunctional):
     def test_Templet_toggle(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.closed = 0
         test_url = '/%s/cpsskins_object_toggle' % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -518,7 +530,7 @@ class TestFunctionalAsMember(TestFunctional):
     def test_duplicate_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_templet_action?action=duplicate' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -529,7 +541,7 @@ class TestFunctionalAsMember(TestFunctional):
     def test_delete_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_templet_action?action=delete' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -540,7 +552,7 @@ class TestFunctionalAsMember(TestFunctional):
     def test_findStyle_for_Templet(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_find_mystyles?styleprop=color' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
@@ -614,7 +626,7 @@ class TestFunctionalCalendar(TestFunctional):
     def test_Calendar_browse_next_month(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Calendar Templet')
+        templet = pageblock.addContent(type_name='Calendar Templet')
         base_url = '%s/cpsskins_calendar_browse' % self.portal.absolute_url(1)
         test_url = base_url + '?year:int=2004&month:int=8&dir=nextmonth'
         response = self.publish(test_url, self.basic_auth)
@@ -625,7 +637,7 @@ class TestFunctionalCalendar(TestFunctional):
     def test_Calendar_browse_prev_month(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Calendar Templet')
+        templet = pageblock.addContent(type_name='Calendar Templet')
         base_url = '%s/cpsskins_calendar_browse' % self.portal.absolute_url(1)
         test_url = base_url + '?year:int=2004&month:int=8&dir=prevmonth'
         response = self.publish(test_url, self.basic_auth)

@@ -36,7 +36,7 @@ class TestPageBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_moveCell_right(self):
         pageblock = self.pageblock
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(0)
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
         cellhider = pageblock.addCellHider(**{'xpos':0})
@@ -54,7 +54,7 @@ class TestPageBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_moveCell_left(self):
         pageblock = self.pageblock
         pageblock.maxcols = int(2)
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.xpos = int(1)
         cellstyler = pageblock.addCellStyler(**{'xpos':1})
         cellhider = pageblock.addCellHider(**{'xpos':1})

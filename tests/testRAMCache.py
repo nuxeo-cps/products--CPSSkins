@@ -13,7 +13,7 @@ class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme()
         self.pageblock = self.theme_container.addPageBlock()
-        self.templet = self.pageblock.addTemplet(type_name='Text Box Templet')
+        self.templet = self.pageblock.addContent(type_name='Text Box Templet')
         self.templet.text = str(range(1000))
         self.cache = self.templet.getTempletCache(create=1)
         self.cache.invalidate()

@@ -75,8 +75,8 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_findUncachedTemplets(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet1 = pageblock.addTemplet(type_name='Text Box Templet')
-        templet2 = pageblock.addTemplet(type_name='Text Box Templet')
+        templet1 = pageblock.addContent(type_name='Text Box Templet')
+        templet2 = pageblock.addContent(type_name='Text Box Templet')
         templet1.cacheable = 1
         templet2.cacheable = 0
         uncached_templets = theme_container.findUncachedTemplets()
@@ -100,7 +100,7 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
         theme_container.addPortalStyle(type_name='Area Color')
         theme_container.addPortalStyle(type_name='Area Shape')
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         prop_dict = {}
         prop_dict['shape'] = 'AreaShape'
         templet.manage_changeProperties(prop_dict)
@@ -129,7 +129,7 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = portal.portal_themes
         theme_container = tmtool.getThemeContainer(theme='PortalTheme')
         pageblock = theme_container.addPageBlock()
-        pageblock.addTemplet(type_name="Calendar Templet")
+        pageblock.addContent(type_name="Calendar Templet")
         self.assert_(theme_container.renderJS())
 
     def test_findStyles_b(self):
@@ -159,12 +159,12 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
     def test_getInvisibleTemplets(self):
         theme_container = self.theme_container
         pageblock = theme_container.addPageBlock()
-        templet1 = pageblock.addTemplet(type_name='Text Box Templet', xpos=int(0))
-        templet2 = pageblock.addTemplet(type_name='Action Box Templet', xpos=int(2))
-        templet3 = pageblock.addTemplet(type_name='Search Box Templet', xpos=int(3))
-        templet4 = pageblock.addTemplet(type_name='Portal Box Templet', xpos=int(0))
-        templet5 = pageblock.addTemplet(type_name='Portal Box Templet', xpos=int(0))
-        templet6 = pageblock.addTemplet(type_name='Portal Box Group Templet', xpos=int(0))
+        templet1 = pageblock.addContent(type_name='Text Box Templet', xpos=int(0))
+        templet2 = pageblock.addContent(type_name='Action Box Templet', xpos=int(2))
+        templet3 = pageblock.addContent(type_name='Search Box Templet', xpos=int(3))
+        templet4 = pageblock.addContent(type_name='Portal Box Templet', xpos=int(0))
+        templet5 = pageblock.addContent(type_name='Portal Box Templet', xpos=int(0))
+        templet6 = pageblock.addContent(type_name='Portal Box Group Templet', xpos=int(0))
         pageblock.maxcols = 1
         templet4.closed = 1
         invisible_templets = theme_container.getInvisibleTemplets()

@@ -24,14 +24,14 @@ class TestCPSPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_Portlet_Templet(self):
         pageblock = self.pageblock
-        templet = pageblock.addTemplet(type_name='Portlet Box Templet')
+        templet = pageblock.addContent(type_name='Portlet Box Templet')
         self.assertEquals('Portlet Box Templet', getattr(templet, 'title'))
         self.assert_(templet.aq_explicit.isPortalTemplet())
         self.assert_(templet.aq_explicit.isPortletBox())
  
     def test_PortalBoxGroup_Templet(self):
         pageblock = self.pageblock
-        templet = pageblock.addTemplet(type_name='Portal Box Group Templet')
+        templet = pageblock.addContent(type_name='Portal Box Group Templet')
         self.assert_(not templet.aq_explicit.isCacheable())
  
 

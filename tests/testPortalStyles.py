@@ -163,7 +163,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet') 
+        templet = pageblock.addContent(type_name='Text Box Templet') 
         templet.color = style.getTitle()
         parents = style.findParents()
         self.assert_(parents == [templet])
@@ -172,7 +172,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet') 
+        templet = pageblock.addContent(type_name='Text Box Templet') 
         pageblock.color = style.getTitle()
         parents = style.findParents()
         self.assert_(parents == [pageblock])
@@ -190,7 +190,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
         templet.color = style.getTitle() 
         cellstyler.color = style.getTitle()
@@ -205,7 +205,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
         pageblock = theme_container.addPageBlock()
-        templet = pageblock.addTemplet(type_name='Text Box Templet')
+        templet = pageblock.addContent(type_name='Text Box Templet')
         self.assert_(style.isOrphan())
         templet.color = style.getTitle()
         self.assert_(not style.isOrphan())
