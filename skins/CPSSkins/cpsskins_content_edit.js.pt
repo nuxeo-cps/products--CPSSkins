@@ -2,7 +2,7 @@
 
 /* PDLib */
 
-function Templet_prepare_element_menu(header) {
+function Content_prepare_element_menu(header) {
   // Prepares the header of the element context menu.
   var node;
   if (!pd_selected_item) {
@@ -56,7 +56,7 @@ function Choice_action(action) {
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
-  window.location = new_url + '/cpsskins_templet_action?action=' + action;
+  window.location = new_url + '/cpsskins_content_action?action=' + action;
 }
 
 function Choice_align(alignprop) {
@@ -67,11 +67,11 @@ function Choice_align(alignprop) {
   window.location = new_url + '/cpsskins_change_alignment?alignprop=' + alignprop;
 }
 
-function Templet_move(selected_items, target_node) {
+function move(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
-  dest = findDescendant(target_node, 'TempletDest')
+  dest = findDescendant(target_node, 'ContentDest')
   if (dest == null)
      return;
   xpos = dest.getAttribute('xpos');
@@ -88,11 +88,11 @@ function Templet_move(selected_items, target_node) {
   window.location = new_url
 }
 
-function Templet_add(selected_items, target_node) {
+function add(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
-  dest = findDescendant(target_node, 'TempletDest')
+  dest = findDescendant(target_node, 'ContentDest')
   if (dest == null)
      return;
   xpos = dest.getAttribute('xpos');
@@ -100,18 +100,18 @@ function Templet_add(selected_items, target_node) {
   new_url = dest.getAttribute('pageblock_url');
   if (xpos == null || ypos == null || new_url == 0) return;
   type_name = pd_selected_item.getAttribute('type_name');
-  window.location = new_url + '/cpsskins_templet_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
+  window.location = new_url + '/cpsskins_content_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
 }
 
-function Templet_checkmove(selected_items, target_node) {
+function Content_checkmove(selected_items, target_node) {
   return true;
 }
 
-function setupTempletBoxDrag(node) {
-  pd_setupDragUI(node, Templet_move, Templet_checkmove);
+function setupContentBoxDrag(node) {
+  pd_setupDragUI(node, move, Content_checkmove);
 }
 
-function setupTempletEditMenu(node) {
+function setupContentEditMenu(node) {
   pd_setupContextMenu(node, 'choice-context-menu', null, true);
 }
 
@@ -123,14 +123,14 @@ function setupDestination(node) {
   pd_setupDropTarget(node, 1);
 }
 
-function setupTempletAdd(node) {
-  pd_setupDragUI(node, Templet_add, Templet_checkmove);
+function setupContentAdd(node) {
+  pd_setupDragUI(node, add, Content_checkmove);
 }
 
 
-pd_node_setup['TempletBoxDrag'] = setupTempletBoxDrag;
-pd_node_setup['TempletBoxEditMenu'] = setupTempletEditMenu;
-pd_node_setup['TempletDest'] = setupDestination;
-pd_node_setup['TempletAdd'] = setupTempletAdd;
+pd_node_setup['ContentBoxDrag'] = setupContentBoxDrag;
+pd_node_setup['ContentBoxEditMenu'] = setupContentEditMenu;
+pd_node_setup['ContentDest'] = setupDestination;
+pd_node_setup['ContentAdd'] = setupContentAdd;
 
 //-->

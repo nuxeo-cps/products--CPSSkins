@@ -5,23 +5,23 @@
                 view_mode tmtool/getViewMode;
                 edit_mode view_mode/edit_mode|request/form/edit_mode|nothing; 
                 pss modules/Products/PythonScripts/standard;
-                templet_ypos request/form/templet_ypos|nothing; 
-                templet_xpos request/form/templet_xpos|nothing;">
+                content_ypos request/form/content_ypos|nothing; 
+                content_xpos request/form/content_xpos|nothing;">
     <h1 i18n:translate=""
     tal:define="title string:_Add_a_new_Templet_"
     tal:content="python: mcat and mcat(title) or title" />
-      <form action="cpsskins_templet_add" method="get">
+      <form action="cpsskins_content_add" method="get">
         <tal:block define="title string:;">
           <metal:block
-          use-macro="here/cpsskins_theme_widgets/macros/templet_add_form">
+          use-macro="here/cpsskins_theme_widgets/macros/content_add_form">
           </metal:block>
         </tal:block>
         <input type="hidden" name="edit_mode"
         tal:attributes="value edit_mode" />
         <input type="hidden" name="xpos"
-        tal:attributes="value templet_xpos" />
+        tal:attributes="value content_xpos" />
         <input type="hidden" name="ypos"
-        tal:attributes="value templet_ypos" />
+        tal:attributes="value content_ypos" />
         <input type="hidden" name="theme"
         tal:attributes="value current_theme" />
         <input type="submit" class="mainbutton"

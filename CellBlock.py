@@ -53,7 +53,7 @@ factory_type_information = (
           'view': 'cpsskins_default_view',
           'edit': 'cpsskins_edit_form', 
           'edit_form': 'cpsskins_edit_form', 
-          'addtemplet': 'cpsskins_addtemplet_form', },
+          'addcontent': 'cpsskins_addcontent_form', },
      'actions': (
          {'id': 'view',
           'name': 'View',
@@ -65,12 +65,18 @@ factory_type_information = (
           'action': 'cpsskins_edit_form',
           'permissions': (ManageThemes,)
          },
-         {'id': 'addtemplet',
-          'name': '_action_addtemplet_',
-          'action': 'cpsskins_addtemplet_form',
+         {'id': 'addcontent',
+          'name': '_action_addcontent_',
+          'action': 'cpsskins_addcontent_form',
           'visible': 0,
           'permissions': (ManageThemes,),
           'category': 'object'
+         },
+         {'id': 'iscellblock',
+          'name': 'iscellblock',
+          'action': 'iscellblock',
+          'visible': 0,
+          'permissions': ()
          },
      ),
     },
@@ -375,7 +381,7 @@ InitializeClass(CellBlock)
 
 def addCellBlock(dispatcher, id, REQUEST=None, **kw):
     """Add a Cell Block."""
-    ob = PageBlock(id)
+    ob = CellBlock(id)
     container = dispatcher.Destination()
     container._setObject(id, ob)
     if REQUEST is not None:

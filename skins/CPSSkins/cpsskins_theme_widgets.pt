@@ -22,7 +22,7 @@ tal:define="base_url python: request.get('cpsskins_base_url', '');
           </td>
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
-            <div class="TempletDest" tal:attributes="dest_theme theme_id">
+            <div class="ContentDest" tal:attributes="dest_theme theme_id">
               <a 
               tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id; style style"
               tal:content="theme_title" />
@@ -133,7 +133,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
   tal:define="tmtool here/portal_themes">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
-         filter="Templet_prepare_element_menu(pd_filter_object)"></div>
+         filter="Content_prepare_element_menu(pd_filter_object)"></div>
     <div class="context-menu-item" onmouseup="Choice_action('edit')"
          filter="pd_selected_item">
       <img width="16" height="16" 
@@ -331,7 +331,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 </metal:block>
 
 <metal:block define-macro="content_add_form" i18n:domain="cpsskins">
-  <dl class="contentlist" tal:define="til here/cpsskins_listTemplets">
+  <dl class="contentlist" tal:define="til here/cpsskins_listContents">
     <tal:block repeat="ti til">
       <dt tal:define="choice_id string:choice_${repeat/ti/number}">
         <input name="type_name" type="radio"
@@ -354,11 +354,11 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 </metal:block>
 
 <metal:block define-macro="content_add_panel" i18n:domain="cpsskins">
-  <table class="templetbox" cellpadding="2" cellspacing="1"
-       tal:define="til here/cpsskins_listTemplets">
+  <table class="contentbox" cellpadding="2" cellspacing="1"
+       tal:define="til here/cpsskins_listContents">
     <tr>
     <tal:block repeat="ti til">
-      <td class="TempletAdd"
+      <td class="ContentAdd"
       tal:attributes="type_name ti/id">
       <img tal:define="title python: '_%s_' % ti.Title()" width="16" height="16"
            i18n:attributes="title"
@@ -651,7 +651,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
 </metal:block>
 
 <metal:block define-macro="emptycell" i18n:domain="cpsskins">
-  <div class="TempletDest" i18n:attributes="title"
+  <div class="ContentDest" i18n:attributes="title"
    style="border: 1px dashed red; padding: 8px"
    tal:condition="not:contents_in_xpos"
    tal:define="title string:_You can drop a Templet into this area_"

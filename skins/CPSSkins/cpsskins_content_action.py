@@ -19,8 +19,8 @@ if action == 'insert':
         return
     if ypos > 0:
         ypos = ypos -1
-    redirect_url = '/add_templet_form?templet_xpos=' + str(xpos) + \
-                  '&templet_ypos=' + str(ypos)
+    redirect_url = '/add_content_form?content_xpos=' + str(xpos) + \
+                  '&content_ypos=' + str(ypos)
     url_obj = context.aq_parent
 
 if action == 'duplicate':

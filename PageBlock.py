@@ -53,7 +53,7 @@ factory_type_information = (
           'view': 'cpsskins_default_view',
           'edit': 'cpsskins_edit_form', 
           'edit_form': 'cpsskins_edit_form', 
-          'addtemplet': 'cpsskins_addtemplet_form', },
+          'addcontent': 'cpsskins_addcontent_form', },
      'actions': (
          {'id': 'view',
           'name': 'View',
@@ -65,9 +65,9 @@ factory_type_information = (
           'action': 'cpsskins_edit_form',
           'permissions': (ManageThemes,)
          },
-         {'id': 'addtemplet',
-          'name': '_action_addtemplet_',
-          'action': 'cpsskins_addtemplet_form',
+         {'id': 'addcontent',
+          'name': '_action_addcontent_',
+          'action': 'cpsskins_addcontent_form',
           'visible': 0,
           'permissions': (ManageThemes,),
           'category': 'object'
@@ -205,17 +205,17 @@ class PageBlock(ThemeFolder):
         atool = getToolByName(self, 'portal_actions')
         return atool.listFilteredActionsFor(self)
 
-    security.declareProtected(ManageThemes, 'add_templet_form')
-    def add_templet_form(self, **kw):
+    security.declareProtected(ManageThemes, 'add_content_form')
+    def add_content_form(self, **kw):
         """
-        Call the add templet action.
+        Call the add content action.
         """
-        return callAction(self, 'addtemplet', **kw)
+        return callAction(self, 'addcontent', **kw)
 
-    security.declareProtected(ManageThemes, 'addTemplet')
-    def addTemplet(self, **kw):
+    security.declareProtected(ManageThemes, 'addContent')
+    def addContent(self, **kw):
         """
-        Add a Templet. Returns the Templet's id
+        Add content. Returns the id
         """
  
         tmtool = getToolByName(self, 'portal_themes')
@@ -237,14 +237,14 @@ class PageBlock(ThemeFolder):
     
         id = getFreeId(self)
         self.invokeFactory(type_name, id, **kw)
-        templet = getattr(self.aq_explicit, id, None)
-        if templet is not None:
-            self.move_object_to_position(templet.getId(), newpos)
-            templet.xpos = int(xpos)
-            verifyThemePerms(templet)
+        content = getattr(self.aq_explicit, id, None)
+        if content is not None:
+            self.move_object_to_position(content.getId(), newpos)
+            content.xpos = int(xpos)
+            verifyThemePerms(content)
             theme_container.expireCSSCache()
             theme_container.expireJSCache()
-            return templet
+            return content
 
     security.declareProtected(ManageThemes, 'addCellHider')
     def addCellHider(self, **kw):

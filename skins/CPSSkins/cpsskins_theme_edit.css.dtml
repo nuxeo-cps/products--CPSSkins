@@ -130,7 +130,7 @@ background: #aaaaaa;
 height: 7.2em;
 }
 
-.floatingheader .templetbox {
+.floatingheader .contentbox {
 cursor: default;
 margin-left: auto; 
 margin-right: auto; 
@@ -138,12 +138,12 @@ background-color: #f6f6f6;
 border: 1px solid #666;
 }
 
-.floatingheader .templetbox td {
+.floatingheader .contentbox td {
 background-color: #f6f6f6;
 border: 1px solid #f6f6f6;
 }
 
-.floatingheader .templetbox td:hover {
+.floatingheader .contentbox td:hover {
 background-color: #fff; 
 border: 1px solid #ccc;
 }
@@ -456,10 +456,10 @@ background-color: #ffd;
 border: 1px solid #ccc;
 }
 
-.TempletDest {
+.ContentDest {
 }
 
-.TempletDest_highlighted, .TempletDest:hover {
+.ContentDest_highlighted, .ContentDest:hover {
 background-color: #fff066;
 }
 
