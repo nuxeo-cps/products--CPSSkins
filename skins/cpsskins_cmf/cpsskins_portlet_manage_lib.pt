@@ -281,7 +281,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="unused_portlets_panel">
-  <h2 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h2>
+  <h1 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h1>
   <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
   <table cellpadding="0" cellspacing="3">
     <tr>
@@ -307,8 +307,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
 <metal:block define-macro="site_structure"
   tal:define="here_depth python: len(utool.getRelativeContentPath(here))">
-  <h2 i18n:translate="heading_site_structure" 
-      i18n:domain="cpsskins">Site structure</h2>
+  <h1 i18n:translate="heading_site_structure" 
+      i18n:domain="cpsskins">Site structure</h1>
   <div style="float: right">&raquo;
   <tal:block define="contents python: here.contentValues()"
    repeat="content contents">
@@ -404,8 +404,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
               type request/form/type|nothing;
               selection python: topic or type">
 
-  <h2 i18n:translate="heading_portlet_browser"
-   i18n:domain="cpsskins">Portlet browser</h2>
+  <h1 i18n:translate="heading_portlet_browser"
+   i18n:domain="cpsskins">Portlet browser</h1>
 
   <div tal:condition="selection">
     <a tal:attributes="href string:${request/URL0}"
@@ -462,15 +462,16 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     </tal:block>
   </div>
 
-  <div class="topicFolder" tal:condition="not:selection">
-    <h3 i18n:translate="heading_portlet_browser_by_topic"
-     i18n:domain="cpsskins">By topic</h3>
+  <tal:block condition="not:selection">
+  <h2 i18n:translate="heading_portlet_browser_by_topic"
+   i18n:domain="cpsskins">By topic</h2>
+  <div class="topicFolder">
     <ul tal:define="topics_voc here/portal_vocabularies/subject_voc|nothing"
         tal:condition="topics_voc">
       <tal:block repeat="key python: topics_voc.keys()">
         <tal:block define="portlets python: ptltool.listPortlets(topics=(key,));
                            nb_portlets python: len(portlets)"
-         condition="python: nb_portlets > 0">
+         condition="python: nb_portlets &gt; 0">
           <li><a href=""
                tal:attributes="href string:${request/URL0}?topic=$key">
                <tal:block content="topics_voc/?key" />
@@ -480,19 +481,20 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         </tal:block>
       </tal:block>
     </ul>
-    <div style="clear:both" />
+    <div style="clear:both"></div>
   </div>
 
-  <div class="typeFolder" tal:condition="not:selection">
-    <h3 i18n:translate="heading_portlet_browser_by_type"
-     i18n:domain="cpsskins">By type</h3>
+  <br />
+  <h2 i18n:translate="heading_portlet_browser_by_type"
+   i18n:domain="cpsskins">By type</h2>
+  <div class="typeFolder">
     <ul tal:define="portal_types nocall:here/portal_types;
                     ptltool nocall:here/portal_cpsportlets;
                     types ptltool/listPortletTypes">
       <tal:block repeat="type types">
         <tal:block define="portlets python: ptltool.listPortlets(portal_types=(type,));
                            nb_portlets python: len(portlets)"
-         condition="python: nb_portlets > 0">
+         condition="python: nb_portlets &gt; 0">
           <li tal:define="icon python: portal_types[type].getIcon()">
             <a href="" tal:attributes="href string:${request/URL0}?type=$type">
               <img src="" tal:attributes="src icon" width="16" height="16" />
@@ -503,7 +505,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         </tal:block>
       </tal:block>
     </ul>
-    <div style="clear:both" />
+    <div style="clear:both"></div>
   </div>
+  </tal:block>
 
 </metal:block>

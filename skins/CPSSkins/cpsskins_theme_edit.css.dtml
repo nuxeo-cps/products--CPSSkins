@@ -198,7 +198,7 @@ body {
 }
 
 div.editSpace {
-  margin-top: 6.7em;
+  margin-top: 6.8em;
 }
 
 div.floatingHeader {
@@ -208,7 +208,7 @@ div.floatingHeader {
   width: 100%;
   padding-top: 0.5em;
   background: #aaaaaa;
-  height: 6.7em;
+  height: 6.5em;
   border-bottom: 1px solid #333;
   z-index: +10;
 }
@@ -284,7 +284,7 @@ div.simulate_hierarchies {
   margin-bottom: 3px;
   margin-top: 0px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .themeTabs .ContextualMenu, .themeTabs .ContextualMenu_highlighted {
@@ -377,8 +377,7 @@ div.simulate_hierarchies {
 /* Edit form */
 .editForm {
   font: 10px Arial, Helvetica, sans-serif;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
 }
 
 .editForm dl a {

@@ -52,26 +52,26 @@
     </tal:block> 
 
     <tal:block condition="not:wysiwyg">
-      <tal:block 
-       define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
-       condition="python: hidden_slots and panel=='unused_portlets'">
+      <div class="editForm"
+       tal:define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+       tal:condition="python: hidden_slots and panel=='unused_portlets'">
         <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
-      </tal:block>
+      </div>
 
-      <tal:block
-       condition="python: panel == 'site_structure'">
+      <div class="editForm"
+       tal:condition="python: panel == 'site_structure'">
        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
-      </tal:block> 
+      </div>
 
-      <tal:block
-       condition="python: panel == 'portlet_slots'">
+      <div class="editForm"
+       tal:condition="python: panel == 'portlet_slots'">
        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
-      </tal:block> 
+      </div> 
 
-      <tal:block
-       condition="python: panel == 'portlet_browser'">
+      <div class="editForm"
+       tal:condition="python: panel == 'portlet_browser'">
        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
-      </tal:block> 
+      </div> 
     </tal:block> 
   </div>
 
