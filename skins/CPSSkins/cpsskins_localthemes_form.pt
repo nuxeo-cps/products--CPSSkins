@@ -50,11 +50,7 @@
                 Visible in this folder
               </span>
 
-              <span tal:condition="python: interval_end == 0">
-                and in all the subfolders.
-              </span>
-
-              <span tal:condition="python: interval_end > interval_start and interval_start > 0">
+              <span tal:condition="python: (interval_end > interval_start or interval_end == 0) and interval_start > 0">
                 Visible starting from the subfolders of level
                 <tal:block content="interval_start" />
               </span>
@@ -67,6 +63,10 @@
               <span tal:condition="python: interval_end == interval_start and interval_start > 0">
                 Visible in the subfolders of level
                 <tal:block content="interval_end" />
+              </span>
+
+              <span tal:condition="python: interval_end == 0">
+                and in all the subfolders.
               </span>
             </p>
 
