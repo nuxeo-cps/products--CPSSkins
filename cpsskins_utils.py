@@ -29,7 +29,7 @@ from Acquisition import  aq_base
 from Products.CMFCore.CMFCorePermissions import View, AccessContentsInformation
 from CPSSkinsPermissions import ManageThemes
 
-from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.utils import getToolByName, _getViewFor
 
 def rebuild_properties(obj):
     """ This method rebuilds an object's property map (_properties) and  
@@ -100,18 +100,9 @@ def callAction(self, actionid, **kw):
     Call the given action.
     """
 
-    ti = self.getTypeInfo() 
-    if hasattr(ti, 'getMethodURL'):
-        action = ti.getMethodURL(actionid)
-    else:
-        action = ti.getActionById(actionid)
-    meth = self.restrictedTraverse(action)
-
-    if meth and callable(meth):
-        if getattr(aq_base(meth), 'isDocTemp', 0):
-            return apply(meth, (self, self.REQUEST), kw)
-        else:
-            return apply(meth, (), kw)
+    action = _getViewFor(self, view=actionid)
+    if action and callable(action):
+        return apply(action, (), kw)
 
 
 def renderMeth(self, render_variable, **kw):
