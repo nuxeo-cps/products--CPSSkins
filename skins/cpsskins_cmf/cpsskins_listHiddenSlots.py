@@ -1,7 +1,7 @@
 ##parameters=theme=None
 
 if theme is None:
-    return
+    return []
 
 tmtool = context.portal_themes
 slots = context.cpsskins_listSlots()
