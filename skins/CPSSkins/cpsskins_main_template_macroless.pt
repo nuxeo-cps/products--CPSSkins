@@ -44,7 +44,12 @@
                         style string:margin:${page_container/margin};">
   <tal:block content="structure tmtool/renderAccessKey" />
   <metal:block define-macro="main">
-    <tal:block content="structure python: page_container.render(context_obj=here)" />
+    <tal:block define="
+      shield not:tmtool/debug_mode|python:1;
+      enable_esi theme_container/esi|nothing;
+      context_rurl request/form/context_rurl|nothing;
+      context_obj python: here.cpsskins_getContextObj(context_rurl)"
+    content="structure python: page_container.render(shield=shield, context_obj=context_obj, enable_esi=enable_esi)" />
   </metal:block>
   </body>
 </tal:block>
