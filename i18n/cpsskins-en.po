@@ -1775,6 +1775,10 @@ msgid "_menu_Edit_"
 msgstr "Edit"
 
 
+msgid "_menu_Edit_styles_"
+msgstr "Edit styles"
+
+
 msgid "_menu_Font Color_"
 msgstr "Font color"
 

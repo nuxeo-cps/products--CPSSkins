@@ -1775,6 +1775,10 @@ msgid "_menu_Edit_"
 msgstr "Redigera"
 
 
+msgid "_menu_Edit_styles_"
+msgstr ""
+
+
 msgid "_menu_Font Color_"
 msgstr ""
 

@@ -141,6 +141,14 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
          define="title string:_menu_Edit_"
          content="python: mcat and mcat(title) or title" />
     </div>
+    <div class="context-menu-item" onmouseup="Choice_action('edit_styles')"
+         filter="pd_selected_item">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/edit_styles-16.gif" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Edit_styles_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
     <div class="context-menu-item" onmouseup="Choice_action('insert')"
          filter="pd_selected_item">
        <img width="16" height="16" 

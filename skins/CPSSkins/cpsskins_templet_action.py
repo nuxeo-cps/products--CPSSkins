@@ -33,6 +33,10 @@ if action == 'delete':
 if action == 'edit':
     url_obj = context
 
+if action == 'edit_styles':
+    url_obj = context
+    redirect_url += '?cat=style'
+
 if url_obj is None:
     return
 

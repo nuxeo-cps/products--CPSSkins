@@ -1777,6 +1777,10 @@ msgid "_menu_Edit_"
 msgstr "Edycja"
 
 
+msgid "_menu_Edit_styles_"
+msgstr ""
+
+
 msgid "_menu_Font Color_"
 msgstr "Kolor czcionki"
 

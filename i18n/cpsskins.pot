@@ -607,6 +607,9 @@ msgstr ""
 msgid "_menu_Edit_"
 msgstr ""
 
+msgid "_menu_Edit_styles_"
+msgstr ""
+
 msgid "_menu_Delete_"
 msgstr ""
 
