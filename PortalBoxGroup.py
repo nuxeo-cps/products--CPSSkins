@@ -263,8 +263,7 @@ class PortalBoxGroup(BaseTemplet):
         # draw an empty slot in edit mode
         if boxedit:
             if len(portlets) == 0:
-                all_rendered = self.cpsskins_renderBoxSlot(slot_id=self.id,
-                                                           slot_title=self.title)
+                all_rendered = self.cpsskins_renderBoxSlot(slot=self)
         return all_rendered
 
     security.declarePublic('render_cache')

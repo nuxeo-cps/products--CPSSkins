@@ -1,11 +1,16 @@
 <div class="BoxGroupBoundingBox">
   <div class="PortletBoxDest"
-   tal:define="slot_title options/slot_title"
+   tal:define="slot nocall:options/slot;
+               slot_title slot/title;
+               fti slot/getTypeInfo;
+               slot_icon fti/getIcon|nothing"
    tal:attributes="dest_slot slot_title; 
                    dest_ypos python: 0">
     <div class="BoxGroupBoxSlotTitle" tal:content="slot_title" />
     <div class="PortletBoxEditMenu" style="padding: 20px"
      tal:attributes="has_portlets python: 0;
+                     icon slot_icon;
+                     title slot_title;
                      src_ypos python: 0;
                      src_slot slot_title">
     </div>

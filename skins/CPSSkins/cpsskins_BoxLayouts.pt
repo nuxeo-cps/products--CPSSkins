@@ -204,7 +204,10 @@
  tal:define="utool nocall:here/portal_url;
              tmtool here/portal_themes;
              base_url python: request.get('cpsskins_base_url', '');
+             fti portlet/getTypeInfo;
+             portlet_icon fti/getIcon;
              portlet_id portlet/getId;
+             portlet_title portlet/title_or_id;
              portlet_rurl portlet/getRelativeUrl;
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
@@ -227,6 +230,8 @@
                    src_rurl portlet_folder_rurl;
                    src_ypos python: ypos and ypos or 0;
                    src_slot group;
+                   icon portlet_icon;
+                   title portlet_title;
                    portlet_id portlet_id;
                    portlet_folder portlet_folder_rurl;
                    folder_url folder_url">
