@@ -24,3 +24,4 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from AccessControl import ModuleSecurityInfo
 ModuleSecurityInfo('types').declarePublic('StringType', 'ListType')
+ModuleSecurityInfo('cgi').declarePublic('escape')
