@@ -44,17 +44,17 @@
       </metal:block>
       <metal:block use-macro="here/?main_macro/macros/head" />
     </head>
-    <body OnLoad="setFocus()"
-    tal:attributes="class cpsskins_bodyclass;
-                    style cpsskins_bodystyle"
-     tal:condition="emptybody">
+    <body tal:condition="emptybody"
+    tal:attributes="onload here/getOnLoad|string:setFocus();
+                    class cpsskins_bodyclass;
+                    style cpsskins_bodystyle">
       <metal:block define-slot="body" />
       <metal:block define-slot="main" />
     </body>
-    <body OnLoad="setFocus()"
-    tal:attributes="class cpsskins_bodyclass;
-                    style cpsskins_bodystyle"
-     tal:condition="not:emptybody">
+    <body tal:condition="not:emptybody"
+    tal:attributes="onload here/getOnLoad|string:setFocus();
+                    class cpsskins_bodyclass;
+                    style cpsskins_bodystyle">
       <metal:block
       use-macro="here/?main_macro/macros/main">
         <metal:block fill-slot="maincontent">
