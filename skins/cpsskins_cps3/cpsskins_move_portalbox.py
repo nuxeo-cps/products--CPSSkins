@@ -4,7 +4,7 @@ dest_ypos = int(dest_ypos)
 src_ypos = int(src_ypos)
 
 btool = context.portal_boxes
-portal_url = context.portal_url(relative=1) + '/'
+portal_path = context.portal_url.getPortalPath() + '/'
 
 sboxes = btool.getBoxes(context, include_only_in_subfolder=1)
 sboxes = btool.filterBoxes(sboxes, slot=dest_slot, keep_closed=1)
@@ -33,7 +33,7 @@ else:
             box.edit(order=new_ypos)
             new_ypos += 10
 
-box = context.restrictedTraverse(portal_url + box_url)
+box = context.restrictedTraverse(portal_path + box_url)
 box.edit(box_url=box_url, slot=dest_slot, order=dest_ypos)
 
 if REQUEST is not None:
