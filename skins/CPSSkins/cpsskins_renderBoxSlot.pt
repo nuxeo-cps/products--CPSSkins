@@ -1,15 +1,15 @@
-<div class="PortletSlotFrame"
+<div class="portletSlotFrame"
  tal:define="rendered options/rendered;
              slot nocall:options/slot;
              slot_title slot/title;
              slot_id slot/getSlot;
              fti slot/getTypeInfo;
              slot_icon fti/getIcon|nothing">
-  <div class="PortletSlotTitle" tal:content="slot_title" />
-  <div class="PortletBoxDest"
+  <div class="portletSlotTitle" tal:content="slot_title" />
+  <div class="portletBoxDest"
    tal:attributes="dest_slot slot_id;
                    dest_ypos python: 0">
-    <div class="PortletBoxEditMenu"
+    <div class="portletBoxEditMenu"
      tal:attributes="icon slot_icon;
                      title slot_title;
                      src_ypos python: 0;

@@ -47,7 +47,7 @@
         <div tal:define="style_title style/title;
                          style_url style/absolute_url;
                          parents style/findParents"
-             tal:attributes="class python: current_style and style_title == current_style and 'EditPreviewSelected' or 'EditPreview'">
+             tal:attributes="class python: current_style and style_title == current_style and 'editPreviewSelected' or 'editPreview'">
           <tal:block define="info style/getInfo; del_action info/delete|nothing; edit_action info/edit|nothing;">
             <a title="Delete" 
             tal:condition="del_action/can_delete|nothing"

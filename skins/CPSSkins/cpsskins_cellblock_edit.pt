@@ -29,7 +29,7 @@
             <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
           </tal:block>
 
-          <div class="ContentDest" i18n:attributes="title"
+          <div class="contentDest" i18n:attributes="title"
            style="border: 1px dashed red; padding: 8px"
            tal:condition="not:contents_in_xpos"
            tal:define="title string:_You can drop a Templet into this area_"
@@ -59,12 +59,12 @@
                                  title python: content.title;
                                  align python: content.align;
                                  style padding_string">
-              <div class="ContentDest"
+              <div class="contentDest"
                tal:attributes="xpos x_pos;
                                ypos ypos;
                                block_url block_url;
                                dest_block block_rurl">
-                <div class="TempletBoxSelected"
+                <div class="templetBoxSelected"
                  tal:omit-tag="python: content != context_obj">
                 <div tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);

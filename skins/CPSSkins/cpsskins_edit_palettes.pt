@@ -41,7 +41,7 @@
       tal:content="python: mcat and mcat(title) or title" 
       i18n:translate="" />
       <tal:block repeat="palette palette_list">
-        <div class="EditPreview">
+        <div class="editPreview">
           <tal:block define="info palette/getInfo; del_action info/delete|nothing; edit_action info/edit|nothing;">
 
             <a title="Delete"

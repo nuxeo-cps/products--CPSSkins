@@ -38,27 +38,27 @@
                   <td tal:attributes="width cellwidth">
                     <tal:block repeat="content contents_in_xpos">
                       <div tal:content="content/title"
-                      class="TempletBox"
+                      class="templetBox"
                       tal:condition="content/aq_explicit/isPortalBox|nothing" />
                       <tal:block condition="content/aq_explicit/isMainContent|nothing"
                         define="default string:vertical;
                                 orientation content/orientation|default">
-                        <div class="BoxGroupBoundingBox"
+                        <div class="boxGroupBoundingBox"
                           tal:define="group string:center">
                           <div i18n:translate=""
                           tal:content="string:label_center"
-                          class="BoxGroupBoxSlotTitle" />
+                          class="boxGroupBoxSlotTitle" />
                           <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                              sboxes python:btool.filterBoxes(sboxes, slot='center', keep_closed=1)">
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box_slot" />
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/empty_slot" />
                           </tal:block>
                         </div>
-                        <div class="BoxGroupBoundingBox"
+                        <div class="boxGroupBoundingBox"
                           tal:define="group string:folder_view">
                           <div i18n:translate=""
                           tal:content="string:label_folder_view"
-                          class="BoxGroupBoxSlotTitle" />
+                          class="boxGroupBoxSlotTitle" />
                           <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                              sboxes python:btool.filterBoxes(sboxes, slot='folder_view', keep_closed=1)">
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box_slot" />
@@ -70,10 +70,10 @@
                                  define="group content/box_group|nothing;
                                          default string:vertical;
                                          orientation content/orientation|default">
-                        <div class="BoxGroupBoundingBox" tal:condition="python: group != 'closed'">
+                        <div class="boxGroupBoundingBox" tal:condition="python: group != 'closed'">
                           <div i18n:translate=""
                           tal:content="string:label_${group}"
-                          class="BoxGroupBoxSlotTitle" />
+                          class="boxGroupBoxSlotTitle" />
                           <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                              sboxes python:btool.filterBoxes(sboxes, slot=group, keep_closed=1)">
                             <metal:block use-macro="here/cpsskins_box_manage_lib/macros/box_slot" />
@@ -103,11 +103,11 @@
         <table cellpadding="0" cellspacing="3">
           <tr>
              <td valign="top" tal:repeat="hidden_slot hidden_slots">
-                <div class="BoxGroupBoundingBox"
+                <div class="boxGroupBoundingBox"
                   tal:define="group hidden_slot">
                   <div i18n:translate=""
                        tal:content="string:label_${hidden_slot}"
-                       class="BoxGroupBoxSlotTitleHidden">
+                       class="boxGroupBoxSlotTitleHidden">
                   </div>
                   <tal:block define="sboxes python:btool.getBoxes(here, include_only_in_subfolder=1);
                                  sboxes python:btool.filterBoxes(sboxes, slot=hidden_slot, keep_closed=1)">

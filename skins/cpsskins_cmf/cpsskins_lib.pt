@@ -8,8 +8,8 @@
          tal:content="structure rendered" />
   </tal:block>
 
-  <div class="BoxGroupBoundingBox" tal:condition="not:render_box">
-    <div class="BoxGroupBoxSlotTitle">
+  <div class="boxGroupBoundingBox" tal:condition="not:render_box">
+    <div class="boxGroupBoxSlotTitle">
       <tal:block define="title string:_Slot name_" i18n:translate=""
        content="python: mcat and mcat(title) or title" />:
       <tal:block content="content/box_group" />

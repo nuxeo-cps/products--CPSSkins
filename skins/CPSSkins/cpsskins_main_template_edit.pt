@@ -78,7 +78,7 @@
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
-                                       class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'ContentDest' or '';
+                                       class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'contentDest' or '';
                                        block_url block_url;
                                        dest_block block_rurl">
                     <div
@@ -87,8 +87,8 @@
 		                visible python: content.getVisibility(context_obj=context_obj); 
 				render_content python: not layout_edit_mode and not special_content; 
                                 render_as_title python: layout_edit_mode and not ismaincontent and not render_content;
-                                boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'TempletBoxBodyLayout' or 'TempletBoxBody'; 
-				boxeditclass python: content_here and 'TempletBoxBodySelected' or boxeditclass; 
+                                boxeditclass python: (not ismaincontent and (mixed_edit_mode or layout_edit_mode)) and 'templetBoxBodyLayout' or 'templetBoxBody'; 
+				boxeditclass python: content_here and 'templetBoxBodySelected' or boxeditclass; 
 				class python: edition_mode and boxeditclass or nothing; 
 				style python: content.getCSSMarginStyle() or '';
 				style python: hover_effect and style + ';;cursor: crosshair' or style;

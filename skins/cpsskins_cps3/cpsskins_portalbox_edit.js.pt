@@ -19,7 +19,7 @@ function findDescendant(node, className) {
 function PortalBox_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
-  dest = findDescendant(target_node, 'PortalBoxDest')
+  dest = findDescendant(target_node, 'portalBoxDest')
   if (dest == null)
      return;
   dest_slot = dest.getAttribute('dest_slot');
@@ -60,8 +60,8 @@ function setupDestination(node) {
 }
 
 pd_node_setup['PortalBoxDrag'] = setupPortalBoxDrag;
-pd_node_setup['PortalBoxEditMenu'] = setupPortalBoxEditMenu;
-pd_node_setup['PortalBoxDest'] = setupDestination;
+pd_node_setup['portalBoxEditMenu'] = setupPortalBoxEditMenu;
+pd_node_setup['portalBoxDest'] = setupDestination;
 
 //-->
 

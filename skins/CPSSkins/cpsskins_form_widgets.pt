@@ -194,7 +194,7 @@ tal:define="theme request/form/theme|nothing;
             cat request/form/cat|string:general; 
             sections python: here.cpsskins_listEditCategories(); 
             object_url here/absolute_url;">
-  <form name="edittabs" class="editnavigationtab"
+  <form name="edittabs" class="editNavigationTab"
    action="cpsskins_edit" method="post"
    onSubmit="saveScrollCoordinates('edittabs')">
     <input type="hidden" name="scrollx" value="0">
@@ -357,7 +357,7 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <form name="rebuildtheme" action=""
         tal:attributes="action string:${here_url}/cpsskins_rebuildtheme">
-          <input type="submit" class="RebuildTheme"
+          <input type="submit" class="rebuildTheme"
           i18n:attributes="value" 
           tal:attributes="value python: mcat and mcat('_button_rebuild_theme_') or '_button_rebuild_theme_'" />
         </form>
@@ -365,7 +365,7 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <form name="importtheme" action="" 
         tal:attributes="action string:${base_url}cpsskins_themes_manager">
-          <input type="submit" class="ImportTheme"
+          <input type="submit" class="importTheme"
           tal:define="title string:_button_import_themes_"
           i18n:attributes="value" 
           tal:attributes="value python: mcat and mcat(title) or title" />
@@ -376,7 +376,7 @@ tal:define="theme request/form/theme|nothing;
       <td align="left">
         <form name="optimizetheme" action=""
         tal:attributes="action string:${here_url}/cpsskins_theme_optimizer">
-          <input type="submit" class="OptimizeTheme"
+          <input type="submit" class="optimizeTheme"
           tal:define="title string:_button_optimize_theme_"
           i18n:attributes="value" 
           tal:attributes="value python: mcat and mcat(title) or title" />
@@ -386,7 +386,7 @@ tal:define="theme request/form/theme|nothing;
         <form name="exporttheme" action="" 
         tal:attributes="action string:${here_url}/manage_exportObject">
           <input type="hidden" name="download" value="1" />
-          <input type="submit" class="ExportTheme"
+          <input type="submit" class="exportTheme"
           tal:define="title string:_button_export_theme_"
           i18n:attributes="value" 
           tal:attributes="value python: mcat and mcat(title) or title" />
@@ -400,7 +400,7 @@ tal:define="theme request/form/theme|nothing;
               tal:attributes="action string:${here_url}/cpsskins_setdefaulttheme">
           <input type="hidden" name="default_theme"
           tal:attributes="value current_theme" />
-          <input type="submit" class="ThemeDefault"
+          <input type="submit" class="themeDefault"
           i18n:attributes="value" 
           tal:define="title string:_button_set_theme_as_default_"
           tal:attributes="value python: mcat and mcat(title) or title" />
@@ -435,7 +435,7 @@ tal:define="theme request/form/theme|nothing;
   tal:define="ti python: here.getTypeInfo();
               description ti/description|nothing;
               doctype python: ti and ti.Title() or nothing;">
-  <div class="ObjectInfo">                               
+  <div class="objectInfo">                               
       <img tal:attributes="src string:${base_url}${here/getIcon}" alt="" width="16" height="16" />
       <strong tal:condition="doctype" 
        tal:define="title python: '_%s_' %doctype" 

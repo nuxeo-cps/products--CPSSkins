@@ -42,7 +42,7 @@
       <br />
       <metal:block
        use-macro="here/cpsskins_form_widgets/macros/navigationtab" />
-      <div class="mainedit">
+      <div class="mainEdit">
       <br/>
 
         <tal:block condition="python: cat == 'Portlet'">

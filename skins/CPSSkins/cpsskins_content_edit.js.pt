@@ -71,7 +71,7 @@ function Content_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
-  dest = findDescendant(target_node, 'ContentDest')
+  dest = findDescendant(target_node, 'contentDest')
   if (dest == null)
      return;
   xpos = dest.getAttribute('xpos');
@@ -92,7 +92,7 @@ function Content_add(selected_items, target_node) {
   if (!selected_items.length)
     return;
   target_node.style.border = "1px solid transparent";
-  dest = findDescendant(target_node, 'ContentDest')
+  dest = findDescendant(target_node, 'contentDest')
   if (dest == null)
      return;
   xpos = dest.getAttribute('xpos');
@@ -131,7 +131,7 @@ function setupContentAdd(node) {
 
 pd_node_setup['ContentBoxDrag'] = setupContentBoxDrag;
 pd_node_setup['ContentBoxEditMenu'] = setupContentEditMenu;
-pd_node_setup['ContentDest'] = setupDestination;
+pd_node_setup['contentDest'] = setupDestination;
 pd_node_setup['ContentAdd'] = setupContentAdd;
 
 //-->

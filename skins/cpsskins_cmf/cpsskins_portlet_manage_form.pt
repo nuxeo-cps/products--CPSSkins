@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="floatingheader">
+  <div class="floatingHeader">
    <metal:block 
     use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />
    <metal:block 
@@ -36,7 +36,7 @@
     use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_panel" />
   </div>
 
-  <div style="padding: 10px" class="editspace">
+  <div style="padding: 10px" class="editSpace">
     <tal:block condition="wysiwyg">
       <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/main">
         <metal:block fill-slot="maincontent">

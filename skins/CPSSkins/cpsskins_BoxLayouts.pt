@@ -172,13 +172,13 @@
              ypos portlet/getOrder;
              group portlet/getSlot;
              selected python: portlet_id == selected_portlet">
-  <div class="PortletBoxDest"
+  <div class="portletBoxDest"
    tal:attributes="dest_rurl portlet_folder_rurl;
                    dest_slot group;
                    dest_ypos python: ypos and ypos or 0;
                    style python:selected and 'border: 1px dashed Black' or 'border:none'">
     <div
-     tal:attributes="class python: editable and 'PortletBoxDrag PortletBoxEditMenu' or 'PortletBoxEditMenu';
+     tal:attributes="class python: editable and 'portletBoxDrag portletBoxEditMenu' or 'portletBoxEditMenu';
                      portlet_rurl portlet_rurl;
                      portlet_url string:${base_url}${portlet_rurl};
                      src_rurl portlet_folder_rurl;

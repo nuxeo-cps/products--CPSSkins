@@ -31,7 +31,7 @@ tal:define="global editing python: 1;
    tal:attributes="class string:color${bodycolor};
                    onload string:javascript:scrollToCoordinates(${scrollx},${scrolly})">
 
-   <div class="floatingheader">
+   <div class="floatingHeader">
      <metal:block
       use-macro="here/cpsskins_theme_widgets/macros/navigate" />
      
@@ -41,7 +41,7 @@ tal:define="global editing python: 1;
       use-macro="here/cpsskins_theme_widgets/macros/content_add_panel" />
    </div>
 
-   <div class="editspace">
+   <div class="editSpace">
     <metal:block
     use-macro="here/cpsskins_main_template_edit/macros/main">
       <metal:block fill-slot="main_edit_content"
@@ -110,7 +110,7 @@ tal:define="global editing python: 1;
           use-macro="here/cpsskins_theme_widgets/macros/edit_this_content" />
         </tal:block>
         <div tal:condition="python: content == here"
-        tal:attributes="class python: (content.closed and not layout_edit_mode) and 'TempletBoxTitleSelectedClosed' or 'TempletBoxTitleSelected'">
+        tal:attributes="class python: (content.closed and not layout_edit_mode) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
           <metal:block
           use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
         </div>

@@ -79,7 +79,7 @@
               </tr>
           </tal:block>
         </table>
-        <div class="form_submit">
+        <div class="formSubmit">
           <input type="submit" class="mainbutton"
           i18n:attributes="value" 
           tal:define="title string:_button_modify_"

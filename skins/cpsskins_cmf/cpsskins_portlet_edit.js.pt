@@ -51,7 +51,7 @@ function Portlet_prepare_element_menu(header) {
 function Portlet_add(selected_items, target_node) {
   if (!selected_items.length)
     return;
-  dest = findDescendant(target_node, 'PortletBoxDest')
+  dest = findDescendant(target_node, 'portletBoxDest')
   if (dest == null)
      return;
   ptype_id = pd_selected_item.getAttribute('ptype_id');
@@ -66,7 +66,7 @@ function Portlet_add(selected_items, target_node) {
 function PortletBox_move(selected_items, target_node) {
   if (!selected_items.length)
     return;
-  dest = findDescendant(target_node, 'PortletBoxDest');
+  dest = findDescendant(target_node, 'portletBoxDest');
   if (dest == null)
      return;
   dest_rurl = dest.getAttribute('dest_rurl');
@@ -150,7 +150,7 @@ function setupDestination(node) {
   pd_setupDropTarget(node, 1);
 }
 
-function setupPortletBoxEditMenu(node) {
+function setupportletBoxEditMenu(node) {
   pd_setupContextMenu(node, 'choice-context-menu', null, true);
 }
 
@@ -172,9 +172,9 @@ function PortletAdd_checkmove(selected_items, target_node) {
 }
 
 
-pd_node_setup['PortletBoxDrag'] = setupPortletBoxDrag;
-pd_node_setup['PortletBoxEditMenu'] = setupPortletBoxEditMenu;
-pd_node_setup['PortletBoxDest'] = setupDestination;
+pd_node_setup['portletBoxDrag'] = setupPortletBoxDrag;
+pd_node_setup['portletBoxEditMenu'] = setupportletBoxEditMenu;
+pd_node_setup['portletBoxDest'] = setupDestination;
 pd_node_setup['PortletAdd'] = setupPortletAdd;
 
 //-->

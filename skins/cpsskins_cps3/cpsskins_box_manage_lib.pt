@@ -12,11 +12,11 @@
   tal:attributes="box_url box_url; 
                   src_ypos python: ypos and ypos or 0;
                   src_slot group;
-                  class python: editable and 'BoxGroupBoxSlot PortalBoxDrag' or 'BoxGroupBoxSlot'">
-    <div class="PortalBoxDest" 
+                  class python: editable and 'boxGroupBoxSlot PortalBoxDrag' or 'boxGroupBoxSlot'">
+    <div class="portalBoxDest" 
       tal:attributes="dest_slot group; 
                       dest_ypos python: ypos and ypos or 0">
-    <div class="BoxGroupBoxTitle">
+    <div class="boxGroupBoxTitle">
       <tal:block content="box_title" />
       <tal:block condition="editable">
         <a href=""
@@ -37,7 +37,7 @@
            i18n:translate="link_box_view">view</a>
       </tal:block>
     </div>
-    <div class="BoxGroupBoxBody PortalBoxEditMenu" 
+    <div class="boxGroupBoxBody portalBoxEditMenu" 
          tal:attributes="src_ypos python: ypos and ypos or 0;
                          src_slot group">
     <tal:block i18n:translate="listingheader_type" />: 
@@ -70,11 +70,11 @@
 </metal:block>
 
 <metal:block define-macro="empty_slot">
-  <div class="PortalBoxDest" style="margin:4px"
+  <div class="portalBoxDest" style="margin:4px"
    tal:condition="python:len(sboxes) == 0"
    tal:attributes="dest_slot group; 
    dest_ypos python: 0">
-    <div class="PortalBoxEditMenu" style="padding: 20px"
+    <div class="portalBoxEditMenu" style="padding: 20px"
      tal:attributes="src_ypos python: 0;
                      src_slot group"></div>
   </div>

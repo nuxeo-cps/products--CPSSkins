@@ -22,7 +22,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           </td>
           <td
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
-            <div class="ContentDest" tal:attributes="dest_theme theme_id">
+            <div class="contentDest" tal:attributes="dest_theme theme_id">
               <a 
               tal:attributes="href string:${base_url}cpsskins_themes_reconfig_form?theme=$theme_id&amp;scrolly=0;
                               style style"
@@ -53,7 +53,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
             checkPerm nocall: mtool/checkPermission;
             can_manage python: checkPerm('Manage portal', tmtool);
 	    cat request/cat|string:general">
-  <div class="mainformtab">
+  <div class="mainFormTab">
     &nbsp;
     <tal:block repeat="section sections">
       <a
@@ -303,7 +303,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 </metal:block>
 
 <metal:block define-macro="insert_content" i18n:domain="cpsskins">
-  <div class="TempletAddButton" 
+  <div class="templetAddButton" 
    tal:attributes="xpos x_pos; 
                    ypos ypos;  
                    dest_block block_rurl">
@@ -318,7 +318,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 </metal:block>
 
 <metal:block define-macro="edit_this_content">
-  <div class="TempletEditThis"
+  <div class="templetEditThis"
   tal:condition="python: content != here">
     <a
     tal:attributes="href string:${content/absolute_url}/edit_form;
@@ -388,7 +388,7 @@ tal:define="block_id pageblock/getId;
    tal:attributes="width string:${pageblock/width|nothing}; 
 		   onMouseover onMouseover_string; 
 		   onMouseout onMouseout_string; 
-		   class python: pageblock==here and 'PageBlockBoxTitleSelected' or 'PageBlockBoxTitle'; 
+		   class python: pageblock==here and 'pageBlockBoxTitleSelected' or 'pageBlockBoxTitle'; 
 		   style python: theme_container.getCSSLayoutStyle()">
     <tr>
       <td>&nbsp; 
@@ -472,7 +472,7 @@ tal:define="block_id pageblock/getId;
 </metal:block>
 
 <metal:block define-macro="add_pageblock" i18n:domain="cpsskins">
-  <div class="PageBlockAddButton"
+  <div class="pageBlockAddButton"
    tal:define="theme_container_url python: base_url + utool.getRelativeUrl(theme_container)">
     <form action=""
     tal:attributes="action string:${theme_container_url}/cpsskins_pageblock_add">
@@ -491,7 +491,7 @@ tal:define="block_id pageblock/getId;
 <metal:block define-macro="movecell" i18n:domain="cpsskins">
   <table cellpadding="0" cellspacing="0" width="100%" 
   tal:condition="python: maxcols > 1"
-  class="MoveCell" summary="Move cell">
+  class="moveCell" summary="Move cell">
     <tr>
       <td width="40%" align="right">
         <a title="Move left"
@@ -524,7 +524,7 @@ tal:define="block_id pageblock/getId;
 tal:define="cellwidth cellsize/cellwidth|nothing;
             cellwidth python: cellwidth and cellwidth or '?'">
   <table cellpadding="0" cellspacing="0" width="100%"
-  class="CellSizer" summary="Cell sizer">
+  class="cellSizer" summary="Cell sizer">
     <tr>
       <td width="7px">
         <img border="0" width="7" height="10"
@@ -595,7 +595,7 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
 tal:define="info cellstyle/getInfo|nothing;
             edit_action info/edit|nothing; 
             del_action info/delete|nothing">
-  <div class="CellStyler">
+  <div class="cellStyler">
     <a tal:condition="del_action/can_delete|nothing"
     i18n:attributes="title"
     tal:define="title string:_Delete_;
@@ -615,7 +615,7 @@ tal:define="info cellstyle/getInfo|nothing;
      i18n:attributes="title"
     tal:attributes="title python: mcat and mcat(title) or title; 
                     href string:${edit_action/url}; 
-                    class python: cellstyle == here and 'CellStylerSelected' or class_string;">
+                    class python: cellstyle == here and 'cellStylerSelected' or class_string;">
       <tal:block content="cellstyle/color" />
       <img
       tal:attributes="src string:${base_url}cpsskins_images/cell_styler.png"
@@ -637,7 +637,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
             info cellhider/getInfo|nothing; 
             edit_action info/edit|nothing; 
             del_action info/delete|nothing">
-  <div class="CellHider">
+  <div class="cellHider">
     <a tal:condition="del_action/can_delete|nothing"
     i18n:attributes="title"
     tal:define="title string:_Delete_;
@@ -656,7 +656,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
      tal:define="title string:_Hide this cell_"
     tal:attributes="title python: mcat and mcat(title) or title;
                     href string:${edit_action/url}; 
-                    class python: cellhider == here and 'CellHiderSelected' or 'CellHider'">
+                    class python: cellhider == here and 'cellHiderSelected' or 'cellHider'">
       <img border="0" width="20" height="20"
       tal:attributes="src string:${base_url}cpsskins_images/img_cellhider.png" />
     </a>
@@ -673,7 +673,7 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
 </metal:block>
 
 <metal:block define-macro="emptycell" i18n:domain="cpsskins">
-  <div class="ContentDest" i18n:attributes="title"
+  <div class="contentDest" i18n:attributes="title"
    style="border: 1px dashed red; padding: 8px"
    tal:condition="not:contents_in_xpos"
    tal:define="title string:_You can drop a Templet into this area_"

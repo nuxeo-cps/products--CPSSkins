@@ -9,7 +9,7 @@
   </head>
   <body tal:define="prop request/form/prop|nothing;
                     slots here/cpsskins_listSlots">
-    <div class="slotselector" tal:repeat="slot slots">
+    <div class="slotSelector" tal:repeat="slot slots">
       <img src="" width="16" height="16" alt=""
        tal:attributes="src string:${base_url}cpsskins_images/boxslot.png" />
       &nbsp;<span tal:content="slot" /> ...

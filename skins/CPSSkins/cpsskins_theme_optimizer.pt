@@ -24,7 +24,7 @@
              tal:content="python: mcat and mcat(title) or title"
              i18n:translate="" />
           <table border="0" cellpadding="2" cellspacing="0" summary=""
-          class="TableFrame" width="100%">
+          class="tableFrame" width="100%">
             <tal:block repeat="style unused_styles">
               <tr>
                 <td width="50%">
@@ -61,8 +61,8 @@
 
               <tal:block repeat="blocks styles_by_type">
                 <table border="0" cellpadding="2" cellspacing="0"
-                class="TableFrame" width="100%">
-                  <tr class="TableHeader"
+                class="tableFrame" width="100%">
+                  <tr class="tableHeader"
                   tal:condition="styles_by_type">
                     <td colspan="2">
                       <span tal:define="title python:'_%s_' % style_type"
@@ -103,7 +103,7 @@
              tal:content="python: mcat and mcat(title) or title"
              i18n:translate=""  />
           <table border="0" cellpadding="5" cellspacing="0"
-          class="TableFrame" width="100%">
+          class="tableFrame" width="100%">
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
                 <a tal:attributes="href string:${templet/absolute_url}/edit_form">
@@ -141,7 +141,7 @@
              tal:content="python: mcat and mcat(title) or title"
              i18n:translate=""  />
           <table border="0" cellpadding="2" cellspacing="0"
-          class="TableFrame" width="100%">
+          class="tableFrame" width="100%">
             <tal:block repeat="templet invisible_templets">
               <tr>
                 <td width="50%">
@@ -173,7 +173,7 @@
              tal:content="python: mcat and mcat(title) or title"
              i18n:translate=""  />
           <table border="0" cellpadding="2" cellspacing="0"
-          class="TableFrame" width="100%">
+          class="tableFrame" width="100%">
             <tal:block repeat="templet uncached_templets">
               <tr>
                 <td width="50%">
@@ -196,7 +196,7 @@
           </table>            
         </tal:block>  
 
-        <div class="form_submit">
+        <div class="formSubmit">
           <input type="submit" class="mainbutton"
           i18n:attributes="value" 
           tal:define="title string:_button_modify_"

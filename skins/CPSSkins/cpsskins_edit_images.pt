@@ -40,7 +40,7 @@
         <tal:block repeat="image images">
           <div tal:define="image_url image/absolute_url;
                            image_title image/title"
-               tal:attributes="class python: current_image and image_title == current_image and 'EditPreviewSelected' or 'EditPreview'">
+               tal:attributes="class python: current_image and image_title == current_image and 'editPreviewSelected' or 'editPreview'">
             <a title="Delete" 
             tal:define="msg string:_Deleting this image, are you sure?_;
                         msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;

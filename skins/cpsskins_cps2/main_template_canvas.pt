@@ -16,7 +16,7 @@ define="tmtool here/portal_themes;
             <tal:block define="contents_in_xpos python: objects_in_xpos['contents']"
              condition="contents_in_xpos"
              repeat="content contents_in_xpos">
-              <div tal:content="content/title" class="TempletBox"
+              <div tal:content="content/title" class="templetBox"
                tal:condition="content/aq_explicit/isPortalBox|nothing" />
               <tal:block
                condition="content/aq_explicit/isMainContent|nothing"
@@ -24,8 +24,8 @@ define="tmtool here/portal_themes;
               <tal:block
                condition="content/aq_explicit/isPortalBoxGroup|nothing"
                define="group content/box_group|nothing">
-                <div class="BoxGroupBoundingBox">
-                  <div tal:content="content/title" class="BoxGroupBoxSlotTitle"/>
+                <div class="boxGroupBoundingBox">
+                  <div tal:content="content/title" class="boxGroupBoxSlotTitle"/>
                   <tal:block condition="group"
                   content="structure python: boxes[group]" />
                 </div>
