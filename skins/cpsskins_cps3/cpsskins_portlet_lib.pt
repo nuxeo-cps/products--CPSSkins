@@ -2,7 +2,7 @@
   <tal:block define="ptltool here/portal_cpsportlets;
                      portlet_id here/portlet_id|nothing;
                      portlet python: ptltool.getPortletById(portlet_id)"
-             condition="portlet">
+             condition="nocall:portlet">
    <div tal:replace="structure python:portlet.render(layout_mode='edit')" />
   </tal:block>
 </metal:block>
