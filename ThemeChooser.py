@@ -75,17 +75,15 @@ class ThemeChooser(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-       
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
 
-        if getattr(self, 'i18n', 0):
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-        return index
+        params = []
+        if self.i18n:
+            params.append('lang')
+        return params
 
 InitializeClass(ThemeChooser)
 

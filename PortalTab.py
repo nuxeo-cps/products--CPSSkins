@@ -168,35 +168,20 @@ class PortalTab(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
 
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        index += (str(REQUEST.get('AUTHENTICATED_USER')), )
-        if getattr(self, 'folder_items_i18n', 0):
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-        if getattr(self, 'content') == 'folders':
-            index += (REQUEST.get('PATH_TRANSLATED', '/'), )
-        if getattr(self, 'content') == 'actions':
-            cmf_actions = REQUEST.get('cpsskins_cmfactions')
-            if cmf_actions:         
-                current_url = REQUEST.get('cpsskins_url')
-                categories = getattr(self, 'action_categories', []) + \
-                             getattr(self, 'custom_action_categories', [])
-                actions = [cmf_actions[x] for x in categories \
-                          if cmf_actions.has_key(x)]
-                index += (md5.new(str(actions)).hexdigest(), )
-                for actions_by_cat in actions:
-                    for ac in actions_by_cat:
-                        ac_url = ac.get('url')
-                        if ac_url == current_url:
-                             index += (ac_url, )
-                             break  
-        return index
+        params = ['user']
+        content = self.content
+        if self.folder_items_i18n:
+            params.append('lang')
+        if content == 'folders':
+            params.append('folder')
+        if content == 'actions':
+            params.append('actions')
+        return params
 
     security.declarePublic('ContentList')
     def ContentList(self):           

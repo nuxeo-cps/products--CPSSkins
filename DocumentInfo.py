@@ -78,17 +78,12 @@ class DocumentInfo(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        index += (REQUEST.get('cpsskins_language', 'en'), )
-        index += (REQUEST.get('PATH_TRANSLATED', '/'), )
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['lang', 'folder']
+        return params
 
     security.declarePublic('ContentList')
     def ContentList(self):

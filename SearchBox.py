@@ -77,16 +77,12 @@ class SearchBox(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """Returns the RAM cache index as a tuple (var1, var2, ...)"""
-       
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        index += (REQUEST.get('cpsskins_language', 'en'), )
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['lang']
+        return params
 
     security.declarePublic('StyleList')
     def StyleList(self):

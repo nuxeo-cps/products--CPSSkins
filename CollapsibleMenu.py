@@ -140,19 +140,14 @@ class CollapsibleMenu(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        if getattr(self, 'folder_items_i18n', 0):
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-        index += (str(REQUEST.get('AUTHENTICATED_USER')), )
-        index += (REQUEST.get('PATH_TRANSLATED', '/'), )
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['user', 'url']
+        if self.folder_items_i18n:
+            params.append('lang')
+        return params
 
     security.declarePublic('CollapsibleMenuStylesList')
     def CollapsibleMenuStylesList(self):           

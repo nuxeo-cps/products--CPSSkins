@@ -123,36 +123,12 @@ class Calendar(BaseTemplet):
 
         return None
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-       
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        index += (REQUEST.get('cpsskins_language', 'en'), )
-
-        portal_calendar = getToolByName(self, 'portal_calendar', None)
-        if portal_calendar is None:
-            return index
-
-        year  = REQUEST.get('year',  None)
-        month = REQUEST.get('month', None)
-        if portal_calendar.getUseSession() == "True":
-            session = REQUEST.get('SESSION', None)
-            if session:
-                if not year:   
-                    year  = session.get('calendar_year',  None)
-                if not month:  
-                    month = session.get('calendar_month', None)
-        if year:
-            index += (year, )
-        if month:
-            index += (month, )
-
-        index += (str(REQUEST.get('AUTHENTICATED_USER')), )
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['lang', 'user', 'month', 'year']
+        return params
 
     security.declarePublic('CalendarStylesList')
     def CalendarStylesList(self):           

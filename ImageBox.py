@@ -143,20 +143,17 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
 
         return ['i18n']
     #
-
     # RAM Cache
     #
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-       
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
 
-        if getattr(self, 'i18n', 0):
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-        return index
+        params = []
+        if self.i18n:
+            params.append('lang')
+        return params
 
     security.declareProtected(ManageThemes, 'upload_image')
     def upload_image(self, REQUEST=None, **kw):

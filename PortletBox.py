@@ -193,7 +193,7 @@ class PortletBox(BaseTemplet):
     # Rendering.
     #
     security.declarePublic('render')
-    def render(self, shield=0):
+    def render(self, shield=0, **kw):
         """Renders the templet."""
 
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
@@ -218,38 +218,19 @@ class PortletBox(BaseTemplet):
     #
     # RAM Cache
     #
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """Returns the RAM cache index as a tuple (var1, var2, ...)
+    security.declarePublic('getCustomCacheIndex')
+    def getCustomCacheIndex(self, **kw):
+        """Returns the custom RAM cache index as a tuple (var1, var2, ...)
         """
-       
+
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        portlet_id = self.getPortletId()
-        index = (portlet_id, )
-
         if ptltool is None:
-            return index
-
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        context = REQUEST.get('context_obj', self)
-        folder_url = context.absolute_url(1)
+            return ''
+        portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
-        param_dict = {
-            'url': (REQUEST.get('cpsskins_url'), ),
-            'folder': (folder_url, ),
-            'user': (str(REQUEST.get('AUTHENTICATED_USER')), ),
-        }
         if portlet is not None:
-            # custom cache index computed by the portlet
-            index += portlet.getCustomCacheIndex()
-            # cache parameters
-            for param in portlet.getCacheParams():
-                if not param_dict.has_key(param):
-                    continue
-                index += param_dict.get(param)
-        return index
+            return portlet.getCacheIndex()
+
 
 InitializeClass(PortletBox)
 

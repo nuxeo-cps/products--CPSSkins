@@ -90,7 +90,7 @@ class Breadcrumbs(BaseTemplet):
                        separator_repeat = '&raquo;',
                        separator_end = '',
                        i18n = 0,
-		       **kw):
+                       **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.show_icon = show_icon
         self.separator_start = separator_start
@@ -104,19 +104,14 @@ class Breadcrumbs(BaseTemplet):
 
         return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
-
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        if getattr(self, 'i18n', 0):
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-        index += (str(REQUEST.get('AUTHENTICATED_USER')), )
-        index += (REQUEST.get('PATH_TRANSLATED', '/'), )
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['user', 'url']
+        if self.i18n:
+            params.append('lang')
+        return params
 
     security.declarePublic('getI18nProperties')
     def getI18nProperties(self):

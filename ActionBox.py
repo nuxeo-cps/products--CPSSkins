@@ -110,23 +110,14 @@ class ActionBox(BaseTemplet):
         if getattr(self, 'orientation', '') == 'vertical':
             return 1
 
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """returns the RAM cache index as a tuple (var1, var2, ...)"""
-
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        index += (str(REQUEST.get('AUTHENTICATED_USER')), )
-        if getattr(self, 'style') in ['text only', 'text and icons']:
-            index += (REQUEST.get('cpsskins_language', 'en'), )
-
-        cmf_actions = REQUEST.get('cpsskins_cmfactions')
-        if cmf_actions:
-            index += (md5.new(str(cmf_actions)).hexdigest(), )
-
-        return index
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = ['user', 'actions']
+        if self.style in ['text only', 'text and icons']:
+            params.append('lang')
+        return params
 
     security.declarePublic('StyleList')
     def StyleList(self):

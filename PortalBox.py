@@ -260,59 +260,37 @@ class PortalBox(BaseTemplet):
     #
     # RAM Cache
     #
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None):
-        """ returns the RAM cache index as a tuple (var1, var2, ...) """
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        params = []
+        title_source = self.title_source
+        content = self.content
 
-        index = ()
-        if REQUEST is None:
-            REQUEST = self.REQUEST
-
-        title_source = getattr(self, 'title_source')
-        content = getattr(self, 'content')
-          
-        if getattr(self, 'folder_items_i18n', 0) or \
-           getattr(self, 'box_title_i18n', 0) or \
+        if self.folder_items_i18n or self.box_title_i18n or\
            title_source == 'Workflow state' or \
            content in ['actions', 'login']:
-            index += (REQUEST.get('cpsskins_language', 'en'), )
+            params.append('lang')
 
-        if content in ['folders', 'related', 'recent', 'events', 
-                       'login', 'pending'] \
+        if content in ['folders', 'related', 'recent',
+                       'events', 'login', 'pending'] \
            or title_source in ['Workflow state', 'Username']:
-           index += (str(REQUEST.get('AUTHENTICATED_USER')), )
+            params.append('user')
 
         if content in ['folders', 'about', 'related']:
-            index += (REQUEST.get('PATH_TRANSLATED', '/'), )
+            params.append('folder')
 
         if content == 'actions':
-            cmf_actions = REQUEST.get('cpsskins_cmfactions')
-            if cmf_actions:
-                current_url = REQUEST.get('cpsskins_url')
-                categories = getattr(self, 'action_categories', []) + \
-                             getattr(self, 'custom_action_categories', [])
-                actions = [cmf_actions[x] for x in categories \
-                          if cmf_actions.has_key(x)]
-                index += (md5.new(str(actions)).hexdigest(), )
-                for actions_by_cat in actions:
-                    for ac in actions_by_cat:
-                        ac_url = ac.get('url').strip()
-                        if ac_url == current_url:
-                             index += (ac_url, )
-                             break
+            params.append('actions')
 
         if content == 'pending':
-            cmf_actions = REQUEST.get('cpsskins_cmfactions')
-            if cmf_actions:
-                wf_actions = cmf_actions.get('workflow', None)
-                if wf_actions is not None:
-                    index += (md5.new(str(wf_actions)).hexdigest(), )
+            params.append('actions')
 
-        if getattr(self, 'boxlayout', None) in ['drawer', \
-                                                'drawer_notitle']:
-            if self.getBoxState():
-                index += (int(1), )
-        return index
+        if self.boxlayout in ['drawer', 'drawer_notitle']:
+            params.append('boxstate')
+                
+        return params
 
     security.declarePublic('TitleSourceList')
     def TitleSourceList(self):           

@@ -22,7 +22,7 @@
                                  isESIFragment python: (esi_enabled and getattr(templet, 'esi_fragment', 0)) or 0;
                                  isPortalBoxGroup python: getattr(templet, 'isportalboxgroup', 0);
                                  special_templet python: ismaincontent or isPortalBoxGroup or isESIFragment;
-                                 rendered_templet python: not special_templet and templet.render_cache(shield=1) or nothing"
+                                 rendered_templet python: not special_templet and templet.render_cache(shield=1, context=here) or nothing"
               condition="python: rendered_templet not in ['', '\n']">
               <tal:block
                define="display_title templet/display_title_in_text_mode|nothing;

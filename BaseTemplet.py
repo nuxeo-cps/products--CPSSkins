@@ -23,6 +23,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 """
 
 import time
+import md5
 
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
@@ -782,12 +783,95 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     #
     # RAM Cache
     #
-    security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, REQUEST=None, **kw):
+    security.declarePublic('getCacheParams')
+    def getCacheParams(self):
+        """Return a list of cache parameters"
+        """
+        return []
+
+    security.declarePublic('getCustomCacheIndex')
+    def getCustomCacheIndex(self, **kw):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
 
-        return ()
+        return None
+
+    security.declarePublic('getCacheIndex')
+    def getCacheIndex(self, params=[], REQUEST=None, **kw):
+        """Returns the RAM cache index as a tuple (var1, var2, ...)
+        """
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        index = ()
+        for param in params:
+            index_string = ''
+
+            # current user
+            if param == 'user':
+                index_string = str(REQUEST.get('AUTHENTICATED_USER'))
+
+            # current language
+            elif param == 'lang':
+                index_string = REQUEST.get('cpsskins_language', 'en')
+
+            # current url
+            if param == 'url':
+                index_string = REQUEST.get('cpsskins_url')
+
+            # CMF Actions
+            elif param == 'actions':
+                cmf_actions = REQUEST.get('cpsskins_cmfactions')
+                index_string = md5.new(str(cmf_actions)).hexdigest()
+
+            # Workflow actions
+            elif param == 'wf_actions':
+                cmf_actions = REQUEST.get('cpsskins_cmfactions')
+                wf_actions = cmf_actions.get('workflow', None)
+                if wf_actions is not None:
+                    index_string = md5.new(str(wf_actions)).hexdigest()
+
+            # current folder
+            elif param == 'folder':
+                context = kw.get('context')
+                index_string = context.absolute_url(1)
+
+            # box state
+            elif param == 'boxstate':
+                index_string = str(self.getBoxState())
+
+            # current month
+            elif param == 'month':
+                month = REQUEST.get('month', None)
+                if month is None:
+                    ctool = getToolByName(self, 'portal_calendar', None)
+                    if ctool and ctool.getUseSession() == "True":
+                        session = REQUEST.get('SESSION', None)
+                        if session:
+                            month = session.get('calendar_month',  None)
+                if month:
+                    index_string = month
+
+            # current year
+            elif param == 'year':
+                year = REQUEST.get('year', None)
+                if year is None:
+                    ctool = getToolByName(self, 'portal_calendar', None)
+                    if ctool and ctool.getUseSession() == "True":
+                        session = REQUEST.get('SESSION', None)
+                        if session:
+                            year = session.get('calendar_year',  None)
+                if year:
+                    index_string = year
+
+            if index_string:
+                index += (param + '_' + index_string,)
+
+        # custom cache index
+        custom_index = self.getCustomCacheIndex()
+        if custom_index is not None:
+            index += custom_index
+        return index
 
     security.declareProtected(ManageThemes, 'expireCache')
     def expireCache(self):
@@ -804,7 +888,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
     # Rendering
     #
     security.declarePublic('render')
-    def render(self, shield=0):
+    def render(self, shield=0, **kw):
         """Renders the templet."""
 
         fail = 0
@@ -853,7 +937,8 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         else:
             now = time.time()
             templet_path = self.getPhysicalPath()
-            index = (templet_path, ) + self.getCacheIndex(**kw)
+            params = self.getCacheParams()
+            index = (templet_path, ) + self.getCacheIndex(params, **kw)
             cache = self.getTempletCache(create=1)
             last_cleanup = cache.getLastCleanup(id=templet_path)
             lifetime = getattr(self, 'cache_lifetime', 60)
