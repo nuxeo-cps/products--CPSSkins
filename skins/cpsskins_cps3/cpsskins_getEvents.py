@@ -10,9 +10,9 @@ for res in results:
         res = res.getObject()
     event = res.getContent()
     start = getattr(event, 'start', None)
-    events.append({'url': event.absolute_url(),
-                   'title': event.title_or_id(),
-                   'icon': event.getIcon(),
+    events.append({'url': res.absolute_url(),
+                   'title': res.title_or_id(),
+                   'icon': res.getIcon(),
                    'location': '',
                    'start': start and DateTime(start.strftime('%m/%d/%y')).ISO() or '',
                   })
