@@ -1,5 +1,6 @@
 <dtml-var manage_page_header>
 <dtml-var manage_tabs>
+<link rel="stylesheet" type="text/css" href="<dtml-var portal_url>/cpsskins_common-css2.css" />
 
 <h3>Style preview</h3>
 
