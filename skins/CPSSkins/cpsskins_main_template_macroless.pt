@@ -13,7 +13,8 @@
   dummy python: request.set('cpsskins_language', cpsskins_language);
   dummy python: request.set('cpsskins_url', cpsskins_url);
   dummy python: request.set('cpsskins_base_url', base_url);
-  dummy python: request.set('cpsskins_mcat', mcat)"
+  dummy python: request.set('cpsskins_mcat', mcat);
+  dummy python: request.set('cpsskins_cmfactions', actions)"
  tal:attributes="lang cpsskins_language;
                  xml:lang cpsskins_language">
 <head>
