@@ -225,13 +225,17 @@ class PortalBoxGroup(BaseTemplet):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
        
+        index = ()
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return index
         slot = self.getSlot()
         context = kw.get('context')
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlets = ptltool.getPortlets(context, slot)
 
         # compute the total index by aggregating all portlet cache indexes.
-        index = ()
+        # (the portlet's id is unique per instance, hence we can use it as a
+        # cache index key for the portlet).
         for portlet in portlets:
             index += (portlet.getId(),) + portlet.getCacheIndex()
         return index
