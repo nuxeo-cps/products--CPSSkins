@@ -41,7 +41,7 @@ BOX_LAYOUTS = {
 <div class="body" style="border: none">%s</div>""",
 # rounded box
 'rounded_box': """<div class="rbtop"><div></div></div>
-<div class="rbcontent">%s</div><div class="rbbot"><div></div></div>""",
+<div class="body">%s</div><div class="rbbot"><div></div></div>""",
 # Edge-Side-Includes
 'esi_box': """<esi:try>
 <esi:attempt>
