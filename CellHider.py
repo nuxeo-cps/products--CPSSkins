@@ -69,7 +69,7 @@ class CellHider(BaseCellModifier):
          'label': 'The visibility paths',
          'select_variable': 'cpsskins_listPaths',
          'category': 'general',
-         'visible': 'ShowVisibilityPaths'
+         'visible': 'showVisibilityPaths'
         },
         {'id': 'languages',
          'type': 'multiple selection',
@@ -98,8 +98,8 @@ class CellHider(BaseCellModifier):
 
         return self.iscellhider
 
-    security.declarePublic('ShowVisibilityPaths')
-    def ShowVisibilityPaths(self):
+    security.declarePublic('showVisibilityPaths')
+    def showVisibilityPaths(self):
         """ returns true if the visibility paths must be shown """
 
         category = getattr(self, 'visibility', None)

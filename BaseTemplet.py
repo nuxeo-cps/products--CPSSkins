@@ -250,7 +250,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'label': 'The visibility paths',
          'select_variable': 'cpsskins_listPaths',
          'category': 'visibility',
-         'visible': 'ShowVisibilityPaths',
+         'visible': 'showVisibilityPaths',
         },
         {'id': 'languages',
          'type': 'multiple selection',
@@ -385,8 +385,8 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         return 1
 
-    security.declarePublic('ShowVisibilityPaths')
-    def ShowVisibilityPaths(self):
+    security.declarePublic('showVisibilityPaths')
+    def showVisibilityPaths(self):
         """Returns True if the visibility paths must be shown."""
 
         category = getattr(self, 'visibility', None)
