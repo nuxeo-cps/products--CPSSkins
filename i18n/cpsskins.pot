@@ -1551,6 +1551,8 @@ msgstr ""
 msgid "_You can drop a Templet into this area_"
 msgstr ""
 
+msgid "_You can drop a Portlet into this area_"
+msgstr ""
 
 msgid "_These Templets could be cached in memory for faster rendering:_"
 msgstr ""

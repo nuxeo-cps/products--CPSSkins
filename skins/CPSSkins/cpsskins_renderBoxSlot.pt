@@ -19,7 +19,10 @@
                      title slot_title;
                      src_ypos python: 0;
                      src_slot slot_id">
-      <div tal:condition="not:rendered" tal:content="structure string:&nbsp;" />
+      <div tal:condition="not:rendered" i18n:attributes="title"
+       tal:define="title string:_You can drop a Portlet into this area_"
+       tal:attributes="title title"
+       tal:content="structure string:&nbsp;" />
       <tal:block condition="rendered" content="structure rendered" />
     </div>
   </div>

@@ -1626,6 +1626,10 @@ msgid "_Year_"
 msgstr "Ano"
 
 
+msgid "_You can drop a Portlet into this area_"
+msgstr ""
+
+
 msgid "_You can drop a Templet into this area_"
 msgstr "Você pode soltar um Modelo nesta área"
 

@@ -1634,6 +1634,10 @@ msgid "_Year_"
 msgstr "Taona"
 
 
+msgid "_You can drop a Portlet into this area_"
+msgstr ""
+
+
 msgid "_You can drop a Templet into this area_"
 msgstr "Afaka mametraka Templet eto amin'ity faritra ity ianao"
 

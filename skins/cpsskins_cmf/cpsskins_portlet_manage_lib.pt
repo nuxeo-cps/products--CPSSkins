@@ -214,13 +214,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
    tal:condition="python:len(portlets) == 0"
    tal:attributes="dest_slot group; 
    dest_ypos python: 0">
-    <div class="portletBoxEditMenu" style="padding: 20px"
-     tal:attributes="src_ypos python: 0;
+    <div class="portletBoxEditMenu" style="padding: 20px" i18n:attributes="title"
+     tal:define="title string:_You can drop a Portlet into this area_"
+     tal:attributes="title title;
+                     src_ypos python: 0;
                      folder_url folder_url;
                      insert_url folder_url;
                      folder_editable folder_editable;
                      icon slot_icon;
-                     title slot_title;
                      src_slot group">
     </div>
   </div>

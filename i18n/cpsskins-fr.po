@@ -1625,6 +1625,10 @@ msgid "_Year_"
 msgstr "Année"
 
 
+msgid "_You can drop a Portlet into this area_"
+msgstr "Vous pouvez déposer un Portlet sur cette aire"
+
+
 msgid "_You can drop a Templet into this area_"
 msgstr "Vous pouvez déposer un Templet sur cette aire"
 
