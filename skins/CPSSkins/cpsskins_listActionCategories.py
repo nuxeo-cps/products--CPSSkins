@@ -1,6 +1,6 @@
 
 list =  context.portal_actions.listFilteredActionsFor(context).keys()
-if not hasattr(context, 'portal_actionicons'):
+if getattr(context, 'portal_actionicons', None) is None:
     return []
 
 aitool = context.portal_actionicons
