@@ -8,7 +8,7 @@ if context.i18n:
     current_lang = context.getDefaultLang()
     if current_lang: 
         img_id = 'i18n_image_%s' % current_lang
-        img = getattr(context.aq_explicit, img_id, context)
+        img = getattr(context.aq_inner.aq_explicit, img_id, context)
 
 base_url = REQUEST.get('cpsskins_base_url', '')
 
