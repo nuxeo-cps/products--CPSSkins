@@ -10,8 +10,8 @@
                  display_hidden_folders python: here.display_hidden_folders;
                  base_path python: here.base_path;
                  navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders, context_obj=context_obj); 
-                 menuentries navigationinfo/menuentries|nothing;
-                 create_url navigationinfo/create_url|nothing;
+                 menuentries python: navigationinfo['menuentries'];
+                 create_url python: navigationinfo['create_url'];
                  i18n python: here.folder_items_i18n"
      tal:condition="python: menuentries or create_url">
       <tal:block repeat="menuentry menuentries">
@@ -19,7 +19,7 @@
                         menu_selected python: menuentry['selected']; 
                         menu_title python: menuentry['title']; 
                         itemclass python: menu_selected and 'selected' or None"
-         tal:attributes="class itemclass">
+         tal:attributes="class python:itemclass">
           <a href="" i18n:translate="" tal:condition="i18n"
           tal:attributes="href menu_url" tal:content="menu_title" />
           <a href="" tal:condition="not:i18n"
@@ -45,7 +45,7 @@
                         class python: actioninfo['class']; 
                         newcat python: actioninfo['newcat']; 
                         itemclass python: we_are_here and 'selected' or None"
-          tal:attributes="class itemclass">
+          tal:attributes="class python:itemclass">
         <a href="" i18n:translate="" tal:attributes="href url" tal:content="title" /></li>
       </tal:block>
     </ul>

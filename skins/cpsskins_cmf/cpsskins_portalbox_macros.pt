@@ -8,16 +8,16 @@
              title python: here.title"
      content="python: mcat and mcat(title) or title" />
      <tal:block tal:condition="not:box_title_i18n" 
-        content="here/title" />
+        content="python: here.title" />
   </tal:block>
   <tal:block condition="python: title_source == 'Folder title'">
      <tal:block i18n:translate="" tal:condition="box_title_i18n"
      define="mcat python: request.get('cpsskins_mcat');
-             folder_title navigationinfo/folder_title|nothing"
+             folder_title python: navigationinfo['folder_title']"
      content="python: mcat and mcat(folder_title) or folder_title" />
      <tal:block tal:condition="not:box_title_i18n"
      define="mcat python: request.get('cpsskins_mcat');
-             folder_title navigationinfo/folder_title|nothing"
+             folder_title python: navigationinfo['folder_title']"
      content="folder_title" />
   </tal:block>
   <tal:block condition="python: title_source == 'Workflow state'">

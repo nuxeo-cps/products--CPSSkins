@@ -21,7 +21,7 @@ tal:define="mcat python: request.get('cpsskins_mcat');
                 item_title python: menuentry['title'];
                 item_title python: mcat and mcat(item_title) or item_title;
                 itemclass python: item_selected and 'selected' or None">
-          <li tal:attributes="class itemclass">
+          <li tal:attributes="class python:itemclass">
             <a tal:attributes="href item_url"
                i18n:translate="" tal:content="structure item_title" />
           </li>
@@ -33,7 +33,7 @@ tal:define="mcat python: request.get('cpsskins_mcat');
                 item_selected python: menuentry['selected'];
                 item_title python: menuentry['title'];
                 itemclass python: item_selected and 'selected' or None">
-          <li tal:attributes="class itemclass">
+          <li tal:attributes="class python:itemclass">
             <a tal:attributes="href item_url"
                tal:content="structure item_title" />
           </li>

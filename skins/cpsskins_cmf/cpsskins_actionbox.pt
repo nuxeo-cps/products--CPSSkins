@@ -1,72 +1,43 @@
-<tal:block 
-define="mcat python: request.get('cpsskins_mcat'); 
-        portal_url here/portal_url;
-        context_obj nocall:options/context_obj;
-        actionicons python: here.getActionsIconInfo(context_obj=context_obj);
-        style python: here.style; 
-        orientation python: here.orientation;
-        show_icons python: style in ['icons only', 'text and icons']; 
-        show_text python: style in ['text only', 'text and icons']; 
-        style python: 'padding:' + here.padding;
-        color python: here.color;
-        aclass python: color and 'color' + color or nothing">
-
-  <table tal:condition="python: orientation == 'horizontal'"
-   border="0" cellpadding="0" cellspacing="0" summary="">
-    <tr>
-      <tal:block repeat="ac actionicons">
-        <td valign="top" align="center" 
-         tal:attributes="style style" 
-         tal:define="icon python: ac['action_icon'];
-                     title python: ac['title'];
-	             icon_text python: mcat and mcat(title) or title">
-          <a style="text-decoration: none"
-           tal:attributes="href python: ac['url']; class aclass">
-            <tal:block condition="python: show_icons and icon">
-              <img src="" alt="" title=""
-               tal:condition="icon"
-	       tal:attributes="src python: icon['url'];
-                               width python: icon['width'];
-                               height python: icon['height'];
-	                       alt icon_text;
-                               title icon_text"/>
-                <br />
-            </tal:block>
-            <span tal:condition="python: show_text or not icon" i18n:translate=""
-             tal:content="icon_text" />
-          </a>
-        </td>
-      </tal:block>
-    </tr>
-  </table>
-
-  <table tal:condition="python: orientation == 'vertical'"
-   border="0" cellpadding="0" cellspacing="0" summary="">
+<div tal:define="orientation here/orientation"
+ tal:attributes="class python: orientation == 'horizontal' and 'cpsskinsTab' or 'cpsskinsBox'">
+  <ul tal:define="
+    mcat python: request.get('cpsskins_mcat'); 
+    portal_url here/portal_url;
+    context_obj nocall:options/context_obj;
+    actionicons python: here.getActionsIconInfo(context_obj=context_obj);
+    style python: here.style; 
+    orientation python: here.orientation;
+    show_icons python: style in ['icons only', 'text and icons']; 
+    show_text python: style in ['text only', 'text and icons']; 
+    style python: 'padding:' + here.padding;
+    color python: here.color;
+    aclass python: color and 'color' + color or nothing">
     <tal:block repeat="ac actionicons">
-      <tr>
-        <td valign="top" align="center"
-         tal:attributes="style style"
-         tal:define="icon python: ac['action_icon'];
-                     title python: ac['title'];
-                     icon_text python: mcat and mcat(title) or title">
-          <a style="text-decoration: none"
-          tal:attributes="href python: ac['url']; class aclass">
-            <tal:block condition="python: show_icons and icon != ''">
-              <img src="" alt="" title=""
-               tal:condition="icon"
-               tal:attributes="src python: icon['url'];
-                               width python: icon['width'];
-                               height python: icon['height'];
-                               alt icon_text;
-                               title icon_text"/>
-              <br />
-            </tal:block>
-            <span tal:condition="python: show_text or not icon" i18n:translate=""
-            tal:content="icon_text" />
-          </a>
-          <br />
-        </td>
-      </tr>
+      <li
+       tal:attributes="style style"
+       tal:define="
+         icon python: ac['action_icon'];
+         title python: ac['title'];
+         icon_text python: mcat and mcat(title) or title">
+        <a style="text-decoration: none"
+         tal:attributes="
+           href python: ac['url'];
+           class aclass">
+          <tal:block condition="python: show_icons and icon">
+            <img src="" alt="" title=""
+             tal:condition="icon"
+             tal:attributes="
+               src python: icon['url'];
+               width python: icon['width'];
+               height python: icon['height'];
+               alt icon_text;
+               title icon_text"/>
+          </tal:block>
+          <tal:block i18n:translate=""
+           condition="python: show_text or not icon"
+           content="icon_text" />
+        </a>
+      </li>
     </tal:block>
-  </table>
-</tal:block>
+  </ul>
+</div>
