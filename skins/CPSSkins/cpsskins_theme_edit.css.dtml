@@ -711,6 +711,7 @@ margin-bottom: 7px;
 .PortalBoxDest, .PortalBoxDest_highlighted {
 border: 1px solid #666;
 font: 11px Verdana, Arial, Sans-Serif;
+cursor: pointer; cursor: hand;
 }
 
 .PortalBoxDest_highlighted {
@@ -725,6 +726,7 @@ height: 100%; /* IE hack */
 .PortletBoxDest, .PortletBoxDest_highlighted {
 border: 1px solid #666;
 font: 11px Verdana, Arial, Sans-Serif;
+cursor: pointer; cursor: hand;
 }
 
 .PortletDest_highlighted {
