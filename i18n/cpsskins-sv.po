@@ -2600,7 +2600,7 @@ msgstr "Portlet väljare"
 
 
 msgid "portlet_slots_panel"
-msgstr "Portlet slots"
+msgstr "Slots"
 
 
 msgid "psm_image_uploaded"
@@ -2612,7 +2612,7 @@ msgstr "Portlet raderad."
 
 
 msgid "site_structure_panel"
-msgstr "Struktur webbplats"
+msgstr "Sajtstruktur"
 
 
 msgid "unused_portlets_panel"
