@@ -1,4 +1,3 @@
-/* DTML instructions to set caching headers. */
 <dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
 <dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/css' )">
 <dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
