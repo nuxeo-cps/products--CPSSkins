@@ -64,7 +64,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     </tal:block>
     &nbsp;
     <a tal:attributes="href url;
-                    class python: panel=='theme' and 'selected' or ''"
+      class python: panel in ['theme', 'theme_optimizer', 'cache_manager'] and 'selected' or ''"
     tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme;
                 title string:_Theme_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
