@@ -13,16 +13,7 @@
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here/absolute_url}/cpsskins_renderJS?theme=$current_theme"></script>
 <!-- Shortcut icon -->
-<tal:block define="shortcut_icon theme_container/shortcut_icon|nothing"
-           condition="shortcut_icon">
-  <tal:block define="icon_dir theme_container/icons|nothing;
-                     icon_obj python: icon_dir and getattr(icon_dir, shortcut_icon, None) or nothing;
-                     icon_path icon_obj/absolute_url|nothing;
-                     icon_mimetype icon_obj/content_type|nothing;">
-    <link rel="icon" tal:attributes="href icon_path; type icon_mimetype" />
-    <link rel="shortcut icon" type="image/x-icon" tal:attributes="href icon_path; type icon_mimetype" />
-  </tal:block>
-</tal:block>
+<tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 <metal:block define-macro="main"
  tal:define="utool nocall:here/portal_url;

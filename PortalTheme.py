@@ -114,6 +114,11 @@ factory_type_information = (
     },
 )
 
+SHORTCUT_ICON_HTML = """
+<link rel="icon" href="%s" type="%s" />
+<link rel="shortcut icon" type="image/x-icon" href="%s" type="%s" />
+"""
+
 class PortalTheme(ThemeFolder):
     """
     Class for Portal Themes.
@@ -398,6 +403,22 @@ class PortalTheme(ThemeFolder):
     #
     # Rendering
     #
+
+    security.declarePublic('renderIcon')
+    def renderIcon(self):
+        """ Generates the shortcut icon for this theme."""
+
+        shortcut_icon = self.shortcut_icon
+        if shortcut_icon:
+            icon_dir = getattr(self, 'icons', None)
+            if icon_dir is not None:
+                icon_obj = getattr(icon_dir, shortcut_icon, None);
+                if icon_obj is not None:
+                    path = icon_obj.absolute_url()
+                    mimetype = icon_obj.content_type
+                    return SHORTCUT_ICON_HTML % (path, mimetype, path, mimetype)
+
+
     security.declarePublic('renderCSS')
     def renderCSS(self, REQUEST=None, **kw):
         """ Generates the CSS file for this theme """
