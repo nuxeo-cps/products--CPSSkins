@@ -31,6 +31,9 @@ from DateTime import DateTime
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
 from ZODB.PersistentList import PersistentList
+from Acquisition import aq_base, aq_parent, aq_inner
+
+from types import StringType, TupleType
 
 from Products.CMFCore.ActionProviderBase import ActionProviderBase
 from Products.CMFCore.ActionInformation import ActionInformation
@@ -323,6 +326,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             REQUEST.RESPONSE.redirect(self.absolute_url() + \
                 '/manage_selectDefaultTheme?manage_tabs_message=' + msg)
 
+    #
+    # Local themes
+    #
     security.declarePublic('getLocalThemeName')
     def getLocalThemeID(self):
         """Return the id of the attribute used to identify local themes.
@@ -333,20 +339,139 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declarePublic('getLocalThemeName')
     def getLocalThemeName(self, context=None):
         """Return the name of a local theme in a given context.
-           Local themes are defined as folder attributes,
-           i.e. the property of a folder or an object located in
-           the folder that is callable and that returns the name
-           of a theme.
+
+           Local themes are obtained from folder attributes, i.e.
+           - as the property of a folder (one theme per line)
+           - as an object located in the folder that is callable and
+             that returns a tuple.
+
+           Local themes are computed by collecting all theme information
+           from the portal to the context folder.
+
+           The format for describing themes is:
+           - simply a string containing the theme id.
+
+           - 'n-m:theme'
+
+           where:
+           - 'theme' is the theme id
+           - (n, m) is a couple with n <= m that describes the interval
+             inside which the theme will be used. 
+             (0, 0) means the folder itself,
+             (1, 0) means all subfolders below the current folder
+             (1, 1) means the subfolders of level 1
+             (0, 1) means the folder and the subfolders of level 1
+             (n, n) means the subfolders of level n 
+             ...
+
+           Examples:
+           * with a folder property called '.cpsskins_theme':
+ 
+             - lines with intervals:
+
+               0-1:theme1
+               2-4:theme2
+               6-0:theme3
+
+             - string with interval:
+
+               0-1:theme1
+
+             - string without interval:
+
+               theme1
+            
+           * with a script called '.cpsskins_theme.py' placed in a folder:
+
+             - tuple with intervals:
+
+               return ('0-1:theme1', '2-4:theme2', '6-0:theme3')
+
+             - string with interval:
+
+               return '0-1:theme'
+
+             - string without interval:
+
+               return 'theme'
+
         """
 
         if context is None:
             return None
-        local_theme_id = self.getLocalThemeID()
-        theme = getattr(context, local_theme_id, None)
-        if theme and callable(theme):
-            theme = apply(theme, ())
-        return theme
 
+        # Find bottom-most folder:
+        obj = context
+        bmf = None
+        while 1:
+            if obj.isPrincipiaFolderish:
+                bmf = obj
+                break
+            parent = aq_parent(aq_inner(obj))
+            if not obj or parent == obj:
+                break
+            obj = parent
+        if bmf is None:
+            bmf = context
+
+        # get portlets from the root to current path
+        utool = getToolByName(self, 'portal_url')
+        rpath = utool.getRelativeContentPath(bmf)
+        bmf_depth = len(rpath)
+        obj = utool.getPortalObject()
+        localtheme = ''
+        level = bmf_depth
+        for elem in ('',) + rpath:
+            if not elem:
+                continue
+            level -= 1
+            obj = getattr(obj, elem)
+            theme = self._getLocalTheme(folder=obj, level=level)
+            if theme is not None:
+                localtheme = theme
+        return localtheme
+
+    security.declarePrivate('_getLocalTheme')
+    def _getLocalTheme(self, folder=None, level=None):
+        """ Return the name of the first theme assigned to a given level
+            relative to a folder.
+        """
+
+        if level is None:
+            return None
+
+        local_theme_id = self.getLocalThemeID()
+        if getattr(aq_base(folder), local_theme_id, None) is None:
+            return None
+
+        theme_obj = getattr(folder, local_theme_id)
+        if theme_obj and callable(theme_obj):
+            theme_obj = apply(theme_obj, ())
+        if isinstance(theme_obj, StringType):
+            theme_obj = tuple(theme_obj)
+        if not isinstance(theme_obj, TupleType):
+            return None
+
+        level = int(level)
+        for l in theme_obj:
+            if l.find(':') < 0:
+                return l
+            nm, theme = l.split(':')
+            if nm.find('-') < 0:
+                continue
+            n, m = nm.split('-')
+            n = int(n)
+            m = int(m)
+            if n > 0 and n > level:
+                continue
+            if m > 0 and m < level:
+                continue
+            return theme
+        return None
+
+    #
+    # Theme negociation
+    #
     security.declarePublic('getRequestedThemeName')
     def getRequestedThemeName(self, REQUEST=None):
         """Gets the name of the requested theme by checking 
@@ -357,18 +482,18 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if REQUEST is None:
             return
 
+        FORM = REQUEST.form
         # selected by writing ?pp=1 in the URL
-        if REQUEST.form.get('pp') is not None:
+        if FORM.get('pp') == '1':
             return 'printable'
 
         # selected by writing ?theme=... in the URL
-        theme = REQUEST.form.get('theme')
+        theme = FORM.get('theme')
         if theme is not None:
             return theme 
 
-        # selected by acquiring a 'cpsskins_theme' attribute 
-        # in the URL
-        cpsskins_theme = REQUEST.get('cpsskins_theme')
+        # selected by acquiring a 'cpsskins_theme' form attribute
+        cpsskins_theme = REQUEST.other.get('cpsskins_theme')
         if cpsskins_theme is not None:
             return cpsskins_theme
 
