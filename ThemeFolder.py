@@ -24,11 +24,12 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_parent, aq_inner
+from Acquisition import aq_parent, aq_inner, aq_base
 
 from Products.CMFCore.PortalFolder import PortalFolder
 
 from CPSSkinsPermissions import ManageThemes
+from Products.CPSSkins.cpsskins_utils import getFreeTitle
 
 factory_type_information = (
     {'id': 'Theme Folder',
@@ -142,12 +143,22 @@ class ThemeFolder(PortalFolder):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
-        items = self.cb_dataItems()
-
         if REQUEST.has_key('__cp'):
             cp = REQUEST['__cp']
         if cp is not None:
-            self.manage_pasteObjects(cp)
+            result = self.manage_pasteObjects(cp)
+
+            # style titles should be unique
+            container = self
+            for res in result:
+                new_id = res['new_id']
+                obj = getattr(self.aq_inner.aq_explicit, new_id, None)
+                if obj is None:
+                    continue
+                if getattr(aq_base(obj), 'isportalstyle', 0):
+                    title = obj.getTitle()
+                    newtitle = getFreeTitle(container, title, obj.meta_type)
+                    obj.edit(title=newtitle)
 
         RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
@@ -167,8 +178,8 @@ class ThemeFolder(PortalFolder):
 
     security.declareProtected(ManageThemes, 'getPastableObjects')
     def getPastableObjects(self, meta_type=None, REQUEST=None):
-        """Returns true if at least one object in the clipboard
-           can be pasted into this folder.
+        """Returns a list of objects from the clipboard that can
+           be pasted into this folder.
         """
 
         if REQUEST is None:
