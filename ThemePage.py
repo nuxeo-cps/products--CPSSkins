@@ -396,7 +396,6 @@ class ThemePage(ThemeFolder, StylableContent):
         self.manage_changeProperties(**kw)
 
         # default page
-        tmtool = getToolByName(self, 'portal_themes')
         if kw.get('default', 0):
             theme_container = self.getContainer()
             theme_container.setDefaultPage(default_page=self.getId())
