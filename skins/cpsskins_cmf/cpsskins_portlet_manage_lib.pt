@@ -306,6 +306,15 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       i18n:domain="cpsskins">Site structure</h2>
   <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
     <span tal:content="context_url" />
+  <p>&raquo;
+  <tal:block define="contents python: here.contentValues()"
+   repeat="content contents">
+    <a href="" alt=""
+       tal:attributes="href string:${content/absolute_url}/portlet_manage_form"
+       tal:content="content/title_or_id" />
+     <tal:block content="structure string:,&nbsp;"
+     condition="not:repeat/content/end" />
+  </tal:block>
   </p>
   <table border=0 width="100%" cellpadding="3" cellspacing="2">
     <tr>
