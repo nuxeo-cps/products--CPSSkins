@@ -562,6 +562,10 @@ msgid "_Edit styles_"
 msgstr "Editar estilos"
 
 
+msgid "_Edit the current style_"
+msgstr ""
+
+
 msgid "_Edit this page block_"
 msgstr "Editar este bloco de página"
 
@@ -1196,6 +1200,10 @@ msgstr "Caixa de busca"
 
 msgid "_See the error log_"
 msgstr "Veja o registro de erro"
+
+
+msgid "_Select a style_"
+msgstr ""
 
 
 msgid "_Selectable themes_"

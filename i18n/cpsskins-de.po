@@ -559,6 +559,10 @@ msgid "_Edit styles_"
 msgstr "Stil bearbeiten"
 
 
+msgid "_Edit the current style_"
+msgstr ""
+
+
 msgid "_Edit this page block_"
 msgstr ""
 
@@ -1192,6 +1196,10 @@ msgstr "Suchbox"
 
 
 msgid "_See the error log_"
+msgstr ""
+
+
+msgid "_Select a style_"
 msgstr ""
 
 
