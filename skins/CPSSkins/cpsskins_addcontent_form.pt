@@ -29,7 +29,7 @@
      i18n:translate="" />)
   </div>
   <div class="editForm">
-    <h1 i18n:translate=""
+    <h1 class="fancy" i18n:translate=""
     tal:define="title string:_Add_a_new_Templet_"
     tal:content="python: mcat and mcat(title) or title" />
     <form action="cpsskins_content_add" method="get">
