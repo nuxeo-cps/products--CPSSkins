@@ -218,11 +218,13 @@ class PageBlock(ThemeFolder, StylableContent):
         if width:
             table_tag.append('width="%s"' % width)
 
-        rendered.append('<table cellpadding="0" cellspacing="0" %s><tr>' % " ".join(table_tag))
+        rendered_append = rendered.append
+        rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % " ".join(table_tag))
 
         for x_pos in range(int(self.maxcols)):
-            objects_in_xpos = objects.get(x_pos, None)
-            if objects_in_xpos is None:
+            if objects.has_key(x_pos):
+                objects_in_xpos = objects[x_pos]
+            else:
                 continue
             td_tag = []
             td_tag.append('valign="top"')
@@ -232,12 +234,12 @@ class PageBlock(ThemeFolder, StylableContent):
             cellstyle = objects_in_xpos['cellstyler']
             if cellstyle:
                 td_tag.append('class="%s"' % cellstyle.getCSSCellClass(level=2))
-            rendered.append('<td %s>' % " ".join(td_tag))
+            rendered_append('<td %s>' % " ".join(td_tag))
             contents_in_xpos = objects_in_xpos['contents']
             for content in contents_in_xpos:
                 margin_style = content.getCSSMarginStyle()
                 if margin_style:
-                    rendered.append('<div style="%s">' % margin_style)
+                    rendered_append('<div style="%s">' % margin_style)
                 layout_style = content.getCSSLayoutStyle()
                 area_class = content.getCSSAreaClass(level=2)
                 div_tag = []
@@ -245,15 +247,16 @@ class PageBlock(ThemeFolder, StylableContent):
                     div_tag.append('style="%s"' % layout_style)
                 if area_class:
                     div_tag.append('class="%s"' % area_class)
-                rendered.append('<div %s>' % " ".join(div_tag))
-                rendered.append(content.render_cache(**kw))
-                rendered.append('</div>')
+                rendered.extend([
+                    '<div %s>' % " ".join(div_tag),
+                    content.render_cache(**kw),
+                    '</div>'])
                 if margin_style:
-                    rendered.append('</div>')
-            rendered.append('</td>')
-        rendered.append('</tr></table>')
-
+                    rendered_append('</div>')
+            rendered_append('</td>')
+        rendered_append('</tr></table>')
         return ''.join(rendered)
+
     security.declarePrivate('getActions')
     def getActions(self):
         """Returns the list of actions"""
