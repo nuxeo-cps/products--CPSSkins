@@ -65,7 +65,7 @@ if templets_to_delete:
             objects_in_xpos = objects.get(xpos, None)
             if not objects_in_xpos:
                 continue
-            for templet in objects_in_xpos['templets']:
+            for templet in objects_in_xpos['contents']:
                 id = templet.getId()
                 if id in templets_to_delete:
                     pageblock.manage_delObjects([id])
@@ -84,7 +84,7 @@ if templets_to_cache:
             objects_in_xpos = objects.get(xpos, None)
             if not objects_in_xpos:
                 continue         
-            for templet in objects_in_xpos['templets']:
+            for templet in objects_in_xpos['contents']:
                 id = templet.getId()
                 if id in templets_to_cache:
                     templet.edit(**{'cacheable':1})
