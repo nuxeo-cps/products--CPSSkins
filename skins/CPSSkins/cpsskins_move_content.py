@@ -17,6 +17,8 @@ if dest_theme and dest_theme != theme:
     for category in context.getApplicableStyles():
         style_propid = category['id']
         style = getattr(context, style_propid, None)
+        if not style:
+            continue
         styles = tmtool.findStylesFor(category=category['meta_type'], \
                                       object=context, title=style)
         if len(styles) > 0:
