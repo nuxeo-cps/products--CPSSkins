@@ -12,3 +12,6 @@ of TABLEs whenever possible. The use cases are:
 
   - page blocks with only one column
   - page blocks with fixed columns widths
+
+2005-02-04:
+- add a 'margin' CSS property for h1, ... h6 selectors.
