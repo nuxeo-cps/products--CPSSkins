@@ -110,6 +110,75 @@ class ThemeFolder(PortalFolder):
 
         return aq_parent(aq_inner(self))
 
+    security.declareProtected(ManageThemes, 'cutObjects')
+    def cutObjects(self, ids=[], REQUEST=None):
+        """Cut a list of objects
+        """
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+        self.manage_cutObjects(ids, REQUEST)
+
+        RESPONSE = REQUEST.RESPONSE 
+        redirect_url = REQUEST['HTTP_REFERER']
+        RESPONSE.redirect(redirect_url)
+
+    security.declareProtected(ManageThemes, 'copyObjects')
+    def copyObjects(self, ids=[], REQUEST=None):
+        """Copy a list of objects
+        """
+
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+        self.manage_copyObjects(ids, REQUEST)
+
+        RESPONSE = REQUEST.RESPONSE 
+        redirect_url = REQUEST['HTTP_REFERER']
+        RESPONSE.redirect(redirect_url)
+
+    security.declareProtected(ManageThemes, 'pasteObjects')
+    def pasteObjects(self, REQUEST=None):
+        """Paste a list of objects
+        """
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        if REQUEST.has_key('__cp'):
+            cp = REQUEST['__cp']
+        if cp is not None:
+            self.manage_pasteObjects(cp)
+
+        # rebuild the theme in case some items were pasted in the wrong folder
+        theme_container = self.getContainer()
+        theme_container.rebuild()
+
+        RESPONSE = REQUEST.RESPONSE 
+        redirect_url = REQUEST['HTTP_REFERER']
+        RESPONSE.redirect(redirect_url)
+
+    security.declareProtected(ManageThemes, 'deleteObjects')
+    def deleteObjects(self, ids=[], REQUEST=None):
+        """Delete a list of objects
+        """
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+        self.manage_delObjects(ids)
+
+        RESPONSE = REQUEST.RESPONSE 
+        redirect_url = REQUEST['HTTP_REFERER']
+        RESPONSE.redirect(redirect_url)
+
+    security.declareProtected(ManageThemes, 'canPaste')
+    def canPaste(self, REQUEST=None):
+        """Returns true if at least one object in the clipboard
+           can be pasted into this folder.
+        """
+
+        if REQUEST is None:
+            REQUEST = self.REQUEST
+
+        items = self.cb_dataItems()
+        return len(items) > 0
+
 InitializeClass(ThemeFolder)
 
 def addThemeFolder(dispatcher, id, REQUEST=None, **kw):

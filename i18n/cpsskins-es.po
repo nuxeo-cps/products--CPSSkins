@@ -1567,6 +1567,10 @@ msgid "_Username_"
 msgstr ""
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr "Acolchado vertical"
 
@@ -1803,6 +1807,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "información acerca del documento actual: su título, fecha de última modificación, nombre del autor, etc."
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

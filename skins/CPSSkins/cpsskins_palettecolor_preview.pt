@@ -1,16 +1,8 @@
-<table cellpadding="4" cellspacing="2" border="0" summary=""
- tal:define="value here/value|nothing">
-   <tr>
-     <td>
-       <div tal:attributes="style string:background-color:$value;; width: 60px;; height: 60px">&nbsp;</div>
-     </td>
-     <td>
-       <div tal:attributes="style string:border-color:$value;; width: 60px;; height: 60px;; border-width: 2px;; border-style: solid;;">&nbsp;</div>
-     </td>
-   </tr>
-   <tr>
-     <td colspan="2" style="text-align: center">
-       <tal:block content="value" />
-     </td>
-   </tr>
-</table>
+<tal:block define="
+  inline options/inline|nothing;
+  value here/value|nothing">
+  <div tal:condition="not:inline"
+   tal:attributes="style string:background-color:$value;; width: 80px;; height: 80px;;">&nbsp;</div>
+  <div tal:condition="inline"
+   tal:attributes="style string:background-color:$value;; width: 16px;; height: 16px;; border: 1px solid Black">&nbsp;</div>
+</tal:block>

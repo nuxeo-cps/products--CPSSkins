@@ -1,5 +1,7 @@
-<metal:block define-macro="title"
-tal:define="title_source python: here.title_source">
+<tal:block define="
+  context_obj nocall:options/context_obj;
+  title_source options/title_source;
+  box_title_i18n options/box_title_i18n">
   <tal:block condition="python: title_source == 'Templet title'">
     <tal:block condition="box_title_i18n" i18n:translate=""
      content="here/title" />
@@ -29,4 +31,4 @@ tal:define="title_source python: here.title_source">
        content="string:_Guest_" i18n:translate="" />
     </tal:block>
   </tal:block>
-</metal:block>
+</tal:block>

@@ -1551,6 +1551,10 @@ msgid "_Username_"
 msgstr ""
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr ""
 
@@ -1785,6 +1789,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "Information om dokumentet, dvs. titeln, den tiden när det ändrades senast, författaren, etc... "
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

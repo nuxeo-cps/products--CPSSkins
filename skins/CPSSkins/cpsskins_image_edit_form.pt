@@ -16,13 +16,15 @@
 </head>
 <body>
   <div class="editForm">
+    <div style="float:right" tal:condition="tmtool/hasExternalEditor">
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/edit_online" />
+    </div>
     <h1>
       <tal:block define="title string:_Edit_"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
       '<tal:block replace="here/title|nothing" />'
     </h1>
-    <br />
     <form action="cpsskins_image_edit" method="post"
     enctype="multipart/form-data">
       <table cellspacing="0" cellpadding="0" border="0"
@@ -50,6 +52,7 @@
         </tr>
       </table>
     </form>
+
     <br/>
     <form action="">
       <input class="standalone" type="submit" 

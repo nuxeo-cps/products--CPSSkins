@@ -1553,6 +1553,10 @@ msgid "_Username_"
 msgstr ""
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr "Pionowy odstêp "
 
@@ -1787,6 +1791,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "informacja o bie¿±cym dokumencie, temat, dzieñ ostatniej modyfikacji, kto zmieni³ itp."
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

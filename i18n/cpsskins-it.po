@@ -1553,6 +1553,10 @@ msgid "_Username_"
 msgstr "Nome di autenticazione"
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr "Spazio di riempimento verticale all'interno del margine del templet "
 
@@ -1787,6 +1791,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "Informazioni sull'oggetto corrente. <br>Per esempio: il suo titolo, la data di ultima modifica, il nome dell'autore, ecc."
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

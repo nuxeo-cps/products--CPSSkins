@@ -1554,6 +1554,10 @@ msgid "_Username_"
 msgstr "Nome"
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr "Preenchimento vertical"
 
@@ -1788,6 +1792,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "informação acerca do documento corrente, i.e., seu estilo, data da sua última modificação, o nome do criador, etc."
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

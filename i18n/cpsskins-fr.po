@@ -1553,6 +1553,10 @@ msgid "_Username_"
 msgstr "Nom"
 
 
+msgid "_Value_"
+msgstr "Valeur"
+
+
 msgid "_Vertical padding_"
 msgstr "Espace de remplissage vertical"
 
@@ -1787,6 +1791,10 @@ msgstr "Onglet non-sélectionné"
 
 msgid "_documentinfo_templet_description_"
 msgstr "information sur le document courant, son titre, sa date de dernière modification, son auteur, etc."
+
+
+msgid "_edit online_"
+msgstr "éditer en ligne"
 
 
 msgid "_flashbox_templet_description_"

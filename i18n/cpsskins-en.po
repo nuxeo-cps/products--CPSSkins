@@ -1551,6 +1551,10 @@ msgid "_Username_"
 msgstr "Name"
 
 
+msgid "_Value_"
+msgstr "Value"
+
+
 msgid "_Vertical padding_"
 msgstr "Vertical padding"
 
@@ -1785,6 +1789,10 @@ msgstr "Default tab"
 
 msgid "_documentinfo_templet_description_"
 msgstr "information about the current document, i.e. its title, the date of last modification, the name of the creator, etc."
+
+
+msgid "_edit online_"
+msgstr "edit online"
 
 
 msgid "_flashbox_templet_description_"

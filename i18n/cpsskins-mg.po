@@ -1562,6 +1562,10 @@ msgid "_Username_"
 msgstr "Anarana"
 
 
+msgid "_Value_"
+msgstr ""
+
+
 msgid "_Vertical padding_"
 msgstr "Faritra famenoana mitsangana"
 
@@ -1796,6 +1800,10 @@ msgstr ""
 
 msgid "_documentinfo_templet_description_"
 msgstr "Fampahalalana momba ny antotan-dahatsoratra miseho, ny lohateniny, ny daty nanovana azy farany, ny mpamorona azy, sns."
+
+
+msgid "_edit online_"
+msgstr ""
 
 
 msgid "_flashbox_templet_description_"

@@ -1150,6 +1150,19 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         self.debug_mode = not self.debug_mode
         if REQUEST is not None:
             return self.manage_DebugMode(manage_tabs_message='Settings updated')
+
+    security.declareProtected(ManageThemes, 'hasExternalEditor')
+    def hasExternalEditor(self):
+        """Return true if the External Editor is installed"""
+
+        try:
+            from Products import ExternalEditor
+        except ImportError:
+            return None
+        else:
+            return 1
+
+    
     #
     # Private
     #

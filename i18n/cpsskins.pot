@@ -1854,3 +1854,9 @@ msgstr ""
 
 msgid "_confirm delete_"
 msgstr ""
+
+msgid "_edit online_"
+msgstr ""
+
+msgid "_Value_"
+msgstr ""

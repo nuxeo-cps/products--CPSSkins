@@ -242,32 +242,60 @@
       <h1 tal:define="title python:'_%s_' % palettecat"
       tal:content="python: mcat and mcat(title) or title" 
       i18n:translate="" />
-      <table border="0" cellpadding="2" cellspacing="0" width="100%" summary="">
-        <tal:block repeat="palette palette_list">
+      <form tal:define="folder theme_container/getPalettesFolder"
+       action="" tal:attributes="action folder/absolute_url"
+       name="objectItems" method="post">
+        <table class="browser" summary="" cellpadding="0" cellspacing="0">
           <tr>
-            <td>
-              <img src="" align="middle" alt=""
-              tal:attributes="src string:${base_url}${palette/getIcon}" />
-              <a tal:attributes="
-                onClick string:newWindow('${palette/absolute_url}/edit_form?palette=$palettecat')"
-                tal:content="python: palette.title_or_id()" />
-            </td>
-            <td>
-              <tal:block content="palette/value" />
-            </td>
-            <td>
-              <a tal:attributes="onmouseover string:toggle('${palette/getId}');
-                                 onmouseout string:toggle('${palette/getId}')"
-                 tal:content="string:preview" />
-            </td>
-            <td>
-              <div class="hidden" style="position: absolute; right: 50px; top: 50px"
-               tal:attributes="id palette/getId"
-               tal:content="structure python: palette.preview()" />
-            </td>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th tal:define="title string:_Title_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Title</th>
+            <th tal:define="title string:_Value_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Value</th>
+            <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Preview</th>
           </tr>
-        </tal:block>
-      </table>
+          <tal:block repeat="palette palette_list">
+            <tr tal:define="paletteid palette/getId;
+                            onclick_string string:newWindow('${palette/absolute_url}/edit_form?palette=$palettecat');
+                            even repeat/palette/even;"
+                tal:attributes="class python: even and 'even' or None">
+              <td width="20">
+                <input type="checkbox" name="ids:list" tal:attributes="value paletteid" />
+              </td>
+              <td width="20">
+                <img src="" alt="" width="16" height="16"
+                 tal:attributes="src string:${palette/getIcon}" />
+              </td>
+              <td>
+                <a href=""
+                 tal:attributes="onClick onclick_string"
+                 tal:content="python: palette.title_or_id()" />
+              </td>
+              <td>
+                <tal:block content="palette/value" />
+              </td>
+              <td align="center">
+                <a href=""
+                 tal:content="structure python: palette.preview(inline=1)"
+                 tal:attributes="onClick onclick_string;
+                                 onmouseover string:toggle('$paletteid');
+                                 onmouseout string:toggle('$paletteid')" />
+                <div class="previewBox hidden"
+                 tal:attributes="id palette/getId"
+                 tal:content="structure python: palette.preview()" />
+              </td>
+            </tr>
+          </tal:block>
+        </table>
+        <br />
+        <input type="submit" name="cutObjects:method" value="Cut" />
+        <input type="submit" name="copyObjects:method" value="Copy" />
+        <input tal:condition="folder/canPaste"
+         type="submit" name="pasteObjects:method" value="Paste" />
+        <input type="submit" name="deleteObjects:method" value="Delete" />
+      </form>
       <div class="addItem">
         <a href="" alt=""
         tal:attributes="onClick string:newWindow('${base_url}/cpsskins_addpalette_form?type_name=$palettecat')">

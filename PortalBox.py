@@ -264,40 +264,12 @@ class PortalBox(BaseTemplet, SimpleBox):
     def render_title(self, **kw):
         """Renders the templet's title."""
 
-        title_source = self.title_source
-        REQUEST = self.REQUEST
-        mcat = REQUEST.get('cpsskins_mcat')
-
-        title = ''
-
-        if title_source == 'Templet title':
-            title = self.title
-            if mcat and self.box_title_i18n:
-                title = mcat(title)
-
-        elif title_source == 'Folder title':
-            title = 'XXX'
-            if mcat and self.box_title_i18n:
-                title = mcat(title)
-
-        elif title_source == 'Workflow state':
-            context_obj = kw.get('context_obj')
-            if context_obj is not None:
-                wtool = getToolByName(self, 'portal_workflow')
-                title = wtool.getInfoFor(context_obj, 'review_state','')
-
-        elif title_source == 'Username':
-            mtool = getToolByName(self, 'portal_membership')
-            isAnon = mtool.isAnonymousUser()
-            if isAnon:
-                title = '_Guest_'
-                if mcat:
-                    title = mcat(title)
-            else:
-                member = mtool.getAuthenticatedMember()
-                title = member.getUserName()
-
-        return title
+        macro = self.cpsskins_portalbox_macros
+        kw.update({
+            'title_source': self.title_source,
+            'box_title_i18n': self.box_title_i18n,
+            })
+        return macro(**kw)
 
     #
     # RAM Cache

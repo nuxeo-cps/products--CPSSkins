@@ -34,6 +34,50 @@
   margin-bottom: 15px;
 }
 
+.previewBox {
+  padding: 5px;
+  border-style: solid;
+  border-color: #999;
+  border-width: 1px 2px 2px 1px;
+  background-color: White;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.browser {
+  border: none;
+  width: 100%;
+  margin: 0px;
+  border: 1px solid #aaa;
+}
+
+.browser th {
+  padding: 2px;
+  font-weight: bold;
+  background-color: #d0d0d0;
+  text-align: left;
+  border-width: 1px;
+  border-style: none none solid none;
+  border-color: #999;
+}
+
+.browser td {
+  padding: 1px;
+  margin: 0px;
+  border-width: 1px;
+  border-style: solid none none none;
+  border-color: #ccc;
+}
+
+.browser tr {
+  background-color: #fff;
+}
+.browser .even {
+  background-color: #f0f0f0;
+}
+
+
 /* PDLib */
 
 #drag-feedback-box {
@@ -319,8 +363,8 @@ div.simulate_hierarchies {
 }
 
 .editForm > form {
-  border: 1px solid #ddd;
-  background-color: #f3f7f3;
+  border: 1px solid #eee;
+  background-color: #f3f6f3;
   padding: 8px;
 }
 
@@ -657,7 +701,7 @@ vertical-align: middle;
 }
 
 div.addItem {
-  padding: 0px 0px 15px 15px;
+  padding: 15px;
 }
 
 div.editPreview {

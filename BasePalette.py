@@ -145,7 +145,6 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
 
         infoblock = {}
         actions_list = ['delete']
-
         ti = self.getTypeInfo()
         for actionid in actions_list:  
             actioninfo = {}
@@ -164,7 +163,6 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
         """Renders a preview of the palette."""
 
         return renderMeth(self, 'preview_action', **kw)
-
 
 InitializeClass(BasePalette)
 
