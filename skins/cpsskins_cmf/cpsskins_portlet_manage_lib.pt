@@ -40,6 +40,7 @@
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="portlet_id portlet_id;
                        portlet_url string:${base_url}${portlet_rurl};
+                       portlet_rurl portlet_rurl;
                        portlet_folder python: base_url + portlet_folder_rurl;
                        icon portlet_icon;
                        title portlet_title;
