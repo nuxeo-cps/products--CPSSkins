@@ -89,7 +89,7 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
                      )
 
     security = ClassSecurityInfo()
-    security.declarePublic( 'manage_palettePreview')
+    security.declarePublic('manage_palettePreview')
     manage_palettePreview = DTMLFile('zmi/manage_palettePreview', globals())
 
     _aliases = factory_type_information[0]['aliases']
@@ -133,7 +133,7 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
 
         self.manage_changeProperties(**kw)
 
-    security.declarePublic( 'can_delete')
+    security.declarePublic('can_delete')
     def can_delete(self):
         """Can the palette be deleted?"""
 

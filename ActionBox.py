@@ -176,8 +176,7 @@ class ActionBox(BaseTemplet):
                             {'url': ac.get('url'),
                              'title': ac.get('name'),
                              'action_icon': action_icon,
-                            }
-                        )
+                            })
                         break
         return actioniconsinfo
 

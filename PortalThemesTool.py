@@ -922,13 +922,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         Rebuild this theme
         """
-
         if REQUEST is not None:
             kw.update(REQUEST.form)
+
         self.rebuild(**kw)
-        self.manage_permission(ManageThemes, \
-            ('Manager', 'Owner', 'ThemeManager'), \
-             acquire=0)
+
+        self.manage_permission(
+            ManageThemes,
+            ('Manager', 'Owner', 'ThemeManager'),
+            acquire=0)
         self.reindexObjectSecurity()
 
         if REQUEST is not None:
@@ -939,7 +941,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         Rebuild all the themes
         """
-
         for obj in self.objectValues('Portal Theme'):
             obj.rebuild(**kw)
 

@@ -20,7 +20,8 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 """
   Cell Block
-  a Cell Block allows to display several Templets horizontally inside a Page Block.
+  a Cell Block allows to display several Templets horizontally
+  inside a Page Block.
 """
 
 from Globals import InitializeClass

@@ -56,8 +56,7 @@ def manage_addCPSSkins(dispatcher, id,
         method,
        'CPSSkins Installer',
        'CPSSkins.Install',
-       'install'
-    )
+       'install')
     portal._setObject(method, cpsskinsinstall)
 
     # Creating redirection
@@ -72,8 +71,7 @@ def manage_addCPSSkins(dispatcher, id,
     pr(portal.cpsskinsinstall(
         SourceSkin=SourceSkin,
         Target=Target,
-        ReinstallDefaultThemes=ReinstallDefaultThemes)
-    )
+        ReinstallDefaultThemes=ReinstallDefaultThemes))
     if 'cpsskinsinstall' in portal.objectIds():
         pr("Removing cpsskinsinstall")
         portal._delObject('cpsskinsinstall')

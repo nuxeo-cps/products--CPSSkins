@@ -251,10 +251,11 @@ class PortalBox(BaseTemplet, SimpleBox):
             rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
 
             # add the box decoration
-            rendered_box.extend(self.renderBoxLayout(boxlayout=self.boxlayout,
-                                                     title=self.render_title(**kw),
-                                                     body=body, **kw)
-                               )
+            rendered_box.extend(
+                self.renderBoxLayout(
+                    boxlayout=self.boxlayout,
+                    title=self.render_title(**kw),
+                    body=body, **kw))
             rendered_box.extend('</div>')
             if boxstyle:
                 rendered_box.extend('</div>')
@@ -299,7 +300,7 @@ class PortalBox(BaseTemplet, SimpleBox):
             categories = self.action_categories
             custom_categories = self.custom_action_categories
             if custom_categories and custom_categories[0]:
-               categories += custom_categories
+                categories += custom_categories
             cat_string = ','.join(categories)
             params.append('actions:' + cat_string)
 

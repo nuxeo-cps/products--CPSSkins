@@ -219,7 +219,8 @@ class PageBlock(ThemeFolder, StylableContent):
             table_tag.append('width="%s"' % width)
 
         rendered_append = rendered.append
-        rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % " ".join(table_tag))
+        rendered_append('<table cellpadding="0" cellspacing="0" %s><tr>' % \
+            " ".join(table_tag))
 
         for x_pos in range(int(self.maxcols)):
             if objects.has_key(x_pos):
