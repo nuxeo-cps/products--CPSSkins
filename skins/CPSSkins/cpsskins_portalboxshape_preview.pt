@@ -1,4 +1,4 @@
-<div tal:define="mcat python: request.get('cpsskins_mcat')">
+<div tal:define="mcat python: request.get('cpsskins_mcat')" i18n:domain="cpsskins">
   <div style="text-align: left; width:130px"
     tal:attributes="class string:boxShape${here/title} cpsskinsBox">
     <div class="title"

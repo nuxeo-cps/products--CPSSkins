@@ -40,7 +40,7 @@
     <tal:block define="dummy request/RESPONSE/unauthorized" />
   </tal:block>
 
-  <a class="rightButton"
+  <a class="rightButton" i18n:domain="cpsskins"
     href="javascript:history.back()" i18n:translate=""
     tal:define="title string:_back_"
     tal:content="python: mcat and mcat(title) or title" />
@@ -93,13 +93,13 @@
     </tal:block>
 
     <tal:block condition="showPreview">
-      <h2 i18n:translate=""
+      <h2 i18n:translate="" i18n:domain="cpsskins"
        tal:define="title string:_Preview_"
        tal:content="python: mcat and mcat(title) or title" />
       <div class="stylePreview" tal:content="structure python: here.preview()" />
     </tal:block>
 
-    <form action="" class="formClose">
+    <form action="" class="formClose" i18n:domain="cpsskins">
       <input class="standalone" type="submit" 
        onClick="window.opener.location.reload();window.close()"
        value="_button_close_" i18n:attributes="value" />
