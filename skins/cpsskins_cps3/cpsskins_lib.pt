@@ -25,11 +25,17 @@
          tal:content="structure rendered" />
   </tal:block>
 
-  <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
-  tal:attributes="style string:text-align:left;; padding:${templet/padding}">
-  <img tal:attributes="src string:${base_url}cpsskins_images/icon_nuxeo.png"
+  <div class="BoxGroupBoundingBox" tal:condition="not:render_box">
+    <div class="BoxGroupBoxSlotTitle">
+      <tal:block define="title string:_Slot name_" i18n:translate=""
+       content="python: mcat and mcat(title) or title" />:
+      <tal:block content="templet/box_group" />
+    </div>
+    <div tal:attributes="style string: padding:${templet/padding}">
+      <img tal:attributes="src string:${templet/getIcon}"
        width="16" height="16" />
-  <tal:block content="templet_title" />(
-  <span style="font-weight: bold"
-  tal:content="templet/box_group" />)</div>
+      <tal:block content="templet/title" />
+    </div>
+  </div>
+
 </metal:block>

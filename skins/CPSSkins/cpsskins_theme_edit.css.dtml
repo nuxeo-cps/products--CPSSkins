@@ -406,13 +406,6 @@ color: Black;
 -moz-border-radius: 4px;
 }
 
-.TempletPortalBoxGroup {
-border: 1px solid #a0a0a0;  
-background: #f3f3f3;
-color: Black;
-height: 35px;
-}
-
 .TempletBoxBodySelected {
 border-style: none solid solid solid;
 border-color: #f00; 
