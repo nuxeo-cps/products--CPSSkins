@@ -694,12 +694,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         icons = {}
         actionicons = getToolByName(self, 'portal_actionicons', None)
-
-        if actionicons:
+        if actionicons is not None:
             try:
                 iconinfo = actionicons.getActionIcon(category, id)
-            except:
-                pass
+            except KeyError:
+                return None
             else:
                 return iconinfo
 
