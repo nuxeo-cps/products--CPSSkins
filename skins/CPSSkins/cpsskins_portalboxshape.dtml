@@ -1,4 +1,4 @@
-.BoxShape&dtml-title; .title { 
+.BoxShape&dtml-title; .title {
 <dtml-if BoxTitle_border_style>
 border-style:&dtml-BoxTitle_border_style;;
 </dtml-if>
@@ -15,7 +15,7 @@ display:&dtml-BoxTitle_display;;
 font-weight:&dtml-BoxTitle_font_weight;;
 </dtml-if>
 }
-.BoxShape&dtml-title; .body { 
+.BoxShape&dtml-title; .body {
 <dtml-if BoxBody_border_style>
 border-style:&dtml-BoxBody_border_style;;
 </dtml-if>
@@ -26,18 +26,18 @@ border-width:&dtml-BoxBody_border_width;;
 padding: &dtml-BoxBody_padding;;
 </dtml-if>
 }
-.BoxShape&dtml-title; .body img { 
+.BoxShape&dtml-title; .body img {
 vertical-align: bottom;
 }
 .BoxShape&dtml-title; .body .submenuout {
 <dtml-if BoxBody_menuout_border_style>
-border-style:&dtml-BoxBody_menuout_border_style;;                          
+border-style:&dtml-BoxBody_menuout_border_style;;
 </dtml-if>
 <dtml-if BoxBody_menuout_border_width>
-border-width:&dtml-BoxBody_menuout_border_width;;                          
+border-width:&dtml-BoxBody_menuout_border_width;;
 </dtml-if>
 <dtml-if BoxBody_menuout_margin>
-margin: &dtml-BoxBody_menuout_margin;;                          
+margin: &dtml-BoxBody_menuout_margin;;
 </dtml-if>
 <dtml-if BoxBody_menuout_padding>
 padding: &dtml-BoxBody_menuout_padding;;
@@ -57,10 +57,12 @@ margin:&dtml-BoxBody_menuin_margin;;
 padding:&dtml-BoxBody_menuin_padding;;
 </dtml-if>
 }
-.BoxShape&dtml-title; .buttons { 
+.BoxShape&dtml-title; .buttons {
 display:block;
-padding-right:0
+padding-right:1px;
+padding-bottom:1px;
+padding-top:1px;
 }
-.BoxShape&dtml-title; .buttons a { 
+.BoxShape&dtml-title; .buttons a {
 float:right;
 }
