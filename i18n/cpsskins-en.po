@@ -71,6 +71,10 @@ msgid "_Add an image_"
 msgstr "Add an image"
 
 
+msgid "_Add content_"
+msgstr "Add content"
+
+
 msgid "_Add_a_new_Templet_"
 msgstr "Add a new Templet"
 

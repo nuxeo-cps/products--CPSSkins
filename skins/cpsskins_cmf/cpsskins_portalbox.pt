@@ -29,6 +29,12 @@
           <a href="" tal:condition="not:i18n"
           tal:attributes="href menu_url; style menustyle" tal:content="menu_title" /></li>
       </tal:block>
+      <li tal:condition="create_url"
+       tal:attributes="style menustyle">
+        <a tal:define="title string:_Add content_;
+                       title python: mcat and mcat(title) or title"
+         tal:attributes="href create_url; style menustyle; title title"
+         tal:content="string:+" i18n:attributes="title" /></li>
     </ul>
 
   </tal:block>

@@ -1,82 +1,62 @@
 <tal:block i18n:domain="plone"
-define="context_obj nocall:options/context_obj;
-        base_url here/cpsskins_getBaseUrl;
-        orientation python: here.orientation;
-        menustyle python: orientation == 'vertical' and 'display: block' or 'display: inline';
-        item_style python: orientation == 'horizontal' and 'white-space: nowrap' or None;
-        content python: here.content">
-
+           define="context_obj nocall:options/context_obj;
+                   base_url python: request.get('cpsskins_base_url', '');
+                   orientation python: here.orientation;
+                   menustyle python: orientation == 'horizontal' and 'display:inline' or None;
+                   content python: here.content">
   <tal:block condition="python: content == 'folders'">
-    <tal:block define="level python: here.level;
-                       base python: here.base;
-                       show_docs python: here.show_docs;
-                       base_path python: here.base_path;
-                       navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, context_obj=context_obj);
-                       menuentries navigationinfo/menuentries|nothing;
-                       create_url navigationinfo/create_url|nothing; i18n python: here.folder_items_i18n"
-               condition="python: menuentries or create_url">
-      <tal:block condition="i18n" repeat="menuentry menuentries">
-        <tal:block define="menu_url python: menuentry['url'];
-                           menu_selected python: menuentry['selected'];
-                           menu_title python: menuentry['title'];
-                           menuclass python: menu_selected and 'menuin' or 'menuout';
-                           iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
-          <a href=""
-          tal:attributes="href menu_url; class menuclass; style menustyle">
-            <span tal:attributes="class iconclass">&nbsp;</span>
-            <span i18n:translate=""
-            tal:content="structure menu_title"
-            tal:attributes="style item_style" />
-          </a>
-        </tal:block>
+    <ul
+     tal:attributes="style menustyle"
+     tal:define="level python: here.level;
+                 base python: here.base;
+                 show_docs python: here.show_docs;
+                 display_hidden_folders python: here.display_hidden_folders;
+                 base_path python: here.base_path;
+                 navigationinfo python: here.cpsskins_getNavigationInfo(level=level, base=base, show_docs=show_docs, base_path=base_path, display_hidden_folders=display_hidden_folders, context_obj=context_obj); 
+                 menuentries navigationinfo/menuentries|nothing;
+                 create_url navigationinfo/create_url|nothing;
+                 i18n python: here.folder_items_i18n"
+     tal:condition="python: menuentries or create_url">
+      <tal:block repeat="menuentry menuentries">
+        <li tal:define="menu_url python: menuentry['url']; 
+                        menu_selected python: menuentry['selected']; 
+                        menu_title python: menuentry['title']; 
+                        menuclass python: menu_selected and 'selected' or ''"
+         tal:attributes="style menustyle; class menuclass">
+          <a href="" i18n:translate="" tal:condition="i18n"
+          tal:attributes="href menu_url; style menustyle" tal:content="menu_title" />
+          <a href="" tal:condition="not:i18n"
+          tal:attributes="href menu_url; style menustyle" tal:content="menu_title" /></li>
       </tal:block>
-      <tal:block condition="not:i18n"
-      repeat="menuentry menuentries">
-        <tal:block define="menu_url python: menuentry['url'];
-                           menu_selected python: menuentry['selected'];
-                           menu_title python: menuentry['title'];
-                           menuclass python: menu_selected and 'menuin' or 'menuout';
-                           iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
-          <a href=""
-          tal:attributes="href menu_url; class menuclass; style menustyle">
-            <span tal:attributes="class iconclass">&nbsp;</span>
-            <span tal:content="structure menu_title"
-            tal:attributes="style item_style" />
-          </a>
-        </tal:block>
-      </tal:block>
-      <tal:block define="url create_url|nothing">
-        <span>&nbsp;
-        <a class="addmenu" tal:attributes="href url"
-        tal:condition="url">&nbsp;+&nbsp;</a></span>
-      </tal:block>
-    </tal:block>
+      <li tal:condition="create_url"
+       tal:attributes="style menustyle">
+        <a tal:define="title string:_Add content_"
+         tal:attributes="href create_url; style menustyle; title title"
+         tal:content="string:+" i18n:attributes="title" /></li>
+    </ul>
+
   </tal:block>
 
   <tal:block condition="python: content == 'actions'">
-    <tal:block define="wtool here/portal_workflow;
-                       actioninfos python: here.cpsskins_getActionsInfo(here, context_obj);
-                       space python: orientation == 'vertical' and 'margin-top: 9px;;' or ''"
-               condition="actioninfos">
+    <ul
+     tal:attributes="style menustyle"
+     tal:define="wtool here/portal_workflow;
+                 actioninfos python: here.cpsskins_getActionsInfo(here, context_obj);
+                 space python: orientation == 'vertical' and 'margin-top: 9px;;' or ''"
+     tal:condition="actioninfos">
       <tal:block repeat="actioninfo actioninfos">
-        <tal:block define="we_are_here python: actioninfo['we_are_here'];
-                           title python: actioninfo['title'];
-                           url python: actioninfo['url'];
-                           class python: actioninfo['class'];
-                           style python: actioninfo['style'];
-                           newcat python: actioninfo['newcat'];
-                           style python: newcat and style + space or '';
-                           iconclass python: we_are_here and 'menuinicon' or 'menuouticon'">
-          <a tal:attributes="style string: $style $menustyle; class class; href url">
-            <span tal:attributes="class iconclass">&nbsp;</span>
-            <span i18n:translate="" tal:content="title"
-            tal:attributes="style item_style" />
-          </a>
-        </tal:block>
+        <li tal:define="we_are_here python: actioninfo['we_are_here']; 
+                        title python: actioninfo['title'];  
+                        url python: actioninfo['url']; 
+                        class python: actioninfo['class']; 
+                        newcat python: actioninfo['newcat']; 
+                        menustyle python: newcat and menustyle + space or menustyle; 
+                        menuclass python: we_are_here and 'selected' or ''"
+          tal:attributes="class menuclass; style menustyle">
+        <a href="" i18n:translate="" tal:attributes="href url; style menustyle" tal:content="title" /></li>
       </tal:block>
-    </tal:block>
+    </ul>
   </tal:block>
-
   <tal:block condition="python: content == 'about'"
   i18n:domain="cpsskins">
     <tal:block define="content here/content|nothing;
