@@ -538,8 +538,8 @@ tal:define="pageblock_url pageblock/absolute_url;
 </metal:block>
 
 <metal:block define-macro="cellsizer" i18n:domain="cpsskins"
-tal:define="cellwidth cellsize/cellwidth;
-            cellwidth python: cellwidth and cellwidth or '100%'">
+tal:define="cellwidth cellsize/cellwidth|nothing;
+            cellwidth python: cellwidth and cellwidth or '?'">
   <table cellpadding="0" cellspacing="0" width="100%"
   class="CellSizer" summary="Cell sizer">
     <tr>
