@@ -324,7 +324,7 @@ tal:define="isPortalStyle here/aq_explicit/isPortalStyle|nothing;
 tal:define="isPortalPalette here/aq_explicit/isPortalPalette|nothing; 
             theme request/form/theme|nothing; 
             palettecat request/form/palette|nothing; 
-            sections here/cpsskins_listPalettes; 
+            sections tmtool/listPaletteTypes; 
             object_url here/absolute_url;">
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
