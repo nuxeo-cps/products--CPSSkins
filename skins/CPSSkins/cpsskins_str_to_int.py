@@ -5,7 +5,7 @@ if str is None:
 
 try:
    v = int(str)
-except:
+except ValueError:
    return
 
 return v

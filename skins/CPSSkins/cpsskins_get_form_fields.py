@@ -21,7 +21,7 @@ for propid in context.propertyIds():
            visible_meth = getattr(context, visibility)
            try:
               is_visible = apply(visible_meth, ())
-           except:
+           except TypeError:
               is_visible = 0
            field['visible'] = is_visible
 

@@ -20,10 +20,7 @@ if delta > 0:
 if show_docs is None:
    show_docs = 0
 else:
-   try:
-      show_docs=int(show_docs)
-   except:
-      show_docs = 0
+   show_docs=int(show_docs)
 
 if base is None:
     return {'menuentries': [],
@@ -87,11 +84,9 @@ if rel_level == 1:
     base_create_obj = base_obj_as_proxy
 
 if base_create_obj is None and base_create_path != '':
-    try:
-        base_create_obj = context.restrictedTraverse(base_create_path)
+    base_create_obj = context.restrictedTraverse(base_create_path, default=None)
+    if base_create_obj is not None:
         base_create_url = base_url + parent_url
-    except:
-        pass
 
 if rel_level > 0 and base_create_obj is not None:
     if context.portal_membership.checkPermission('Add portal content',

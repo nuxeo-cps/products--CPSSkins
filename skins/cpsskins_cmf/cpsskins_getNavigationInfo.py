@@ -8,14 +8,11 @@ if level is None:
 if show_docs is None:
    show_docs = 0
 else:
-   try:
-      show_docs=int(show_docs)
-   except:
-      show_docs = 0
+   show_docs=int(show_docs)
 
 try:
    level = int(level)
-except:
+except ValueError:
    return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 utool = context.portal_url
@@ -51,9 +48,8 @@ if base_path != '/':
         if base_path == '/':
             base_obj = portal_root
         else:
-            try:
-                base_obj = portal_root.restrictedTraverse(base_path)
-            except:
+            base_obj = portal_root.restrictedTraverse(base_path, default=None)
+            if base_obj is None:
                 return {'menuentries': [],
                     'create_url': '', 'folder_title': ''}
 
@@ -75,16 +71,15 @@ else:
     else:
         relative_path = '/'.join(split_relative_path)
 
-        try:
-            pp = portal_url + relative_path
-            if len(pp) > 1:
-                # instead of pp = lstrip('/')
-                # to ensure compatibility with python 2.1
-                i = 0
-                while pp[i] == '/':
-                    pp = pp[1:]
-            level_obj = portal_root.restrictedTraverse(pp)
-        except:
+        pp = portal_url + relative_path
+        if len(pp) > 1:
+            # instead of pp = lstrip('/')
+            # to ensure compatibility with python 2.1
+            i = 0
+            while pp[i] == '/':
+                pp = pp[1:]
+        level_obj = portal_root.restrictedTraverse(pp, default=None)
+        if level_obj is None:
             return {'menuentries': [],
                     'create_url': '', 'folder_title': ''}
 

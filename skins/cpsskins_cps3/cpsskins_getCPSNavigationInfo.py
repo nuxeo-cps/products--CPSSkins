@@ -6,10 +6,7 @@ if base_path is None:
 if show_docs is None:
    show_docs = 0
 else:
-   try:
-      show_docs=int(show_docs)
-   except:
-      show_docs = 0
+   show_docs=int(show_docs)
 
 if base is None:
     return

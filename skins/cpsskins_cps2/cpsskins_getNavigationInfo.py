@@ -5,10 +5,7 @@ REQUEST=context.REQUEST
 if show_docs is None:
     show_docs = 0
 else:
-    try:
-        show_docs=int(show_docs)
-    except:
-      show_docs = 0
+    show_docs=int(show_docs)
 
 if base is None:
     return {'menuentries': [],
@@ -23,7 +20,7 @@ if base_path is None:
 
 try:
     level = int(level)
-except:
+except ValueError:
     return {'menuentries': [],
             'create_url': '', 'folder_title': ''}
 
@@ -39,11 +36,7 @@ try: mygroups = user.getGroups()
 except: mygroups = ()
 myids = [myid] + ['group:'+id for id in mygroups]
 
-try:
-   hier_base =  getattr(context.portal_hierarchies, base, None)
-except:
-    return {'menuentries': [],
-            'create_url': '', 'folder_title': ''}
+hier_base =  getattr(context.portal_hierarchies, base, None)
 
 if hier_base is None:
     return {'menuentries': [],
@@ -80,15 +73,9 @@ path = '/'.join(path_list[0:total_level + 1])
 current_path = '/'.join(path_list[0:total_level + 2])
 
 if total_level == 1:
-     try:
-        current_hier = hier_base.getRootObject()
-     except:
-        current_hier = None
+    current_hier = hier_base.getRootObject()
 else:
-     try:
-        current_hier = context.restrictedTraverse(portal_url + path)
-     except:
-        current_hier = None
+    current_hier = context.restrictedTraverse(portal_url + path, default=None)
 
 if level == 0:
      hierlist = [h for h in hierlist if (h['rurl'] + '/').startswith(base_parent_path) ]
