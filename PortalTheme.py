@@ -408,7 +408,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         # local theme + page
         local_theme = tmtool.getLocalThemeName(**kw)
         if local_theme is not None:
-            if local_theme.find('+') > 0:
+            if '+' in local_theme:
                 theme, page = local_theme.split('+')
                 if theme == self.getId() and page:
                     return page

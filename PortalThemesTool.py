@@ -547,11 +547,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         themes = []
         for l in theme_obj:
-            if l.find(':') < 0:
+            if ':' not in l:
                 themes.append(((0,0), l))
                 continue
             nm, theme = l.split(':')
-            if nm.find('-') < 0:
+            if '-' not in nm:
                 continue
             n, m = nm.split('-')
             themes.append(((int(n), int(m)), theme))
@@ -662,16 +662,20 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 pass
             theme = self.getThemeByMethod(published)
             if theme is not None:
-                if theme.find('+') > 0:
+                if '+' in theme:
                     theme = theme.split('+')[0]
-                return theme
+                # do not return empty theme ids
+                if theme:
+                    return theme
 
         # local theme + page
         local_theme = self.getLocalThemeName(**kw)
         if local_theme is not None:
-            if local_theme.find('+') > 0:
+            if '+' in local_theme:
                 local_theme = local_theme.split('+')[0]
-            return local_theme
+            # do not return empty theme ids
+            if local_theme:
+                return local_theme
 
         # default theme
         return self.getDefaultThemeName()
@@ -766,7 +770,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         actionicons = getToolByName(self, 'portal_actionicons', None)
         if actionicons is not None:
             for action in actions:
-                if action.find(':') == -1:
+                if ':' not in action:
                     continue
                 category, id = action.split(':')
                 try:
