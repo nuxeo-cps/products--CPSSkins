@@ -3,26 +3,29 @@
 REQUEST=context.REQUEST
 
 if show_docs is None:
-   show_docs = 0
+    show_docs = 0
 else:
-   try:
-      show_docs=int(show_docs)
-   except:
+    try:
+        show_docs=int(show_docs)
+    except:
       show_docs = 0
 
 if base is None:
-   return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 if level is None:
-   return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 if base_path is None:
-   base_path = '/'
+    base_path = '/'
 
 try:
-   level = int(level)
+    level = int(level)
 except:
-   return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 utool = context.portal_url
 portal_url = utool.getPortalPath()
@@ -39,10 +42,12 @@ myids = [myid] + ['group:'+id for id in mygroups]
 try:
    hier_base =  getattr(context.portal_hierarchies, base, None)
 except:
-   return None
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 if hier_base is None:
-   return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 base_path_list = base_path.split('/')
 rel_level = len(base_path_list) -2
@@ -57,7 +62,8 @@ hierlist = [h for h in hierlist if h['depth'] == total_level]
 hierlist = [h for h in hierlist if (h['rurl'] +'/').startswith(base_parent_path)]
 
 if context_obj is None:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 current_path =  '/' + utool.getRelativeUrl(context_obj)
 

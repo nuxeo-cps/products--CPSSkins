@@ -3,7 +3,7 @@
 REQUEST=context.REQUEST
 
 if level is None:
-   return
+   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 if show_docs is None:
    show_docs = 0
@@ -16,7 +16,7 @@ else:
 try:
    level = int(level)
 except:
-   return
+   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 utool = context.portal_url
 mtool = context.portal_membership
@@ -28,7 +28,7 @@ if portal_url != '/':
     portal_url = '/' + portal_url
 
 if context_obj is None:
-    return
+   return {'menuentries': [], 'create_url': '', 'folder_title': ''}
 
 here_rurl =  '/' + utool.getRelativeUrl(context_obj)
 current_path = here_rurl
@@ -54,11 +54,13 @@ if base_path != '/':
             try:
                 base_obj = portal_root.restrictedTraverse(base_path)
             except:
-                return
+                return {'menuentries': [],
+                    'create_url': '', 'folder_title': ''}
 
 if not current_path.startswith(base_path):
     if level > 0:
-        return
+        return {'menuentries': [],
+                'create_url': '', 'folder_title': ''}
     else:
         level_obj = base_obj
 else:
@@ -83,10 +85,12 @@ else:
                     pp = pp[1:]
             level_obj = portal_root.restrictedTraverse(pp)
         except:
-            return
+            return {'menuentries': [],
+                    'create_url': '', 'folder_title': ''}
 
     if len(split_relative_path) <= level:
-        return
+        return {'menuentries': [],
+                'create_url': '', 'folder_title': ''}
 
 dict = {}
 obj_info = []
@@ -100,7 +104,8 @@ if checkPerm('Add portal content', level_obj):
 
 objs = level_obj.cpsskins_getFolderContents()
 if objs is None:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 if max_results is not None:
     objs = objs[0:max_results]

@@ -1,7 +1,8 @@
 ##parameters=level=0, base=None, show_docs=None, base_path=None, max_results=None, display_hidden_folders=None, context_obj=None
 
 if base_path is None:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 # XXX backward compatibilty since the trailing '/' was omitted
 # in previous versions, this will be moved to the
@@ -25,7 +26,8 @@ else:
       show_docs = 0
 
 if base is None:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 ttool = context.portal_trees
 utool = context.portal_url
@@ -34,14 +36,16 @@ if base in ttool.objectIds():
     base_obj = ttool[base]
     base_obj_as_proxy = getattr(context.portal_proxies, base)
 else:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 REQUEST = context.REQUEST
 
 parent_url = ''
 
 if context_obj is None:
-    return
+    return {'menuentries': [],
+            'create_url': '', 'folder_title': ''}
 
 here_rurl =  '/' + utool.getRelativeUrl(context_obj)
 here_rurl_slash = here_rurl + '/'
