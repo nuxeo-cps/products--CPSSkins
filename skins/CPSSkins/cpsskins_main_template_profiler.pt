@@ -63,7 +63,7 @@
                 <tal:block repeat="content contents_in_xpos">
                 <!-- Templet profiling START -->
                   <div
-                   tal:define="margin python: content.margin;
+                   tal:define="margin python: content.getCSSMarginStyle();
                                isRenderable python: content.isRenderable();
                                rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit) or None"
                    tal:condition="python: rendered or not isRenderable"
