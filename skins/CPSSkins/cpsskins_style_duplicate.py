@@ -6,6 +6,9 @@ if REQUEST is not None:
 # duplicate the current style
 newstyle = context.duplicate()
 
+# do not let the new style be used by default
+newstyle.edit(default=0)
+
 # assign the new style to the edited object
 tmtool = context.portal_themes
 view_mode = tmtool.getViewMode()
