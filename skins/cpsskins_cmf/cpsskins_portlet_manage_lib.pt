@@ -79,7 +79,9 @@
 </metal:block>
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="ttool here/portal_types">
+  tal:define="ttool here/portal_types;
+              view_mode python: tmtool.getViewMode();
+              clipboard view_mode/clipboard|nothing">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
          filter="Portlet_prepare_element_menu(pd_filter_object)"></div>
@@ -100,6 +102,7 @@
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_paste_from_clipboard()"
+     tal:condition="clipboard"
      tal:attributes="filter string:pd_selected_item">
       <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/paste-16.png" />
