@@ -31,7 +31,7 @@ BOX_LAYOUTS = {
 # standard box
 'standard': """<div class="title">%s</div><div class="body">%s</div>""",
 # one frame
-'one_frame': """<div class="body"><h4>%s</h4><br/>%s</div>""",
+'one_frame': """<div class="body"><h4>%s</h4>%s</div>""",
 # no title no frame
 'notitle_noframe': """<div class="body" style="border: none">%s</div>""",
 # no title
