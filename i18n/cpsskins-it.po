@@ -1573,6 +1573,10 @@ msgid "_button_export_theme_"
 msgstr "Esporta questo tema (formato .zexp)"
 
 
+msgid "_button_fullscreen_"
+msgstr ""
+
+
 msgid "_button_import_theme_"
 msgstr "Importa il tema"
 
@@ -1587,6 +1591,10 @@ msgstr "Ruoli locali"
 
 msgid "_button_modify_"
 msgstr "Modifica"
+
+
+msgid "_button_normal_mode_"
+msgstr ""
 
 
 msgid "_button_optimize_theme_"

@@ -241,6 +241,12 @@ msgstr ""
 msgid "_button_set_theme_as_default_"
 msgstr ""
 
+msgid "_button_fullscreen_"
+msgstr ""
+
+msgid "_button_normal_mode_"
+msgstr ""
+
 msgid "_Cell width_"
 msgstr ""
 

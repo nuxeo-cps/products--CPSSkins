@@ -1571,6 +1571,10 @@ msgid "_button_export_theme_"
 msgstr "Export this theme"
 
 
+msgid "_button_fullscreen_"
+msgstr "Fullscreen"
+
+
 msgid "_button_import_theme_"
 msgstr "Import theme"
 
@@ -1585,6 +1589,10 @@ msgstr "Local roles"
 
 msgid "_button_modify_"
 msgstr "Modify"
+
+
+msgid "_button_normal_mode_"
+msgstr "Normal mode"
 
 
 msgid "_button_optimize_theme_"

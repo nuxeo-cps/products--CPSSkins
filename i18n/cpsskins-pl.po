@@ -1573,6 +1573,10 @@ msgid "_button_export_theme_"
 msgstr "Eksportuj motyw"
 
 
+msgid "_button_fullscreen_"
+msgstr ""
+
+
 msgid "_button_import_theme_"
 msgstr "Importuj motyw"
 
@@ -1587,6 +1591,10 @@ msgstr "Zasady lokalne"
 
 msgid "_button_modify_"
 msgstr "Zmieñ"
+
+
+msgid "_button_normal_mode_"
+msgstr ""
 
 
 msgid "_button_optimize_theme_"

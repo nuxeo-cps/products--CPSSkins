@@ -77,6 +77,19 @@
   </div>
 </metal:block>
 
+<metal:block define-macro="panel_selector" i18n:domain="cpsskins">
+  <form action="" method="post" style="text-align:right"
+   tal:attributes="action string:${here/absolute_url}/portlet_manage_form">
+    <input type="hidden" name="fs" tal:attributes="value fullscreen" />
+    <select name="panel" onchange="submit()">
+      <option value="" disabled="disabled" selected="selected">Select panel ...</option>
+      <option value="visibility">Portlet visibility</option>
+      <option value="unused">Unused portlets</option>
+      <option value="browser">Portlet browser</option>
+    </select>
+  </form>
+</metal:block>
+
 <metal:block define-macro="empty_slot">
   <div class="PortletBoxDest" style="margin:4px"
    tal:condition="python:len(portlets) == 0"
@@ -92,4 +105,118 @@
     <tal:block repeat="portlet portlets">
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
     </tal:block>
+</metal:block>
+
+<metal:block define-macro="main_canvas">
+  <tal:block repeat="block python: tmtool.getPageBlocks(theme=current_theme)">
+    <table cellpadding="0" cellspacing="3" width="100%">
+      <tr valign="top"
+       tal:define="objects python: block.getObjects(REQUEST=request); 
+                   maxcols block/maxcols|nothing">
+        <tal:block condition="maxcols"
+         repeat="x_pos python: range(int(maxcols))">
+          <tal:block define="objects_in_xpos python: objects.get(x_pos, None);
+                             templets_in_xpos python: objects_in_xpos['templets'];
+                             cellsize python: objects_in_xpos['cellsizer'];
+                             cellwidth cellsize/cellwidth|nothing"
+                     condition="templets_in_xpos">
+            <td tal:attributes="width cellwidth">
+              <tal:block repeat="templet templets_in_xpos">
+                <div class="TempletBox" tal:content="templet/title"
+                 tal:condition="templet/aq_explicit/isPortalBox|nothing" />
+                <tal:block condition="templet/aq_explicit/isPortalBoxGroup|nothing"
+                 define="group templet/box_group|nothing">
+                  <div class="BoxGroupBoundingBox">
+                    <div tal:content="group"
+                     class="BoxGroupBoxSlotTitle" />
+                    <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group)">
+                      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
+                      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
+                    </tal:block>
+                  </div>
+                </tal:block>
+              </tal:block>
+            </td>
+          </tal:block>
+        </tal:block>
+      </tr>
+    </table>
+  </tal:block>
+</metal:block>
+
+<metal:block define-macro="unused_portlets_panel">
+  <h2 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h2>
+  <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
+  <p style="text-align: right">
+  <a
+   i18n:translate="description_delete_unused_portlets" 
+   i18n:domain="cpsskins" 
+   tal:attributes="href string:${here/absolute_url}/cpsskins_delete_unused_portlets?theme=$current_theme;
+                   onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_unused_portlets'), )" >Delete unused portlets</a>
+  </p>
+  <table cellpadding="0" cellspacing="3">
+    <tr>
+      <td valign="top" tal:repeat="hidden_slot hidden_slots">
+        <div class="BoxGroupBoundingBox" 
+         tal:define="group hidden_slot">
+          <div tal:content="hidden_slot"
+           class="BoxGroupBoxSlotTitleHidden">
+          </div>
+          <tal:block define="portlets python:ptltool.getPortlets(here, hidden_slot)">
+            <tal:block repeat="portlet portlets">
+              <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box" />
+            </tal:block>
+            <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
+          </tal:block>
+        </div>
+      </td>
+    </tr>
+  </table>
+</metal:block>
+
+<metal:block define-macro="visibility_panel"
+  tal:define="here_depth python: len(utool.getRelativeContentPath(here))">
+  <h2 i18n:translate="heading_portlet_visibility" i18n:domain="cpsskins">Portlet visibility</h2>
+  <p><span i18n:translate="description_portlets_visible_from">Portlets visible from</span>
+    <span tal:content="context_url" />
+  </p>
+  <table border=0 width="100%" cellpadding="3" cellspacing="2">
+    <tr>
+      <th tal:repeat="bc here/cpsskins_getBreadcrumbs">
+        <a href="" tal:content="bc/longtitle" 
+         tal:attributes="href string:/${bc/rpath}/portlet_manage_form?view_mode=visibility" />
+      </th>
+    </tr>
+    <tal:block define="portlets python:ptltool.getPortlets(context=here)"
+               repeat="portlet portlets">
+      <tr tal:define="fti portlet/getTypeInfo;
+                      portlet_id portlet/getId;
+                      portlet_type fti/title_or_id;
+                      portlet_icon fti/getIcon;
+                      portlet_depth portlet/getDepth;
+                      vrange portlet/getVisibilityRange;
+                      vrange_start python: vrange[0];
+                      vrange_stop python: vrange[1];
+                      selected python: portlet_id == selected_portlet">
+        <td tal:attributes="colspan python: portlet_depth"></td>
+        <td style="border-bottom: 1px dotted #ccc">
+          <img width="16" height="16" alt=""
+           tal:condition="portlet_icon"
+           tal:attributes="src string:${portal_url}/${portlet_icon};
+                           title python: cpsmcat(portlet_type)" />
+          <a tal:content="portlet/title"
+           tal:attributes="href string:${portlet/absolute_url}/edit_form;
+                           style python: selected and 'font-weight: bold' or ''" />
+          </td> 
+        <td style="border-bottom: 1px solid #ccc"
+         tal:condition="python: here_depth != portlet_depth"
+         tal:attributes="colspan python: here_depth - portlet_depth">
+        </td> 
+      </tr>       
+    </tal:block> 
+  </table>    
+</metal:block>
+
+<metal:block define-macro="browser_panel">
+  <h2 i18n:translate="heading_portlet_browser" i18n:domain="cpsskins">Portlet browser</h2>
 </metal:block>
