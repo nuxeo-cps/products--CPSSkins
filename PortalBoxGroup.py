@@ -125,7 +125,7 @@ class PortalBoxGroup(BaseTemplet):
                    'no_frames', 
                    'notitle_noframe']
         if self.hasPortlets():
-            layouts.append('min_max')
+            layouts.extend(['min_max', 'min_max_close'])
         return layouts
 
     security.declarePublic('hasPortlets')

@@ -100,6 +100,30 @@
   tal:define="state options/state;
               portal_url here/portal_url;
               portlet_url options/url">
+  <div class="title" style="display: block">
+    <a style="float:right" tal:condition="python: state != 'maximized'"
+     tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
+     <img src="" width="" height="" border="0" 
+     tal:attributes="src string:$portal_url/cpsskins_images/button_maximized.gif" /></a>
+    <a style="float:right" tal:condition="python: state != 'minimized'"
+     tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=minimized">
+     <img src="" width="" height="" border="0" 
+      tal:attributes="src string:$portal_url/cpsskins_images/button_minimized.gif" /></a>
+    <metal:block define-slot="box_title">Box Title</metal:block>
+    <br clear="both" />
+  </div>
+  <div class="body"> 
+    <tal:block tal:condition="python: state == 'maximized'">
+      <metal:block define-slot="box_body">Box Body</metal:block>
+    </tal:block>
+  </div>
+</metal:block>
+
+<!-- ============================================================ -->
+<metal:block define-macro="min_max_close"
+  tal:define="state options/state;
+              portal_url here/portal_url;
+              portlet_url options/url">
   <tal:block tal:condition="python: state != 'closed'">
     <div class="title" style="display: block">
       <a style="float:right" tal:condition="python: state != 'closed'"
