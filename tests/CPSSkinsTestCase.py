@@ -130,7 +130,7 @@ class CPSSkinsInstaller:
         self._quiet = quiet
 
     def install(self, portal_id, target, quiet):
-        self.addUsers()
+        self.addUser()
         self.login()
         self.fixupCMFCalendar(portal_id, quiet)
         self.setup(portal_id, target, quiet)
@@ -139,25 +139,13 @@ class CPSSkinsInstaller:
         self.install_themes(portal_id, quiet)
         self.fixupErrorLog(portal_id)
 
-    def addUsers(self):
-        users = (
-            {'id': 'cpsskins_root',
-             'roles': ['Manager']
-            },
-            {'id': 'cpsskins_user',
-             'roles': ['Member']
-            },
-            {'id': 'cpsskins_theme_manager',
-             'roles': ['Member', 'ThemeManager'],
-            })
-
-        for user in users:
-            uf = self.app.acl_users
-            uf._doAddUser(user['id'], 'secret', user['roles'], [])
+    def addUser(self):
+        uf = self.app.acl_users
+        uf._doAddUser('CPSSkinsTestCase', '', ['Manager'], [])
 
     def login(self):
         uf = self.app.acl_users
-        user = uf.getUserById('cpsskins_root').__of__(uf)
+        user = uf.getUserById('CPSSkinsTestCase').__of__(uf)
         newSecurityManager(None, user)
 
     def setup(self, portal_id, target, quiet):
@@ -228,6 +216,22 @@ def optimize():
 
 optimize()
 
+def setupTestUsers(app, portal_id):
+    """Set up the test users"""
+    portal = getattr(app, portal_id)
+    uf = portal.acl_users
+    users = (
+        {'id': 'cpsskins_root',
+         'roles': ['Manager']
+        },
+        {'id': 'cpsskins_user',
+         'roles': ['Member']
+        },
+        {'id': 'cpsskins_theme_manager',
+         'roles': ['Member', 'ThemeManager'],
+        })
+    for user in users:
+        uf._doAddUser(user['id'], 'secret', user['roles'], [])
 
 # Install
 
@@ -252,7 +256,8 @@ if target == 'Plone2':
    app = ZopeTestCase.app()
    Plone2TestCase.setupPloneSite(app)
 
-
+setupTestUsers(app, portal_id)
 ZopeTestCase.utils.setupCoreSessions(app)
 CPSSkinsInstaller(app).install(portal_id, target, quiet=0)
+
 ZopeTestCase.close(app)
