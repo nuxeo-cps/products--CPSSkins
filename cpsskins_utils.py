@@ -58,7 +58,6 @@ def rebuild_properties(obj):
     # Rebuild properties
     #
     new_prop_dict = {}
-    new_prop_ids = []
     for prop_id in prop_ids:
         try:
             prop_value = obj.getProperty(prop_id)
@@ -103,7 +102,7 @@ def callAction(self, actionid, **kw):
     action = _getViewFor(self, view=actionid)
     if action and callable(action):
         return apply(action, (), kw)
-
+    return None
 
 def renderMeth(self, render_variable, **kw):
     """Renders a method (the value of 'render_variable')"""
@@ -111,7 +110,7 @@ def renderMeth(self, render_variable, **kw):
     rendered = None
     actionid = getattr(self.aq_explicit, render_variable, None)
     if actionid is None:
-        return
+        return None
     meth = getattr(self, actionid, None)
     if meth is not None:
         if getattr(aq_base(meth), 'isDocTemp', 0):
@@ -119,7 +118,6 @@ def renderMeth(self, render_variable, **kw):
         else:
             rendered = apply(meth, (), kw)
     return rendered
-
 
 def getFreeId(container=None, try_id=None):
     """ This method looks for a free object id in the current folder
@@ -290,8 +288,6 @@ def getObjectVisibility(self, **kw):
 
     if visibility in ['only_in', 'everywhere_except_in', \
                       'starting_from', 'up_till']:
-        portal_url = utool(relative=0)
-
         url = None
         # simulated URL
         rurl = REQUEST.form.get('sim_url', None)
@@ -337,7 +333,7 @@ def getObjectVisibility(self, **kw):
             theBase = REQUEST['BASE0'].split('//')[0]
             if theBase == 'https:':
                 return 1
-
+    return None
 
 def getApplicableStylesFor(self):
     """ Returns the list of styles by meta type and style's identifier
@@ -420,9 +416,8 @@ def moveToLostAndFound(self, obj):
     """ moves the object to the lost+found folder of the theme"""
 
     tmtool = getToolByName(self, 'portal_themes')
-
     container = obj.aq_parent
-    cookie = container.manage_cutObjects(obj.getId())
+    cookie = container.manage_copyObjects(obj.getId())
     theme_container = tmtool.getPortalThemeRoot(object=obj)
     lost_and_found = theme_container.getLostAndFoundFolder(create=1)
     if lost_and_found is None:
@@ -435,8 +430,9 @@ def moveToLostAndFound(self, obj):
         manage_perms(View, roles=['Manager'], acquire=0)
         manage_perms(AccessContentsInformation, roles=['Manager'], acquire=0)
     except:
-        container.manage_delObjects(obj.getId())
-
+        pass
+    container.manage_delObjects(obj.getId())
+    return 1
 
 def css_slimmer(css):
     """ reduces the size of a CSS file """
