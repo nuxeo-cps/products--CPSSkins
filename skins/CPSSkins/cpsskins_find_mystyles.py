@@ -21,16 +21,11 @@ oldstyle = context.getStyle(meta_type=meta_type)
 if oldstyle is None:
     oldstyle = theme_container.addPortalStyle(type_name=meta_type)
 
-parents = oldstyle.findParents()
 style = oldstyle
-
-if len(parents) == 1:
-    for s in tmtool.findStylesFor(meta_type, context)['object']:
-        if s.getTitle() == meta_type:
-            style = s
-else:
-    style = oldstyle.duplicate()
-    context.setStyle(style=style, meta_type=meta_type)
+for s in tmtool.findStylesFor(meta_type, context)['object']:
+    if s.getTitle() == meta_type:
+        style = s
+    break
 
 if style is None:
     return
