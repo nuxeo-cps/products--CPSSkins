@@ -656,7 +656,8 @@ tal:define="cellhider python: objects_in_xpos['cellhider'];
    tal:attributes="xpos x_pos; 
                    ypos python: 0;
                    title python: mcat and mcat(title) or title;
-                   dest_pageblock pageblock_id">
+                   dest_pageblock pageblock_id;
+                   pageblock_url pageblock_url">
   </div>
 </metal:block>
 
