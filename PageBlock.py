@@ -211,19 +211,24 @@ class PageBlock(ThemeFolder, StylableContent):
             td_tag = []
             td_tag.append('valign="top"')
             cellsize = objects_in_xpos['cellsizer']
-            if cellsize is not None:
+            if cellsize:
                 td_tag.append('width="%s"' % cellsize.cellwidth)
             cellstyle = objects_in_xpos['cellstyler']
-            if cellstyle is not None:
+            if cellstyle:
                 td_tag.append('class="%s"' % cellstyle.getCSSCellClass(level=2))
             rendered.append('<td %s>' % " ".join(td_tag))
             contents_in_xpos = objects_in_xpos['contents']
             for content in contents_in_xpos:
+                margin_style = content.getCSSMarginStyle()
+                if margin_style:
+                    rendered.append('<div style="%s">' % margin_style)
                 rendered.append('<div class="%s" style="%s">' % (
                     content.getCSSAreaClass(level=2),
                     content.getCSSLayoutStyle()))
                 rendered.append(content.render_cache(**kw))
                 rendered.append('</div>')
+                if margin_style:
+                    rendered.append('</div>')
             rendered.append('</td>')
         rendered.append('</tr></table>')
 
