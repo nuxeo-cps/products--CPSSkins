@@ -28,12 +28,12 @@
       <div class="title BoxGroupBoxTitle"
        tal:condition="editable" style="display:block; padding-right: 0">
         <a style="float:right"  href=""
-        tal:attributes="href string:${portlet_folder/absolute_url}/cpsskins_delete_portlet?portlet_id=$portlet_id&redirect_url=$folder_url; 
+        tal:attributes="href string:${base_url}${portlet_folder_rurl}/cpsskins_delete_portlet?portlet_id=$portlet_id&redirect_url=$folder_url; 
                         onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_portlet'), )">
           <img border="0" width="12" height="12" alt=""
           tal:attributes="src string:${base_url}cpsskins_images/img_delete.png" />
         </a>
-        <a tal:attributes="href string:${portlet_url}/cpsskins_portlet_edit">
+        <a tal:attributes="href string:${base_url}${portlet_rurl}/cpsskins_portlet_edit">
           <tal:block content="portlet_title" />
         </a>
       </div>
@@ -64,6 +64,14 @@
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
          filter="Portlet_prepare_element_menu(pd_filter_object)"></div>
+    <div class="context-menu-item" onmouseup="Choice_edit()"
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
+      <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/edit-16.png" />
+      <tal:block i18n:translate="" 
+         define="title string:_menu_Edit_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
     <div class="context-menu-item" onmouseup="Choice_insert()"
          filter="pd_selected_item">
        <img width="16" height="16" 
@@ -73,7 +81,7 @@
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_delete()"
-         filter="pd_selected_item">
+     tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('portlet_id')">
        <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
        <tal:block i18n:translate="" 
@@ -212,8 +220,12 @@
   <table border=0 width="100%" cellpadding="3" cellspacing="2">
     <tr>
       <th tal:repeat="bc here/cpsskins_getBreadcrumbs">
-        <a href="" tal:content="bc/longtitle" 
-         tal:attributes="href string:/${bc/rpath}/portlet_manage_form" />
+        <div class="PortletBoxDest"
+         tal:attributes="dest_rurl bc/rpath;
+                         dest_ypos python: 0">
+          <a href="" tal:content="bc/longtitle" 
+           tal:attributes="href string:/${bc/rpath}/portlet_manage_form" />
+        </div>
       </th>
     </tr>
     <tal:block define="portlets python:ptltool.getPortlets(context=here)"

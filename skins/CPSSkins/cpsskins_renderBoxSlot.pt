@@ -5,7 +5,8 @@
                    dest_ypos python: 0">
     <div class="BoxGroupBoxSlotTitle" tal:content="slot_title" />
     <div class="PortletBoxEditMenu" style="padding: 20px"
-     tal:attributes="src_ypos python: 0;
+     tal:attributes="has_portlets python: 0;
+                     src_ypos python: 0;
                      src_slot slot_title">
     </div>
   </div>

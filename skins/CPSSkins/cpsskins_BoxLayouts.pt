@@ -205,14 +205,15 @@
              tmtool here/portal_themes;
              base_url python: request.get('cpsskins_base_url', '');
              portlet_id portlet/getId;
-             portlet_url portlet/getURL;
+             portlet_rurl portlet/getRelativeUrl;
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+             folder_url python: base_url + utool.getRelativeUrl(here);
              view_mode tmtool/getViewMode;
              selected_portlet view_mode/selected_portlet|nothing;
              selected python: portlet_id == selected_portlet">
   <div class="title buttons">
-    <a tal:attributes="href string:${portlet_url}/cpsskins_portlet_edit">
+    <a tal:attributes="href string:${base_url}${portlet_rurl}/cpsskins_portlet_edit">
       <img src="" width="16" height="16" border="0" alt=""
        tal:attributes="src string:${base_url}cpsskins_images/button_edit.png" /></a>
     <metal:block define-slot="box_title">Box Title</metal:block>
@@ -221,10 +222,14 @@
   <div class="PortletBoxDrag PortletBoxEditMenu"
    tal:define="ypos portlet/getOrder;
                group portlet/getSlot"
-   tal:attributes="portlet_rurl portlet/getRelativeUrl;
+   tal:attributes="portlet_rurl portlet_rurl;
+                   portlet_url string:${base_url}${portlet_rurl};
                    src_rurl portlet_folder_rurl;
                    src_ypos python: ypos and ypos or 0;
-                   src_slot group">
+                   src_slot group;
+                   portlet_id portlet_id;
+                   portlet_folder portlet_folder_rurl;
+                   folder_url folder_url">
     <div class="PortletBoxDest"
      tal:attributes="dest_rurl portlet_folder_rurl;
                      dest_slot group;
