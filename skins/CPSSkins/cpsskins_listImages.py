@@ -7,7 +7,12 @@ list = []
 tmtool = context.portal_themes
 ttool = context.portal_types
 
-allowed_content_types = ['image/gif', 'image/jpeg', 'image/png', 'image/x-icon']
+allowed_content_types = [
+    'image/gif',
+    'image/jpeg',
+    'image/png',
+    'image/x-ico',
+    'image/x-icon']
 view_mode = tmtool.getViewMode()
 theme = view_mode.get('theme')
 theme_container = tmtool.getThemeContainer(theme=theme)
