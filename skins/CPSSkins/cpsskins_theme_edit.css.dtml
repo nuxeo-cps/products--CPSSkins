@@ -286,7 +286,6 @@ div.simulate_hierarchies {
 .editForm > form input {
   border: 1px solid #999;
   background-color: #fffff;
-  padding: 2px;
 }
 
 .stylePreview {
@@ -322,7 +321,7 @@ div.simulate_hierarchies {
   border-bottom-color: #ccf;
   margin-left: 2px;
   margin-bottom: 0px;
-  padding: 0 15px 0 15px;
+  padding: 0 10px 0 10px;
   font: bold 12px Arial, sans-serif !important;
   color: Black !important;
   background: #dddde0;
@@ -332,7 +331,7 @@ div.simulate_hierarchies {
 .editNavigationTab input.selected {
   border-bottom-color: #ddd;
   background: #f6f6f6;
-  padding: 0px 15px 0 15px;
+  padding: 0px 10px 0 10px;
 }
 
 .editNavigationTab input:hover {
