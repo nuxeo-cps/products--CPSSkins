@@ -31,7 +31,7 @@ function toggle(panelId) {
 }
 
 function selectImage(value) {
-  document.data[current_field].selectedIndex = style
+  document.data[current_field].selectedIndex = value
 }
 
 function selectPalette(value) {
@@ -39,15 +39,15 @@ function selectPalette(value) {
 }
 
 function selectTheme(value) {
-  document.data[current_field].selectedIndex = style
+  document.data[current_field].selectedIndex = value
 }
 
 function selectSlot(value) {
   document.data[current_field].value = value;
 }
 
-function selectStyle(style) {
-  document.data[current_field].selectedIndex = style
+function selectStyle(value) {
+  document.data[current_field].selectedIndex = value
 }
 
 /* Pop-up window */

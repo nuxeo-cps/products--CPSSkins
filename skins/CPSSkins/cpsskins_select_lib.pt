@@ -27,3 +27,29 @@ tal:define="
     </div>
   </div>
 </metal:block>
+
+<metal:block define-macro="images"
+tal:define="
+  images python: here.cpsskins_listImages(imagecat=image_cat)">
+  <div class="panel" tal:repeat="image images">
+    <a href=""
+     tal:define="number repeat/image/number" 
+     tal:attributes="href string:javascript:selectImage('$number', '$id');; toggle('$image_cat')">
+      <div style="width: 250px">
+        <h1 tal:content="image/title" />
+        <tal:block content="string:${image/size} bytes" />
+        <tal:block content="string:(${image/width}x${image/height} px)" />
+        <img border="0" alt="" src=""
+         tal:condition="python: image_cat == 'icons'"
+         tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image/absolute_url" />
+        <img border="0" alt="" src=""
+         tal:condition="python: image_cat == 'thumbnails'"
+         tal:attributes="src image/absolute_url" />
+        <div class="backgroundeditbox"
+         tal:condition="python: image_cat == 'backgrounds'"
+         tal:attributes="style string:background: url('${image/absolute_url}');;">
+        </div>
+      </div>
+    </a>
+  </div>
+</metal:block>

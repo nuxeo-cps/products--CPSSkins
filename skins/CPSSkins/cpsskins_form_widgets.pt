@@ -130,6 +130,14 @@
                 <img alt="select image" width="16" height="16"
                  tal:attributes="onClick string:select('$image', '$id');
                                 src string:${base_url}cpsskins_images/select_icon.png" />
+                <div class="panelFrame"
+                 tal:define="image_cat image"
+                 tal:condition="python: image_cat not in select_panels"
+                 tal:attributes="id image_cat">
+                  <tal:block define="dummy python: select_panels.append(image_cat)">
+                    <metal:block use-macro="here/cpsskins_select_lib/macros/images" />
+                  </tal:block>
+                </div>
               </tal:block>
 
               <tal:block condition="python: style in style_meta_types">
