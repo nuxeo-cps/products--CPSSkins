@@ -26,7 +26,7 @@ padding:0;
 display:block;
 padding:&dtml-VerticalPadding; &dtml-HorizontalPadding; &dtml-VerticalPadding; &dtml-HorizontalPadding;;
 }
-.PortalTab&dtml-title; li.submenuout {
+.PortalTab&dtml-title; li.menuout {
 <dtml-if Tab_right_bg_image>
 background:url(/&dtml-theme_url;/backgrounds/&dtml-Tab_right_bg_image;) right top no-repeat;
 </dtml-if>
@@ -35,11 +35,11 @@ border-bottom:1px solid &dtml-Tab_bottom_border_color;;
 </dtml-if>
 }
 <dtml-if Tab_left_bg_image>
-.PortalTab&dtml-title; li.submenuout a {
+.PortalTab&dtml-title; li.menuout a {
 background:url(/&dtml-theme_url;/backgrounds/&dtml-Tab_left_bg_image;) left top no-repeat;;
 }
 </dtml-if>
-.PortalTab&dtml-title; li.submenuin {
+.PortalTab&dtml-title; li.menuin {
 <dtml-if TabIn_right_bg_image>
 background:url(/&dtml-theme_url;/backgrounds/&dtml-TabIn_right_bg_image;) right top no-repeat;
 </dtml-if>
@@ -48,7 +48,7 @@ border-bottom:1px solid &dtml-TabIn_bottom_border_color;;
 </dtml-if>
 }
 <dtml-if TabIn_left_bg_image>
-.PortalTab&dtml-title; li.submenuin a {
+.PortalTab&dtml-title; li.menuin a {
 background:url(/&dtml-theme_url;/backgrounds/&dtml-TabIn_left_bg_image;) left top no-repeat;
 }
 </dtml-if>

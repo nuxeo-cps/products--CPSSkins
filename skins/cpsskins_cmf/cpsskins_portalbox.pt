@@ -21,7 +21,7 @@
                            menu_selected python: menuentry['selected']; 
                            menu_title python: menuentry['title']; 
                            menu_title python: mcat and mcat(menu_title) or menu_title; 
-                           menuclass python: menu_selected and 'submenuin' or 'submenuout'; 
+                           menuclass python: menu_selected and 'menuin' or 'menuout'; 
                            iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
           <a href=""
           tal:attributes="href menu_url; class menuclass; style menustyle">
@@ -37,7 +37,7 @@
         <tal:block define="menu_url python: menuentry['url']; 
                            menu_selected python: menuentry['selected']; 
                            menu_title python: menuentry['title'];  
-                           menuclass python: menu_selected and 'submenuin' or 'submenuout'; 
+                           menuclass python: menu_selected and 'menuin' or 'menuout'; 
                            iconclass python: menu_selected and 'menuinicon' or 'menuouticon'">
           <a href=""
           tal:attributes="href menu_url; class menuclass; style menustyle">
@@ -156,7 +156,7 @@
     <tal:block define="RelatedDocuments context_obj/cpsskins_RelatedDocuments"
                condition="RelatedDocuments">
       <div tal:repeat="related RelatedDocuments"
-      class="submenuout">
+      class="menuout">
         <img src=""
         tal:attributes="src string:${base_url}${related/icon}; alt context_obj/title" />
         <a href="" tal:attributes="href string:${related/url}/view"
@@ -171,7 +171,7 @@
                condition="not:isAnon">
       <tal:block condition="results">
         <tal:block tal:repeat="obj results">
-          <div class="submenuout">
+          <div class="menuout">
             <img src=""
             tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
             <a href="" tal:attributes="href string:${obj/url}/view"
@@ -189,7 +189,7 @@
     <tal:block define="results here/cpsskins_getEvents"
     condition="results">
       <tal:block tal:repeat="obj results">
-        <div class="submenuout">
+        <div class="menuout">
         <img src=""
         tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
         <a href="" tal:attributes="href string:${obj/url}/view"
@@ -206,7 +206,7 @@
     <tal:block define="results here/cpsskins_getPending"
     condition="results">
       <tal:block tal:repeat="obj results">
-        <div class="submenuout">
+        <div class="menuout">
           <img src=""
           tal:attributes="src string:${base_url}${obj/icon}; alt obj/title" />
           <a href=""

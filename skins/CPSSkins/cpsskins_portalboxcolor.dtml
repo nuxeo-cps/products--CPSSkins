@@ -58,7 +58,7 @@ background:url(/<dtml-var url>) no-repeat left center;
 background-color:&dtml-BoxBody_menuin_color;
 }
 </dtml-if>
-.BoxColor&dtml-title; .body .submenuin {
+.BoxColor&dtml-title; .body .menuin {
 <dtml-if BoxBody_menuin_color>
 background-color:&dtml-BoxBody_menuin_color;;
 </dtml-if>
@@ -66,7 +66,7 @@ background-color:&dtml-BoxBody_menuin_color;;
 border-color:&dtml-BoxBody_menuin_border_color;
 </dtml-if>
 }
-.BoxColor&dtml-title; .body .submenuout {
+.BoxColor&dtml-title; .body .menuout {
 <dtml-if BoxBody_menuout_color>
 background-color:&dtml-BoxBody_menuout_color;;
 </dtml-if>
@@ -74,7 +74,7 @@ background-color:&dtml-BoxBody_menuout_color;;
 border-color:&dtml-BoxBody_menuout_border_color;
 </dtml-if>
 }
-.BoxColor&dtml-title; .body .submenuout:hover,
+.BoxColor&dtml-title; .body .menuout:hover,
 .BoxColor&dtml-title; .body a:hover {
 <dtml-if BoxBody_menuin_color>
 background-color:&dtml-BoxBody_menuin_color;;

@@ -18,7 +18,7 @@ tal:define="context_obj nocall:options/context_obj;
         define="menu_url python: menuentry['url']; 
                 menu_selected python: menuentry['selected'];
                 menu_title python: menuentry['title'];
-                menuclass python: menu_selected and 'submenuin' or 'submenuout'">
+                menuclass python: menu_selected and 'menuin' or 'menuout'">
           <li tal:attributes="class menuclass">
             <a tal:attributes="href menu_url"
                i18n:translate="" tal:content="structure menu_title" />
@@ -30,7 +30,7 @@ tal:define="context_obj nocall:options/context_obj;
         define="menu_url python: menuentry['url']; 
                 menu_selected python: menuentry['selected'];
                 menu_title python: menuentry['title'];
-                menuclass python: menu_selected and 'submenuin' or 'submenuout'">
+                menuclass python: menu_selected and 'menuin' or 'menuout'">
           <li tal:attributes="class menuclass">
             <a tal:attributes="href menu_url"
                tal:content="structure menu_title" />

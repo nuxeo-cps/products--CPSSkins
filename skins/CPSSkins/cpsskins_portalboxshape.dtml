@@ -29,7 +29,7 @@ padding: &dtml-BoxBody_padding;;
 .BoxShape&dtml-title; .body img {
 vertical-align: bottom;
 }
-.BoxShape&dtml-title; .body .submenuout, .BoxShape&dtml-title; .body li {
+.BoxShape&dtml-title; .body .menuout, .BoxShape&dtml-title; .body li {
 <dtml-if BoxBody_menuout_border_style>
 border-style:&dtml-BoxBody_menuout_border_style;;
 </dtml-if>
@@ -43,7 +43,7 @@ margin: &dtml-BoxBody_menuout_margin;;
 padding: &dtml-BoxBody_menuout_padding;;
 </dtml-if>
 }
-.BoxShape&dtml-title; .body .submenuin {
+.BoxShape&dtml-title; .body .menuin {
 <dtml-if BoxBody_menuin_border_style>
 border-style:&dtml-BoxBody_menuin_border_style;;
 </dtml-if>

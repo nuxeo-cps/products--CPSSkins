@@ -313,7 +313,7 @@ tal:define="deletable deletable|nothing;">
 <!-- file_list_compact -->
 <metal:block define-macro="file_list_compact"  tal:define="mcat nocall:here/portal_messages">
     <tal:block repeat="docinfo docinfos">
-      <a class="submenuout" style="display: block"
+      <a class="menuout" style="display: block"
       tal:attributes="href string:${docinfo/url}/${docinfo/action}"
       tal:omit-tag="not:docinfo/url">
       <span class="menuouticon">&nbsp;</span><strong tal:content="docinfo/title" />
@@ -332,7 +332,7 @@ tal:define="deletable deletable|nothing;">
 <!-- file_list_minimal -->
 <metal:block define-macro="file_list_minimal"  tal:define="mcat nocall:here/portal_messages">
       <tal:block repeat="docinfo docinfos">
-      <a class="submenuout" style="display: block"
+      <a class="menuout" style="display: block"
       tal:attributes="href string:${docinfo/url}/${docinfo/action}"
       tal:omit-tag="not:docinfo/url">
       <span class="menuouticon">&nbsp;</span><strong tal:content="docinfo/title" />
@@ -350,8 +350,8 @@ tal:define="deletable deletable|nothing;">
     <a style="display: block"
     tal:define="title item/title; 
                 depth item/depth;
-		title python:here.portal_messages(title); 
-                item_class python:item.get('in') and 'submenuin' or 'submenuout';
+                title python:here.portal_messages(title); 
+                item_class python:item.get('in') and 'menuin' or 'menuout';
                 icon_class python:item.get('in') and 'menuinicon' or 'menuouticon';
                 item_padding python: '%sem' % depth;"
     tal:attributes="class item_class;

@@ -55,9 +55,9 @@ for category in categories:
                 if icon:
                     menustyle = 'background: url(%s%s) no-repeat' % (base_url, icon) 
             if we_are_here:
-                menuclass = 'submenuin'
+                menuclass = 'menuin'
             else:
-                menuclass = 'submenuout'
+                menuclass = 'menuout'
 
             actioninfo.append({
                 'we_are_here': we_are_here,

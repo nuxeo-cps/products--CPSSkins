@@ -24,7 +24,7 @@ tal:condition="oklist">
     <span style="font-weight: bold"
     tal:content="content/box_group" />)</div>
     <div class="body">
-      <a class="submenuout" href="#" style="display: block">
+      <a class="menuout" href="#" style="display: block">
       <span class="menuouticon">&nbsp;</span>Item</a>
     </div>
   </div>
