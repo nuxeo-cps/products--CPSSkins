@@ -416,10 +416,16 @@ class PortalTheme(ThemeFolder, StylableContent):
 
     security.declarePublic('getRequestedPage')
     def getRequestedPage(self, **kw):
-        """Gets the requested page.
+        """Get the requested page.
         """
-
         page = self.getRequestedPageName(**kw)
+        return self.getPageContainer(page)
+
+    security.declarePublic('getEffectivePage')
+    def getEffectivePage(self, **kw):
+        """Get the effective page.
+        """
+        page = self.getEffectivePageName(**kw)
         return self.getPageContainer(page)
 
     security.declarePublic('getEffectivePageName')

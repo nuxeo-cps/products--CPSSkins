@@ -2,7 +2,7 @@
   tmtool here/portal_themes;
   current_theme python: tmtool.getRequestedThemeName(context_obj=here);
   theme_container python: tmtool.getThemeContainer(theme=current_theme);
-  current_page python: theme_container.getRequestedPageName(context_obj=here);
+  current_page python: theme_container.getEffectivePageName(context_obj=here);
   page_container python: theme_container.getPageContainer(current_page);
   global macroless python: page_container.renderer == 'macroless'">
 

@@ -7,7 +7,7 @@ tmtool = context.portal_themes
 slots = context.cpsskins_listSlots()
 
 theme_container = tmtool.getThemeContainer(theme=theme)
-page_container = theme_container.getRequestedPage(context_obj=context)
+page_container = theme_container.getEffectivePage(context_obj=context)
 
 for block in page_container.getPageBlocks():
     objects = block.getObjects()
