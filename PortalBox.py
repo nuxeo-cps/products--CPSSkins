@@ -293,7 +293,7 @@ class PortalBox(BaseTemplet, SimpleBox):
             # add the box decoration
             rendered_box += self.renderBoxLayout(boxlayout=self.boxlayout,
                                                  title=self.render_title(**kw),
-                                                 body=body,
+                                                 body=body, **kw
                                                 )
             rendered_box += '</div></div>'
         return rendered_box

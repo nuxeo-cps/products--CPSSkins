@@ -291,7 +291,7 @@ class PortletBox(BaseTemplet, SimpleBox):
             rendered_box += self.renderBoxLayout(boxlayout=self.boxlayout,
                                                  title=self.title,
                                                  body=body,
-                                                 portlet=portlet,
+                                                 portlet=portlet, **kw
                                                 )
             rendered_box += '</div></div>'
         return rendered_box

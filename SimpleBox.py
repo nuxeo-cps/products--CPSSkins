@@ -35,8 +35,8 @@ BOX_LAYOUTS = {
 'notitle_noframe': """<div class="body" style="border: none">%s</div>""",
 # no title
 'notitle': """<div class="body">%s</div>""",
-# no frame
-'noframe': """<div class="title" style="border: none">%s</div>
+# no frames
+'no_frames': """<div class="title" style="border: none">%s</div>
 <div class="body" style="border: none">%s</div>""",
 }
 
@@ -63,7 +63,7 @@ class SimpleBox:
         elif boxlayout == 'notitle':
             return BOX_LAYOUTS['notitle'] % body
         elif boxlayout == 'noframe':
-            return BOX_LAYOUTS['noframe'] % (title, body)
+            return BOX_LAYOUTS['no_frames'] % (title, body)
         elif boxlayout == 'notitle_noframe':
             return BOX_LAYOUTS['notitle_noframe'] % body
 

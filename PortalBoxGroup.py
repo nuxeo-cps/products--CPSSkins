@@ -237,7 +237,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             all_rendered += renderBoxLayout(boxlayout=boxlayout,
                                             title=portlet.title,
                                             body=html_slimmer(rendered),
-                                            portlet=portlet,
+                                            portlet=portlet, **kw
                                            )
             all_rendered += '</div></div>'
 
