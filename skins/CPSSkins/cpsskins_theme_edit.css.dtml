@@ -50,7 +50,7 @@ cursor: hand;
 .context-menu {
 font: 10px Verdana, Arial, Helvetica, sans-serif;
 position: absolute;
-border: 1px outset Menu;
+border: 2px outset Menu;
 filter: alpha(opacity=90);
 background-image: url(<dtml-var base_url>cpsskins_images/bg_context-menu.png);
 color: MenuText;
@@ -59,6 +59,7 @@ z-index: 1000;
 visibility: hidden;
 display: table;
 white-space: nowrap;
+width: 140px;
 }
 
 .context-menu-item, .context-menu-item_highlighted {
