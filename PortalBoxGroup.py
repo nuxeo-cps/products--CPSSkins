@@ -123,9 +123,9 @@ class PortalBoxGroup(BaseTemplet):
                    'one_frame', 
                    'notitle', 
                    'no_frames', 
-                   'notitle_noframe',
-                   'drawer',
-                   'drawer_notitle']
+                   'notitle_noframe']
+        if self.hasPortlets():
+            layouts.append('min_max')
         return layouts
 
     security.declarePublic('hasPortlets')
@@ -177,10 +177,10 @@ class PortalBoxGroup(BaseTemplet):
          return self.box_group
 
     security.declarePublic('applyBoxLayout')
-    def applyBoxLayout(self, title='', body=''):
+    def applyBoxLayout(self, **kw):
         """Apply a box layout on the content"""
 
-        return self.cpsskins_renderBox(title=title, body=body)
+        return self.cpsskins_renderBox(**kw)
         
     #
     # Rendering.
@@ -202,13 +202,17 @@ class PortalBoxGroup(BaseTemplet):
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render() 
+                    rendered = portlet.render()
                 # could be anything
                 except:
                     rendered = self.cpsskins_brokentemplet()
             else:
                 rendered = portlet.render()
-            rendered = self.applyBoxLayout(title='test', body=rendered)
+            # add the box decoration
+            rendered = self.applyBoxLayout(title=portlet.getTitle(),
+                                           body=rendered,
+                                           state=portlet.getState(),
+                                           url=portlet.getRelativeUrl())
             all_rendered += rendered
 
         return all_rendered
