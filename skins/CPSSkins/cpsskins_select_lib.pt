@@ -53,3 +53,17 @@ tal:define="
     </a>
   </div>
 </metal:block>
+
+<metal:block define-macro="slots"
+tal:define="slots here/cpsskins_listSlots">
+  <div class="slotSelector" tal:repeat="slot slots">
+    <img src="" width="16" height="16" alt=""
+     tal:attributes="src string:${base_url}cpsskins_images/boxslot.png" />
+    &nbsp;<span tal:content="slot" /> ...
+    <div style="text-align: right"> 
+      <a tal:define="title string:_select this slot_" i18n:translate=""
+      tal:attributes="href string:javascript:selectSlot('$slot', '$id');; toggle('slots')"
+      tal:content="python: mcat and mcat(title) or title" />
+    </div>
+  </div>
+</metal:block>
