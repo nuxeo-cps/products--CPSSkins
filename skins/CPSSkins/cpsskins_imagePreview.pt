@@ -1,0 +1,16 @@
+<tal:block define="
+  imagecat options/imagecat;
+  image nocall:options/image;
+  image_url image/absolute_url;
+  inline options/inline|nothing">
+  <img tal:condition="python: imagecat == 'icons'"
+   tal:attributes="width python: '%spx' % test(image.width > 200, 200, image.width); src image_url" />
+  <img tal:condition="python: imagecat == 'thumbnails'"
+   tal:attributes="src image_url;
+                   width python: inline and '20px' or '200px'" />
+  <div 
+   tal:condition="python: imagecat == 'backgrounds'"
+   tal:define="width python: inline and '64px' or '160px';
+               height python: inline and '16px' or '80px'"
+   tal:attributes="style string:background: url('${image_url}');; width: $width;; height: $height">&nbsp;</div>
+</tal:block>
