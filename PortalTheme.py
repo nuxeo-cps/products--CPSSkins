@@ -57,7 +57,7 @@ from StylableContent import StylableContent
 
 from cpsskins_utils import rebuild_properties, callAction, css_slimmer, \
                            getFreeId, verifyThemePerms, canonizeId, \
-                           isBroken, moveToLostAndFound
+                           isBroken, moveToLostAndFound, setCacheHeaders
 
 factory_type_information = (
     {'id': 'Portal Theme',
@@ -447,9 +447,10 @@ class PortalTheme(ThemeFolder, StylableContent):
     def renderCSS(self, REQUEST=None, **kw):
         """ Generates the CSS file for this theme """
 
-        if REQUEST is not None:
-            kw.update(REQUEST.form)
-            REQUEST.RESPONSE.setHeader('Content-Type', 'text/css')
+        REQUEST = self.REQUEST
+        kw.update(REQUEST.form)
+
+        setCacheHeaders(self, css=1, **kw)
 
         cache = self.getCSSCache(create=1)
         index = tuple(kw.items())

@@ -462,3 +462,20 @@ def html_slimmer(html):
     html = re.sub(r'\n','', html)
     return html
 
+def setCacheHeaders(self, css=0, editing=0):
+    """ set HTTP cache headers"""
+
+    REQUEST = self.REQUEST
+    setHeader = REQUEST.RESPONSE.setHeader
+
+    if css:
+        setHeader('Content-Type', 'text/css')
+
+    if not editing:
+        now = DateTime()
+        last_modified = now -14
+        expires = now +1
+
+        setHeader('Last-Modified', last_modified.toZone('GMT').rfc822())
+        setHeader('Cache-Control', 'max-age=36000, must-revalidate')
+        setHeader('Expires', expires.toZone('GMT').rfc822())
