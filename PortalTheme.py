@@ -379,7 +379,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 objects = backup_folder.objectIds()
                 cookie = backup_folder.manage_cutObjects(objects)
                 self.invokeFactory('Theme Folder', themefolder)
-                new_folder = getattr(self.aq_explcit, themefolder, None)
+                new_folder = getattr(self.aq_explicit, themefolder, None)
                 if new_folder is not None:
                     new_folder.manage_pasteObjects(cookie)
                     self.manage_delObjects([backupid])
