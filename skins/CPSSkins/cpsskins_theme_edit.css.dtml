@@ -208,18 +208,10 @@ a.rightButton {
   position: absolute;
   border: 1px solid #000;
   border-top: 3px solid #669;
-  margin-top: 3px;
   background-color: #eee;
   width: 150px;
-}
-
-.context-menu-submenu li > ul {
   top: auto;
   left: auto;
-}
-
-.context-menu-submenu li:hover ul {
-  display: block;
   margin: -1.8em 0 0 120px;
 }
 
