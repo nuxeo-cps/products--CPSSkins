@@ -15,6 +15,30 @@ function findDescendant(node, className) {
   return null;
 }
 
+function Portlet_prepare_element_menu(header) {
+  // Prepares the header of the element context menu.
+  var node;
+  if (!pd_selected_item) {
+    icon = null;
+    text = '' + pd_selected_items.length + ' Elements Selected';
+  }
+  else {
+    icon = pd_selected_item.getAttribute('icon');
+    text = pd_selected_item.getAttribute('title');
+  }
+  while (header.childNodes.length)
+    header.removeChild(header.childNodes[0]);
+  if (icon) {
+    node = document.createElement("img");
+    node.setAttribute("src", icon);
+    node.setAttribute("width", "16");
+    node.setAttribute("height", "16");
+    header.appendChild(node);
+  }
+  node = document.createTextNode(text);
+  header.appendChild(node);
+  return true;
+}
 
 function PortletBox_move(selected_items, target_node) {
   if (!selected_items.length)
@@ -36,13 +60,25 @@ function PortletBox_move(selected_items, target_node) {
   window.location = new_url;
 }
 
-function Choice_insert(portlet_type) {
+function Choice_insert() {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  window.location = 'createCPSPortlet?ptype_id=' + portlet_type + '&order=' + dest_ypos + '&slot=' + dest_slot + '&title=' + portlet_type;
+  window.location = 'cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot;
+}
+
+function Choice_delete() {
+  pd_hideContextMenu();
+  if (pd_selected_item == null) 
+     return;
+  dest_slot = pd_selected_item.getAttribute('src_slot');
+  dest_ypos = pd_selected_item.getAttribute('src_ypos');
+  portlet_id = pd_selected_item.getAttribute('portlet_id');
+  portlet_folder = pd_selected_item.getAttribute('portlet_folder');
+  folder_url = pd_selected_item.getAttribute('folder_url');
+  window.location = portlet_folder + '/cpsskins_delete_portlet?portlet_id=' + portlet_id + '&redirect_url=' + folder_url;
 }
 
 function PortletBox_checkmove(selected_items, target_node) {

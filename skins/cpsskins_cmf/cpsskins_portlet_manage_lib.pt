@@ -38,7 +38,10 @@
         </a>
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
-       tal:attributes="src_ypos python: ypos and ypos or 0;
+       tal:attributes="portlet_id portlet_id;
+                       portlet_folder python: base_url + portlet_folder_rurl;
+                       folder_url folder_url;
+                       src_ypos python: ypos and ypos or 0;
                        src_slot group">
         <div class="body">
           <img width="16" height="16" alt=""
@@ -59,23 +62,24 @@
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
   tal:define="ttool here/portal_types">
   <div id="choice-context-menu" class="context-menu">
-    <div class="context-menu-header" class="context-menu">
-      <tal:block i18n:translate="menu_insert_portlet" i18n:domain="cpsskins">
-      Insert a portlet here</tal:block>
+    <div class="context-menu-header"
+         filter="Portlet_prepare_element_menu(pd_filter_object)"></div>
+    <div class="context-menu-item" onmouseup="Choice_insert()"
+         filter="pd_selected_item">
+       <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/insert-16.png" />
+       <tal:block i18n:translate="" 
+         define="title string:_menu_Insert_"
+         content="python: mcat and mcat(title) or title" />
     </div>
-    <tal:block repeat="ptype_id ptltool/listPortletTypes">
-      <div class="context-menu-item"
-      filter="pd_selected_item"
-      tal:attributes="onmouseup string:Choice_insert('${ptype_id}')"
-      tal:define="fti python: ttool.getTypeInfo(ptype_id);
-                  portlet_icon python: fti.getIcon();
-                  portlet_type python: fti and fti.title_or_id() or ptype_id">
-        <img width="16" height="16" 
-         tal:condition="portlet_icon"
-         tal:attributes="src string:${base_url}$portlet_icon" />
-        <tal:block content="structure python: cpsmcat(portlet_type)" />
-      </div>
-    </tal:block>
+    <div class="context-menu-item" onmouseup="Choice_delete()"
+         filter="pd_selected_item">
+       <img width="16" height="16" 
+         tal:attributes="src string:${base_url}cpsskins_images/delete-16.png" />
+       <tal:block i18n:translate="" 
+         define="title string:_menu_Delete_"
+         content="python: mcat and mcat(title) or title" />
+    </div>
   </div>
 </metal:block>
 
@@ -154,7 +158,9 @@
                tal:condition="content/aq_explicit/isPortalBox|nothing" />
               <tal:block condition="content/aq_explicit/isPortalBoxGroup|nothing"
                define="group content/box_group|nothing">
-                <div class="BoxGroupBoundingBox">
+                <div class="BoxGroupBoundingBox"
+                 tal:define="slot_icon python: '/' + content.getIcon();
+                             slot_title python: content.Title()">
                   <div tal:content="group" class="BoxGroupBoxSlotTitle" />
                   <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group)">
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
