@@ -40,9 +40,11 @@ tal:define="mcat python: request.get('cpsskins_mcat');
           </li>
         </tal:block>
       </tal:block>
-      <tal:block define="url create_url|nothing" tal:condition="url">
-        <li>
-          <a class="addmenu" tal:attributes="href url">
+      <tal:block define="show_add_items here/show_add_items;
+                         url create_url|nothing" 
+                 condition="python: url and show_add_items">
+        <li class="submenuout">
+          <a tal:attributes="href url">
              &nbsp;+&nbsp;
           </a>
         </li>

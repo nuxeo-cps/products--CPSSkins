@@ -1135,6 +1135,10 @@ msgid "_Show action icons_"
 msgstr ""
 
 
+msgid "_Show add items_"
+msgstr ""
+
+
 msgid "_Show all categories_"
 msgstr "Visa alla kategorier"
 
@@ -1220,6 +1224,10 @@ msgstr ""
 
 
 msgid "_Tab style_"
+msgstr ""
+
+
+msgid "_Tab width_"
 msgstr ""
 
 

@@ -15,6 +15,9 @@ list-style-type:none;
 float:left;
 overflow:visible;
 white-space:nowrap;
+<dtml-if Tab_width>
+width: &dtml-Tab_width;;
+</dtml-if>
 margin:0px &dtml-HorizontalMargin; 0px 0px;
 }
 .PortalTab&dtml-title; li a {

@@ -1638,3 +1638,9 @@ msgstr ""
 
 msgid "_option_text_transform_lowercase_"
 msgstr ""
+
+msgid "_Tab width_"
+msgstr ""
+
+msgid "_Show add items_"
+msgstr ""

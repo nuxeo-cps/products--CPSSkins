@@ -75,6 +75,14 @@ class PortalTab(BaseTemplet):
         'visible': 'IfFoldersCategory',
         'default': 0,
        },
+       {'id': 'show_add_items', 
+        'type': 'boolean', 
+        'mode': 'w', 
+        'label': 'Show add items', 
+        'category': 'folders', 
+        'visible': 'IfFoldersCategory',
+        'default': 1,
+       },
        {'id': 'folder_items_i18n', 
         'type': 'boolean', 
         'mode': 'w', 
@@ -142,6 +150,7 @@ class PortalTab(BaseTemplet):
                  content = 'actions', 
                  level = 0,
                  show_docs = 0,
+                 show_add_items = 1,
                  action_categories = ['user', 'global'],
                  custom_action_categories = [],
                  invisible_actions = ['view',],
@@ -154,6 +163,7 @@ class PortalTab(BaseTemplet):
         self.content = content
         self.level = level
         self.show_docs = show_docs
+        self.show_add_items = show_add_items
         self.base_path = base_path
         self.action_categories = action_categories
         self.custom_action_categories = custom_action_categories

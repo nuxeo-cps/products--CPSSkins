@@ -1137,6 +1137,10 @@ msgid "_Show action icons_"
 msgstr "Poka¿ dzia³ania ikon"
 
 
+msgid "_Show add items_"
+msgstr ""
+
+
 msgid "_Show all categories_"
 msgstr "Poka¿ wszystkie kategorie"
 
@@ -1222,6 +1226,10 @@ msgstr "Szeroko¶æ pod-menu"
 
 
 msgid "_Tab style_"
+msgstr ""
+
+
+msgid "_Tab width_"
 msgstr ""
 
 

@@ -1135,6 +1135,10 @@ msgid "_Show action icons_"
 msgstr "Show action icons"
 
 
+msgid "_Show add items_"
+msgstr "Display a button for adding new items"
+
+
 msgid "_Show all categories_"
 msgstr "Show all categories"
 
@@ -1221,6 +1225,10 @@ msgstr "Sub-menu items width"
 
 msgid "_Tab style_"
 msgstr "Tab style"
+
+
+msgid "_Tab width_"
+msgstr "Tab width"
 
 
 msgid "_Templet color_"

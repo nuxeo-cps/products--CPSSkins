@@ -1137,6 +1137,10 @@ msgid "_Show action icons_"
 msgstr "Afficher l'icône des actions"
 
 
+msgid "_Show add items_"
+msgstr "Afficher un bouton de création de contenu"
+
+
 msgid "_Show all categories_"
 msgstr "Toutes les catégories"
 
@@ -1223,6 +1227,10 @@ msgstr "Largeur des sous-menus"
 
 msgid "_Tab style_"
 msgstr "Style d'onglets"
+
+
+msgid "_Tab width_"
+msgstr "Largeur des onglets"
 
 
 msgid "_Templet color_"

@@ -71,6 +71,12 @@ class PortalTabStyle(BaseStyle):
          'label': 'Horizontal padding', 
          'category':'general'
         },
+        {'id': 'Tab_width', 
+         'type': 'string', 
+         'mode': 'w', 
+         'label': 'Tab width', 
+         'category':'general'
+        },
         {'id': 'Tabs_bg_image', 
          'type': 'selection', 
          'mode': 'w', 
@@ -131,6 +137,7 @@ class PortalTabStyle(BaseStyle):
                  HorizontalMargin = '1px',
                  VerticalPadding = '3px',
                  HorizontalPadding = '3px',
+                 Tab_width = '',
                  Tabs_bg_image = '',
                  Tab_left_bg_image = '',
                  Tab_right_bg_image = '',
@@ -143,6 +150,7 @@ class PortalTabStyle(BaseStyle):
         self.HorizontalMargin = HorizontalMargin
         self.VerticalPadding = VerticalPadding
         self.HorizontalPadding = HorizontalPadding
+        self.Tab_width = Tab_width
         self.Tabs_bg_image = Tabs_bg_image
         self.Tab_left_bg_image = Tab_left_bg_image
         self.Tab_right_bg_image = Tab_right_bg_image
