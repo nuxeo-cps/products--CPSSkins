@@ -76,7 +76,7 @@ class PortletBox(BaseTemplet):
     )
 
     def __init__(self, id, 
-                 box_id = '', 
+                 box_id = None, 
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
         self.box_id = box_id
@@ -109,9 +109,13 @@ class PortletBox(BaseTemplet):
         return self.isportletbox
            
     #
-    # Properties
+    # Portlet interface.
     #
+    security.declarePublic('getPortletId')
+    def getPortletId(self):
+        """Returns the id of the associated portlet."""
 
+        return getattr(self, 'box_id', None)
 
     # RAM Cache
     #

@@ -2,6 +2,8 @@
 # category 'general' is by default
 categories = ['general']
 
+context = context.aq_explicit
+
 for propid in context.propertyIds():
     for obj in context.propertyMap():
         if obj['id'] == propid:
@@ -22,6 +24,7 @@ for propid in context.propertyIds():
                  categories.append(category)
 
 if getattr(context, 'isportletbox', None) is not None:
-    categories.append('Portlet')
+    if context.getPortletId() is not None:
+        categories.append('Portlet')
 
 return categories
