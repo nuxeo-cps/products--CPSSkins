@@ -199,10 +199,9 @@
              portlet_id portlet/getId;
              view_mode here/cpsskins_getViewMode;
              selected_portlet view_mode/selected_portlet|nothing;
-             context_obj nocall:options/context_obj;
-             selected python: portlet == context_obj or portlet_id == selected_portlet">
+             selected python: portlet_id == selected_portlet">
   <div class="title buttons">
-    <a tal:attributes="href string:${portlet_url}/edit_form">
+    <a tal:attributes="href string:${portlet_url}/cpsskins_portlet_edit">
       <img src="" width="16" height="16" border="0" alt=""
        tal:attributes="src string:${base_url}cpsskins_images/button_edit.gif" /></a>
     <metal:block define-slot="box_title">Box Title</metal:block>

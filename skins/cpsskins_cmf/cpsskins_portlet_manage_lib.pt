@@ -28,7 +28,7 @@
             <img border="0" width="12" height="12" alt=""
             tal:attributes="src string:${portal_url}/cpsskins_images/img_delete.png" />
           </a>
-          <a tal:attributes="href string:${portlet_url}/cpsportlet_edit_form">
+          <a tal:attributes="href string:${portlet_url}/cpsskins_portlet_edit">
             <tal:block content="portlet_title" />
           </a>
         </tal:block>
