@@ -1771,6 +1771,9 @@ msgstr ""
 msgid "_Box Corners_"
 msgstr ""
 
+msgid "_Box corners_"
+msgstr ""
+
 msgid "_boxcorners_description_"
 msgstr ""
 

@@ -193,6 +193,10 @@ msgid "_Box color_"
 msgstr "Kolor ramki"
 
 
+msgid "_Box corners_"
+msgstr ""
+
+
 msgid "_Box layout_"
 msgstr "Styl ramki portalu"
 

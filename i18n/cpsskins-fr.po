@@ -191,6 +191,10 @@ msgid "_Box color_"
 msgstr "Couleur de la boîte"
 
 
+msgid "_Box corners_"
+msgstr "Coins de la boîte"
+
+
 msgid "_Box layout_"
 msgstr "Mise en forme de la boîte"
 

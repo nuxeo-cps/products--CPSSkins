@@ -191,6 +191,10 @@ msgid "_Box color_"
 msgstr "Farbe einer Portal Box"
 
 
+msgid "_Box corners_"
+msgstr ""
+
+
 msgid "_Box layout_"
 msgstr "Layout einer Portal Box"
 
