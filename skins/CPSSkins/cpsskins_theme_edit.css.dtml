@@ -210,7 +210,11 @@ a.rightButton {
   width: 150px;
   top: auto;
   left: auto;
-  margin-top: -1.8em;
+}
+
+/* ignored by IE */
+> .context-submenu {
+  margin: -1.8em;
 }
 
 .context-submenu-item, .context-submenu-item_highlighted {
