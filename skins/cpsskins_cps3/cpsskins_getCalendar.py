@@ -3,8 +3,12 @@
 from DateTime import DateTime
 
 REQUEST=context.REQUEST
-if context_obj is None
-    return
+if context_obj is None:
+    return {'calendar': '',
+            'previews': '',
+            'this_month': '',
+            'this_year': '',
+           }
 
 context_url = context_obj.absolute_url()
 portal_calendar = context.portal_calendar

@@ -5,8 +5,6 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
-from Testing import ZopeTestCase
-
 from Products.CPSSkins import tests
 TEST_IMG = os.path.join(tests.__path__[0], 'TestImage.jpg')
 
