@@ -63,6 +63,13 @@ class PortalBoxGroup(BaseTemplet):
          'slot': 'cpsskins_listBoxSlots', 
          'category': 'general'
         },
+        {'id': 'renderable', 
+         'type':'boolean', 
+         'mode':'w', 
+         'label':'Renderable', 
+         'category': 'general',
+         'default': 0,
+        },
         {'id': 'boxshape', 
          'type': 'selection', 
          'mode': 'w', 
@@ -93,6 +100,7 @@ class PortalBoxGroup(BaseTemplet):
 
     def __init__(self, id,
                  box_group = '0',
+                 renderable = 0,
                  boxshape = 'LightSkins', 
                  boxcolor = 'Gray', 
                  boxlayout = 'standard',
@@ -102,6 +110,13 @@ class PortalBoxGroup(BaseTemplet):
         self.boxshape = boxshape
         self.boxcolor = boxcolor
         self.boxlayout = boxlayout
+        self.renderable = renderable
+
+    security.declarePublic('isRenderable')
+    def isRenderable(self):
+        """Returns true if the Templet can be rendered.
+        """
+        return getattr(self, 'renderable', 0)
 
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):

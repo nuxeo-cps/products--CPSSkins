@@ -59,6 +59,12 @@ class MainContent(BaseTemplet):
     def __init__(self, id, **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
 
+    security.declarePublic('isRenderable')
+    def isRenderable(self):
+        """Returns true if the Templet can be rendered.
+        """
+        return None
+
     security.declarePublic('isMainContent')
     def isMainContent(self):
         """ Templet is main content """

@@ -352,6 +352,13 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         if self.isCacheable():
             return getattr(self, 'cacheable', 0)
 
+    security.declarePublic('isESIFragment')
+    def isESIFragment(self):
+        """Returns true if the Templet is an ESI fragment
+        """
+
+        return self.esi_fragment
+
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
         """Returns true if the Templet can become an ESI fragment. 
@@ -367,6 +374,13 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
         return getattr(theme_container, 'esi', 0)
+
+    security.declarePublic('isRenderable')
+    def isRenderable(self):
+        """Returns true if the Templet can be rendered.
+        """
+
+        return 1
 
     security.declarePublic('ShowVisibilityPaths')
     def ShowVisibilityPaths(self):
