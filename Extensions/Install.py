@@ -1,7 +1,9 @@
 import os
 import sys
+import zLOG
 from re import match
 from App.Extensions import getPath
+from AccessControl import getSecurityManager, Unauthorized
 
 from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
@@ -10,7 +12,9 @@ from Products.CMFCore.DirectoryView import createDirectoryView
 
 from Products.CPSSkins.cpsskins_utils import detectPortalType
 
-import zLOG
+def securityCheck():
+    if not getSecurityManager().getUser().has_role('Manager'):
+        raise Unauthorized
 
 def package_home(name):
     """Returns path to Products.name"""
@@ -44,6 +48,9 @@ def checktool(self, name):
              
 def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     """ """
+
+    securityCheck()
+
     logf("START: CPSSkins Install")
     log = []
     prlog = log.append
@@ -240,6 +247,9 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
 
 def update(self):
     """ Update """
+
+    securityCheck()
+
     logf("START: CPSSkins Update")
     log = []
     prlog = log.append
@@ -626,6 +636,9 @@ def update(self):
 
 def uninstall(self):
     """ uninstall method for CMFQuickInstaller"""
+
+    securityCheck()
+
     log = []
     prlog = log.append
 

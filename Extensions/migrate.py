@@ -1,4 +1,7 @@
 from Acquisition import aq_base
+from Globals import PersistentMapping
+from AccessControl import getSecurityManager, Unauthorized
+
 from Products.CMFCore.utils import getToolByName
 
 from Products.CPSSkins.PortalThemesTool import DEFAULT_ACCESSKEY
@@ -11,8 +14,14 @@ def logf(summary,message='',severity=0):
         message = str(message)+'\n'
     zLOG.LOG('CPSSkins: ',severity,summary, message)
 
+def securityCheck():
+    if not getSecurityManager().getUser().has_role('Manager'):
+        raise Unauthorized
 
 def migrate(self):
+
+    securityCheck()
+
     logf("START: CPSSkins Migrate")
     log = []
     prlog = log.append
@@ -74,6 +83,13 @@ def migrate(self):
         theme_container.debug_mode = 0
     else:
         pr("  debug mode already set.")
+
+    pr_h3("Checking the presence of the method themes")
+    if getattr(aq_base(theme_container), 'method_themes', None) is None:
+        pr("  Initializing method themes")
+        theme_container.method_themes = PersistentMapping()
+    else:
+        pr("  Method themes already initialized.")
 
     pr_h3("Checking the presence of the tool's access key")
     if getattr(aq_base(theme_container), 'accesskey', None) is None:

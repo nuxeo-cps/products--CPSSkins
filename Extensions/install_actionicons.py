@@ -1,3 +1,4 @@
+from AccessControl import getSecurityManager, Unauthorized
 
 from Products.CMFCore.utils import getToolByName
 from Products.CPSSkins.cpsskins_utils import detectPortalType
@@ -62,9 +63,14 @@ CPS3_ACTIONS = \
   }
 )
 
-
+def securityCheck():
+    if not getSecurityManager().getUser().has_role('Manager'):
+        raise Unauthorized
 
 def install(self):
+
+    securityCheck()
+
     portal = self.portal_url.getPortalObject()
                                               
     log = []
