@@ -89,17 +89,14 @@ for propid in context.propertyIds():
             if obj['id'] == propid:
                 select_variable = obj['select_variable']
                 field['select_variable'] = select_variable
-                list = []
-                if hasattr(context, select_variable):
-                    select_list = getattr(context, select_variable)
-                    list = select_list
-                    try:
-                        list = apply(select_list, ())
-                    except:
-                        pass
+                select_list = getattr(context, select_variable, None)
+                if select_list is None:
+                    continue
+                if callable(select_list):
+                    select_list = apply(select_list, ())
 
                 options = []
-                for select in list:
+                for select in select_list:
                     option = {}
                     option['id'] = select
                     option['title'] = select
