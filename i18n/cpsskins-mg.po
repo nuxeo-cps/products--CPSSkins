@@ -1806,7 +1806,15 @@ msgid "_confirm delete_"
 msgstr ""
 
 
+msgid "_days_"
+msgstr ""
+
+
 msgid "_default tab_"
+msgstr ""
+
+
+msgid "_dimensions_"
 msgstr ""
 
 
@@ -1848,6 +1856,10 @@ msgstr ""
 
 msgid "_general_"
 msgstr "Ankapobeny"
+
+
+msgid "_header_"
+msgstr ""
 
 
 msgid "_icons_"
@@ -2334,6 +2346,10 @@ msgid "_portletbox_templet_description_"
 msgstr ""
 
 
+msgid "_preview_"
+msgstr ""
+
+
 msgid "_searchbox_Advanced_search"
 msgstr "Fikarohana lalindalina"
 
@@ -2364,6 +2380,10 @@ msgstr "atao ho ampiasaina voalohany indrindra"
 
 msgid "_shape_"
 msgstr "Forme de l'aire"
+
+
+msgid "_size_"
+msgstr ""
 
 
 msgid "_style_"

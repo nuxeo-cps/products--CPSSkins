@@ -804,11 +804,11 @@ msgstr "Espace de remplissage H4, H5, H6"
 
 
 msgid "_Header background color_"
-msgstr "Couleur d'arrière-plan de l'en-tête du calendrier"
+msgstr "Couleur d'arrière-plan de l'entête du calendrier"
 
 
 msgid "_Header font color_"
-msgstr "Couleur du texte du sommet du calendrier"
+msgstr "Couleur du texte de l'entête du calendrier"
 
 
 msgid "_Height_"
@@ -1797,8 +1797,16 @@ msgid "_confirm delete_"
 msgstr "Confirmer la suppression?"
 
 
+msgid "_days_"
+msgstr "Jours"
+
+
 msgid "_default tab_"
 msgstr "Onglet non-sélectionné"
+
+
+msgid "_dimensions_"
+msgstr "Dimensions"
 
 
 msgid "_documentinfo_templet_description_"
@@ -1839,6 +1847,10 @@ msgstr "ce style définit l'apparence des formulaires et des champs de saisie."
 
 msgid "_general_"
 msgstr "Général"
+
+
+msgid "_header_"
+msgstr "Entête"
 
 
 msgid "_icons_"
@@ -2325,6 +2337,10 @@ msgid "_portletbox_templet_description_"
 msgstr "Une boîte affichant un portlet."
 
 
+msgid "_preview_"
+msgstr "Aperçu"
+
+
 msgid "_searchbox_Advanced_search"
 msgstr "Recherche Avancée"
 
@@ -2355,6 +2371,10 @@ msgstr "à utiliser par défaut"
 
 msgid "_shape_"
 msgstr "Forme de l'aire"
+
+
+msgid "_size_"
+msgstr "Taille"
 
 
 msgid "_style_"

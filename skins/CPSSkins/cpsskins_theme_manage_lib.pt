@@ -127,12 +127,12 @@
                  tal:attributes="onClick onclick_string"
                  tal:content="python: style.title_or_id()" />
               </td>
-              <td align="center">
+              <td align="center" width="200px">
+                <div style="background-color: White; padding: 5px">
                 <a href=""
-                 tal:content="structure python: style.preview(inline=1)"
-                 tal:attributes="onClick onclick_string;
-                                 onmouseover string:toggle('$styleid');
-                                 onmouseout string:toggle('$styleid')" />
+                 tal:content="structure python: style.preview()"
+                 tal:attributes="onClick onclick_string" />
+                </div>
               </td>
               <td>
                 <div class="previewBox hidden"
@@ -197,6 +197,76 @@
       <h1 tal:define="title python:'_%s_' % imagecat"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
+
+      <form tal:define="folder python: theme_container.getImageFolder(category=imagecat)"
+       action="" tal:attributes="action folder/absolute_url"
+       name="objectItems" method="post">
+        <table class="browser" summary="" cellpadding="0" cellspacing="0">
+          <tr>
+            <th>&nbsp;</th>
+            <th tal:define="title string:_Title_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Title</th>
+            <th tal:define="title string:_size_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Size</th>
+            <th tal:define="title string:_dimensions_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Dimensions</th>
+            <th style="text-align: center" tal:define="title string:_Preview_" i18n:translate=""
+             tal:content="python: mcat and mcat(title) or title">Preview</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+          </tr>
+          <tal:block repeat="image python: here.cpsskins_listImages(imagecat=imagecat)">
+            <tr tal:define="imageid image/getId;
+                            onclick_string string:newWindow('${image/absolute_url}/cpsskins_image_edit_form?imagecat=$imagecat');
+                            even repeat/image/even;"
+                tal:attributes="class python: even and 'even' or None">
+              <td width="20">
+                <input type="checkbox" name="ids:list" tal:attributes="value imageid" />
+              </td>
+              <td>
+                <a href=""
+                 tal:attributes="onClick onclick_string"
+                 tal:content="python: image.title_or_id()" />
+              </td>
+              <td tal:content="string:${image/size} bytes" />              
+              <td tal:content="string:${image/width}x${image/height} px" />
+              <td align="center">
+                <a href="" 
+                 tal:attributes="onClick onclick_string;
+                                 onmouseover string:toggle('$imageid');
+                                 onmouseout string:toggle('$imageid')"
+                 tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat, inline=1)" />
+              </td>
+              <td>
+                <div class="previewBox hidden"
+                 tal:attributes="id image/getId"
+                 tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat)" />
+              </td>
+              <td tal:define="here nocall:image">
+                <metal:block use-macro="here/cpsskins_theme_widgets/macros/edit_online" />
+              </td>
+            </tr>
+          </tal:block>
+        </table>
+        <br />
+        <input type="submit" name="cutObjects:method"
+         value="Cut" i18n:attributes="value"
+         tal:define="title string:_Cut_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="copyObjects:method"
+         value="Copy" i18n:attributes="value"
+         tal:define="title string:_Copy_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="pasteObjects:method"
+         value="Paste" i18n:attributes="value"
+         tal:define="title string:_Paste_"
+         tal:condition="folder/canPaste"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="deleteObjects:method"
+         value="Delete" i18n:attributes="value"
+         tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+      </form>
       <div class="addItem">
         <a href="" alt=""
          tal:attributes="onClick string:newWindow('${theme_container_url}/$imagecat/cpsskins_addimage_form')">
@@ -204,41 +274,6 @@
            tal:attributes="src string:${base_url}cpsskins_images/img_addimage.png" />
         </a>
       </div>
-      <tal:block define="images python: here.cpsskins_listImages(imagecat=imagecat)">
-        <tal:block repeat="image images">
-          <div style="float: left; margin: 5px"
-               tal:define="image_url image/absolute_url;
-                           image_title image/title"
-               tal:attributes="class python: current_image and image_title == current_image and 'editPreviewSelected' or 'editPreview'">
-            <a title="Delete" 
-            tal:define="msg string:_Deleting this image, are you sure?_;
-                        msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg;
-                        onclick_msg python:'return window.confirm(\'%s\')' % msg"
-            tal:attributes="onclick onclick_msg;
-              href string:${image_url}/cpsskins_object_delete?goto=referer" >
-              <img border="0" width="12" height="12"
-              tal:attributes="src string:${base_url}cpsskins_images/img_image_delete.png" />
-            </a>
-            <a href=""
-             tal:attributes="onClick string:newWindow('${image_url}/cpsskins_image_edit_form?imagecat=$imagecat')">
-              <strong tal:content="image_title" />
-              <br />
-              <tal:block content="string:${image/size} bytes" />
-              <tal:block content="string:(${image/width}x${image/height} px)" />
-              <br />
-              <br />
-              <img tal:condition="python: imagecat == 'icons'"
-              tal:attributes="width python: '%spx' % test(image.width > 200, 200, image.width); src image_url" />
-              <img tal:condition="python: imagecat == 'thumbnails'"
-               width="200" tal:attributes="src image_url" />
-              <div class="backgroundeditbox"
-              tal:condition="python: imagecat == 'backgrounds'"
-              tal:attributes="style string:background: url('${image_url}');;">
-              </div>
-            </a>
-          </div>
-        </tal:block>
-      </tal:block>
     </tal:block>
 </metal:block>
 

@@ -1,10 +1,4 @@
-<tal:block define="
-  inline options/inline|nothing;
-  value here/value|nothing">
-  <div tal:condition="not:inline"
+<div
   style="height: 80px; width: 80px; border-style: solid; border-width: 2px;"
-  tal:attributes="class string:color${here/title}">Lorem ipsum dolor sit amet (...)</div>
-  <div tal:condition="inline"
-  style="height: 16px; width: 128px; border-style: solid; border-width: 1px;"
-  tal:attributes="class string:color${here/title}">Lorem ipsum ...</div>
-</tal:block>
+  tal:attributes="class string:color${here/title}">Lorem ipsum dolor sit amet (...)
+</div>

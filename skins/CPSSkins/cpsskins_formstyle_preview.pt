@@ -1,15 +1,7 @@
-<table cellpadding="3" cellspacing="0" summary="">
-  <tr>
-    <td>
-      <div style="padding: 4px; text-align: left; background-color: White;">
-        <div tal:attributes="class string:formStyle${here/title}">
-          <form>
-            <textarea>Lorem ipsum dolor sit amet</textarea><br/>
-            <input type="text" value="" />
-            <input type="submit" value="OK"/> <br/>
-          </form>
-        </div>
-      </div>
-    </td>
-  </tr>
-</table>
+<div tal:attributes="class string:formStyle${here/title}">
+  <form action="" style="width: 160px">
+    <textarea style="width: 128px">Lorem ipsum dolor sit amet</textarea><br/>
+    <input type="text" value="" style="width: 96px" />
+    <input type="submit" value="OK" style="width: 24px" /> <br/>
+  </form>
+</div>

@@ -1797,7 +1797,15 @@ msgid "_confirm delete_"
 msgstr ""
 
 
+msgid "_days_"
+msgstr ""
+
+
 msgid "_default tab_"
+msgstr ""
+
+
+msgid "_dimensions_"
 msgstr ""
 
 
@@ -1839,6 +1847,10 @@ msgstr ""
 
 msgid "_general_"
 msgstr "Generalny"
+
+
+msgid "_header_"
+msgstr ""
 
 
 msgid "_icons_"
@@ -2325,6 +2337,10 @@ msgid "_portletbox_templet_description_"
 msgstr ""
 
 
+msgid "_preview_"
+msgstr ""
+
+
 msgid "_searchbox_Advanced_search"
 msgstr "Zaawansowane szukanie"
 
@@ -2355,6 +2371,10 @@ msgstr ""
 
 msgid "_shape_"
 msgstr "Kszta³t obszaru"
+
+
+msgid "_size_"
+msgstr ""
 
 
 msgid "_style_"

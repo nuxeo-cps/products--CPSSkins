@@ -1795,8 +1795,16 @@ msgid "_confirm delete_"
 msgstr "Deleting, are you sure?"
 
 
+msgid "_days_"
+msgstr "Days"
+
+
 msgid "_default tab_"
 msgstr "Default tab"
+
+
+msgid "_dimensions_"
+msgstr "Dimensions"
 
 
 msgid "_documentinfo_templet_description_"
@@ -1837,6 +1845,10 @@ msgstr "this style defines the appearance of forms and of form elements."
 
 msgid "_general_"
 msgstr "General"
+
+
+msgid "_header_"
+msgstr "Header"
 
 
 msgid "_icons_"
@@ -2323,6 +2335,10 @@ msgid "_portletbox_templet_description_"
 msgstr "A box that contains a portlet."
 
 
+msgid "_preview_"
+msgstr "Preview"
+
+
 msgid "_searchbox_Advanced_search"
 msgstr "Advanced search"
 
@@ -2353,6 +2369,10 @@ msgstr "set as default style"
 
 msgid "_shape_"
 msgstr "Area shape"
+
+
+msgid "_size_"
+msgstr "Size"
 
 
 msgid "_style_"

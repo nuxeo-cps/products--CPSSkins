@@ -1,17 +1,10 @@
-<table cellpadding="3" cellspacing="0" summary="">
-  <tr>
-    <td>
-      <div style="padding: 4px; text-align: left; background-color: #eeeeee;">
-        <div style="width: 100px;"
-        tal:attributes="class string:boxCorner${here/title} cpsskinsBoxCorners">
-          <div class="rbtop"><div></div></div>
-            <pre>
+<div style="width: 100px"
+ tal:attributes="class string:boxCorner${here/title} cpsskinsBoxCorners">
+  <div class="rbtop"><div></div></div>
+    <pre>
 
 
 
-            </pre>
-          <div class="rbbot"><div></div></div></div>
-      </div>
-    </td>
-  </tr>
-</table>
+    </pre>
+  <div class="rbbot"><div></div></div>
+</div>

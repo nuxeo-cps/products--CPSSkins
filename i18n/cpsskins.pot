@@ -1869,3 +1869,18 @@ msgstr ""
 
 msgid "_Paste_"
 msgstr ""
+
+msgid "_header_"
+msgstr ""
+
+msgid "_days_"
+msgstr ""
+
+msgid "_preview_"
+msgstr ""
+
+msgid "_dimensions_"
+msgstr ""
+
+msgid "_size_"
+msgstr ""
