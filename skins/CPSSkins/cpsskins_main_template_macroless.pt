@@ -38,10 +38,11 @@
   <tal:block content="structure theme_container/renderIcon" />
 </metal:block>
 </head>
-<metal:block define-macro="main">
   <body tal:attributes="class string:color${theme_container/color};
-                        style string:margin:${theme_container/margin};"
-   tal:content="structure python: theme_container.render(context_obj=here)" />
-</metal:block>
+                        style string:margin:${theme_container/margin};">
+  <metal:block define-macro="main">
+    <tal:block content="structure python: theme_container.render(context_obj=here)" />
+  </metal:block>
+  </body>
 </html>
 </metal:block>
