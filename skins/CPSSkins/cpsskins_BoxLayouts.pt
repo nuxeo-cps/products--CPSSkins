@@ -195,7 +195,7 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="edit">
-  <div class="PortletBoxDrag"
+  <div class="PortletBoxDrag PortletBoxEditMenu"
    tal:define="ypos portlet/getOrder;
                group portlet/getSlot"
    tal:attributes="portlet_rurl portlet/getRelativeUrl;
