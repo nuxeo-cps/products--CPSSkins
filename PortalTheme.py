@@ -31,7 +31,7 @@ JS_RAMCACHE_ID = 'js'
 
 # Thumbnails
 THUMBNAIL_WIDTH = 200
-THUMBNAIL_HEIGHT = 150
+THUMBNAIL_HEIGHT = 160
 
 import os
 import string
