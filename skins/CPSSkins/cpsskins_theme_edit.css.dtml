@@ -70,6 +70,7 @@
   border-width: 1px;
   border-style: none none solid none;
   border-color: #999;
+  text-transform: uppercase;
 }
 
 .browser td {
@@ -1044,13 +1045,19 @@ cursor: crosshair;
 
 .tableFrame {
   border: 1px solid #ccc;
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
   margin: 2px;
   padding: 5px;
+  font-size: 110%;
+}
+
+.tableFrame a {
+  text-decoration: none;
+  color: #006;
 }
 
 .tableHeader {
-  background-color: #ccc; 
+  text-transform: uppercase;
 }
 
 .slotSelector {

@@ -430,14 +430,14 @@
           <tal:block repeat="theme themes">
               <tr tal:define="default_theme theme/default|nothing;
                               theme_id theme/id|nothing"
-                  tal:attributes="style python: theme_id == current_theme and 'background-color: #fff' or ''">
+                  tal:attributes="style python: theme_id == current_theme and 'background-color: #fcfcfc' or ''">
                   <td width="16">
                     <img src="" align="middle" alt=""
                     tal:attributes="src string:${base_url}${theme/getIcon}" />
                   </td>
                   <td>
                     <a tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;themes_panel=theme&amp;reload=1;
-                                       style python: default_theme and 'font-weight: bold' or ''"
+                                       style python: default_theme and 'text-decoration: underline' or ''"
                        tal:content="python: '%s (%s)' % (theme_id, theme.title_or_id())" />
                   </td>
                   <td align="center">
