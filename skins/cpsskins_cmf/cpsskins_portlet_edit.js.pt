@@ -149,8 +149,10 @@ function Choice_insert() {
   newWindow(insert_url);
 }
 
-function Choice_delete() {
+function Choice_delete(confirm_msg) {
   pd_hideContextMenu();
+  if (! window.confirm(confirm_msg))
+     return;
   if (pd_selected_item == null) 
      return;
   portlet_id = pd_selected_item.getAttribute('portlet_id');

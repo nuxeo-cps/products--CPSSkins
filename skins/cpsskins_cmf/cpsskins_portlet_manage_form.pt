@@ -3,6 +3,7 @@
                   utool nocall:here/portal_url;
                   tmtool here/portal_themes;
                   mcat python: tmtool.getTranslationService();
+                  cpsskins_mcat python: tmtool.getTranslationService(cat='cpsskins');
                   mtool here/portal_membership;
                   ptltool nocall:here/portal_cpsportlets;
                   tmtool here/portal_themes;
