@@ -1,11 +1,22 @@
 <metal:block define-macro="box">
-  <div class="BoxGroupBoxSlot PortletBoxDrag">
+  <div class="BoxGroupBoxSlot PortletBoxDrag"
+   tal:define="ypos portlet/getOrder"
+   tal:attributes="src_ypos python: ypos and ypos or 0;
+                   src_slot group">
     <div class="PortletBoxDest" 
-      tal:attributes="dest_slot group">
-    <div class="BoxGroupBoxTitle">
-      <tal:block content="portlet/getId" />
-    </div>
-    <div class="BoxGroupBoxBody PortletBoxEditMenu">
+      tal:attributes="portlet_url portlet/getRelativeUrl;
+                      dest_slot group;
+                      dest_ypos python: ypos and ypos or 0">
+      <div class="BoxGroupBoxTitle">
+        id: <tal:block content="python: portlet.getId()" /><br/>
+        url: <tal:block content="python: portlet.getURL()" /><br/>
+        slot: <tal:block content="python: portlet.getSlot()" /><br/>
+        order: <tal:block content="python: portlet.getOrder()" /><br/>
+      </div>
+      <div class="BoxGroupBoxBody PortletBoxEditMenu"
+       tal:attributes="src_ypos python: ypos and ypos or 0;
+                     src_slot group">
+      </div>
     </div>
   </div>
 </metal:block>
