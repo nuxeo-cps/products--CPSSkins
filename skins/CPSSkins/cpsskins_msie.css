@@ -2,3 +2,7 @@
 img {
     behavior: url(cpsskins_pngbehavior.htc);
 }
+
+body {
+    behavior:url(cpsskins_csshover.htc);
+}
