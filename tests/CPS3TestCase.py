@@ -194,11 +194,24 @@ class CPSInstaller:
         user = uf.getUserById('CPSTestCase').__of__(uf)
         newSecurityManager(None, user)
 
-    def addPortal(self, portal_id):
+    def addPortal(self, portal_id, version=None):
         factory = self.app.manage_addProduct['CPSDefault']
-        factory.manage_addCPSDefaultSite(portal_id, 
-            root_password1="passwd", root_password2="passwd",
-            langs_list=['en'])
+
+        # CPS 3.2
+        try:
+            factory.manage_addCPSDefaultSite(portal_id, 
+                root_password1="passwd", 
+                root_password2="passwd",
+                langs_list=['en']
+                )
+        # > CPS 3.2
+        except TypeError:
+            factory.manage_addCPSDefaultSite(portal_id,
+                langs_list=['en'],
+                manager_email='webmaster@localhost',
+                manager_password='passwd',
+                manager_password_confirmation='passwd',
+                )
 
     # Change translation_service to DummyTranslationService
     def fixupTranslationServices(self, portal_id):
