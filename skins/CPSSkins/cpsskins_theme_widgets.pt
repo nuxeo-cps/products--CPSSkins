@@ -455,10 +455,9 @@ tal:define="pageblock_url pageblock/absolute_url;
                          onSubmit string:saveScrollCoordinates('${name}')">
          <input type="hidden" name="scrollx" value="0">
          <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="theme" tal:attributes="value theme" />
+         <input type="hidden" name="theme" tal:attributes="value current_theme" />
          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-         <input type="hidden" name="style" tal:attributes="value stylecat" />
-         <input name="title" onchange="submit()"
+         <input name="title"
            type="text" size="12" tal:attributes="value pageblock/title" />
         </form>
       </td>
@@ -470,10 +469,9 @@ tal:define="pageblock_url pageblock/absolute_url;
                          onSubmit string:saveScrollCoordinates('${name}')">
          <input type="hidden" name="scrollx" value="0">
          <input type="hidden" name="scrolly" value="0"> 
-         <input type="hidden" name="theme" tal:attributes="value theme" />
+         <input type="hidden" name="theme" tal:attributes="value current_theme" />
          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-         <input type="hidden" name="style" tal:attributes="value stylecat" />
-          <input name="width" onchange="submit()"
+          <input name="width"
            type="text" size="4" tal:attributes="value pageblock/width" />
         </form>
       </td>
@@ -490,7 +488,6 @@ tal:define="pageblock_url pageblock/absolute_url;
          <input type="hidden" name="scrolly" value="0"> 
          <input type="hidden" name="theme" tal:attributes="value theme" />
          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-         <input type="hidden" name="style" tal:attributes="value stylecat" />
           <input name="maxcols" type="image" width="24" height="24"
            tal:attributes="src string:${portal_url}/cpsskins_images/resize-left.gif;
                            value maxcols_dec" />
@@ -564,19 +561,30 @@ tal:define="cellwidth cellsize/cellwidth|nothing;
          tal:attributes="src string:${portal_url}/cpsskins_images/sizer_left.png" />
       </td>
       <td class="center">
-        <form action="" tal:condition="cellsize"
-         tal:attributes="action string:${cellsize/absolute_url}/cpsskins_edit">
-          <input name="cellwidth"  onchange="submit()"
-           type="text" size="4" tal:attributes="value cellwidth" />
-        </form>
-        <form action="" tal:condition="not:cellsize"
-         tal:attributes="action string:${pageblock/absolute_url}/cpsskins_cellsizer_add">
-          <input name="cellwidth"  onchange="submit()"
-           type="text" size="4" tal:attributes="value cellwidth" />
-          <input type="hidden" name="xpos" tal:attributes="value x_pos" />
-          <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
-          <input type="hidden" name="theme" tal:attributes="value current_theme" />
-        </form>
+        <tal:block condition="cellsize">
+          <form action="" method="post"
+           tal:define="name string:cellsize_${cellsize/getId}"
+           tal:attributes="name name;
+                           action string:${cellsize/absolute_url}/cpsskins_edit;
+                           onSubmit string:saveScrollCoordinates('${name}')">
+           <input type="hidden" name="scrollx" value="0">
+           <input type="hidden" name="scrolly" value="0"> 
+           <input type="hidden" name="theme" tal:attributes="value current_theme" />
+           <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+           <input name="cellwidth"
+            type="text" size="4" tal:attributes="value cellwidth" />
+          </form>
+        </tal:block>
+        <tal:block condition="not:cellsize">
+          <form action=""
+           tal:attributes="action string:${pageblock/absolute_url}/cpsskins_cellsizer_add">
+            <input name="cellwidth"  onchange="submit()"
+             type="text" size="4" tal:attributes="value cellwidth" />
+            <input type="hidden" name="xpos" tal:attributes="value x_pos" />
+            <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+            <input type="hidden" name="theme" tal:attributes="value current_theme" />
+          </form>
+        </tal:block>
       </td>
       <td width="7px" align="right">
         <img border="0" width="7" height="10"
