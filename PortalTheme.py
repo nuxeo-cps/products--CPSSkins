@@ -692,8 +692,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         id = getFreeId(self)
         self.invokeFactory('Theme Page', id=id, **kw)
         themepage = getattr(self.aq_inner.aq_explicit, id, None)
-        if themepage is not None:
-            return themepage
+        return themepage
 
     security.declareProtected(ManageThemes, 'addPortalPalette')
     def addPortalPalette(self, **kw):
