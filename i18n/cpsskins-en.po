@@ -1971,6 +1971,10 @@ msgid "_menu_Portal Tab Style_"
 msgstr "Tab style"
 
 
+msgid "_menu_Set style_"
+msgstr "Set style"
+
+
 msgid "_mixed mode_"
 msgstr "Mixed mode"
 

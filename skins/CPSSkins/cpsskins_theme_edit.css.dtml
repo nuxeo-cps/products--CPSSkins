@@ -159,6 +159,35 @@
   margin-top: 5px;
 }
 
+.context-menu-submenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.context-menu-submenu-header {
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+.context-menu-submenu li ul {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  background-color: #eee;
+  width: 150px;
+}
+
+.context-menu-submenu li > ul {
+  top: auto;
+  left: auto;
+  margin: -1.5em 0 0 100px;
+}
+
+.context-menu-submenu li:hover ul, .context-menu-submenu li.over ul {
+  display: block;
+}
+
 /* floating toolbar */
 
 body {

@@ -1973,6 +1973,10 @@ msgid "_menu_Portal Tab Style_"
 msgstr "Stile delle linguette"
 
 
+msgid "_menu_Set style_"
+msgstr ""
+
+
 msgid "_mixed mode_"
 msgstr "Layout e Wysiwyg"
 

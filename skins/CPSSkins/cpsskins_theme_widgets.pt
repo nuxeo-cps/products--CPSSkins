@@ -226,19 +226,34 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="separator"></div>
-    <tal:block repeat="style tmtool/listStyleTypes">
-        <div tal:define="style_type style/Metatype|nothing;
-                         style_icon style/getIcon|nothing;"
-             class="context-menu-item" 
-             tal:attributes="onmouseup string:Choice_style('${style_type}');
-                             filter string:pd_selected_item && (pd_selected_item.getAttribute('styles').indexOf('${style_type}') >= 0)">
-           <img width="16" height="16" 
-             tal:attributes="src string:${base_url}${style_icon}" />
-           <tal:block i18n:translate="" 
-             define="title python: '_menu_%s_' % style_type"
-             content="python: mcat and mcat(title) or title" />
-        </div>
-    </tal:block>
+    <div class="context-menu-submenu">
+      <ul id="set_style">
+        <li>
+          <div class="context-menu-item">
+            <img width="16" height="16" 
+             tal:attributes="src string:${base_url}cpsskins_images/set_style-16.png" />
+            <tal:block i18n:translate=""
+             define="title string:_menu_Set style_"
+             content="python: mcat and mcat(title) or title" /> ...
+          </div>
+          <ul>
+            <tal:block repeat="style tmtool/listStyleTypes">
+              <li tal:define="style_type style/Metatype|nothing;
+                              style_icon style/getIcon|nothing;"
+               class="context-menu-item"
+               tal:attributes="onmouseup string:Choice_style('${style_type}');
+                               filter string:pd_selected_item && (pd_selected_item.getAttribute('styles').indexOf('${style_type}') >= 0)">
+                <img width="16" height="16" 
+                 tal:attributes="src string:${base_url}${style_icon}" />
+                <tal:block i18n:translate="" 
+                 define="title python: '_menu_%s_' % style_type"
+                 content="python: mcat and mcat(title) or title" />
+                </li>
+            </tal:block>
+          </ul>
+        </li>
+      </ul>
+    </div>
     <div class="separator"></div>
     <div class="context-menu-item" onmouseup="Choice_align('left')"
      tal:attributes="filter string:pd_selected_item && pd_selected_item.getAttribute('isalignable') && (pd_selected_item.getAttribute('alignments').indexOf('left') >= 0)">
