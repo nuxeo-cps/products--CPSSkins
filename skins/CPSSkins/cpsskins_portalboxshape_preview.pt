@@ -3,7 +3,7 @@
   <tr style="height: 230px">
     <td>
       <div style="text-align: left; width:130px"
-      tal:attributes="class string:boxShape${here/title} cpsskinsTab">
+      tal:attributes="class string:boxShape${here/title} cpsskinsBox">
         <br />
         <div class="title" style="background-color: #e0e0e0">
           <tal:block define="title string:_Menu title_"
