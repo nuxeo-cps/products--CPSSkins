@@ -186,6 +186,21 @@ class PortalBoxGroup(BaseTemplet):
             css += 'height:%s' % height
         return css
 
+    security.declarePublic('getCSSBoxStyle')
+    def getCSSBoxStyle(self):
+        """Returns the CSS layout style for boxes inside this slot."""
+
+        css = ''
+        padding = self.padding
+
+        if padding:
+            if padding not in ('0', '0pt', '0in', '0pc', '0mm',
+                               '0cm', '0px', '0em', '0ex'):
+                css += 'padding:%s;' % padding
+
+        if css:
+            return css
+
     #
     # Rendering.
     #
@@ -202,6 +217,19 @@ class PortalBoxGroup(BaseTemplet):
 
         shield = 0
         all_rendered = ''
+
+        boxlayout = self.boxlayout
+        if kw.get('boxedit'):
+            boxlayout = 'portlet_edit'
+
+        boxclass = self.getCSSBoxClass()
+        boxstyle = self.getCSSBoxStyle()
+
+        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+                                             boxlayout, default=None)
+        if macro_path is None:
+            return ''
+
         for portlet in portlets:
             rendered = ''
             # crash shield
@@ -215,6 +243,9 @@ class PortalBoxGroup(BaseTemplet):
                 rendered = portlet.render_cache(**kw)
             # add the box decoration
             rendered = self.cpsskins_renderPortletBox(portlet=portlet,
+                                                      boxclass=boxclass,
+                                                      boxstyle=boxstyle,
+                                                      macro_path=macro_path,
                                                       rendered=rendered, 
                                                       **kw)
             all_rendered += rendered
