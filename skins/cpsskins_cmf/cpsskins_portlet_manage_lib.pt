@@ -103,9 +103,7 @@
 </metal:block>
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="ttool here/portal_types;
-              view_mode python: tmtool.getViewMode();
-              clipboard view_mode/clipboard|nothing">
+  tal:define="ttool here/portal_types">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
          filter="Portlet_prepare_element_menu(pd_filter_object)"></div>
@@ -126,7 +124,7 @@
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" onmouseup="Choice_paste_from_clipboard()"
-     tal:condition="clipboard"
+     tal:condition="nocall:clipboard_portlet"
      tal:attributes="filter string:pd_selected_item">
       <img width="16" height="16" 
          tal:attributes="src string:${base_url}cpsskins_images/paste-16.png" />
@@ -177,15 +175,11 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
 <metal:block define-macro="clipboard" i18n:domain="cpsskins">
   <div class="ClipboardBox"
-    tal:define="view_mode python: tmtool.getViewMode();
-                clipboard view_mode/clipboard|nothing"
-    tal:condition="clipboard">
+    tal:define="portlet nocall:clipboard_portlet"
+    tal:condition="nocall:portlet">
     <strong i18n:translate=""
      tal:define="title string:_clipboard_"
      tal:content="python: mcat and mcat(title) or title" />
-    <div tal:define="portal_path python: utool.getPortalPath();
-                     portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None)"
-     tal:condition="nocall:portlet">
       <div class="PortletBoxDrag"
        tal:define="ypos portlet/getOrder;
                    portlet_folder portlet/getLocalFolder;
@@ -200,7 +194,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         <img src="" width="16" height="16" alt="" align="middle"
          tal:attributes="src python: '/' + portlet.getIcon()" />
         <span tal:content="portlet/title_or_id" />
-      </div>
     </div>
   </div>
 </metal:block>

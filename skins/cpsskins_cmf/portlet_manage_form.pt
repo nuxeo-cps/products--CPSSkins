@@ -11,6 +11,9 @@
                   panel view_mode/portlets_panel|string:wysiwyg;
                   wysiwyg python: panel == 'wysiwyg';
                   selected_portlet view_mode/selected_portlet|nothing;
+                  clipboard view_mode/clipboard|nothing;
+                  portal_path python: utool.getPortalPath();
+                  clipboard_portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None);
                   cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                   checkPerm nocall:mtool/checkPermission">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
