@@ -6,7 +6,7 @@
             portal_url here/portal_url;
             style python: here.style">
   <form tal:condition="python: style == 'compact'"
-   style="margin:0px; padding:0px" method="get"
+   style="margin:0px; padding:0px; white-space: nowrap" method="get"
    tal:attributes="action python: portal_url + '/' + search_script_url">
     <label>
       <input type="text" name="SearchableText" size="12"
@@ -18,15 +18,17 @@
     </label>
   </form>
   <form tal:condition="python: style == 'advanced'"
-   style="margin:0px; padding:0px" method="get">
+   style="margin:0px; padding:0px" method="get"
    tal:attributes="action python: portal_url + '/' + search_script_url">
-    <label>
-     <strong tal:define="title string:_searchbox_Search_"
-      tal:content="python: mcat and mcat(title) or title" 
-      i18n:translate="" />
-      <input type="text" name="SearchableText" size="18" />
-      <input type="submit" value="OK" class="SearchBox" />
-    </label>
+    <strong tal:define="title string:_searchbox_Search_"
+     tal:content="python: mcat and mcat(title) or title" 
+     i18n:translate="" />
+    <span style="white-space: nowrap">
+      <label>
+        <input type="text" name="SearchableText" size="18" />
+        <input type="submit" value="OK" class="SearchBox" />
+      </label>
+    </span>
     <a i18n:translate=""
      tal:define="title string:_searchbox_Advanced_search;
                  advanced_search_form_url python: search_urls['advanced']"

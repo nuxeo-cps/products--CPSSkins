@@ -5,7 +5,7 @@
             search_form_url python: search_urls['form'];
 	    style python: here.style">
   <form tal:condition="python: style == 'compact'"
-  style="margin:0;padding:0;" method="get"
+  style="margin:0; padding:0; white-space: nowrap" method="get"
   tal:attributes="action python: portal_url + '/' + search_script_url">
     <label>
       <input id="searchGadget"
@@ -21,20 +21,22 @@
     </label>
   </form>
   <form tal:condition="python: style == 'advanced'"
-  style="margin:0;padding:0;" method="get"
+  style="margin:0; padding:0" method="get"
   tal:attributes="action python: portal_url + '/' + search_script_url">
-    <label>
-      <input id="searchGadget"
-       name="SearchableText"
-       type="text"
-       size="10"
-       value=""
-       alt="Search"
-       title="Search"
-       tal:attributes="value request/SearchableText|nothing" />
-      <input class="searchButton" i18n:attributes="value"
-       type="submit" value="_searchbox_Search_" />
-    </label>
+    <span style="white-space: nowrap">
+      <label>
+        <input id="searchGadget"
+         name="SearchableText"
+         type="text"
+         size="10"
+         value=""
+         alt="Search"
+         title="Search"
+         tal:attributes="value request/SearchableText|nothing" />
+        <input class="searchButton" i18n:attributes="value"
+         type="submit" value="_searchbox_Search_" />
+      </label>
+    </span>
     <a tal:define="title string:_searchbox_Advanced_search;
                    advanced_search_form_url python: search_urls['advanced']"
      i18n:translate=""
