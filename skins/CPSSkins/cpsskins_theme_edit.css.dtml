@@ -40,7 +40,7 @@ cursor: hand;
 }
 
 .context-menu {
-font: 11px Verdana, Arial, Helvetica, sans-serif;
+font: 10px Verdana, Arial, Helvetica, sans-serif;
 position: absolute;
 border: 1px outset Menu;
 filter: alpha(opacity=90);
@@ -54,7 +54,7 @@ white-space: nowrap;
 }
 
 .context-menu-item, .context-menu-item_highlighted {
-padding: 0.2em;
+padding: 0.11em;
 vertical-align: top;
 cursor: default;
 }
@@ -65,14 +65,14 @@ background-color: Highlight;
 }
 
 .context-menu-item img, .context-menu-item_highlighted img {
-padding-right: 0.2em;
-padding-left: 0.1em;
+padding-right: 0.17em;
+padding-left: 0.2em;
 vertical-align: middle;
 }
 
 .context-menu .separator {
-border-bottom: 1px solid #ccc;
-margin: 5px;
+border-bottom: 1px solid #fff;
+margin: 2px;
 padding: 0px;
 }
 
