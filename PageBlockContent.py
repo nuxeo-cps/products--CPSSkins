@@ -67,14 +67,14 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Returns the new position."""
 
         container = self.aq_parent
-        this_pos = container.get_object_position(self.getId())
+        this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
             o = obj.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
-                    pos = container.get_object_position(obj.getId())
+                    pos = obj.getVerticalPosition()
                     if pos > newpos and pos < this_pos:
                         newpos = pos
         return newpos
@@ -84,14 +84,14 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Returns the new position."""
 
         container = self.aq_parent
-        this_pos = container.get_object_position(self.getId())
+        this_pos = self.getVerticalPosition()
         newpos = -1
         for obj in container.objectValues():
             o = obj.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
-                    pos = container.get_object_position(obj.getId())
+                    pos = obj.getVerticalPosition()
                     if  pos > this_pos:
                         newpos = pos
                         break
@@ -120,13 +120,13 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             return 1
 
         # otherwise find a templet above it
-        this_pos = container.get_object_position(self.getId())
+        this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
             o = obj.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                if obj.xpos == self.xpos:
-                   pos = container.get_object_position(obj.getId())
+                   pos = obj.getVerticalPosition()
                    if pos < this_pos:
                        return 1
 
@@ -139,13 +139,13 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             return 1
 
         container = self.aq_parent
-        this_pos = container.get_object_position(self.getId())
+        this_pos = self.getVerticalPosition()
         for obj in container.objectValues():
             o =  obj.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
                getattr(o, 'iscellblock', 0):
                 if obj.xpos == self.xpos:
-                    pos = container.get_object_position(obj.getId())
+                    pos = obj.getVerticalPosition()
                     if pos > this_pos:
                         return 1
 
@@ -179,7 +179,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         
         tmtool = getToolByName(self, 'portal_themes')
         container = self.aq_parent
-        src_ypos = container.get_object_position(self.getId())
+        src_ypos = self.getVerticalPosition()
         newid = getFreeId(container)
         container.manage_clone(self, newid)
         newobj  = getattr(container, newid, None)
@@ -201,7 +201,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         return newobj
 
     security.declareProtected(ManageThemes, 'move_to_block')
-    def move_to_block(self, content=None, dest_block=None,
+    def move_to_block(self, dest_block=None,
                             xpos=None, ypos=None, REQUEST=None):
         """Move the object to a given block.
            Returns the instance of the object that has been moved
@@ -214,19 +214,17 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             return
         if ypos is None:
             return
-        if content is None:
-            return
 
-        current_xpos = content.xpos
+        current_xpos = self.xpos
         new_xpos = int(xpos)
-        content.xpos = new_xpos
+        self.xpos = new_xpos
 
-        src_container = content.aq_parent
+        src_container = self.aq_parent
         src_block = utool.getRelativeUrl(src_container)
         if dest_block is None:
             dest_block = src_block
 
-        current_ypos = src_container.get_object_position(content.getId())
+        current_ypos = self.getVerticalPosition()
 
         if dest_block == src_block and \
                         int(xpos) == current_xpos and \
@@ -236,8 +234,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         dest_container = self.unrestrictedTraverse(dest_block, default=None)
 
         if dest_container is not None:
-            cookie = src_container.manage_cutObjects(content.getId(),
-                                                    REQUEST=REQUEST)
+            cookie = src_container.manage_cutObjects(self.getId(), REQUEST=REQUEST)
             res = dest_container.manage_pasteObjects(cookie) 
             new_id = res[0]['new_id']
             newpos = int(ypos) 
@@ -246,6 +243,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                      newpos = newpos -1;
             dest_container.move_object_to_position(new_id, newpos)
             content = getattr(dest_container, new_id)
+            verifyThemePerms(content)
             content.expireCache()
             return content
 
@@ -309,7 +307,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                 pos =  container.moveup_pos()
                 theme_container = container.aq_parent
                 for obj in theme_container.objectValues():
-                    if theme_container.get_object_position(obj.getId()) == pos:
+                    if obj.getVerticalPosition() == pos:
                         obj.manage_pasteObjects(cookie)
                         maxcols = getattr(obj, 'maxcols', None)
                         if maxcols is not None and self.xpos > maxcols-1:
@@ -327,7 +325,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                 pos =  container.movedown_pos()
                 theme_container = container.aq_parent
                 for obj in theme_container.objectValues():
-                    if theme_container.get_object_position(obj.getId()) == pos:
+                    if obj.getVerticalPosition() == pos:
                         obj.manage_pasteObjects(cookie)
                         newobj =  getattr(obj, self.getId(), None) 
                         obj.move_object_to_position(newobj.getId(), int(0))

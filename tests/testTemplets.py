@@ -334,14 +334,14 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(getattr(templet, 'align'), 'right')
 
     # XXX permission problem
-    #def test_move_to_pageblock(self):
-    #    utool = self.portal.portal_url
-    #    pageblock = self.pageblock
-    #    templet = pageblock.addContent(type_name='Text Box Templet')
-    #    dest_pageblock = self.theme_container.addPageBlock()
-    #    dest_block = utool.getRelativeUrl(dest_pageblock)
-    #    templet.move_to_block(content=templet, dest_block=dest_block, xpos=int(0), ypos=int(1))
-    #    templet.move_to_block(content=templet, dest_block=dest_block, xpos=int(0), ypos=int(0))
+    def test_move_to_pageblock(self):
+        utool = self.portal.portal_url
+        pageblock = self.pageblock
+        templet = pageblock.addContent(type_name='Text Box Templet')
+        dest_pageblock = self.theme_container.addPageBlock()
+        dest_block = utool.getRelativeUrl(dest_pageblock)
+        templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(1))
+        templet.move_to_block(dest_block=dest_block, xpos=int(0), ypos=int(0))
 
     def test_Templet_duplicate(self):
         pageblock = self.pageblock

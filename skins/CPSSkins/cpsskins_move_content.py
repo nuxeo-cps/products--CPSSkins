@@ -33,7 +33,7 @@ else:
     if direction:
         newobj = context.move(direction=direction)
     else:
-        newobj = context.move_to_block(content=context, dest_block=dest_block, xpos=xpos, ypos=ypos)
+        newobj = context.move_to_block(dest_block=dest_block, xpos=xpos, ypos=ypos)
 
 if newobj is None:
     return
