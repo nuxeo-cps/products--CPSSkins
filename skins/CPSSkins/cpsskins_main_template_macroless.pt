@@ -43,7 +43,8 @@
 </head>
 <tal:block condition="nocall:page_container">
   <body tal:define="bodycolor python: page_container.color;
-                    bodymargin python: page_container.margin"
+                    bodymargin python: page_container.margin;
+                    tableless python: page_container.tableless"
         tal:attributes="class python: bodycolor and 'color%s' % bodycolor or None;
                         style python: bodymargin and 'margin:%s' % bodymargin or None">
   <metal:block define-macro="main">
