@@ -71,4 +71,4 @@ tal:define="mcat python: request.get('cpsskins_mcat');
   </tal:block>
  </tal:block>
 </div>
-<br style="clear:left" />
+<div style="clear:left" />

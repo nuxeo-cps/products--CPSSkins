@@ -69,4 +69,4 @@ tal:define="context_obj nocall:options/context_obj;
   </tal:block>
  </tal:block>
 </div>
-<br style="clear:left" />
+<div style="clear:left" />
