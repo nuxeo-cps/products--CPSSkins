@@ -55,7 +55,7 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url python: '%s?edit_mode=%s&theme=%s&cat=%s' % (here_url, section, theme, cat);
+      tal:define="url python: '%s/edit_form?edit_mode=%s&theme=%s&cat=%s' % (here_url, section, theme, cat);
                   title python:'_%s mode_' % section" i18n:translate=""
        tal:attributes="href url ; class python: edit_mode == section and 'selected' or '' ;"
       tal:content="python:mcat and mcat(title) or title" />
