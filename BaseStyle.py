@@ -295,7 +295,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         theme_container = tmtool.getPortalThemeRoot(self)
         dest_theme_container = tmtool.getThemeContainer(theme=dest_theme)
         if dest_theme_container is None:
-            return
+            return self
 
         # save the default style
         meta_type = getattr(self, 'meta_type', None)

@@ -136,7 +136,6 @@ class FlashBox(File, BaseTemplet):
         data=file.read()
         filesize=len(data)
 
-        from swfHeaderData import analyseContent
         analysed=analyseContent(data,filesize)
         self.flash_height=analysed['height']
         self.flash_width=analysed['width']

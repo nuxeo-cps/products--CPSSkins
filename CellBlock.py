@@ -327,6 +327,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             if margin not in ('0', '0pt', '0in', '0pc', '0mm',
                               '0cm', '0px', '0em', '0ex'):
                 return 'padding: %s' % margin
+        return ''
 
     security.declarePublic('getCSSLayoutStyle')
     def getCSSLayoutStyle(self):
@@ -392,7 +393,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         theme_container = tmtool.getPortalThemeRoot(self)
         type_name = kw.get('type_name', None)
         if type_name is None:
-            return
+            return None
 
         # Cell block cannot be added inside cell blocks
         # add it inside the container instead
@@ -423,6 +424,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             theme_container.expireCSSCache()
             theme_container.expireJSCache()
             return content
+        return None
 
     security.declareProtected(ManageThemes, 'expireCache')
     def expireCache(self):
@@ -453,6 +455,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             if cellsizer is not None:
                 verifyThemePerms(cellsizer)
                 return cellsizer
+        return None
 
 InitializeClass(CellBlock)
 

@@ -164,7 +164,6 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         is the 2-letter language code.
         """
 
-        tmtool = getToolByName(self, 'portal_themes')
         if REQUEST is not None:
             kw.update(REQUEST.form)
         file = kw.get('file', None)

@@ -108,6 +108,7 @@ class CellHider(BaseCellModifier):
                         'starting_from',
                         'up_till']:
             return 1
+        return None
 
     security.declarePublic('getVisibility')
     def getVisibility(self, **kw):
