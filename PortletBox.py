@@ -63,7 +63,21 @@ class PortletBox(BaseTemplet):
                           'action': 'manage_templetPreview'}, )
                      )
 
-    _properties = BaseTemplet._properties
+    _properties = BaseTemplet._properties + (
+       {'id': 'box_id', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Portlet id', 
+        'select_variable': 'cpsskins_select_portlet',
+        'category': 'general',
+       },
+    )
+
+    def __init__(self, id, 
+                 boxid = 0, 
+                 **kw):
+        apply(BaseTemplet.__init__, (self, id), kw)
+        self.boxid = boxid
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
@@ -81,6 +95,7 @@ class PortletBox(BaseTemplet):
     #
     # Properties
     #
+
 
     # RAM Cache
     #

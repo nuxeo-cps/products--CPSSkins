@@ -1,1 +1,1 @@
-return 'CPS3 portlet'
+return ''

@@ -13,8 +13,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
         tmtool = self.portal.portal_themes
-        if 'PortalTheme' in tmtool.objectIds():
-           tmtool.manage_delObjects(['PortalTheme'])
+        tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)
         self.pageblock = self.theme_container.addPageBlock()
         atool = self.portal.portal_actions
@@ -82,7 +81,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         for content in templet.ContentList():
             templet.content = content 
             self.assert_(templet.render())
-          
+
     def test_PortalBox_Templet_title_source(self):
         pageblock = self.pageblock
         templet = pageblock.addTemplet(type_name='Portal Box Templet')
@@ -378,7 +377,6 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet.color = style.getTitle()
         found_style = templet.getStyle(meta_type='Area Color')        
         self.assert_(templet.color == found_style.getTitle())
-
 
 def test_suite():
     suite = unittest.TestSuite()
