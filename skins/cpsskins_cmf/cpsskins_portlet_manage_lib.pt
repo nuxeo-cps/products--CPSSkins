@@ -163,7 +163,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url string:${tmtool_url}/setViewMode?portlets_panel=$section;
+      tal:define="url string:${tmtool_url}/setViewMode?portlets_panel=$section&amp;reload=1;
                   title python:'%s_panel' % section" i18n:translate=""
        tal:attributes="href url; class python: panel == section and 'selected' or None;"
       tal:content="python:mcat and mcat(title) or title" />
