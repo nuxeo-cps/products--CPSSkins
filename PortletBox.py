@@ -30,6 +30,7 @@ from OFS.PropertyManager import PropertyManager
 from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
+from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes
 
 from cpsskins_utils import html_slimmer
@@ -49,7 +50,7 @@ factory_type_information = (
     },
 )
 
-class PortletBox(BaseTemplet):
+class PortletBox(BaseTemplet, SimpleBox):
     """
     Portlet Box Templet.
     """
@@ -274,41 +275,26 @@ class PortletBox(BaseTemplet):
         portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
 
-        boxlayout = self.boxlayout
-        if boxlayout == '':
-            boxlayout = 'standard'
-
-        boxclass = self.getCSSBoxClass()
-        boxstyle = self.getCSSBoxLayoutStyle()
-
-        macro_path = self.unrestrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
-                                               boxlayout, default=None)
-        if macro_path is None:
+        if portlet is None:
             return ''
 
-        rendered = ''
-        if portlet is not None:
-            # crash shield
-            if shield:
-                try:
-                    rendered = portlet.render_cache(**kw)
-                # could be anything
-                except:
-                    rendered = self.cpsskins_brokentemplet(**kw)
-            else:
-                rendered = portlet.render_cache(**kw)
+        body = portlet.render_cache(**kw)
+        body = html_slimmer(body)
 
-            title = self.title
-            body = html_slimmer(rendered)
-
-            # add the box decoration$
-            rendered = self.cpsskins_renderPortletBox(title=title,
-                                                      body=body,
-                                                      boxclass=boxclass,
-                                                      boxstyle=boxstyle,
-                                                      macro_path=macro_path,
-                                                      portlet=portlet)
-        return rendered
+        rendered_box = ''
+        if body:
+            # add the box frame
+            rendered_box += '<div style="%s"><div class="%s">' % (
+                            self.getCSSBoxLayoutStyle(),
+                            self.getCSSBoxClass())
+            # add the box decoration
+            rendered_box += self.renderBoxLayout(boxlayout=self.boxlayout,
+                                                 title=self.title,
+                                                 body=body,
+                                                 portlet=portlet,
+                                                )
+            rendered_box += '</div></div>'
+        return rendered_box
 
     #
     # RAM Cache

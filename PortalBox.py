@@ -29,21 +29,8 @@ from AccessControl import ClassSecurityInfo
 from Products.CMFCore.utils import getToolByName
 
 from BaseTemplet import BaseTemplet
+from SimpleBox import SimpleBox
 from cpsskins_utils import html_slimmer
-
-BOX_LAYOUTS = {
-# standard box
-'standard': """<div class="title">%s</div><div class="body">%s</div>""",
-# one frame
-'one_frame': """<div class="body"><h4>%s</h4><br/>%s</div>""",
-# no title no frame
-'notitle_noframe': """<div class="body" style="border: none">%s</div>""",
-# no title
-'notitle': """<div class="body">%s</div>""",
-# no frame
-'noframe': """<div class="title" style="border: none">%s</div>
-<div class="body" style="border: none">%s</div>""",
-}
 
 factory_type_information = (
     {'id': 'Portal Box Templet',
@@ -60,7 +47,7 @@ factory_type_information = (
     },
 )
 
-class PortalBox(BaseTemplet):
+class PortalBox(BaseTemplet, SimpleBox):
     """
     Portal Box Templet.
     """
@@ -310,32 +297,6 @@ class PortalBox(BaseTemplet):
                                                 )
             rendered_box += '</div></div>'
         return rendered_box
-
-    security.declarePublic('renderBoxLayout')
-    def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
-        """Render the box layout.
-        """
-        if boxlayout == 'standard' or boxlayout == '': 
-            return BOX_LAYOUTS['standard'] % (title, body)
-        elif boxlayout == 'one_frame':
-            return BOX_LAYOUTS['one_frame'] % (title, body)
-        elif boxlayout == 'notitle':
-            return BOX_LAYOUTS['notitle'] % body
-        elif boxlayout == 'noframe':
-            return BOX_LAYOUTS['noframe'] % (title, body)
-        elif boxlayout == 'notitle_noframe':
-            return BOX_LAYOUTS['notitle_noframe'] % body
-
-        macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' %\
-                                             boxlayout, default=None)
-        if macro_path is None:
-            return ''
-
-        rendered = self.cpsskins_renderBoxLayout(title=title,
-                                                 body=body,
-                                                 macro_path=macro_path,
-                                                 **kw)
-        return rendered
 
     security.declarePublic('render_title')
     def render_title(self, **kw):

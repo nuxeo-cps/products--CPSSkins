@@ -33,6 +33,8 @@ import ThemeFolder
 import PageBlock
 import CellBlock
 
+import SimpleBox
+
 # Templets
 import MainContent
 import SearchBox
