@@ -295,17 +295,20 @@ class PortalBox(BaseTemplet, SimpleBox):
         if content in ['folders', 'about', 'related']:
             params.append('object:path')
 
-        if content == 'actions':
-            categories = self.action_categories + self.custom_action_categories
+        elif content == 'actions':
+            categories = self.action_categories
+            custom_categories = self.custom_action_categories
+            if custom_categories and custom_categories[0]:
+               categories += custom_categories
             cat_string = ','.join(categories)
             params.append('actions:' + cat_string)
 
-        if content == 'pending':
+        elif content == 'pending':
             params.append('actions')
 
         if self.boxlayout in ['drawer', 'drawer_notitle']:
             params.append('boxstate')
-                
+
         return params
 
     security.declarePublic('listTitleSources')

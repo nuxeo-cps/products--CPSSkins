@@ -673,6 +673,8 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             """
             res = []
             for o in p.split(':')[1].split(','):
+                if not o:
+                    continue
                 if o[0] == '(' and o[-1] == ')':
                     o = getattr(self, o[1:-1], None)
                     if o is None:
@@ -700,7 +702,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                 index_string = REQUEST.get('cpsskins_language', 'en')
 
             # current url
-            if param == 'url':
+            elif param == 'url':
                 index_string = REQUEST.get('cpsskins_url')
 
             # CMF Actions
@@ -713,10 +715,18 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                 prefix = 'actions'
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
                 if cmf_actions:
-                    categories = param.split(':')[1].split(',')
+                    categories = getOptions(param)
                     actions = [cmf_actions[x] for x in categories \
                                if cmf_actions.has_key(x)]
                     index_string = md5.new(str(actions)).hexdigest()
+                    current_url = REQUEST.get('cpsskins_url')
+                    for actions_by_cat in actions:
+                         for ac in actions_by_cat:
+                             ac_url = ac['url'].strip()
+                             if ac_url != current_url: 	 
+                                  continue
+                             index_string += ac_url
+                             break
 
             # Workflow actions
             elif param == 'wf_actions':
