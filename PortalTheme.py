@@ -345,7 +345,6 @@ class PortalTheme(ThemeFolder, StylableContent):
         Rebuild the theme
         """
 
-        tmtool = getToolByName(self, 'portal_themes')
         setperms = kw.get('setperms', 0)
         canonizeId(self)
         rebuild_properties(self) 
@@ -420,7 +419,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         for themefolder in themefolders:
             obj = getattr(self.aq_explicit, themefolder, None)
             if obj is not None and setperms:
-                 verifyThemePerms(obj)
+                verifyThemePerms(obj)
 
         self.clearCache()
 
@@ -458,6 +457,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                     path = '/' + icon_obj.absolute_url(1)
                     mimetype = icon_obj.content_type
                     return SHORTCUT_ICON_HTML % (path, mimetype, path, mimetype)
+        return None
 
     security.declarePublic('renderCSS')
     def renderCSS(self, **kw):
@@ -468,20 +468,20 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         setCacheHeaders(self, css=1, **kw)
 
-        cache = self.getCSSCache(create=1)
+        cache = self.getCSSCache()
         index = tuple(kw.items())
 
         cleanup_date = getattr(self, 'css_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
         if last_update < cleanup_date:
-           cache.invalidate()
+            cache.invalidate()
 
         css = cache.getEntry(index)
 
         if css is None:
             styles_dir = self.getStylesFolder()
             if styles_dir is None:
-                return
+                return None
             css = ''
             for obj in styles_dir.objectValues():
                 o = obj.aq_explicit
@@ -501,13 +501,13 @@ class PortalTheme(ThemeFolder, StylableContent):
         if REQUEST is not None:
             kw.update(REQUEST.form)
 
-        cache = self.getJSCache(create=1)
+        cache = self.getJSCache()
         index = tuple(kw.items())
 
         cleanup_date = getattr(self, 'js_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
         if last_update < cleanup_date:
-           cache.invalidate()
+            cache.invalidate()
 
         js = cache.getEntry(index)
 
@@ -631,8 +631,8 @@ class PortalTheme(ThemeFolder, StylableContent):
  
         styles = self.getStyles(meta_type=meta_type) 
         for style in styles:
-           if style.isDefaultStyle():
-               return style.title
+            if style.isDefaultStyle():
+                return style.title
         return ''
 
     security.declareProtected(ManageThemes, 'getLostAndFoundFolder')
@@ -646,7 +646,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         exists = 0
         if folder is not None:
             if getattr(folder.aq_explicit, 'isthemefolder', 0):
-               exists = 1 
+                exists = 1 
         if not exists and create:
             self.invokeFactory('Theme Folder', id)
         return getattr(self.aq_explicit, id, None)
@@ -699,9 +699,10 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         dict = {}
         tmtool = getToolByName(self, 'portal_themes')
+        findIdenticalStylesByType = self.findIdenticalStylesByType
         for style_type in tmtool.listStyleTypes():
             meta_type = style_type.getId()
-            identical_styles = self.findIdenticalStylesByType(meta_type=meta_type)
+            identical_styles = findIdenticalStylesByType(meta_type=meta_type)
             if identical_styles:
                 dict[meta_type] = identical_styles
         return dict
@@ -711,14 +712,12 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
         Returns the default style if it exists.
         """
-
         if meta_type is None:
-            return 
- 
+            return None
         for style in self.findStyles(meta_type=meta_type):
             if style.aq_explicit.isDefaultStyle():
                 return style
-
+        return None
 
     security.declarePublic('findIdenticalStylesByType')
     def findIdenticalStylesByType(self, meta_type=None):
@@ -727,21 +726,17 @@ class PortalTheme(ThemeFolder, StylableContent):
         """
 
         if meta_type is None:
-            return 
+            return None
  
         groups = []
         props = []
         for style in self.findStyles(meta_type=meta_type):
-            # XXX: does it have to be rebuilt?
-            style.rebuild()
-            #
             properties = style.propertyValues()[1:]
             for i in range(len(groups)):
                 group = groups[i]
                 if properties == props[i]: 
-                     groups[i].append(style)
-                     break
-    
+                    groups[i].append(style)
+                    break
             groups.append([style])
             props.append(properties)
         final_groups = []
@@ -778,6 +773,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             if ypos:
                 self.move_object_to_position(pageblock.getId(), int(ypos))
             return pageblock
+        return None
 
     security.declareProtected(ManageThemes, 'addPortalPalette')
     def addPortalPalette(self, **kw):
@@ -787,7 +783,7 @@ class PortalTheme(ThemeFolder, StylableContent):
       
         type_name = kw.get('type_name', None)
         if type_name is None:
-            return
+            return None
         type = string.replace(type_name, ' ', '') 
 
         title = kw.get('title', type)
@@ -808,12 +804,12 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         i = 0
         while 1:
-           if title not in titles:
-               break 
-           i = i + 1
-           title = type + str(i)
-           if titles is None: 
-               break
+            if title not in titles:
+                break 
+            i = i + 1
+            title = type + str(i)
+            if titles is None: 
+                break
 
         id = getFreeId(self)
         palettes_dir.invokeFactory(type_name, id, title=title, **kw)
@@ -823,19 +819,16 @@ class PortalTheme(ThemeFolder, StylableContent):
                 setattr(palette, 'value', value)
             verifyThemePerms(palette)
             return palette
+        return None
 
     security.declareProtected(ManageThemes, 'addPortalStyle')
     def addPortalStyle(self, **kw):
+        """Add a Portal Style. Returns the Portal Style's id
         """
-        Add a Portal Style. Returns the Portal Style's id
-        """
-      
-        tmtool = getToolByName(self, 'portal_themes')
         type_name = kw.get('type_name', None)
         if type_name is None:
-            return
+            return None
         type = string.replace(type_name, ' ', '') 
-
         title = kw.get('title', type)
 
         del kw['type_name']
@@ -848,15 +841,14 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         titles = [getattr(obj, 'title', None) \
                   for obj in styles_dir.objectValues()]
-
         i = 0
         while 1:
-           if title not in titles:
-               break 
-           i = i + 1
-           title = type + str(i)
-           if titles is None: 
-               break
+            if title not in titles:
+                break 
+            i = i + 1
+            title = type + str(i)
+            if titles is None: 
+                break
 
         id = getFreeId(self)
         styles_dir.invokeFactory(type_name, id, title=title, **kw)
@@ -865,6 +857,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             verifyThemePerms(style)
             self.expireCSSCache()
             return style
+        return None
 
     security.declareProtected(ManageThemes, 'editPortalImage')
     def editPortalImage(self, **kw):
@@ -874,11 +867,11 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         file = kw.get('file', None)
         if file is None:
-            return
+            return None
 
         imagecat = kw.get('imagecat', '')
         if imagecat not in self.cpsskins_listImageCategories():
-            return
+            return None
 
         # rebuild the theme to create the image folders.
         if imagecat not in self.objectIds():
@@ -886,15 +879,15 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         images_dir = getattr(self, imagecat, None)
         if images_dir is None:
-            return
+            return None
 
         id = kw.get('id', None)
         if id is None:
-            return
+            return None
 
         img = getattr(images_dir, id, None)
         if img is None:
-            return
+            return None
         # create a thumbnail
         if imagecat == 'thumbnails':
             file = self._createThumbnail(file)
@@ -911,15 +904,15 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         imagecat = kw.get('imagecat', '')
         if imagecat not in self.cpsskins_listImageCategories():
-            return
+            return None
 
         images_dir = getattr(self, imagecat, None)
         if images_dir is None:
-            return
+            return None
 
         file = kw.get('file', None)
         if file is None:
-            return
+            return None
 
         fn = file.filename
         title = string.split(fn, '/')[-1]
@@ -935,12 +928,12 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         i = 0
         while 1:
-           i = i + 1
-           if ids is None: 
-               break
-           if id not in ids:
-               break 
-           id = prefix + str(i) + '.' + ext
+            i = i + 1
+            if ids is None: 
+                break
+            if id not in ids:
+                break 
+            id = prefix + str(i) + '.' + ext
 
         title = id
         cmfdefault = images_dir.manage_addProduct['CMFDefault']
@@ -962,9 +955,9 @@ class PortalTheme(ThemeFolder, StylableContent):
         stylesfolder = self.getStylesFolder()
         list = []
         for style in stylesfolder.objectValues():
-             if hasattr(style.aq_explicit, 'isOrphan'):
-                 if style.isOrphan():
-                     list.append(style)
+            if hasattr(style.aq_explicit, 'isOrphan'):
+                if style.isOrphan():
+                    list.append(style)
         return list
 
     security.declareProtected(ManageThemes, 'getTemplets')
@@ -1011,22 +1004,22 @@ class PortalTheme(ThemeFolder, StylableContent):
         invisible_templets = []
         pageblocks = self.getPageBlocks()
         for pageblock in pageblocks:
-             maxcols = getattr(pageblock, 'maxcols', None)
-             pageblock_closed = pageblock.closed
-             if maxcols is not None:
-                 maxcols = int(maxcols)
-             for obj in pageblock.objectValues():
-                 o = obj.aq_explicit
-                 if getattr(o, 'isportaltemplet', 0):
-                     if obj.closed:
-                         invisible_templets.append(obj)
-                         continue
-                     if pageblock_closed:
-                         invisible_templets.append(obj)
-                         continue
-                     xpos = getattr(obj, 'xpos', None)
-                     if xpos is not None and xpos >= maxcols:
-                         invisible_templets.append(obj)
+            maxcols = getattr(pageblock, 'maxcols', None)
+            pageblock_closed = pageblock.closed
+            if maxcols is not None:
+                maxcols = int(maxcols)
+            for obj in pageblock.objectValues():
+                o = obj.aq_explicit
+                if getattr(o, 'isportaltemplet', 0):
+                    if obj.closed:
+                        invisible_templets.append(obj)
+                        continue
+                    if pageblock_closed:
+                        invisible_templets.append(obj)
+                        continue
+                    xpos = getattr(obj, 'xpos', None)
+                    if xpos is not None and xpos >= maxcols:
+                        invisible_templets.append(obj)
         return invisible_templets
 
     #
@@ -1091,7 +1084,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
         self.manage_changeProperties(**kw)
 
-    security.declarePublic( 'get_object_position')
+    security.declarePublic('get_object_position')
     def get_object_position(self, id):
         """ Gets the objects' position in an ordered folder
         """
@@ -1101,7 +1094,8 @@ class PortalTheme(ThemeFolder, StylableContent):
                 return i
             i = i+1
         # If the object was not found, throw an error.
-        raise 'ObjectNotFound', 'The object with the id "%s" does not exist.' % id
+        raise 'ObjectNotFound', \
+              'The object with the id "%s" does not exist.' % id
 
     security.declareProtected(ManageThemes, 'move_object_to_position')
     def move_object_to_position(self, id, newpos):
@@ -1144,10 +1138,10 @@ class PortalTheme(ThemeFolder, StylableContent):
     def invalidateCacheEntriesById(self, obid=None, REQUEST=None):
         """Removes local cache entries that match a given Templet id.
            This method can be used to clean orphaned cache entries.
-
-           In a ZEO environment only the local RAM cache entries will be erased.
-           If the Templet still exists then 'templet.expireCache()' should be used
-           instead in order to propagate the information between ZEO instances.
+           In a ZEO environment only the local RAM cache entries will be erased
+           If the Templet still exists then 'templet.expireCache()' should be
+           used instead in order to propagate the information between
+           ZEO instances.
         """
                                                 
         cache = self.getTempletCache()
@@ -1170,14 +1164,13 @@ class PortalTheme(ThemeFolder, StylableContent):
         cache.invalidate()
         
     security.declareProtected(ManageThemes, 'invalidateJSCache')
-    def invalidateJSCache(self, ob=None):
+    def invalidateJSCache(self):
         """Invalidates the JavaScript RAM Cache.
 
            In a ZEO environment only the local RAM cache will be invalidated.
            Use 'theme.expireJSCache()' to propagate the information between
            all ZEO instances.
         """
-   
         cache = self.getJSCache()
         if cache is None:                       
             return                              
@@ -1205,44 +1198,35 @@ class PortalTheme(ThemeFolder, StylableContent):
 
     security.declarePublic('getCacheStats')
     def getCacheStats(self):
+        """Returns statistics about the cache.
         """
-        Returns statistics about the cache.
-        """
- 
         cache = self.getTempletCache()
         if cache is None:
-            return 
-
+            return None
         stats = cache.getStats()
         count = stats['count']
         hits = stats['hits']
         size = stats['size']
-
         if count > 0:
             effectivity = 100 * hits / count
         else:
             effectivity = 100
-  
         return {'effectivity': effectivity, 
                 'size': size, }
 
     security.declarePublic('getCacheReport')
     def getCacheReport(self):
+        """Returns detailed statistics about the cache.
         """
-        Returns detailed statistics about the cache.
-        """
-
         cache = self.getTempletCache()
         if cache is None:
-            return  
+            return None
         return cache.getReport()
                     
     security.declarePublic('getCacheSize')
     def getCacheSize(self):
+        """Returns the size of the cache.
         """         
-        Returns the size of the cache.
-        """         
-                    
         size = 0
         templetcache = self.getTempletCache()
         if templetcache is not None:
@@ -1256,7 +1240,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         return size 
 
     security.declarePublic('getTempletCache')
-    def getTempletCache(self, create=0):
+    def getTempletCache(self):
         """Returns the Templet RAM cache object"""
 
         cacheid = '_'.join((TEMPLET_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
@@ -1268,7 +1252,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             return cache
 
     security.declarePublic('getCSSCache')
-    def getCSSCache(self, create=0):
+    def getCSSCache(self):
         """ Returns the CSS RAM cache object"""
 
         cacheid = '_'.join((CSS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
@@ -1280,7 +1264,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             return cache
 
     security.declarePublic('getJSCache')
-    def getJSCache(self, create=0):
+    def getJSCache(self):
         """ Returns the javascript RAM cache object"""
                  
         cacheid = '_'.join((JS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
@@ -1298,10 +1282,8 @@ class PortalTheme(ThemeFolder, StylableContent):
     def _createThumbnail(self, file=None):
         """Create a thumbnail image.
         """
-
         if file is None:
-            return
-
+            return None
         width, height = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
         if isPILAvailable:
             try:
@@ -1313,7 +1295,6 @@ class PortalTheme(ThemeFolder, StylableContent):
                 file.seek(0)
                 image.save(file, THUMBNAIL_IMAGE_FORMAT)
         return file
-
 
 InitializeClass(PortalTheme)
 

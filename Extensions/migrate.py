@@ -5,7 +5,7 @@ import zLOG
 def logf(summary,message='',severity=0):
     summary = '['+ str(summary) +']'
     if message:
-       message = str(message)+'\n'
+        message = str(message)+'\n'
     zLOG.LOG('CPSSkins: ',severity,summary, message)
 
 
@@ -48,10 +48,10 @@ def migrate(self):
 
         old_theme_container = getattr(portal, 'themes', None)
         if old_theme_container is not None:
-             old_themes = old_theme_container.objectIds()
-             pr("    moving the themes: %s " % str(old_themes) )
-             cookie = old_theme_container.manage_copyObjects(old_themes)
-             theme_container.manage_pasteObjects(cookie)
+            old_themes = old_theme_container.objectIds()
+            pr("    moving the themes: %s " % str(old_themes) )
+            cookie = old_theme_container.manage_copyObjects(old_themes)
+            theme_container.manage_pasteObjects(cookie)
     else:
         pr("  the 'portal_themes' folder is not empty.")
 
@@ -109,13 +109,12 @@ def migrate(self):
         actions_to_delete = []
         actions = list(portal[tool]._actions)
         for action in actions:
-             if action.id in actionids:
+            if action.id in actionids:
                 actions_to_delete.append(action) 
         for ac in actions_to_delete:
-             pr(" Deleting %s : %s" %  (tool,ac.id))
-             actions.remove(ac)
+            pr(" Deleting %s : %s" %  (tool,ac.id))
+            actions.remove(ac)
         portal[tool]._actions = actions
-
 
     pr_h3("Portal Skins")
     pr(" Removing obsolete skins used in earlier versions ...")

@@ -23,7 +23,7 @@ zexpdir = os.path.join(cpsskins_home, 'Install')
 def logf(summary,message='',severity=0):
     summary = '['+ str(summary) +']'
     if message:
-       message = str(message)+'\n'
+        message = str(message)+'\n'
     zLOG.LOG('CPSSkins: ',severity,summary, message)
 
 def setperms(object, perms, pr=None):
@@ -419,9 +419,9 @@ def update(self):
     mcat=None
     defaultmcat=None
     try:
-       mcat = defaultmcat = getToolByName(self, 'portal_messages')
+        mcat = defaultmcat = getToolByName(self, 'portal_messages')
     except:
-       pass
+        pass
 
     if portalhas('Localizer'):
         pr("Localizer already here")

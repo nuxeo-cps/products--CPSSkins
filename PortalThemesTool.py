@@ -200,20 +200,19 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """ Gets the portal theme root container of a given object """
 
         if object is None:
-            return
+            return None
         rurl = object.absolute_url(relative=1)
         path = rurl.split('/')
         path_length = len(path)
-    
         for p in range(0,path_length):
             if path[p] == 'portal_themes' and p < path_length - 1:
                 theme_name = path[p+1]
                 theme_container = self.getThemeContainer(theme=theme_name)
                 return theme_container     
-
         o = object.aq_explicit
         if getattr(o, 'isportaltheme', 0):
             return object
+        return None
 
     security.declarePublic('findStylesFor')
     def findStylesFor(self, category=None, object=None, title=None ):
@@ -222,21 +221,17 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             - for a given object ('object') 
             - that has a given title ('title') [optional]
         """
-
         style = {}
         title_list = []
         object_list = []
         if object is None:
-             return
-
+            return []
         themeroot = self.getPortalThemeRoot(object)
         if themeroot is None:
-             return
-
+            return []
         styles_dir = getattr(themeroot, 'styles', None)
         if styles_dir is None:
-            return
-
+            return []
         for obj in styles_dir.objectValues():
             if getattr(obj, 'meta_type', None) == category:
                 if title:
@@ -245,7 +240,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                         continue
                 title_list.append(obj.title)
                 object_list.append(obj)
-
         style['title'] = title_list
         style['object'] = object_list
         return style
@@ -258,15 +252,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         title_list = []
         object_list = []
         if object is None:
-             return
+            return None
 
         themeroot = self.getPortalThemeRoot(object)
         if themeroot is None:
-             return
+            return None
 
         palettes_dir = getattr(themeroot, 'palettes', None)
         if palettes_dir is None:
-            return
+            return None
 
         for obj in palettes_dir.objectValues():
             if getattr(obj.aq_explicit, 'meta_type', None) == category:
@@ -356,29 +350,29 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if themes:
             default_theme = self.getDefaultThemeName()
             return getattr(portal_themes, default_theme, None)
+        return None
 
     security.declarePublic('getDefaultThemeName')
     def getDefaultThemeName(self, REQUEST=None):
         """ gets the default theme
         """
- 
         themes =  self.getThemes() 
         for theme in themes:
-           if theme.isDefaultTheme():
-               return theme.getId()
+            if theme.isDefaultTheme():
+                return theme.getId()
         if themes:
-           return themes[0].getId()
+            return themes[0].getId()
+        return None
 
     security.declareProtected('Manage Themes', 'setDefaultTheme')
     def setDefaultTheme(self, default_theme=None, REQUEST=None):
         """ sets the default theme. 
         """
- 
         themes =  self.getThemes() 
         for theme in themes:
-             if theme.getId() == default_theme:
+            if theme.getId() == default_theme:
                 theme.default = 1
-             else:
+            else:
                 theme.default = 0
 
         msg = 'Settings updated'
@@ -647,13 +641,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getThemes(self):
         """Gets the list of themes as objects.
         """
-     
         themes_container = self.getThemeContainer(parent=1)
         theme_list = []
-
         if themes_container:
-           theme_list = themes_container.objectValues('Portal Theme')
-
+            theme_list = themes_container.objectValues('Portal Theme')
         return theme_list
 
     security.declarePublic('getThemeNames')
@@ -705,11 +696,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         if actionicons:
             try:
-               iconinfo = actionicons.getActionIcon(category, id)
+                iconinfo = actionicons.getActionIcon(category, id)
             except:
-               pass
+                pass
             else:
-               return iconinfo
+                return iconinfo
 
     security.declarePublic('getIconsInfo')
     def getIconsInfo(self, actions=None, ):
@@ -745,7 +736,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """ Deletes an object """
  
         if object is None:
-           return
+            return
 
         container = object.aq_parent
         theme_container = self.getPortalThemeRoot(object)
@@ -781,9 +772,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return theme
         pageblock = theme.addPageBlock()
         if pageblock is not None:
-           maincontent = pageblock.addContent(type_name='Main Content Templet')
+            maincontent = pageblock.addContent(type_name='Main Content Templet')
+            maincontent.edit(xpos=int(1))
         pageblock.edit(maxcols=int(3))
-        maincontent.edit(xpos=int(1))
         col1 = pageblock.addCellSizer(xpos=int(0))
         col2 = pageblock.addCellSizer(xpos=int(1))
         col3 = pageblock.addCellSizer(xpos=int(2))
@@ -826,17 +817,17 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
 
         if file is None:
-            return
+            return None
 
         tmp_dir = self._getTemporaryThemeFolder()
         if tmp_dir is None:
-           return 
+            return None
 
         try:
             QuickImporter.manage_doQuickImport(tmp_dir, file, \
                              set_owner=0, leave=0, REQUEST=None)
         except:
-            return
+            return None
 
         theme_id = tmp_dir.objectIds()[0]
         new_id = getFreeId(self, try_id=theme_id)
@@ -1043,7 +1034,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         
         tmp_dir = self._getTemporaryThemeFolder()
         if tmp_dir is None:
-           return None
+            return None
 
         tmp_dir.manage_importObject(file=filename, set_owner=0)
         if themeid in self.objectIds():
@@ -1051,7 +1042,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         current_id = tmp_dir.objectIds()[0]
         if current_id != themeid: 
-           tmp_dir.manage_renameObjects([current_id], [themeid])
+            tmp_dir.manage_renameObjects([current_id], [themeid])
 
         cookie = tmp_dir.manage_cutObjects([themeid])
         self.manage_pasteObjects(cookie)
@@ -1081,7 +1072,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         themes = []
         new_themes = 0
         for theme in self.externalthemes:
-            themeid = theme.get('themeid', None)
             themeurl = theme.get('themeurl', None)
             md5sum = theme.get('md5sum', None)
 

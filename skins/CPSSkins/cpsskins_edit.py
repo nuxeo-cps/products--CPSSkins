@@ -23,9 +23,9 @@ if getattr(context.aq_explicit, 'isportletbox', 0) and kw.get('portlet_type'):
 url = kw.get('redirect_url')
 
 if REQUEST is not None:
-   if url is None:
-       url = context.absolute_url() + '/edit_form'
+    if url is None:
+        url = context.absolute_url() + '/edit_form'
 
-   if cat:
-         url += '?cat=' + cat
-   REQUEST.RESPONSE.redirect(url)
+    if cat:
+        url += '?cat=' + cat
+    REQUEST.RESPONSE.redirect(url)

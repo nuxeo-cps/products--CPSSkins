@@ -575,10 +575,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         """Sets a property."""
 
         if value is None:
-           return
-     
+            return None
         if not hasattr(self, prop):
-           return
+            return None
         setattr(self, prop, value)
 
     #
@@ -606,20 +605,20 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             REQUEST = self.REQUEST
 
         def getOptions(p):
-             """extract cache parameter options
-             """
-             res = []
-             for o in p.split(':')[1].split(','):
-                 if o[0] == '(' and o[-1] == ')':
-                     o = getattr(self, o[1:-1], None)
-                     if o is None:
-                         continue
-                     if isinstance(o, ListType) or\
-                        isinstance(o, TupleType):
-                         res.extend(o)
-                         continue
-                 res.append(str(o))
-             return res
+            """extract cache parameter options
+            """
+            res = []
+            for o in p.split(':')[1].split(','):
+                if o[0] == '(' and o[-1] == ')':
+                    o = getattr(self, o[1:-1], None)
+                    if o is None:
+                        continue
+                    if isinstance(o, ListType) or\
+                       isinstance(o, TupleType):
+                        res.extend(o)
+                        continue
+                res.append(str(o))
+            return res
 
         context = kw.get('context_obj')
         params = self.getCacheParams()
@@ -792,7 +791,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             now = time.time()
             templet_path = self.getPhysicalPath()
             index = (templet_path, ) + self.getCacheIndex(**kw)
-            cache = self.getTempletCache(create=1)
+            cache = self.getTempletCache()
             last_cleanup = cache.getLastCleanup(id=templet_path)
             lifetime = getattr(self, 'cache_lifetime', 60)
             cleanup_date = getattr(self, 'cache_cleanup_date', 0)

@@ -222,6 +222,7 @@ class PortalTab(BaseTemplet):
 
         if getattr(self, 'content', None) == 'actions':
             return 1
+        return None
 
     security.declarePublic('IfFoldersCategory')
     def IfFoldersCategory(self):           
@@ -229,6 +230,7 @@ class PortalTab(BaseTemplet):
 
         if getattr(self, 'content', None) == 'folders':
             return 1
+        return None
 
     security.declarePublic('IfFoldersCategoryAndExistsBase')
     def IfFoldersCategoryAndExistsBase(self):           

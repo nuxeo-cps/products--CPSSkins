@@ -16,4 +16,4 @@ tmtool.clearViewMode('scrollx', 'scrolly')
 url = context.absolute_url() + '/edit_form'
 
 if REQUEST is not None:
-     REQUEST.RESPONSE.redirect(url)
+    REQUEST.RESPONSE.redirect(url)

@@ -25,5 +25,5 @@ if paths:
         idx += 1  
  
 if REQUEST is not None:
-     url = REQUEST['HTTP_REFERER'] 
-     REQUEST.RESPONSE.redirect(url)
+    url = REQUEST['HTTP_REFERER'] 
+    REQUEST.RESPONSE.redirect(url)

@@ -53,7 +53,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Can the templet be moved to the left?"""
 
         if self.can_moveleft():
-           return self.xpos -1 
+            return self.xpos -1 
         return None
 
     security.declarePublic('moveright_pos')
@@ -127,11 +127,11 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         for obj in container.objectValues():
             o = obj.aq_explicit
             if getattr(o, 'isportaltemplet', 0) or \
-               getattr(o, 'iscellblock', 0):
-               if obj.xpos == self.xpos:
-                   pos = obj.getVerticalPosition()
-                   if pos < this_pos:
-                       return 1
+                getattr(o, 'iscellblock', 0):
+                if obj.xpos == self.xpos:
+                    pos = obj.getVerticalPosition()
+                    if pos < this_pos:
+                        return 1
         return None
 
     security.declarePublic('can_movedown')
@@ -244,8 +244,8 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             new_id = res[0]['new_id']
             newpos = int(ypos) 
             if dest_block == src_block:
-                 if newpos > current_ypos and new_xpos != current_xpos:
-                     newpos = newpos -1;
+                if newpos > current_ypos and new_xpos != current_xpos:
+                    newpos = newpos -1;
             dest_container.move_object_to_position(new_id, newpos)
             content = getattr(dest_container, new_id, None)
             if content is None:
@@ -319,7 +319,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                         obj.manage_pasteObjects(cookie)
                         maxcols = getattr(obj, 'maxcols', None)
                         if maxcols is not None and self.xpos > maxcols-1:
-                             self.xpos = maxcols - 1
+                            self.xpos = maxcols - 1
                         templet = getattr(obj, self.getId(), None) 
 
         if direction == 'down' and self.can_movedown():
@@ -339,7 +339,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
 
                         maxcols = getattr(obj, 'maxcols', None)
                         if maxcols is not None and self.xpos > maxcols-1:
-                             self.xpos = maxcols - 1
+                            self.xpos = maxcols - 1
                         templet = newobj
         templet.expireCache()
         return templet

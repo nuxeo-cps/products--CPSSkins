@@ -267,7 +267,7 @@ def getObjectVisibility(self, **kw):
     if visibility == 'if_authenticated':
         mtool = getToolByName(self, 'portal_membership')
         if not mtool.isAnonymousUser():
-           return 1
+            return 1
 
     if visibility == 'if_anonymous':
         mtool = getToolByName(self, 'portal_membership')
@@ -279,11 +279,11 @@ def getObjectVisibility(self, **kw):
         effective_date = self.EffectiveDate()
         expiration_date = self.ExpirationDate()
         if effective_date != 'None':
-           if now < DateTime(effective_date):
-              return None
+            if now < DateTime(effective_date):
+                return None
         if expiration_date != 'None':
-           if now >= DateTime(expiration_date):
-              return None
+            if now >= DateTime(expiration_date):
+                return None
         return 1
 
     if visibility in ['only_in', 'everywhere_except_in', \
@@ -326,7 +326,7 @@ def getObjectVisibility(self, **kw):
         if visibility == 'up_till':
             for p in paths:
                 if p.startswith(url_path):
-                     return 1
+                    return 1
 
     if visibility == 'if_secure_connection':
         if REQUEST is not None:

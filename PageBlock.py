@@ -555,7 +555,7 @@ class PageBlock(ThemeFolder, StylableContent):
                     newpos = pos
 
         if newpos >= 0:
-           return newpos
+            return newpos
         return None
 
     security.declarePublic('movedown_pos')
