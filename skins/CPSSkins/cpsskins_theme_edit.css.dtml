@@ -216,11 +216,11 @@ a.rightButton {
 .context-menu-submenu li > ul {
   top: auto;
   left: auto;
-  margin: -1.8em 0 0 120px;
 }
 
-.context-menu-submenu li:hover ul, .context-menu-submenu li.sfhover ul {
+.context-menu-submenu li:hover ul {
   display: block;
+  margin: -1.8em 0 0 120px;
 }
 
 /* floating toolbar */
