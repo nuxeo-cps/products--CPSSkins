@@ -1,5 +1,5 @@
 
-ptltool = context.portal_portlets
+ptltool = context.portal_cpsportlets
 box_id = context.box_id
 portlet = ptltool.getPortletById(box_id)
 

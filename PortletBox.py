@@ -84,7 +84,7 @@ class PortletBox(BaseTemplet):
         """ Returns true if the Templet can be cached in RAM """
 
         # XXX not cacheable yet
-        return None
+        return 1
 
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):

@@ -333,6 +333,16 @@ def update(self):
         types_in_stylefolders += ('Calendar Style',)
         types_in_pageblocks += ('Calendar Templet',)
 
+    # CPSPortlets
+    has_cpsportlets = 0
+    try:
+        getToolByName(self, 'portal_cpsportlets')
+    except:
+        pass
+    else:
+        has_cpsportlets = 1
+        types_in_pageblocks += ('Portlet Box Templet',)
+
     types_in_themefolders = types_in_stylefolders + \
                             types_in_palettefolders + \
                             types_in_pageblocks 

@@ -1,5 +1,5 @@
 
-ptltool = context.portal_portlets
+ptltool = context.portal_cpsportlets
 
 list = []
 for k, v in  ptltool.items():
