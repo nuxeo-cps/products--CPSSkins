@@ -628,7 +628,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     # Theme negociation
     #
     security.declarePublic('getRequestedThemeName')
-    def getRequestedThemeName(self, **kw):
+    def getRequestedThemeName(self, editing=0, **kw):
         """Gets the name of the requested theme by checking a series
            of URL parameters, variables, folder attributes, cookies, ...
         """
@@ -644,11 +644,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme is not None:
             return theme
 
-        # session variable (used in edition mode)
-        view_mode = self.getViewMode()
-        theme = view_mode.get('theme')
-        if theme is not None:
-            return theme
+        if editing:
+            # session variable (used in edition mode)
+            view_mode = self.getViewMode()
+            theme = view_mode.get('theme')
+            if theme is not None:
+                return theme
 
         # cookie
         theme_cookie_id = self.getThemeCookieID()

@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <html tal:define="
   global boxedit python:1;
   utool nocall:here/portal_url;
@@ -7,12 +6,18 @@
   tmtool here/portal_themes;
   mcat python: tmtool.getTranslationService();
   base_url python: here.cpsskins_getBaseUrl();
+  global here_url here/absolute_url;
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
+  global current_theme python: tmtool.getRequestedThemeName(editing=1);
+  global theme_container python: tmtool.getThemeContainer(theme=current_theme);
+  global current_page python: theme_container.getRequestedPageName(editing=1);
+  global page_container python: theme_container.getPageContainer(current_page);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
   view_mode tmtool/getViewMode;
   scrollx view_mode/scrollx|python:0;
   scrolly view_mode/scrolly|python:0;
   panel view_mode/themes_panel|string:wysiwyg;
+  global shield not:tmtool/debug_mode|python:1;
   selected_content view_mode/selected_content|nothing;
   portal_path python: utool.getPortalPath();
   cpsmcat python: tmtool.getTranslationService(cat='default');

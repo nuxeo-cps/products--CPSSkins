@@ -372,7 +372,7 @@ class PortalTheme(ThemeFolder, StylableContent):
 
     # Pages
     security.declarePublic('getRequestedPageName')
-    def getRequestedPageName(self, **kw):
+    def getRequestedPageName(self, editing=0, **kw):
         """Gets the name of the requested page.
         """
 
@@ -384,12 +384,13 @@ class PortalTheme(ThemeFolder, StylableContent):
         if page_id is not None:
             return page_id
 
-        # session variable (used in edition mode)
-        view_mode = self.getViewMode()
-        page = view_mode and view_mode.get('page') or None
-        page_container = self.getPageContainer(page)
-        if page_container is not None:
-            return page
+        if editing:
+            # session variable (used in edition mode)
+            view_mode = self.getViewMode()
+            page = view_mode and view_mode.get('page') or None
+            page_container = self.getPageContainer(page)
+            if page_container is not None:
+                return page
 
         # method themes
         tmtool = getToolByName(self, 'portal_themes')

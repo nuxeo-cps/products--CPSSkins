@@ -1,8 +1,5 @@
 <metal:block define-macro="themetabs"
-tal:define="base_url here/cpsskins_getBaseUrl;
-            current_theme python: tmtool.getRequestedThemeName(REQUEST=request);
-            themes tmtool/getThemes;
-            tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
+tal:define="themes tmtool/getThemes;
             externalthemes tmtool/getExternalThemeIds">
   <table class="themeTabs" cellpadding="0" cellspacing="0" 
   border="0" summary="">
@@ -56,8 +53,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
 </metal:block>
 
 <metal:block define-macro="pagetabs"
-tal:define="base_url here/cpsskins_getBaseUrl;
-            pages theme_container/getPages;">
+tal:define="pages theme_container/getPages;">
   <table class="pageTabs" cellpadding="0" cellspacing="0" border="0" summary="">
     <tr>
       <tal:block repeat="page pages">
@@ -101,10 +97,6 @@ tal:define="base_url here/cpsskins_getBaseUrl;
 
 <metal:block define-macro="navigate" i18n:domain="cpsskins"
 tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
-            mtool here/portal_membership;
-            utool nocall:here/portal_url;
-            theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
-            checkPerm nocall: mtool/checkPermission;
             can_manage python: checkPerm('Manage portal', tmtool);
             cat request/cat|string:general">
   <div class="mainFormTab">
@@ -181,8 +173,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
 </metal:block>
 
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
-  tal:define="tmtool here/portal_themes;
-              cpsskins_mcat python: tmtool.getTranslationService(cat='cpsskins');">
+  tal:define="cpsskins_mcat python: tmtool.getTranslationService(cat='cpsskins');">
   <div id="choice-context-menu" class="context-menu">
     <div class="context-menu-header"
          filter="Content_prepare_element_menu(pd_filter_object)"></div>
