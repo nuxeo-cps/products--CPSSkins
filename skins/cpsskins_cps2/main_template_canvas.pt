@@ -2,9 +2,10 @@
 <tal:block
 define="boxes options/boxes;
         tmtool here/portal_themes;
-        current_theme python: tmtool.getRequestedThemeName(context_obj=here);
+        current_view python: tmtool.getEffectiveThemeAndPageName(context_obj=here);
+        current_theme python: current_view[0];
+        current_page python: current_view[1];
         theme_container python: tmtool.getThemeContainer(theme=current_theme);
-        current_page python: theme_container.getEffectivePageName(context_obj=here);
         page_container python: theme_container.getPageContainer(current_page)">
   <tal:block 
    repeat="block python: page_container.getPageBlocks()">

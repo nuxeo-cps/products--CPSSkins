@@ -419,9 +419,9 @@ class PortalBox(BaseTemplet, SimpleBox):
         tmtool = getToolByName(self, 'portal_themes')
         if REQUEST is None:
             REQUEST = self.REQUEST
-        current_theme = tmtool.getRequestedThemeName()
+        theme, page = tmtool.getEffectiveThemeAndPageName()
         boxid = self.getId()
-        cookie_name = 'cpsskins_%s_%s' % (current_theme, boxid)
+        cookie_name = 'cpsskins_%s_%s_%s' % (theme, page, boxid)
 
         if REQUEST is not None:
             state = REQUEST.cookies.get(cookie_name, None)

@@ -1,9 +1,8 @@
 ##parameters=REQUEST=None
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName()
+theme, page = tmtool.getEffectiveThemeAndPageName(context_obj=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
-page = theme_container.getEffectivePageName(context_obj=context)
 page_container = theme_container.getPageContainer(page=page)
 
 boxes_styles = context.boxes_styles_get()

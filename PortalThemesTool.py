@@ -190,6 +190,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                       'portlets_panel',
                       'selected_portlet',
                       'selected_content',
+                      'portlets_override',
                       'edited_url',
                       'clipboard',
                       'theme',
@@ -630,11 +631,21 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return None
 
     #
-    # Theme negociation
+    # Theme and page negociation
     #
-    security.declarePublic('getRequestedThemeName')
-    def getRequestedThemeName(self, editing=0, **kw):
-        """Gets the name of the requested theme by checking a series
+    security.declarePrivate('_extractThemeAndPageName')
+    def _extractThemeAndPageName(self, theme=None, page=None):
+        """Extract the theme name
+        """
+        theme_id = theme
+        page_id = page
+        if theme and '+' in theme:
+            theme_id, page_id = theme.split('+')
+        return theme_id, page_id
+
+    security.declarePublic('getRequestedThemeAndPageName')
+    def getRequestedThemeAndPageName(self, **kw):
+        """Gets the name of the requested theme and page by checking a series
            of URL parameters, variables, folder attributes, cookies, ...
         """
 
@@ -642,27 +653,30 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         FORM = REQUEST.form
         # selected by writing ?pp=1 in the URL
         if FORM.get('pp') == '1':
-            return 'printable'
+            return 'printable', None
 
         # selected by writing ?theme=... in the URL
+        # (+page)
         theme = FORM.get('theme')
-        if theme is not None:
-            return theme
+        page = FORM.get('page')
+        if (theme is not None) or (page is not None):
+            return self._extractThemeAndPageName(theme, page)
 
-        if editing:
+        if int(kw.get('editing', 0)) == 1:
             # session variable (used in edition mode)
             view_mode = self.getViewMode()
             theme = view_mode.get('theme')
-            if theme is not None:
-                return theme
+            page = view_mode.get('page')
+            if (theme is not None) or (page is not None):
+                return self._extractThemeAndPageName(theme, page)
 
-        # cookie
+        # cookie (theme + page)
         theme_cookie_id = self.getThemeCookieID()
-        theme_cookie = REQUEST.cookies.get(theme_cookie_id)
-        if theme_cookie is not None:
-            return theme_cookie
+        theme = REQUEST.cookies.get(theme_cookie_id)
+        if theme is not None:
+            return self._extractThemeAndPageName(theme, None)
 
-        # method themes
+        # method themes (theme + page)
         published = REQUEST.get('PUBLISHED')
         if published is not None:
             try:
@@ -671,23 +685,31 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 pass
             theme = self.getThemeByMethod(published)
             if theme is not None:
-                if '+' in theme:
-                    theme = theme.split('+')[0]
-                # do not return empty theme ids
-                if theme:
-                    return theme
+                return self._extractThemeAndPageName(theme, None)
 
         # local theme + page
-        local_theme = self.getLocalThemeName(**kw)
-        if local_theme is not None:
-            if '+' in local_theme:
-                local_theme = local_theme.split('+')[0]
-            # do not return empty theme ids
-            if local_theme:
-                return local_theme
+        theme = self.getLocalThemeName(**kw)
+        if theme is not None:
+            return self._extractThemeAndPageName(theme, None)
 
-        # default theme
-        return self.getDefaultThemeName()
+        # default theme, page not specified
+        return self.getDefaultThemeName(), None
+
+    security.declarePublic('getEffectiveThemeAndPageName')
+    def getEffectiveThemeAndPageName(self, **kw):
+        """Get the name of the effective theme and page, i.e. a requested
+        theme that effectively exists and a page existing in this theme.
+        Otherwise return the name of the default theme and of the default page.
+        """
+        theme, page = self.getRequestedThemeAndPageName(**kw)
+        # theme
+        if theme not in self.getThemeNames():
+            theme = self.getDefaultThemeName()
+        # page
+        theme_container = self.getThemeContainer(theme)
+        if page not in theme_container.getPageNames():
+            page = theme_container.getDefaultPageName()
+        return theme, page
 
     security.declarePublic('getThemes')
     def getThemes(self):
@@ -703,8 +725,18 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getThemeNames(self):
         """Gets the list of themes by theme id.
         """
-
         return [t.getId() for t in self.getThemes()]
+
+    security.declarePublic('getThemeAndPageNames')
+    def getThemeAndPageNames(self):
+        """Return the list of theme and page names
+        """
+        list = []
+        for theme in self.getThemes():
+            for page in theme.getPages():
+                list.append(
+                    '%s+%s' % (theme.getId(), page.getId()))
+        return list
 
     security.declarePublic('getCurrentUrl')
     def getCurrentUrl(self, REQUEST=None):

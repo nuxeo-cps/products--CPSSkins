@@ -10,7 +10,7 @@ kw.update(REQUEST.form)
 params = {}
 
 # get the current theme
-theme = tmtool.getRequestedThemeName(editing=1)
+theme, page = tmtool.getEffectiveThemeAndPageName(editing=1)
 # set the current theme
 params['theme'] = theme
 

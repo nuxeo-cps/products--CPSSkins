@@ -26,6 +26,8 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
+from Products.CMFCore.utils import getToolByName
+
 from BaseTemplet import BaseTemplet
 
 factory_type_information = (
@@ -58,7 +60,7 @@ class ThemeChooser(BaseTemplet):
          'type': 'multiple selection',
          'mode': 'w',
          'label': 'Selectable themes',
-         'select_variable': 'cpsskins_listGlobalThemes'
+         'select_variable': 'listThemesAndPages'
         },
     )
 
@@ -80,6 +82,13 @@ class ThemeChooser(BaseTemplet):
         """
 
         return []
+
+    security.declarePublic('listThemesAndPages')
+    def listThemesAndPageNames(self):
+        """Return the list of themes and pages
+        """
+        tmtool = getToolByName(self, 'portal_themes')
+        return tmtool.getThemeAndPageNames()
 
 InitializeClass(ThemeChooser)
 

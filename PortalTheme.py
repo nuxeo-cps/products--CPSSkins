@@ -257,10 +257,9 @@ class PortalTheme(ThemeFolder, StylableContent):
     # Rendering
     #
     security.declarePublic('render')
-    def render(self, **kw):
-        """Render the theme"""
-
-        page = self.getRequestedPage(**kw)
+    def render(self, page=None, **kw):
+        """Render the theme
+        """
         if page is not None:
             return page.render(**kw)
         return ''
@@ -372,76 +371,6 @@ class PortalTheme(ThemeFolder, StylableContent):
     # Pagelets (Page elements)
     #
 
-    # Pages
-    security.declarePublic('getRequestedPageName')
-    def getRequestedPageName(self, editing=0, **kw):
-        """Gets the name of the requested page.
-        """
-
-        REQUEST = self.REQUEST
-        FORM = REQUEST.form
-
-        # selected by writing ?page=... in the URL
-        page = FORM.get('page')
-        if page is not None:
-            return page
-
-        if editing:
-            # session variable (used in edition mode)
-            view_mode = self.getViewMode()
-            page = view_mode and view_mode.get('page') or None
-            page_container = self.getPageContainer(page)
-            if page_container is not None:
-                return page
-
-        # method themes
-        tmtool = getToolByName(self, 'portal_themes')
-        published = REQUEST.get('PUBLISHED')
-        if published is not None:
-            try:
-                published = published.getId()
-            except AttributeError:
-                pass
-            meth_theme = tmtool.getThemeByMethod(published)
-            if meth_theme is not None and meth_theme.find('+') > 0:
-                theme, page = meth_theme.split('+')
-                if theme == self.getId() and page:
-                    return page
-
-        # local theme + page
-        local_theme = tmtool.getLocalThemeName(**kw)
-        if local_theme is not None:
-            if '+' in local_theme:
-                theme, page = local_theme.split('+')
-                if theme == self.getId() and page:
-                    return page
-        return None
-
-    security.declarePublic('getRequestedPage')
-    def getRequestedPage(self, **kw):
-        """Get the requested page.
-        """
-        page = self.getRequestedPageName(**kw)
-        return self.getPageContainer(page)
-
-    security.declarePublic('getEffectivePage')
-    def getEffectivePage(self, **kw):
-        """Get the effective page.
-        """
-        page = self.getEffectivePageName(**kw)
-        return self.getPageContainer(page)
-
-    security.declarePublic('getEffectivePageName')
-    def getEffectivePageName(self, **kw):
-        """Get the name of the effective page, i.e. a requested page
-        that effectively exists in this theme otherwise return the name of
-        the default page.
-        """
-        page = self.getRequestedPageName(**kw)
-        if page not in self.getPageNames():
-            return self.getDefaultPageName()
-        return page
-
     security.declarePublic('getPages')
     def getPages(self):
         """Return the list of pages"""
@@ -457,12 +386,11 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declarePublic('getPageContainer')
     def getPageContainer(self, page=''):
         """Return a page by id
-        Return the default page otherwise
         """
         for page_container in self.getPages():
             if page_container.getId() == page:
                 return page_container
-        return self.getDefaultPage()
+        return None
 
     security.declarePublic('getDefaultPage')
     def getDefaultPage(self):

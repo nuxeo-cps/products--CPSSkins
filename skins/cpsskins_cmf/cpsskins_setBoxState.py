@@ -4,7 +4,7 @@ if boxid is None or state is None:
    return
 
 tmtool = context.portal_themes
-current_theme = tmtool.getRequestedThemeName()
+current_theme, current_page = tmtool.getEffectiveThemeAndPageName()
 cookie_name = 'cpsskins_%s_%s' % (current_theme, boxid)
 
 if REQUEST is not None:

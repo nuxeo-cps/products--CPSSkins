@@ -8,9 +8,10 @@
   base_url python: here.cpsskins_getBaseUrl();
   global here_url here/absolute_url;
   tmtool_url python: base_url + utool.getRelativeUrl(tmtool);
-  global current_theme python: tmtool.getRequestedThemeName(editing=1);
+  current_view python: tmtool.getEffectiveThemeAndPageName(editing=1);
+  global current_theme python: current_view[0];
+  global current_page python: current_view[1];
   global theme_container python: tmtool.getThemeContainer(theme=current_theme);
-  global current_page python: theme_container.getEffectivePageName(editing=1);
   global page_container python: theme_container.getPageContainer(current_page);
   theme_container_url python: base_url + utool.getRelativeUrl(theme_container);
   view_mode tmtool/getViewMode;

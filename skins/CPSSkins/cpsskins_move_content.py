@@ -4,9 +4,8 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName(editing=1)
-theme_container = tmtool.getThemeContainer(theme)
-page = theme_container.getEffectivePageName(editing=1)
+src_theme, src_page = tmtool.getEffectiveThemeAndPageName(editing=1)
+theme_container = tmtool.getThemeContainer(theme=src_theme)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
@@ -18,7 +17,7 @@ dest_page = kw.get('dest_page')
 # if the destination theme is not specified assume that
 # it is the current theme
 if dest_theme is None:
-    dest_theme = theme
+    dest_theme = src_theme
 
 dest_theme_container = tmtool.getThemeContainer(dest_theme)
 if dest_theme_container is None:
@@ -26,12 +25,14 @@ if dest_theme_container is None:
 
 # if the destination page is not specified choose the requested page
 if not dest_page:
-    dest_page = dest_theme_container.getEffectivePageName(editing=1)
-    if dest_page is None:
-        dest_page = dest_theme_container.addThemePage().getId()
+    req_theme, req_page = tmtool.getRequestedThemeAndPageName(editing=1)
+    dest_page_container = dest_theme_container.getPageContainer(page=req_page)
+    if dest_page_container is None:
+        dest_page_container = dest_theme_container.addThemePage()
+    dest_page = dest_page_container.getId()
 
 # content will be duplicated
-if dest_theme != theme or dest_page != page:
+if dest_theme != src_theme or dest_page != src_page:
     newobj = context.copy_to_theme(dest_theme, dest_page)
     for category in context.getApplicableStyles():
         style_propid = category['id']
@@ -39,7 +40,7 @@ if dest_theme != theme or dest_page != page:
         if not style:
             continue
         # do not copy styles between the pages of a same theme.
-        if dest_theme == theme:
+        if dest_theme == src_theme:
             continue
         styles = tmtool.findStylesFor(category=category['meta_type'], \
                                       object=context, title=style)
