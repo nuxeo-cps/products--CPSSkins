@@ -47,7 +47,9 @@ color:&dtml-Element_font_color;;
 </dtml-if>
 }
 .FormStyle&dtml-title; textarea:hover,
-.FormStyle&dtml-title; input:hover {
+.FormStyle&dtml-title; textarea:focus,
+.FormStyle&dtml-title; input:hover,
+.FormStyle&dtml-title; input:focus {
 <dtml-if Element_active_border_color>
 border-color:&dtml-Element_active_border_color;;
 </dtml-if>
