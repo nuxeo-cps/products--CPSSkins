@@ -1,0 +1,57 @@
+.FormStyle&dtml-title; form {
+<dtml-if Form_border_color>
+border-color:&dtml-Form_border_color;;
+</dtml-if>
+<dtml-if Form_border_style>
+border-style:&dtml-Form_border_style;;
+</dtml-if>
+<dtml-if Form_border_width>
+border-width:&dtml-Form_border_width;;
+</dtml-if>
+<dtml-if Form_bg_color>
+background-color:&dtml-Form_bg_color;;
+</dtml-if>
+<dtml-if Form_font_color>
+color:&dtml-Form_font_color;;
+</dtml-if>
+<dtml-if Form_padding>
+padding:&dtml-Form_padding;;
+</dtml-if>
+}
+.FormStyle&dtml-title; textarea,
+.FormStyle&dtml-title; input,
+.FormStyle&dtml-title; select
+{
+<dtml-if Element_border_color>
+border-color:&dtml-Element_border_color;;
+</dtml-if>
+<dtml-if Element_border_style>
+border-style:&dtml-Element_border_style;;
+</dtml-if>
+<dtml-if Element_border_width>
+border-width:&dtml-Element_border_width;;
+</dtml-if>
+<dtml-if Element_bg_color>
+background-color:&dtml-Element_bg_color;;
+</dtml-if>
+<dtml-if Element_font_color>
+color:&dtml-Element_font_color;;
+</dtml-if>
+}
+.FormStyle&dtml-title; option {
+<dtml-if Element_bg_color>
+background-color:&dtml-Element_bg_color;;
+</dtml-if>
+<dtml-if Element_font_color>
+color:&dtml-Element_font_color;;
+</dtml-if>
+}
+.FormStyle&dtml-title; textarea:hover,
+.FormStyle&dtml-title; input:hover {
+<dtml-if Element_active_border_color>
+border-color:&dtml-Element_active_border_color;;
+</dtml-if>
+<dtml-if Element_active_bg_color>
+background-color:&dtml-Element_active_bg_color;;
+</dtml-if>
+}

@@ -95,6 +95,14 @@ msgid "_Area Shape_"
 msgstr ""
 
 
+msgid "_Area active background color_"
+msgstr ""
+
+
+msgid "_Area active border color_"
+msgstr ""
+
+
 msgid "_Area background color_"
 msgstr ""
 
@@ -527,6 +535,10 @@ msgid "_Edit_"
 msgstr "Redigera"
 
 
+msgid "_Elements_"
+msgstr ""
+
+
 msgid "_Enable ESI_"
 msgstr ""
 
@@ -593,6 +605,22 @@ msgstr ""
 
 msgid "_Forgot your password?_"
 msgstr "Glömt ditt lösenord?"
+
+
+msgid "_Form Style_"
+msgstr ""
+
+
+msgid "_Form padding_"
+msgstr ""
+
+
+msgid "_Form style_"
+msgstr ""
+
+
+msgid "_Form_"
+msgstr ""
 
 
 msgid "_Fr_"
@@ -1639,6 +1667,10 @@ msgid "_fontshape_description_"
 msgstr ""
 
 
+msgid "_formstyle_description_"
+msgstr ""
+
+
 msgid "_general_"
 msgstr "Allmänt"
 
@@ -1716,6 +1748,10 @@ msgstr ""
 
 
 msgid "_menu_Font Shape_"
+msgstr ""
+
+
+msgid "_menu_Form Style_"
 msgstr ""
 
 

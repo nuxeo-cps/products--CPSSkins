@@ -106,7 +106,7 @@
 				class python: edition_mode and boxeditclass or nothing; 
 				style python: 'padding:%s;;' % templet.margin;
 				style python: hover_effect and style + 'cursor: crosshair;;' or style;
-                                templet_class python: 'Shape%s Color%s FontColor%s FontShape%s' % (templet.shape, templet.color, templet.fontcolor, templet.fontshape);
+                                templet_class python: templet.getCSSAreaClass(level=2);
                                 styles_list python: templet.getApplicableStyles();
                                 align_list templet/AlignList|nothing"
                      tal:condition="python: special_templet or render_templet or render_as_title or layout_edit_mode"

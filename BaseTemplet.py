@@ -216,6 +216,14 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
          'style': 'Area Color',  
          'category': 'style',
         },
+        {'id': 'formstyle', 
+         'type': 'selection', 
+         'mode': 'w', 
+         'label': 'Form style', 
+         'select_variable': 'FormStyleList', 
+         'style': 'Form Style',  
+         'category': 'style',
+        },
         {'id': 'visibility',  
          'type': 'selection',  
          'mode': 'w', 
@@ -277,6 +285,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                  fontcolor = 'Black',
                  shape = 'NoBorder',
                  color = 'Transparent',
+                 formstyle = '',
                  **kw):
         self.id = id
         self.closed = closed
@@ -298,6 +307,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         self.fontcolor = fontcolor
         self.shape = shape
         self.color = color
+        self.formstyle = formstyle
     
     security.declarePublic('getTitle')
     def getTitle(self):
@@ -376,19 +386,52 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         list = ['left', 'center', 'right']
         return list
 
+    #
+    # CSS
+    #
     security.declarePublic('getCSSLayoutStyle')
     def getCSSLayoutStyle(self):
         """Returns the CSS layout style for this Templet."""
-   
+
         css = ''
         padding = self.padding
         height = self.templet_height
 
-        if padding: 
+        if padding:
             css += 'padding:%s;' % padding
         if height:
             css += 'height:%s' % height
         return css
+
+    security.declarePublic('getCSSAreaClass')
+    def getCSSAreaClass(self, level=2):
+        """Return the CSS area class for this Templet.
+           level = 1 for CSS1 browsers
+           level = 2 for CSS2 browsers
+        """
+
+        areaclass = ''
+        try:
+            if level == 1:
+                areaclass = \
+                    'Color%s FontColor%s FontShape%s' %\
+                         (self.color,
+                          self.fontcolor,
+                          self.fontshape)
+            elif level == 2:
+                areaclass = \
+                    'Shape%s Color%s FontColor%s FontShape%s FormStyle%s' %\
+                         (self.shape,
+                          self.color,
+                          self.fontcolor,
+                          self.fontshape,
+                          self.formstyle)
+        # rebuild the templet if some attributes are missing.
+        # a simple page reload will display the correct results.
+        except AttributeError:
+            self.rebuild()
+        return areaclass
+
 
     security.declarePublic('VisibilityList')
     def VisibilityList(self):
@@ -1070,6 +1113,12 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         """Returns a list of Font Shape styles."""
 
         return getStyleList(self, 'Font Shape')
+
+    security.declarePublic('FormStyleList')
+    def FormStyleList(self):           
+        """Returns a list of formstyles."""
+
+        return getStyleList(self, 'Form Style')
 
     security.declarePublic('isCacheable')
     def isCacheable(self):

@@ -95,6 +95,14 @@ msgid "_Area Shape_"
 msgstr "Form des Arbeitsbereiches"
 
 
+msgid "_Area active background color_"
+msgstr ""
+
+
+msgid "_Area active border color_"
+msgstr ""
+
+
 msgid "_Area background color_"
 msgstr "Hintergrundfarbe"
 
@@ -527,6 +535,10 @@ msgid "_Edit_"
 msgstr "Bearbeiten"
 
 
+msgid "_Elements_"
+msgstr ""
+
+
 msgid "_Enable ESI_"
 msgstr ""
 
@@ -593,6 +605,22 @@ msgstr "Schriftart-Form"
 
 msgid "_Forgot your password?_"
 msgstr "Passwort vergessen?"
+
+
+msgid "_Form Style_"
+msgstr ""
+
+
+msgid "_Form padding_"
+msgstr ""
+
+
+msgid "_Form style_"
+msgstr ""
+
+
+msgid "_Form_"
+msgstr ""
 
 
 msgid "_Fr_"
@@ -1639,6 +1667,10 @@ msgid "_fontshape_description_"
 msgstr "dieser Stil definiert Schriftgröße, Links und Verzierungs-Stile."
 
 
+msgid "_formstyle_description_"
+msgstr ""
+
+
 msgid "_general_"
 msgstr "Allgemein"
 
@@ -1717,6 +1749,10 @@ msgstr "Schriftfarbe"
 
 msgid "_menu_Font Shape_"
 msgstr "Schriftstil"
+
+
+msgid "_menu_Form Style_"
+msgstr ""
 
 
 msgid "_menu_Insert_"

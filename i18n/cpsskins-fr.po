@@ -95,6 +95,14 @@ msgid "_Area Shape_"
 msgstr "Forme des aires"
 
 
+msgid "_Area active background color_"
+msgstr "Couleur d'arrière-plan active"
+
+
+msgid "_Area active border color_"
+msgstr "Couleur de bordure active"
+
+
 msgid "_Area background color_"
 msgstr "Couleur d'arrière-plan"
 
@@ -527,6 +535,10 @@ msgid "_Edit_"
 msgstr "Editer"
 
 
+msgid "_Elements_"
+msgstr "Élements"
+
+
 msgid "_Enable ESI_"
 msgstr "Activer les ESI (Edge Side Includes)"
 
@@ -593,6 +605,22 @@ msgstr "Polices de caractères"
 
 msgid "_Forgot your password?_"
 msgstr "Mot de passe oublié?"
+
+
+msgid "_Form Style_"
+msgstr "Style des formulaires"
+
+
+msgid "_Form padding_"
+msgstr "Espace de remplissage du formulaire"
+
+
+msgid "_Form style_"
+msgstr "Style des formulaires"
+
+
+msgid "_Form_"
+msgstr "Formulaire"
 
 
 msgid "_Fr_"
@@ -1641,6 +1669,10 @@ msgid "_fontshape_description_"
 msgstr "ce style définit la taille et le style des caractères, des liens et de la décoration des textes."
 
 
+msgid "_formstyle_description_"
+msgstr "ce style définit l'apparence des formulaires et des champs de saisie."
+
+
 msgid "_general_"
 msgstr "Général"
 
@@ -1719,6 +1751,10 @@ msgstr "Couleurs de caractères"
 
 msgid "_menu_Font Shape_"
 msgstr "Polices de caractères"
+
+
+msgid "_menu_Form Style_"
+msgstr "Style des formulaires"
 
 
 msgid "_menu_Insert_"

@@ -95,6 +95,14 @@ msgid "_Area Shape_"
 msgstr "Area Shape"
 
 
+msgid "_Area active background color_"
+msgstr "Active background color"
+
+
+msgid "_Area active border color_"
+msgstr "Active border color"
+
+
 msgid "_Area background color_"
 msgstr "Background color"
 
@@ -527,6 +535,10 @@ msgid "_Edit_"
 msgstr "Edit"
 
 
+msgid "_Elements_"
+msgstr "Elements"
+
+
 msgid "_Enable ESI_"
 msgstr "Enable ESI (Edge Side Includes)"
 
@@ -593,6 +605,22 @@ msgstr "Font shape"
 
 msgid "_Forgot your password?_"
 msgstr "Forgot your password?"
+
+
+msgid "_Form Style_"
+msgstr "Form Style"
+
+
+msgid "_Form padding_"
+msgstr "Form padding"
+
+
+msgid "_Form style_"
+msgstr "Form style"
+
+
+msgid "_Form_"
+msgstr "Form"
 
 
 msgid "_Fr_"
@@ -1639,6 +1667,10 @@ msgid "_fontshape_description_"
 msgstr "this style defines font sizes, links and decoration styles."
 
 
+msgid "_formstyle_description_"
+msgstr "this style defines the appearance of forms and of form elements."
+
+
 msgid "_general_"
 msgstr "General"
 
@@ -1717,6 +1749,10 @@ msgstr "Font color"
 
 msgid "_menu_Font Shape_"
 msgstr "Font shape"
+
+
+msgid "_menu_Form Style_"
+msgstr "Form style"
 
 
 msgid "_menu_Insert_"

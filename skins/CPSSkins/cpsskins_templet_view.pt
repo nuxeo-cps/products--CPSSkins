@@ -1,3 +1,3 @@
 <div 
-tal:attributes="class python: 'Shape%s Color%s FontColor%s FontShape%s' % (here.shape, here.color, here.fontcolor, here.fontshape); style python: here.getCSSLayoutStyle()"
+tal:attributes="class python: here.getCSSAreaClass(level=2); style python: here.getCSSLayoutStyle()"
 tal:content="structure python:here.render(shield=1)" />

@@ -84,8 +84,9 @@
                   <div
                   tal:attributes="align python: templet.align; 
                                   style python: 'padding:%s' % templet.margin">
-                    <div tal:attributes="class python: 'Shape%s Color%s FontColor%s FontShape%s' % (templet.shape, templet.color, templet.fontcolor, templet.fontshape);
-                                         style python: templet.getCSSLayoutStyle()">
+                    <div
+                     tal:attributes="class python: templet.getCSSAreaClass(level=2);
+                                     style python: templet.getCSSLayoutStyle()">
                       <tal:block condition="not:special_templet"
                        content="structure rendered_templet" />
                       <esi:try tal:condition="isESIFragment">

@@ -1644,3 +1644,30 @@ msgstr ""
 
 msgid "_Show add items_"
 msgstr ""
+
+msgid "_Form Style_"
+msgstr ""
+
+msgid "_formstyle_description_"
+msgstr ""
+
+msgid "_menu_Form Style_"
+msgstr ""
+
+msgid "_Form style_"
+msgstr ""
+
+msgid "_Form_"
+msgstr ""
+
+msgid "_Elements_"
+msgstr ""
+
+msgid "_Area active border color_"
+msgstr ""
+
+msgid "_Area active background color_"
+msgstr ""
+
+msgid "_Form padding_"
+msgstr ""

@@ -331,6 +331,7 @@ def update(self):
         'Font Shape',
         'Collapsible Menu Style',
         'Portal Tab Style',
+        'Form Style',
         )
 
     types_in_palettefolders = (

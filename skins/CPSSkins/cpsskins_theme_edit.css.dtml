@@ -592,9 +592,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/theme_export.png);
 background-repeat: no-repeat;
 background-position: 2px 50%; 
 padding: 6px 10px 6px 30px;
-background-color: #cdee9c;
-border: 1px solid #9cce62;
+background-color: #cdee9c !important;
+border: 1px solid #9cce62 !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 input.ImportTheme {
@@ -602,9 +603,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/theme_import.png);
 background-repeat: no-repeat;
 background-position: 2px 50%;
 padding: 6px 10px 6px 28px;
-background-color: #cdee9c;
-border: 1px solid #9cce62;
+background-color: #cdee9c !important;
+border: 1px solid #9cce62 !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 input.RebuildTheme {
@@ -612,9 +614,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/theme_rebuild.png);
 background-repeat: no-repeat;
 background-position: 2px 50%;
 padding: 6px 10px 6px 30px;
-background-color: #fff099;
-border: 1px solid #ccc066;
+background-color: #fff099 !important;
+border: 1px solid #ccc066 !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 input.OptimizeTheme {
@@ -622,9 +625,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/theme_optimize.png);
 background-repeat: no-repeat;
 background-position: 2px 50%;
 padding: 6px 10px 6px 30px;
-background-color: #fc6;
-border: 1px solid #c90;
+background-color: #fc6 !important;
+border: 1px solid #c90 !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 input.ThemeDefault {
@@ -632,9 +636,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/theme_default.png);
 background-repeat: no-repeat;
 background-position: center left;
 padding: 6px 10px 6px 25px;
-background-color: #f0f0f0;
-border: 1px solid #ccc;
+background-color: #f0f0f0 !important;
+border: 1px solid #ccc !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 input.InvalidateCache {
@@ -642,9 +647,10 @@ background: url(<dtml-var portal_url>/cpsskins_images/invalidate_cache.png);
 background-repeat: no-repeat;
 background-position: center left;
 padding: 6px 10px 6px 25px;
-background-color: #f0f0f0;
-border: 1px solid #ccc;
+background-color: #f0f0f0 !important;
+border: 1px solid #ccc !important;
 -moz-border-radius: 5px;
+color: Black !important;
 }
 
 div.StyleDefault {

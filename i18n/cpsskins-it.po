@@ -95,6 +95,14 @@ msgid "_Area Shape_"
 msgstr "Forma delle aree"
 
 
+msgid "_Area active background color_"
+msgstr ""
+
+
+msgid "_Area active border color_"
+msgstr ""
+
+
 msgid "_Area background color_"
 msgstr "Colore di sfondo "
 
@@ -527,6 +535,10 @@ msgid "_Edit_"
 msgstr "Modifica"
 
 
+msgid "_Elements_"
+msgstr ""
+
+
 msgid "_Enable ESI_"
 msgstr "Attiva ESI (Edge Side Includes)"
 
@@ -593,6 +605,22 @@ msgstr "Tipo di caratteri"
 
 msgid "_Forgot your password?_"
 msgstr "Non ricordo la mia password!"
+
+
+msgid "_Form Style_"
+msgstr ""
+
+
+msgid "_Form padding_"
+msgstr ""
+
+
+msgid "_Form style_"
+msgstr ""
+
+
+msgid "_Form_"
+msgstr ""
 
 
 msgid "_Fr_"
@@ -1639,6 +1667,10 @@ msgid "_fontshape_description_"
 msgstr "in questa schermata puoi definire le impostazioni per il titolo, la grandezza ed il tipo dei caratteri, dei collegamenti e della decorazione dei testi."
 
 
+msgid "_formstyle_description_"
+msgstr ""
+
+
 msgid "_general_"
 msgstr "Generale"
 
@@ -1717,6 +1749,10 @@ msgstr "Colore del carattere"
 
 msgid "_menu_Font Shape_"
 msgstr "Tipo di carattere"
+
+
+msgid "_menu_Form Style_"
+msgstr ""
 
 
 msgid "_menu_Insert_"
