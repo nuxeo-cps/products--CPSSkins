@@ -1063,6 +1063,7 @@ cursor: crosshair;
 }
 
 .navBreadCrumbs a, .navSubFolders a {
+  font: 11px Arial, Helvetica, sans-serif;
   text-decoration: none;
   border: 1px solid #ccc;
   background-color: #f3f3f9;
