@@ -5,6 +5,13 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
+def isCMF15():
+    try:
+        from Products.CMFCore import permissions
+    except ImportError:
+        return 0
+    return 1
+
 class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
@@ -17,12 +24,17 @@ class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_1(self):
         self.assert_(self.portal.index_html())
+
+    def test_2(self):
         self.assert_(self.portal.login_form())
+
+    def test_3(self):
         self.assert_(self.portal.search_form())
 
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(TestZPTSkins))
+    if not isCMF15():
+        suite.addTest(unittest.makeSuite(TestZPTSkins))
     return suite
 
 if __name__ == '__main__':
