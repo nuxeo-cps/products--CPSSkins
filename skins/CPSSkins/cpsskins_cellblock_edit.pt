@@ -15,7 +15,7 @@
              block_url python: base_url + block_rurl"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
-                 class python: context.getCSSAreaClass(level=2);
+                 class python: context.getCSSClass(level=2);
                  style python: context.getCSSLayoutStyle()">
   <tr>
     <tal:block define="objects python: context.getObjects()"
@@ -71,7 +71,7 @@
                  tal:omit-tag="python: content != context_obj">
                 <div tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
-                                 class python: content.getCSSAreaClass(level=2);
+                                 class python: content.getCSSClass(level=2);
                                  style python: content.getCSSLayoutStyle()"
                  tal:content="structure rendered" />
                 <div tal:condition="not:rendered">

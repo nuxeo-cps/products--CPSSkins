@@ -348,8 +348,8 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             css = 'height:%s' % height
         return css
 
-    security.declarePublic('getCSSAreaClass')
-    def getCSSAreaClass(self, level=2):
+    security.declarePublic('getCSSClass')
+    def getCSSClass(self, level=2):
         """Return the CSS area class for this Templet.
            level = 1 for CSS1 browsers
            level = 2 for CSS2 browsers

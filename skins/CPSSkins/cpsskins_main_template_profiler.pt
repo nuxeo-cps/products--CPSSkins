@@ -39,7 +39,7 @@
       <table cellpadding="0" cellspacing="0"
       tal:define="maxcols python: pageblock['maxcols']"
       tal:attributes="style python: pageblock.getCSSLayoutStyle(pageblock_style);
-                      class python: pageblock.getCSSAreaClass();
+                      class python: pageblock.getCSSClass();
                       summary python: pageblock['title']">
         <tr>
           <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
@@ -51,8 +51,8 @@
                tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                            cellsize python: objects_in_xpos['cellsizer'];
                            cellstyle python: objects_in_xpos['cellstyler']"
-               tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
-	                       width python: cellsize and cellsize.cellwidth or None">
+               tal:attributes="class python: cellstyle and cellstyle.getCSSClass(level=2) or None;
+                               style python: cellsize and cellsize.getCSSLayoutStyle() or None">
                 <tal:block repeat="content contents_in_xpos">
                 <!-- Templet profiling START -->
                   <div
@@ -63,7 +63,7 @@
                    tal:attributes="style margin_style"
                    tal:omit-tag="not:margin_style">
                     <div
-                     tal:attributes="class python: content.getCSSAreaClass(level=2);
+                     tal:attributes="class python: content.getCSSClass(level=2);
                                      style python: content.getCSSLayoutStyle()">
                       <tal:block condition="isRenderable"
                        content="structure rendered" />

@@ -84,8 +84,8 @@ class CellStyler(BaseCellModifier, StylableContent):
         """ Is this a cell styler? """
         return 1
 
-    security.declarePublic('getCSSCellClass')
-    def getCSSCellClass(self, level=2):
+    security.declarePublic('getCSSClass')
+    def getCSSClass(self, level=2):
         """Return the CSS area class for this cell
         """
 

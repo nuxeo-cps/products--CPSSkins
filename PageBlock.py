@@ -177,8 +177,8 @@ class PageBlock(ThemeFolder, StylableContent):
     #
     # CSS
     #
-    security.declarePublic('getCSSAreaClass')
-    def getCSSAreaClass(self):
+    security.declarePublic('getCSSClass')
+    def getCSSClass(self):
         """Returns the CSS area class for this Page Block."""
 
         areaclass = None
@@ -231,7 +231,7 @@ class PageBlock(ThemeFolder, StylableContent):
             rendered = []
             rendered_append = rendered.append
             div_tag = []
-            div_tag.append('class="%s"' % self.getCSSAreaClass())
+            div_tag.append('class="%s"' % self.getCSSClass())
             if layout_style:
                 div_tag.append('style="%s"' % \
                     self.getCSSLayoutStyle(layout_style))
@@ -241,14 +241,14 @@ class PageBlock(ThemeFolder, StylableContent):
             cellstyle = objects_in_xpos['cellstyler']
             if cellstyle:
                 rendered_append('<div class="%s">' % \
-                    cellstyle.getCSSCellClass(level=2))
+                    cellstyle.getCSSClass(level=2))
             contents_in_xpos = objects_in_xpos['contents']
             for content in contents_in_xpos:
                 margin_style = content.getCSSMarginStyle()
                 if margin_style:
                     rendered_append('<div style="%s">' % margin_style)
                 layout_style = content.getCSSLayoutStyle()
-                area_class = content.getCSSAreaClass(level=2)
+                area_class = content.getCSSClass(level=2)
                 div_tag = []
                 if layout_style:
                     div_tag.append('style="%s"' % layout_style)
@@ -273,7 +273,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         rendered = []
         table_tag = []
-        table_tag.append('class="%s"' % self.getCSSAreaClass())
+        table_tag.append('class="%s"' % self.getCSSClass())
         if layout_style:
             table_tag.append('style="%s"' % \
                 self.getCSSLayoutStyle(layout_style))
@@ -291,10 +291,10 @@ class PageBlock(ThemeFolder, StylableContent):
             td_tag.append('valign="top"')
             cellsize = objects_in_xpos['cellsizer']
             if cellsize:
-                td_tag.append('width="%s"' % cellsize.cellwidth)
+                td_tag.append('style="%s"' % cellsize.getCSSLayoutStyle())
             cellstyle = objects_in_xpos['cellstyler']
             if cellstyle:
-                td_tag.append('class="%s"' % cellstyle.getCSSCellClass(level=2))
+                td_tag.append('class="%s"' % cellstyle.getCSSClass(level=2))
             rendered_append('<td %s>' % " ".join(td_tag))
             contents_in_xpos = objects_in_xpos['contents']
             for content in contents_in_xpos:
@@ -302,7 +302,7 @@ class PageBlock(ThemeFolder, StylableContent):
                 if margin_style:
                     rendered_append('<div style="%s">' % margin_style)
                 layout_style = content.getCSSLayoutStyle()
-                area_class = content.getCSSAreaClass(level=2)
+                area_class = content.getCSSClass(level=2)
                 div_tag = []
                 if layout_style:
                     div_tag.append('style="%s"' % layout_style)

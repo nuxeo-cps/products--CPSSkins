@@ -88,6 +88,16 @@ class CellSizer(BaseCellModifier):
             del kw['cellwidth']
         self.manage_changeProperties(**kw)
 
+    security.declarePublic('getCSSLayoutStyle')
+    def getCSSLayoutStyle(self):
+        """Return the CSS layout style for this cell
+        """
+
+        cellwidth = self.cellwidth
+        if cellwidth:
+            return 'width:%s' % cellwidth
+        return ''
+
 InitializeClass(CellSizer)
 
 def addCellSizer(dispatcher, id, REQUEST=None, **kw):

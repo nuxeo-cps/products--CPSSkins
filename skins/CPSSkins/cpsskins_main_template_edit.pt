@@ -53,7 +53,7 @@
                 block_url python: base_url + block_rurl"
     tal:condition="python: (not closed and maxcols)"
     tal:attributes="style python: pageblock.getCSSLayoutStyle(pageblock_style);
-                    class python: pageblock.getCSSAreaClass();
+                    class python: pageblock.getCSSClass();
                     summary python: pageblock['title']">
       <tr>
         <tal:block
@@ -66,7 +66,7 @@
              tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                          cellsize python: objects_in_xpos['cellsizer'];
                          cellstyle python: objects_in_xpos['cellstyler']"
-             tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
+             tal:attributes="class python: cellstyle and cellstyle.getCSSClass(level=2) or None;
                              width python: cellsize and cellsize.cellwidth or None">
 
               <tal:block condition="not:wysiwyg_panel">
@@ -110,7 +110,7 @@
 				class boxeditclass; 
 				style python: content.getCSSMarginStyle() or '';
 				style python: style + ';;cursor: crosshair';
-                                content_class python: content.getCSSAreaClass(level=2);
+                                content_class python: content.getCSSClass(level=2);
                                 styles_list python: content.getApplicableStyles();
                                 align_list content/listHorizontalAlignments|nothing"
                      tal:condition="python: special_content or render_content or render_as_title or layout_panel"

@@ -23,7 +23,7 @@
     <div
     tal:define="maxcols python: pageblock['maxcols']"
     tal:attributes="style python:pageblock.getCSSLayoutStyle(pageblock_style);
-                    class python:pageblock.getCSSAreaClass()">
+                    class python:pageblock.getCSSClass()">
         <tal:block define="objects python: pageblock.getObjects(context_obj=context_obj)"
                    repeat="x_pos python: range(int(maxcols))">
           <tal:block
@@ -35,7 +35,7 @@
                          cellstyle python: objects_in_xpos['cellstyler'];
                          cellwidth python: cellsize and cellsize.cellwidth or '';
                          style python: cellwidth and 'width: %s;;' % cellwidth or None"
-             tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
+             tal:attributes="class python: cellstyle and cellstyle.getCSSClass(level=2) or None;
                              style string:$style float: left;; overflow-x: hidden">
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
@@ -44,7 +44,7 @@
                      tal:condition="python: rendered or not isRenderable"
                      tal:attributes="style margin_style"
                      tal:omit-tag="not:margin_style">
-                  <div tal:attributes="class python: content.getCSSAreaClass(level=2);
+                  <div tal:attributes="class python: content.getCSSClass(level=2);
                                        style python: content.getCSSLayoutStyle()">
                     <tal:block condition="rendered" content="structure rendered" />
                     <tal:block condition="not:isRenderable">

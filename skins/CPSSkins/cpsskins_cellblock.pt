@@ -6,7 +6,7 @@
              maxcols python: context['maxcols']"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
-                 class python: context.getCSSAreaClass(level=2);
+                 class python: context.getCSSClass(level=2);
                  style python: context.getCSSLayoutStyle()">
   <tr>
     <tal:block define="objects python: context.getObjects()"
@@ -21,7 +21,7 @@
             <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:attributes="align python: content.align;
                                  style python: 'padding:%s' % content.margin">
-              <div tal:attributes="class python: content.getCSSAreaClass(level=2);
+              <div tal:attributes="class python: content.getCSSClass(level=2);
                                    style python: content.getCSSLayoutStyle()"
                tal:content="structure rendered" />
             </div>
