@@ -30,37 +30,24 @@ function toggle(panelId) {
   }
 }
 
-function selection_restart(select_id) {
-  document.data[select_id].selectedIndex = style;
-}
-
-function textfield_restart(textfield_id) {
-  document.data[textfield_id].value = value;
-}
-
 function selectImage(value) {
-  opener.style = value;
-  opener.selection_restart(current_field);
+  document.data[current_field].selectedIndex = style
 }
 
 function selectPalette(value) {
-  opener.value = value;
-  opener.textfield_restart(current_field);
+  document.data[current_field].value = value;
 }
 
 function selectTheme(value) {
-  opener.style = value;
-  opener.selection_restart(current_field);
+  document.data[current_field].selectedIndex = style
 }
 
 function selectSlot(value) {
-  opener.value = value;
-  opener.textfield_restart(current_field);
+  document.data[current_field].value = value;
 }
 
 function selectStyle(style) {
-  opener.style = style;
-  opener.selection_restart(current_field);
+  document.data[current_field].selectedIndex = style
 }
 
 /* Pop-up window */
