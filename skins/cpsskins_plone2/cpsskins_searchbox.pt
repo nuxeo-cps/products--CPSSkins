@@ -40,6 +40,5 @@
      i18n:translate=""
      tal:content="title"
      tal:attributes="href python: portal_url + '/' + advanced_search_form_url" />
-    </label>
   </form>
 </tal:block>
