@@ -27,7 +27,7 @@
   </tal:block>
 
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
-  tal:attributes="style string:text-align:left;; padding:${here/padding}">
+  tal:attributes="style string:text-align:left;; padding:${templet/padding}">
   <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_plone.png"
        width="45" height="17" alt="Plone slot" />
   <tal:block content="templet_title" /> 
