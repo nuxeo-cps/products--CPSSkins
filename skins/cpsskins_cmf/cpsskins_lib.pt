@@ -1,2 +1,18 @@
 <metal:block define-macro="portalboxgroup">
+  <tal:block condition="render_box"
+  define="padding templet/padding|string:0">
+  
+    <!-- Portlets -->
+    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (templet.boxcolor, templet.boxshape);
+                         style string:text-align:${templet/align};; padding:$padding"
+    tal:content="structure python: templet.render_cache(shield=1, context=here)" />
+
+  </tal:block>
+  <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
+  style="text-align: left">
+  <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_nuxeo.png"
+       width="16" height="16" />
+  <tal:block content="templet_title" />(
+  <span style="font-weight: bold"
+  tal:content="templet/box_group" />)</div>
 </metal:block>

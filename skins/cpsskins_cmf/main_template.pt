@@ -26,6 +26,7 @@ tal:define="utool nocall:here/portal_url;
       <metal:block define-slot="base" />
       <metal:block
       use-macro="here/?main_macro/macros/head" />
+        <metal:block define-slot="head_slot" />
     </head>
     <body tal:attributes="class string:Color$cpsskins_bodycolor; style string:margin:$cpsskins_pagemargin">
       <metal:block

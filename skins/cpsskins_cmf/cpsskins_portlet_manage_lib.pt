@@ -43,7 +43,7 @@
         <img width="16" height="16" alt=""
          tal:condition="portlet_icon"
          tal:attributes="src string:${portal_url}/${portlet_icon}" />
-        <strong tal:content="structure python: cpsmcat(portlet_type)" />
+        <strong tal:content="portlet_type" i18n:translate="" />
         <p>
         <tal:block i18n:translate="listingheader_location" />:
         <tal:block content="python: '/' + portlet_folder.absolute_url(1)" />

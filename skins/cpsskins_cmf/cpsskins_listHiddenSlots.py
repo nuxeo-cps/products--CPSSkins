@@ -4,11 +4,7 @@ if theme is None:
     return
 
 tmtool = context.portal_themes
-slots = context.cpsskins_listBoxSlots()
-
-for slot in ['folder_view', 'center']:
-    if slot in slots:
-        slots.remove(slot)
+slots = context.cpsskins_listSlots()
 
 for block in tmtool.getPageBlocks(theme=theme):
     objects = block.getObjects()

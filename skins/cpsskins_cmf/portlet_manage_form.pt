@@ -1,4 +1,6 @@
-<metal:html>
+<metal:html tal:define="cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+                        mtool here/portal_membership;
+                        checkPerm nocall:mtool/checkPermission">
   <metal:body use-macro="here/main_template/macros/master">
     <metal:head fill-slot="head_slot">
       <style type="text/css" media="all"
@@ -7,9 +9,9 @@
       <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
     </metal:head> 
     <metal:header fill-slot="header"
-    tal:define="global context_urlc python:here.getContextUrl(utool=utool, concat=1)">
-      <tal:security condition="python:not checkPerm('Manage Portlets', here)">
-        <tal:redirect define="response request/RESPONSE; 
+    tal:define="context_url python: here.absolute_url(1)">
+      <tal:security condition="python: not checkPerm('Manage Portlets', here)">
+        <tal:redirect define="response request/RESPONSE;
                               dummy python:response.redirect(context_url)" />
       </tal:security>
       <h2 i18n:translate="heading_portlet_manage_form">Portlet
@@ -68,7 +70,7 @@
         <a
            i18n:translate="description_delete_unused_portlets" 
            i18n:domain="cpsskins" 
-           tal:attributes="href string:${context_urlc}/cpsskins_delete_unused_portlets?theme=$current_theme;
+           tal:attributes="href string:${here/absolute_url}/cpsskins_delete_unused_portlets?theme=$current_theme;
                           onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_unused_portlets'), )" >Delete unused portlets</a>
         </p>
         <table cellpadding="0" cellspacing="3">
