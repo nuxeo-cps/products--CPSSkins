@@ -132,7 +132,8 @@
       i18n:translate="" />
 
       <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
-      <table class="browser" summary="" cellpadding="0" cellspacing="0">
+      <table tal:condition="style_list"
+       class="browser" summary="" cellpadding="0" cellspacing="0">
         <tr>
           <th>&nbsp;</th>
           <th>&nbsp;</th>
@@ -167,20 +168,20 @@
          tal:content="structure python: style.preview()"
          tal:attributes="id style/getId" />
       </tal:block>
-    <br />
-    <tal:block condition="style_list">
-      <input type="submit" name="cutObjects:method"
-       value="Cut" i18n:attributes="value"
-       tal:define="title string:_Cut_"
-       tal:attributes="value python: mcat and mcat(title) or title" />
-      <input type="submit" name="copyObjects:method"
-       value="Copy" i18n:attributes="value"
-       tal:define="title string:_Copy_"
-       tal:attributes="value python: mcat and mcat(title) or title" />
-      <input type="submit" name="deleteObjects:method"
-       value="Delete" i18n:attributes="value"
-       tal:define="title string:_Delete_"
-       tal:attributes="value python: mcat and mcat(title) or title" />
+      <br />
+      <tal:block condition="style_list">
+        <input type="submit" name="cutObjects:method"
+         value="Cut" i18n:attributes="value"
+         tal:define="title string:_Cut_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="copyObjects:method"
+         value="Copy" i18n:attributes="value"
+         tal:define="title string:_Copy_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="deleteObjects:method"
+         value="Delete" i18n:attributes="value"
+         tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
       </tal:block>
       <input type="submit" name="pasteObjects:method"
        value="Paste" i18n:attributes="value"
@@ -232,7 +233,8 @@
        action="" tal:attributes="action folder/absolute_url"
        name="objectItems" method="post">
         <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
-        <table class="browser" summary="" cellpadding="0" cellspacing="0">
+        <table tal:condition="images"
+         class="browser" summary="" cellpadding="0" cellspacing="0">
           <tr>
             <th>&nbsp;</th>
             <th tal:define="title string:_Title_" i18n:translate=""
@@ -280,18 +282,20 @@
            tal:content="structure python: here.cpsskins_imagePreview(image=image, imagecat=imagecat)" />
         </tal:block>
         <br />
-        <input type="submit" name="cutObjects:method"
-         value="Cut" i18n:attributes="value"
-         tal:define="title string:_Cut_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="copyObjects:method"
-         value="Copy" i18n:attributes="value"
-         tal:define="title string:_Copy_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="deleteObjects:method"
-         value="Delete" i18n:attributes="value"
-         tal:define="title string:_Delete_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
+        <tal:block condition="images">
+          <input type="submit" name="cutObjects:method"
+           value="Cut" i18n:attributes="value"
+           tal:define="title string:_Cut_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+          <input type="submit" name="copyObjects:method"
+           value="Copy" i18n:attributes="value"
+           tal:define="title string:_Copy_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+          <input type="submit" name="deleteObjects:method"
+           value="Delete" i18n:attributes="value"
+           tal:define="title string:_Delete_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+        </tal:block>
         <input type="submit" name="pasteObjects:method"
          value="Paste" i18n:attributes="value"
          tal:define="title string:_Paste_"
@@ -344,7 +348,8 @@
        action="" tal:attributes="action folder/absolute_url"
        name="objectItems" method="post">
         <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
-        <table class="browser" summary="" cellpadding="0" cellspacing="0">
+        <table tal:condition="palette_list"
+         class="browser" summary="" cellpadding="0" cellspacing="0">
           <tr>
             <th>&nbsp;</th>
             <th>&nbsp;</th>
@@ -394,18 +399,20 @@
            tal:content="structure python: palette.preview()" />
         </tal:block>
         <br />
-        <input type="submit" name="cutObjects:method"
-         value="Cut" i18n:attributes="value"
-         tal:define="title string:_Cut_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="copyObjects:method"
-         value="Copy" i18n:attributes="value"
-         tal:define="title string:_Copy_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="deleteObjects:method"
-         value="Delete" i18n:attributes="value"
-         tal:define="title string:_Delete_"
-         tal:attributes="value python: mcat and mcat(title) or title" />
+        <tal:block condition="palette_list">
+          <input type="submit" name="cutObjects:method"
+           value="Cut" i18n:attributes="value"
+           tal:define="title string:_Cut_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+          <input type="submit" name="copyObjects:method"
+           value="Copy" i18n:attributes="value"
+           tal:define="title string:_Copy_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+          <input type="submit" name="deleteObjects:method"
+           value="Delete" i18n:attributes="value"
+           tal:define="title string:_Delete_"
+           tal:attributes="value python: mcat and mcat(title) or title" />
+        </tal:block>
         <input type="submit" name="pasteObjects:method"
          value="Paste" i18n:attributes="value"
          tal:define="title string:_Paste_"
