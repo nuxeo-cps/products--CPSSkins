@@ -270,17 +270,20 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     </form>
   </div>
   <div class="navBreadCrumbs">
-    <span class="portletBoxDest"
-     tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)"
-     tal:omit-tag="not:bc/editable"
-     tal:attributes="insert_url string:${base_url}${bc/rpath};
-                     dest_rurl bc/rpath;
-                     dest_ypos python: 0">
-      <a href=""
-       tal:content="string:${bc/id}/" 
-       tal:attributes="href string:${base_url}${bc/rpath}/portlet_manage_form;
-                       title bc/title" />
-    </span>
+    <tal:block repeat="bc python: ptltool.getBreadCrumbs(context=here)">
+      <span class="portletBoxDest"
+       tal:define="rpath bc/rpath;
+                   url python: rpath and base_url + rpath + '/' or base_url"
+       tal:omit-tag="not:bc/editable"
+       tal:attributes="insert_url url;
+                       dest_rurl rpath;
+                       dest_ypos python: 0">
+        <a href=""
+         tal:content="string:${bc/id}/" 
+         tal:attributes="href string:${url}portlet_manage_form;
+                         title bc/title" />
+      </span>
+    </tal:block>
   </div>
   <br style="clear:both" />
 </metal:block>
