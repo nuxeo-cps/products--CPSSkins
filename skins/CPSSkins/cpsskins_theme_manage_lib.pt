@@ -452,6 +452,41 @@
   </tal:block>
 </metal:block>
 
+<metal:block define-macro="theme_exporter" tal:define="
+  io_tool here/portal_io|nothing">
+  <h1 tal:define="title string:_Theme export_"
+   tal:content="python: mcat and mcat(title) or title"
+   i18n:translate="" />
+  <tal:block condition="io_tool">
+    <tal:block define="exporter string:CPSSkinsExporter;
+                       exporters io_tool/listExportModules;
+                       error_msg options/error_msg|nothing"
+               condition="python: exporter in exporters">
+      <h2 tal:define="title string:_XML export_"
+       tal:content="python: mcat and mcat(title) or title"
+       i18n:translate="" />
+      <form method="post" action="." enctype="multipart/form-data">
+        <input type="text" name="export_file_name"
+         tal:attributes="value string:${current_theme}.zip" />
+        <input type="submit" name="cpsskins_cpsio_exporter:method"
+         class="standalone" value="cpsio_button_export"
+         i18n:attributes="value" />
+      </form>
+    </tal:block>
+  </tal:block>
+  <h2 tal:define="title string:_zexp export_"
+   tal:content="python: mcat and mcat(title) or title"
+   i18n:translate="" />
+  <form action=""
+   tal:attributes="action string:${here_url}/manage_exportObject">
+    <input type="hidden" name="download" value="1" />
+    <input type="submit" class="ExportTheme"
+     tal:define="title string:_button_export_theme_"
+     i18n:attributes="value"
+     tal:attributes="value python: mcat and mcat(title) or title" />
+  </form>
+</metal:block>
+
 <metal:block define-macro="theme_optimizer" tal:define="
   dummy theme_container/rebuild;
   unused_styles theme_container/findOrphanedStyles|nothing; 
@@ -700,8 +735,9 @@
       </td>
       <td align="left">
         <form name="exporttheme" action="" 
-        tal:attributes="action string:${theme_container_url}/manage_exportObject">
-          <input type="hidden" name="download" value="1" />
+        tal:attributes="action string:${tmtool_url}/setViewMode">
+          <input type="hidden" name="themes_panel"
+           tal:attributes="value string:theme_exporter" />
           <input type="submit" class="exportTheme"
           tal:define="title string:_button_export_theme_"
           i18n:attributes="value" 

@@ -1806,3 +1806,12 @@ msgstr ""
 
 msgid "_Add_a_new_palette_entry_"
 msgstr ""
+
+msgid "_Theme export_"
+msgstr ""
+
+msgid "_XML export_"
+msgstr ""
+
+msgid "_zexp export_"
+msgstr ""

@@ -1410,6 +1410,10 @@ msgid "_Theme editor_"
 msgstr ""
 
 
+msgid "_Theme export_"
+msgstr ""
+
+
 msgid "_Theme name_"
 msgstr ""
 
@@ -1577,6 +1581,10 @@ msgstr "Color de la fuente de los días de la semana"
 
 msgid "_Width_"
 msgstr "Anchura"
+
+
+msgid "_XML export_"
+msgstr ""
 
 
 msgid "_Year_"
@@ -2343,6 +2351,10 @@ msgstr "Visibilidad"
 
 msgid "_wysiwyg mode_"
 msgstr "modo WYSIWYG"
+
+
+msgid "_zexp export_"
+msgstr ""
 
 
 msgid "description_confirm_delete_portlet"
