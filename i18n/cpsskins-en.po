@@ -2287,6 +2287,26 @@ msgid "menu_insert_portlet"
 msgstr "Insert a portlet ..."
 
 
+msgid "portlet_browser_panel"
+msgstr "Portlet browser"
+
+
+msgid "portlet_slots_panel"
+msgstr "Portlet slots"
+
+
 msgid "psm_portlet_deleted"
 msgstr "Portlet deleted."
+
+
+msgid "site_structure_panel"
+msgstr "Site structure"
+
+
+msgid "unused_portlets_panel"
+msgstr "Unused portlets"
+
+
+msgid "wysiwyg_panel"
+msgstr "WYSIWYG"
 

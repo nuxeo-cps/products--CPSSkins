@@ -11,6 +11,7 @@
                portlet_icon fti/getIcon;
                portlet_folder portlet/getLocalFolder;
                portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
+               folder_url python: base_url + utool.getRelativeUrl(here);
                editable python:checkPerm('Manage Portlets', portlet);
                box_selected python: portlet == here or portlet_id == selected_portlet"
    tal:attributes="portlet_rurl portlet_rurl;
@@ -58,6 +59,23 @@
   </div>
 </metal:block>
 
+<metal:block define-macro="portlet_add_panel">
+  <table class="contentbox" cellpadding="2" cellspacing="1"
+   tal:define="til here/cpsskins_listPortlets">
+    <tr>
+      <tal:block repeat="ti til">
+        <td class="ContentAdd"
+         tal:attributes="type_name ti/id">
+          <img tal:define="title ti/Title" width="16" height="16"
+           i18n:attributes="title"
+           tal:attributes="src string:${base_url}${ti/getIcon};
+                           title title" /><br/>
+        </td>
+      </tal:block>
+    </tr>
+  </table>
+</metal:block>
+
 <metal:block define-macro="contextual_menu" i18n:domain="cpsskins"
   tal:define="ttool here/portal_types">
   <div id="choice-context-menu" class="context-menu">
@@ -90,37 +108,23 @@
   </div>
 </metal:block>
 
-<metal:block define-macro="fullscreen" i18n:domain="cpsskins">
-  <div class="PortletsFullscreen">
-    <form class="ViewMode" action="" method="post" 
-     tal:condition="not:fullscreen"
-     tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
-      <input type="hidden" name="fullscreen" value="1" />
-      <input class="Fullscreen"
-        type="submit" value="_button_fullscreen_" i18n:attributes="value" />
-    </form>
-    <form class="ViewMode" action="" method="post"
-     tal:condition="fullscreen"
-     tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
-      <input type="hidden" name="fullscreen" value="0" />
-      <input class="NoFullscreen"
-       type="submit" value="_button_normal_mode_" i18n:attributes="value" />
-    </form>
-  </div>
-</metal:block>
-
-<metal:block define-macro="panel_selector" i18n:domain="cpsskins">
-  <form class="PortletsPanelSelector"
-   action="" method="post" style="text-align:right"
-   tal:attributes="action string:${tmtool/absolute_url}/setViewMode">
-    <select name="portlets_panel" onchange="submit()">
-      <option value="" disabled="disabled" selected="selected">Select a panel ...</option>
-      <option value="main_canvas">Main canvas</option>
-      <option value="site_structure">Site structure</option>
-      <option value="unused">Unused portlets</option>
-      <option value="browser">Portlet browser</option>
-    </select>
-  </form>
+<metal:block define-macro="navigate"
+tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'portlet_browser', 'unused_portlets' ];
+            view_mode tmtool/getViewMode;
+            panel view_mode/portlets_panel|nothing;
+            utool nocall:here/portal_url;
+            tmtool_url python: base_url + utool.getRelativeUrl(tmtool)">
+  <div class="mainformtab">
+    &nbsp;
+    <tal:block repeat="section sections">
+      <a
+      tal:define="url string:${tmtool_url}/setViewMode?portlets_panel=$section;
+                  title python:'%s_panel' % section" i18n:translate=""
+       tal:attributes="href url; class python: panel == section and 'selected' or None;"
+      tal:content="python:mcat and mcat(title) or title" />
+    </tal:block>
+ </div>
+ <br style="clear:both" />
 </metal:block>
 
 <metal:block define-macro="empty_slot">

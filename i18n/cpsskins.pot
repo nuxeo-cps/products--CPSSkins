@@ -256,6 +256,7 @@ msgstr ""
 msgid "_layout mode_"
 msgstr ""
 
+
 msgid "_layout_"
 msgstr ""
 
@@ -1519,7 +1520,6 @@ msgstr ""
 msgid "_Year_"
 msgstr ""
 
-
 msgid "_Not available in layout mode_"
 msgstr ""
 
@@ -1721,4 +1721,19 @@ msgid "_This style is used by:_"
 msgstr ""
 
 msgid "_Add_a_portlet_"
+msgstr ""
+
+msgid "wysiwyg_panel"
+msgstr ""
+
+msgid "portlet_slots_panel"
+msgstr ""
+
+msgid "site_structure_panel"
+msgstr ""
+
+msgid "portlet_browser_panel"
+msgstr ""
+
+msgid "unused_portlets_panel"
 msgstr ""

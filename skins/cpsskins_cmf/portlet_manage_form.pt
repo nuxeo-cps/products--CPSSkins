@@ -1,65 +1,75 @@
-<metal:html tal:define="global boxedit python:1;
-                        tmtool here/portal_themes;
-                        view_mode tmtool/getViewMode;
-                        fullscreen view_mode/fullscreen|python:0;
-                        panel view_mode/portlets_panel|string:site_structure;
-                        selected_portlet view_mode/selected_portlet|nothing;
-                        global emptybody fullscreen;
-                        cpsmcat python: here.cpsskins_getlocalizer(cat='default');
-                        mtool here/portal_membership;
-                        checkPerm nocall:mtool/checkPermission">
-  <metal:body use-macro="here/main_template/macros/master">
-    <metal:head fill-slot="head_slot">
-      <style type="text/css" media="all"
-       tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
-      <script type="text/javascript" src="cpsskins_pdlib.js"></script>
-      <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
-    </metal:head> 
-    <metal:header fill-slot="header"
-    tal:define="context_url python: here.absolute_url(1)">
-      <tal:security condition="python: not checkPerm('Manage Portlets', here)">
-        <tal:redirect define="response request/RESPONSE;
-                              dummy python:response.redirect(context_url)" />
-      </tal:security>
-      <h1 i18n:translate="heading_portlet_manage_form">Portlet
-      management</h1>
-    </metal:header>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html tal:define="global boxedit python:1;
+                  utool nocall:here/portal_url;
+                  mcat python: here.cpsskins_getlocalizer();
+                  mtool here/portal_membership;
+                  ptltool nocall:here/portal_cpsportlets;
+                  tmtool here/portal_themes;
+                  context_url python:here.getContextUrl(utool=utool);
+                  base_url python: here.cpsskins_getBaseUrl();
+                  view_mode tmtool/getViewMode;
+                  wysiwyg view_mode/wysiwyg|python:0;
+                  panel view_mode/portlets_panel|string:site_structure;
+                  selected_portlet view_mode/selected_portlet|nothing;
+                  cpsmcat python: here.cpsskins_getlocalizer(cat='default');
+                  checkPerm nocall:mtool/checkPermission">
+<head>
+  <style type="text/css" media="all"
+   tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
+  <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+  <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
+</head>
 
-    <metal:main fill-slot="main"
-     tal:define="ptltool nocall:here/portal_cpsportlets;
-                 base_url python: request.get('cpsskins_base_url');
-                 folder_url python: base_url + utool.getRelativeUrl(here)">
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/panel_selector" />
-      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/fullscreen" />
-      <br clear="both" />
+<div class="editspace"
+ tal:condition="python: panel == 'wysiwyg'">
+  <metal:block use-macro="here/main_template/macros/master">
+    <metal:block fill-slot="main">
+      <div style="border: 1px solid black; padding: 20px;">Main slot</div>
+    </metal:block>
+  </metal:block>
+</div>
 
-      <tal:block define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
-                 condition="python: hidden_slots and panel=='unused'">
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
-      </tal:block>
+<body>
+  <div class="floatingheader">
+   <metal:block 
+    use-macro="here/cpsskins_portlet_manage_lib/macros/navigate" />
+   <metal:block
+    use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_panel" />
+  </div>
 
-      <tal:block condition="python: panel == 'site_structure'">
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
-      </tal:block> 
+  <div class="editspace">
+    <tal:block 
+     define="hidden_slots python: here.cpsskins_listHiddenSlots(theme=current_theme)" 
+     condition="python: hidden_slots and panel=='unused_portlets'">
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/unused_portlets_panel" />
+    </tal:block>
 
-      <tal:block condition="python: panel == 'main_canvas'">
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
-      </tal:block> 
+    <tal:block
+     condition="python: panel == 'site_structure'">
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/site_structure" />
+    </tal:block> 
 
-      <tal:block condition="python: panel == 'browser'">
-        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
-      </tal:block> 
+    <tal:block
+     condition="python: panel == 'portlet_slots'">
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
+    </tal:block> 
 
-    <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
+    <tal:block
+     condition="python: panel == 'portlet_browser'">
+      <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
+    </tal:block> 
+  </div>
 
-      <!-- Begin pdlib footer -->
-      <div id="drag-feedback-box"></div>
-        <script type="text/javascript"><!-- 
-        pd_setupPage();
-        // --></script>
-      <!-- End pdlib footer -->
+  <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
 
-    </metal:main>
-  </metal:body>
-</metal:html>
+  <!-- Begin pdlib footer -->
+  <div id="drag-feedback-box"></div>
+    <script type="text/javascript"><!-- 
+    pd_setupPage();
+    // --></script>
+  <!-- End pdlib footer -->
+
+  </body>
+</html>

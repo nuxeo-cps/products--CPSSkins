@@ -82,7 +82,7 @@ function Choice_insert() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  window.location = 'cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot;
+  newWindow('cpsskins_addportlet_form?order=' + dest_ypos + '&slot=' + dest_slot);
 }
 
 function Choice_delete() {

@@ -2289,6 +2289,26 @@ msgid "menu_insert_portlet"
 msgstr "Insérer un portlet ..."
 
 
+msgid "portlet_browser_panel"
+msgstr "Explorateur"
+
+
+msgid "portlet_slots_panel"
+msgstr "Canvas"
+
+
 msgid "psm_portlet_deleted"
 msgstr "Portlet supprimé."
+
+
+msgid "site_structure_panel"
+msgstr "Structure du site"
+
+
+msgid "unused_portlets_panel"
+msgstr "Portlets inutilisés"
+
+
+msgid "wysiwyg_panel"
+msgstr "WYSIWYG"
 
