@@ -384,7 +384,7 @@ tal:define="block_id pageblock/getId;
 		   onMouseover onMouseover_string; 
 		   onMouseout onMouseout_string; 
 		   class python: pageblock==here and 'PageBlockBoxTitleSelected' or 'PageBlockBoxTitle'; 
-		   style string:margin-left:${marginleft};; margin-right:${marginright};; ;">
+		   style python: theme_container.getCSSLayoutStyle()">
     <tr>
       <td>&nbsp; 
       <a tal:condition="pageblock/can_moveup|nothing"

@@ -17,10 +17,7 @@
 <metal:block define-macro="main"
   tal:define="context_rurl request/form/context_rurl|nothing;
               context_obj python: here.cpsskins_getContextObj(context_rurl);
-              align python: theme_container.align; 
-       	      marginleft python: align == 'left' and '0px' or 'auto'; 
-              marginright python: align == 'right' and '0px' or 'auto';
-	      pageblock_style python: 'margin-left:%s;; margin-right:%s;;' % (marginleft, marginright);
+              pageblock_style python: theme_container.getCSSLayoutStyle();
               dummy python: request.set('cpsskins_mcat', mcat)"
     tal:repeat="pageblock python: theme_container.getPageBlocks()">
       <table cellpadding="0" cellspacing="0"

@@ -1,10 +1,6 @@
 <metal:block define-macro="head"
   tal:define="base_url python: here.cpsskins_getBaseUrl();
               theme_url python: base_url + utool.getRelativeUrl(theme_container)">
-<tal:redirect condition="not:editing|nothing">
-  <tal:block define="response request/RESPONSE;
-                     dummy python:response.redirect(here_url + '/cpsskins_exit')" />
-</tal:redirect>
 <!-- CSS1 -->
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${base_url}cpsskins_common.css" />
@@ -26,9 +22,7 @@
           mixed_edit_mode python: edit_mode == 'mixed'; 
           wysiwyg_edit_mode python: edit_mode == 'wysiwyg';
           edition_mode python: layout_edit_mode or wysiwyg_edit_mode or mixed_edit_mode;
-	  marginleft python: align == 'left' and '0px' or 'auto'; 
-          marginright python: align == 'right' and '0px' or 'auto'; 
-	  pageblock_style python: 'margin-left:%s;; margin-right:%s;;' % (marginleft, marginright);
+          pageblock_style python: theme_container.getCSSLayoutStyle();
           context_rurl request/form/context_rurl|nothing;
           context_obj python: here.cpsskins_getContextObj(context_rurl);
           cpsskins_language tmtool/getCurrentLang;

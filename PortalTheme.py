@@ -425,9 +425,26 @@ class PortalTheme(ThemeFolder, StylableContent):
         self.clearCache()
 
     #
+    # CSS
+    #
+    security.declarePublic('getCSSLayoutStyle')
+    def getCSSLayoutStyle(self):
+        """Returns the CSS layout style for this theme."""
+
+        align = self.align
+        if align == 'left':
+            return 'margin-left:0px;margin-right:auto;'
+
+        elif align == 'right':
+            return 'margin-left:auto;margin-right:0px;'
+
+        elif align == 'center':
+            return 'margin-left:auto;margin-right:auto;'
+        return ''
+
+    #
     # Rendering
     #
-
     security.declarePublic('renderIcon')
     def renderIcon(self):
         """ Generates the shortcut icon for this theme."""
@@ -441,7 +458,6 @@ class PortalTheme(ThemeFolder, StylableContent):
                     path = '/' + icon_obj.absolute_url(1)
                     mimetype = icon_obj.content_type
                     return SHORTCUT_ICON_HTML % (path, mimetype, path, mimetype)
-
 
     security.declarePublic('renderCSS')
     def renderCSS(self, **kw):
