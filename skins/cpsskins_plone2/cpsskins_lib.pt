@@ -1,21 +1,32 @@
 <metal:block define-macro="portalboxgroup">
-  <tal:block define="slots slots_mapping/?box_group|nothing"
-   condition="slots">
-    <metal:block tal:repeat="slot slots">
-      <tal:block define="global pathexpr python:slot[0];
-                         global usemacro python:slot[1]"
-                 on-error="nothing">
-          <metal:block tal:condition="usemacro" 
-           metal:use-macro="python:path(pathexpr)" />
-        <span tal:condition="not:usemacro"
-            tal:replace="structure python:path(pathexpr)" />
-      </tal:block>
-    </metal:block>
+  <tal:block condition="render_box"
+  define="padding templet/padding|string:0">
+
+    <!-- Plone slot macros -->
+    <tal:block define="slots slots_mapping/?box_group|nothing"
+     condition="slots">
+      <metal:block tal:repeat="slot slots">
+        <tal:block define="global pathexpr python:slot[0];
+                           global usemacro python:slot[1]"
+                   on-error="nothing">
+            <metal:block tal:condition="usemacro" 
+             metal:use-macro="python:path(pathexpr)" />
+          <span tal:condition="not:usemacro"
+              tal:replace="structure python:path(pathexpr)" />
+        </tal:block>
+      </metal:block>
+    </tal:block>
+    <tal:block on-error="nothing" 
+     condition="python: render_box and box_group == 'content_actions'" >
+     <tal:block metal:use-macro="here/global_contentviews/macros/content_actions" />
+    </tal:block>
+
+    <!-- CPS Portlets -->
+    <div tal:attributes="class python: 'BoxColor%s BoxShape%s' % (templet.boxcolor, templet.boxshape);
+                         style string:text-align:${templet/align};; padding:$padding"
+    tal:content="structure python: templet.render_cache(shield=1, context_obj=here)" />
   </tal:block>
-  <tal:block on-error="nothing" 
-   condition="python: render_box and box_group == 'content_actions'" >
-   <tal:block metal:use-macro="here/global_contentviews/macros/content_actions" />
-  </tal:block>
+
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
   style="text-align: left">
   <img tal:attributes="src string:${here/portal_url}/cpsskins_images/icon_plone.png"
