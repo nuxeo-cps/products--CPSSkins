@@ -789,6 +789,7 @@ margin: 4px;
 padding: 9px;
 border: solid 1px gray; 
 background-color: #f0f0f0;
+float:left;
 }
 
 .slotselector a {
