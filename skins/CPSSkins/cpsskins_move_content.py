@@ -28,6 +28,7 @@ if dest_theme and dest_theme != theme:
                 prop_dict = {style_propid:newstyle.getTitle()}
                 newobj.edit(**prop_dict)
     theme = dest_theme
+    tmtool.setViewMode(theme=theme)
 else:
     if direction:
         newobj = context.move(direction=direction)
@@ -37,7 +38,6 @@ else:
 if newobj is None:
     return
 
-tmtool.setViewMode(theme=dest_theme)
 url = newobj.absolute_url() + '/edit_form'
 
 if REQUEST is None:
