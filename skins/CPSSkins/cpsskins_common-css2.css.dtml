@@ -6,6 +6,10 @@
 <dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
 </dtml-let>
 
+html, body {
+  height: 100%;
+}
+
 /* misc table elements */
 
 input,select,textarea {
