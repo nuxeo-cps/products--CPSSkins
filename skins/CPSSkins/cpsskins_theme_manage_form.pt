@@ -21,7 +21,7 @@
 <head>
   <metal:block use-macro="here/cpsskins_main_template_edit/macros/head" />
   <style type="text/css" media="all"
-   tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+   tal:content="string:@import url(${base_url}cpsskins_theme_edit.css);" />
 </head>
 
 <body tal:attributes="

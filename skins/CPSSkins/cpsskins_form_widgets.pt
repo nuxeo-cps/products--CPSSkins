@@ -147,12 +147,12 @@
     <img class="colorSample" width="16" height="16" 
      tal:attributes="onClick string:select('$palette', '$id');
                      style string:background-color: $value;; ;
-                     src string: ${base_url}cpsskins_images/select_icon.png"
+                     src string:${base_url}cpsskins_images/select_icon.png"
      tal:condition="python: palette == 'Palette Color'" />
     <img class="shapeSample" width="16" height="16"
      tal:attributes="onClick string:select('$palette', '$id');
                      style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
-                     src string: ${base_url}cpsskins_images/select_icon.png"
+                     src string:${base_url}cpsskins_images/select_icon.png"
      tal:condition="python: palette == 'Palette Border'" />
     <div class="panelFrame"
      tal:define="palette_cat palette"
@@ -169,7 +169,7 @@
     <img class="slotSample" width="16" height="16"
      tal:attributes="onClick string:select('$slot_cat', '$id');
                      style string:background-color: $value;; ;
-                     src string: ${base_url}cpsskins_images/select_icon.png" />
+                     src string:${base_url}cpsskins_images/select_icon.png" />
     <div class="panelFrame"
      tal:condition="python: slot_cat not in select_panels"
      tal:attributes="id slot_cat">

@@ -20,9 +20,9 @@
   <link rel="Stylesheet" type="text/css"
   tal:attributes="href string:${theme_container_url}/renderCSS?editing=1" />
   <style type="text/css" media="all"
-  tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+  tal:content="string:@import url(${base_url}cpsskins_theme_edit.css);" />
   <style type="text/css" media="all"
-  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
   <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 </head>
 <body tal:define="

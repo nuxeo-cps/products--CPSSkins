@@ -23,7 +23,7 @@
 <head>
   <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/head" />
   <style type="text/css" media="all"
-   tal:content="string: @import url(${here/portal_url}/cpsskins_theme_edit.css);" />
+   tal:content="string:@import url(${here/portal_url}/cpsskins_theme_edit.css);" />
   <script type="text/javascript" src="cpsskins_pdlib.js"></script>
   <script type="text/javascript" src="cpsskins_portlet_edit.js"></script>
 </head>

@@ -8,7 +8,7 @@
   tal:attributes="href string:${theme_url}/renderCSS?editing=1" />
 <!-- CSS2 -->
   <style type="text/css" media="all"
-  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
 <tal:comment replace="structure string:&lt;!--[if IE]&gt;" />
   <link rel="stylesheet" type="text/css"
   tal:attributes="href string:${base_url}cpsskins_msie.css" />
@@ -124,7 +124,7 @@
                      tal:attributes="style style;
 		                     xpos x_pos;
 				     ypos ypos;
-	                             class string: $class $boxdragclass $boxeditmenuclass; 
+	                             class string:$class $boxdragclass $boxeditmenuclass; 
                                      blockurl block_url;
                                      contenturl python: base_url + utool.getRelativeUrl(content); 
                                      styles python: '|'.join([s['meta_type'] for s in styles_list]);

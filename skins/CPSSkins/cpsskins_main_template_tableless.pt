@@ -9,7 +9,7 @@
   tal:attributes="href string:${theme_url}/renderCSS" />
 <!-- CSS2 -->
   <style type="text/css" media="all"
-  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${theme_url}/renderJS?page=$current_page"></script>
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme&amp;page=$current_page"></script>
@@ -43,7 +43,7 @@
                          cellwidth python: cellsize and cellsize.cellwidth or '';
                          style python: cellwidth and 'width: %s;;' % cellwidth or None"
              tal:attributes="class python: cellstyle and cellstyle.getCSSCellClass(level=2) or None;
-                             style string: $style float: left;; overflow-x: hidden">
+                             style string:$style float: left;; overflow-x: hidden">
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
                                  isRenderable python: content.isRenderable();

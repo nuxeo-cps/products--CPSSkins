@@ -9,7 +9,7 @@
   tal:attributes="href string:${theme_url}/renderCSS" />
 <!-- CSS2 -->
   <style type="text/css" media="all"
-  tal:content="string: @import url(${base_url}cpsskins_common-css2.css);" />
+  tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
 <!-- JavaScript -->
   <script type="text/javascript" tal:attributes="src string:${here_url}/cpsskins_renderJS?theme=$current_theme"></script>
 <!-- Shortcut icon -->

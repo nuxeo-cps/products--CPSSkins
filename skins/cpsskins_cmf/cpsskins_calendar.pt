@@ -74,7 +74,7 @@
                                 end event/end;
                                 start python: start and len(start) > 2 and start[:-3] or '';
                                 end python: end and len(end) > 2 and end[:-3] or ''" 
-              content="string: $start-$end ${event/title}" />
+              content="string:$start-$end ${event/title}" />
          </div>
          </div>
      </tal:block>

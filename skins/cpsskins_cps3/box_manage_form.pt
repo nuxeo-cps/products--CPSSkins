@@ -2,7 +2,7 @@
   <metal:body use-macro="here/main_template/macros/master">
     <metal:head fill-slot="head_slot">
       <style type="text/css" media="all"
-       tal:content="string: @import url(${base_url}cpsskins_theme_edit.css);" />
+       tal:content="string:@import url(${base_url}cpsskins_theme_edit.css);" />
       <script type="text/javascript" src="cpsskins_pdlib.js"></script>
       <script type="text/javascript" src="cpsskins_portalbox_edit.js"></script>
     </metal:head>

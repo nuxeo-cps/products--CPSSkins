@@ -28,7 +28,7 @@
        content="python: mcat and mcat(title) or title" />:
       <tal:block content="content/box_group" />
     </div>
-    <div tal:attributes="style string: padding:${content/padding}">
+    <div tal:attributes="style string:padding:${content/padding}">
       <img tal:attributes="src string:${content/getIcon}"
        width="16" height="16" />
       <tal:block content="content/title" />
