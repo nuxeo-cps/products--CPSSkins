@@ -3,6 +3,7 @@
   <metal:block fill-slot="edit"
   tal:define="tmtool here/portal_themes; 
               edit_mode request/form/edit_mode|nothing;
+              imagecat request/form/imagecat|nothing;
               mtool here/portal_membership;
               checkPerm nocall:mtool/checkPermission">
     <tal:block condition="python: not checkPerm('Manage Themes', here)"> 
@@ -17,7 +18,7 @@
       '<tal:block replace="here/title|nothing" />'
     </h1>
     <br />
-    <form action="cpsskins_file_upload" method="post"
+    <form action="cpsskins_image_edit" method="post"
     enctype="multipart/form-data">
       <table cellspacing="0" cellpadding="0" border="0"
       width="100%">
@@ -35,6 +36,7 @@
           <td width="50%">
             <input type="file" name="file" size="25" value="" />
             <br />
+            <input type="hidden" name="imagecat" tal:attributes="value imagecat" />
             <input type="submit" class="mainbutton"
             i18n:attributes="value" 
             tal:define="title string:_button_upload_image_"

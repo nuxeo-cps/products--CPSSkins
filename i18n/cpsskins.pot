@@ -676,6 +676,9 @@ msgstr ""
 msgid "_backgrounds_"
 msgstr ""
 
+msgid "_thumbnails_"
+msgstr ""
+
 msgid "_Other images_"
 msgstr ""
 

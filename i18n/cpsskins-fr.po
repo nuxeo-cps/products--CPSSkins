@@ -2189,6 +2189,10 @@ msgid "_themechooser_templet_description_"
 msgstr "un sélectionneur de thème pour les visiteurs du site (utilise les 'cookies')."
 
 
+msgid "_thumbnails_"
+msgstr "Vignettes"
+
+
 msgid "_topmenu_"
 msgstr "Menu principal"
 

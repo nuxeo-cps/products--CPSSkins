@@ -1,0 +1,2 @@
+
+return ['icons', 'backgrounds', 'thumbnails']

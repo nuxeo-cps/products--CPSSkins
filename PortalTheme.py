@@ -29,18 +29,29 @@ TEMPLET_RAMCACHE_ID = 'templets'
 CSS_RAMCACHE_ID = 'css'
 JS_RAMCACHE_ID = 'js'
 
+# Thumbnails
+THUMBNAIL_WIDTH = 200
+THUMBNAIL_HEIGHT = 150
+
 import os
 import string
 import time
 
+isPILAvailable = 1
+try:
+    import PIL.Image
+except ImportError:
+    isPILAvailable = 0
+
+from cStringIO import StringIO
 from Acquisition import aq_base
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
+
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.utils import getToolByName
 
 from RAMCache import SimpleRAMCache, RAMCache
-
 from ThemeFolder import ThemeFolder
 from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import rebuild_properties, callAction, css_slimmer, \
@@ -311,7 +322,8 @@ class PortalTheme(ThemeFolder):
         Creates a theme skeleton
         """
 
-        themefolders = ['icons', 'styles', 'backgrounds', 'palettes']
+        themefolders = self.cpsskins_listImageCategories()
+        themefolders.extend(['styles', 'palettes'])
 
         for themefolder in themefolders:
             self.invokeFactory('Theme Folder', id=themefolder)
@@ -330,7 +342,8 @@ class PortalTheme(ThemeFolder):
             verifyThemePerms(self)
 
         # check the presence of theme folders
-        themefolders = [ 'icons', 'styles', 'backgrounds', 'palettes' ]
+        themefolders = self.cpsskins_listImageCategories()
+        themefolders.extend(['styles', 'palettes'])
 
         for themefolder in themefolders:
             backupid = themefolder + '-bak'
@@ -617,7 +630,7 @@ class PortalTheme(ThemeFolder):
         Returns the image folder by category 
         """
 
-        if category not in ['icons', 'backgrounds']:
+        if category not in self.cpsskins_listImageCategories():
             return None
         id = category
         folder = getattr(self.aq_explicit, id, None)
@@ -833,29 +846,63 @@ class PortalTheme(ThemeFolder):
             self.expireCSSCache()
             return style
 
-    security.declareProtected(ManageThemes, 'addPortalImage')
-    def addPortalImage(self, **kw):
+    security.declareProtected(ManageThemes, 'editPortalImage')
+    def editPortalImage(self, **kw):
         """
-        Add a Portal Image. Returns the Portal Image's id
+        Edit a Portal Image.
         """
 
-        tmtool = getToolByName(self, 'portal_themes')
         file = kw.get('file', None)
         if file is None:
             return
 
-        imagecat = kw.get('imagecat', None)
-        if imagecat is None:
+        imagecat = kw.get('imagecat', '')
+        if imagecat not in self.cpsskins_listImageCategories():
             return
-        
+
+        # rebuild the theme to create the image folders.
+        if imagecat not in self.objectIds():
+            self.rebuild()
+
+        images_dir = getattr(self, imagecat, None)
+        if images_dir is None:
+            return
+
+        id = kw.get('id', None)
+        if id is None:
+            return
+
+        img = getattr(images_dir, id, None)
+        # create a thumbnail
+        if imagecat == 'thumbnails':
+            file = self._createThumbnail(file)
+        img.manage_upload(file)
+
+        self.expireCSSCache()
+        return img
+
+    security.declareProtected(ManageThemes, 'addPortalImage')
+    def addPortalImage(self, **kw):
+        """
+        Add a Portal Image.
+        """
+
+        imagecat = kw.get('imagecat', '')
+        if imagecat not in self.cpsskins_listImageCategories():
+            return
+
+        images_dir = getattr(self, imagecat, None)
+        if images_dir is None:
+            return
+
+        file = kw.get('file', None)
+        if file is None:
+            return
+
         fn = file.filename
         title = string.split(fn, '/')[-1]
         title = string.split(fn, '\\')[-1]
         id = title
-
-        images_dir = getattr(self, imagecat, None)
-        if images_dir is None:
-            return None
 
         ids = images_dir.objectIds()
         prefix = title.split('.')[0]
@@ -873,10 +920,12 @@ class PortalTheme(ThemeFolder):
         title = id
         cmfdefault = images_dir.manage_addProduct['CMFDefault']
         cmfdefault.manage_addContent(id=id, type='Portal Image')
+
         img = getattr(images_dir, id, None)
-        img.manage_upload(file)
+        kw['id'] = id
+        self.editPortalImage(**kw)
         img.manage_changeProperties(title=title)
-        self.expireCSSCache()
+
         return img
 
     security.declareProtected(ManageThemes, 'findOrphanedStyles')
@@ -1236,6 +1285,32 @@ class PortalTheme(ThemeFolder):
             cache = SimpleRAMCache()
             self.caches[cacheid] = cache
             return cache
+
+    #
+    # Private
+    #
+    security.declarePrivate('_createThumbnail')
+    def _createThumbnail(self, file=None):
+        """Create a thumbnail image.
+        """
+
+        if file is None:
+            return
+
+        width, height = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
+
+        if isPILAvailable:
+            try:
+                img = PIL.Image.open(file)
+            except IOError:
+                pass
+            else:
+                img.thumbnail((width, height), PIL.Image.ANTIALIAS)
+                file.seek(0)
+                img.save(file, img.format)
+
+        return file
+
 
 InitializeClass(PortalTheme)
 

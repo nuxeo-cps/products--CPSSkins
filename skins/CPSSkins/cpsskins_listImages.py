@@ -1,6 +1,6 @@
 ##parameters=imagecat=None
 
-if imagecat not in ['icons', 'backgrounds']:
+if imagecat not in context.cpsskins_listImageCategories():
    return 
 
 list = []

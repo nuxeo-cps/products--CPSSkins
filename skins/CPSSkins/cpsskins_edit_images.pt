@@ -3,7 +3,7 @@
   <metal:block fill-slot="edit"
   tal:define="current_image request/form/current_image|nothing; 
               imagecat request/form/imagecat|nothing; 
-              sections python: ['icons', 'backgrounds']; 
+              sections here/cpsskins_listImageCategories; 
               pss modules/Products/PythonScripts/standard;
               mtool here/portal_membership;
               checkPerm nocall:mtool/checkPermission">
@@ -58,7 +58,9 @@
               <br />
               <br />
               <img tal:condition="python: imagecat == 'icons'"
-              tal:attributes="width python: '%spx' % test(image.width &gt; 200, 200, image.width); src image_url" />
+              tal:attributes="width python: '%spx' % test(image.width > 200, 200, image.width); src image_url" />
+              <img tal:condition="python: imagecat == 'thumbnails'"
+               width="200" tal:attributes="src image_url" />
               <div class="backgroundeditbox"
               tal:condition="python: imagecat == 'backgrounds'"
               tal:attributes="style string:background: url('${image_url}');;">

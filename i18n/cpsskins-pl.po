@@ -2189,6 +2189,10 @@ msgid "_themechooser_templet_description_"
 msgstr "wybór motywu dla odwiedzaj±cych (musi byæ w³±czony mechanizm cookie)"
 
 
+msgid "_thumbnails_"
+msgstr ""
+
+
 msgid "_topmenu_"
 msgstr "Górne menu"
 

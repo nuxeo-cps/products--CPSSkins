@@ -2187,6 +2187,10 @@ msgid "_themechooser_templet_description_"
 msgstr "a theme selector for visitors (cookies must be enabled)"
 
 
+msgid "_thumbnails_"
+msgstr "Thumbnails"
+
+
 msgid "_topmenu_"
 msgstr "Top menu"
 

@@ -2189,6 +2189,10 @@ msgid "_themechooser_templet_description_"
 msgstr "Un selezionatore di temi per i visitatori del portale. (I cookie devono essere abilitati)."
 
 
+msgid "_thumbnails_"
+msgstr ""
+
+
 msgid "_topmenu_"
 msgstr "Menù principale"
 

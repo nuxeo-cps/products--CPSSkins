@@ -2190,6 +2190,10 @@ msgid "_themechooser_templet_description_"
 msgstr "um seletor de temas para visitantes (cookies devem ser habilitados)"
 
 
+msgid "_thumbnails_"
+msgstr ""
+
+
 msgid "_topmenu_"
 msgstr "Menu superior"
 

@@ -2187,6 +2187,10 @@ msgid "_themechooser_templet_description_"
 msgstr ""
 
 
+msgid "_thumbnails_"
+msgstr ""
+
+
 msgid "_topmenu_"
 msgstr ""
 
