@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html i18n:domain="cpsskins" tal:define="
+<html tal:define="
   tmtool here/portal_themes;
+  ttool here/portal_types;
   base_url python:here.cpsskins_getBaseUrl();
   mcat python: tmtool.getTranslationService();
   global boxedit python:1">
@@ -16,8 +17,19 @@
     order request/form/order|python:0; 
     slot request/form/slot|nothing;
     ptype_id request/form/ptype_id|nothing">
+    <div class="objectInfo" tal:condition="ptype_id"
+     tal:define="ti python: ttool.getTypeInfo(ptype_id)">
+      <img width="16" height="16" alt=""
+       tal:attributes="src string:${base_url}${ti/getIcon}" />
+      <strong tal:define="title ti/Title"
+              tal:content="python: mcat and mcat(title) or title"
+              i18n:translate="" />
+      (<tal:block define="title ti/description"
+       content="python: mcat and mcat(title) or title"
+       i18n:translate="" />)
+    </div>
     <div class="editForm">
-      <h1 i18n:translate=""
+      <h1 i18n:translate="" i18n:domain="cpsskins"
       tal:define="title string:_Add_a_portlet_"
       tal:content="python: mcat and mcat(title) or title" />
       <form action="cpsskins_portlet_add" method="get">
