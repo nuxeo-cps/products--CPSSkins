@@ -229,17 +229,21 @@ class PortletBox(BaseTemplet):
         if ptltool is None:
             return index
         portlet = ptltool.getPortletById(portlet_id)
+
+        url_index = (REQUEST.get('PATH_TRANSLATED', '/'), )
+        i18n_index = (REQUEST.get('cpsskins_language', 'en'), )
+        user_index = (str(REQUEST.get('AUTHENTICATED_USER')), )
         if portlet is not None:
             # custom cache index computed by the portlet
             index += portlet.getCustomCacheIndex()
             # cache parameters
             params =  portlet.getCacheParams()
             if 'url' in params:
-                index += (REQUEST.get('PATH_TRANSLATED', '/'), )
+                index += url_index
             if 'i18n' in params:
-                index += (REQUEST.get('cpsskins_language', 'en'), )
+                index += i18n_index
             if 'user' in params:
-                index += (str(REQUEST.get('AUTHENTICATED_USER')), )
+                index += user_index
         return index
 
 InitializeClass(PortletBox)
