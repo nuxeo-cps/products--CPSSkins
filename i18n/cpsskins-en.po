@@ -1323,6 +1323,10 @@ msgid "_Slot name_"
 msgstr "Slot name"
 
 
+msgid "_Some items can be pasted here_"
+msgstr "Some items can be pasted here"
+
+
 msgid "_Start string_"
 msgstr "Start string"
 

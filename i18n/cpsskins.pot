@@ -1943,3 +1943,6 @@ msgstr ""
 
 msgid "_zexp format_"
 msgstr ""
+
+msgid "_Some items can be pasted here_"
+msgstr ""

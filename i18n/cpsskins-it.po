@@ -1325,6 +1325,10 @@ msgid "_Slot name_"
 msgstr "Nome dell'alloggiamento"
 
 
+msgid "_Some items can be pasted here_"
+msgstr ""
+
+
 msgid "_Start string_"
 msgstr "Marcatore di inizio stringa"
 

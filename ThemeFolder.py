@@ -142,14 +142,12 @@ class ThemeFolder(PortalFolder):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
+        items = self.cb_dataItems()
+
         if REQUEST.has_key('__cp'):
             cp = REQUEST['__cp']
         if cp is not None:
             self.manage_pasteObjects(cp)
-
-        # rebuild the theme in case some items were pasted in the wrong folder
-        theme_container = self.getContainer()
-        theme_container.rebuild()
 
         RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
@@ -167,8 +165,8 @@ class ThemeFolder(PortalFolder):
         redirect_url = REQUEST['HTTP_REFERER']
         RESPONSE.redirect(redirect_url)
 
-    security.declareProtected(ManageThemes, 'canPaste')
-    def canPaste(self, REQUEST=None):
+    security.declareProtected(ManageThemes, 'getPastableObjects')
+    def getPastableObjects(self, meta_type=None, REQUEST=None):
         """Returns true if at least one object in the clipboard
            can be pasted into this folder.
         """
@@ -176,11 +174,20 @@ class ThemeFolder(PortalFolder):
         if REQUEST is None:
             REQUEST = self.REQUEST
 
+        if meta_type is None:
+            return []
+
         try:
             items = self.cb_dataItems()
         except KeyError:
             items = []
-        return len(items) > 0
+
+        pastableItems = [item for item in items
+            if item.meta_type == meta_type]
+        if len(pastableItems) < len(items):
+            pastableItems = []
+         return pastableItems
+
 
 InitializeClass(ThemeFolder)
 

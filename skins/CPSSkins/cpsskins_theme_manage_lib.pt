@@ -122,19 +122,16 @@
            tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
       </dl>
-    <input type="submit" name="pasteObjects:method"
-     value="Paste" i18n:attributes="value"
-     tal:define="title string:_Paste_"
-     tal:condition="folder/canPaste"
-     tal:attributes="value python: mcat and mcat(title) or title" />
     </tal:block>
     <tal:block condition="stylecat"
     define="styles python: tmtool.findStylesFor(stylecat, theme_container); 
+            pastableItems python: folder.getPastableObjects(stylecat);
             style_list styles/object|nothing">
-      <h2 class="fancy" tal:define="title python:'_%s_' % stylecat" 
+      <h2 class="fancy" tal:define="title python:'_%s_' % stylecat"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
 
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
       <table class="browser" summary="" cellpadding="0" cellspacing="0">
         <tr>
           <th>&nbsp;</th>
@@ -171,11 +168,6 @@
          tal:attributes="id style/getId" />
       </tal:block>
     <br />
-    <input type="submit" name="pasteObjects:method"
-     value="Paste" i18n:attributes="value"
-     tal:define="title string:_Paste_"
-     tal:condition="folder/canPaste"
-     tal:attributes="value python: mcat and mcat(title) or title" />
     <tal:block condition="style_list">
       <input type="submit" name="cutObjects:method"
        value="Cut" i18n:attributes="value"
@@ -190,14 +182,19 @@
        tal:define="title string:_Delete_"
        tal:attributes="value python: mcat and mcat(title) or title" />
       </tal:block>
-      <div class="addItem">
-        <a href="javascript:void(0)" alt=""
-        tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
-          <img width="46" height="18" alt=""
-          tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
-        </a>
-      </div>
+      <input type="submit" name="pasteObjects:method"
+       value="Paste" i18n:attributes="value"
+       tal:define="title string:_Paste_"
+       tal:condition="pastableItems"
+       tal:attributes="value python: mcat and mcat(title) or title" />
     </tal:block>
+    <div class="addItem">
+      <a href="javascript:void(0)" alt=""
+      tal:attributes="onClick string:newWindow('${base_url}cpsskins_addstyle_form?type_name=$stylecat')">
+        <img width="46" height="18" alt=""
+        tal:attributes="src string:${base_url}cpsskins_images/img_addstyle.png" />
+      </a>
+    </div>
   </form>
 </metal:block>
 
@@ -228,10 +225,13 @@
       <h2 class="fancy" tal:define="title python:'_%s_' % imagecat"
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
-      <form tal:define="folder python: theme_container.getImageFolder(category=imagecat);
-                        images python: here.cpsskins_listImages(imagecat=imagecat)"
+      <form tal:define="
+            folder python: theme_container.getImageFolder(category=imagecat);
+            pastableItems python: folder.getPastableObjects('Image');
+            images python: here.cpsskins_listImages(imagecat=imagecat)"
        action="" tal:attributes="action folder/absolute_url"
        name="objectItems" method="post">
+        <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
         <table class="browser" summary="" cellpadding="0" cellspacing="0">
           <tr>
             <th>&nbsp;</th>
@@ -288,14 +288,14 @@
          value="Copy" i18n:attributes="value"
          tal:define="title string:_Copy_"
          tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="pasteObjects:method"
-         value="Paste" i18n:attributes="value"
-         tal:define="title string:_Paste_"
-         tal:condition="folder/canPaste"
-         tal:attributes="value python: mcat and mcat(title) or title" />
         <input type="submit" name="deleteObjects:method"
          value="Delete" i18n:attributes="value"
          tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="pasteObjects:method"
+         value="Paste" i18n:attributes="value"
+         tal:define="title string:_Paste_"
+         tal:condition="pastableItems"
          tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
@@ -339,9 +339,11 @@
       <h2 class="fancy" tal:define="title python:'_%s_' % palettecat"
       tal:content="python: mcat and mcat(title) or title" 
       i18n:translate="" />
-      <form tal:define="folder theme_container/getPalettesFolder"
+      <form tal:define="folder theme_container/getPalettesFolder;
+            pastableItems python: folder.getPastableObjects(palettecat)"
        action="" tal:attributes="action folder/absolute_url"
        name="objectItems" method="post">
+        <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/pastable_items" />
         <table class="browser" summary="" cellpadding="0" cellspacing="0">
           <tr>
             <th>&nbsp;</th>
@@ -400,14 +402,14 @@
          value="Copy" i18n:attributes="value"
          tal:define="title string:_Copy_"
          tal:attributes="value python: mcat and mcat(title) or title" />
-        <input type="submit" name="pasteObjects:method"
-         value="Paste" i18n:attributes="value"
-         tal:define="title string:_Paste_"
-         tal:condition="folder/canPaste"
-         tal:attributes="value python: mcat and mcat(title) or title" />
         <input type="submit" name="deleteObjects:method"
          value="Delete" i18n:attributes="value"
          tal:define="title string:_Delete_"
+         tal:attributes="value python: mcat and mcat(title) or title" />
+        <input type="submit" name="pasteObjects:method"
+         value="Paste" i18n:attributes="value"
+         tal:define="title string:_Paste_"
+         tal:condition="pastableItems"
          tal:attributes="value python: mcat and mcat(title) or title" />
       </form>
       <div class="addItem">
@@ -418,6 +420,18 @@
         </a>
       </div>
     </tal:block>
+</metal:block>
+
+<metal:block define-macro="pastable_items">
+  <div class="pastableItems" tal:condition="pastableItems">
+    <em i18n:domain="cpsskins" i18n:translate=""
+    tal:define="title string:_Some items can be pasted here_"
+    tal:content="python: mcat and mcat(title) or title" />:
+    <tal:block repeat="item pastableItems">
+      <strong tal:content="item/title_or_id" /><tal:block condition="not:repeat/item/end"
+       content="structure string:,&nbsp;" />
+    </tal:block>
+  </div>
 </metal:block>
 
 <metal:block define-macro="themes_manager"

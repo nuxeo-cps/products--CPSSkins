@@ -64,6 +64,11 @@
   z-index: 20;
 }
 
+.pastableItems {
+  padding: 5px;
+  font-size: 110%;
+}
+
 .browser {
   border: none;
   width: 100%;
