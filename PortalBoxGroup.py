@@ -75,16 +75,25 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
          'category': 'general',
          'default': 0,
         },
+        {'id': 'box_title_i18n',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Translate the box title',
+         'category': 'general',
+         'i18n': 1,
+        },
     )
 
     def __init__(self, id,
                  box_group = '0',
                  macroless = 0,
+                 box_title_i18n = 0,
                  **kw):
         BaseTemplet.__init__(self, id, **kw)
         SimpleBox.__init__(self, **kw)
         self.box_group = box_group
         self.macroless = macroless
+        self.box_title_i18n = box_title_i18n
 
     security.declarePublic('isRenderable')
     def isRenderable(self):
@@ -193,8 +202,8 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         checkPerm = mtool.checkPermission
         portlets = ptltool.getPortlets(context, slot, **kw)
 
-        i18n_title = self.i18n_title
-        if i18n_title:
+        box_title_i18n = self.box_title_i18n
+        if box_title_i18n:
             tmtool = getToolByName(self, 'portal_themes')
             mcat = tmtool.getTranslationService(cat='default')
         boxedit = kw.get('boxedit')
@@ -252,7 +261,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
             # add the box decoration
             title = portlet.title
-            if i18n_title and mcat is not None:
+            if box_title_i18n and mcat is not None:
                 title = mcat(title).encode("ISO-8859-15", 'ignore')
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,

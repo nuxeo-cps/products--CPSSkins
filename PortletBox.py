@@ -86,16 +86,25 @@ class PortletBox(BaseTemplet, SimpleBox):
          'i18n_default_domain': 1,
          'i18n_transform': 'getPortletTypeTitle',
         },
+        {'id': 'box_title_i18n',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Translate the box title',
+         'category': 'general',
+         'i18n': 1,
+        },
     )
 
     def __init__(self, id,
                  portlet_id = None,
                  portlet_type = None,
+                 box_title_i18n = 0,
                  **kw):
         BaseTemplet.__init__(self, id, **kw)
         SimpleBox.__init__(self, **kw)
         self.portlet_id = portlet_id
         self.portlet_type = portlet_type
+        self.box_title_i18n = box_title_i18n
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
@@ -162,7 +171,7 @@ class PortletBox(BaseTemplet, SimpleBox):
             body = portlet.render_cache(**kw)
 
         title = self.title
-        if self.i18n_title:
+        if self.box_title_i18n:
             tmtool = getToolByName(self, 'portal_themes')
             mcat = tmtool.getTranslationService(cat='default')
             if mcat is not None:
