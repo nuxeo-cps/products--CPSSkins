@@ -2,32 +2,27 @@
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
-
-if REQUEST is None:
+else:
     REQUEST = context.REQUEST
 
 session = REQUEST.SESSION
 session_key = 'cpsskins_view_mode'
 
-if not session.has_key(session_key):
-    session[session_key] = {}
+session_dict = session.get(session_key, {})
 
-mode = {}
-if kw.has_key('fullscreen'):
-    value = kw['fullscreen']
-    if value in ['0', '1']:
-        mode['fullscreen'] = int(value)
+fullscreen = kw.get('fullscreen')
+if fullscreen in ['0', '1']:
+    session_dict['fullscreen'] = int(fullscreen)
 
-if kw.has_key('portlets_panel'):
-    value = kw['portlets_panel']
-    if value in ['visibility', 'browser', 'unused']:
-        mode['portlets_panel'] = value
+portlets_panel = kw.get('portlets_panel')
+if portlets_panel in ['visibility', 'browser', 'unused']:
+    session_dict['portlets_panel'] = portlets_panel
 
-if kw.has_key('selected_portlet'):
-    value = kw['selected_portlet']
-    mode['selected_portlet'] = value
+selected_portlets = kw.get('selected_portlet')
+if selected_portlets is not None:
+    session_dict['selected_portlet'] = selected_portlets
 
-session[session_key].update(mode)
+session[session_key] = session_dict
 
 url = REQUEST.get('HTTP_REFERER')
 REQUEST.RESPONSE.redirect(url)
