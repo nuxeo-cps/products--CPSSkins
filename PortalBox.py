@@ -86,14 +86,6 @@ class PortalBox(BaseTemplet, SimpleBox):
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
-       {'id': 'show_action_icons', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Show action icons', 
-        'category': 'actions', 
-        'visible': 'IfActionsCategory',
-        'default': 0
-       },
        {'id': 'show_docs', 
         'type': 'boolean', 
         'mode': 'w', 
@@ -185,7 +177,6 @@ class PortalBox(BaseTemplet, SimpleBox):
                  content = 'actions', 
                  level = 0,
                  title_source = 'Templet title',
-                 show_action_icons = 0,
                  show_docs = 0,
                  display_hidden_folders = 0,
                  action_categories = ['user', 'global'],
@@ -202,7 +193,6 @@ class PortalBox(BaseTemplet, SimpleBox):
         apply(SimpleBox.__init__, (self, id), kw)
         self.content = content
         self.level = level
-        self.show_action_icons = show_action_icons
         self.show_docs = show_docs
         self.display_hidden_folders = display_hidden_folders
         self.base_path = base_path

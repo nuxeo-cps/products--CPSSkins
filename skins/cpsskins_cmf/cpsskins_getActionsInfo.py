@@ -10,7 +10,6 @@ base_url = REQUEST.get('cpsskins_base_url', '')
 
 action_categories = obj.action_categories
 custom_action_categories = obj.custom_action_categories
-show_action_icons = obj.show_action_icons
 invisible_actions = obj.invisible_actions 
 
 categories = action_categories[:]
@@ -26,7 +25,6 @@ if actions is None:
 
 actioninfo = []
 
-getIconFor = tmtool.getIconFor
 firstcat = 1
 for category in categories:
     actions_by_cat = actions.get(category, [])
@@ -49,11 +47,6 @@ for category in categories:
             if url == current_url: 
                 we_are_here = 1
 
-            menustyle = ''
-            if show_action_icons:
-                icon = getIconFor(category, action_id)
-                if icon:
-                    menustyle = 'background: url(%s%s) no-repeat' % (base_url, icon) 
             if we_are_here:
                 menuclass = 'menuin'
             else:
@@ -64,7 +57,6 @@ for category in categories:
                 'title': action.get('name'),
                 'url': action_url,
                 'class': menuclass,
-                'style': menustyle,
                 'newcat': newcat,
                 }
             ) 
