@@ -17,16 +17,16 @@ class TestPageBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock1 = self.pageblock
         pageblock2 = self.theme_container.addPageBlock()
         pageblock2.move('up')
-        pos1 = pageblock1.getPageBlockPosition()
-        pos2 = pageblock2.getPageBlockPosition()
+        pos1 = pageblock1.getVerticalPosition()
+        pos2 = pageblock2.getVerticalPosition()
         self.assert_(pos2 < pos1)
 
     def test_move_PageBlock_down(self):
         pageblock1 = self.pageblock
         pageblock2 = self.theme_container.addPageBlock()
         pageblock1.move('down')
-        pos1 = pageblock1.getPageBlockPosition()
-        pos2 = pageblock2.getPageBlockPosition()
+        pos1 = pageblock1.getVerticalPosition()
+        pos2 = pageblock2.getVerticalPosition()
         self.assert_(pos1 > pos2)
 
     def test_getPageBlocks(self):

@@ -454,8 +454,8 @@ class PageBlock(ThemeFolder, StylableContent):
 
         self.closed = not self.closed
 
-    security.declareProtected(ManageThemes, 'getPageBlockPosition')
-    def getPageBlockPosition(self):
+    security.declareProtected(ManageThemes, 'getVerticalPosition')
+    def getVerticalPosition(self):
         """ 
         Return the page block's ypos in the theme folder
         """
@@ -502,7 +502,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Move the page block to the top of the canvas
         """
 
-        ypos_list = [p.getPageBlockPosition() for p in self.getPageBlocks()]
+        ypos_list = [p.getVerticalPosition() for p in self.getPageBlocks()]
         top_ypos = min(ypos_list)
         self.move_object_to_position(self.getId(), top_ypos)
 
