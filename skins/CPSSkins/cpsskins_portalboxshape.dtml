@@ -44,6 +44,7 @@ border-style:&dtml-BoxBody_menuout_border_style;;
 border-width:&dtml-BoxBody_menuout_border_width;;
 </dtml-if>
 display: block;
+width: 100%;
 }
 
 .BoxShape&dtml-title; .body ul li a {
