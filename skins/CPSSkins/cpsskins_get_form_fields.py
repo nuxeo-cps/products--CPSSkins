@@ -32,6 +32,7 @@ for propid in context.propertyIds():
             field['image'] = obj.get('image', None)
             field['i18n'] =  obj.get('i18n', None)
             field['i18n_prefix'] =  obj.get('i18n_prefix', '')
+            field['i18n_use_original_label'] =  obj.get('i18n_use_original_label', None)
             field['style'] =  obj.get('style', None)
             break
                   

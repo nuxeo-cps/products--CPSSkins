@@ -80,6 +80,7 @@ class PortletBox(BaseTemplet):
         'select_variable': 'cpsskins_listPortletTypes',
         'category': 'general',
         'i18n': 1,
+        'i18n_use_original_label': 1,
        },
     )
 

@@ -45,8 +45,10 @@
                     <tal:block condition="i18n"
                     i18n:translate=""
                     tal:define="i18n_prefix field/i18n_prefix;
+                                i18n_use_original_label field/i18n_use_original_label;
                                 i18n_prefix python: i18n_prefix and i18n_prefix + '_' or '';
-                                i18n_title string:_option_${i18n_prefix}${item_title}_"
+                                i18n_title string:_option_${i18n_prefix}${item_title}_;
+                                i18n_title python: i18n_use_original_label and item_title or i18n_title;"
                     tal:content="python: mcat and mcat(i18n_title) or i18n_title" />
                     <tal:block condition="not:i18n"
                     tal:content="item_title" />
