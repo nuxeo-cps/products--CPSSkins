@@ -405,7 +405,7 @@ def update(self):
         'Theme Folder' : types_in_themefolders + ('Portal Theme', 'Theme Folder'),
        }
 
-    for ptype in ('Page Block', 'Theme Folder', 'Portal Theme'):
+    for ptype in allowed_content_type.keys():
         allowed_types = allowed_content_type[ptype]
         ttool[ptype].allowed_content_types = allowed_types
 
