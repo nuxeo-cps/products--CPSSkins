@@ -212,7 +212,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
          content="python: mcat and mcat(title) or title" />
     </div>
     <div class="context-menu-item" 
-     tal:define="msg python: cpsskins_mcat('_confirm delete_')"
+     tal:define="msg string:_confirm delete_;
+                 msg python: cpsskins_mcat and cpsskins_mcat(msg) or msg"
      tal:attributes="onmouseup python:'Choice_action(\'delete\', \'%s\')' % msg"
          filter="pd_selected_item">
        <img width="16" height="16" 
