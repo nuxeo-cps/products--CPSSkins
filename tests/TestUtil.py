@@ -1,6 +1,10 @@
+import os
+
 from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
 from OFS.SimpleItem import SimpleItem
+
+target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
 ##########################################
 try:
@@ -112,11 +116,9 @@ PortalThemesTool.getViewMode = getViewMode
 
 ##########################################
 
-try:
+if target == 'CPS3':
+
     from Products.CPSPortlets.PortletsTool import PortletsTool
-except ImportError:
-    pass
-else:
 
     # disable CPSPortlets events
     def notify_event(self, event_type, object, infos):
