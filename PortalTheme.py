@@ -1080,6 +1080,17 @@ class PortalTheme(ThemeFolder, StylableContent):
         if kw.get('default', 0):
             tmtool.setDefaultTheme(default_theme=self.getId())
 
+    security.declareProtected(ManageThemes, 'duplicate')
+    def duplicate(self):
+        """Duplicate this theme
+        """
+        container = self.getContainer()
+        newid = getFreeId(container)
+        container.manage_clone(self, newid)
+        newobj = getattr(container, newid, None)
+        verifyThemePerms(newobj)
+        return newobj
+
     security.declarePublic('get_object_position')
     def get_object_position(self, id):
         """ Gets the objects' position in an ordered folder
