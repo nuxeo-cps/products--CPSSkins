@@ -3,6 +3,6 @@
                      portlet_id here/portlet_id|nothing;
                      portlet python: ptltool.getPortletById(portlet_id)"
              condition="portlet">
-   <div tal:replace="structure python:portlet.getContent().render(layout_mode='edit')" />
+   <div tal:replace="structure python:portlet.render(layout_mode='edit')" />
   </tal:block>
 </metal:block>
