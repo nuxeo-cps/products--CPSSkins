@@ -1,4 +1,5 @@
-<dtml-let theme_url="aq_parent.aq_parent.absolute_url(relative=1)">
+<dtml-let theme_url="aq_parent.aq_parent.absolute_url(1)">
+
 .BoxColor&dtml-title; .title { 
 <dtml-if BoxTitle_bg_color>
 background-color:&dtml-BoxTitle_bg_color;; 
@@ -15,10 +16,11 @@ background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxTitle_bg_image;);
 }
 <dtml-if BoxTitle_font_color>
 .BoxColor&dtml-title; .title a { 
-color:&dtml-BoxTitle_font_color;
+color:&dtml-BoxTitle_font_color;;
 }
 </dtml-if>
-.BoxColor&dtml-title; .body { 
+
+.BoxColor&dtml-title; .body  { 
 <dtml-if BoxBody_bg_color>
 background-color:&dtml-BoxBody_bg_color;;
 </dtml-if>
@@ -29,70 +31,65 @@ border-color:&dtml-BoxBody_border_color;;
 background-image:url(/&dtml-theme_url;/backgrounds/&dtml-BoxBody_bg_image;);
 </dtml-if>
 }
-<dtml-if BoxBody_menuout_icon>
-.BoxColor&dtml-title; .body .menuouticon {
-<dtml-with expr="aq_parent.aq_parent.icons">
-<dtml-with expr="_.getitem(BoxBody_menuout_icon)">
-padding-left:<dtml-var width>px;
-<dtml-let url="absolute_url(relative=1)">
-background:url(/<dtml-var url>) no-repeat left center;
-</dtml-let>
-</dtml-with>
-</dtml-with>
-}
-</dtml-if>
-<dtml-if BoxBody_menuin_icon>
-.BoxColor&dtml-title; .body .menuinicon {
-<dtml-with expr="aq_parent.aq_parent.icons">
-<dtml-with expr="_.getitem(BoxBody_menuin_icon)">
-padding-left: <dtml-var width>px;
-<dtml-let url="absolute_url(relative=1)">
-background:url(/<dtml-var url>) no-repeat left center;
-</dtml-let>
-</dtml-with>
-</dtml-with>
-}
-</dtml-if>
-<dtml-if BoxBody_menuin_color>
-.BoxColor&dtml-title; .body .addmenu:hover {
-background-color:&dtml-BoxBody_menuin_color;
-}
-</dtml-if>
-.BoxColor&dtml-title; .body .menuin {
-<dtml-if BoxBody_menuin_color>
-background-color:&dtml-BoxBody_menuin_color;;
-</dtml-if>
-<dtml-if BoxBody_menuin_border_color>
-border-color:&dtml-BoxBody_menuin_border_color;
-</dtml-if>
-}
-.BoxColor&dtml-title; .body .menuout {
-<dtml-if BoxBody_menuout_color>
-background-color:&dtml-BoxBody_menuout_color;;
-</dtml-if>
-<dtml-if BoxBody_menuout_border_color>
-border-color:&dtml-BoxBody_menuout_border_color;
-</dtml-if>
-}
-.BoxColor&dtml-title; .body .menuout:hover,
-.BoxColor&dtml-title; .body a:hover {
-<dtml-if BoxBody_menuin_color>
-background-color:&dtml-BoxBody_menuin_color;;
-</dtml-if>
-<dtml-if BoxBody_menuin_border_color>
-border-color:&dtml-BoxBody_menuin_border_color;
-</dtml-if>
-}
+
 .BoxColor&dtml-title; .body ul {
-margin:0px;
-padding:0px;
-list-style-position:inside;
+list-style-type: none;
 }
-.BoxColor&dtml-title; .body li {
-<dtml-if BoxBody_menuout_icon>
-list-style-image:url(/&dtml-theme_url;/icons/&dtml-BoxBody_menuout_icon;);
+
+.BoxColor&dtml-title; .body ul li a {
+<dtml-if BoxBody_menuout_border_color>
+border-color:&dtml-BoxBody_menuout_border_color;;
+</dtml-if>
+display: block;
+}
+
+.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-if BoxBody_menuin_border_color>
+border-color:&dtml-BoxBody_menuin_border_color;;
 </dtml-if>
 }
 
+.BoxColor&dtml-title; .body ul li a {
+<dtml-if BoxBody_menuout_color>
+background-color:&dtml-BoxBody_menuout_color;;
+</dtml-if>
+}
+
+.BoxColor&dtml-title; .body ul li a:hover, 
+.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-if BoxBody_menuin_color>
+background-color:&dtml-BoxBody_menuin_color;;
+</dtml-if>
+}
+
+<dtml-if BoxBody_menuout_icon>
+.BoxColor&dtml-title; .body ul li a {
+<dtml-with expr="aq_parent.aq_parent.icons">
+<dtml-with expr="_.getitem(BoxBody_menuout_icon)">
+<dtml-let url="absolute_url(relative=1)">
+background-image:url(/<dtml-var url>);
+background-repeat: no-repeat;
+background-position: left center;
+padding-left: <dtml-var "_.int(width)+4">px !important;
+</dtml-let>
+</dtml-with>
+</dtml-with>
+}
+</dtml-if>
+
+<dtml-if BoxBody_menuin_icon>
+.BoxColor&dtml-title; .body ul li.selected a {
+<dtml-with expr="aq_parent.aq_parent.icons">
+<dtml-with expr="_.getitem(BoxBody_menuin_icon)">
+<dtml-let url="absolute_url(relative=1)">
+background-image:url(/<dtml-var url>);
+background-repeat: no-repeat;
+background-position: left center;
+padding-left: <dtml-var "_.int(width)+4">px !important;
+</dtml-let>
+</dtml-with>
+</dtml-with>
+}
+</dtml-if>
 
 </dtml-let>

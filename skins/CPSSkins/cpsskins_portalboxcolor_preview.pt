@@ -3,7 +3,7 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
   <tr style="height: 230px">
     <td>
       <div style="text-align: left; width:130px"
-      tal:attributes="class string:BoxColor${here/title} box">
+      tal:attributes="class string:BoxColor${here/title}">
         <br />
         <div class="title"
         style="padding-left: 10px; padding-right: 10px; display: inline; border-style: solid; border-width: 1px;">
@@ -13,48 +13,43 @@ tal:define="mcat python: request.get('cpsskins_mcat')">
           i18n:translate="" />
         </div>
         <div class="body"
-        style="padding: 5px; border-style: solid; border-width: 1px;">
-
-          <tal:block repeat="entry python: range(1, 5)">
-            <div tal:define="state python: entry == 3 and 'in' or 'out'"
-                 tal:attributes="class string:submenu${state}"
-                 style="padding-left: 2px; margin: 3px; border-style: solid; border-width: 1px">
-            <span tal:attributes="class string:menu${state}icon">
-            &nbsp;</span>
-            <tal:block define="title string:_Menu entry_"
-            content="python: mcat and mcat(title) or title"
-            i18n:translate="" />
-            <tal:block content="entry" />&nbsp;</div>
-          </tal:block>
+         style="border-style: solid; border-width: 1px; padding: 5px">
+          <ul style="margin: 0; padding: 0">
+            <tal:block repeat="entry python: range(1, 3)">
+              <li tal:define="menuclass python: entry == 2 and 'selected' or ''"
+                  tal:attributes="class menuclass">
+                <a href="" style="display: block; border-width: 1px; border-style: solid; margin: 2px"
+                tal:define="title string:_Menu entry_"
+                tal:content="python: mcat and mcat(title) or title"
+                i18n:translate="" />
+              </li>
+            </tal:block>
+          </ul>
         </div>
-        <br />
       </div>
-      <div style="text-align: left; width: 280px"
-      tal:attributes="class string:BoxColor${here/title} box">
-        <br />
+      <br/>
+      <div tal:attributes="class string:BoxColor${here/title}" style="width: 300px">
         <div class="title"
         style="padding-left: 10px; padding-right: 10px; display: inline; border-style: solid; border-width: 1px;">
-
           <tal:block define="title string:_Menu title_"
           content="python: mcat and mcat(title) or title"
           i18n:translate="" />
         </div>
         <div class="body"
-        style="border-style: solid; border-width: 1px; padding: 5px">
-
-          <tal:block repeat="entry python: range(1, 3)">
-            <div tal:define="state python: entry == 2 and 'in' or 'out'"
-                 tal:attributes="class string:submenu$state"
-                 style="padding-right: 8px; display:inline; padding-left:8px; margin: 3px; border-style: solid; border-width: 1px">
-            <span tal:attributes="class string:menu${state}icon">
-            &nbsp;</span>
-            <tal:block define="title string:_Menu entry_"
-            content="python: mcat and mcat(title) or title"
-            i18n:translate="" />
-            <tal:block content="entry" />&nbsp;</div>
-          </tal:block>
+         style="border-style: solid; border-width: 1px; padding: 5px">
+          <ul style="display: inline; margin: 0; padding: 0">
+            <tal:block repeat="entry python: range(1, 3)">
+              <li tal:define="menuclass python: entry == 2 and 'selected' or None"
+                  tal:attributes="class menuclass"
+                  style="margin: 2px; display:inline">
+                <a href="" style="border-style: solid; border-width: 1px;"
+                tal:define="title string:_Menu entry_"
+                tal:content="python: mcat and mcat(title) or title"
+                i18n:translate="" /></li>
+            </tal:block>
+          </ul>
+          <div clear="both"></div>
         </div>
-        <br />
       </div>
     </td>
   </tr>
