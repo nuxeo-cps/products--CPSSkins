@@ -1557,3 +1557,16 @@ msgstr ""
 
 msgid "_Portlet_"
 msgstr ""
+
+msgid "_Portlet type_"
+msgstr ""
+
+msgid "_option_docinfo_title_"
+msgstr ""
+
+msgid "_option_docinfo_last_modified_"
+msgstr ""
+
+msgid "_option_docinfo_created_by_"
+msgstr ""
+

@@ -1047,6 +1047,10 @@ msgid "_Portlet Box Templet_"
 msgstr "Portlet Box Templet"
 
 
+msgid "_Portlet type_"
+msgstr "Portlet type"
+
+
 msgid "_Portlet_"
 msgstr "Portlet"
 
@@ -1763,6 +1767,18 @@ msgid "_option_default_"
 msgstr "Default"
 
 
+msgid "_option_docinfo_created_by_"
+msgstr "Created by ..."
+
+
+msgid "_option_docinfo_last_modified_"
+msgstr "Last modification date"
+
+
+msgid "_option_docinfo_title_"
+msgstr "Document title"
+
+
 msgid "_option_drawer_"
 msgstr "Drawer box"
 
@@ -1972,7 +1988,7 @@ msgstr "a generic box that displays actions, folders, an about box, a login box,
 
 
 msgid "_portalboxgroup_templet_description_"
-msgstr "a slot that displays the original portal boxes"
+msgstr "a slot containing a group of boxes or portlets."
 
 
 msgid "_portaltab_templet_description_"

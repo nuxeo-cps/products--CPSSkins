@@ -1050,6 +1050,10 @@ msgid "_Portlet Box Templet_"
 msgstr ""
 
 
+msgid "_Portlet type_"
+msgstr ""
+
+
 msgid "_Portlet_"
 msgstr ""
 
@@ -1764,6 +1768,18 @@ msgstr "NS4 compatível"
 
 msgid "_option_default_"
 msgstr "Padrão"
+
+
+msgid "_option_docinfo_created_by_"
+msgstr ""
+
+
+msgid "_option_docinfo_last_modified_"
+msgstr ""
+
+
+msgid "_option_docinfo_title_"
+msgstr ""
 
 
 msgid "_option_drawer_"

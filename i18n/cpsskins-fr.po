@@ -1049,6 +1049,10 @@ msgid "_Portlet Box Templet_"
 msgstr "Boîte portlet"
 
 
+msgid "_Portlet type_"
+msgstr "Type de portlet"
+
+
 msgid "_Portlet_"
 msgstr "Portlet"
 
@@ -1765,6 +1769,18 @@ msgid "_option_default_"
 msgstr "Défaut"
 
 
+msgid "_option_docinfo_created_by_"
+msgstr "Créé par ..."
+
+
+msgid "_option_docinfo_last_modified_"
+msgstr "Date de dernière modification"
+
+
+msgid "_option_docinfo_title_"
+msgstr "Titre du document"
+
+
 msgid "_option_drawer_"
 msgstr "Boîte à tiroir"
 
@@ -1974,7 +1990,7 @@ msgstr "une boîte générique affichant des commandes, des répertoires; une boîte 
 
 
 msgid "_portalboxgroup_templet_description_"
-msgstr "une zone d'affichage pour les boîtes d'origine du portail."
+msgstr "une zone d'affichage regroupant un ensemble de boîtes ou de portlets."
 
 
 msgid "_portaltab_templet_description_"
