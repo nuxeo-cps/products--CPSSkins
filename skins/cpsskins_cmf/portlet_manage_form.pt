@@ -2,11 +2,11 @@
                         view_mode here/cpsskins_getViewMode;
                         fullscreen view_mode/fullscreen|python:0;
                         panel view_mode/portlets_panel|nothing;
+                        selected_portlet view_mode/selected_portlet|nothing;
                         global emptybody fullscreen;
                         cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                         mtool here/portal_membership;
-                        checkPerm nocall:mtool/checkPermission;
-                        selected_portlet request/selected_portlet|options/selected_portlet|nothing">
+                        checkPerm nocall:mtool/checkPermission">
   <metal:body use-macro="here/main_template/macros/master">
     <metal:head fill-slot="head_slot">
       <style type="text/css" media="all"

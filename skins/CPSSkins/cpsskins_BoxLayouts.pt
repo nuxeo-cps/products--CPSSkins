@@ -197,7 +197,8 @@
 <metal:block define-macro="portlet_edit"
  tal:define="base_url python: request.get('cpsskins_base_url', '');
              portlet_id portlet/getId;
-             selected_portlet request/form/selected_portlet|options/selected_portlet|nothing;
+             view_mode here/cpsskins_getViewMode;
+             selected_portlet view_mode/selected_portlet|nothing;
              context_obj nocall:options/context_obj;
              selected python: portlet == context_obj or portlet_id == selected_portlet">
   <div class="title buttons">

@@ -5,8 +5,8 @@ if REQUEST is not None:
 
 if REQUEST is None:
     REQUEST = context.REQUEST
-session = REQUEST.SESSION
 
+session = REQUEST.SESSION
 session_key = 'cpsskins_view_mode'
 
 if not session.has_key(session_key):
@@ -22,6 +22,10 @@ if kw.has_key('portlets_panel'):
     value = kw['portlets_panel']
     if value in ['visibility', 'browser', 'unused']:
         mode['portlets_panel'] = value
+
+if kw.has_key('selected_portlet'):
+    value = kw['selected_portlet']
+    mode['selected_portlet'] = value
 
 session[session_key].update(mode)
 
