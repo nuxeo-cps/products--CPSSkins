@@ -22,6 +22,9 @@
   <metal:block use-macro="here/cpsskins_main_template_edit/macros/head" />
   <style type="text/css" media="all"
    tal:content="string:@import url(${base_url}cpsskins_theme_edit.css);" />
+  <script type="text/javascript" src="cpsskins_pdlib.js"></script>
+  <script type="text/javascript" src="cpsskins_content_edit.js"></script>
+  <script type="text/javascript" src="cpsskins_theme_edit.js"></script>
 </head>
 
 <body tal:attributes="
@@ -86,6 +89,15 @@
     </div> 
 
   </div>
+
+  <metal:block use-macro="here/cpsskins_theme_widgets/macros/contextual_menu" />
+
+  <!-- Begin pdlib footer -->
+  <div id="drag-feedback-box"></div>
+  <script type="text/javascript"><!-- 
+   pd_setupPage();
+  // --></script>
+  <!-- End pdlib footer -->
 
   </body>
 </html>
