@@ -4,9 +4,9 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
-theme = tmtool.getRequestedThemeName()
+theme = tmtool.getRequestedThemeName(editing=1)
 theme_container = tmtool.getThemeContainer(theme)
-page = theme_container.getRequestedPageName()
+page = theme_container.getRequestedPageName(editing=1)
 
 xpos = kw.get('xpos', 0)
 ypos = kw.get('ypos', 0)
