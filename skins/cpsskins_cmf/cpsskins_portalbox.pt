@@ -3,6 +3,7 @@
                    base_url python: request.get('cpsskins_base_url', '');
                    orientation python: here.orientation;
                    menustyle python: orientation == 'horizontal' and 'display:inline' or '';
+                   linkstyle python: orientation == 'horizontal' and 'display:inline;; white-space: nowrap' or '';
                    content python: here.content">
   <tal:block condition="python: content == 'folders'">
     <ul
@@ -25,9 +26,9 @@
                         menuclass python: menu_selected and 'selected' or ''"
          tal:attributes="style menustyle; class menuclass">
           <a href="" i18n:translate="" tal:condition="i18n"
-          tal:attributes="href menu_url; style menustyle" tal:content="menu_title" />
+          tal:attributes="href menu_url; style linkstyle" tal:content="menu_title" />
           <a href="" tal:condition="not:i18n"
-          tal:attributes="href menu_url; style menustyle" tal:content="menu_title" /></li>
+          tal:attributes="href menu_url; style linkstyle" tal:content="menu_title" /></li>
       </tal:block>
       <li tal:condition="create_url"
        tal:attributes="style menustyle">
@@ -56,7 +57,7 @@
                         menustyle python: newcat and menustyle + space or menustyle; 
                         menuclass python: we_are_here and 'selected' or ''"
           tal:attributes="class menuclass; style menustyle">
-        <a href="" i18n:translate="" tal:attributes="href url; style menustyle" tal:content="title" /></li>
+        <a href="" i18n:translate="" tal:attributes="href url; style linkstyle" tal:content="title" /></li>
       </tal:block>
     </ul>
   </tal:block>
