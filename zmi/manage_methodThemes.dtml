@@ -1,0 +1,78 @@
+<dtml-var manage_page_header>
+<dtml-let management_view="'Method Themes'">
+<dtml-var manage_tabs>
+</dtml-let>
+
+<h2>Method themes</h2>
+<form action="manage_setMethodThemes" method="post">
+<p class="form-help">
+You can associate themes and pages to method names (.zpt, .py, .dtml).
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<th class="list-header">
+Method
+</th>
+<th class="list-header">
+Theme
+</th>
+<th class="list-header">
+Page
+</th>
+<th>
+</th>
+</tr>
+
+<dtml-in "method_themes.keys()">
+<tr>
+<dtml-let key=sequence-item>
+<dtml-let index=sequence-index>
+<dtml-let theme_page="method_themes[key].split('+')">
+<td>
+<input class="form-element" type="text" name="method_<dtml-var index>" value="<dtml-var key>">
+</td>
+<td>
+<input class="form-element" type="text" name="theme_<dtml-var index>" value="<dtml-var "theme_page[0]">">
+</td>
+<td>
+<dtml-if "len(theme_page) > 1">
+<input class="form-element" type="text" name="page_<dtml-var index>" value="<dtml-var "theme_page[1]">">
+<dtml-else>
+<input class="form-element" type="text" name="page_<dtml-var index>" value="">
+</dtml-if>
+</td>
+<td>
+<input class="form-element" type="submit" name="update_<dtml-var index>" value=" Change " />
+<input class="form-element" type="submit" name="remove_<dtml-var index>" value=" Remove " />
+</td>
+</tr>
+
+</dtml-let>
+</dtml-let>
+</dtml-let>
+</dtml-in>
+
+</tr>
+<tr>
+<td>
+<dtml-let size="len(method_themes.keys())">
+<input class="form-element" type="text" name="method_<dtml-var size>" value="">
+</td>
+<td>
+<input class="form-element" type="text" name="theme_<dtml-var size>" value="">
+</td>
+<td>
+<input class="form-element" type="text" name="page_<dtml-var size>" value="">
+</td>
+<td>
+<input class="form-element" type="submit" name="update_<dtml-var size>" value=" Add " />
+</dtml-let>
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<dtml-var manage_page_footer>

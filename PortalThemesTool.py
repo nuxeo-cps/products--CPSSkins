@@ -33,6 +33,7 @@ from AccessControl import ClassSecurityInfo, Unauthorized
 from Acquisition import aq_base, aq_parent, aq_inner
 from types import StringType, TupleType
 
+from Globals import PersistentMapping
 try: from ZODB.PersistentList import PersistentList
 except ImportError: from persistent.list import PersistentList
 
@@ -92,6 +93,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 		          'action': 'manage_selectDefaultTheme'}, )
                      + ( {'label' : 'External Themes', 
 		          'action' : 'manage_externalThemes' }, )
+                     + ( {'label' : 'Method Themes', 
+		          'action' : 'manage_methodThemes' }, )
                      + ( {'label': 'Rebuild', 
 		          'action': 'manage_themesRebuild'}, )
                      + ( {'label' : 'Overview', 
@@ -106,6 +109,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def __init__(self):
         ThemeFolder.__init__(self, self.id)
         self.externalthemes = PersistentList()
+        self.method_themes = PersistentMapping()
         self.debug_mode = 0
         self.accesskey = DEFAULT_ACCESSKEY
 
@@ -124,6 +128,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     #
     security.declareProtected(ManageThemes, 'manage_externalThemes')
     manage_externalThemes = DTMLFile('zmi/manage_externalThemes', globals())
+
+    security.declareProtected(ManageThemes, 'manage_methodThemes')
+    manage_methodThemes = DTMLFile('zmi/manage_methodThemes', globals())
 
     security.declareProtected(ManageThemes, 'manage_selectDefaultTheme')
     manage_selectDefaultTheme = DTMLFile('zmi/manage_selectDefaultTheme', 
@@ -402,6 +409,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 '/manage_selectDefaultTheme?manage_tabs_message=' + msg)
 
     #
+    # Themes by URL
+    #
+    security.declarePublic('getThemeByMethod')
+    def getThemeByMethod(self, meth=None):
+        """Returns a theme + page by the method name (zpt, py, dtml, ...)
+        """
+
+        return self.method_themes.get(meth, None)
+
+    #
     # Local themes
     #
     security.declarePublic('getLocalThemeID')
@@ -636,6 +653,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if theme_cookie is not None:
             return theme_cookie
 
+        # method themes
+        published = REQUEST.get('PUBLISHED')
+        if published is not None:
+            theme = self.getThemeByMethod(published.getId())
+            if theme is not None and theme.find('+') > 0:
+                theme = theme.split('+')[0]
+            return theme
 
         # local theme + page
         local_theme = self.getLocalThemeName(**kw)
@@ -1231,6 +1255,32 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         self.accesskey = str(accesskey)[0]
         if REQUEST is not None:
             return self.manage_configureOptions(manage_tabs_message='Settings updated')
+
+    security.declareProtected(ManageThemes, 'manage_setMethodThemes')
+    def manage_setMethodThemes(self, form={}, REQUEST=None):
+        """Set the method themes"""
+
+        form = form.copy()
+        if REQUEST is not None:
+            form.update(REQUEST.form)
+
+        for k, v in form.items():
+            if k.startswith('update_'):
+                index = int(k[len('update_'):])
+                meth = form['method_%s' % index].strip()
+                theme_page = form['theme_%s' % index].strip()
+                page = form['page_%s' % index].strip()
+                if page:
+                    theme_page += '+' + page
+                self.method_themes[meth] = theme_page
+
+            if k.startswith('remove_'):
+                index = int(k[len('remove_'):])
+                meth = form['method_%s' % index]
+                del self.method_themes[meth]
+
+        if REQUEST is not None:
+            return self.manage_methodThemes(manage_tabs_message='Settings updated')
 
     security.declareProtected(ManageThemes, 'hasExternalEditor')
     def hasExternalEditor(self):

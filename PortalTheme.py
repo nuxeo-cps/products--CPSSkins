@@ -391,13 +391,22 @@ class PortalTheme(ThemeFolder, StylableContent):
         if page_container is not None:
             return page
 
-        # local theme + page
+        # method themes
         tmtool = getToolByName(self, 'portal_themes')
+        published = REQUEST.get('PUBLISHED')
+        if published is not None:
+            meth_theme = tmtool.getThemeByMethod(published.getId())
+            if meth_theme is not None and meth_theme.find('+') > 0:
+                theme, page = meth_theme.split('+')
+                if theme == self.getId() and page:
+                    return page
+
+        # local theme + page
         local_theme = tmtool.getLocalThemeName(**kw)
         if local_theme is not None:
             if local_theme.find('+') > 0:
                 theme, page = local_theme.split('+')
-                if theme == self.getId():
+                if theme == self.getId() and page:
                     return page
 
         # default page
