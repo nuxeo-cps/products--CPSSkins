@@ -1387,6 +1387,10 @@ msgid "_These styles are not used and can be deleted:_"
 msgstr "Diese Stile werden nicht benutzt und können gelöscht werden:"
 
 
+msgid "_This style is used by:_"
+msgstr ""
+
+
 msgid "_This style will be used by default_"
 msgstr ""
 

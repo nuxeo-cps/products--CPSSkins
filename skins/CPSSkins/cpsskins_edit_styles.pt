@@ -45,7 +45,8 @@
       i18n:translate="" />
       <tal:block repeat="style style_list">
         <div tal:define="style_title style/title;
-                         style_url style/absolute_url"
+                         style_url style/absolute_url;
+                         parents style/findParents"
              tal:attributes="class python: current_style and style_title == current_style and 'EditPreviewSelected' or 'EditPreview'">
           <tal:block define="info style/getInfo; del_action info/delete|nothing; edit_action info/edit|nothing;">
             <a title="Delete" 
@@ -73,6 +74,17 @@
                tal:content="python: mcat and mcat(title) or title" />
             </a>
             <tal:block content="structure python: style.preview()" />
+            <p tal:condition="python: len(parents) > 0">
+              <span tal:define="title string:_This style is used by:_"
+               tal:content="python: mcat and mcat(title) or title"
+               i18n:translate="" />
+              <span tal:repeat="parent parents">
+                <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
+                 align="middle" />
+                <a href="" tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"
+                 tal:content="parent/title_or_id" />
+              </span>
+            </p>
           </tal:block>
         </div>
       </tal:block>
