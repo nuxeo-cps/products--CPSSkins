@@ -11,6 +11,7 @@ Internals
 ---------
 - `Integration with CPS3 <CPS3-Integration.html>`_
 - `I18n <i18n.html>`_
+- `Local themes <local-themes.html>`_
 - `Naming conventions <naming-conventions.html>`_
 - `Install themes saved in XML format <installing-xml-themes.html>`_
 

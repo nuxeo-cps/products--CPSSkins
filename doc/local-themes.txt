@@ -1,0 +1,78 @@
+Local themes:
+=============
+
+Local theme names are obtained from folder attributes, i.e.
+
+- as the property of a folder (one theme per line)
+
+- as an object located in the folder that is callable and that returns a
+  tuple.
+
+Local themes are computed by collecting all theme information from the portal
+to the context folder.
+
+The format for describing themes is:
+
+- simply a string containing the theme id.
+
+- 'n-m:theme'
+
+where:
+
+- 'theme' is the theme id
+
+- (n, m) is a couple with n <= m that describes the interval inside which
+  the theme will be used::
+
+    (0, 0) means the current folder and all subfolders
+
+    (1, 0) means all subfolders below the current folder
+
+    (1, 1) means the subfolders of level 1
+
+    (0, 1) means the folder and the subfolders of level 1
+
+    (n, n) means the subfolders of level n
+    ...
+
+Examples:
+---------
+
+* with a folder property called '.cpsskins_theme':
+
+- lines with intervals::
+
+    0-1:theme1
+    2-4:theme2
+    6-0:theme3
+
+- string with interval::
+
+    0-1:theme1
+
+- string without interval::
+
+    theme1
+
+* with a script called '.cpsskins_theme.py' placed in a folder:
+
+- tuple with intervals::
+
+    return ('0-1:theme1', '2-4:theme2', '6-0:theme3')
+
+- string with interval::
+
+    return '0-1:theme'
+
+Specifying the page
+-------------------
+
+To select the page of a theme, add '+page' to the theme name where 'page' is
+the page's name.
+
+- example::
+
+    0-1:theme1+green
+    2-4:theme2+red
+    6-0:theme3+blue
+
