@@ -337,8 +337,9 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <h1 class="fancy" i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h1>
   <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
   <tal:block repeat="hidden_slot hidden_slots">
-    <h2 class="fancy" tal:content="hidden_slot" />
-    <tal:block define="portlets python:ptltool.getPortlets(here, hidden_slot)">
+    <tal:block define="portlets python:ptltool.getPortlets(here, hidden_slot)"
+     condition="portlets">
+      <h2 class="fancy" tal:content="hidden_slot" />
       <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_browser" />
     </tal:block>
   </tal:block>
@@ -571,10 +572,12 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         </tr>
       </tal:block>
     </table>
-    <input type="submit" name="copy" value="Copy"
-     i18n:attributes="value"
-     tal:define="title string:_Copy_"
-     tal:attributes="value python: mcat and mcat(title) or title" />
+    <p>
+      <input type="submit" name="copy" value="Copy"
+       i18n:attributes="value"
+       tal:define="title string:_Copy_"
+       tal:attributes="value python: mcat and mcat(title) or title" />
+    </p>
   </form>
 
   <tal:block repeat="portlet portlets">
