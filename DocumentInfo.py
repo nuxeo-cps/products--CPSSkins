@@ -31,9 +31,8 @@ from BaseTemplet import BaseTemplet
 
 factory_type_information = (
     {'id': 'Document Info Templet',
-     'title': 'Document info',
-     'description': ('_documentinfo_templet_description_'),
      'meta_type': 'Document Info Templet',
+     'description': ('_documentinfo_templet_description_'),
      'icon': 'documentinfo_templet.gif',
      'product': 'CPSSkins',
      'factory': 'addDocumentInfo',
