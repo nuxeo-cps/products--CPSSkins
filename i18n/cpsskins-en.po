@@ -2107,6 +2107,10 @@ msgid "_option_login_"
 msgstr "Login form"
 
 
+msgid "_option_macroless_"
+msgstr "Macroless"
+
+
 msgid "_option_min_max_"
 msgstr "Min/max box"
 

@@ -2110,6 +2110,10 @@ msgid "_option_login_"
 msgstr "Formulário de Login"
 
 
+msgid "_option_macroless_"
+msgstr ""
+
+
 msgid "_option_min_max_"
 msgstr ""
 

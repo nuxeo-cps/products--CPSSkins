@@ -2118,6 +2118,10 @@ msgid "_option_login_"
 msgstr "Formulaire famantaram-pitsidika "
 
 
+msgid "_option_macroless_"
+msgstr ""
+
+
 msgid "_option_min_max_"
 msgstr ""
 
