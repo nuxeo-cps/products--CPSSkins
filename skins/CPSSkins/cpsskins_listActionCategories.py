@@ -1,13 +1,13 @@
 
 list =  context.portal_actions.listFilteredActionsFor(context).keys()
 if not hasattr(context, 'portal_actionicons'):
-    return
+    return []
 
 aitool = context.portal_actionicons
 mtool = context.portal_membership
 
 if not mtool.checkPermission('listActionIcons', aitool):
-    return
+    return []
 
 for icon in aitool.listActionIcons():
     category = icon.getCategory()
