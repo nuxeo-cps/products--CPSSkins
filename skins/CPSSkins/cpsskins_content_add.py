@@ -33,6 +33,9 @@ if default_styles:
 else:
     return
 
+# set the content as selected
+tmtool.setViewMode(selected_content=content.getId())
+
 if REQUEST is None:
     return content
 else:

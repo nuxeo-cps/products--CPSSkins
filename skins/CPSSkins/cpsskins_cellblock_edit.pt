@@ -2,12 +2,13 @@
  tal:define="utool nocall:here/portal_url;
              shield options/shield|python:1;
              cpsskins_mcat python: request.get('cpsskins_mcat');
+             view_mode options/view_mode|nothing;
+             selected_content view_mode/selected_content|nothing;
              mcat python: request.get('cpsskins_mcat');
              base_url python: request.get('cpsskins_base_url', '');
              enable_esi options/enable_esi|nothing;
              boxedit options/boxedit|nothing;
              context_obj nocall:options/context_obj;
-             edit_mode options/edit_mode|nothing;
              maxcols python: context['maxcols'];
              block_id context/getId;
              block_rurl python: utool.getRelativeUrl(context);
@@ -26,7 +27,7 @@
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="width python: cellsize and cellsize.cellwidth or None">
 
-          <tal:block condition="python: context == context_obj">
+          <tal:block condition="python: selected_content == here.getId()">
             <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
           </tal:block>
 

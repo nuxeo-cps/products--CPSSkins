@@ -25,7 +25,7 @@ tal:define="base_url here/cpsskins_getBaseUrl;
           tal:attributes="class python: we_are_here and 'tabselected' or 'tab'">
             <div class="contentDest" tal:attributes="dest_theme theme_id">
               <a 
-              tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0;
+              tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;scrolly=0&amp;reload=1;
                               style style"
               tal:content="theme_title" />
               <img src="" alt="" width="16" height="16" border="0"
@@ -57,28 +57,28 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     &nbsp;
     <a tal:attributes="href url;
                     class python: panel=='palettes' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=palettes;
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=palettes&amp;reload=1;
                 title string:_Palettes_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href url;
                     class python: panel=='images' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=images;
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=images&amp;reload=1;
                 title string:_Images_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href url;
                     class python: panel=='styles' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=styles;
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=styles&amp;reload=1;
                 title string:_Styles_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     <a tal:attributes="href url;
       class python: panel in ['theme', 'theme_optimizer', 'cache_manager'] and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme;
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=theme&amp;reload=1;
                 title string:_Theme_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <tal:block repeat="section sections">
       <a
-      tal:define="url string:${tmtool_url}/setViewMode?themes_panel=$section;
+      tal:define="url string:${tmtool_url}/setViewMode?themes_panel=$section&amp;reload=1;
                   title python:'_%s mode_' % section" i18n:translate=""
        tal:attributes="href url; class python: panel == section and 'selected' or None;"
       tal:content="python:mcat and mcat(title) or title" />
@@ -86,7 +86,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     &nbsp;
     <a tal:attributes="href url;
                     class python: panel=='theme_manager' and 'selected' or ''"
-    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=themes_manager;
+    tal:define="url string:${tmtool_url}/setViewMode?themes_panel=themes_manager&amp;reload=1;
                 title string:_Themes manager_" i18n:translate=""
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
@@ -264,7 +264,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     tal:attributes="src string:${base_url}cpsskins_images/img_moveright.png" />
   </a>
   &nbsp;&nbsp; 
-  <a tal:condition="python: content.can_toggle() and edit_mode == 'layout'"
+  <a tal:condition="python: content.can_toggle() and panel == 'layout'"
   i18n:attributes="title"
   tal:define="title string:_Minimize / Maximize_"
   tal:attributes="href string:${content_url}/cpsskins_object_toggle;

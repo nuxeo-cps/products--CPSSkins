@@ -7,10 +7,15 @@ tmtool = context.portal_themes
 action = kw.get('action', None)
 
 if action == 'duplicate':
-    context.duplicate()
+    newobj = context.duplicate()
+
+    # set the content as selected
+    if newobj is not None:
+        tmtool.setViewMode(selected_content=newobj.getId())
 
 if action == 'delete':
     tmtool.delObject(context)
+    tmtool.clearViewMode('selected_content')
 
 url = context.portal_url() + '/cpsskins_theme_manage_form'
 

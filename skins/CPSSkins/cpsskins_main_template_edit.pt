@@ -87,7 +87,7 @@
               </tal:block>
 
               <tal:block repeat="content contents_in_xpos">
-                <div tal:condition="python: content == here"
+                <div tal:condition="python: content.getId() == selected_content"
                  tal:attributes="class python: (content.closed and not layout_panel) and 'templetBoxTitleSelectedClosed' or 'templetBoxTitleSelected'">
                   <metal:block use-macro="here/cpsskins_theme_widgets/macros/content_titlebar" />
                 </div>
@@ -107,7 +107,7 @@
                                        dest_block block_rurl">
                     <div
                     tal:define="content_title python: content.title;
-                                content_here python: content == here;
+                                content_here python: content.getId() == selected_content;
 		                visible python: content.getVisibility(context_obj=context_obj); 
 				render_content python: not layout_panel and not special_content; 
                                 render_as_title python: layout_panel and not render_content;
@@ -140,7 +140,7 @@
                            tal:attributes="class content_class; 
                                            style python: content.getCSSLayoutStyle()">
                         <tal:block condition="render_content"
-                         content="structure python: content.render_cache(shield=shield, context_obj=context_obj, editing=1)" />
+                         content="structure python: content.render_cache(shield=shield, context_obj=context_obj, editing=1, view_mode=view_mode)" />
                         <tal:block condition="python: isPortalBoxGroup and not layout_panel">
                           <tal:block define="box_group content/box_group|nothing;
                                              render_box python: 0">

@@ -15,8 +15,10 @@ if getattr(context.aq_explicit, 'isportletbox', 0) and kw.get('portlet_type'):
 # redirect url
 url = kw.get('redirect_url')
 
+kw['selected_content'] = context.getId()
+
 # save scroll position
-view_mode = tmtool.setViewMode(**kw)
+tmtool.setViewMode(**kw)
 
 if REQUEST is not None:
     if url is None:

@@ -154,7 +154,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return self.REQUEST.SESSION.get(VIEW_MODE_SESSION_KEY)
 
     security.declarePublic('setViewMode')
-    def setViewMode(self, **kw):
+    def setViewMode(self, reload=0, **kw):
         """ Sets the current view mode """
 
         REQUEST = self.REQUEST
@@ -170,6 +170,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         for param in ['themes_panel',
                       'portlets_panel',
                       'selected_portlet',
+                      'selected_content',
                       'clipboard',
                       'theme',
                       'edit_mode',
@@ -182,8 +183,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         session[VIEW_MODE_SESSION_KEY] = session_dict
 
-        # redirect to the referer
-        if REQUEST is not None:
+        # reload the page
+        if reload and REQUEST is not None:
             redirect_url = REQUEST['HTTP_REFERER']
             REQUEST.RESPONSE.redirect(redirect_url)
 

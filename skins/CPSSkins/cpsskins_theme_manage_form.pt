@@ -14,6 +14,7 @@
   scrollx view_mode/scrollx|python:0;
   scrolly view_mode/scrolly|python:0;
   panel view_mode/themes_panel|string:wysiwyg;
+  selected_content view_mode/selected_content|nothing;
   portal_path python: utool.getPortalPath();
   cpsmcat python: here.cpsskins_getlocalizer(cat='default');
   cpsskins_mcat python: request.get('cpsskins_mcat');

@@ -10,6 +10,9 @@ if alignprop is None:
 
 context.change_alignment(alignment=alignprop)
 
+# set the content as selected
+tmtool.setViewMode(selected_content=context.getId())
+
 url = context.portal_url() + '/cpsskins_theme_manage_form'
 
 if REQUEST is not None:

@@ -40,6 +40,9 @@ if newobj is None:
 
 url = context.portal_url() + '/cpsskins_theme_manage_form'
 
+# set the content as selected
+tmtool.setViewMode(selected_content=newobj.getId())
+
 if REQUEST is None:
     return newobj
 else:

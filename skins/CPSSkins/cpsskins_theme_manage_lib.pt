@@ -321,7 +321,7 @@
                   <td>
                     <img src="" align="middle" alt=""
                     tal:attributes="src string:${base_url}${theme/getIcon}" />
-                    <a tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;themes_panel=theme;
+                    <a tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;themes_panel=theme&amp;reload=1;
                                        style python: default_theme and 'font-weight: bold' or ''"
                        tal:content="python: '%s (%s)' % (theme_id, theme.title_or_id())" />
                   </td>
@@ -724,6 +724,7 @@
     </form>
     <form name="optimizetheme" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="reload" value="1" />
       <input type="hidden" name="themes_panel"
        tal:attributes="value string:theme_optimizer" />
       <input type="submit" class="optimizeTheme"
@@ -733,6 +734,7 @@
     </form>
     <form name="cachemanager" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="reload" value="1" />
       <input type="hidden" name="themes_panel"
        tal:attributes="value string:cache_manager" />
       <input type="submit" class="cacheManager"
@@ -742,6 +744,7 @@
     </form>
     <form name="exporttheme" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">
+      <input type="hidden" name="reload" value="1" />
       <input type="hidden" name="themes_panel"
        tal:attributes="value string:theme_exporter" />
       <input type="submit" class="exportTheme"
