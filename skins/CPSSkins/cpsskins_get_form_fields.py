@@ -52,7 +52,7 @@ for propid in context.propertyIds():
     cols = None
 
     ftype = ''
-    options = ''
+    options = None
 
     if type == 'boolean':
         ftype = 'checkbox'
@@ -103,8 +103,11 @@ for propid in context.propertyIds():
                     options.append(option)
                 break
 
-    if options != '' : 
+    if options is not None:
         field['options'] = options
+        if len(options) == 1:
+            if options[0]['title'] == '':
+                field['visible'] = 0
 
     field['type'] = ftype
     field['value'] = value
