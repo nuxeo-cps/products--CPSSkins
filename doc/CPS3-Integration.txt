@@ -6,8 +6,9 @@ Date: 2004-08-29
 
 The integration between CPSSkins and CPS3 is done through CPSPortlets.
 CPSPortlets is a product for CPS3 that uses schemas, widgets, vocabularies and 
-layouts to represent portlets. CPSPortlets depends only on CPSSchemas so it
-should also be possible to use CPS Portlets in Plone (cf. CPS4CMFPlone)
+layouts to represent portlets. CPSPortlets depends on CPSSchemas and on
+ CPSDocument so it should be possible to use CPS Portlets inside CMF/Plone 
+with CPS4CMFPlone.
 
 Definitions:
 A portlet is an aggregation of widgets placed on a canvas (portlet layout).
@@ -73,7 +74,7 @@ RAM cache:
   parameters needed to build the RAM cache index (e.g. the current url, 
   the username, the current language, etc.)
 
-  The rendering time of cached portlet is the same independently of the type
+  The rendering time of cached portlets is the same independently of the type
   and the complexity of the portlet (typically 0.01s) which highly increases
   CPU availability.
 
