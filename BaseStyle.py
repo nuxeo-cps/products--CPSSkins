@@ -287,7 +287,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         title = canonizeStyleTitle(title)
         if title != current_title:
             styles_dir = theme_container.getStylesFolder()
-            title = getFreeTitle(styles_dir, title)
+            title = getFreeTitle(styles_dir, title, self.meta_type)
         self.findParents(newtitle=title)
         kw['title'] = title
 
