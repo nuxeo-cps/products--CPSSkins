@@ -24,4 +24,4 @@ UPGRADING from CPSSkins 2.2 to 2.3
   with 'font'.
 
   Instead of 'normal' or 'bold' use for instance:
-  '10pt bold Arial'
+  'bold 10pt Arial'
