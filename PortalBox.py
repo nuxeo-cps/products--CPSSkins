@@ -258,6 +258,23 @@ class PortalBox(BaseTemplet):
         return 1
 
     #
+    # CSS
+    #
+    def getCSSBoxLayoutStyle(self):
+        """Returns the CSS layout style for this boxes."""
+
+        css = ''
+        padding = self.padding
+
+        if padding:
+            if padding not in ('0', '0pt', '0in', '0pc', '0mm',
+                               '0cm', '0px', '0em', '0ex'):
+                css += 'padding:%s;' % padding
+
+        if css:
+            return css
+
+    #
     # Rendering
     #
     security.declarePublic('render')
@@ -266,10 +283,23 @@ class PortalBox(BaseTemplet):
 
         body = self.render_skin(shield=shield, **kw)
         body = html_slimmer(body)
+
         rendered_box = ''
         if body:
+
+            boxstyle = self.getCSSBoxLayoutStyle()
+
+            boxlayout = self.boxlayout
+            macro_path = self.restrictedTraverse('cpsskins_BoxLayouts/macros/%s' % \
+                                             boxlayout, default=None)
+            if macro_path is None:
+                return ''
+
             title = self.render_title(**kw)
-            rendered_box = self.cpsskins_renderPortalBox(title=title, body=body)
+            rendered_box = self.cpsskins_renderPortalBox(title=title, 
+                                                         body=body,
+                                                         boxstyle=boxstyle,
+                                                         macro_path=macro_path)
 
         return rendered_box
 
