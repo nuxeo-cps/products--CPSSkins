@@ -380,7 +380,9 @@ tal:define="sections python: [ 'layout', 'mixed', 'wysiwyg' ];
 <!-- Page Blocks -->
 <metal:block define-macro="pageblock_titlebar" i18n:domain="cpsskins"
 tal:define="pageblock_url pageblock/absolute_url;
+            pageblock_id pageblock/getId;
 	    closed pageblock/closed|nothing;
+            stylecat request/form/style|nothing; 
             url_parameters string:theme=$current_theme&edit_mode=$edit_mode">
   <table
   tal:define="onMouseover_string string:OnMouseOver(this, '${pageblock/title}', '#ccff33');; ; 
@@ -446,42 +448,56 @@ tal:define="pageblock_url pageblock/absolute_url;
       </a>
       </td>
       <td align="right">
-        <form action=""
-         tal:attributes="action string:${pageblock_url}/cpsskins_edit">
-          <input name="title" onchange="submit()"
+        <form action="" method="post"
+         tal:define="name string:pb_title_${pageblock_id}"
+         tal:attributes="name name;
+                         action string:${pageblock_url}/cpsskins_edit;
+                         onSubmit string:saveScrollCoordinates('${name}')">
+         <input type="hidden" name="scrollx" value="0">
+         <input type="hidden" name="scrolly" value="0"> 
+         <input type="hidden" name="theme" tal:attributes="value theme" />
+         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+         <input type="hidden" name="style" tal:attributes="value stylecat" />
+         <input name="title" onchange="submit()"
            type="text" size="12" tal:attributes="value pageblock/title" />
         </form>
       </td>
       <td align="left">
-        <form action=""
-         tal:attributes="action string:${pageblock_url}/cpsskins_edit">
+        <form action="" method="post"
+         tal:define="name string:pb_width_${pageblock_id}"
+         tal:attributes="name name;
+                         action string:${pageblock_url}/cpsskins_edit;
+                         onSubmit string:saveScrollCoordinates('${name}')">
+         <input type="hidden" name="scrollx" value="0">
+         <input type="hidden" name="scrolly" value="0"> 
+         <input type="hidden" name="theme" tal:attributes="value theme" />
+         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+         <input type="hidden" name="style" tal:attributes="value stylecat" />
           <input name="width" onchange="submit()"
            type="text" size="4" tal:attributes="value pageblock/width" />
         </form>
       </td>
       <td align="right">
-        <tal:block
-        define="maxcols pageblock/maxcols|nothing; 
-	        maxcols_inc python: int(maxcols) + 1; 
-		maxcols_dec python: maxcols > 1 and int(maxcols) -1 or int(0);">
-
-          <a i18n:attributes="title"
-          tal:define="title string:_Remove a column_"
-          tal:attributes="href string:${pageblock_url}/cpsskins_edit?maxcols=$maxcols_dec;
-                          title python: mcat and mcat(title) or title" >
-            <img border="0"
-            width="24" height="24" 
-            tal:attributes="src string:${portal_url}/cpsskins_images/resize-left.gif" />
-          </a>
-          <a i18n:attributes="title"
-          tal:define="title string:_Add a column_"
-          tal:attributes="href string:${pageblock_url}/cpsskins_edit?maxcols=$maxcols_inc;
-                          title python: mcat and mcat(title) or title" >
-            <img border="0"
-            width="24" height="24" 
-            tal:attributes="src string:${portal_url}/cpsskins_images/resize-right.gif" />
-          </a>
-        </tal:block>
+        <form action="" method="post" style="margin:0"
+        tal:define="maxcols pageblock/maxcols|nothing; 
+                    maxcols_inc python: int(maxcols) + 1; 
+                    maxcols_dec python: maxcols > 1 and int(maxcols) -1 or int(0);
+                    name string:pb_maxcols_${pageblock_id}"
+         tal:attributes="name name;
+                         action string:${pageblock_url}/cpsskins_edit;
+                         onSubmit string:saveScrollCoordinates('${name}')">
+         <input type="hidden" name="scrollx" value="0">
+         <input type="hidden" name="scrolly" value="0"> 
+         <input type="hidden" name="theme" tal:attributes="value theme" />
+         <input type="hidden" name="edit_mode" tal:attributes="value edit_mode" />
+         <input type="hidden" name="style" tal:attributes="value stylecat" />
+          <input name="maxcols" type="image" width="24" height="24"
+           tal:attributes="src string:${portal_url}/cpsskins_images/resize-left.gif;
+                           value maxcols_dec" />
+          <input name="maxcols" type="image" width="24" height="24"
+           tal:attributes="src string:${portal_url}/cpsskins_images/resize-right.gif;
+                           value maxcols_inc" />
+        </form>
       </td>
     </tr>
   </table>

@@ -14,8 +14,8 @@ if theme is None:
 edit_mode = kw.get('edit_mode', 'wysiwyg')
 
 # scroll position
-scrollx = kw.get('scrollx', 0)
-scrolly = kw.get('scrolly', 0)
+scrollx = kw.get('scrollx', '0')
+scrolly = kw.get('scrolly', '0')
 
 # category
 cat = kw.get('cat')
