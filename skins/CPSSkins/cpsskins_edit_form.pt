@@ -47,7 +47,7 @@
 
   <metal:block use-macro="here/cpsskins_form_widgets/macros/object_info" />
 
-  <div class="statusmessage" i18n:translate=""
+  <div class="statusMessage" i18n:translate=""
    tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
    tal:condition="psm"
    tal:content="psm" />

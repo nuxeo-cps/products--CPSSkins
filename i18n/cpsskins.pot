@@ -1937,3 +1937,9 @@ msgstr ""
 
 msgid "_Other themes_"
 msgstr ""
+
+msgid "_XML format_"
+msgstr ""
+
+msgid "_zexp format_"
+msgstr ""

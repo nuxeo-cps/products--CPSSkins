@@ -1,10 +1,36 @@
 
-<metal:block define-macro="theme_upload" i18n:domain="cpsskins">
+<metal:block define-macro="theme_upload"
+  tal:define="io_tool here/portal_io|nothing">
   <h2 class="fancy" tal:define="title string:_Import a theme_" 
    tal:content="python: mcat and mcat(title) or title"
    i18n:translate="" />
+
+  <tal:block condition="nocall:io_tool">
+    <tal:block define="importer string:CPSSkinsImporter;
+                       importers io_tool/listImportModules;
+                       error_msg options/error_msg|nothing"
+               condition="python: importer in importers">
+      <h3 class="fancy" tal:define="title string:_XML format_"
+       tal:content="python: mcat and mcat(title) or title"
+       i18n:translate="" i18n:domain="cpsskins" />
+      <form method="post" action="." enctype="multipart/form-data">
+        <label for="overwrite"
+         i18n:translate="cpsio_label_cpsskins_overwrite">Overwrite existing theme in case of conflict</label>
+        <input id="overwrite" type="checkbox" name="import_overwrite" /><br/>
+        <input type="text" name="import_file_name"
+         tal:attributes="value string:.zip" />
+        <input type="submit" name="cpsskins_cpsio_importer:method"
+         class="standalone" value="cpsio_button_import"
+         i18n:attributes="value" />
+      </form>
+    </tal:block>
+  </tal:block>
+
   <form tal:attributes="action string:${here_url}/cpsskins_theme_upload"
-        method="post" enctype="multipart/form-data">
+        method="post" enctype="multipart/form-data" i18n:domain="cpsskins">
+    <h3 class="fancy" tal:define="title string:_zexp format_"
+     tal:content="python: mcat and mcat(title) or title"
+     i18n:translate="" />
     <input type="file" name="file" />
     <input type="submit" class="mainbutton"
     i18n:attributes="value" 
@@ -394,16 +420,20 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="themes_manager" i18n:domain="cpsskins"
+<metal:block define-macro="themes_manager"
   tal:define="themes python: tmtool.getThemes()">
-    <h1 class="fancy"
+    <h1 class="fancy" i18n:domain="cpsskins"
     tal:define="title string:_Themes manager_"
     tal:content="python: mcat and mcat(title) or title"
     i18n:translate="" />
+    <div class="statusMessage" i18n:translate=""
+       tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
+       tal:condition="psm"
+       tal:content="psm" />
     <p tal:define="title string:_Select a theme to manage_"
     tal:content="python: mcat and mcat(title) or title"
-    i18n:translate="" />
-      <form action="" method="post"
+    i18n:translate="" i18n:domain="cpsskins" />
+      <form action="" method="post" i18n:domain="cpsskins"
         tal:attributes="action string:${base_url}cpsskins_themes_edit">
         <input type="hidden" name="theme"
         tal:attributes="value current_theme" />
@@ -583,7 +613,7 @@
 
 <metal:block define-macro="theme_exporter" tal:define="
   io_tool here/portal_io|nothing">
-  <tal:block condition="io_tool">
+  <tal:block condition="nocall:io_tool">
     <tal:block define="exporter string:CPSSkinsExporter;
                        exporters io_tool/listExportModules;
                        error_msg options/error_msg|nothing"
@@ -834,7 +864,7 @@
     </tal:block>
 </metal:block>
 
-<metal:block define-macro="manage_themes" i18n:domain="cpsskins">
+<metal:block define-macro="manage_theme" i18n:domain="cpsskins">
   <div style="padding-top: 10px">
     <form name="optimizetheme" action="" style="float: left; padding: 3px"
      tal:attributes="action string:${tmtool_url}/setViewMode">

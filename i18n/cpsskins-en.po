@@ -1635,6 +1635,10 @@ msgid "_XML export_"
 msgstr "Export in XML format"
 
 
+msgid "_XML format_"
+msgstr "XML format"
+
+
 msgid "_Year_"
 msgstr "Year"
 
@@ -2489,6 +2493,10 @@ msgstr "WYSIWYG mode"
 
 msgid "_zexp export_"
 msgstr "Export in .zexp format"
+
+
+msgid "_zexp format_"
+msgstr "zexp format"
 
 
 msgid "description_confirm_delete_portlet"

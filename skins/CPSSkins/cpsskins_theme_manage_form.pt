@@ -62,12 +62,12 @@
          i18n:translate="" />
         '<tal:block replace="theme_container/title|nothing" />'
       </h1>
-      <div class="statusmessage" i18n:translate=""
+      <div class="statusMessage" i18n:translate=""
          tal:define="psm options/portal_status_message|request/portal_status_message|nothing"
          tal:condition="psm"
          tal:content="psm" />
 
-      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_themes" />
+      <metal:block use-macro="here/cpsskins_theme_manage_lib/macros/manage_theme" />
     </div> 
 
     <div class="editForm" tal:condition="python: panel == 'styles'">

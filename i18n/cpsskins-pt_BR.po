@@ -1638,6 +1638,10 @@ msgid "_XML export_"
 msgstr ""
 
 
+msgid "_XML format_"
+msgstr ""
+
+
 msgid "_Year_"
 msgstr "Ano"
 
@@ -2491,6 +2495,10 @@ msgstr "Modo WYSIWYG"
 
 
 msgid "_zexp export_"
+msgstr ""
+
+
+msgid "_zexp format_"
 msgstr ""
 
 
