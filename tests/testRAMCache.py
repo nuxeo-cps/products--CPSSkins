@@ -15,7 +15,7 @@ class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
         self.pageblock = self.theme_container.addPageBlock()
         self.templet = self.pageblock.addContent(type_name='Text Box Templet')
         self.templet.text = str(range(1000))
-        self.cache = self.templet.getTempletCache(create=1)
+        self.cache = self.templet.getTempletCache()
         self.cache.invalidate()
 
     def test_clearCache(self):
