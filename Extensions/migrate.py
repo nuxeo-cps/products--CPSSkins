@@ -69,7 +69,7 @@ def migrate(self):
 
     pr_h3("Rebuilding themes")
     try:
-        theme_container.rebuild()
+        theme_container.rebuild(setperms=1)
     except:
         pr("  <strong>Could not rebuild existing themes!</strong>")
         pr("  Open the 'portal_themes' folder and remove all broken objects ")
