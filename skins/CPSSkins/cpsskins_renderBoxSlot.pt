@@ -2,7 +2,6 @@
  tal:define="rendered options/rendered;
              folder_editable options/folder_editable;
              folder_url options/folder_url;
-             portlet_folder_url options/portlet_folder_url;
              slot nocall:options/slot;
              slot_title slot/title;
              slot_id slot/getSlot;
@@ -17,7 +16,6 @@
      tal:attributes="icon slot_icon;
                      insert_url folder_url;
                      folder_url folder_url;
-                     portlet_folder_url portlet_folder_url;
                      folder_editable folder_editable;
                      title slot_title;
                      src_ypos python: 0;
