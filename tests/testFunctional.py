@@ -186,6 +186,8 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         templet.xpos = int(1)
         test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s' \
            % (templet.absolute_url(1), 0, 0)
+        test_url += '&dest_theme=%s&dest_page=%s' % \
+            (self.theme_container.getId(), self.page_container.getId())
         response = self.publish(test_url, self.basic_auth)
         templet_moved = pageblock.objectValues('Text Box Templet')[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
