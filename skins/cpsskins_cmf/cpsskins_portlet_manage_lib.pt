@@ -39,7 +39,10 @@
       </div>
       <div class="BoxGroupBoxBody PortletBoxEditMenu"
        tal:attributes="portlet_id portlet_id;
+                       portlet_url string:${base_url}${portlet_rurl};
                        portlet_folder python: base_url + portlet_folder_rurl;
+                       icon portlet_icon;
+                       title portlet_title;
                        folder_url folder_url;
                        src_ypos python: ypos and ypos or 0;
                        src_slot group">
@@ -277,6 +280,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
       <tr tal:define="ypos portlet/getOrder;
                       fti portlet/getTypeInfo;
                       portlet_id portlet/getId;
+                      portlet_title portlet/title_or_id;
                       portlet_type fti/title_or_id;
                       portlet_icon fti/getIcon;
                       portlet_url portlet/getURL;
@@ -284,6 +288,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                       portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
                       portlet_rurl portlet/getRelativeUrl;
                       portlet_depth portlet/getDepth;
+                      folder_url python: base_url + utool.getRelativeUrl(here);
                       group portlet/getSlot;
                       vrange portlet/getVisibilityRange;
                       vrange_start python: vrange[0];
@@ -292,8 +297,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         <td tal:condition="portlet_depth"
          tal:attributes="colspan python: portlet_depth"></td>
         <td style="border-bottom: 1px dotted #ccc">
-          <div class="PortletBoxDrag"
+          <div class="PortletBoxDrag PortletBoxEditMenu"
            tal:attributes="portlet_rurl portlet_rurl;
+                           portlet_url string:${base_url}${portlet_rurl};
+                           portlet_folder python: base_url + portlet_folder_rurl;
+                           icon portlet_icon;
+                           title portlet_title;
+                           folder_url folder_url;
+                           portlet_id portlet_id;
                            src_rurl portlet_folder_rurl;
                            src_ypos python: ypos and ypos or 0;
                            src_slot group">
@@ -303,7 +314,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                              dest_ypos python: ypos and ypos or 0">
               <div class="PortletInfo"
                tal:attributes="style python: selected and 'border-style: dashed' or ''">
-                <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/cpsskins_portlet_edit')"
+                <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
                 tal:content="portlet/title_or_id" href="javascript:void(0)"/>
                 (<span tal:content="group" />)
                 <p>
@@ -346,6 +357,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                        selected python: portlet_id == selected_portlet">
       <div class="PortletBoxEditMenu" style="padding: 2px"
        tal:attributes="portlet_rurl portlet_rurl;
+                       portlet_url string:${base_url}${portlet_rurl};
                        portlet_folder python: base_url + portlet_folder_rurl;
                        icon portlet_icon;
                        title portlet_title;
