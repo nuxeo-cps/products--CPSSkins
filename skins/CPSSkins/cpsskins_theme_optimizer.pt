@@ -149,9 +149,7 @@
             <tal:block repeat="templet invisible_templets">
               <tr>
                 <td width="50%">
-                  <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$ed
-it_mode">
-
+                  <a tal:attributes="href string:${templet/absolute_url}/edit_form?theme=$current_theme&edit_mode=$edit_mode">
                     <img tal:attributes="src string:$portal_url/${templet/getIcon}" />
                     <tal:block content="templet/getTitle" />
                   </a>
