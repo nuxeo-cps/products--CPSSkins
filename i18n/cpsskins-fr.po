@@ -2224,3 +2224,7 @@ msgstr "Insérer une boîte ..."
 msgid "menu_insert_portlet"
 msgstr "Insérer un portlet ..."
 
+
+msgid "psm_portlet_deleted"
+msgstr "Portlet supprimé."
+

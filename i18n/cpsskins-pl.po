@@ -2224,3 +2224,7 @@ msgstr ""
 msgid "menu_insert_portlet"
 msgstr ""
 
+
+msgid "psm_portlet_deleted"
+msgstr ""
+
