@@ -40,7 +40,6 @@
                          align_list content/AlignList|nothing;
                          padding_string python: content.margin and 'padding:%s' % content.margin or None;
                          rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
-                 tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
                                  styles python: '|'.join([s['meta_type'] for s in styles_list]);
                                  xpos x_pos;
@@ -56,11 +55,19 @@
                                ypos ypos;
                                block_url cellblock_url;
                                dest_block cellblock_rurl">
-                <div
+                <div tal:condition="rendered"
                  tal:attributes="contenturl python: base_url + utool.getRelativeUrl(content);
                                  class python: content.getCSSAreaClass(level=2);
                                  style python: content.getCSSLayoutStyle()"
                  tal:content="structure rendered" />
+                <div tal:condition="not:rendered">
+                        <tal:block condition="content/isPortalBoxGroup|nothing">
+                          <tal:block define="box_group content/box_group|nothing;
+                                             render_box python: 0">
+                            <metal:block use-macro="here/cpsskins_lib/macros/portalboxgroup" />
+                          </tal:block>
+                        </tal:block>
+                </div>
               </div>
             </div>
           </tal:block>

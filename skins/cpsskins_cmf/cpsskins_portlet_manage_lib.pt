@@ -141,6 +141,9 @@
                     </tal:block>
                   </div>
                 </tal:block>
+                <tal:block condition="content/aq_explicit/isCellBlock|nothing">
+                    [XXX box slot]
+                </tal:block>
               </tal:block>
             </td>
           </tal:block>
@@ -153,13 +156,6 @@
 <metal:block define-macro="unused_portlets_panel">
   <h2 i18n:translate="heading_unused_portlets" i18n:domain="cpsskins">Unused portlets</h2>
   <p i18n:translate="description_unused_portlets" i18n:domain="cpsskins">Unused portlets</p>
-  <p style="text-align: right">
-  <a
-   i18n:translate="description_delete_unused_portlets" 
-   i18n:domain="cpsskins" 
-   tal:attributes="href string:${here/absolute_url}/cpsskins_delete_unused_portlets?theme=$current_theme;
-                   onclick python:'return window.confirm(\'%s\')' % (cpsmcat('description_confirm_delete_unused_portlets'), )" >Delete unused portlets</a>
-  </p>
   <table cellpadding="0" cellspacing="3">
     <tr>
       <td valign="top" tal:repeat="hidden_slot hidden_slots">

@@ -17,9 +17,7 @@
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="width python: cellsize and cellsize.cellwidth or None">
           <tal:block repeat="content contents_in_xpos">
-            <div tal:define="isRenderable python: content.isRenderable();
-                             rendered python: isRenderable and content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
-                 tal:condition="rendered"
+            <div tal:define="rendered python: content.render_cache(shield=1, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:attributes="align python: content.align;
                                  style python: 'padding:%s' % content.margin">
               <div tal:attributes="class python: content.getCSSAreaClass(level=2);
