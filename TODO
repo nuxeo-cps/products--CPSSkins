@@ -4,3 +4,7 @@
 - fix the style selection pop-up window.
 - add a sub-menu under the 'Theme' button for the theme optimizer and
   the cache manager panels.
+
+- save scroll coordinates when:
+  * deleting cell stylers, cell hiders
+  * moving cells
