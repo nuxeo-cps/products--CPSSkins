@@ -3,12 +3,14 @@
 #
 
 import time
-
 import os, tempfile
 from Testing import ZopeTestCase
 
 import Products
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
+
+from AccessControl.SecurityManagement \
+    import newSecurityManager, noSecurityManager
 
 ZopeTestCase.installProduct('BTreeFolder2', quiet=1)
 ZopeTestCase.installProduct('CMFCalendar', quiet=1)
@@ -43,115 +45,6 @@ for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
     except:
         pass
 
-
-from AccessControl.SecurityManagement \
-    import newSecurityManager, noSecurityManager
-
-
-# The folowing are patches needed because Localizer doesn't work
-# well within ZTC
-
-# This one is needed by ProxyTool.
-def get_selected_language(self):
-    """ """
-    return self._default_language
-
-from Products.Localizer.Localizer import Localizer
-Localizer.get_selected_language = get_selected_language
-
-# CPSPortlets
-try:
-    from Products.CPSPortlets import CPSPortlet
-except ImportError:
-    has_cpsportlets = 0
-else:
-    has_cpsportlets = 1
-
-from AccessControl.SecurityManagement \
-    import newSecurityManager, noSecurityManager
-from AccessControl import ClassSecurityInfo
-from Globals import InitializeClass
-
-# This one is needed by ProxyTool.
-def get_selected_language(self):
-    """ """
-    return self._default_language
-
-from Products.Localizer.Localizer import Localizer
-Localizer.get_selected_language = get_selected_language
-
-from OFS.SimpleItem import SimpleItem
-class DummyTranslationService(SimpleItem):
-    meta_type = 'Translation Service'
-    id = 'translation_service'
-
-    def translate(self, domain, msgid, *args, **kw):
-        return msgid
-
-    def __call__(self, *args, **kw):
-        return self.translate('default', *args, **kw)
-
-    def getDomainInfo(self):
-        return [(None, 'Localizer/default')]
-
-    def manage_addDomainInfo(self, domain, path, REQUEST=None, **kw):
-        pass
-
-    def getDefaultLanguage(self):
-        return 'en'
-
-    def getSelectedLanguage(self):
-        return 'en'
-
-class DummyMessageCatalog(SimpleItem):
-    security = ClassSecurityInfo()
-    def __call__(self, message, *args, **kw):
-        #return self.gettext(self, message, lang, args, kw)
-        return message
-
-    security.declarePublic('gettext')
-    def gettext(self, message, lang=None, *args, **kw):
-        if message == 'words_meaningless' and lang == 'en':
-            message = "a the this these those of am is are has have or and i maybe perhaps"
-        elif message == 'words_meaningless' and lang == 'fr':
-            message = "un une le la les l de des ces est sont a ont ou et je voici"
-        return message
-
-    def get_selected_language(self):
-        "xxx"
-        return 'fr'
-
-    def get_languages(self):
-        return ['en', 'fr', 'de']
-
-    def manage_import(self, *args, **kw):
-        pass
-
-    def wl_isLocked(self):
-        return None # = False
-
-InitializeClass(DummyMessageCatalog)
-
-
-from StringIO import StringIO
-from Products.Localizer import LocalizerStringIO
-from types import UnicodeType
-# Un-patch LocalizerStringIO
-def LocalizerStringIO_write(self, s):
-    StringIO.write(self, s)
-# Hack around Unicode problem
-def LocalizerStringIO_getvalue(self):
-    if self.buflist:
-        for buf in self.buflist:
-            if type(buf) == UnicodeType:
-                self.buf += buf.encode('latin-1')
-            else:
-                self.buf += buf
-        self.buflist = []
-    return self.buf
-LocalizerStringIO.write = LocalizerStringIO_write
-LocalizerStringIO.getvalue = LocalizerStringIO_getvalue
-
 class CPSTestCase(ZopeTestCase.PortalTestCase):
     def setUp(self):
         ZopeTestCase.PortalTestCase.setUp(self)
@@ -175,9 +68,6 @@ class CPSInstaller:
         self.addUser()
         self.login()
         self.addPortal(portal_id)
-        if has_cpsportlets:
-            self.fixupCPSPortlets(portal_id)
-        self.fixupTranslationServices(portal_id)
         self.logout()
 
     def addUser(self):
@@ -208,30 +98,6 @@ class CPSInstaller:
                 manager_password_confirmation='passwd',
                 )
 
-    # Change translation_service to DummyTranslationService
-    def fixupTranslationServices(self, portal_id):
-        portal = getattr(self.app, portal_id)
-        # XXX don't know why we use a fake translation service
-        # we only need to add getSelectedLanguage and getLanguage methods
-        # to TranslationService.Domain.DummyDomain to use the real one
-        portal.translation_service = DummyTranslationService()
-        localizer = portal.Localizer
-        for domain in localizer.objectIds():
-            setattr(localizer, domain, DummyMessageCatalog())
-
-    # Install CPSPortlets (not installed by default in CPSDefault)
-    def fixupCPSPortlets(self, portal_id):
-        portal = getattr(self.app, portal_id)
-        portal_objectIds = portal.objectIds()
-        if 'portal_cpsportlets' not in portal_objectIds:
-            ZopeTestCase._print('Installing CPSPortlets ...\n')
-            install = ExternalMethod('install_cpsportlets',
-                                     'CPSPortlets',
-                                     'CPSPortlets.install',
-                                     'install' )
-            portal._setObject('install_cpsportlets', install)
-            portal.install_cpsportlets()
-
     def logout(self):
         noSecurityManager()
         get_transaction().commit()
@@ -239,22 +105,6 @@ class CPSInstaller:
             ZopeTestCase._print('done (%.3fs)\n'
                 % (time.time() - self._start,))
 
-
-def optimize():
-    '''Significantly reduces portal creation time.'''
-    def __init__(self, text):
-        # Don't compile expressions on creation
-        self.text = text
-    from Products.CMFCore.Expression import Expression
-    Expression.__init__ = __init__
-
-    def _cloneActions(self):
-        # Don't clone actions but convert to list only
-        return list(self._actions)
-    from Products.CMFCore.ActionProviderBase import ActionProviderBase
-    ActionProviderBase._cloneActions = _cloneActions
-
-optimize()
 
 def setupPortal(PortalInstaller=CPSInstaller):
     # Create a CPS site in the test (demo-) storage

@@ -1,6 +1,9 @@
-
+#
 # CPSSkinsTestCase
 #
+
+import time
+import os
 
 from Testing import ZopeTestCase
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
@@ -8,57 +11,33 @@ from Products.ExternalMethod.ExternalMethod import ExternalMethod
 from AccessControl.SecurityManagement \
     import newSecurityManager, noSecurityManager
 
+import TestUtil
+from TestUtil import DummyTranslationService, DummyMessageCatalog
+
 ZopeTestCase.installProduct('PageTemplates', quiet=1)
 ZopeTestCase.installProduct('PythonScripts', quiet=1)
 ZopeTestCase.installProduct('ExternalMethod', quiet=1)
 
-# Optional products
-ZopeTestCase.installProduct('Localizer', quiet=1)
-ZopeTestCase.installProduct('TranslationService', quiet=1)
-ZopeTestCase.installProduct('CMFCalendar', quiet=1)
-
-try: ZopeTestCase.installProduct('CMFActionIcons', quiet=1)
-except: pass
-try: ZopeTestCase.installProduct('ZChecker', quiet=1)
-except: pass
-
 ZopeTestCase.installProduct('CPSSkins', quiet=1)
 
-import time
-import os
+# Other products
+for product in ('Localizer', 'TranslationService', 'CMFCalendar',
+                     'CMFActionIcons', 'ZChecker'):
+    try:
+        ZopeTestCase.installProduct(product, quiet=1)
+    except:
+        pass
+
 
 
 ERROR_LOG_ID = 'error_log'
 
-# session management
-def setViewMode(self, **kw):
-    """ """
-    self.fake_session = {}
-    self.fake_session.update(kw)
-
-def getViewMode(self):
-    """ """
-    return getattr(self, 'fake_session', {})
-
-from Products.CPSSkins.PortalThemesTool import PortalThemesTool
-PortalThemesTool.setViewMode = setViewMode
-PortalThemesTool.getViewMode = getViewMode
-
-
-# This one is needed by ProxyTool.
-def get_selected_language(self):
-    """ """
-    return self._default_language
-
-localizer = 1
 try:
     from Products.Localizer.Localizer import Localizer
-    Localizer.get_selected_language = get_selected_language
 except ImportError:
     localizer = 0
-
-# Dummy translation service and message catalog
-from CPS3TestCase import DummyTranslationService, DummyMessageCatalog
+else:
+    localizer = 1
 
 target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
@@ -110,7 +89,7 @@ class CPSSkinsInstaller:
         self.login()
         self.fixupCMFCalendar(portal_id, quiet)
         self.setup(portal_id, target, quiet)
-        if localizer==1:
+        if localizer:
             self.fixupTranslationServices(portal_id)
         self.install_themes(portal_id, quiet)
         self.fixupErrorLog(portal_id)
