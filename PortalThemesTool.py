@@ -427,7 +427,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
            - 'theme' is the theme id
            - (n, m) is a couple with n <= m that describes the interval
              inside which the theme will be used. 
-             (0, 0) means the folder itself,
+             (0, 0) means the current folder and all subfolders
              (1, 0) means all subfolders below the current folder
              (1, 1) means the subfolders of level 1
              (0, 1) means the folder and the subfolders of level 1
