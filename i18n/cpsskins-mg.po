@@ -1,0 +1,2415 @@
+# translation of cpsskins-mg.po to
+# 
+# Translation done by e-sight :
+# http://www.e-sight.org
+# Nadia RAfANOMEZANA <contact@e-sight.org>, 2004.
+# Alain SAMSOUDINE <contact@e-sight.org>, 2004
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: cpsskins-mg\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: \n"
+"Language-Team: <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: mg\n"
+"Language-Name: Malagsy\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: cpsskins\n"
+"PO-Revision-D²ate: 2004-09-15 15:06+0400\n"
+"X-Is-Fallback-For: fr\n"
+"X-Generator: KBabel 1.3\n"
+
+msgid "_(default style)_"
+msgstr "(style par défaut)"
+
+
+msgid "_A active_"
+msgstr "Lokon'ny rohy mandeha"
+
+
+msgid "_A hover_"
+msgstr "Lokon'ny rohy voafidy"
+
+
+msgid "_A link_"
+msgstr "Lokon'ireo rohy"
+
+
+msgid "_A visited_"
+msgstr "Lokon'ny rohy notsidihina"
+
+
+msgid "_A_active_decoration_"
+msgstr "Fampihaingoana ireo rohy mandeha"
+
+
+msgid "_A_hover_decoration_"
+msgstr "Fampihaigoana ireo rohy voafidy"
+
+
+msgid "_A_link_decoration_"
+msgstr "Fampihaingoana ireo rohy"
+
+
+msgid "_A_visited_decoration_"
+msgstr "Fampihaingoana ireo rohy notsidihina"
+
+
+msgid "_Action Box Templet_"
+msgstr "Boaty misy ireo hetsika azo atao."
+
+
+msgid "_Action box_"
+msgstr "Boatin'ny asa"
+
+
+msgid "_Action categories_"
+msgstr "Sokajin'ny asa"
+
+
+msgid "_Add a column_"
+msgstr "Manampy colonne"
+
+
+msgid "_Add an image_"
+msgstr "Manampy sary"
+
+
+msgid "_Add content_"
+msgstr ""
+
+
+msgid "_Add_a_new_Templet_"
+msgstr "Manampy Templet vaovao"
+
+
+msgid "_Add_a_new_palette_entry_"
+msgstr ""
+
+
+msgid "_Add_a_new_style_"
+msgstr ""
+
+
+msgid "_Add_a_portlet_"
+msgstr ""
+
+
+msgid "_Align_"
+msgstr "Filahatra"
+
+
+msgid "_Appearance_"
+msgstr "Fisehoana ety ivelany"
+
+
+msgid "_April_"
+msgstr "Aprily"
+
+
+msgid "_Area Color_"
+msgstr "Lokon'ny faritra"
+
+
+msgid "_Area Shape_"
+msgstr "Endriky ny faritra"
+
+
+msgid "_Area active background color_"
+msgstr ""
+
+
+msgid "_Area active border color_"
+msgstr ""
+
+
+msgid "_Area background color_"
+msgstr "lokon'ny arrière-plan"
+
+
+msgid "_Area background image_"
+msgstr "Sarin'ny arrière-plan"
+
+
+msgid "_Area background position_"
+msgstr ""
+
+
+msgid "_Area background repeat_"
+msgstr ""
+
+
+msgid "_Area border color_"
+msgstr "Lokon'ny tsipika manodidina"
+
+
+msgid "_Area border style_"
+msgstr "Stylen'ny tsipika manodidina"
+
+
+msgid "_Area border width_"
+msgstr "Hatevin'ny tsipika manodidina"
+
+
+msgid "_Area color_"
+msgstr "Lokon'ny faritra"
+
+
+msgid "_Area font color_"
+msgstr "Lokon'ny lahatsoratra"
+
+
+msgid "_Area shape_"
+msgstr "Manodidina ny faritra"
+
+
+msgid "_Area text transform_"
+msgstr ""
+
+
+msgid "_August_"
+msgstr "Aogositra"
+
+
+msgid "_Author_"
+msgstr "Mpamorona"
+
+
+msgid "_Background image_"
+msgstr "Sarin'ny fond"
+
+
+msgid "_Base path_"
+msgstr "Lalana fototra"
+
+
+msgid "_Border style_"
+msgstr "Stylen'ny tsipika manodidina"
+
+
+msgid "_Bottom border color_"
+msgstr "Lokon'ny tsipikamanodidina eny ambany"
+
+
+msgid "_Bottom left image_"
+msgstr ""
+
+
+msgid "_Bottom right image_"
+msgstr ""
+
+
+msgid "_Box Corners_"
+msgstr ""
+
+
+msgid "_Box color_"
+msgstr "Lokon'ny boaty"
+
+
+msgid "_Box corners_"
+msgstr ""
+
+
+msgid "_Box layout_"
+msgstr "Fanamboarana ny endriky ny boaty"
+
+
+msgid "_Box orientation_"
+msgstr "Orientation ny boaty"
+
+
+msgid "_Box shape_"
+msgstr "Endriky ny boaty"
+
+
+msgid "_BoxBody background color_"
+msgstr "Lokon'ny arrière-plan ny vatan'ny boaty"
+
+
+msgid "_BoxBody background image_"
+msgstr "Lokon'ny fond ny vatan'ny boaty"
+
+
+msgid "_BoxBody border color_"
+msgstr "Lokon'ny tsipika manodidina ny vatan'ny boaty"
+
+
+msgid "_BoxBody border style_"
+msgstr "Stylen'ny tsipika manodidina ny vatan'ny boaty"
+
+
+msgid "_BoxBody border width_"
+msgstr "Hatevin'ny tsipika manodidina ny vatan'ny boaty"
+
+
+msgid "_BoxBody menuin border color_"
+msgstr "Lokon'ny tsipika manodidina ireo menus voafidy"
+
+
+msgid "_BoxBody menuin border style_"
+msgstr "Stylen'ny tsipika manodidna ireo menus voafidy"
+
+
+msgid "_BoxBody menuin border width_"
+msgstr "Hatevin'ny tsipika manodidina ireo menus voafidy"
+
+
+msgid "_BoxBody menuin color_"
+msgstr "Lokon'ny arrière-plan ny menus nofidiana"
+
+
+msgid "_BoxBody menuin icon_"
+msgstr "Icône des menus sélectionnés"
+
+
+msgid "_BoxBody menuin margin_"
+msgstr "Marges des menus sélectionnés"
+
+
+msgid "_BoxBody menuin padding_"
+msgstr "Remplissage des menus sélectionnés"
+
+
+msgid "_BoxBody menuout border color_"
+msgstr "Lokon'ny tsipika manodidina ireo menus"
+
+
+msgid "_BoxBody menuout border style_"
+msgstr "Stylen'ny tsipika manodidina ireo menus"
+
+
+msgid "_BoxBody menuout border width_"
+msgstr "Hatevin'ny tsipika manodidina ireo menus"
+
+
+msgid "_BoxBody menuout color_"
+msgstr "Lokon'ny arrière-plan ireo menus"
+
+
+msgid "_BoxBody menuout icon_"
+msgstr "Icône des menus"
+
+
+msgid "_BoxBody menuout margin_"
+msgstr "Marges des menus"
+
+
+msgid "_BoxBody menuout padding_"
+msgstr "Espace de remplissage des menus"
+
+
+msgid "_BoxBody padding_"
+msgstr "Espace de remplissage du corps de la boîte"
+
+
+msgid "_BoxBody text align_"
+msgstr "Filahatry ny lahatsoratry ny vatan'ny boaty"
+
+
+msgid "_BoxTitle background color_"
+msgstr "Lokon'ny arrière-plan n'ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle background image_"
+msgstr "Sarin'ny arrière-plan n'ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle border color_"
+msgstr "Lokon'ny tsipika manodidina ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle border style_"
+msgstr "Stylen'ny tsipika manodidina ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle border width_"
+msgstr "Hatevin'ny tsipika manodidina ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle display_"
+msgstr "Critères d'affichage ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle font color_"
+msgstr "Lokon'ny soratra amin'ny lohatenin' ny boaty"
+
+
+msgid "_BoxTitle font_"
+msgstr ""
+
+
+msgid "_BoxTitle padding_"
+msgstr "Faritra famenoana ny lohatenin'ny boaty"
+
+
+msgid "_BoxTitle text align_"
+msgstr "Filahatry ny lahatsoratra amin'ny lohatenin'ny boaty"
+
+
+msgid "_Breadcrumbs Templet_"
+msgstr "Piste de navigation"
+
+
+msgid "_Breadcrumbs_"
+msgstr "Piste de navigation"
+
+
+msgid "_Broken Templet!_"
+msgstr "Templet simba!"
+
+
+msgid "_Cache effectivity_"
+msgstr "Fahombiazan'ny cache"
+
+
+msgid "_Cache lifetime_"
+msgstr "Durée de vie ny cache"
+
+
+msgid "_Cache manager_"
+msgstr "Fitantanana ny cache"
+
+
+msgid "_Cache parameters updated_"
+msgstr "Paramètres du cache modifiés "
+
+
+msgid "_Cacheable in RAM_"
+msgstr "Atao ao amin'ny cache RAM"
+
+
+msgid "_Cacheable?_"
+msgstr "Azo atao ao amin'ny cache?"
+
+
+msgid "_Caching_"
+msgstr "Voafindra ao amin'ny cache"
+
+
+msgid "_Calendar Style_"
+msgstr "Stylen'ny tetiandro"
+
+
+msgid "_Calendar Templet_"
+msgstr "Tetiandro"
+
+
+msgid "_Calendar_"
+msgstr "Tetiandro"
+
+
+msgid "_Cell Block_"
+msgstr ""
+
+
+msgid "_Cell Hider_"
+msgstr "Effaceur de cellule"
+
+
+msgid "_Cell Sizer_"
+msgstr "Dimensionneur de cellule"
+
+
+msgid "_Cell Styler_"
+msgstr "Styleur de cellule"
+
+
+msgid "_Cell width_"
+msgstr "Largeur de la cellule"
+
+
+msgid "_Cellblock margin_"
+msgstr ""
+
+
+msgid "_Collapsible Menu Style_"
+msgstr "Style des menus extensibles"
+
+
+msgid "_Collapsible Menu Templet_"
+msgstr "Menu extensible"
+
+
+msgid "_Collapsible menu_"
+msgstr "Menu extensible"
+
+
+msgid "_Color_"
+msgstr "Loko"
+
+
+msgid "_Columns_"
+msgstr ""
+
+
+msgid "_Content_"
+msgstr "Votoatiny"
+
+
+msgid "_Copyright_"
+msgstr "Zon'ny mpamorona sy ny hafa"
+
+
+msgid "_Created by:_"
+msgstr "Noforonin'ny :"
+
+
+msgid "_Custom action categories_"
+msgstr "Sokajin'ny hetsika fanampiny"
+
+
+msgid "_Days background color_"
+msgstr "Lokon'ny arrière-plan ireo andro"
+
+
+msgid "_Days font color_"
+msgstr "Lokon'ny soratr'ireo andro"
+
+
+msgid "_December_"
+msgstr "Desambra"
+
+
+msgid "_Default theme_"
+msgstr "Thème par défaut"
+
+
+msgid "_Default_font_"
+msgstr "Police de caractère par défaut"
+
+
+msgid "_Delete Templet?_"
+msgstr "Vonoina ioTemplet io?"
+
+
+msgid "_Delete style?_"
+msgstr "Vonoina io style io?"
+
+
+msgid "_Delete theme?_"
+msgstr "Vonoina io thème io?"
+
+
+msgid "_Delete_"
+msgstr "Mamono"
+
+
+msgid "_Deleting this Templet, are you sure?_"
+msgstr "tapa-kevitra ny hamono io Templet io ve ianao?"
+
+
+msgid "_Deleting this cell hider, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io effaceur de cellule io ve ianao?"
+
+
+msgid "_Deleting this cell sizer, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io dimensionneur de cellule io ve ianao?"
+
+
+msgid "_Deleting this cell styler, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io styleur de cellule io ve ianao?"
+
+
+msgid "_Deleting this image, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io sary io ve ianao?"
+
+
+msgid "_Deleting this page block, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io bloc io ve ianao?"
+
+
+msgid "_Deleting this palette entry, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io élément de la palette io ve ianao?"
+
+
+msgid "_Deleting this style, are you sure?_"
+msgstr "Tapa-kevitra ny hamono io style io ve ianao?"
+
+
+msgid "_Depth level_"
+msgstr "Profondeur de départ"
+
+
+msgid "_Display a contextual icon_"
+msgstr "Afficher l'icône de l'objet courant"
+
+
+msgid "_Display hidden folders_"
+msgstr "Aseho ireo repertoara miafina"
+
+
+msgid "_Display title in text mode_"
+msgstr "Asehoy an-tsoratra ny lohateny"
+
+
+msgid "_Document Info Templet_"
+msgstr "Fampahalalana momban'ny antotan-dahatsoratra"
+
+
+msgid "_Document info_"
+msgstr "Fampahalalana momban'ny antotan-dahatsoratra"
+
+
+msgid "_ESI fragment_"
+msgstr "Fragment ESI (Edge Sides Includes)"
+
+
+msgid "_ESI_"
+msgstr "ESI"
+
+
+msgid "_Edit images_"
+msgstr "Manova ireo sary"
+
+
+msgid "_Edit palettes_"
+msgstr "Manova ireo palettes"
+
+
+msgid "_Edit styles_"
+msgstr "Manova ireo styles"
+
+
+msgid "_Edit the current style_"
+msgstr ""
+
+
+msgid "_Edit this page block_"
+msgstr "Manova io bloc io"
+
+
+msgid "_Edit_"
+msgstr "Manova"
+
+
+msgid "_Elements_"
+msgstr ""
+
+
+msgid "_Enable ESI_"
+msgstr "Activer les ESI (Edge Side Includes)"
+
+
+msgid "_End string_"
+msgstr "Marqueur de fin"
+
+
+msgid "_Event background color_"
+msgstr "Lokon'ny arrière-plan ireo zava-mitranga"
+
+
+msgid "_Event border color_"
+msgstr "Lokon'ny tsipika manodidina ireo zava-mitranga"
+
+
+msgid "_Event font color_"
+msgstr "Lokon'ny lahatsoratr'ireo zava-mitranga"
+
+
+msgid "_Exit_"
+msgstr "Miala"
+
+
+msgid "_February_"
+msgstr "Febroary"
+
+
+msgid "_Flash Box Templet_"
+msgstr "Boaty Flash"
+
+
+msgid "_Flash box_"
+msgstr "Boaty Flash"
+
+
+msgid "_Flash caption_"
+msgstr "Lahatsoratra"
+
+
+msgid "_Flash movie height_"
+msgstr "Taille verticale de l'animation"
+
+
+msgid "_Flash movie width_"
+msgstr "Taille horizontale de l'animation"
+
+
+msgid "_Font Color_"
+msgstr "Lokon'ireo soratra"
+
+
+msgid "_Font Shape_"
+msgstr "Firafitry ny soratra"
+
+
+msgid "_Font color_"
+msgstr "Lokon'ny soratra"
+
+
+msgid "_Font shape_"
+msgstr "Polices de caractères"
+
+
+msgid "_Forgot your password?_"
+msgstr "Hadino ny môdepasy ô?"
+
+
+msgid "_Form Style_"
+msgstr ""
+
+
+msgid "_Form padding_"
+msgstr ""
+
+
+msgid "_Form style_"
+msgstr ""
+
+
+msgid "_Form_"
+msgstr ""
+
+
+msgid "_Fr_"
+msgstr "Zom"
+
+
+msgid "_Guest_"
+msgstr "Fidirana"
+
+
+msgid "_H1_"
+msgstr "H1"
+
+
+msgid "_H1_bg_color_"
+msgstr ""
+
+
+msgid "_H1_border_color_"
+msgstr "Lokon'ny tsipika manodidina H1"
+
+
+msgid "_H1_border_style_"
+msgstr "Stylen'ny tsipika manodidina H1"
+
+
+msgid "_H1_border_width_"
+msgstr "Hatevin'ny tsipika manodidina H1"
+
+
+msgid "_H1_font_"
+msgstr "Haben' ny soratra H1"
+
+
+msgid "_H1_font_color_"
+msgstr "Lokon'ny soratra (H1)"
+
+
+msgid "_H1_padding_"
+msgstr "Faritra famenoana H1"
+
+
+msgid "_H2_"
+msgstr "H2"
+
+
+msgid "_H2_bg_color_"
+msgstr ""
+
+
+msgid "_H2_border_color_"
+msgstr "Lokon'ny tsipika manodidina H2"
+
+
+msgid "_H2_border_style_"
+msgstr "Stylen'ny tsipika manodidina H2"
+
+
+msgid "_H2_border_width_"
+msgstr "Hatevin'ny tsipika manodidina H2"
+
+
+msgid "_H2_font_"
+msgstr "Haben'ny soratra H2"
+
+
+msgid "_H2_font_color_"
+msgstr "Lokon'ny soratra (H2)"
+
+
+msgid "_H2_padding_"
+msgstr "Faritra famenoana H2"
+
+
+msgid "_H3_"
+msgstr "H3"
+
+
+msgid "_H3_bg_color_"
+msgstr ""
+
+
+msgid "_H3_border_color_"
+msgstr "Lokon'ny tsipika manodidina H3"
+
+
+msgid "_H3_border_style_"
+msgstr "Stylen'ny tsipika manodidina H3"
+
+
+msgid "_H3_border_width_"
+msgstr "Hatevin'ny tsipika manodidina H3"
+
+
+msgid "_H3_font_"
+msgstr "Haben'ny soratra H3"
+
+
+msgid "_H3_font_color_"
+msgstr "Lokon'ny soratra (H3)"
+
+
+msgid "_H3_padding_"
+msgstr "Faritra famenoana H3"
+
+
+msgid "_H456_"
+msgstr "H4, H5, H6"
+
+
+msgid "_H456_bg_color_"
+msgstr ""
+
+
+msgid "_H456_border_color_"
+msgstr "Lokon'ny tsipika manodidina H4, H5, H6"
+
+
+msgid "_H456_border_style_"
+msgstr "Stylen'ny tsipika manodidina H4, H5, H6"
+
+
+msgid "_H456_border_width_"
+msgstr "Hatevin'ny tsipika manodidina H4, H5, H6"
+
+
+msgid "_H456_font_"
+msgstr "Haben'ny soratra H4, H5, H6"
+
+
+msgid "_H456_font_color_"
+msgstr "Lokon'ny soratra (H4, H5, H6)"
+
+
+msgid "_H456_padding_"
+msgstr "Faritra famenoana H4, H5, H6"
+
+
+msgid "_Header background color_"
+msgstr "Couleur d'arrière-plan de l'en-tête du calendrier"
+
+
+msgid "_Header font color_"
+msgstr "Couleur du texte du sommet du calendrier"
+
+
+msgid "_Height_"
+msgstr "Halava"
+
+
+msgid "_Hidden in text mode_"
+msgstr "Invisible en mode texte"
+
+
+msgid "_Hide current language_"
+msgstr "Tsy aseho ny fiteny izay ampiasaina"
+
+
+msgid "_Hide this cell_"
+msgstr "Cacher cette cellule"
+
+
+msgid "_Hide title_"
+msgstr "Afenina ny lohateny"
+
+
+msgid "_Hierarchy base_"
+msgstr "Base des rubriques"
+
+
+msgid "_Horizontal alignment_"
+msgstr "Filahatra marindrano"
+
+
+msgid "_Horizontal margin_"
+msgstr "Marge horizontale"
+
+
+msgid "_Horizontal padding_"
+msgstr "Faritra famenoana marindrano"
+
+
+msgid "_Icon size_"
+msgstr "Taille de l'icône"
+
+
+msgid "_Image Box Templet_"
+msgstr "Boaty sary"
+
+
+msgid "_Image box_"
+msgstr "Boaty sary"
+
+
+msgid "_Image caption_"
+msgstr "Image de la légende"
+
+
+msgid "_Images_"
+msgstr "Sary"
+
+
+msgid "_Info text_"
+msgstr "Teny fampahalalana"
+
+
+msgid "_Insert a Templet here_"
+msgstr "Mampiditra Templet eto"
+
+
+msgid "_Insert a page block_"
+msgstr "Mampiditra bloc"
+
+
+msgid "_Internal link_"
+msgstr "Rohy anaty"
+
+
+msgid "_Invisible actions_"
+msgstr "Id an'ireo hetsika tsy hita maso"
+
+
+msgid "_January_"
+msgstr "Janoary"
+
+
+msgid "_July_"
+msgstr "Jolay"
+
+
+msgid "_June_"
+msgstr "Jona"
+
+
+msgid "_KB_"
+msgstr "Ko"
+
+
+msgid "_Language Templet_"
+msgstr "Fifidianana fiteny"
+
+
+msgid "_Language selector_"
+msgstr "Fifidianana fiteny"
+
+
+msgid "_Last modified:_"
+msgstr "Navaozina farany:"
+
+
+msgid "_Left-side image_"
+msgstr "Sary amin'ny havia"
+
+
+msgid "_License_"
+msgstr "Licence"
+
+
+msgid "_Link (http://, mailto: ...)_"
+msgstr "Rohy (http://, mailto: ...)"
+
+
+msgid "_List orientation_"
+msgstr "Orientation de la liste"
+
+
+msgid "_Log in_"
+msgstr "Fanamarinam-pidirana"
+
+
+msgid "_Main Content Templet_"
+msgstr "Contenu principal"
+
+
+msgid "_Main content_"
+msgstr "Région principale"
+
+
+msgid "_March_"
+msgstr "Martsa"
+
+
+msgid "_Margin_"
+msgstr "Marges"
+
+
+msgid "_Maximum number of items_"
+msgstr "Nombre maximum d'entrées dans le sous-menu"
+
+
+msgid "_May_"
+msgstr "May"
+
+
+msgid "_Memory usage_"
+msgstr "Utilisation de la mémoire"
+
+
+# keep it short
+msgid "_Menu entry_"
+msgstr "Menu"
+
+
+# keep it short
+msgid "_Menu title_"
+msgstr "Lohateny"
+
+
+msgid "_Merge this style?_"
+msgstr "Recombiner ce style?"
+
+
+msgid "_Minimize / Maximize_"
+msgstr "Akelezina / Alebiazina"
+
+
+msgid "_Mo_"
+msgstr "Alat"
+
+
+msgid "_Month_"
+msgstr "Volana"
+
+
+msgid "_More ..._"
+msgstr "Plus ..."
+
+
+msgid "_Move down_"
+msgstr "Afindra mankany ambany"
+
+
+msgid "_Move left_"
+msgstr "Afindra any an-kavia"
+
+
+msgid "_Move right_"
+msgstr "Afindra any an-kavanana"
+
+
+msgid "_Move this cell to the left_"
+msgstr "Afindra mankany an-kavia io cellule io"
+
+
+msgid "_Move this cell to the right_"
+msgstr "Afindra mankany an-kavanana io cellule io"
+
+
+msgid "_Move up_"
+msgstr "Afindra mankany ambony"
+
+
+msgid "_No items published since your last log-in_"
+msgstr "Tsy misy antotan-dahatsoratra miely hatramin'ny niasanao farany"
+
+
+msgid "_No preview_"
+msgstr ""
+
+
+msgid "_Not available in layout mode_"
+msgstr "Tsy azo kitihana mandritra ny fanamboarana ny pejy"
+
+
+msgid "_November_"
+msgstr "Novambra"
+
+
+msgid "_Number of columns_"
+msgstr "Isan'ny colonnes"
+
+
+msgid "_October_"
+msgstr "Oktobra"
+
+
+msgid "_Only select items that are supposed to get translated:_"
+msgstr "Ireo izay tianao avadika fiteny ihany no fidio:"
+
+
+msgid "_Other categories_"
+msgstr "Sokajy hafa"
+
+
+msgid "_Other images_"
+msgstr "Sary hafa"
+
+
+msgid "_Other palettes_"
+msgstr "Palettes hafa"
+
+
+msgid "_Other styles_"
+msgstr "Styles hafa"
+
+
+msgid "_P_font_"
+msgstr "Police de caractère des paragraphes"
+
+
+msgid "_P_padding_"
+msgstr "Espace de remplissage des paragraphes"
+
+
+msgid "_Page Block_"
+msgstr "Bloc"
+
+
+msgid "_Palette Border_"
+msgstr "Contours"
+
+
+msgid "_Palette Color_"
+msgstr "Loko"
+
+
+msgid "_Palettes_"
+msgstr "Palettes"
+
+
+msgid "_Password_"
+msgstr "Môdepasy"
+
+
+msgid "_Portal Box Color_"
+msgstr "Lokon'ny boaty"
+
+
+msgid "_Portal Box Group Templet_"
+msgstr "Vondron'ny boaty"
+
+
+msgid "_Portal Box Shape_"
+msgstr "Endriky ny boaty"
+
+
+msgid "_Portal Box Templet_"
+msgstr "Boaty"
+
+
+msgid "_Portal Tab Style_"
+msgstr "Style d'onglets du portail"
+
+
+msgid "_Portal Tab Templet_"
+msgstr "Onglets du portail"
+
+
+msgid "_Portal Tab_"
+msgstr "Onglets du portail"
+
+
+msgid "_Portal Theme_"
+msgstr "Thème"
+
+
+msgid "_Portal box color_"
+msgstr "Lokon'ireo boaty"
+
+
+msgid "_Portal box content_"
+msgstr "Votoatin'ny boaty"
+
+
+msgid "_Portal box group_"
+msgstr "Vondron'ny boaty"
+
+
+msgid "_Portal box shape_"
+msgstr "Contour des boîtes"
+
+
+msgid "_Portal box title source_"
+msgstr "Ny nipoiran'ny lohatenin'ny boaty"
+
+
+msgid "_Portal box_"
+msgstr "Boaty"
+
+
+msgid "_Portlet Box Templet_"
+msgstr ""
+
+
+msgid "_Portlet type_"
+msgstr ""
+
+
+msgid "_Portlet_"
+msgstr ""
+
+
+msgid "_Preview background color_"
+msgstr "Couleur d'arrière-plan de la prévisualisation des événements"
+
+
+msgid "_Preview border color_"
+msgstr "Couleur de bordure de la prévisualisation des événements"
+
+
+msgid "_Preview font color_"
+msgstr "Couleur du texte de prévisualisation des événements"
+
+
+msgid "_Preview_"
+msgstr ""
+
+
+msgid "_Read more_"
+msgstr "Vakio &gt;&gt;"
+
+
+msgid "_Remove a column_"
+msgstr "Vonoina ny colonne"
+
+
+msgid "_Repeat string_"
+msgstr "Mpanasaraka"
+
+
+msgid "_Right-side image_"
+msgstr "Sary amin'ny havanana"
+
+
+msgid "_STRONG_font_"
+msgstr "Soratra matevina"
+
+
+msgid "_Sa_"
+msgstr "Sab"
+
+
+msgid "_Search Box Templet_"
+msgstr "Boaty fikarohana"
+
+
+msgid "_Search box_"
+msgstr "Boaty fikarohana"
+
+
+msgid "_See the error log_"
+msgstr "Mijery ny hafatra momba ny diso"
+
+
+msgid "_Select a style_"
+msgstr ""
+
+
+msgid "_Selectable themes_"
+msgstr "Thèmes azo fidiana"
+
+
+msgid "_September_"
+msgstr "Septambra"
+
+
+msgid "_Set the size of this cell_"
+msgstr "Définir la taille de la cellule"
+
+
+msgid "_Shape_"
+msgstr "Contours"
+
+
+msgid "_Shortcut icon_"
+msgstr "Icône ny tranokala"
+
+
+msgid "_Show action icons_"
+msgstr "Asehoy ny icone ireo hetsika"
+
+
+msgid "_Show add items_"
+msgstr ""
+
+
+msgid "_Show all categories_"
+msgstr "Ny sokajy rehetra"
+
+
+msgid "_Show documents in folders_"
+msgstr "Aseho koa ireo antotan-dahatsoratra"
+
+
+msgid "_Show month_"
+msgstr "Aseho ny volana"
+
+
+msgid "_Show preview_"
+msgstr "Prévisualisation les événements"
+
+
+msgid "_Show weekdays_"
+msgstr "Aseho ny anaran'ireo andro amin'ny herinandro"
+
+
+msgid "_Show year_"
+msgstr "Aseho ny taona"
+
+
+msgid "_Simulate this URL ..._"
+msgstr "Simuler cette URL ..."
+
+
+msgid "_Slot name_"
+msgstr ""
+
+
+msgid "_Start string_"
+msgstr "Marqueur de début"
+
+
+msgid "_Style_"
+msgstr "Style"
+
+
+msgid "_Styles_"
+msgstr "Styles"
+
+
+msgid "_Stylize this cell_"
+msgstr "Styliser de cette cellule"
+
+
+msgid "_Su_"
+msgstr "Alah"
+
+
+msgid "_Sub-menu background color_"
+msgstr "Couleur d'arrière-plan des sous-menus"
+
+
+msgid "_Sub-menu border color_"
+msgstr "Couleur de bordure des sous-menus"
+
+
+msgid "_Sub-menu border style_"
+msgstr "Style de bordure des sous-menus"
+
+
+msgid "_Sub-menu font color_"
+msgstr "Couleur du texte des sous-menus"
+
+
+msgid "_Sub-menu font_"
+msgstr "Police de caractères des sous-menus"
+
+
+msgid "_Sub-menu hover background color_"
+msgstr "Couleur d'arrière-plan des sous-menus (sélectionnés)"
+
+
+msgid "_Sub-menu hover font color_"
+msgstr "Couleur du texte des sous-menus (sélectionnés)"
+
+
+msgid "_Sub-menu items width_"
+msgstr "Largeur des sous-menus"
+
+
+msgid "_Tab style_"
+msgstr "Endrik'ireo onglets"
+
+
+msgid "_Tab width_"
+msgstr ""
+
+
+msgid "_Templet color_"
+msgstr "Loko"
+
+
+msgid "_Templet height_"
+msgstr "Halava"
+
+
+msgid "_Templet margin_"
+msgstr "Marges"
+
+
+msgid "_Templet padding_"
+msgstr "Faritra famenoana"
+
+
+msgid "_Templet shape_"
+msgstr "Contours"
+
+
+msgid "_Templets_"
+msgstr "Templets"
+
+
+msgid "_Text Box Templet_"
+msgstr "Boatin'ny lahatsoratra"
+
+
+msgid "_Text box_"
+msgstr "Boatin'ny lahatsoratra"
+
+
+msgid "_Text format_"
+msgstr "Format de texte"
+
+
+msgid "_Th_"
+msgstr "Alak"
+
+
+msgid "_The benchmark timer is not installed_"
+msgstr "Le moniteur de performance n'est pas installé"
+
+
+msgid "_The languages in which it is visible_"
+msgstr "Ireo fiteny izay maha-hita azy:"
+
+
+msgid "_The visibility paths_"
+msgstr "Visible dans les rubriques:"
+
+
+msgid "_Theme Chooser Templet_"
+msgstr "Fifidiana thème"
+
+
+msgid "_Theme chooser_"
+msgstr "Fifidiana thème"
+
+
+msgid "_Theme editor_"
+msgstr ""
+
+
+msgid "_Theme name_"
+msgstr "Anaran'ny thème"
+
+
+msgid "_Theme optimizer_"
+msgstr "Optimiseur de thème"
+
+
+msgid "_Theme renderer_"
+msgstr "Générateur de thème"
+
+
+msgid "_Theme_"
+msgstr ""
+
+
+msgid "_Themes manager_"
+msgstr "Fitantanana ireo thèmes"
+
+
+msgid "_These Templets are invisible and can be deleted:_"
+msgstr "Tsy hita ireto Templets ireto ary mety ho voavono:"
+
+
+msgid "_These Templets could be cached in memory for faster rendering:_"
+msgstr "Mba ahafahana mampiseho  haingana ny tranonkala, dia azo atao ao amin'ny cache ireo Templet ireo"
+
+
+msgid "_These styles are identical and can be merged together:_"
+msgstr "Ces styles sont identiques et peuvent être recombinés:"
+
+
+msgid "_These styles are not used and can be deleted:_"
+msgstr "Tsy nampiasaina ireto styles ireto ary mety ho voavono:"
+
+
+msgid "_This style is used by:_"
+msgstr ""
+
+
+msgid "_This style will be used by default_"
+msgstr "Ce style sera utilisé par défaut"
+
+
+msgid "_This theme is completely optimized_"
+msgstr "Ce thème est complètement optimisé"
+
+
+msgid "_Title_"
+msgstr "Lohateny"
+
+
+msgid "_Today border color_"
+msgstr "Tsipika manodidina ny andro anio"
+
+
+msgid "_Top left image_"
+msgstr ""
+
+
+msgid "_Top menu background color_"
+msgstr "Couleur d'arrière-plan des menus principaux"
+
+
+msgid "_Top menu border color_"
+msgstr "Couleur de bordure des menus principaux"
+
+
+msgid "_Top menu border style_"
+msgstr "Style de bordure des menus principaux"
+
+
+msgid "_Top menu font color_"
+msgstr "Lokon'ny soratr'ireo menus principaux"
+
+
+msgid "_Top menu font_"
+msgstr "Police de caractères des menus principaux"
+
+
+msgid "_Top menu hover background color_"
+msgstr "Couleur d'arrière-plan des menus principaux (selectionnés)"
+
+
+msgid "_Top menu hover font color_"
+msgstr "Couleur du texte des menus principaux (sélectionnés)"
+
+
+msgid "_Top menu items width_"
+msgstr "Largeur des menus principaux"
+
+
+msgid "_Top right image_"
+msgstr ""
+
+
+msgid "_Translate folder items_"
+msgstr "Adikao teny hafa ny votoatin'ny repertoara"
+
+
+msgid "_Translate the box title_"
+msgstr "Adikao teny hafa ny lohatenin'ny boaty"
+
+
+msgid "_Translate the breadcrumbs_"
+msgstr "Adikao teny hafa ny votoatin'ny piste de navigation"
+
+
+msgid "_Translate the image_"
+msgstr "Traduire l'image"
+
+
+msgid "_Translate the text_"
+msgstr "Adikao teny hafa ny lahatsoratra"
+
+
+msgid "_Translations_"
+msgstr "Fandikana teny"
+
+
+msgid "_Tu_"
+msgstr "Tal"
+
+
+msgid "_Use internal link?_"
+msgstr "Mampiasa rohy anaty?"
+
+
+msgid "_Use the cache?_"
+msgstr "Mampiasa cache?"
+
+
+msgid "_Use this as the default style_"
+msgstr "Utiliser ce style par défaut"
+
+
+msgid "_Username_"
+msgstr "Anarana"
+
+
+msgid "_Vertical padding_"
+msgstr "Faritra famenoana mitsangana"
+
+
+msgid "_Visibility criteria_"
+msgstr "Critères d'affichage"
+
+
+msgid "_We_"
+msgstr "Alar"
+
+
+msgid "_Weekdays background color_"
+msgstr "Lokon'ny arrière-plan ireo andro"
+
+
+msgid "_Weekdays border color_"
+msgstr "Lokon'ireo tsipika manodidina ny andro"
+
+
+msgid "_Weekdays font color_"
+msgstr "Lokon'ny soratry ny andro"
+
+
+msgid "_Width_"
+msgstr "Sakany"
+
+
+msgid "_Year_"
+msgstr "Taona"
+
+
+msgid "_You can drop a Templet into this area_"
+msgstr "Afaka mametraka Templet eto amin'ity faritra ity ianao"
+
+
+msgid "_Your text_"
+msgstr "Sorato eto ny lahatsoratranao"
+
+
+msgid "_ZMI_"
+msgstr "ZMI"
+
+
+msgid "_about_"
+msgstr "Mikasika ny ..."
+
+
+msgid "_actionbox_templet_description_"
+msgstr "une boîte à outils avec des icônes de commandes."
+
+
+msgid "_actions_"
+msgstr "Hetsika"
+
+
+msgid "_areacolor_description_"
+msgstr "Ity style ity no mamaritra ny lokon'ny arrière-plan, ireo tsipika manodidina ary ny soratry ny faritra."
+
+
+msgid "_areashape_description_"
+msgstr "Ity style ity no mamaritra ny style sy ny hatevin'ny tsipika manodidina ny faritra"
+
+
+msgid "_backgrounds_"
+msgstr "Images d'arrière-plan"
+
+
+msgid "_box body_"
+msgstr "Corps de la boîte"
+
+
+msgid "_box title_"
+msgstr "Lohatenin'ny boaty"
+
+
+msgid "_boxcolor_"
+msgstr "Endriky ny boaty"
+
+
+msgid "_boxcolor_description_"
+msgstr "Ity style ity no mamaritra ny lokon'ireo boaty"
+
+
+msgid "_boxcorners_description_"
+msgstr ""
+
+
+msgid "_boxshape_"
+msgstr "Lokon'ny boaty"
+
+
+msgid "_boxshape_description_"
+msgstr "Ity style ity no mamaritra ny firafitry ny boaty."
+
+
+msgid "_breadcrumbs_templet_description_"
+msgstr "une piste de navigation de la racine du site jusqu'au document courant."
+
+
+msgid "_button_cache_manager_"
+msgstr ""
+
+
+msgid "_button_clear_the_cache_"
+msgstr "Purger le cache"
+
+
+msgid "_button_create_"
+msgstr "Foronina"
+
+
+msgid "_button_delete_"
+msgstr "Vonoina"
+
+
+msgid "_button_export_theme_"
+msgstr "Aondrana io thème io"
+
+
+msgid "_button_fullscreen_"
+msgstr ""
+
+
+msgid "_button_import_theme_"
+msgstr "Misintona thème"
+
+
+msgid "_button_import_themes_"
+msgstr "Misintona thèmes maromaro"
+
+
+msgid "_button_local_roles_"
+msgstr "Rôles locaux"
+
+
+msgid "_button_modify_"
+msgstr "Ovaina"
+
+
+msgid "_button_normal_mode_"
+msgstr ""
+
+
+msgid "_button_optimize_theme_"
+msgstr "Optimiser ce thème"
+
+
+msgid "_button_rebuild_theme_"
+msgstr "Reconstruire ce thème"
+
+
+msgid "_button_set_theme_as_default_"
+msgstr "Thème par défaut"
+
+
+msgid "_button_upload_flashfile_"
+msgstr "Transférerer l'animation"
+
+
+msgid "_button_upload_image_"
+msgstr "Transférer l'image"
+
+
+msgid "_calendar_style_"
+msgstr "Style de calendrier"
+
+
+msgid "_calendar_templet_description_"
+msgstr "tetiandro isam-bolana ho an'ireo zva-mitranga."
+
+
+msgid "_calendarstyle_description_"
+msgstr "ce style définit l'apparence graphique des calendriers mensuels"
+
+
+msgid "_cellblock_description_"
+msgstr ""
+
+
+msgid "_cellhider_description_"
+msgstr "un effaceur contrôle la visibilité d'une cellule."
+
+
+msgid "_cellsizer_description_"
+msgstr "un dimensionneur permet de fixer la largeur d'une cellule."
+
+
+msgid "_cellstyler_description_"
+msgstr "un styleur modifie le style d'une cellule."
+
+
+msgid "_clipboard_"
+msgstr ""
+
+
+msgid "_collapsiblemenu_style_"
+msgstr "Style de menu extensible"
+
+
+msgid "_collapsiblemenu_templet_description_"
+msgstr "un menu extensible affichant le contenu des répertoires."
+
+
+msgid "_collapsiblemenustyle_description_"
+msgstr "ce style définit l'apparence graphique (forme et couleurs) des menus extensibles."
+
+
+msgid "_color_"
+msgstr "Couleur de l'aire"
+
+
+msgid "_colors_"
+msgstr "Loko"
+
+
+msgid "_default_tab_"
+msgstr "Onglet non-sélectionné"
+
+
+msgid "_documentinfo_templet_description_"
+msgstr "Fampahalalana momba ny antotan-dahatsoratra miseho, ny lohateniny, ny daty nanovana azy farany, ny mpamorona azy, sns."
+
+
+msgid "_flashbox_templet_description_"
+msgstr "une animation Macromedia Flash(tm) avec légende."
+
+
+msgid "_folders_"
+msgstr "Repertoara"
+
+
+msgid "_fontcolor_"
+msgstr "Couleur de caractères"
+
+
+msgid "_fontcolor_description_"
+msgstr "ce style définit la couleur des caractères, des liens et de la décoration des textes."
+
+
+msgid "_fontshape_"
+msgstr "Endriky ny soratra"
+
+
+msgid "_fontshape_description_"
+msgstr "ce style définit la taille et le style des caractères, des liens et de la décoration des textes."
+
+
+msgid "_formstyle_description_"
+msgstr ""
+
+
+msgid "_general_"
+msgstr "Ankapobeny"
+
+
+msgid "_icons_"
+msgstr "Icônes"
+
+
+msgid "_imagebox_templet_description_"
+msgstr "Sary misy fanazavana."
+
+
+msgid "_info_"
+msgstr "Info"
+
+
+msgid "_language_templet_description_"
+msgstr "un sélecteur de langue."
+
+
+msgid "_layout mode_"
+msgstr "Fanamboarana ny pejy"
+
+
+msgid "_layout_"
+msgstr "Fanamboarana ny endrika"
+
+
+msgid "_maincontent_templet_description_"
+msgstr "le région principale dans laquelle les documents sont affichés."
+
+
+msgid "_menu_Align center_"
+msgstr "Eo afovoany"
+
+
+msgid "_menu_Align left_"
+msgstr "Milahatra any an-kavia"
+
+
+msgid "_menu_Align right_"
+msgstr "Milahatra any an-kavanana"
+
+
+msgid "_menu_Area Color_"
+msgstr "Couleurs de l'aire"
+
+
+msgid "_menu_Area Shape_"
+msgstr "Forme de l'aire"
+
+
+msgid "_menu_Box Corners_"
+msgstr ""
+
+
+msgid "_menu_Calendar Style_"
+msgstr "Style de calendrier"
+
+
+msgid "_menu_Collapsible Menu Style_"
+msgstr "Style de menu extensible"
+
+
+msgid "_menu_Copy_"
+msgstr ""
+
+
+msgid "_menu_Delete_"
+msgstr "Mamono"
+
+
+msgid "_menu_Duplicate_"
+msgstr "Dupliquer"
+
+
+msgid "_menu_Edit_"
+msgstr "Manova"
+
+
+msgid "_menu_Edit_styles_"
+msgstr ""
+
+
+msgid "_menu_Font Color_"
+msgstr "Lokon'ny caractères"
+
+
+msgid "_menu_Font Shape_"
+msgstr "Polices de caractères"
+
+
+msgid "_menu_Form Style_"
+msgstr ""
+
+
+msgid "_menu_Insert_"
+msgstr "Manatsofoka"
+
+
+msgid "_menu_Paste_"
+msgstr ""
+
+
+msgid "_menu_Portal Box Color_"
+msgstr "Lokon'ny boaty"
+
+
+msgid "_menu_Portal Box Shape_"
+msgstr "Formen'ny boaty"
+
+
+msgid "_menu_Portal Tab Style_"
+msgstr "Style d'onglets"
+
+
+msgid "_mixed mode_"
+msgstr "Mode mixte"
+
+
+msgid "_option_Folder title_"
+msgstr "Lohatenin'ny repertoara"
+
+
+msgid "_option_Templet title_"
+msgstr "Lohatenin'ny Templet"
+
+
+msgid "_option_Username_"
+msgstr "Anaran'ny mpampiasa"
+
+
+msgid "_option_Workflow state_"
+msgstr "État du workflow"
+
+
+msgid "_option_about_"
+msgstr "Informations sur l'objet courant"
+
+
+msgid "_option_actions_"
+msgstr "Asan'ny tranonkala"
+
+
+msgid "_option_always_"
+msgstr "Toujours"
+
+
+msgid "_option_automatic_"
+msgstr "Détection automatique"
+
+
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+
+msgid "_option_bg_repeat_"
+msgstr ""
+
+
+msgid "_option_block_"
+msgstr "Sakan'ny boaty"
+
+
+msgid "_option_center_"
+msgstr "Eo afovoany"
+
+
+msgid "_option_compatible_"
+msgstr "Mety amin'ny NS4"
+
+
+msgid "_option_debug_"
+msgstr ""
+
+
+msgid "_option_default_"
+msgstr "Amin'ny endrika voalohany"
+
+
+msgid "_option_docinfo_created_by_"
+msgstr ""
+
+
+msgid "_option_docinfo_last_modified_"
+msgstr ""
+
+
+msgid "_option_docinfo_title_"
+msgstr ""
+
+
+msgid "_option_drawer_"
+msgstr "Boîte à tiroir"
+
+
+msgid "_option_drawer_notitle_"
+msgstr "Boîte à tiroir tsy misy lohateny"
+
+
+msgid "_option_dropdown list_"
+msgstr "Liste déroulante"
+
+
+msgid "_option_events_"
+msgstr "Zava-mitranga"
+
+
+msgid "_option_everywhere_except_in_"
+msgstr "Eo amin'ny toerana rehetra afa tsy eo amin'ny..."
+
+
+msgid "_option_flags_"
+msgstr "Sainam-pirenena"
+
+
+msgid "_option_folders_"
+msgstr "Repertoaran'ny tranonkala"
+
+
+msgid "_option_horizontal_"
+msgstr "Mitsivalana"
+
+
+msgid "_option_html_"
+msgstr "HTML"
+
+
+msgid "_option_icons only_"
+msgstr "Icônes"
+
+
+msgid "_option_if_anonymous_"
+msgstr "Raha tsy fantatra anarana ny mpitsidika"
+
+
+msgid "_option_if_authenticated_"
+msgstr "Raha voamarina ny mpitsidika "
+
+
+msgid "_option_if_secure_connection_"
+msgstr "Raha voaharo ny fifandraisana"
+
+
+msgid "_option_info_"
+msgstr "Teny filazana"
+
+
+msgid "_option_inline_"
+msgstr "Sakan'ny lohateny"
+
+
+msgid "_option_language names_"
+msgstr "Anaran'ireo fiteny"
+
+
+msgid "_option_language_"
+msgstr "Fifidianana fiteny"
+
+
+msgid "_option_left_"
+msgstr "Eo ankavia"
+
+
+msgid "_option_lifetime_10_"
+msgstr "10 segondra"
+
+
+msgid "_option_lifetime_1800_"
+msgstr "30 minitra"
+
+
+msgid "_option_lifetime_300_"
+msgstr "5 minitra"
+
+
+msgid "_option_lifetime_30_"
+msgstr "30 segondra"
+
+
+msgid "_option_lifetime_3600_"
+msgstr "1 ora"
+
+
+msgid "_option_lifetime_600_"
+msgstr "10 minitra"
+
+
+msgid "_option_lifetime_60_"
+msgstr "1 minitra"
+
+
+msgid "_option_lifetime_900_"
+msgstr "15 minitra"
+
+
+msgid "_option_login_"
+msgstr "Formulaire famantaram-pitsidika "
+
+
+msgid "_option_min_max_"
+msgstr ""
+
+
+msgid "_option_min_max_close_"
+msgstr ""
+
+
+msgid "_option_min_max_edit_close_"
+msgstr ""
+
+
+msgid "_option_no_frames_"
+msgstr "Boaty tsy misy sisiny "
+
+
+msgid "_option_notitle_"
+msgstr "Boaty misy sisiny sy tsy misy lohateny "
+
+
+msgid "_option_notitle_noframe_"
+msgstr "Boaty tsy misy sisiny sy tsy misy lohateny "
+
+
+msgid "_option_one_frame_"
+msgstr "Boaty misy sisiny"
+
+
+msgid "_option_only_in_"
+msgstr "Ao amin'ny  ..."
+
+
+msgid "_option_pending_"
+msgstr "Antotandhatsoratra mbola miandry haseho"
+
+
+msgid "_option_plain text_"
+msgstr "Lahatsoratra tsotra"
+
+
+msgid "_option_profiler_"
+msgstr "Profileur"
+
+
+msgid "_option_recent_"
+msgstr "Lahatsoratra vao haingana"
+
+
+msgid "_option_related_"
+msgstr "Jereo koa ..."
+
+
+msgid "_option_right_"
+msgstr "Eo ankavanana"
+
+
+msgid "_option_rounded_box_"
+msgstr ""
+
+
+msgid "_option_rounded_box_notitle_"
+msgstr ""
+
+
+msgid "_option_searchbox_advanced_"
+msgstr ""
+
+
+msgid "_option_searchbox_compact_"
+msgstr ""
+
+
+msgid "_option_standard_"
+msgstr "Boaty tsotsotra"
+
+
+msgid "_option_starting_from_"
+msgstr "Manomboka amin'ny ..."
+
+
+msgid "_option_stx_"
+msgstr "Format Structured Text (STX)"
+
+
+msgid "_option_text and icons_"
+msgstr "Lahatsoratra sy icônes"
+
+
+msgid "_option_text only_"
+msgstr "Lahatsoratra"
+
+
+msgid "_option_text_transform_capitalize_"
+msgstr ""
+
+
+msgid "_option_text_transform_lowercase_"
+msgstr ""
+
+
+msgid "_option_text_transform_none_"
+msgstr ""
+
+
+msgid "_option_text_transform_uppercase_"
+msgstr ""
+
+
+msgid "_option_textonly_"
+msgstr "Amin'ny alalan'ny lahatsoratra"
+
+
+msgid "_option_up_till_"
+msgstr "Hatramin'ny ..."
+
+
+msgid "_option_vertical_"
+msgstr "Mitsangana"
+
+
+msgid "_pageblock_description_"
+msgstr "ny bloc iray dia vondron'ny colonnes maromaro. Azo ovaina amin'ny alalan'ny styleurs, dimensionneurs ary effaceurs de cellule ny endrika ivelan'ireo cellules. "
+
+
+msgid "_paletteborder_description_"
+msgstr "miankina amin'ireto palette ireto ny endriky ny sisin'ny styles. "
+
+
+msgid "_palettecolor_description_"
+msgstr "miankina amin'ireto palettes ireto ny lokon'ny tranonkala. "
+
+
+msgid "_portalbox_templet_description_"
+msgstr "boaty générique maneho hetsika, repertoara, boaty misy filazana, boaty fanamarinana mpitsidika, sns. "
+
+
+msgid "_portalboxgroup_templet_description_"
+msgstr "toerana fametrahana ireo boaty mbola tsy niova."
+
+
+msgid "_portaltab_templet_description_"
+msgstr "onglets mitsivalana maneho repertoara, hetsika azo atao,sns. "
+
+
+msgid "_portaltabstyle_"
+msgstr "Endrik'ireo onglets-ny tranonkala"
+
+
+msgid "_portaltabstyle_description_"
+msgstr "Ity endrika ity dia manova ny endrik'ireo onglets"
+
+
+msgid "_portaltheme_description_"
+msgstr "manova ny endriky ny tranonkala ny thème. "
+
+
+msgid "_portletbox_templet_description_"
+msgstr ""
+
+
+msgid "_searchbox_Advanced_search"
+msgstr "Fikarohana lalindalina"
+
+
+msgid "_searchbox_Search_"
+msgstr "Fikarohana"
+
+
+msgid "_searchbox_templet_description_"
+msgstr "boaty misy champ ahafahana manao fikarohana ao anatin'ny tranonkala. "
+
+
+msgid "_select this slot_"
+msgstr ""
+
+
+msgid "_selected_tab_"
+msgstr "Onglet nofiadiana "
+
+
+msgid "_set as default style_"
+msgstr "atao ho ampiasaina voalohany indrindra"
+
+
+msgid "_shape_"
+msgstr "Forme de l'aire"
+
+
+msgid "_style_"
+msgstr "Endrika"
+
+
+msgid "_submenu_"
+msgstr "Sous-menu"
+
+
+msgid "_submenus_"
+msgstr "Sous-menus"
+
+
+msgid "_textbox_templet_description_"
+msgstr "boaty misy lahatsoratra amin'ny format tsotra na HTML. "
+
+
+msgid "_themechooser_templet_description_"
+msgstr "fifidianana thème ho an'ireo mpitsidika ny tranonkala (mampiasa cookies)."
+
+
+msgid "_thumbnails_"
+msgstr ""
+
+
+msgid "_topmenu_"
+msgstr "Menu principal"
+
+
+msgid "_visibility_"
+msgstr "Ny fahitana"
+
+
+msgid "_wysiwyg mode_"
+msgstr "WYSIWYG"
+
+
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+
+msgid "description_delete_unused_boxes"
+msgstr "Vonona ireo boaty tsy miasa"
+
+
+msgid "description_delete_unused_portlets"
+msgstr ""
+
+
+msgid "description_portlets_visible_from"
+msgstr ""
+
+
+msgid "description_unused_boxes"
+msgstr "Tsy hita ireo boaty ireo satria ny vondrona misy azy dia tsy ao anatin'io thème io."
+
+
+msgid "description_unused_boxes_deleted"
+msgstr "Voafafa ireo boaty tsy miasa."
+
+
+msgid "description_unused_portlets"
+msgstr ""
+
+
+msgid "heading_portlet_browser_by_topic"
+msgstr ""
+
+
+msgid "heading_portlet_browser_by_type"
+msgstr ""
+
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+
+msgid "heading_unused_boxes"
+msgstr "Boaty tsy miasa"
+
+
+msgid "heading_unused_portlets"
+msgstr ""
+
+
+msgid "menu_insert_box"
+msgstr "Mampidira boaty iray hafa ..."
+
+
+msgid "menu_insert_portlet"
+msgstr ""
+
+
+msgid "portlet_browser_panel"
+msgstr ""
+
+
+msgid "portlet_slots_panel"
+msgstr ""
+
+
+msgid "psm_portlet_deleted"
+msgstr ""
+
+
+msgid "site_structure_panel"
+msgstr ""
+
+
+msgid "unused_portlets_panel"
+msgstr ""
+
+
+msgid "wysiwyg_panel"
+msgstr ""
+
