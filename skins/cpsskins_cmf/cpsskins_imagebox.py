@@ -1,3 +1,4 @@
+##parameters=REQUEST=None, **kw
 
 img = context
 if getattr(context, 'i18n', 0):

@@ -1,3 +1,5 @@
+##parameters=REQUEST=None, **kw
+
 text = context.text
 i18n = getattr(context, 'i18n', 0)
 text_format = getattr(context, 'text_format', 'html')

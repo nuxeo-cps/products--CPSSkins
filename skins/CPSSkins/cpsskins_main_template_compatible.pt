@@ -55,7 +55,7 @@
                                        isPortalBoxGroup python: getattr(templet, 'isportalboxgroup', 0);
                                        isESIFragment python: (esi_enabled and getattr(templet, 'esi_fragment', 0)) or 0;
                                        special_templet python: ismaincontent or isPortalBoxGroup or isESIFragment;
-                                       rendered_templet python: not special_templet and templet.render_cache(shield=1, context=here) or nothing"
+                                       rendered_templet python: not special_templet and templet.render_cache(shield=1, context_obj=here) or nothing"
                     condition="python: rendered_templet not in ['', '\n']">
                     <div
                      tal:attributes="align python: templet.align; 

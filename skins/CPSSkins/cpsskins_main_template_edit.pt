@@ -128,7 +128,7 @@
                            tal:attributes="class templet_class; 
 	                                   style python: templet.getCSSLayoutStyle()">
                         <tal:block condition="render_templet"
-                         content="structure python: templet.render_cache(shield=1, context=here)" />
+                         content="structure python: templet.render_cache(shield=1, context_obj=here)" />
                         <tal:block condition="ismaincontent">
 <!-- BEGIN Main Content -->
                           <metal:block define-slot="maincontent" />

@@ -207,12 +207,12 @@ class PortletBox(BaseTemplet):
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render() 
+                    rendered = portlet.render(**kw)
                 # could be anything
                 except:
-                    rendered = self.cpsskins_brokentemplet()
+                    rendered = self.cpsskins_brokentemplet(**kw)
             else:
-                rendered = portlet.render()
+                rendered = portlet.render(**kw)
         return rendered
 
     #
@@ -222,15 +222,17 @@ class PortletBox(BaseTemplet):
     def getCustomCacheIndex(self, **kw):
         """Returns the custom RAM cache index as a tuple (var1, var2, ...)
         """
-
+        
+        # CPSPortlets
+        # overriding BaseTemplet's getCustomCacheIndex()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         if ptltool is None:
-            return ''
+            return None
         portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
         if portlet is not None:
-            return portlet.getCacheIndex()
-
+            return portlet.getCacheIndex(**kw)
+        return None
 
 InitializeClass(PortletBox)
 

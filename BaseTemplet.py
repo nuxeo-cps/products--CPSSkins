@@ -27,6 +27,7 @@ import md5
 
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 
@@ -794,15 +795,17 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
 
+        # override this method in derived classes to pass a cache index
         return None
 
     security.declarePublic('getCacheIndex')
-    def getCacheIndex(self, params=[], REQUEST=None, **kw):
+    def getCacheIndex(self, REQUEST=None, **kw):
         """Returns the RAM cache index as a tuple (var1, var2, ...)
         """
         if REQUEST is None:
             REQUEST = self.REQUEST
 
+        params = self.getCacheParams()
         index = ()
         for param in params:
             index_string = ''
@@ -833,7 +836,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
 
             # current folder
             elif param == 'folder':
-                context = kw.get('context')
+                context = kw.get('context_obj')
                 index_string = context.absolute_url(1)
 
             # box state
@@ -868,7 +871,8 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                 index += (param + '_' + index_string,)
 
         # custom cache index
-        custom_index = self.getCustomCacheIndex()
+        # this is where we obtain the portlets cache index
+        custom_index = self.getCustomCacheIndex(**kw)
         if custom_index is not None:
             index += custom_index
         return index
@@ -892,7 +896,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         """Renders the templet."""
 
         fail = 0
-        if hasattr(self.aq_explicit, 'render_action'):
+        if getattr(aq_base(self), 'render_action', None) is not None:
             actionid = self.render_action
         else:
             fail = 1
@@ -903,7 +907,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                 if shield:
                     # crash shield
                     try:
-                        rendered = apply(meth, ())
+                        rendered = apply(meth, (), kw)
                     except:
                         # attempt to rebuild 
                         try:
@@ -914,31 +918,30 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
                         else:
                             # try again to render it ...
                             try:
-                                rendered = apply(meth, ())
+                                rendered = apply(meth, (), kw)
                             # total failure
                             except:
                                 fail = 1
                 # no crash shield
                 else:
-                    rendered = apply(meth, ())
+                    rendered = apply(meth, (), kw)
             else:
                 fail = 1
 
         if fail:
-            rendered = self.cpsskins_brokentemplet()
+            rendered = self.cpsskins_brokentemplet(**kw)
         return rendered
 
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, **kw):
         """Renders the cached version of the templet."""
-        
+
         if not self.cacheable:
             rendered = self.render(shield=shield, **kw)
         else:
             now = time.time()
             templet_path = self.getPhysicalPath()
-            params = self.getCacheParams()
-            index = (templet_path, ) + self.getCacheIndex(params, **kw)
+            index = (templet_path, ) + self.getCacheIndex(**kw)
             cache = self.getTempletCache(create=1)
             last_cleanup = cache.getLastCleanup(id=templet_path)
             lifetime = getattr(self, 'cache_lifetime', 60)

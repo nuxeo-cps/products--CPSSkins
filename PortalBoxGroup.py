@@ -191,23 +191,24 @@ class PortalBoxGroup(BaseTemplet):
 
         if not self.hasPortlets():
             return ''
-        context = kw.get('context')
+        context = kw.get('context_obj')
         slot = self.getSlot()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlets = ptltool.getPortlets(context, slot)
 
+        shield = 0
         all_rendered = ''
         for portlet in portlets:
             rendered = ''
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render_cache()
+                    rendered = portlet.render_cache(**kw)
                 # could be anything
                 except:
                     rendered = self.cpsskins_brokentemplet()
             else:
-                rendered = portlet.render_cache()
+                rendered = portlet.render_cache(**kw)
             # add the box decoration
             rendered = self.applyBoxLayout(title=portlet.getTitle(),
                                            body=rendered,
