@@ -29,6 +29,12 @@ class TestCPSPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(templet.aq_explicit.isPortalTemplet())
         self.assert_(templet.aq_explicit.isPortletBox())
  
+    def test_PortalBoxGroup_Templet(self):
+        pageblock = self.pageblock
+        templet = pageblock.addTemplet(type_name='Portal Box Group Templet')
+        self.assert_(templet.aq_explicit.isCacheable())
+ 
+
 def test_suite():
     suite = unittest.TestSuite()
     target = os.environ.get('CPSSKINS_TARGET', 'CMF')

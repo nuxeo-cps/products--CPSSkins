@@ -107,7 +107,10 @@ class PortalBoxGroup(BaseTemplet):
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
 
-        return None
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            # XXX should also ask the Portlet's schema
+            return 1
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
