@@ -84,6 +84,7 @@ function PortletBox_move(selected_items, target_node) {
   dest_rurl = dest.getAttribute('dest_rurl');
   dest_slot = dest.getAttribute('dest_slot');
   dest_ypos = dest.getAttribute('dest_ypos');
+  redirect_rurl = dest.getAttribute('redirect_rurl');
   portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
   copy = pd_selected_item.getAttribute('copy');
   new_url = 'cpsskins_move_portletbox?portlet_rurl=' + portlet_rurl;
@@ -91,6 +92,7 @@ function PortletBox_move(selected_items, target_node) {
   if (dest_rurl != null) new_url = new_url + '&dest_rurl=' + dest_rurl;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
   if (copy != null) new_url = new_url + '&leave=1';
+  if (redirect_rurl != null) new_url = new_url + '&redirect_rurl=' + redirect_rurl;
   window.location = new_url;
 }
 

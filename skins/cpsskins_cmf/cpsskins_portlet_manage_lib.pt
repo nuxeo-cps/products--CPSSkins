@@ -248,14 +248,24 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         <tal:block repeat="content contents">
           <option
            tal:attributes="value string:${content/absolute_url}/portlet_manage_form"
-           tal:content="content/title_or_id" />
+           tal:content="content/id" />
         </tal:block>
       </select>
     </form>
-    <tal:block condition="python: len(contents) &lt; 5"
-     repeat="content contents">
-      <a href="" tal:attributes="href string:${content/absolute_url}/portlet_manage_form"
-       tal:content="content/title_or_id" />
+    <tal:block condition="python: len(contents) &lt; 5">
+      <tal:block repeat="content contents">
+        <span class="portletBoxDest"
+         tal:define="rpath python: utool.getRelativeUrl(content)"
+         tal:attributes="insert_url python: base_url + rpath;
+                         dest_rurl rpath;
+                         redirect_rurl rpath;
+                         title content/title;
+                         dest_ypos python: 0">
+          <a href="" 
+           tal:attributes="href string:${base_url}${rpath}/portlet_manage_form"
+           tal:content="content/id" />
+        </span>
+      </tal:block>
     </tal:block>
   </div>
   <div class="navBreadCrumbs">

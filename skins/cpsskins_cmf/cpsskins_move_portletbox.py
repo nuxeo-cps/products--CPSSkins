@@ -1,4 +1,4 @@
-##parameters=portlet_rurl=None, dest_rurl=None, REQUEST=None, **kw
+##parameters=portlet_rurl=None, dest_rurl=None, redirect_rurl=None, REQUEST=None, **kw
 
 if REQUEST is not None:
     kw.update(REQUEST.form)
@@ -19,5 +19,9 @@ tmtool = context.portal_themes
 tmtool.setViewMode(selected_portlet=portlet.getId())
 
 if REQUEST is not None:
-     url = context.absolute_url() + '/portlet_manage_form'
-     REQUEST.RESPONSE.redirect(url)
+    if redirect_rurl is None:
+        redirect_url = context.absolute_url()
+    else:
+        redirect_url = context.portal_url() + '/' + redirect_rurl
+    redirect_url += '/portlet_manage_form'
+    REQUEST.RESPONSE.redirect(redirect_url)
