@@ -1003,7 +1003,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """ retrieves and installs an external theme 
             return the theme information """
 
-
         themeid = theme.get('themeid', None)
         themeurl = theme.get('themeurl', None)
         md5sum = theme.get('md5sum', None)
@@ -1013,14 +1012,14 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         try:
             f = urlopen(themeurl)
             zexp_data = f.read()
-        except:
+        except IOError:
             return None
 
         new_md5sum = md5.new(zexp_data).hexdigest()
         theme['md5sum'] = new_md5sum
         if new_md5sum == md5sum:
             return None
-        
+
         # Installing external theme
         default_theme = self.getDefaultThemeName()
 
@@ -1030,7 +1029,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         writefile = open(filepath, "wb")
         writefile.write(zexp_data)
         writefile.close()
-        
+
         tmp_dir = self._getTemporaryThemeFolder()
         if tmp_dir is None:
             return None
