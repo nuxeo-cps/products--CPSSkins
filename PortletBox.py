@@ -247,17 +247,20 @@ class PortletBox(BaseTemplet, SimpleBox):
         rendered_box = []
         if body:
             # add the box frame
-            rendered_box.extend('<div style="%s"><div class="%s">' % (
-                                 self.getCSSBoxLayoutStyle(),
-                                 self.getCSSBoxClass())
-                               )
+            boxstyle = self.getCSSBoxLayoutStyle()
+            if boxstyle:
+                rendered_box.extend('<div style="%s">' % boxstyle)
+            rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
             # add the box decoration
-            rendered_box.extend(self.renderBoxLayout(boxlayout=self.boxlayout,
-                                                     title=self.title,
-                                                     body=body,
-                                                     portlet=portlet, **kw)
-                               )
-            rendered_box.extend('</div></div>')
+            rendered_box.extend(self.renderBoxLayout(
+                boxlayout=self.boxlayout,
+                title=self.title,
+                body=body,
+                portlet=portlet, **kw))
+            # close the box frame
+            rendered_box.extend('</div>')
+            if boxstyle:
+                rendered_box.extend('</div>')
         return ''.join(rendered_box)
 
     #
