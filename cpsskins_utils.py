@@ -32,14 +32,14 @@ from CPSSkinsPermissions import ManageThemes
 from Products.CMFCore.utils import getToolByName, _getViewFor
 
 def rebuild_properties(obj):
-    """ This method rebuilds an object's property map (_properties) and  
+    """ This method rebuilds an object's property map (_properties) and
         to keep the property values up to date with the current property
         definition.
 
         If an unknown property field is found the method
-        will look for a dictionary item called 'default' and the 
+        will look for a dictionary item called 'default' and the
         property value will be filled with the value of 'default'.
-       
+
         Otherwise the property value will be reset to '' or 0 depending
         on its type.
     """
@@ -53,13 +53,13 @@ def rebuild_properties(obj):
         for prop in obj._properties:
             if prop['id'] == prop_map['id']:
                 prop = prop_map.copy()
-                             
+
     #
     # Rebuild properties
     #
-    new_prop_dict = {}       
-    new_prop_ids = []       
-    for prop_id in prop_ids:       
+    new_prop_dict = {}
+    new_prop_ids = []
+    for prop_id in prop_ids:
         try:
             prop_value = obj.getProperty(prop_id)
         except AttributeError:
@@ -79,7 +79,7 @@ def rebuild_properties(obj):
 
             if default_value is not None:
                 prop_value = default_value
-            else:   
+            else:
                 prop_type = obj.getPropertyType(prop_id)
                 if prop_type in ['int', 'boolean']:
                     prop_value = 0
@@ -87,7 +87,7 @@ def rebuild_properties(obj):
                 if prop_type in ['lines', 'string', 'text', \
                                  'selection', 'multiple selection']:
                     prop_value = ''
- 
+
         if prop_value is not None and not hasattr(prop_value, 'aq_base'):
             new_prop_dict[prop_id] = prop_value
 
@@ -125,7 +125,7 @@ def getFreeId(container=None, try_id=None):
     """ This method looks for a free object id in the current folder
         and returns an id.
     """
-                  
+
     if container is None:
         return None
 
@@ -144,10 +144,10 @@ def getFreeTitle(container=None, title='Noname'):
     """ This method looks for a free object title in a container
         and returns a title.
 
-        If a title is passed as a parameter, the method will check first  
+        If a title is passed as a parameter, the method will check first
         if the title is free.
-      
-        Otherwise a figure (1, 2, ...) will be added to the title 
+
+        Otherwise a figure (1, 2, ...) will be added to the title
         until a free title is found.
     """
 
@@ -159,7 +159,7 @@ def getFreeTitle(container=None, title='Noname'):
     new_title = title
     i = 0
     while 1:
-        if titles is None: 
+        if titles is None:
             break
         if new_title not in titles:
             break
@@ -180,7 +180,7 @@ def canonizeStyleTitle(title=''):
     return newtitle
 
 def canonizeId(self):
-    """ This method canonizes a Zope Id 
+    """ This method canonizes a Zope Id
     """
 
     current_id = self.getId()
@@ -199,7 +199,7 @@ def canonizeId(self):
         container.manage_renameObject(current_id, new_id)
 
 def verifyThemePerms(self):
-    """ This method sets the correct permissions on an object 
+    """ This method sets the correct permissions on an object
         belonging to a theme.
     """
 
@@ -209,21 +209,25 @@ def verifyThemePerms(self):
 
 def detectPortalType(self):
     """ This methods attempts to detect the portal type
-    """  
-             
+    """
+
     portal_type = 'CMF'
     utool = getToolByName(self, 'portal_url')
     portal = utool.getPortalObject()
     meta_type = portal.meta_type
-             
+
     # CPS2
     if getToolByName(self, 'portal_hierarchies', None) is not None:
         return 'CPS2'
-             
+
     # CPS3
+    if hasattr(portal, 'cps_version'):
+        if portal.cps_version.startswith('CPS3'):
+            return 'CPS3'
+
     if meta_type == 'CPSDefault Site':
         return 'CPS3'
-            
+
     # Plone
     migrationtool = getToolByName(self, 'portal_migration', None)
     if migrationtool is not None:
@@ -232,7 +236,7 @@ def detectPortalType(self):
             return 'Plone2'
         if version.startswith('1'):
             return 'Plone'
-          
+
     return portal_type
 
 
@@ -260,13 +264,13 @@ def getObjectVisibility(self, REQUEST):
     if visibility == 'if_authenticated':
         mtool = getToolByName(self, 'portal_membership')
         if not mtool.isAnonymousUser():
-           return 1       
-                            
+           return 1
+
     if visibility == 'if_anonymous':
         mtool = getToolByName(self, 'portal_membership')
         if mtool.isAnonymousUser():
-            return 1       
-                            
+            return 1
+
     if visibility == 'time_limited':
         now = DateTime()
         effective_date = self.EffectiveDate()
@@ -283,54 +287,54 @@ def getObjectVisibility(self, REQUEST):
                       'starting_from', 'up_till']:
         if REQUEST is None:
             return None
-                            
+
         portal_url = utool(relative=0)
-                             
+
         url = None
         # simulated URL
         rurl = REQUEST.form.get('sim_url', None)
-        if rurl:           
+        if rurl:
             url = rurl
-                            
-        # real URL         
+
+        # real URL
         if rurl is None:
             url_obj = REQUEST.get('context_obj', None)
-            if url_obj is not None:     
-                url = utool.getRelativeContentURL(url_obj)  
-                if url:    
+            if url_obj is not None:
+                url = utool.getRelativeContentURL(url_obj)
+                if url:
                     url = '/' + url + '/'
-                else:      
+                else:
                     url = '/'
-                               
-        if url is None:    
+
+        if url is None:
             return None
-                        
+
         url_path = url
         paths = [(p == '/' and '' or p) for p in self.visibility_paths]
-                            
+
         if visibility == 'only_in':
             if url_path in paths:
-                return 1 
-                               
+                return 1
+
         if visibility == 'everywhere_except_in':
             if url_path not in paths:
-                return 1 
-                             
+                return 1
+
         if visibility == 'starting_from':
-            for p in paths: 
+            for p in paths:
                 if url_path.startswith(p):
-                    return 1 
-                               
+                    return 1
+
         if visibility == 'up_till':
-            for p in paths: 
+            for p in paths:
                 if p.startswith(url_path):
                      return 1
-                            
+
     if visibility == 'if_secure_connection':
         if REQUEST is not None:
             theBase = REQUEST['BASE0'].split('//')[0]
-            if theBase == 'https:': 
-                return 1   
+            if theBase == 'https:':
+                return 1
 
 
 def getApplicableStylesFor(self):
@@ -343,8 +347,8 @@ def getApplicableStylesFor(self):
     style_types = tmtool.listStyleMetaTypes()
     for propid in self.propertyIds():
         prop_map = self.propertyMap()
-        for obj in prop_map:            
-            if obj['id'] == propid:                
+        for obj in prop_map:
+            if obj['id'] == propid:
                 style = obj.get('style')
                 id = obj.get('id')
                 if style and style in style_types:
@@ -352,15 +356,15 @@ def getApplicableStylesFor(self):
                 break
     return list
 
-def getStyleList(self, meta_type):           
+def getStyleList(self, meta_type):
     """ Returns a list of styles by meta type"""
 
     tmtool = getToolByName(self, 'portal_themes')
     styles = tmtool.findStylesFor(category = meta_type, object=self)
-    if styles: 
+    if styles:
         return styles['title']
 
-def getDefaultLang(self):           
+def getDefaultLang(self):
     """ Returns the code name of the current language """
 
     langs = []
@@ -369,19 +373,19 @@ def getDefaultLang(self):
         lc = getattr(self, 'Localizer', None)
 
     default_lang = None
-    if lc is not None: 
+    if lc is not None:
         if hasattr(lc, 'get_languages_map'):
             get_languages_map = lc.get_languages_map
             if callable(get_languages_map):
                 langs = get_languages_map()
                 for lang in langs:
                     if lang['selected']:
-                        default_lang = lang['id'] 
+                        default_lang = lang['id']
                         break
     return default_lang
 
 
-def getAvailableLangs(self):           
+def getAvailableLangs(self):
     """ Returns a list of available languages"""
 
     langs = []
@@ -389,7 +393,7 @@ def getAvailableLangs(self):
     if lc is None:
         lc = getattr(self, 'Localizer', None)
 
-    if lc is not None: 
+    if lc is not None:
         if hasattr(lc, 'get_available_languages'):
             available_langs = lc.get_available_languages
             if callable(available_langs):
@@ -424,7 +428,7 @@ def moveToLostAndFound(self, obj):
         new_id = res[0]['new_id']
         newobj = getattr(lost_and_found, new_id)
         manage_perms = newobj.manage_permission
-        manage_perms(View, roles=['Manager'], acquire=0) 
+        manage_perms(View, roles=['Manager'], acquire=0)
         manage_perms(AccessContentsInformation, roles=['Manager'], acquire=0)
     except:
         container.manage_delObjects(obj.getId())
