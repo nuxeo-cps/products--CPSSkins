@@ -211,10 +211,10 @@ class PortalBoxGroup(BaseTemplet):
             else:
                 rendered = portlet.render_cache(**kw)
             # add the box decoration
-            rendered = self.applyBoxLayout(title=portlet.getTitle(),
-                                           body=rendered,
-                                           state=portlet.getState(),
-                                           url=portlet.getRelativeUrl())
+            rendered = self.applyBoxLayout(portlet_title=portlet.getTitle(),
+                                           portlet_body=rendered,
+                                           portlet_state=portlet.getState(),
+                                           portlet_url=portlet.getRelativeUrl())
             all_rendered += rendered
         return all_rendered
 

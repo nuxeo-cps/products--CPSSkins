@@ -3,10 +3,10 @@
      tal:attributes="style string:padding:${here/padding}">
   <metal:block use-macro="boxlayout_macro_path">
     <metal:block fill-slot="box_title" >
-      <tal:block content="structure options/title" />
+      <tal:block content="structure options/portlet_title" />
     </metal:block>
     <metal:block fill-slot="box_body" >
-      <tal:block content="structure options/body" />
+      <tal:block content="structure options/portlet_body" />
     </metal:block>
   </metal:block>
 </div>
