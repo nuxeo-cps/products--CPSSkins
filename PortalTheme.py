@@ -407,7 +407,7 @@ class PortalTheme(ThemeFolder):
             REQUEST.RESPONSE.setHeader('Content-Type', 'text/css')
 
         cache = self.getCSSCache(create=1)
-        index = tuple(kw.items())
+        index = self.getPhysicalPath() + tuple(kw.items())
 
         cleanup_date = getattr(self, 'css_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
@@ -440,7 +440,7 @@ class PortalTheme(ThemeFolder):
             kw.update(REQUEST.form)
 
         cache = self.getJSCache(create=1)
-        index = tuple(kw.items())
+        index = self.getPhysicalPath() + tuple(kw.items())
 
         cleanup_date = getattr(self, 'js_cache_cleanup_date', 0)
         last_update = cache.getLastUpdate()
