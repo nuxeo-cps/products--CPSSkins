@@ -207,12 +207,12 @@ class PortletBox(BaseTemplet):
             # crash shield
             if shield:
                 try:
-                    rendered = portlet.render(proxy=portlet) 
+                    rendered = portlet.render() 
                 # could be anything
                 except:
                     rendered = self.cpsskins_brokentemplet()
             else:
-                rendered = portlet.render(proxy=portlet)
+                rendered = portlet.render()
         return rendered
 
     #
