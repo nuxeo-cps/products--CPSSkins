@@ -845,7 +845,7 @@ class BaseTemplet(DynamicType, PropertyManager, SimpleItem):
         return rendered
 
     security.declarePublic('render_cache')
-    def render_cache(self, shield=0, theme=None):
+    def render_cache(self, shield=0, theme=None, **kw):
         """Renders the cached version of the templet."""
         
         if not self.cacheable:
