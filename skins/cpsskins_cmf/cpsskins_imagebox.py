@@ -30,7 +30,7 @@ else:
     link = context.link
 
 if link:
-    tag += '<a href="%s">' % link
+    tag += '<a href="%s" title="%s">' % (link, title)
 
 tag += '<img src="%s/index_html" width="%s" height="%s" alt="%s" />' % \
         (img_url, width, height, title)
