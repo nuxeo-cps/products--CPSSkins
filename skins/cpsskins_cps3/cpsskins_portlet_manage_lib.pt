@@ -32,12 +32,15 @@
     </div>
     <tal:block repeat="ptype_id ptltool/listPortletTypes">
       <div class="context-menu-item"
-          filter="pd_selected_item"
-          tal:attributes="onmouseup string:Choice_insert('${ptype_id}')" >
-        <tal:block i18n:translate=""
-         define="fti python: ttool.getTypeInfo(ptype_id);
-                 title python: fti and fti.title_or_id() or ptype_id"
-         content="title" />
+      filter="pd_selected_item"
+      tal:attributes="onmouseup string:Choice_insert('${ptype_id}')"
+      tal:define="fti python: ttool.getTypeInfo(ptype_id);
+                  portlet_icon python: fti.getIcon();
+                  portlet_title python: fti and fti.title_or_id() or ptype_id">
+        <img width="16" height="16" 
+         tal:condition="portlet_icon"
+         tal:attributes="src string:${portal_url}/$portlet_icon" />
+        <tal:block content="structure python: cpsmcat(portlet_title)" />
       </div>
     </tal:block>
   </div>
