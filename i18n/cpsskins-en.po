@@ -1296,7 +1296,7 @@ msgstr "Tab width"
 
 
 msgid "_Templet color_"
-msgstr "Color"
+msgstr "Area color"
 
 
 msgid "_Templet height_"
@@ -1312,7 +1312,7 @@ msgstr "Padding"
 
 
 msgid "_Templet shape_"
-msgstr "Shape"
+msgstr "Area shape"
 
 
 msgid "_Templets_"

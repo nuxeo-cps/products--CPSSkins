@@ -1298,7 +1298,7 @@ msgstr "Largeur des onglets"
 
 
 msgid "_Templet color_"
-msgstr "Couleurs"
+msgstr "Couleurs du cadre"
 
 
 msgid "_Templet height_"
@@ -1314,7 +1314,7 @@ msgstr "Espace de remplissage"
 
 
 msgid "_Templet shape_"
-msgstr "Contours"
+msgstr "Forme du cadre"
 
 
 msgid "_Templets_"
