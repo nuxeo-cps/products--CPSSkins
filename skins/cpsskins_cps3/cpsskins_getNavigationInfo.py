@@ -29,7 +29,6 @@ if base is None:
 
 ttool = context.portal_trees
 utool = context.portal_url
-portalpath = utool.getPortalPath()
 
 if base in ttool.objectIds():
     base_obj = ttool[base]
@@ -52,7 +51,8 @@ here_rurl_slash = here_rurl + '/'
 parent_url = here_rurl
 path_list = here_rurl.split('/')
 
-portal_url = utool(relative=0)
+base_url = context.cpsskins_getBaseUrl()
+
 base_create_path = ''
 base_create_obj = None
 create_url = ''
@@ -64,20 +64,20 @@ if rel_level > 0:
                                        stop_depth=rel_level-1)
 
     for item in parent_treelist:
-        rpath = '/%s' % item['rpath']
-        if here_rurl_slash.startswith(rpath + '/'):
+        rpath = item['rpath']
+        if here_rurl_slash.startswith('/' + rpath + '/'):
             parent_url = rpath
-            base_create_path = portalpath + parent_url 
+            base_create_path = utool.getPortalPath() + '/' + parent_url 
             break
 
 if rel_level == 1:
-    base_create_url = '%s/%s' % (portal_url, base)
+    base_create_url = base_url + base
     base_create_obj = base_obj_as_proxy
 
 if base_create_obj is None and base_create_path != '':
     try:
         base_create_obj = context.restrictedTraverse(base_create_path)
-        base_create_url = portal_url + parent_url
+        base_create_url = base_url + parent_url
     except:
         pass
 
@@ -115,12 +115,12 @@ if base_create_obj:
         if hasattr(doc.aq_explicit, 'getRID'):
             doc = doc.getObject()
 
-        doc_rpath =  '/' + utool.getRelativeUrl(doc)
+        doc_rpath = utool.getRelativeUrl(doc)
         menuentries.append(
             {'title' : doc.title_or_id(),
              'id' : doc.id,
-             'url' : portal_url + doc_rpath,
-             'selected' : here_rurl_slash.startswith(doc_rpath + '/'),
+             'url' : base_url + doc_rpath,
+             'selected' : here_rurl_slash.startswith('/' + doc_rpath + '/'),
              'icon' : doc.getIcon(relative_to_portal=1),
              'folderish' : folderish }
         ) 
