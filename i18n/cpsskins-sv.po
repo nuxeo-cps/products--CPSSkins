@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Default messages\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2004-01-08 02:00+CET\n"
+"PO-Revision-Date: 2005-02-22 19:46+0100\n"
 "Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
 "Language-Team: sv <>\n"
 "MIME-Version: 1.0\n"
@@ -52,15 +52,15 @@ msgstr "Dekoration besökt länk"
 
 
 msgid "_Action Box Templet_"
-msgstr "Kommando box"
+msgstr "Kommandoruta"
 
 
 msgid "_Action box_"
-msgstr "Handlingsruta"
+msgstr "Kommandoruta"
 
 
 msgid "_Action categories_"
-msgstr "Handlingskategorier"
+msgstr "Kommandokategorier"
 
 
 msgid "_Add a column_"
@@ -108,11 +108,11 @@ msgstr "April"
 
 
 msgid "_Area Color_"
-msgstr "Färg yta"
+msgstr "Färg"
 
 
 msgid "_Area Shape_"
-msgstr "Form på yta"
+msgstr "Form"
 
 
 msgid "_Area active background color_"
@@ -144,7 +144,7 @@ msgstr "Ramfärg"
 
 
 msgid "_Area border style_"
-msgstr "Ramformat"
+msgstr "Ramstil"
 
 
 msgid "_Area border width_"
@@ -152,15 +152,15 @@ msgstr "Ramtjocklek"
 
 
 msgid "_Area color_"
-msgstr "Färg yta"
+msgstr "Färg"
 
 
 msgid "_Area font color_"
-msgstr "Färg font "
+msgstr "Fontfärg"
 
 
 msgid "_Area shape_"
-msgstr "Form på yta"
+msgstr "Form"
 
 
 msgid "_Area text transform_"
@@ -204,7 +204,7 @@ msgstr "Runda hörn"
 
 
 msgid "_Box color_"
-msgstr "Färg portalruta"
+msgstr "Boxfärg"
 
 
 msgid "_Box corners_"
@@ -220,7 +220,7 @@ msgstr "Orientering portalruta"
 
 
 msgid "_Box shape_"
-msgstr "Form portalruta"
+msgstr "Boxform"
 
 
 msgid "_BoxBody background color_"
@@ -236,7 +236,7 @@ msgstr "Ramfärg"
 
 
 msgid "_BoxBody border style_"
-msgstr "Ramformat"
+msgstr "Ramstil"
 
 
 msgid "_BoxBody border width_"
@@ -248,7 +248,7 @@ msgstr "Ramfärg"
 
 
 msgid "_BoxBody menuin border style_"
-msgstr "Ramformat"
+msgstr "Ramstil"
 
 
 msgid "_BoxBody menuin border width_"
@@ -276,7 +276,7 @@ msgstr "Ramfärg"
 
 
 msgid "_BoxBody menuout border style_"
-msgstr "Ramformat"
+msgstr "Ramstil"
 
 
 msgid "_BoxBody menuout border width_"
@@ -320,7 +320,7 @@ msgstr "Ramfärg"
 
 
 msgid "_BoxTitle border style_"
-msgstr "Ramformat"
+msgstr "Ramstil"
 
 
 msgid "_BoxTitle border width_"
@@ -328,11 +328,11 @@ msgstr "Ramtjocklek"
 
 
 msgid "_BoxTitle display_"
-msgstr "Visa"
+msgstr "Format"
 
 
 msgid "_BoxTitle font color_"
-msgstr "Färg font"
+msgstr "Fontfärg"
 
 
 msgid "_BoxTitle font_"
@@ -348,11 +348,11 @@ msgstr "Textjustering"
 
 
 msgid "_Breadcrumbs Templet_"
-msgstr "Templet brödsmulor"
+msgstr "Breadcrumbs"
 
 
 msgid "_Breadcrumbs_"
-msgstr "Brödsmulor"
+msgstr "Breadcrumbs"
 
 
 msgid "_Broken Templet!_"
@@ -388,7 +388,7 @@ msgstr "Cachning"
 
 
 msgid "_Calendar Style_"
-msgstr "Kalenderformat"
+msgstr "Kalenderstil"
 
 
 msgid "_Calendar Templet_"
@@ -469,7 +469,7 @@ msgstr "Skapad av:"
 
 
 msgid "_Creator_"
-msgstr ""
+msgstr "Skapare"
 
 
 msgid "_Custom action categories_"
@@ -509,7 +509,7 @@ msgstr "Ta bort Templet?"
 
 
 msgid "_Delete style?_"
-msgstr "Ta bort format?"
+msgstr "Ta bort stil?"
 
 
 msgid "_Delete theme?_"
@@ -529,7 +529,7 @@ msgstr "Ta bort denna palett post, är du säker?"
 
 
 msgid "_Deleting this style, are you sure?_"
-msgstr "Ta bort detta format, är du säker?"
+msgstr "Ta bort denna stil, är du säker?"
 
 
 # , fuzzy
@@ -583,11 +583,11 @@ msgstr "Redigera paletter"
 
 
 msgid "_Edit styles_"
-msgstr "Redigera format "
+msgstr "Redigera stilar"
 
 
 msgid "_Edit the current style_"
-msgstr "Redigera aktuellt format "
+msgstr "Redigera denna stil"
 
 
 msgid "_Edit the page_"
@@ -663,7 +663,7 @@ msgstr "Fontfärg "
 
 
 msgid "_Font Shape_"
-msgstr "Fontform "
+msgstr "Font"
 
 
 msgid "_Font color_"
@@ -671,7 +671,7 @@ msgstr "Fontfärg "
 
 
 msgid "_Font shape_"
-msgstr "Fontform"
+msgstr "Font"
 
 
 msgid "_Forgot your password?_"
@@ -715,7 +715,7 @@ msgstr "H1 ramfärg"
 
 
 msgid "_H1_border_style_"
-msgstr "H1 ramformat"
+msgstr "H1 ramstil"
 
 
 msgid "_H1_border_width_"
@@ -751,7 +751,7 @@ msgstr "H2 ramfärg"
 
 
 msgid "_H2_border_style_"
-msgstr "H2 ramformat"
+msgstr "H2 ramstil"
 
 
 msgid "_H2_border_width_"
@@ -787,7 +787,7 @@ msgstr "H3 ramfärg"
 
 
 msgid "_H3_border_style_"
-msgstr "H3 ramformat"
+msgstr "H3 ramstil"
 
 
 msgid "_H3_border_width_"
@@ -823,7 +823,7 @@ msgstr "H4, H5, H6 ramfärg "
 
 
 msgid "_H456_border_style_"
-msgstr "H4, H5, H6 ramformat"
+msgstr "H4, H5, H6 ramstil"
 
 
 msgid "_H456_border_width_"
@@ -1125,7 +1125,7 @@ msgstr "Övriga portlets"
 
 
 msgid "_Other styles_"
-msgstr "Övriga format "
+msgstr "Övriga stilar"
 
 
 msgid "_Other themes_"
@@ -1185,7 +1185,7 @@ msgstr "Box"
 
 
 msgid "_Portal Tab Style_"
-msgstr "Tabbar (format)"
+msgstr "Tabbar (stil)"
 
 
 msgid "_Portal Tab Templet_"
@@ -1294,7 +1294,7 @@ msgstr "Se fel-loggen"
 
 
 msgid "_Select a style_"
-msgstr "Välj ett format"
+msgstr "Välj en stil"
 
 
 msgid "_Select a theme to manage_"
@@ -1322,7 +1322,7 @@ msgstr "Genvägsikon"
 
 
 msgid "_Show action icons_"
-msgstr "Visa handlingsikoner"
+msgstr "Visa ikoner för kommandon"
 
 
 msgid "_Show add items_"
@@ -1370,11 +1370,11 @@ msgstr "Startsträng"
 
 
 msgid "_Style_"
-msgstr "Format"
+msgstr "Stil"
 
 
 msgid "_Styles_"
-msgstr "Format"
+msgstr "Stilar"
 
 
 msgid "_Stylize this cell_"
@@ -1394,7 +1394,7 @@ msgstr "Ramfärg undermeny"
 
 
 msgid "_Sub-menu border style_"
-msgstr "Ramformat undermeny"
+msgstr "Ramstil undermeny"
 
 
 msgid "_Sub-menu font color_"
@@ -1418,7 +1418,7 @@ msgstr "Bredd poster undermeny "
 
 
 msgid "_Tab style_"
-msgstr "Tabbformat"
+msgstr "Tabbstil"
 
 
 msgid "_Tab width_"
@@ -1426,7 +1426,7 @@ msgstr "Tabb-bredd"
 
 
 msgid "_Tableless_"
-msgstr ""
+msgstr "Utan tabeller"
 
 
 msgid "_Templet color_"
@@ -1536,19 +1536,19 @@ msgstr "Dessa Templets kan lagras i minnet för snabbare rendering:"
 
 
 msgid "_These styles are identical and can be merged together:_"
-msgstr "Dessa format är identiska och kan sammanslås:"
+msgstr "Dessa stilar är identiska och kan sammanslås:"
 
 
 msgid "_These styles are not used and can be deleted:_"
-msgstr "Dessa format används ej och kan raderas:"
+msgstr "Dessa stilar används ej och kan raderas:"
 
 
 msgid "_This style is already used by_"
-msgstr "Formatet används redan av "
+msgstr "Stilen används redan av "
 
 
 msgid "_This style will be used by default_"
-msgstr "Detta format kommer att användas som standard"
+msgstr "Denna stil kommer att användas som standard"
 
 
 msgid "_This theme is completely optimized_"
@@ -1577,7 +1577,7 @@ msgstr "Ramfärg toppmeny"
 
 
 msgid "_Top menu border style_"
-msgstr "Ramformat toppmeny"
+msgstr "Ramstil toppmeny"
 
 
 msgid "_Top menu font color_"
@@ -1641,7 +1641,7 @@ msgstr "Använd cachen?"
 
 
 msgid "_Use this as the default style_"
-msgstr "Använd detta som standardformat"
+msgstr "Använd denna som standardstil"
 
 
 msgid "_Username_"
@@ -1713,19 +1713,19 @@ msgstr "Om"
 
 
 msgid "_actionbox_templet_description_"
-msgstr "Ett verktygsfält innehållande handlings-knappar med ikoner"
+msgstr "Ett verktygsfält innehållande kommandoknappar med ikoner"
 
 
 msgid "_actions_"
-msgstr "Handlingar"
+msgstr "Kommandon"
 
 
 msgid "_areacolor_description_"
-msgstr "Detta format definierar bakgrund, ram och textfärg för en yta."
+msgstr "Denna stil definierar bakgrund, ram och textfärg för en yta."
 
 
 msgid "_areashape_description_"
-msgstr "Detta format definierar ramformat och tjocklek för en yta. "
+msgstr "Denna stil definierar ramformat och tjocklek för en yta. "
 
 
 msgid "_back_"
@@ -1749,11 +1749,11 @@ msgstr "Färg portalruta"
 
 
 msgid "_boxcolor_description_"
-msgstr "detta format definierar färg på portalrutor"
+msgstr "denna stil definierar färg på portalrutor"
 
 
 msgid "_boxcorners_description_"
-msgstr "detta format definierar utseende på hörn för ruta"
+msgstr "denna stil definierar utseende på hörn för ruta"
 
 
 msgid "_boxshape_"
@@ -1761,7 +1761,7 @@ msgstr "Portal box shape"
 
 
 msgid "_boxshape_description_"
-msgstr "detta format definierar form på portalrutor"
+msgstr "denna stil definierar form på portalrutor"
 
 
 msgid "_breadcrumbs_templet_description_"
@@ -1837,7 +1837,7 @@ msgstr "Ladda upp bild"
 
 
 msgid "_calendar_style_"
-msgstr "Kalenderformat "
+msgstr "Kalenderstil"
 
 
 msgid "_calendar_templet_description_"
@@ -1845,7 +1845,7 @@ msgstr "en kalender med månatliga händelser "
 
 
 msgid "_calendarstyle_description_"
-msgstr "detta format definierar kalenderns visuella utseende"
+msgstr "denna stil definierar kalenderns visuella utseende"
 
 
 msgid "_cellblock_description_"
@@ -1861,7 +1861,7 @@ msgstr "en Cell Sizer sätter bredden på en cell."
 
 
 msgid "_cellstyler_description_"
-msgstr "en Cell Formatterare modifierar formatet på en cell."
+msgstr "en Cell Stilsättare modifierar stilen på en cell."
 
 
 msgid "_clipboard_"
@@ -1869,7 +1869,7 @@ msgstr "*Klippbord"
 
 
 msgid "_collapsiblemenu_style_"
-msgstr "*Fällbar meny format"
+msgstr "Fällbar meny stil"
 
 
 msgid "_collapsiblemenu_templet_description_"
@@ -1925,11 +1925,11 @@ msgstr "Fontfärg "
 
 
 msgid "_fontcolor_description_"
-msgstr "detta format definierar font, länk och dekorationsfärger. "
+msgstr "denna stil definierar font, länk och dekorationsfärger. "
 
 
 msgid "_fontshape_"
-msgstr "Fontformat"
+msgstr "Fontstil"
 
 
 # , fuzzy
@@ -1938,7 +1938,7 @@ msgstr "*this style defines font sizes, links and decoration styles."
 
 
 msgid "_formstyle_description_"
-msgstr "detta format definierar utseende på formulär och formulärelement. "
+msgstr "denna stil definierar utseende på formulär och formulärelement. "
 
 
 # , fuzzy
@@ -2011,11 +2011,11 @@ msgstr "Hörn ruta"
 
 
 msgid "_menu_Calendar Style_"
-msgstr "Kalenderformat"
+msgstr "Kalenderstil"
 
 
 msgid "_menu_Collapsible Menu Style_"
-msgstr "*Fällbar meny format"
+msgstr "Fällbar meny stil"
 
 
 msgid "_menu_Copy_"
@@ -2031,7 +2031,7 @@ msgstr "Duplicera"
 
 
 msgid "_menu_Edit styles_"
-msgstr "Redigera format "
+msgstr "Redigera stilar "
 
 
 msgid "_menu_Edit_"
@@ -2043,11 +2043,11 @@ msgstr "Fontfärg "
 
 
 msgid "_menu_Font Shape_"
-msgstr "Fontformat"
+msgstr "Font"
 
 
 msgid "_menu_Form Style_"
-msgstr "Formulärformat "
+msgstr "Formulärstil"
 
 
 msgid "_menu_Insert_"
@@ -2071,7 +2071,7 @@ msgstr "Form ruta "
 
 
 msgid "_menu_Portal Tab Style_"
-msgstr "Format tabb"
+msgstr "Stil tabb"
 
 
 msgid "_menu_Set alignment_"
@@ -2083,7 +2083,7 @@ msgstr "Sätt layout"
 
 
 msgid "_menu_Set styles_"
-msgstr "Sätt format "
+msgstr "Sätt stilar"
 
 
 msgid "_menu_Set_as_default_"
@@ -2107,7 +2107,7 @@ msgstr "Användarnamn "
 
 
 msgid "_option_Workflow state_"
-msgstr "Status Arbetsyta "
+msgstr "Publiceringsstatus"
 
 
 msgid "_option_about_"
@@ -2115,7 +2115,7 @@ msgstr "Om detta objekt "
 
 
 msgid "_option_actions_"
-msgstr "Handlingar portal"
+msgstr "Kommandon"
 
 
 msgid "_option_always_"
@@ -2428,17 +2428,17 @@ msgstr "Vertikal"
 
 
 msgid "_pageblock_description_"
-msgstr "ett Sidblock består av Celler (kolumner). Utseendet på en Cell kan ändras genom att använda Cell Format, Cell Sizers och Cell Hiders. "
+msgstr "ett Sidblock består av Celler (kolumner). Utseendet på en Cell kan ändras genom att använda Cell Stilsättare, Cell Sizers och Cell Hiders. "
 
 
 # , fuzzy
 msgid "_paletteborder_description_"
-msgstr "*dessa palett poster definierar formen på ramar använda i format. "
+msgstr "Dessa palett poster definierar formen på ramar använda i olika stilar. "
 
 
 # , fuzzy
 msgid "_palettecolor_description_"
-msgstr "*dessa palett poster definierar färger använda i format. "
+msgstr "Dessa palett poster definierar färger använda i olika stilar"
 
 
 # , fuzzy
@@ -2457,11 +2457,11 @@ msgstr "*horizontal tabs displaying folders, actions, etc."
 
 
 msgid "_portaltabstyle_"
-msgstr "Format portaltabb"
+msgstr "Stil tabb"
 
 
 msgid "_portaltabstyle_description_"
-msgstr "detta format definierar utseende på portaltabbar "
+msgstr "Denna stil definierar utseende på tabbar "
 
 
 # , fuzzy
@@ -2502,11 +2502,11 @@ msgstr "Vald tabb"
 
 
 msgid "_set as default style_"
-msgstr "sätt som standardformat"
+msgstr "sätt som standardstil"
 
 
 msgid "_shape_"
-msgstr "Form yta "
+msgstr "Form"
 
 
 msgid "_size_"
@@ -2514,7 +2514,7 @@ msgstr "Storlek"
 
 
 msgid "_style_"
-msgstr "Format"
+msgstr "Stil"
 
 
 msgid "_submenu_"
