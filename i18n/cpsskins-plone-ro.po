@@ -13,7 +13,7 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: plone\n"
-"Language-code: ro-ro\n"
+"Language-code: ro\n"
 "Language-name: Romanian\n"
 "Preferred-encodings: utf-8 latin1\n"
 
