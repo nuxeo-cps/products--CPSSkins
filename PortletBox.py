@@ -66,20 +66,31 @@ class PortletBox(BaseTemplet):
                      )
 
     _properties = BaseTemplet._properties + (
-       {'id': 'box_id', 
+       {'id': 'portlet_id', 
         'type': 'selection', 
         'mode': 'w', 
         'label': 'Portlet id', 
         'select_variable': 'cpsskins_select_portlet',
+        'category': 'none',
+       },
+       {'id': 'portlet_type', 
+        'type': 'selection', 
+        'mode': 'w', 
+        'label': 'Portlet type', 
+        'select_variable': 'cpsskins_listPortletTypes',
         'category': 'general',
+        'visible': 'showPortletTypes',
+        'i18n': 1,
        },
     )
 
     def __init__(self, id, 
-                 box_id = None, 
+                 portlet_id = None, 
+                 portlet_type = None,
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
-        self.box_id = box_id
+        self.portlet_id = portlet_id
+        self.portlet_type = portlet_type
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
@@ -108,6 +119,40 @@ class PortletBox(BaseTemplet):
 
         return self.isportletbox
            
+    security.declareProtected(ManageThemes, 'edit')
+    def edit(self, **kw):
+        """
+        Edit method, changes the properties 
+        or creates a new global portlet.
+        """
+
+        if self.getPortletId() is None:
+            ptype_id = kw.get('portlet_type', None) 
+            if ptype_id is not None:
+                # Create a global portlet on the fly and associate
+                # the portlet id to this portlet box.
+ 
+                # XXX CPS3 specific - should it be here?
+                ptltool = getToolByName(self, 'portal_cpsportlets')
+                portlet_id = ptltool.createPortlet(ptype_id=ptype_id, isglobal=(1))
+                if portlet_id is not None:
+                    kw.update({'portlet_id': portlet_id}) 
+
+        self.manage_changeProperties(**kw)
+        self.expireCache()
+
+    #
+    # Object attributes.
+    #
+    security.declarePublic('showPortletTypes')
+    def showPortletTypes(self):
+        """Returns true if the portal type selector 
+           should be shown.
+        """
+
+        if self.getPortletId() is None:
+            return 1
+
     #
     # Portlet interface.
     #
@@ -115,7 +160,14 @@ class PortletBox(BaseTemplet):
     def getPortletId(self):
         """Returns the id of the associated portlet."""
 
-        return getattr(self, 'box_id', None)
+        return getattr(self, 'portlet_id', None)
+
+    security.declarePublic('getPortletType')
+    def getPortletType(self):
+        """Returns the portal type of the associated portlet."""
+
+        return None
+        return getattr(self, 'portlet_type', None)
 
     # RAM Cache
     #

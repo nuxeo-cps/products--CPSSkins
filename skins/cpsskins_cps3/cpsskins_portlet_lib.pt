@@ -1,7 +1,7 @@
 <metal:block define-macro="edit_form">
   <tal:block define="ptltool here/portal_cpsportlets;
-                     box_id here/box_id;
-                     portlet python: ptltool.getPortletById(box_id)"
+                     portlet_id here/portlet_id|nothing;
+                     portlet python: ptltool.getPortletById(portlet_id)"
              condition="portlet">
    <div tal:replace="structure python:portlet.getContent().render(layout_mode='edit')" />
   </tal:block>

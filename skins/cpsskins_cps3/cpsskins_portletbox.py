@@ -1,9 +1,11 @@
 
 ptltool = context.portal_cpsportlets
-box_id = context.box_id
-portlet = ptltool.getPortletById(box_id)
+portlet_id = getattr(context, 'portlet_id', None)
+portlet = ptltool.getPortletById(portlet_id)
+
+return portlet_id
 
 rendered = ''
 if portlet is not None:
-    rendered = portlet.getContent().render(proxy=portlet) 
+    rendered = portlet.render(proxy=portlet) 
 return rendered
