@@ -78,7 +78,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             title='_action_themes_reconfig_',
             description='Configure Portal Themes',
             action=Expression(
-                text='string: ${portal_url}/cpsskins_themes_reconfig_form'),
+                text='string:${portal_url}/cpsskins_themes_reconfig_form'),
                 permissions=('View',),
                 category='global',
                 condition='python: member and portal.portal_membership.checkPermission(\'Manage Themes\', portal.portal_themes)',
