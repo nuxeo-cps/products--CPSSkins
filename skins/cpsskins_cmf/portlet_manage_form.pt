@@ -13,7 +13,7 @@
                   selected_portlet view_mode/selected_portlet|nothing;
                   clipboard view_mode/clipboard|nothing;
                   portal_path python: utool.getPortalPath();
-                  clipboard_portlet python: here.restrictedTraverse(portal_path + '/' + clipboard, default=None);
+                  clipboard_portlet python: clipboard and here.restrictedTraverse(portal_path + '/' + clipboard, default=None) or nothing;
                   cpsmcat python: here.cpsskins_getlocalizer(cat='default');
                   checkPerm nocall:mtool/checkPermission">
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
