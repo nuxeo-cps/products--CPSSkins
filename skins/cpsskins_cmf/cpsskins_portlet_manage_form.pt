@@ -41,7 +41,10 @@
     <tal:block condition="wysiwyg">
       <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/main">
         <metal:block fill-slot="maincontent">
-          <div style="border: 1px solid black; padding: 20px;">Main slot</div>
+          <div style="border: 1px solid black; padding: 20px"
+           i18n:translate=""
+           tal:define="title string:_Main content_"
+           tal:content="python: mcat and mcat(title) or title">Main slot</div>
         </metal:block>
       </metal:block>
     </tal:block> 
