@@ -4,57 +4,33 @@
             search_script_url python: search_urls['script'];
             search_form_url python: search_urls['form'];
             portal_url here/portal_url;
-	    style python: here.style">
-  <tal:block condition="python: style == 'compact'">
-    <form style="margin:0px; padding:0px" method="get"
-    tal:attributes="action python: portal_url + '/' + search_script_url">
-      <table cellpadding="0" cellspacing="0" border="0" summary="">
-        <tr>
-          <td>
-            <input type="text" name="SearchableText" size="10"
-            maxLength="256" />
-          </td>
-          <td>
-            <input i18n:attributes="value" 
-            tal:define="title string:_searchbox_Search_"
-            tal:attributes="value python: mcat and mcat(title) or title"
-            type="submit" class="SearchBox"/>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </tal:block>
-
-  <tal:block condition="python: style == 'advanced'">
-    <form style="margin:0px; padding:0px" method="get"
-     tal:attributes="action python: portal_url + '/' + search_script_url">
-      <table cellpadding="0" cellspacing="0" border="0" summary="">
-        <tr>
-          <td colspan="2">
-            <strong tal:define="title string:_searchbox_Search_"
-             tal:content="python: mcat and mcat(title) or title" 
-             i18n:translate="" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="text" name="SearchableText" size="18" />
-          </td>
-          <td>
-            <input type="submit" value="OK" class="SearchBox"/>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <a tal:define="title string:_searchbox_Advanced_search;
-                           advanced_search_form_url python: search_urls['advanced']"
-            tal:content="python: mcat and mcat(title) or title"
-            i18n:translate=""
-            tal:attributes="href python: portal_url + '/' + advanced_search_form_url">
-                            Advanced search</a>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </tal:block>
+            style python: here.style">
+  <form tal:condition="python: style == 'compact'"
+   style="margin:0px; padding:0px" method="get"
+   tal:attributes="action python: portal_url + '/' + search_script_url">
+    <label>
+      <input type="text" name="SearchableText" size="12"
+       maxLength="256" />
+      <input i18n:attributes="value" 
+       tal:define="title string:_searchbox_Search_"
+       tal:attributes="value python: mcat and mcat(title) or title"
+       type="submit" class="SearchBox"/>
+    </label>
+  </form>
+  <form tal:condition="python: style == 'advanced'"
+   style="margin:0px; padding:0px" method="get">
+   tal:attributes="action python: portal_url + '/' + search_script_url">
+    <label>
+     <strong tal:define="title string:_searchbox_Search_"
+      tal:content="python: mcat and mcat(title) or title" 
+      i18n:translate="" />
+      <input type="text" name="SearchableText" size="18" />
+      <input type="submit" value="OK" class="SearchBox" />
+    </label>
+    <a i18n:translate=""
+     tal:define="title string:_searchbox_Advanced_search;
+                 advanced_search_form_url python: search_urls['advanced']"
+     tal:content="python: mcat and mcat(title) or title"
+     tal:attributes="href python: portal_url + '/' + advanced_search_form_url" />
+  </form>
 </tal:block>
