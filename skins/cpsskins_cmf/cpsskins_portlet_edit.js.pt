@@ -50,7 +50,6 @@ function Portlet_prepare_element_menu(header) {
 function Portlet_add(selected_items, target_node) {
   if (!selected_items.length)
     return;
-  target_node.style.border = "1px solid transparent";
   dest = findDescendant(target_node, 'PortletBoxDest')
   if (dest == null)
      return;
@@ -74,8 +73,8 @@ function PortletBox_move(selected_items, target_node) {
   dest_ypos = dest.getAttribute('dest_ypos');
   portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
   copy = pd_selected_item.getAttribute('copy');
-  new_url = 'cpsskins_move_portletbox?portlet_rurl=' + portlet_rurl
-  new_url = new_url + '&dest_ypos=' + dest_ypos
+  new_url = 'cpsskins_move_portletbox?portlet_rurl=' + portlet_rurl;
+  new_url = new_url + '&dest_ypos=' + dest_ypos;
   if (dest_rurl != null) new_url = new_url + '&dest_rurl=' + dest_rurl;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
   if (copy != null) new_url = new_url + '&leave=1';
@@ -105,7 +104,7 @@ function Choice_copy_to_clipboard() {
   if (pd_selected_item == null) 
      return;
   portlet_rurl = pd_selected_item.getAttribute('portlet_rurl');
-  window.location = 'cpsskins_copy_to_clipboard?object_rurl=' + portlet_rurl
+  window.location = 'cpsskins_copy_to_clipboard?object_rurl=' + portlet_rurl;
 }
 
 function Choice_paste_from_clipboard() {
@@ -114,10 +113,10 @@ function Choice_paste_from_clipboard() {
      return;
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
-  new_url = 'cpsskins_paste_from_clipboard'
-  new_url = new_url + '?dest_ypos=' + dest_ypos
+  new_url = 'cpsskins_paste_from_clipboard';
+  new_url = new_url + '?dest_ypos=' + dest_ypos;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
-  window.location = new_url
+  window.location = new_url;
 }
 
 function Choice_insert() {
