@@ -97,9 +97,10 @@ function Content_add(selected_items, target_node) {
      return;
   xpos = dest.getAttribute('xpos');
   ypos = dest.getAttribute('ypos');
-  new_url = dest.getAttribute('pageblock_url');
+  new_url = dest.getAttribute('block_url');
   if (xpos == null || ypos == null || new_url == 0) return;
   type_name = pd_selected_item.getAttribute('type_name');
+  window.location = new_url + '/edit_form';
   window.location = new_url + '/cpsskins_content_add?xpos=' + xpos + '&ypos=' + ypos + '&type_name=' + type_name;
 }
 

@@ -33,6 +33,7 @@ from Products.CMFCore.utils import getToolByName
 from CPSSkinsPermissions import ManageThemes
 from ThemeFolder import ThemeFolder
 from cpsskins_utils import rebuild_properties, callAction, \
+                           getFreeId, \
                            verifyThemePerms, canonizeId, \
                            isBroken, moveToLostAndFound
 
@@ -353,6 +354,40 @@ class CellBlock(ThemeFolder, PageBlockContent):
             del kw[prop]
 
         self.manage_changeProperties(**kw)
+
+    security.declareProtected(ManageThemes, 'addContent')
+    def addContent(self, **kw):
+        """
+        Add content. Returns the id
+        """
+ 
+        tmtool = getToolByName(self, 'portal_themes')
+        theme_container = tmtool.getPortalThemeRoot(self)
+        type_name = kw.get('type_name', None)
+        if type_name is None:
+            return
+        del kw['type_name']
+
+        xpos = kw.get('xpos', 0)
+        ypos = kw.get('ypos', 0)
+
+        kw['title'] = type_name
+        ypos = int(ypos)
+        if ypos == 0:
+            newpos = ypos 
+        else:
+            newpos = ypos + 1
+
+        id = getFreeId(self)
+        self.invokeFactory(type_name, id, **kw)
+        content = getattr(self.aq_explicit, id, None)
+        if content is not None:
+            self.move_object_to_position(content.getId(), newpos)
+            content.xpos = int(xpos)
+            verifyThemePerms(content)
+            theme_container.expireCSSCache()
+            theme_container.expireJSCache()
+            return content
 
     security.declareProtected(ManageThemes, 'expireCache')
     def expireCache(self):

@@ -88,8 +88,8 @@
                    tal:attributes="class boxdragclass">
                   <div tal:attributes="xpos x_pos;
                                        ypos ypos; 
-                                       pageblock_url python: base_url + utool.getRelativeUrl(pageblock);
                                        class python: (not ismaincontent and (not iscellblock or layout_edit_mode)) and 'ContentDest' or '';
+                                       block_url pageblock_url;
                                        dest_block pageblock_rurl">
                     <div
                     tal:define="content_title python: content.title;
