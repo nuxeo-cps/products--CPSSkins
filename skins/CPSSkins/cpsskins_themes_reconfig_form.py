@@ -3,9 +3,8 @@
 tmtool = context.portal_themes
 tmtool.manage_clearCaches()
 
-if REQUEST is None:
-    REQUEST = context.REQUEST
-kw.update(REQUEST.form)
+if REQUEST is not None:
+    kw.update(REQUEST.form)
 
 params = {}
 
@@ -22,7 +21,7 @@ if kw.has_key('scrolly'):
 if no_referer:
     tmtool.clearViewMode('current_url')
 else:
-    params['current_url'] = REQUEST['HTTP_REFERER']
+    params['current_url'] = context.REQUEST['HTTP_REFERER']
 
 # set the default panel to WYSIWYG
 params['themes_panel'] ='wysiwyg'

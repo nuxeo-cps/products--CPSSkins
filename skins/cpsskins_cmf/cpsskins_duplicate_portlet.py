@@ -1,8 +1,5 @@
 ##parameters=portlet_id=None, redirect_rurl=None, REQUEST=None
 
-if REQUEST is None:
-    REQUEST = context.REQUEST
-
 if portlet_id is None:
     return
 

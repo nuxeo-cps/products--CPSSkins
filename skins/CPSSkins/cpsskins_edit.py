@@ -1,9 +1,7 @@
 ##parameters=cat='', REQUEST=None, **kw
 
-if REQUEST is None:
-    REQUEST = context.REQUEST
-
-kw.update(REQUEST.form)
+if REQUEST is not None:
+    kw.update(REQUEST.form)
 
 tmtool = context.portal_themes
 context.edit(**kw)

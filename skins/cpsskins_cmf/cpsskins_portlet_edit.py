@@ -1,6 +1,4 @@
 
-REQUEST = context.REQUEST
-
 portlet = context
 
 tmtool = context.portal_themes
