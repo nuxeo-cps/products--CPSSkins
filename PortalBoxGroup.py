@@ -140,6 +140,43 @@ class PortalBoxGroup(BaseTemplet):
         if styles: 
             return styles['title']
 
+
+    security.declarePublic('getSlot')
+    def getSlot(self):
+         """Return the slot name"""
+
+         return self.box_group
+
+    #
+    # Rendering.
+    #
+    security.declarePublic('render')
+    def render(self, shield=0, **kw):
+        """Renders the templet."""
+
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is None:
+            return ''
+        context = kw.get('context')
+        slot = self.getSlot()
+        portlets = ptltool.getPortlets(context, slot)
+
+        all_rendered = ''
+        for portlet in portlets:
+            rendered = ''
+            # crash shield
+            if shield:
+                try:
+                    rendered = portlet.render() 
+                # could be anything
+                except:
+                    rendered = self.cpsskins_brokentemplet()
+            else:
+                rendered = portlet.render()
+            all_rendered += rendered
+
+        return all_rendered
+
 InitializeClass(PortalBoxGroup)
 
 def addPortalBoxGroup(dispatcher, id, REQUEST=None, **kw):

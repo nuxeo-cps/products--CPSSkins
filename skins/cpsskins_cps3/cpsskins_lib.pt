@@ -1,5 +1,4 @@
-<metal:block define-macro="portalboxgroup"
- tal:define="ptltool nocall:here/portal_cpsportlets">
+<metal:block define-macro="portalboxgroup">
   <tal:block condition="render_box"
   define="padding templet/padding|string:0">
   
@@ -19,14 +18,8 @@
       </tal:block>
     </tal:block>
 
-    <tal:block condition="python: ptltool is not None">
-      <tal:block define="slot_portlets python: ptltool.getPortlets(context, box_group)">
-        <tal:block repeat="portlet slot_portlets">
-          <div tal:attributes="style string:text-align:left;; padding:$padding"
-               tal:content="structure python: portlet.render()" />
-        </tal:block>
-      </tal:block>
-    </tal:block>
+    <!-- Portlets -->
+    <tal:block content="structure python: templet.render(shield=1, context=here)" />
 
   </tal:block>
   <div class="TempletPortalBoxGroup" tal:condition="not:render_box"
