@@ -24,6 +24,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 
@@ -183,6 +184,15 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         container.manage_clone(self, newid)
         newobj  = getattr(container, newid, None)
         container.move_object_to_position(newobj.getId(), src_ypos + 1)
+
+        # if the Templet is a portlet box create a new Templet
+        # setting the portlet_id to None and calling the edit() method
+        # forces the creation of a new portlet
+
+        # XXX: should be rewritten as templet.duplicatePortlet()
+        if getattr(aq_base(newobj), 'isportletbox', 0):
+            newobj.setPortletId(portlet_id=None)
+            newobj.edit(**{'portlet_type': newobj.portlet_type})
 
         # needed for the ImageBox 
         setattr(newobj, 'id', newid)

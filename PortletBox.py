@@ -239,6 +239,12 @@ class PortletBox(BaseTemplet):
         if ptltool is not None:
             return ptltool.listPortletTypes()
 
+    security.declareProtected(ManageThemes, 'setPortletId')
+    def setPortletId(self, portlet_id=None):
+        """Set the id of the associated portlet."""
+
+        self.portlet_id = portlet_id
+
     #
     # CSS
     #
