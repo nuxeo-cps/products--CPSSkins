@@ -19,6 +19,7 @@ class TestPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addTemplet(type_name='Portlet Box Templet')
         self.assertEquals('Portlet Box Templet', getattr(templet, 'title'))
         self.assert_(templet.aq_explicit.isPortalTemplet())
+        self.assert_(templet.aq_explicit.isPortletBox())
  
 def test_suite():
     suite = unittest.TestSuite()

@@ -54,6 +54,8 @@ class PortletBox(BaseTemplet):
     meta_type = 'Portlet Box Templet'
     portal_type = 'Portlet Box Templet'
 
+    isportletbox = 1
+
     render_action = 'cpsskins_portletbox'
 
     security = ClassSecurityInfo()
@@ -74,17 +76,25 @@ class PortletBox(BaseTemplet):
     )
 
     def __init__(self, id, 
-                 boxid = 0, 
+                 box_id = '', 
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
-        self.boxid = boxid
+        self.box_id = box_id
 
     security.declarePublic('isCacheable')
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
 
-        # XXX not cacheable yet
         return 1
+
+    security.declarePublic('getCacheIndex')
+    def getCacheIndex(self, REQUEST=None):
+        """ returns the RAM cache index as a tuple (var1, var2, ...) """
+       
+        # XXX: additional information should be obtained from the portlet.
+        # 
+        index = (self.boxid, )
+        return index
 
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
@@ -92,6 +102,12 @@ class PortletBox(BaseTemplet):
            
         return self.isportaltemplet
 
+    security.declarePublic('isPortletBox')
+    def isPortletBox(self):
+        """ is portlet box """
+
+        return self.isportletbox
+           
     #
     # Properties
     #
