@@ -1,4 +1,6 @@
-##parameters=REQUEST=None, **kw
+##parameters=**kw
+
+from cgi import escape
 
 REQUEST = context.REQUEST
 
@@ -30,16 +32,16 @@ else:
     link = context.link
 
 if link:
-    tag += '<a href="%s" title="%s">' % (link, title)
+    tag += '<a href="%s" title="%s">' % (escape(link), escape(title))
 
 tag += '<img src="%s/index_html" width="%s" height="%s" alt="%s" />' % \
-        (img_url, width, height, title)
+        (escape(img_url), width, height, escape(title))
 
 if link:
     tag += '</a>'
 
 caption = context.caption
 if caption:
-    tag += '<br/>%s' % caption
+    tag += '<br/>%s' % escape(caption)
 
 return tag
