@@ -306,6 +306,16 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     #
     # CSS
     #
+    security.declarePublic('getCSSMarginStyle')
+    def getCSSMarginStyle(self):
+        """Returns the CSS margin style for this Templet."""
+
+        margin = self.margin
+        if margin:
+            if margin not in ('0', '0pt', '0in', '0pc', '0mm',
+                              '0cm', '0px', '0em', '0ex'):
+                return 'padding: %s' % margin
+
     security.declarePublic('getCSSLayoutStyle')
     def getCSSLayoutStyle(self):
         """Returns the CSS layout style for this CellBlock."""
