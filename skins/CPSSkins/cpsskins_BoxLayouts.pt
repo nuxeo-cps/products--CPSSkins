@@ -98,10 +98,8 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="min_max"
-  tal:define="state options/portlet_state;
-              maximized python: state == 'maximized';
-              portal_url here/portal_url;
-              portlet_url options/portlet_url">
+  tal:define="maximized python: state == 'maximized';
+              portal_url here/portal_url">
   <div class="title buttons">
     <a tal:condition="not:maximized"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
@@ -123,10 +121,8 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="min_max_close"
-  tal:define="state options/portlet_state;
-              maximized python: state == 'maximized';
-              portal_url here/portal_url;
-              portlet_url options/portlet_url">
+  tal:define="maximized python: state == 'maximized';
+              portal_url here/portal_url">
   <tal:block tal:condition="python: state != 'closed'">
     <div class="title buttons">
       <a tal:condition="python: state != 'closed'"
@@ -160,10 +156,8 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="min_max_edit_close"
-  tal:define="state options/portlet_state;
-              maximized python: state == 'maximized';
-              portal_url here/portal_url;
-              portlet_url options/portlet_url">
+  tal:define="maximized python: state == 'maximized';
+              portal_url here/portal_url">
   <tal:block tal:condition="python: state != 'closed'">
     <div class="title buttons">
       <a tal:condition="python: state != 'closed'"
