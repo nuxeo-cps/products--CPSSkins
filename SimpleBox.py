@@ -69,7 +69,7 @@ BOX_LAYOUTS = {
         },
 
     'horizontal_menu': {
-        'markup': """<div class="cpsskinsTabs body">%s<div>""",
+        'markup': """<div class="cpsskinsTabs body">%s</div>""",
         },
 }
 
