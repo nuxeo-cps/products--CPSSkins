@@ -71,7 +71,7 @@ factory_type_information = (
      'aliases': {
           '(Default)': 'index_html',
           'view': 'cpsskins_templet_view',
-          'edit': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
           'edit_form': 'cpsskins_edit_form', },
      'actions': (
          {'id': 'view',
@@ -121,24 +121,24 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     _actions = factory_type_information[0]['actions']
 
     _properties = (
-        {'id': 'title', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Title', 
+        {'id': 'title',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Title',
          'category': 'general',
         },
-        {'id': 'cacheable', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Cacheable in RAM', 
+        {'id': 'cacheable',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Cacheable in RAM',
          'category': 'Caching',
          'visible': 'isCacheable',
          'default': 0,
         },
-        {'id': 'cache_lifetime', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Cache lifetime',  
+        {'id': 'cache_lifetime',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Cache lifetime',
          'category': 'Caching',
          'visible': 'isCached',
          'select_variable': 'listLifeTimes',
@@ -146,124 +146,124 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
          'i18n': 1,
          'i18n_prefix': '_option_lifetime_',
         },
-        {'id': 'hidden_in_text_mode', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Hidden in text mode', 
+        {'id': 'hidden_in_text_mode',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Hidden in text mode',
          'category': 'visibility',
          'default': 0,
         },
-        {'id': 'display_title_in_text_mode', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Display title in text mode', 
+        {'id': 'display_title_in_text_mode',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Display title in text mode',
          'category': 'visibility',
          'default': 1,
         },
-        {'id': 'xpos', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'xpos',  
+        {'id': 'xpos',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'xpos',
          'category': 'none',
         },
-        {'id': 'align', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Horizontal alignment', 
-         'select_variable': 'listHorizontalAlignments', 
+        {'id': 'align',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Horizontal alignment',
+         'select_variable': 'listHorizontalAlignments',
          'category': 'layout',
          'visible': 'IsAlignable',
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
-        {'id': 'padding', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Templet padding', 
+        {'id': 'padding',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Templet padding',
          'category': 'layout',
         },
-        {'id': 'margin', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Templet margin',  
+        {'id': 'margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Templet margin',
          'category': 'layout',
         },
-        {'id': 'templet_height', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Templet height', 
+        {'id': 'templet_height',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Templet height',
          'category': 'layout',
         },
-        {'id': 'fontcolor', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Font color', 
-         'select_variable': 'listFontColors', 
-         'style': 'Font Color', 
+        {'id': 'fontcolor',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Font color',
+         'select_variable': 'listFontColors',
+         'style': 'Font Color',
          'category': 'style',
         },
-        {'id': 'fontshape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Font shape', 
-         'select_variable': 'listFontShapes', 
-         'style': 'Font Shape', 
+        {'id': 'fontshape',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Font shape',
+         'select_variable': 'listFontShapes',
+         'style': 'Font Shape',
          'category': 'style',
         },
-        {'id': 'shape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Templet shape', 
-         'select_variable': 'listAreaShapes', 
-         'style': 'Area Shape', 
+        {'id': 'shape',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Templet shape',
+         'select_variable': 'listAreaShapes',
+         'style': 'Area Shape',
          'category': 'style',
         },
-        {'id': 'color', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Templet color', 
-         'select_variable': 'listAreaColors', 
-         'style': 'Area Color',  
+        {'id': 'color',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Templet color',
+         'select_variable': 'listAreaColors',
+         'style': 'Area Color',
          'category': 'style',
         },
-        {'id': 'formstyle', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Form style', 
-         'select_variable': 'listFormStyles', 
-         'style': 'Form Style',  
+        {'id': 'formstyle',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Form style',
+         'select_variable': 'listFormStyles',
+         'style': 'Form Style',
          'category': 'style',
         },
-        {'id': 'visibility',  
-         'type': 'selection',  
-         'mode': 'w', 
-         'label': 'Visibility criteria', 
-         'select_variable': 'listVisibilityModes', 
+        {'id': 'visibility',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Visibility criteria',
+         'select_variable': 'listVisibilityModes',
          'category': 'visibility',
          'default': 'always',
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
-        {'id': 'visibility_paths',  
-         'type': 'multiple selection',   
-         'mode': 'w', 
-         'label': 'The visibility paths', 
-         'select_variable': 'cpsskins_listPaths', 
+        {'id': 'visibility_paths',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'The visibility paths',
+         'select_variable': 'cpsskins_listPaths',
          'category': 'visibility',
          'visible': 'ShowVisibilityPaths',
         },
-        {'id': 'languages', 
-         'type': 'multiple selection', 
-         'mode': 'w', 
-         'label': 'The languages in which it is visible', 
-         'select_variable': 'listLanguages', 
+        {'id': 'languages',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'The languages in which it is visible',
+         'select_variable': 'listLanguages',
          'category': 'visibility',
          'visible': 'listLanguages',
         },
-        {'id': 'esi_fragment', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'ESI fragment', 
+        {'id': 'esi_fragment',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'ESI fragment',
          'category': 'ESI',
          'visible': 'isESICacheable',
          'default': 0,
@@ -275,7 +275,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     #
     cache_cleanup_date = 0
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  title = 'Templet',
                  cacheable = 0,
                  cache_lifetime = '60',
@@ -285,11 +285,11 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                  visibility = 'always',
                  visibility_paths= [],
                  languages = [],
-                 xpos = 0, 
-                 align = 'left', 
+                 xpos = 0,
+                 align = 'left',
                  templet_height = '',
-                 padding = '0.5em', 
-                 margin = '0.5em', 
+                 padding = '0.5em',
+                 margin = '0.5em',
                  fontshape = 'Arial',
                  fontcolor = 'Black',
                  shape = 'NoBorder',
@@ -316,29 +316,29 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         self.shape = shape
         self.color = color
         self.formstyle = formstyle
-    
+
     security.declarePublic('getTitle')
     def getTitle(self):
         """Gets the templet's title."""
-    
+
         return getattr(self, 'title', None)
 
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
         """Returns True if this is a Templet."""
-           
+
         return self.isportaltemplet
 
     security.declarePublic('isPortalBox')
     def isPortalBox(self):
         """Returns True if this is a Portal Box."""
-           
+
         return None
 
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):
         """Returns True if this is a Portal Box Group."""
-           
+
         return None
 
     security.declarePublic('isAlignable')
@@ -364,7 +364,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
-        """Returns true if the Templet can become an ESI fragment. 
+        """Returns true if the Templet can become an ESI fragment.
            ESI is expected to be globally enabled in the theme.
         """
 
@@ -388,7 +388,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     security.declarePublic('ShowVisibilityPaths')
     def ShowVisibilityPaths(self):
         """Returns True if the visibility paths must be shown."""
-           
+
         category = getattr(self, 'visibility', None)
         if category in ['everywhere_except_in',
                         'only_in',
@@ -488,9 +488,9 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
             actionid = self.render_method
         else:
             fail = 1
- 
+
         rendered = ''
-        if not fail: 
+        if not fail:
             meth = getattr(self, actionid, None)
             if meth is not None:
                 if shield:
@@ -498,7 +498,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                     try:
                         rendered = apply(meth, (), kw)
                     except:
-                        # attempt to rebuild 
+                        # attempt to rebuild
                         try:
                             self.rebuild()
                         # rebuild failed
@@ -579,13 +579,13 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
         css = ''
         for propid in self.propertyIds():
             prop_map = self.propertyMap()
-            for obj in prop_map:            
-                if obj['id'] == propid:                
+            for obj in prop_map:
+                if obj['id'] == propid:
                     if not obj.has_key('style'):
                         continue
                     style_type = obj.get('style')
                     this_style = getattr(self, propid)
-                    style_obj = [s 
+                    style_obj = [s
                                  for s in styles_dir.objectValues(style_type)
                                  if s.getTitle() == this_style]
                     if style_obj:
@@ -712,7 +712,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                     for actions_by_cat in actions:
                          for ac in actions_by_cat:
                              ac_url = ac['url'].strip()
-                             if ac_url != current_url: 	 
+                             if ac_url != current_url:
                                   continue
                              index_string += ac_url
                              break
@@ -781,7 +781,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     security.declareProtected(ManageThemes, 'expireCache')
     def expireCache(self):
         """Expires the cache for this Templet.
- 
+
            In a ZEO environment, the information will propagate
            between all ZEO instances as long as the Templet still
            exists.
@@ -809,16 +809,16 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     def isCacheable(self):
         """Returns true if the Templet is cacheable."""
 
-        return getattr(self, 'cacheable', 0) 
+        return getattr(self, 'cacheable', 0)
 
     security.declarePublic('listLanguages')
-    def listLanguages(self):           
+    def listLanguages(self):
         """Returns a list of languages."""
 
         return getAvailableLangs(self)
 
     security.declarePublic('listLifeTimes')
-    def listLifeTimes(self):           
+    def listLifeTimes(self):
         """Returns a list of cache lifetimes in seconds."""
 
         list = ['10', '30', '60', '300', '600', '900', '1800', '3600']
@@ -827,20 +827,20 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     security.declarePublic('getDefaultLang')
     def getDefaultLang(self):
         """Returns the code name of the default language."""
-           
+
         return getDefaultLang(self)
 
     security.declarePublic('listVisibilityModes')
     def listVisibilityModes(self):
         """Returns a list of visibility criteria."""
 
-        list = ['always', 
-                'everywhere_except_in', 
-                'only_in', 
-                'starting_from', 
-                'up_till', 
-                'if_authenticated', 
-                'if_anonymous', 
+        list = ['always',
+                'everywhere_except_in',
+                'only_in',
+                'starting_from',
+                'up_till',
+                'if_authenticated',
+                'if_anonymous',
                 'if_secure_connection' ]
         return list
 

@@ -11,7 +11,7 @@ HTTP_OK = 200
 HTTP_UNAUTHORIZED = 401
 HTTP_REDIRECT = 302
 
-class TestFunctional(ZopeTestCase.Functional, 
+class TestFunctional(ZopeTestCase.Functional,
                      CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
@@ -45,7 +45,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         styles_dir = self.theme_container.getStylesFolder()
         styles = styles_dir.objectValues('Area Color')
         self.assert_(len(styles) == 1)
-        
+
     def test_add_palette(self):
         test_url = '/%s/cpsskins_palette_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Palette+Color', 'PortalTheme')
@@ -226,13 +226,13 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         response = self.publish(test_url, self.basic_auth)
         templet_copied = pageblock_dest.objectValues('Text Box Templet')[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(getattr(templet_copied, 'title'), 
+        self.assert_(getattr(templet_copied, 'title'),
                      getattr(templet, 'title'))
-        self.assert_(getattr(templet_copied, 'align'), 
+        self.assert_(getattr(templet_copied, 'align'),
                      getattr(templet, 'align'))
-        self.assert_(getattr(templet_copied, 'text'), 
+        self.assert_(getattr(templet_copied, 'text'),
                      getattr(templet, 'text'))
-        self.assert_(getattr(templet_copied, 'text_format'), 
+        self.assert_(getattr(templet_copied, 'text_format'),
                      getattr(templet, 'text_format'))
 
     def test_copy_Templet_to_another_Page(self):
@@ -247,13 +247,13 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         response = self.publish(test_url, self.basic_auth)
         templet_copied = dest_page_container.getTemplets()[0]
         self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(getattr(templet_copied, 'title'), 
+        self.assert_(getattr(templet_copied, 'title'),
                      getattr(templet, 'title'))
-        self.assert_(getattr(templet_copied, 'align'), 
+        self.assert_(getattr(templet_copied, 'align'),
                      getattr(templet, 'align'))
-        self.assert_(getattr(templet_copied, 'text'), 
+        self.assert_(getattr(templet_copied, 'text'),
                      getattr(templet, 'text'))
-        self.assert_(getattr(templet_copied, 'text_format'), 
+        self.assert_(getattr(templet_copied, 'text_format'),
                      getattr(templet, 'text_format'))
 
     # Contextual menu
@@ -308,7 +308,7 @@ class TestFunctionalAsMember(TestFunctional):
         styles_dir = self.theme_container.getStylesFolder()
         styles = styles_dir.objectValues('Area Color')
         self.assert_(len(styles) == 0)
-        
+
     def test_add_palette(self):
         test_url = '/%s/cpsskins_palette_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Palette+Color', 'PortalTheme')
@@ -535,7 +535,7 @@ class TestFunctionalAsThemeManager(TestFunctionalAsManagerOrThemeManager):
         self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
 
 
- 
+
 class TestFunctionalCalendar(TestFunctional):
     """Testing the calendar Templet.
     """

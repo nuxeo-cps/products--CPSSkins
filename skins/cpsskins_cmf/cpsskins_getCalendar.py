@@ -23,7 +23,7 @@ for week in weeks:
     weekdays = []
     for day in week:
         weekday = {}
-        daynumber = day['day'] 
+        daynumber = day['day']
         event = day['event']
 
         weekday['daynumber'] = daynumber
@@ -39,7 +39,7 @@ for week in weeks:
             date_id = '%s%s%s' % (year, month, daynumber)
             info = {'date': datestring, 'date_id': 'day%s' % date_id, 'eventslist': day['eventslist'] }
             previews.append(info)
-                 
+
             begin=DateTime(datestring + ' 12:00:00AM')
             end=DateTime(datestring + ' 11:59:59PM')
             begin_string = url_quote(DateTime(begin.timeTime()+86400).ISO())
@@ -49,9 +49,9 @@ for week in weeks:
                               '&start_usage=range:max&amp;end_usage=range:min&amp;' + \
                               'start:date=%s&amp;end:date=%s' % (begin_string, end_string)
         weekdays.append(weekday)
-    calendar.append(weekdays) 
+    calendar.append(weekdays)
 
-return {'calendar': calendar, 
+return {'calendar': calendar,
         'previews': previews,
         'this_month': this_month,
         'this_year': year,

@@ -14,14 +14,14 @@ if file is None:
     return
 
 kw['id'] = context.getId()
-img = theme_container.editPortalImage(**kw) 
+img = theme_container.editPortalImage(**kw)
 
 if img is None:
     return
 
 imagecat = kw.get('imagecat', '')
 url = '%s/cpsskins_image_edit_form?imagecat=%s' % \
-      (context.absolute_url(), imagecat) 
+      (context.absolute_url(), imagecat)
 
 if REQUEST is None:
     return img

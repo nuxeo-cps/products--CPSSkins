@@ -1,7 +1,7 @@
 ##parameters=imagecat=None
 
 if imagecat not in context.cpsskins_listImageCategories():
-   return 
+   return
 
 list = []
 tmtool = context.portal_themes

@@ -58,30 +58,30 @@ class TextBox(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'text', 
-         'type': 'text', 
-         'mode': 'w', 
+        {'id': 'text',
+         'type': 'text',
+         'mode': 'w',
          'label': 'Your text',
         },
-        {'id': 'text_format', 
-         'type': 'selection', 
-         'mode': 'w', 
+        {'id': 'text_format',
+         'type': 'selection',
+         'mode': 'w',
          'label': 'Text format',
          'select_variable': 'listTextFormats',
          'default': 'html',
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
-        {'id': 'i18n', 
-         'type': 'boolean', 
-         'mode': 'w', 
+        {'id': 'i18n',
+         'type': 'boolean',
+         'mode': 'w',
          'label': 'Translate the text',
-         'default': 0, 
+         'default': 0,
         },
       )
 
-    def __init__(self, id, 
-                 text='Your text here', 
+    def __init__(self, id,
+                 text='Your text here',
                  text_format='html',
                  i18n = 0,
                  **kw):
@@ -92,7 +92,7 @@ class TextBox(BaseTemplet):
 
     security.declarePublic('render_text_as')
     def render_text_as(self, text='', fmt=None):
-        """ render the text as structured text / plain text / HTML (default) """ 
+        """ render the text as structured text / plain text / HTML (default) """
         if fmt == 'stx':
             text = structured_text(text)
         if fmt == 'plain text':
@@ -117,8 +117,8 @@ class TextBox(BaseTemplet):
 
     security.declarePublic('listTextFormats')
     def listTextFormats(self):
-        """ return a list of render formats (stx, plain, html) """ 
-                             
+        """ return a list of render formats (stx, plain, html) """
+
         return ['html', 'plain text', 'stx']
 
     security.declarePublic('getI18nProperties')

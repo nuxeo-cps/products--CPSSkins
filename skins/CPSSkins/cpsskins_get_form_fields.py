@@ -13,7 +13,7 @@ for propid in context.propertyIds():
     if cat is None:
         cat = 'general'
     if category != cat or category == 'none':
-        continue 
+        continue
 
     field['visible'] = 1
     if visibility is not None:
@@ -38,12 +38,12 @@ for propid in context.propertyIds():
             field['i18n_transform'] = obj.get('i18n_transform', None)
             field['i18n_default_domain'] = obj.get('i18n_default_domain', None)
             break
-                  
+
     if hasattr(context, propid):
         prop = getattr(context, propid)
     else:
         prop = None
-           
+
     value = prop
     field['id'] = propid
     field['title'] = '_prop_%s_' % propid
@@ -59,8 +59,8 @@ for propid in context.propertyIds():
 
     elif type == 'text':
         ftype = 'areatext'
-        rows = 10 
-        cols = 45 
+        rows = 10
+        cols = 45
 
     elif type == 'lines':
         ftype = 'lines'
@@ -69,7 +69,7 @@ for propid in context.propertyIds():
            continue
         for i in prop:
             value = value + '\n' + i
-        rows = 2 
+        rows = 2
         cols = 20
 
     elif type == 'string':

@@ -18,9 +18,9 @@
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
-""" 
+"""
   Area Color
-  this style defines the background, border and text colors of an area.    
+  this style defines the background, border and text colors of an area.
 """
 
 from Globals import InitializeClass
@@ -57,23 +57,23 @@ class AreaColor(BaseStyle):
     security = ClassSecurityInfo()
 
     _properties = BaseStyle._properties + (
-        {'id': 'Area_border_color', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Area border color', 
+        {'id': 'Area_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area border color',
          'palette' : 'Palette Color'
         },
-        {'id': 'Area_bg_color', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Area background color', 
+        {'id': 'Area_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area background color',
          'palette' : 'Palette Color'
         },
-        {'id': 'Area_bg_image', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Area background image', 
-         'select_variable' : 'cpsskins_listBackgrounds', 
+        {'id': 'Area_bg_image',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Area background image',
+         'select_variable' : 'cpsskins_listBackgrounds',
          'image': 'backgrounds'
         },
         {'id': 'Area_bg_position',
@@ -84,7 +84,7 @@ class AreaColor(BaseStyle):
         },
         {'id': 'Area_bg_repeat',
          'type': 'selection',
-         'mode': 'w', 
+         'mode': 'w',
          'label': 'Area background repeat',
          'select_variable': 'listBackgroundRepeats',
          'visible': 'ifBackgroundImage',
@@ -92,10 +92,10 @@ class AreaColor(BaseStyle):
          'i18n': 1,
          'i18n_prefix': '_option_bg_',
         },
-        {'id': 'Area_font_color', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Area font color', 
+        {'id': 'Area_font_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area font color',
          'palette' : 'Palette Color'
         },
     )
@@ -118,14 +118,14 @@ class AreaColor(BaseStyle):
         self.Area_font_color = Area_font_color
 
     security.declarePublic('listBackgroundRepeats')
-    def listBackgroundRepeats(self):           
+    def listBackgroundRepeats(self):
         """Return a list of background repeat options"""
 
         list = ['repeat', 'repeat-x', 'repeat-y', 'no-repeat']
         return list
 
     security.declarePublic('ifBackgroundImage')
-    def ifBackgroundImage(self):           
+    def ifBackgroundImage(self):
         """Return True is there is a backround image"""
 
         if self.Area_bg_image:

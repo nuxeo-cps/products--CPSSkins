@@ -48,7 +48,7 @@ factory_type_information = (
      'aliases': {
           '(Default)': 'cpsskins_default_view',
           'view': 'cpsskins_default_view',
-          'edit': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
           'edit_form': 'cpsskins_edit_form', },
      'actions':  (
          {'id': 'view',
@@ -89,30 +89,30 @@ class BaseCellModifier(DynamicType, PropertyManager, SimpleItem):
     _actions = factory_type_information[0]['actions']
 
     _properties = (
-        {'id': 'xpos', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'Xpos', 
+        {'id': 'xpos',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'Xpos',
          'category': 'none'
         },
     )
 
 
-    def __init__(self, id, 
-                 xpos = int(0), 
+    def __init__(self, id,
+                 xpos = int(0),
                  **kw):
         self.id = id
         self.xpos = xpos
- 
+
     security.declarePublic('isCellModifier')
     def isCellModifier(self):
         """Returns true if this is a Cell Modifier"""
-           
+
         return self.iscellmodifier
 
     security.declareProtected(ManageThemes, 'rebuild')
     def rebuild(self, **kw):
-        """Rebuild this cell modifier."""               
+        """Rebuild this cell modifier."""
 
         setperms = kw.get('setperms', 0)
         canonizeId(self)
@@ -146,7 +146,7 @@ class BaseCellModifier(DynamicType, PropertyManager, SimpleItem):
         actions_list = ['delete', 'edit']
 
         ti = self.getTypeInfo()
-        for actionid in actions_list:  
+        for actionid in actions_list:
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
@@ -161,7 +161,7 @@ class BaseCellModifier(DynamicType, PropertyManager, SimpleItem):
     security.declarePublic('can_delete')
     def can_delete(self):
         """Can the cell sizer be deleted ?"""
-           
+
         return 1
 
     security.declarePublic('getContainer')

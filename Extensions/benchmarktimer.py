@@ -1,5 +1,5 @@
 # benchmarker from zopelabs'cookbook submited by zopedan
-""" 
+"""
 """
 
 from AccessControl import ClassSecurityInfo
@@ -91,11 +91,11 @@ class pyBenchmarkTimer:
                        total, name, diff)
             else:
                 str += '%7.4f: %-10s +%7.4f\n' % (total, name, diff)
-            
+
             temp = time
             i = i+1
         str += '</small></pre>'
-        
+
         if return_str:
             return str
         return profiling

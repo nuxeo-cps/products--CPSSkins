@@ -55,25 +55,25 @@ class CellStyler(BaseCellModifier, StylableContent):
     iscellstyler = 1
 
     _properties = BaseCellModifier._properties + (
-        {'id': 'shape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Shape', 
+        {'id': 'shape',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Shape',
          'select_variable': 'listAreaShapes',
          'style' : 'Area Shape'
         },
-        {'id': 'color', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Color', 
+        {'id': 'color',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Color',
          'select_variable': 'listAreaColors',
          'style' : 'Area Color'
         },
     )
 
-    def __init__(self, id, 
-                 shape = 'NoBorder', 
-                 color = 'Transparent', 
+    def __init__(self, id,
+                 shape = 'NoBorder',
+                 color = 'Transparent',
                  **kw):
         apply(BaseCellModifier.__init__, (self, id), kw)
         self.shape = shape
@@ -81,7 +81,7 @@ class CellStyler(BaseCellModifier, StylableContent):
 
     security.declarePublic('isCellStyler')
     def isCellStyler(self):
-        """ Is this a cell styler? """   
+        """ Is this a cell styler? """
         return 1
 
     security.declarePublic('getCSSCellClass')
@@ -94,7 +94,7 @@ class CellStyler(BaseCellModifier, StylableContent):
 
         elif level == 2:
             return 'shape%s color%s' % \
-                   (self.shape, 
+                   (self.shape,
                     self.color)
         return ''
 

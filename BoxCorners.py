@@ -18,7 +18,7 @@
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
-""" 
+"""
   Box Corners
   this style defines the appearance of box corners.
 """

@@ -20,7 +20,7 @@ if base_path is None:
    base_path = '/'
 
 try:
-   level = int(level) 
+   level = int(level)
 except:
    return
 
@@ -105,7 +105,7 @@ can_create = mtool.checkPermission('Add Hierarchy Level', current_hier)
 if current_hier is not None:
     ti =  current_hier.getTypeInfo()
     if ti is not None:
-       is_hierarchy = ( ti.getId() == 'Reviewed Hierarchy Level' ) 
+       is_hierarchy = ( ti.getId() == 'Reviewed Hierarchy Level' )
        current_url = current_hier.absolute_url()
        if is_hierarchy:
            if can_create:
@@ -134,7 +134,7 @@ if current_hier is not None:
                          'icon' : d['icon'],
                          'folderish' : 0,
                        }
-                       
+
                  pubinfos.append(doc)
 
 
@@ -155,7 +155,7 @@ for h in hierlist:
             continue
     rurl = h['rurl']
 
-    url = utool(relative=0) + rurl 
+    url = utool(relative=0) + rurl
 
     if (rurl + '/').startswith(current_path + '/') and total_level < len(path_list)  -1:
         selected = 1
@@ -169,7 +169,7 @@ for h in hierlist:
          'selected': selected,
          'icon': 'folder_icon.gif',
          'folderish': 1 }
-    ) 
+    )
 
 
 return { 'menuentries': pubinfos + hierarchies,

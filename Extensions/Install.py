@@ -23,7 +23,7 @@ def package_home(name):
 
 cpsskins_home = package_home('CPSSkins')
 zexpdir = os.path.join(cpsskins_home, 'Install')
-                                           
+
 def logf(summary,message='',severity=0):
     summary = '['+ str(summary) +']'
     if message:
@@ -45,7 +45,7 @@ def checktool(self, name):
         pass
     else:
         return 1
-             
+
 def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     """ """
 
@@ -79,16 +79,16 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
 
     if Target is None:
         Target = detectPortalType(self)
-        pr('Detected portal type is <strong>%s</strong>' % Target) 
+        pr('Detected portal type is <strong>%s</strong>' % Target)
     else:
-        pr('Portal type is <strong>%s</strong>' % Target) 
+        pr('Portal type is <strong>%s</strong>' % Target)
     if SourceSkin is None:
         for skin in self.portal_skins.getSkinSelections():
             if skin != 'CPSSkins':
-                SourceSkin = skin 
+                SourceSkin = skin
                 break
 
-    pr('Default skin is <strong>%s</strong>' % SourceSkin) 
+    pr('Default skin is <strong>%s</strong>' % SourceSkin)
 
     pr_h3("Dependencies")
     try:
@@ -111,16 +111,16 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     ext_methods = ( { 'id': 'cpsskinsmigrate',
                       'title': 'CPSSkins (migrate from an earlier version)',
                       'script': 'CPSSkins.migrate',
-                      'method': 'migrate', 
+                      'method': 'migrate',
                       'protected': 1,
-                    }, 
+                    },
                     { 'id': 'cpsskinsupdate',
                       'title': 'CPSSkins Updater',
                       'script': 'CPSSkins.Install',
-                      'method': 'update', 
+                      'method': 'update',
                       'protected': 1,
                     },
-                    { 'id': 'cpsskins_benchmarktimer', 
+                    { 'id': 'cpsskins_benchmarktimer',
                       'title': 'Benchmark timer',
                       'script': 'CPSSkins.benchmarktimer',
                       'method': 'BenchmarkTimerInstance',
@@ -132,23 +132,23 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
                       'method': 'install',
                       'protected': 1,
                     },
-                  ) 
+                  )
     portal_objectIds = portal.objectIds()
     for meth in ext_methods:
         method = meth['id']
         if method in portal_objectIds:
             portal._delObject(method)
         pr('Creating %s External Method' % method)
-        ext_method = ExternalMethod(method, 
-                                    meth['title'], 
-                                    meth['script'], 
-                                    meth['method']) 
+        ext_method = ExternalMethod(method,
+                                    meth['title'],
+                                    meth['script'],
+                                    meth['method'])
         portal._setObject(method, ext_method)
         if method in portal_objectIds:
             manage_perms = portal[method].manage_permission
             if meth['protected']:
                 pr("Protecting %s" % method)
-                manage_perms(View, roles=['Manager'], acquire=0) 
+                manage_perms(View, roles=['Manager'], acquire=0)
                 manage_perms(AccessContentsInformation, roles=['Manager'], acquire=0)
             else:
                 manage_perms(View, roles=['Manager'], acquire=1)
@@ -165,7 +165,7 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
             if not portalhas('Localizer'):
                 pr("  Adding Localizer")
                 languages = ('en',)
-                localizer = portal.manage_addProduct['Localizer'] 
+                localizer = portal.manage_addProduct['Localizer']
                 localizer.manage_addLocalizer(title='', languages=languages,)
                 Localizer = portal['Localizer']
             else:
@@ -173,18 +173,18 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
                 Localizer = portal['Localizer']
                 languages = Localizer.get_supported_languages()
 
-        # translation_service                       
+        # translation_service
         if translationservice_is_present:
             if not portalhas('translation_service'):
                 pr("  translation_service not found")
                 try:
                     pts = portal.manage_addProduct['TranslationService']
                     pts.addPlacefulTranslationService(id='translation_service')
-                except:                                        
-                    pass                 
-            else:                  
-                pr("  translation_service tool added")                  
-                translation_service = portal.translation_service  
+                except:
+                    pass
+            else:
+                pr("  translation_service tool added")
+                translation_service = portal.translation_service
 
     # create portal_themes tool
     pr_h3("portal_themes tool")
@@ -196,37 +196,37 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
     pr("  Adding portal_themes to the list of action providers")
     if 'portal_themes' in actionstool.listActionProviders():
         pr("    Already there")
-    else:    
-        try: 
+    else:
+        try:
             actionstool.addActionProvider('portal_themes')
             pr("   Done")
         except:
             pr("   Failed")
 
-    # Importing portal themes 
+    # Importing portal themes
     theme_container = getattr(portal, 'portal_themes')
     pr_h3("Portal themes")
     if ReinstallDefaultThemes or (theme_container.objectIds() == [] and not portalhas('themes')):
-        themes_list = { 'CMF':     ( 'CMF-Plone', 
-                                     'CMF-Printable', 
+        themes_list = { 'CMF':     ( 'CMF-Plone',
+                                     'CMF-Printable',
                                    ),
-                        'CPS2':    ( 'CPS2-LightSkins', 
-                                     'CPS2-Plone', 
-                                     'CMF-Printable', 
+                        'CPS2':    ( 'CPS2-LightSkins',
+                                     'CPS2-Plone',
+                                     'CMF-Printable',
                                    ),
-                        'CPS3':    ( 'CPS3-LightSkins', 
-                                     'CPS3-Autumn', 
-                                     'CPS3-Default', 
-                                     'CMF-Printable', 
-                                     'CPS3-Plone', 
+                        'CPS3':    ( 'CPS3-LightSkins',
+                                     'CPS3-Autumn',
+                                     'CPS3-Default',
+                                     'CMF-Printable',
+                                     'CPS3-Plone',
                                    ),
-                        'Plone':   ( 'Plone-Plone', 
-                                     'CMF-Printable',  
+                        'Plone':   ( 'Plone-Plone',
+                                     'CMF-Printable',
                                    ),
-                        'Plone2':  ( 'Plone2-Plone', 
-                                     'Plone2-Autumn', 
-                                     'CMF-Printable', 
-                                   ), 
+                        'Plone2':  ( 'Plone2-Plone',
+                                     'Plone2-Autumn',
+                                     'CMF-Printable',
+                                   ),
                       }
         if Target in ['CMF', 'CPS2', 'CPS3', 'Plone', 'Plone2' ]:
             theme_ids = theme_container.objectIds()
@@ -289,14 +289,14 @@ def update(self):
 
     # portal_themes
     tool_id = 'portal_themes'
-    perms = ('Manage Themes', 
+    perms = ('Manage Themes',
              'Copy or Move',
              'Change permissions',
              'Delete objects',
-             'Add portal content', 
+             'Add portal content',
              'Manage properties',
-             'Change Images and Files', 
-    ) 
+             'Change Images and Files',
+    )
     pr(" Verifying permissions on the '%s' tool" % tool_id)
     tool = getattr(portal, tool_id)
     for perm in perms:
@@ -307,10 +307,10 @@ def update(self):
     tool_id = 'portal_cpsportlets'
     if checktool(self, tool_id):
         tool = getattr(portal, tool_id)
-        perms = ('Manage Portlets', ) 
+        perms = ('Manage Portlets', )
         pr(" Verifying permissions on the '%s' tool" % tool_id)
         for perm in perms:
-            setperms(tool, {perm: ('Manager', 'Owner', 'ThemeManager')}, pr=pr) 
+            setperms(tool, {perm: ('Manager', 'Owner', 'ThemeManager')}, pr=pr)
         tool.reindexObjectSecurity()
 
     # portal types
@@ -368,7 +368,7 @@ def update(self):
     types_in_palettefolders = (
         'Palette Color',
         'Palette Border',
-        ) 
+        )
 
     ptypes_to_delete = ()
 
@@ -396,14 +396,14 @@ def update(self):
     'CPSSkins' : ('Portal Theme', ) +
                  types_in_portalthemes +
                  types_in_themepages +
-                 types_in_pageblocks + 
-                 types_in_stylefolders + 
+                 types_in_pageblocks +
+                 types_in_stylefolders +
                  types_in_palettefolders
                }
 
     # deleting portal types
     pr("  Deleting portal types")
-    for ptype in ptypes_to_delete:             
+    for ptype in ptypes_to_delete:
         if ptype in ttool.objectIds():
             pr("  Portal type '%s' deleted" % ptype)
             ttool.manage_delObjects([ptype])
@@ -418,12 +418,12 @@ def update(self):
                 ttool.manage_delObjects([ptype])
                 pr("   Deleted")
             ttool.manage_addTypeInformation(
-                id=ptype,   
+                id=ptype,
                 add_meta_type='Factory-based Type Information',
                 typeinfo_name=prod+': '+ptype,
-                )           
+                )
             pr("   Installation")
-    
+
     pr("  Installing allowed content types")
     allowed_content_type = {
         'Theme Page' : types_in_themepages,
@@ -467,14 +467,14 @@ def update(self):
         if cpsskins_catalog_id in Localizer.objectIds():
             Localizer.manage_delObjects([cpsskins_catalog_id])
             pr(" Previous default MessageCatalog deleted for CPSSkins")
-         
+
         # Adding the new message Catalog
         localizer.manage_addMessageCatalog(
            id=cpsskins_catalog_id,
            title='CPSSkins messages',
            languages=languages,
         )
-         
+
         pr("  CPSSkins MessageCatalogCreated")
         if portalhas('Localizer'):
             mcat = portal['Localizer'][cpsskins_catalog_id]
@@ -487,11 +487,11 @@ def update(self):
         pr(" Checking available languages for skin %s" % skin)
         podir = os.path.join('Products', 'CPSSkins' )
         popath = getPath(podir, 'i18n')
-        if popath is None:      
+        if popath is None:
             pr(" !!! Unable to find .po dir")
-        else:                   
+        else:
             pr("  Checking installable languages")
-            langs = []          
+            langs = []
             avail_langs = mcat.get_languages()
             pr("    Available languages: %s" % str(avail_langs))
             for file in os.listdir(popath):
@@ -515,15 +515,15 @@ def update(self):
                             mcat.po_import(lang, lang_file.read())
                         except:
                             pass
-                    else:       
+                    else:
                         pr( '    Skipping not installed locale for file %s' % file)
 
     if defaultmcat is not None:
         # importing default .po files
         podir = os.path.join('Products', 'CPSSkins' )
         popath = getPath(podir, 'i18n')
-        if popath is not None:      
-            langs = []          
+        if popath is not None:
+            langs = []
             avail_langs = defaultmcat.get_languages()
             for file in os.listdir(popath):
                 if file.endswith('.po'):
@@ -546,7 +546,7 @@ def update(self):
                             defaultmcat.po_import(lang, lang_file.read())
                         except:
                             pass
-                    else:       
+                    else:
                         pr( '    Skipping not installed locale for file %s' % file)
 
         # 'cpsskins' domain for translation service
@@ -570,7 +570,7 @@ def update(self):
     SourceSkin = ''
     for skin in self.portal_skins.getSkinSelections():
         if skin != 'CPSSkins':
-            SourceSkin = skin 
+            SourceSkin = skin
             break
 
     skins = ('CPSSkins', 'cpsskins_icons' )
@@ -626,8 +626,8 @@ def update(self):
     skinstool.default_skin = 'CPSSkins'
     pr(" Setting 'CPSSkins' as default skin")
 
-                                                        
-    pr_h3("Purging the RAM cache")                      
+
+    pr_h3("Purging the RAM cache")
     tmtool.manage_clearCaches()
     pr("  Cache purged")
 
@@ -667,7 +667,7 @@ def uninstall(self):
 
     actionstool = getToolByName(self, 'portal_actions')
     if 'portal_themes' in actionstool.listActionProviders():
-        try: 
+        try:
             actionstool.deleteActionProvider('portal_themes')
             pr("   Done")
         except:

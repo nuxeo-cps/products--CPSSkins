@@ -54,7 +54,7 @@ BOX_LAYOUTS = {
                   """,
         },
 
-    'rounded_box': { 
+    'rounded_box': {
         'markup': """<div class="cpsskinsBoxCorners">
                      <div class="rbtop"><div></div></div>
                      <div class="title">%s</div>
@@ -87,43 +87,43 @@ class SimpleBox:
     security = ClassSecurityInfo()
 
     _properties = (
-       {'id': 'boxshape', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box shape', 
-        'select_variable': 'listBoxShapes', 
-        'category': 'style', 
+       {'id': 'boxshape',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Box shape',
+        'select_variable': 'listBoxShapes',
+        'category': 'style',
         'style': 'Portal Box Shape'
        },
-       {'id': 'boxcolor', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box color', 
-        'select_variable': 'listBoxColors', 
-        'category': 'style', 
+       {'id': 'boxcolor',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Box color',
+        'select_variable': 'listBoxColors',
+        'category': 'style',
         'style': 'Portal Box Color'
        },
-       {'id': 'boxcorners', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box corners', 
-        'select_variable': 'listBoxCorners', 
-        'category': 'style', 
+       {'id': 'boxcorners',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Box corners',
+        'select_variable': 'listBoxCorners',
+        'category': 'style',
         'style': 'Box Corners'
        },
-       {'id': 'portaltabstyle', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Tab style', 
-        'select_variable': 'listTabStyles', 
-        'category': 'style', 
+       {'id': 'portaltabstyle',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Tab style',
+        'select_variable': 'listTabStyles',
+        'category': 'style',
         'style': 'Portal Tab Style'
        },
-       {'id': 'boxlayout', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Box layout', 
-        'category': 'layout', 
+       {'id': 'boxlayout',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Box layout',
+        'category': 'layout',
         'select_variable': 'listBoxLayouts',
         'i18n': 1,
         'i18n_prefix': '_option_',
@@ -190,9 +190,9 @@ class SimpleBox:
     def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
         """Render the box layout.
         """
-        if boxlayout == 'standard' or boxlayout == '': 
+        if boxlayout == 'standard' or boxlayout == '':
             return BOX_LAYOUTS['standard']['markup'] % (title, body)
-        if boxlayout == 'plain': 
+        if boxlayout == 'plain':
             return BOX_LAYOUTS['plain']['markup'] % body
         elif boxlayout == 'one_frame':
             return BOX_LAYOUTS['one_frame']['markup'] % (title, body)

@@ -4,7 +4,7 @@ if base_path is None:
     return
 
 # XXX backward compatibilty since the trailing '/' was omitted
-# in previous versions, this will be moved to the 
+# in previous versions, this will be moved to the
 # 'rebuild theme' method.
 l = len(base_path)
 if base_path[l-1:l] != '/':
@@ -25,7 +25,7 @@ else:
       show_docs = 0
 
 if base is None:
-    return 
+    return
 
 ttool = context.portal_trees
 utool = context.portal_url
@@ -43,7 +43,7 @@ parent_url = ''
 if context_obj is None:
     return
 
-here_rurl =  '/' + utool.getRelativeUrl(context_obj) 
+here_rurl =  '/' + utool.getRelativeUrl(context_obj)
 here_rurl_slash = here_rurl + '/'
 
 parent_url = here_rurl
@@ -58,14 +58,14 @@ folder_title = ''
 menuentries = []
 
 if rel_level > 0:
-    parent_treelist = base_obj.getList(start_depth=rel_level-1, 
+    parent_treelist = base_obj.getList(start_depth=rel_level-1,
                                        stop_depth=rel_level-1)
 
     for item in parent_treelist:
         rpath = item['rpath']
         if here_rurl_slash.startswith('/' + rpath + '/'):
             parent_url = rpath
-            base_create_path = utool.getPortalPath() + '/' + parent_url 
+            base_create_path = utool.getPortalPath() + '/' + parent_url
             break
 
 if rel_level == 1:
@@ -80,7 +80,7 @@ if base_create_obj is None and base_create_path != '':
         pass
 
 if rel_level > 0 and base_create_obj is not None:
-    if context.portal_membership.checkPermission('Add portal content', 
+    if context.portal_membership.checkPermission('Add portal content',
                                                   base_create_obj):
         create_url = base_create_url + '/folder_factories'
 
@@ -119,7 +119,7 @@ if base_create_obj:
              'selected' : here_rurl_slash.startswith('/' + doc_rpath + '/'),
              'icon' : doc.getIcon(relative_to_portal=1),
              'folderish' : folderish }
-        ) 
+        )
 
 # tree root
 if rel_level == 0:
@@ -135,7 +135,7 @@ if rel_level == 0:
              'folderish': 1, }
         ]
 
-return { 'menuentries' : menuentries, 
+return { 'menuentries' : menuentries,
          'create_url' : create_url,
          'folder_title': folder_title }
 

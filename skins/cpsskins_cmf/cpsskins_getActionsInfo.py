@@ -1,7 +1,7 @@
 ##parameters=obj=None, context_obj=None
 
 if obj is None:
-   return 
+   return
 
 REQUEST = context.REQUEST
 tmtool = context.portal_themes
@@ -10,7 +10,7 @@ base_url = REQUEST.get('cpsskins_base_url', '')
 
 action_categories = obj.action_categories
 custom_action_categories = obj.custom_action_categories
-invisible_actions = obj.invisible_actions 
+invisible_actions = obj.invisible_actions
 
 categories = action_categories[:]
 if custom_action_categories:
@@ -44,7 +44,7 @@ for category in categories:
             url = action_url
             if url[-1:] == '/':
                 url = url[:-1]
-            if url == current_url: 
+            if url == current_url:
                 we_are_here = 1
 
             if we_are_here:
@@ -59,7 +59,7 @@ for category in categories:
                 'class': menuclass,
                 'newcat': newcat,
                 }
-            ) 
-            newcat = 0 
+            )
+            newcat = 0
     firstcat = 0
 return actioninfo

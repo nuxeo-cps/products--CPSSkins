@@ -7,4 +7,4 @@ context.setState(state=state)
 
 if REQUEST is not None:
    url = REQUEST['HTTP_REFERER']
-   REQUEST.RESPONSE.redirect(url)   
+   REQUEST.RESPONSE.redirect(url)

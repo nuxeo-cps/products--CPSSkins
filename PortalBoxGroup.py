@@ -53,22 +53,22 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
     portal_type = 'Portal Box Group Templet'
 
     isportalboxgroup = 1
- 
+
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + \
                   SimpleBox._properties + (
-        {'id': 'box_group', 
-         'type':'string', 
-         'mode':'w', 
-         'label':'Slot name', 
-         'slot': 'cpsskins_listBoxSlots', 
+        {'id': 'box_group',
+         'type':'string',
+         'mode':'w',
+         'label':'Slot name',
+         'slot': 'cpsskins_listBoxSlots',
          'category': 'general'
         },
-        {'id': 'macroless', 
-         'type':'boolean', 
-         'mode':'w', 
-         'label':'Macroless', 
+        {'id': 'macroless',
+         'type':'boolean',
+         'mode':'w',
+         'label':'Macroless',
          'category': 'general',
          'default': 0,
         },
@@ -81,7 +81,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         BaseTemplet.__init__(self, id, **kw)
         SimpleBox.__init__(self, **kw)
         self.box_group = box_group
-        self.macroless = macroless 
+        self.macroless = macroless
 
     security.declarePublic('isRenderable')
     def isRenderable(self):
@@ -93,7 +93,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):
         """ Templet is portal box group """
-           
+
         return self.isportalboxgroup
 
     security.declarePublic('isAlignable')
@@ -103,7 +103,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         return self.hasPortlets()
 
     security.declarePublic('listBoxLayouts')
-    def listBoxLayouts(self):           
+    def listBoxLayouts(self):
         """Return a list of orientations for this Templet
         """
         layouts = self.cpsskins_listBoxLayouts('PortletBox')
@@ -131,7 +131,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
-        """ Returns true if the Templet can become an ESI fragment. 
+        """ Returns true if the Templet can become an ESI fragment.
             ESI is expected to be globally enabled in the theme.
         """
 
@@ -260,7 +260,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
     security.declarePublic('render_cache')
     def render_cache(self, shield=0, enable_esi=0, **kw):
         """Renders the cached version of the templet."""
-        
+
         # Entire slots are not cached.
         return self.render(shield=shield, enable_esi=enable_esi, **kw)
 

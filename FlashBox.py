@@ -60,22 +60,22 @@ class FlashBox(File, BaseTemplet):
     manage_options = File.manage_options
 
     _properties = BaseTemplet._properties + (
-        {'id': 'caption', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Flash caption', 
+        {'id': 'caption',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Flash caption',
          'category': 'general'
         },
-        {'id': 'flash_width', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'Flash movie width', 
+        {'id': 'flash_width',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'Flash movie width',
          'category': 'layout'
         },
-        {'id': 'flash_height', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'Flash movie height', 
+        {'id': 'flash_height',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'Flash movie height',
          'category': 'layout'
         },
     )
@@ -96,10 +96,10 @@ class FlashBox(File, BaseTemplet):
                        language='',
                        rights='',
                        **kw):
-        apply(File.__init__, 
+        apply(File.__init__,
                 (self, id, title,
                  file, content_type, precondition, subject, description,
-                 contributors, effective_date, expiration_date, 
+                 contributors, effective_date, expiration_date,
                  format, language, rights)
              )
         apply(BaseTemplet.__init__, (self, id), kw)
@@ -110,7 +110,7 @@ class FlashBox(File, BaseTemplet):
     security.declarePublic('isFlashBox')
     def isFlashBox(self):
         """ Templet is portal flash box """
-           
+
         return 1
 
     security.declarePublic('isCacheable')

@@ -11,7 +11,7 @@ class TestNavigation(CPSSkinsTestCase.CPSSkinsTestCase):
     def afterSetUp(self):
         self.login('cpsskins_root')
         self.portal.REQUEST.SESSION = {}
-        self.sections = self.portal['sections'] 
+        self.sections = self.portal['sections']
         for s in ['section1', 'section2']:
             self.sections.invokeFactory(type_name='Section', id=s)
         self.section1 = getattr(self.sections, 'section1')

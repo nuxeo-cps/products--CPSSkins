@@ -9,7 +9,7 @@ tmtool = context.portal_themes
 tmtool.delObject(context)
 
 if goto == 'referer':
-    url = REQUEST['HTTP_REFERER']  
+    url = REQUEST['HTTP_REFERER']
 else:
     url = context.portal_url() + '/cpsskins_theme_manage_form'
 

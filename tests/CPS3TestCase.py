@@ -170,7 +170,7 @@ class CPSTestCase(ZopeTestCase.PortalTestCase):
 
 class CPSInstaller:
     def __init__(self, app, quiet=0):
-        if not quiet: 
+        if not quiet:
             ZopeTestCase._print('Adding Portal Site ... ')
         self.app = app
         self._start = time.time()
@@ -199,8 +199,8 @@ class CPSInstaller:
 
         # CPS 3.2
         try:
-            factory.manage_addCPSDefaultSite(portal_id, 
-                root_password1="passwd", 
+            factory.manage_addCPSDefaultSite(portal_id,
+                root_password1="passwd",
                 root_password2="passwd",
                 langs_list=['en']
                 )
@@ -227,18 +227,18 @@ class CPSInstaller:
         portal_objectIds = portal.objectIds()
         if 'portal_cpsportlets' not in portal_objectIds:
             ZopeTestCase._print('Installing CPSPortlets ...\n')
-            install = ExternalMethod('install_cpsportlets', 
-                                     'CPSPortlets', 
-                                     'CPSPortlets.install', 
-                                     'install' ) 
+            install = ExternalMethod('install_cpsportlets',
+                                     'CPSPortlets',
+                                     'CPSPortlets.install',
+                                     'install' )
             portal._setObject('install_cpsportlets', install)
             portal.install_cpsportlets()
 
     def logout(self):
         noSecurityManager()
         get_transaction().commit()
-        if not self._quiet: 
-            ZopeTestCase._print('done (%.3fs)\n' 
+        if not self._quiet:
+            ZopeTestCase._print('done (%.3fs)\n'
                 % (time.time() - self._start,))
 
 

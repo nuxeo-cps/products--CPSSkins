@@ -36,7 +36,7 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
 
         tmtool.setDefaultTheme('theme1')
         self.assertEquals(tmtool.getDefaultThemeName(), 'theme1')
-            
+
     def test_getPortalThemeRoot(self):
         tmtool = self.portal.portal_themes
         theme = tmtool['theme1']
@@ -52,7 +52,7 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
         tmtool = self.portal.portal_themes
         for themeid in ['theme1', 'empty']:
            self.assertEquals(tmtool.getThemeContainer(theme=themeid).getId(), themeid)
-    
+
     def test_getThemeContainer_parent(self):
         tmtool = self.portal.portal_themes
         self.assertEquals(tmtool.getThemeContainer(parent=1), tmtool)
@@ -84,13 +84,13 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
            self.assertEquals(tmtool.listPalettes(category='Palette Border', object=obj)['title'], \
                ['PaletteBorder1', 'PaletteBorder2'])
 
-        
+
 
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestPortalThemesTool))
     return suite
-    
+
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
 

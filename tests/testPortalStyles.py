@@ -36,7 +36,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
             self.assert_(s.aq_explicit.isPortalStyle())
             self.assert_(s.render())
             self.assert_(s.preview())
-            
+
     def test_addPortalStyle_BoxShape(self):
         theme_container = self.theme_container
         theme_container.addPortalStyle(type_name='Portal Box Shape')
@@ -145,7 +145,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         # rename to an existing style name
         style2.edit(title='title1')
         self.assert_(getattr(style2, 'title'), 'title11')
- 
+
     def test_sanitize_style_title(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
@@ -164,7 +164,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         style = theme_container.addPortalStyle(type_name='Area Color')
         page_container = theme_container.addThemePage()
         pageblock = page_container.addPageBlock()
-        templet = pageblock.addContent(type_name='Text Box Templet') 
+        templet = pageblock.addContent(type_name='Text Box Templet')
         templet.color = style.getTitle()
         parents = style.findParents()
         self.assert_(parents == [templet])
@@ -174,7 +174,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         style = theme_container.addPortalStyle(type_name='Area Color')
         page_container = theme_container.addThemePage()
         pageblock = page_container.addPageBlock()
-        templet = pageblock.addContent(type_name='Text Box Templet') 
+        templet = pageblock.addContent(type_name='Text Box Templet')
         pageblock.color = style.getTitle()
         parents = style.findParents()
         self.assert_(parents == [pageblock])
@@ -184,7 +184,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         style = theme_container.addPortalStyle(type_name='Area Color')
         page_container = theme_container.addThemePage()
         pageblock = page_container.addPageBlock()
-        cellstyler = pageblock.addCellStyler(**{'xpos':0}) 
+        cellstyler = pageblock.addCellStyler(**{'xpos':0})
         cellstyler.color = style.getTitle()
         parents = style.findParents()
         self.assert_(parents == [cellstyler])
@@ -196,7 +196,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = page_container.addPageBlock()
         templet = pageblock.addContent(type_name='Text Box Templet')
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
-        templet.color = style.getTitle() 
+        templet.color = style.getTitle()
         cellstyler.color = style.getTitle()
         pageblock.color = style.getTitle()
         parents = style.findParents()
@@ -226,7 +226,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(newstyle.Area_bg_color == style.Area_bg_color)
         self.assert_(newstyle.Area_bg_image == style.Area_bg_image)
         self.assert_(newstyle.Area_font_color == style.Area_font_color)
-        
+
     def test_copy_to_theme(self):
         theme_container = self.theme_container
         tmtool = self.portal.portal_themes
@@ -245,16 +245,16 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(newstyle.Area_border_color == style.Area_border_color)
         self.assert_(newstyle.Area_bg_color == style.Area_bg_color)
         self.assert_(newstyle.Area_bg_image == style.Area_bg_image)
-        self.assert_(newstyle.Area_font_color == style.Area_font_color)        
-        self.assert_(dest_theme_container.getDefaultStyle() == default_style)        
-        self.assert_(not newstyle.isDefaultStyle())        
-        
+        self.assert_(newstyle.Area_font_color == style.Area_font_color)
+        self.assert_(dest_theme_container.getDefaultStyle() == default_style)
+        self.assert_(not newstyle.isDefaultStyle())
+
 
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestPortalStyles))
     return suite
-    
+
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
 

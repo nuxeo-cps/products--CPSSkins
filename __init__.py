@@ -121,13 +121,13 @@ styleClasses = (
     PortalBoxShape.PortalBoxShape,
     FontColor.FontColor,
     FontShape.FontShape,
-    CollapsibleMenuStyle.CollapsibleMenuStyle, 
+    CollapsibleMenuStyle.CollapsibleMenuStyle,
     CalendarStyle.CalendarStyle,
     PortalTabStyle.PortalTabStyle,
     FormStyle.FormStyle,
     BoxCorners.BoxCorners,
 )
-                 
+
 paletteClasses = (
     PaletteColor.PaletteColor,
     PaletteBorder.PaletteBorder,
@@ -152,8 +152,8 @@ contentConstructors = (
     Breadcrumbs.addBreadcrumbs,
     PortalBoxGroup.addPortalBoxGroup,
     PortalTab.addPortalTab,
-    CollapsibleMenu.addCollapsibleMenu, 
-    CollapsibleMenuStyle.addCollapsibleMenuStyle, 
+    CollapsibleMenu.addCollapsibleMenu,
+    CollapsibleMenuStyle.addCollapsibleMenuStyle,
     CellStyler.addCellStyler,
     CellSizer.addCellSizer,
     CellHider.addCellHider,
@@ -204,8 +204,8 @@ fti = (
     PaletteColor.factory_type_information +
     PaletteBorder.factory_type_information +
     ThemeFolder.factory_type_information +
-    CollapsibleMenu.factory_type_information + 
-    CollapsibleMenuStyle.factory_type_information + 
+    CollapsibleMenu.factory_type_information +
+    CollapsibleMenuStyle.factory_type_information +
     Calendar.factory_type_information +
     CalendarStyle.factory_type_information +
     PortalTabStyle.factory_type_information +
@@ -220,26 +220,26 @@ contentClasses = portalthemeClasses + \
                  styleClasses + \
                  paletteClasses
 
-bases = contentClasses 
+bases = contentClasses
 
 this_module = sys.modules[__name__]
 z_bases = utils.initializeBasesPhase1(bases, this_module)
 z_tool_bases = utils.initializeBasesPhase1(tools, this_module)
 
 for path in (
-    'icons', 
-    'skins/CPSSkins', 
-    'skins/cpsskins_cmf', 
-    'skins/cpsskins_cps2', 
-    'skins/cpsskins_cps3', 
-    'skins/cpsskins_plone', 
+    'icons',
+    'skins/CPSSkins',
+    'skins/cpsskins_cmf',
+    'skins/cpsskins_cps2',
+    'skins/cpsskins_cps3',
+    'skins/cpsskins_plone',
     'skins/cpsskins_plone2') :
     registerDirectory(path, globals())
 
 def initialize(registrar):
     registrar.registerClass(
         CPSSkinsInstaller.Installer,
-        constructors=(manage_addInstaller, 
+        constructors=(manage_addInstaller,
                       CPSSkinsInstaller.manage_addCPSSkins,),
         )
 
@@ -298,7 +298,7 @@ def initialize(registrar):
         (PortalTabStyle.PortalTabStyle, 'portaltab_style.png'),
         (FormStyle.FormStyle, 'form_style.png'),
         (PaletteColor.PaletteColor, 'palette_color.png'),
-        (PaletteBorder.PaletteBorder, 'palette_border.png'), 
+        (PaletteBorder.PaletteBorder, 'palette_border.png'),
     ):
         utils.registerIcon(classname, 'icons/%s' % icon, globals())
 

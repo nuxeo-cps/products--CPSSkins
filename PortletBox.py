@@ -65,17 +65,17 @@ class PortletBox(BaseTemplet, SimpleBox):
 
     _properties = BaseTemplet._properties + \
                   SimpleBox._properties + (
-        {'id': 'portlet_id', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Portlet id', 
+        {'id': 'portlet_id',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Portlet id',
          'select_variable': 'cpsskins_select_portlet',
          'category': 'none',
         },
-        {'id': 'portlet_type', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Portlet type', 
+        {'id': 'portlet_type',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Portlet type',
          'select_variable': 'listPortletTypes',
          'category': 'general',
          'i18n': 1,
@@ -86,8 +86,8 @@ class PortletBox(BaseTemplet, SimpleBox):
         },
     )
 
-    def __init__(self, id, 
-                 portlet_id = None, 
+    def __init__(self, id,
+                 portlet_id = None,
                  portlet_type = None,
                  **kw):
         BaseTemplet.__init__(self, id, **kw)
@@ -175,11 +175,11 @@ class PortletBox(BaseTemplet, SimpleBox):
     security.declareProtected(ManageThemes, 'edit')
     def edit(self, **kw):
         """
-        Edit method, changes the properties 
+        Edit method, changes the properties
         or creates a new global portlet.
         """
 
-        portlet_type = kw.get('portlet_type', None) 
+        portlet_type = kw.get('portlet_type', None)
         if portlet_type is not None:
             ptype_id = self.getPortletType()
 
@@ -190,16 +190,16 @@ class PortletBox(BaseTemplet, SimpleBox):
                 # Create a global portlet on the fly and associate
                 # the portlet id to this portlet box.
                 if self.getPortletId() is None:
-                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type) 
+                    portlet_id = ptltool.createPortlet(ptype_id=portlet_type)
                     if portlet_id is not None:
-                        kw.update({'portlet_id': portlet_id}) 
+                        kw.update({'portlet_id': portlet_id})
 
                 # Modify an existing portlet:
                 elif portlet_type != ptype_id:
                     old_portlet_id = self.getPortletId()
                     portlet_id = ptltool.createPortlet(ptype_id=portlet_type)
                     if portlet_id is not None:
-                        kw.update({'portlet_id': portlet_id}) 
+                        kw.update({'portlet_id': portlet_id})
                     res = ptltool.deletePortlet(portlet_id=old_portlet_id)
                     if res:
                         # XXX: what to do?
@@ -214,9 +214,9 @@ class PortletBox(BaseTemplet, SimpleBox):
         self.manage_changeProperties(**kw)
         self.expireCache()
 
-    # 
+    #
     # Properties
-    # 
+    #
     security.declarePublic('getPortletTypeTitle')
     def getPortletTypeTitle(self, ptype=None):
         """Returns the title associated to a given type
@@ -234,7 +234,7 @@ class PortletBox(BaseTemplet, SimpleBox):
         return title
 
     security.declarePublic('listBoxLayouts')
-    def listBoxLayouts(self):           
+    def listBoxLayouts(self):
         """ Returns a list of orientations for this Templet"""
 
         return self.cpsskins_listBoxLayouts('PortletBox')
@@ -275,7 +275,7 @@ class PortletBox(BaseTemplet, SimpleBox):
     security.declarePublic('getCustomCacheIndex')
     def getCustomCacheIndex(self, **kw):
         """Returns the custom RAM cache index as a tuple (var1, var2, ...)
-        """        
+        """
         # CPSPortlets
         # overriding BaseTemplet's getCustomCacheIndex()
         ptltool = getToolByName(self, 'portal_cpsportlets', None)

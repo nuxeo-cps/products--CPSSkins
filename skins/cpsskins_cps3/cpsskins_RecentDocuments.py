@@ -6,7 +6,7 @@ if mtool.isAnonymousUser():
 recent=[]
 
 ptool = context.portal_proxies
-wtool = context.portal_workflow 
+wtool = context.portal_workflow
 utool = context.portal_url
 
 member = mtool.getAuthenticatedMember()

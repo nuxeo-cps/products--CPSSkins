@@ -34,11 +34,11 @@ class Installer(SimpleItem):
     meta_type = 'CPSSkins Installer'
 
 Globals.InitializeClass(Installer)
-             
-def manage_addCPSSkins(dispatcher, id, 
-                       SourceSkin=None, 
-                       Target=None, 
-                       ReinstallDefaultThemes=None, 
+
+def manage_addCPSSkins(dispatcher, id,
+                       SourceSkin=None,
+                       Target=None,
+                       ReinstallDefaultThemes=None,
                        REQUEST=None):
     """CPSSkins Installer"""
 
@@ -70,8 +70,8 @@ def manage_addCPSSkins(dispatcher, id,
     pr('</ul></blockquote>')
 
     pr(portal.cpsskinsinstall(
-        SourceSkin=SourceSkin, 
-        Target=Target, 
+        SourceSkin=SourceSkin,
+        Target=Target,
         ReinstallDefaultThemes=ReinstallDefaultThemes)
     )
     if 'cpsskinsinstall' in portal.objectIds():

@@ -21,7 +21,7 @@ except:
 utool = context.portal_url
 mtool = context.portal_membership
 wtool = context.portal_workflow
-portal_url = utool(relative=1) 
+portal_url = utool(relative=1)
 portal_root = utool.getPortalObject()
 
 if portal_url != '/':
@@ -58,7 +58,7 @@ if base_path != '/':
 
 if not current_path.startswith(base_path):
     if level > 0:
-        return 
+        return
     else:
         level_obj = base_obj
 else:
@@ -71,12 +71,12 @@ else:
     if split_relative_path == ['']:
         level_obj = utool.getPortalObject()
     else:
-        relative_path = '/'.join(split_relative_path) 
+        relative_path = '/'.join(split_relative_path)
 
         try:
             pp = portal_url + relative_path
             if len(pp) > 1:
-                # instead of pp = lstrip('/') 
+                # instead of pp = lstrip('/')
                 # to ensure compatibility with python 2.1
                 i = 0
                 while pp[i] == '/':
@@ -86,7 +86,7 @@ else:
             return
 
     if len(split_relative_path) <= level:
-        return 
+        return
 
 dict = {}
 obj_info = []
@@ -107,7 +107,7 @@ if max_results is not None:
 
 for obj in objs:
     folderish = getattr(obj.aq_explicit, 'isPrincipiaFolderish', 0)
-    if not folderish and not show_docs: 
+    if not folderish and not show_docs:
         continue
 
     obj_url = obj.absolute_url()
@@ -119,7 +119,7 @@ for obj in objs:
          'icon': obj.getIcon(),
          'folderish': folderish,
         }
-    ) 
+    )
 
 return { 'menuentries': obj_info,
          'create_url': create_url,

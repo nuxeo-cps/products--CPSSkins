@@ -6,7 +6,7 @@ if REQUEST is not None:
     kw.update(REQUEST.form)
 
 themes_folder = tmtool.getThemeContainer(parent=1)
-themes = tmtool.getThemes()   
+themes = tmtool.getThemes()
 mcat = tmtool.getTranslationService()
 
 default_theme_list =  kw.get('default_theme', [])

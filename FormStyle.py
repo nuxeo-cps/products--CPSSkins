@@ -18,7 +18,7 @@
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
-""" 
+"""
   Form Style.
   this style defines the appearance of forms and of form elements.
 """

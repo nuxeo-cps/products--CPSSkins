@@ -7,7 +7,7 @@ meta_type = kw.get('styleprop', None)
 if meta_type is None:
     return
 
-tmtool = context.portal_themes 
+tmtool = context.portal_themes
 theme = tmtool.getRequestedThemeName(context_obj=context)
 theme_container = tmtool.getThemeContainer(theme=theme)
 

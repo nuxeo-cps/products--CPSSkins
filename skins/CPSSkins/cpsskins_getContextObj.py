@@ -2,7 +2,7 @@
 
 context_obj = None
 if context_rurl is not None:
-    portal_url = context.portal_url(relative=1) 
+    portal_url = context.portal_url(relative=1)
     if portal_url != '/':
         portal_url = '/' + portal_url
     try:

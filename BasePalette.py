@@ -43,8 +43,8 @@ factory_type_information = (
      'filter_content_types': 0,
      'aliases': {
           '(Default)': 'cpsskins_palette_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit_form': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
+          'edit_form': 'cpsskins_edit_form',
           'delete': 'cpsskins_object_delete', },
      'actions': (
          {'id': 'view',
@@ -96,15 +96,15 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
     _actions = factory_type_information[0]['actions']
 
     _properties = (
-        {'id': 'title', 
-         'type': 'string', 
-         'mode': 'w', 
+        {'id': 'title',
+         'type': 'string',
+         'mode': 'w',
          'label': 'Title'
         },
     )
 
-    def __init__(self, id, 
-                 title= 'Palette', 
+    def __init__(self, id,
+                 title= 'Palette',
                  **kw):
         self.id = id
         self.title = title
@@ -112,7 +112,7 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
     security.declarePublic('isPortalPalette')
     def isPortalPalette(self):
         """Returns True is this is a palette."""
-           
+
         return self.isportalpalette
 
     security.declareProtected(ManageThemes, 'edit_form')
@@ -146,7 +146,7 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
         infoblock = {}
         actions_list = ['delete']
         ti = self.getTypeInfo()
-        for actionid in actions_list:  
+        for actionid in actions_list:
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
@@ -156,10 +156,10 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
                 continue
             actioninfo['url']  = self.absolute_url() + '/' + obj.getId()
             infoblock[actionid] = actioninfo
-        return infoblock 
+        return infoblock
 
     security.declareProtected(ManageThemes, 'preview')
-    def preview(self, **kw):    
+    def preview(self, **kw):
         """Renders a preview of the palette."""
 
         return renderMeth(self, 'preview_method', **kw)

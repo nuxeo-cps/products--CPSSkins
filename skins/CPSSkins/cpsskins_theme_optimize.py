@@ -27,7 +27,7 @@ items_to_translate = kw.get('items_to_translate', [])
 for k in merge_style_keys:
     styles = kw.get(k, [])
     nb_styles = len(styles)
-    if nb_styles < 2: 
+    if nb_styles < 2:
         continue
     for i in range(nb_styles):
         style_obj = getattr(styles_dir, styles[i], None)
@@ -38,9 +38,9 @@ for k in merge_style_keys:
             new_title = style_title
         else:
             style_obj.findParents(newtitle=new_title)
-            style_id = style_obj.getId() 
+            style_id = style_obj.getId()
             if style_id not in styles_to_delete:
-                styles_to_delete.append(style_id) 
+                styles_to_delete.append(style_id)
 
 #
 # Styles to delete
@@ -51,7 +51,7 @@ styles_to_delete = filter(lambda s, l=styles_dir.objectIds(): s in l, \
 styles_dir.manage_delObjects(styles_to_delete)
 
 #
-# Templets to delete 
+# Templets to delete
 #
 
 if templets_to_delete:

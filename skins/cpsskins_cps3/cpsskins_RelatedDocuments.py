@@ -36,7 +36,7 @@ if subjects:
 
         url=o.getURL()
         title=''
-        if url != obj.absolute_url(): 
+        if url != obj.absolute_url():
             related.append( {'title': proxy.Title()
                             ,'url': utool.getRelativeUrl(proxy)
                             ,'icon':proxy.getIcon()} )

@@ -9,7 +9,7 @@ for folder in portal_hierarchies.getHierarchies():
          root_path = '/'
      else:
          root_path = '/' + getattr(obj, 'root', None) + '/'
-     
+
      mount_points[folder] = root_path
 
 return mount_points

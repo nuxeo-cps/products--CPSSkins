@@ -56,32 +56,32 @@ class CellHider(BaseCellModifier):
     security = ClassSecurityInfo()
 
     _properties = BaseCellModifier._properties + (
-        {'id': 'visibility', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Visibility criteria', 
-         'select_variable': 'listVisibilityModes', 
+        {'id': 'visibility',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Visibility criteria',
+         'select_variable': 'listVisibilityModes',
          'category': 'general'
         },
-        {'id': 'visibility_paths', 
-         'type': 'multiple selection', 
-         'mode': 'w', 
-         'label': 'The visibility paths', 
-         'select_variable': 'cpsskins_listPaths', 
+        {'id': 'visibility_paths',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'The visibility paths',
+         'select_variable': 'cpsskins_listPaths',
          'category': 'general',
          'visible': 'ShowVisibilityPaths'
         },
-        {'id': 'languages', 
-         'type': 'multiple selection', 
-         'mode': 'w', 
-         'label': 'The languages in which it is visible', 
-         'select_variable': 'listLanguages', 
+        {'id': 'languages',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'The languages in which it is visible',
+         'select_variable': 'listLanguages',
          'category': 'general',
          'visible': 'listLanguages'
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  visibility = 'always',
                  visibility_paths= [],
                  languages = [],
@@ -94,14 +94,14 @@ class CellHider(BaseCellModifier):
 
     security.declarePublic('isCellHider')
     def isCellHider(self):
-        """ is a cell hider ?"""       
+        """ is a cell hider ?"""
 
         return self.iscellhider
 
     security.declarePublic('ShowVisibilityPaths')
     def ShowVisibilityPaths(self):
         """ returns true if the visibility paths must be shown """
-           
+
         category = getattr(self, 'visibility', None)
         if category in ['everywhere_except_in',
                         'only_in',
@@ -120,18 +120,18 @@ class CellHider(BaseCellModifier):
     def listVisibilityModes(self):
         """ Returns a list of visibility criteria """
 
-        list = ['always', 
-                'everywhere_except_in', 
-                'only_in', 
-                'starting_from', 
-                'up_till', 
-                'if_authenticated', 
-                'if_anonymous', 
+        list = ['always',
+                'everywhere_except_in',
+                'only_in',
+                'starting_from',
+                'up_till',
+                'if_authenticated',
+                'if_anonymous',
                 'if_secure_connection' ]
         return list
 
     security.declarePublic('listLanguages')
-    def listLanguages(self):           
+    def listLanguages(self):
         """ Returns a list of languages """
 
         return getAvailableLangs(self)

@@ -16,9 +16,9 @@ for propid in context.propertyIds():
                              continue
 
              category = obj.get('category', None)
-             if category is None: 
+             if category is None:
                  continue
-             if category not in categories and category is not 'none': 
+             if category not in categories and category is not 'none':
                  categories.append(category)
 
 if getattr(context.aq_explicit, 'isportletbox', None) is not None:

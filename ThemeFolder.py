@@ -72,7 +72,7 @@ class ThemeFolder(PortalFolder):
     security.declarePublic('isThemeFolder')
     def isThemeFolder(self):
         """ is Theme Folder? """
-           
+
         return self.isthemefolder
 
     #
@@ -118,7 +118,7 @@ class ThemeFolder(PortalFolder):
             REQUEST = self.REQUEST
         self.manage_cutObjects(ids, REQUEST)
 
-        RESPONSE = REQUEST.RESPONSE 
+        RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
         RESPONSE.redirect(redirect_url)
 
@@ -131,7 +131,7 @@ class ThemeFolder(PortalFolder):
             REQUEST = self.REQUEST
         self.manage_copyObjects(ids, REQUEST)
 
-        RESPONSE = REQUEST.RESPONSE 
+        RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
         RESPONSE.redirect(redirect_url)
 
@@ -151,7 +151,7 @@ class ThemeFolder(PortalFolder):
         theme_container = self.getContainer()
         theme_container.rebuild()
 
-        RESPONSE = REQUEST.RESPONSE 
+        RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
         RESPONSE.redirect(redirect_url)
 
@@ -163,7 +163,7 @@ class ThemeFolder(PortalFolder):
             REQUEST = self.REQUEST
         self.manage_delObjects(ids)
 
-        RESPONSE = REQUEST.RESPONSE 
+        RESPONSE = REQUEST.RESPONSE
         redirect_url = REQUEST['HTTP_REFERER']
         RESPONSE.redirect(redirect_url)
 

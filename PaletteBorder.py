@@ -62,7 +62,7 @@ class PaletteBorder(BasePalette):
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                        value = 'solid solid solid solid',
                        **kw):
 

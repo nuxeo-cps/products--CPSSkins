@@ -70,7 +70,7 @@ class MainContent(BaseTemplet):
     security.declarePublic('isMainContent')
     def isMainContent(self):
         """ Templet is main content """
-           
+
         return 1
 
     security.declarePublic('isCacheable')
@@ -81,7 +81,7 @@ class MainContent(BaseTemplet):
 
     security.declarePublic('isESICacheable')
     def isESICacheable(self):
-        """ Returns true if the Templet can become an ESI fragment. 
+        """ Returns true if the Templet can become an ESI fragment.
             ESI is expected to be globally enabled in the theme.
         """
 
@@ -90,7 +90,7 @@ class MainContent(BaseTemplet):
     security.declarePublic('can_delete')
     def can_delete(self):
         """ Can the templet be deleted ?"""
-           
+
         return 1
 
 InitializeClass(MainContent)

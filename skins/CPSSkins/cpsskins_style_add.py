@@ -9,7 +9,7 @@ theme_container = tmtool.getThemeContainer(theme=theme)
 if theme_container is None:
     return
 
-style = theme_container.addPortalStyle(**kw) 
+style = theme_container.addPortalStyle(**kw)
 if style is None:
     return
 

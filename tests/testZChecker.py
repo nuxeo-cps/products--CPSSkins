@@ -18,11 +18,11 @@ else:
     has_zchecker = 1
 
 ignoredObjectIds = []
-CPSSKINS_SKINS = ['CPSSkins', 
-                  'cpsskins_cmf', 
-                  'cpsskins_cps2', 
-                  'cpsskins_cps3', 
-                  'cpsskins_plone', 
+CPSSKINS_SKINS = ['CPSSkins',
+                  'cpsskins_cmf',
+                  'cpsskins_cps2',
+                  'cpsskins_cps3',
+                  'cpsskins_plone',
                   'cpsskins_plone2']
 
 class TestSkins(CPSSkinsTestCase.CPSSkinsTestCase):

@@ -53,7 +53,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         """Can the templet be moved to the left?"""
 
         if self.can_moveleft():
-            return self.xpos -1 
+            return self.xpos -1
         return None
 
     security.declarePublic('moveright_pos')
@@ -193,7 +193,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             newobj.setPortletId(portlet_id=None)
             newobj.edit(**{'portlet_type': newobj.portlet_type})
 
-        # needed for the ImageBox 
+        # needed for the ImageBox
         setattr(newobj, 'id', newid)
         verifyThemePerms(newobj)
         newobj.expireCache()
@@ -235,7 +235,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             cookie = src_container.manage_copyObjects([self.getId()])
             res = dest_container.manage_pasteObjects(cookie)
             new_id = res[0]['new_id']
-            newpos = int(ypos) 
+            newpos = int(ypos)
             if dest_block == src_block:
                 if newpos > current_ypos:
                     newpos += 1
@@ -286,7 +286,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
         # copy the content to the destination container
         container = self.getContainer()
         cookie = container.manage_copyObjects(self.getId(), REQUEST=REQUEST)
-        res = dest_container.manage_pasteObjects(cookie) 
+        res = dest_container.manage_pasteObjects(cookie)
         new_id = res[0]['new_id']
         templet = getattr(dest_container, new_id)
         verifyThemePerms(templet)
@@ -316,7 +316,7 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
             if newpos >= 0:
                 container.move_object_to_position(self.getId(), newpos)
             else:
-                cookie = container.manage_cutObjects(self.getId(), 
+                cookie = container.manage_cutObjects(self.getId(),
                                                      REQUEST=REQUEST)
                 pos =  container.moveup_pos()
                 theme_container = container.getContainer()
@@ -326,21 +326,21 @@ class PageBlockContent(DynamicType, PropertyManager, SimpleItem):
                         maxcols = getattr(obj, 'maxcols', None)
                         if maxcols is not None and self.xpos > maxcols-1:
                             self.xpos = maxcols - 1
-                        templet = getattr(obj, self.getId(), None) 
+                        templet = getattr(obj, self.getId(), None)
 
         if direction == 'down' and self.can_movedown():
             newpos = self.movedown_pos()
             if newpos >= 0:
                 container.move_object_to_position(self.getId(), newpos)
             else:
-                cookie = container.manage_cutObjects(self.getId(), 
+                cookie = container.manage_cutObjects(self.getId(),
                                                      REQUEST=REQUEST)
                 pos =  container.movedown_pos()
                 theme_container = container.getContainer()
                 for obj in theme_container.objectValues():
                     if theme_container.get_object_position(obj.getId()) == pos:
                         obj.manage_pasteObjects(cookie)
-                        newobj =  getattr(obj, self.getId(), None) 
+                        newobj =  getattr(obj, self.getId(), None)
                         obj.move_object_to_position(newobj.getId(), int(0))
 
                         maxcols = getattr(obj, 'maxcols', None)

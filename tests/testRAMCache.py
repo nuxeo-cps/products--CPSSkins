@@ -48,7 +48,7 @@ class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(size == 0)
         templet.cache_lifetime = 3600
         templet.cacheable = 1
-        templet.render_cache()     
+        templet.render_cache()
         size = self.theme_container.getCacheSize()
         self.assert_(size == cache.getSize())
 
@@ -124,7 +124,7 @@ class TestRAMCache(CPSSkinsTestCase.CPSSkinsTestCase):
         time.sleep(0.1)
         css_render_4 = theme_container.renderCSS()
         self.assert_(css_render_3 != css_render_4)
-        style2.edit(**{'Area_border_style': 'solid'})    
+        style2.edit(**{'Area_border_style': 'solid'})
         time.sleep(0.1)
         css_render_5 = theme_container.renderCSS()
         self.assert_(css_render_3 == css_render_5)

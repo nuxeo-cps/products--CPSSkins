@@ -20,7 +20,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 """
   Portal Theme
-  a Portal Theme modifies the appearance and the layout of the portal. 
+  a Portal Theme modifies the appearance and the layout of the portal.
   The Theme layout is composed of horizontal Page Blocks.
 """
 
@@ -70,13 +70,13 @@ factory_type_information = (
      'immediate_view': 'cpsskins_edit_form',
      'filter_content_types': 0,
      'global_allow': 0,
-     'aliases': {              
+     'aliases': {
           '(Default)': 'cpsskins_theme_view',
           'view': 'cpsskins_theme_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit': 'cpsskins_edit_form', 
-          'edit_styles': 'cpsskins_edit_styles', 
-          'edit_palettes': 'cpsskins_edit_palettes', 
+          'edit': 'cpsskins_edit_form',
+          'edit': 'cpsskins_edit_form',
+          'edit_styles': 'cpsskins_edit_styles',
+          'edit_palettes': 'cpsskins_edit_palettes',
           'edit_images': 'cpsskins_edit_images',
           'manage_cache': 'cpsskins_cache_manager',
           'manage_themes': 'cpsskins_themes_manager',
@@ -158,50 +158,50 @@ class PortalTheme(ThemeFolder, StylableContent):
     manage_RAMCache = DTMLFile('zmi/manage_RAMCache', globals())
 
     _properties = (
-        {'id': 'title', 
-         'type':'string', 
-         'mode':'w', 
-         'label':'Title', 
+        {'id': 'title',
+         'type':'string',
+         'mode':'w',
+         'label':'Title',
          'category': 'general'
         },
-        {'id': 'default', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Default theme', 
+        {'id': 'default',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Default theme',
          'category': 'general',
          'default': 0,
         },
-        {'id': 'esi', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Enable ESI', 
+        {'id': 'esi',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Enable ESI',
          'category': 'general',
          'default': 0,
         },
-        {'id': 'shortcut_icon', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Shortcut icon', 
-         'select_variable': 'cpsskins_listIcons',  
-         'category': 'style', 
+        {'id': 'shortcut_icon',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Shortcut icon',
+         'select_variable': 'cpsskins_listIcons',
+         'category': 'style',
          'image' : 'icons'
         },
         {'id': 'author',
          'type': 'text',
-         'mode': 'w', 
-         'label': 'Author', 
+         'mode': 'w',
+         'label': 'Author',
          'category' : 'about'
         },
-        {'id': 'copyright', 
-         'type': 'text', 
-         'mode': 'w', 
-         'label': 'Copyright', 
+        {'id': 'copyright',
+         'type': 'text',
+         'mode': 'w',
+         'label': 'Copyright',
          'category': 'about'
         },
-        {'id': 'license', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'License', 
+        {'id': 'license',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'License',
          'category': 'about'
         },
     )
@@ -212,7 +212,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     css_cache_cleanup_date = 0
     js_cache_cleanup_date = 0
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  title = 'Portal Theme',
                  default = 0,
                  esi = 0,
@@ -245,7 +245,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declarePublic('isPortalTheme')
     def isPortalTheme(self):
         """ is a portal theme """
-           
+
         return self.isportaltheme
 
     security.declarePublic('isDefaultTheme')
@@ -349,7 +349,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                 if js_code:
                     js += js_code
             cache.setEntry(index, js)
-        return js  
+        return js
 
     security.declarePublic('setCacheHeaders')
     def setCacheHeaders(self, content_type='', editing=0, **kw):
@@ -492,7 +492,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         """ Gets the default style name by type
         """
 
-        styles = self.getStyles(meta_type=meta_type) 
+        styles = self.getStyles(meta_type=meta_type)
         for style in styles:
             if style.isDefaultStyle():
                 return style.title
@@ -508,7 +508,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declarePublic('getStylesFolder')
     def getStylesFolder(self):
         """
-        Returns the styles folder object 
+        Returns the styles folder object
         """
 
         id = 'styles'
@@ -539,7 +539,7 @@ class PortalTheme(ThemeFolder, StylableContent):
                     continue
 
             list.append(o)
-        return list 
+        return list
 
     security.declarePublic('findIdenticalStyles')
     def findIdenticalStyles(self):
@@ -599,7 +599,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             properties = style.propertyValues()[1:]
             for i in range(len(groups)):
                 group = groups[i]
-                if properties == props[i]: 
+                if properties == props[i]:
                     groups[i].append(style)
                     break
             groups.append([style])
@@ -624,13 +624,13 @@ class PortalTheme(ThemeFolder, StylableContent):
         folder = getattr(self.aq_inner.aq_explicit, id, None)
         if folder is not None:
             if not getattr(aq_base(folder), 'isthemefolder', 0):
-                return None 
+                return None
         return getattr(self, id, None)
 
     security.declareProtected(ManageThemes, 'getLostAndFoundFolder')
     def getLostAndFoundFolder(self, create=0):
         """
-        Returns the 'lost+found' folder. 
+        Returns the 'lost+found' folder.
         """
 
         id = 'LOST-AND-FOUND'
@@ -638,7 +638,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         exists = 0
         if folder is not None:
             if getattr(aq_base(folder), 'isthemefolder', 0):
-                exists = 1 
+                exists = 1
         if not exists and create:
             self.invokeFactory('Theme Folder', id)
         return getattr(self.aq_inner.aq_explicit, id, None)
@@ -646,7 +646,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declarePublic('getImageFolder')
     def getImageFolder(self, category=None):
         """
-        Returns the image folder by category 
+        Returns the image folder by category
         """
 
         if category not in self.cpsskins_listImageCategories():
@@ -702,7 +702,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         type_name = kw.get('type_name', None)
         if type_name is None:
             return None
-        type = string.replace(type_name, ' ', '') 
+        type = string.replace(type_name, ' ', '')
 
         title = kw.get('title', type)
         value = kw.get('value', None)
@@ -723,10 +723,10 @@ class PortalTheme(ThemeFolder, StylableContent):
         i = 0
         while 1:
             if title not in titles:
-                break 
+                break
             i = i + 1
             title = type + str(i)
-            if titles is None: 
+            if titles is None:
                 break
 
         id = getFreeId(self)
@@ -746,7 +746,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         type_name = kw.get('type_name', None)
         if type_name is None:
             return None
-        type = string.replace(type_name, ' ', '') 
+        type = string.replace(type_name, ' ', '')
         title = kw.get('title', type)
 
         del kw['type_name']
@@ -762,10 +762,10 @@ class PortalTheme(ThemeFolder, StylableContent):
         i = 0
         while 1:
             if title not in titles:
-                break 
+                break
             i = i + 1
             title = type + str(i)
-            if titles is None: 
+            if titles is None:
                 break
 
         id = getFreeId(self)
@@ -809,10 +809,10 @@ class PortalTheme(ThemeFolder, StylableContent):
         i = 0
         while 1:
             i = i + 1
-            if ids is None: 
+            if ids is None:
                 break
             if id not in ids:
-                break 
+                break
             id = prefix + str(i) + '.' + ext
 
         title = id
@@ -876,7 +876,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         csscache = self.getCSSCache()
         if csscache is not None:
             csscache.invalidate()
-        
+
         jscache = self.getJSCache()
         if jscache is not None:
             jscache.invalidate()
@@ -884,7 +884,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declareProtected(ManageThemes, 'expireCSSCache')
     def expireCSSCache(self):
         """Expires the CSS RAM cache for this theme.
- 
+
            In a ZEO environment, the information will propagate
            between all ZEO instances as long as the theme still
            exists.
@@ -895,7 +895,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declareProtected(ManageThemes, 'expireJSCache')
     def expireJSCache(self):
         """Expires the JS RAM cache for this theme.
- 
+
            In a ZEO environment, the information will propagate
            between all ZEO instances as long as the theme still
            exists.
@@ -1189,10 +1189,10 @@ class PortalTheme(ThemeFolder, StylableContent):
            used instead in order to propagate the information between
            ZEO instances.
         """
-                                                
+
         cache = self.getTempletCache()
-        if cache is None:                       
-            return                              
+        if cache is None:
+            return
         cache.delEntries(obid)
 
     security.declareProtected(ManageThemes, 'invalidateCSSCache')
@@ -1203,12 +1203,12 @@ class PortalTheme(ThemeFolder, StylableContent):
            Use 'theme.expireCSSCache()' to propagate the information between
            all ZEO instances.
         """
-   
+
         cache = self.getCSSCache()
-        if cache is None:                       
-            return                              
+        if cache is None:
+            return
         cache.invalidate()
-        
+
     security.declareProtected(ManageThemes, 'invalidateJSCache')
     def invalidateJSCache(self):
         """Invalidates the JavaScript RAM Cache.
@@ -1218,8 +1218,8 @@ class PortalTheme(ThemeFolder, StylableContent):
            all ZEO instances.
         """
         cache = self.getJSCache()
-        if cache is None:                       
-            return                              
+        if cache is None:
+            return
         cache.invalidate()
 
     security.declarePublic('findCacheOrphans')
@@ -1257,7 +1257,7 @@ class PortalTheme(ThemeFolder, StylableContent):
             effectivity = 100 * hits / count
         else:
             effectivity = 100
-        return {'effectivity': effectivity, 
+        return {'effectivity': effectivity,
                 'size': size, }
 
     security.declarePublic('getCacheReport')
@@ -1268,11 +1268,11 @@ class PortalTheme(ThemeFolder, StylableContent):
         if cache is None:
             return None
         return cache.getReport()
-                    
+
     security.declarePublic('getCacheSize')
     def getCacheSize(self):
         """Returns the size of the cache.
-        """         
+        """
         size = 0
         templetcache = self.getTempletCache()
         if templetcache is not None:
@@ -1283,7 +1283,7 @@ class PortalTheme(ThemeFolder, StylableContent):
         jscache = self.getJSCache()
         if jscache is not None:
             size += jscache.getSize()
-        return size 
+        return size
 
     security.declarePublic('getTempletCache')
     def getTempletCache(self):
@@ -1312,7 +1312,7 @@ class PortalTheme(ThemeFolder, StylableContent):
     security.declarePublic('getJSCache')
     def getJSCache(self):
         """ Returns the javascript RAM cache object"""
-                 
+
         cacheid = '_'.join((JS_RAMCACHE_ID,) + self.getPhysicalPath()[1:])
         try:
             return self.caches[cacheid]

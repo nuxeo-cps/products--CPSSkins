@@ -20,8 +20,8 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 """
   Page Block
-  a Page Block is composed of Cells (columns). 
-  The visual appearance of a Cell can be modified by using Cell Stylers, 
+  a Page Block is composed of Cells (columns).
+  The visual appearance of a Cell can be modified by using Cell Stylers,
   Cell Sizers and Cell Hiders.
 """
 
@@ -54,8 +54,8 @@ factory_type_information = (
      'aliases': {
           '(Default)': 'cpsskins_default_view',
           'view': 'cpsskins_default_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit_form': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
+          'edit_form': 'cpsskins_edit_form',
           'addcontent': 'cpsskins_addcontent_form', },
      'actions': (
          {'id': 'view',
@@ -93,64 +93,64 @@ class PageBlock(ThemeFolder, StylableContent):
     security = ClassSecurityInfo()
 
     _properties = (
-        {'id': 'title', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Title', 
+        {'id': 'title',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Title',
          'category': 'general'
         },
-        {'id': 'closed', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Closed', 
+        {'id': 'closed',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Closed',
          'category': 'none',
          'default': 0
         },
-        {'id': 'width', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Width', 
-         'category': 'layout' 
-        },
-        {'id': 'height', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Height', 
+        {'id': 'width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Width',
          'category': 'layout'
         },
-        {'id': 'maxcols', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'Number of columns', 
+        {'id': 'height',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Height',
          'category': 'layout'
         },
-        {'id': 'shape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Shape', 
-         'select_variable': 'listAreaShapes', 
-         'style': 'Area Shape', 
+        {'id': 'maxcols',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'Number of columns',
+         'category': 'layout'
+        },
+        {'id': 'shape',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Shape',
+         'select_variable': 'listAreaShapes',
+         'style': 'Area Shape',
          'category' : 'style'
         },
-        {'id': 'color', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Color', 
-         'select_variable': 'listAreaColors', 
-         'style': 'Area Color', 
+        {'id': 'color',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Color',
+         'select_variable': 'listAreaColors',
+         'style': 'Area Color',
          'category' : 'style'
         },
       )
 
     # XXX to be fixed: title
-    def __init__(self, id, 
+    def __init__(self, id,
                  title = '',
                  closed = 0,
                  maxcols = 1,
-                 width = '100%', 
-                 height = '', 
-                 shape = 'NoBorder', 
-                 color = 'Transparent', 
+                 width = '100%',
+                 height = '',
+                 shape = 'NoBorder',
+                 color = 'Transparent',
                  **kw):
         self.id = id
         self.title = title
@@ -163,7 +163,7 @@ class PageBlock(ThemeFolder, StylableContent):
 
     security.declarePublic('isPortalPageBlock')
     def isPortalPageBlock(self):
-        """ is Portal Page Block ? """   
+        """ is Portal Page Block ? """
 
         return self.isportalpageblock
 
@@ -279,7 +279,7 @@ class PageBlock(ThemeFolder, StylableContent):
         """
         Add content. Returns the id
         """
- 
+
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
         type_name = kw.get('type_name', None)
@@ -294,7 +294,7 @@ class PageBlock(ThemeFolder, StylableContent):
             kw['title'] = type_name
         ypos = int(ypos)
         if ypos == 0:
-            newpos = ypos 
+            newpos = ypos
         else:
             newpos = ypos + 1
 
@@ -370,7 +370,7 @@ class PageBlock(ThemeFolder, StylableContent):
         Gets all the objects inside a Page Block.
         Returns information about each cell (width, style, visibility, ...)
         """
- 
+
         objects = {}
         contents = {}
         cellstyler = {}
@@ -487,7 +487,7 @@ class PageBlock(ThemeFolder, StylableContent):
 
     security.declareProtected(ManageThemes, 'getVerticalPosition')
     def getVerticalPosition(self):
-        """ 
+        """
         Return the page block's ypos in the theme folder
         """
 
@@ -505,11 +505,11 @@ class PageBlock(ThemeFolder, StylableContent):
 
         if xpos is None or dir not in ['left', 'right']:
             return None
-        
+
         delta = 0
         if dir == 'left' and int(xpos) > 0:
             delta = -1
-        
+
         if dir == 'right' and int(xpos) <= int(self.maxcols):
             delta = +1
 
@@ -659,10 +659,10 @@ class PageBlock(ThemeFolder, StylableContent):
     #
     security.declareProtected(ManageThemes, 'rebuild')
     def rebuild(self, **kw):
-        """                  
+        """
         Rebuild this page block
-        """              
-                         
+        """
+
         setperms = kw.get('setperms', 0)
         canonizeId(self)
         rebuild_properties(self)
@@ -708,7 +708,7 @@ class PageBlock(ThemeFolder, StylableContent):
     security.declareProtected(ManageThemes, 'delete')
     def delete(self):
         """
-        Delete the page block 
+        Delete the page block
         """
 
         theme_container = self.getContainer()

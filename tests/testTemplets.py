@@ -89,7 +89,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'},
             ])
         for content in templet.listDisplayModes():
-            templet.content = content 
+            templet.content = content
             templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_title_source(self):
@@ -100,7 +100,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
             templet.title_source = title_source
             templet.box_title_i18n = 1
             templet.render(context_obj=self.portal)
-            templet.box_title_i18n = 0 
+            templet.box_title_i18n = 0
             templet.render(context_obj=self.portal)
 
     def test_PortalBox_Templet_layouts(self):
@@ -270,7 +270,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Form Style', 'id': 'formstyle'},
             ])
         for content in templet.listDisplayModes():
-            templet.content = content 
+            templet.content = content
             templet.render(context_obj=self.portal)
 
     def test_CollapsibleMenu_Templet(self):
@@ -303,7 +303,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
              {'meta_type': 'Portal Tab Style', 'id': 'portaltabstyle'},
             ])
         for content in templet.listDisplayModes():
-            templet.content = content 
+            templet.content = content
             templet.render(context_obj=self.portal)
 
     def test_PortalTab_Templet_folder_items_i18n(self):

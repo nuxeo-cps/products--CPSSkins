@@ -38,7 +38,7 @@ class TestCPSPortlets(CPSSkinsTestCase.CPSSkinsTestCase):
         templet = pageblock.addContent(type_name='Portal Box Group Templet')
         self.assert_(not templet.aq_explicit.isCacheable())
 
-class TestFunctional(ZopeTestCase.Functional, 
+class TestFunctional(ZopeTestCase.Functional,
                      CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):

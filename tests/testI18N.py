@@ -118,7 +118,7 @@ class TestMsg(CPSSkinsTestCase.CPSSkinsTestCase):
     potFile = None
 
     def checkMsgExists(self,po,template):
-        """Check that each existing message is translated and 
+        """Check that each existing message is translated and
            that there are no extra messages."""
         cmd='LC_ALL=C msgcmp --directory=../i18n %s %s' % (po,template)
         status = commands.getstatusoutput(cmd)
@@ -168,7 +168,7 @@ def test_suite():
     for test in tests:
         suite.addTest(unittest.makeSuite(test))
     return suite
-    
+
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
 

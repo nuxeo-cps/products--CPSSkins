@@ -37,67 +37,67 @@ class StylableContent:
     security = ClassSecurityInfo()
 
     security.declarePublic('listAreaColors')
-    def listAreaColors(self):           
+    def listAreaColors(self):
         """Returns a list of Area Color styles."""
 
         return getStyleList(self, 'Area Color')
 
     security.declarePublic('listAreaShapes')
-    def listAreaShapes(self):           
+    def listAreaShapes(self):
         """Returns a list of Area Shape styles."""
 
         return getStyleList(self, 'Area Shape')
 
     security.declarePublic('listFontColors')
-    def listFontColors(self):           
+    def listFontColors(self):
         """Returns a list of Font Color styles."""
 
         return getStyleList(self, 'Font Color')
 
     security.declarePublic('listFontShapes')
-    def listFontShapes(self):           
+    def listFontShapes(self):
         """Returns a list of Font Shape styles."""
 
         return getStyleList(self, 'Font Shape')
 
     security.declarePublic('listFormStyles')
-    def listFormStyles(self):           
+    def listFormStyles(self):
         """Returns a list of formstyles."""
 
         return getStyleList(self, 'Form Style')
 
     security.declarePublic('listBoxShapes')
-    def listBoxShapes(self):           
+    def listBoxShapes(self):
         """ Returns a list of Portal Box Shape styles"""
 
         return getStyleList(self, 'Portal Box Shape')
 
     security.declarePublic('listBoxColors')
-    def listBoxColors(self):           
+    def listBoxColors(self):
         """ Returns a list of Portal Box Color styles"""
 
         return getStyleList(self, 'Portal Box Color')
 
     security.declarePublic('listBoxCorners')
-    def listBoxCorners(self):           
+    def listBoxCorners(self):
         """ Returns a list of Box Corner styles"""
 
         return getStyleList(self, 'Box Corners')
 
     security.declarePublic('listTabStyles')
-    def listTabStyles(self):           
+    def listTabStyles(self):
         """ Returns a list of Portal Tab styles"""
 
         return getStyleList(self, 'Portal Tab Style')
 
     security.declarePublic('listCalendarStyles')
-    def listCalendarStyles(self):           
+    def listCalendarStyles(self):
         """ Returns a list of Calendar styles"""
 
         return getStyleList(self, 'Calendar Style')
 
     security.declarePublic('listCollapsibleMenuStyles')
-    def listCollapsibleMenuStyles(self):           
+    def listCollapsibleMenuStyles(self):
         """ Returns a list of Collapsible Menu styles"""
 
         return getStyleList(self, 'Collapsible Menu Style')
@@ -107,7 +107,7 @@ class StylableContent:
     #
     security.declarePublic('getApplicableStyles')
     def getApplicableStyles(self):
-        """Returns the styles by meta type that are 
+        """Returns the styles by meta type that are
            applicable to this Templet
         """
 
@@ -121,13 +121,13 @@ class StylableContent:
         theme_container = tmtool.getPortalThemeRoot(self)
         for propid in self.propertyIds():
             for obj in self.propertyMap():
-                if obj['id'] != propid:                
+                if obj['id'] != propid:
                     continue
                 if obj.get('style', None) != meta_type:
                     continue
                 style_title = getattr(self, propid, None)
                 styles = theme_container.findStyles(title=style_title)
-                if len(styles) > 0: 
+                if len(styles) > 0:
                     return styles[0]
 
     security.declareProtected(ManageThemes, 'setStyle')
@@ -136,7 +136,7 @@ class StylableContent:
 
         if style is None:
             return
-        prop_id = None 
+        prop_id = None
         meta_type = style.meta_type
         for propid in self.propertyIds():
             for obj in self.propertyMap():

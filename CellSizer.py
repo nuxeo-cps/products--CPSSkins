@@ -56,22 +56,22 @@ class CellSizer(BaseCellModifier):
     security = ClassSecurityInfo()
 
     _properties = BaseCellModifier._properties + (
-        {'id': 'cellwidth', 
-         'type': 'string', 
-         'mode': 'w', 
+        {'id': 'cellwidth',
+         'type': 'string',
+         'mode': 'w',
          'label': 'Cell width'
         },
     )
 
-    def __init__(self, id, 
-                       cellwidth = '25%', 
+    def __init__(self, id,
+                       cellwidth = '25%',
                        **kw):
         apply(BaseCellModifier.__init__, (self, id), kw)
         self.cellwidth = cellwidth
 
     security.declarePublic('isCellSizer')
     def isCellSizer(self):
-           
+
         return self.iscellsizer
 
     security.declareProtected(ManageThemes, 'edit')

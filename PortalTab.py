@@ -55,96 +55,96 @@ class PortalTab(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-       {'id': 'content', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Portal box content', 
-        'select_variable': 'listDisplayModes', 
+       {'id': 'content',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Portal box content',
+        'select_variable': 'listDisplayModes',
         'category': 'general',
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
-       {'id': 'show_docs', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Show documents in folders', 
-        'category': 'folders', 
+       {'id': 'show_docs',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Show documents in folders',
+        'category': 'folders',
         'visible': 'IfFoldersCategory',
         'default': 0,
        },
-       {'id': 'show_add_items', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Show add items', 
-        'category': 'folders', 
+       {'id': 'show_add_items',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Show add items',
+        'category': 'folders',
         'visible': 'IfFoldersCategory',
         'default': 1,
        },
-       {'id': 'folder_items_i18n', 
-        'type': 'boolean', 
-        'mode': 'w', 
+       {'id': 'folder_items_i18n',
+        'type': 'boolean',
+        'mode': 'w',
         'label': 'Translate folder items',
-        'default': 0, 
-        'category': 'folders', 
+        'default': 0,
+        'category': 'folders',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'level', 
-        'type': 'int', 
-        'mode': 'w', 
-        'label': 'Depth level', 
-        'category': 'folders', 
+       {'id': 'level',
+        'type': 'int',
+        'mode': 'w',
+        'label': 'Depth level',
+        'category': 'folders',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'base', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Hierarchy base', 
-        'category': 'folders', 
-        'select_variable': 'cpsskins_listFolderRoots', 
+       {'id': 'base',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Hierarchy base',
+        'category': 'folders',
+        'select_variable': 'cpsskins_listFolderRoots',
         'visible': 'IfFoldersCategoryAndExistsBase'
        },
-       {'id': 'base_path', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Base path', 
-        'category': 'folders', 
-        'select_variable': 'listPaths', 
+       {'id': 'base_path',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Base path',
+        'category': 'folders',
+        'select_variable': 'listPaths',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'action_categories', 
-        'type': 'multiple selection', 
-        'mode': 'w', 
-        'label': 'Action categories', 
-        'select_variable': 'cpsskins_listActionCategories', 
-        'category': 'actions', 
+       {'id': 'action_categories',
+        'type': 'multiple selection',
+        'mode': 'w',
+        'label': 'Action categories',
+        'select_variable': 'cpsskins_listActionCategories',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'custom_action_categories', 
-        'type': 'lines', 
-        'mode': 'w', 
-        'label': 'Custom action categories', 
-        'category': 'actions', 
+       {'id': 'custom_action_categories',
+        'type': 'lines',
+        'mode': 'w',
+        'label': 'Custom action categories',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'invisible_actions', 
-        'type': 'lines', 
-        'mode': 'w', 
-        'label': 'Invisible actions', 
-        'category': 'actions', 
+       {'id': 'invisible_actions',
+        'type': 'lines',
+        'mode': 'w',
+        'label': 'Invisible actions',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'portaltabstyle', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Tab style', 
-        'select_variable': 'listTabStyles', 
-        'category': 'style', 
+       {'id': 'portaltabstyle',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Tab style',
+        'select_variable': 'listTabStyles',
+        'category': 'style',
         'style': 'Portal Tab Style'
        },
     )
 
     def __init__(self, id,
-                 content = 'actions', 
+                 content = 'actions',
                  level = 0,
                  show_docs = 0,
                  show_add_items = 1,
@@ -152,7 +152,7 @@ class PortalTab(BaseTemplet):
                  custom_action_categories = [],
                  invisible_actions = ['view',],
                  base_path = '/',
-                 portaltabstyle = '', 
+                 portaltabstyle = '',
                  base = [],
                  folder_items_i18n = 0,
                  **kw):
@@ -197,10 +197,10 @@ class PortalTab(BaseTemplet):
         return params
 
     security.declarePublic('listDisplayModes')
-    def listDisplayModes(self):           
+    def listDisplayModes(self):
         """ Returns a list of contents for this Templet's body"""
 
-        list = [ 'actions', 
+        list = [ 'actions',
                  'folders' ]
         return list
 
@@ -217,7 +217,7 @@ class PortalTab(BaseTemplet):
         return ['folder_items_i18n',]
 
     security.declarePublic('IfActionsCategory')
-    def IfActionsCategory(self):           
+    def IfActionsCategory(self):
         """ Returns true if the box content is set 'actions' """
 
         if getattr(self, 'content', None) == 'actions':
@@ -225,7 +225,7 @@ class PortalTab(BaseTemplet):
         return None
 
     security.declarePublic('IfFoldersCategory')
-    def IfFoldersCategory(self):           
+    def IfFoldersCategory(self):
         """ Returns true if the box content is set 'folders' """
 
         if getattr(self, 'content', None) == 'folders':
@@ -233,8 +233,8 @@ class PortalTab(BaseTemplet):
         return None
 
     security.declarePublic('IfFoldersCategoryAndExistsBase')
-    def IfFoldersCategoryAndExistsBase(self):           
-        """ Returns true if the box content is set 'folders' 
+    def IfFoldersCategoryAndExistsBase(self):
+        """ Returns true if the box content is set 'folders'
             and if the folders have a base """
 
         if not self.IfFoldersCategory():
@@ -242,21 +242,21 @@ class PortalTab(BaseTemplet):
 
         if not self.cpsskins_ifExistsBase():
             return None
-        return 1   
+        return 1
 
     security.declarePublic('listPaths')
-    def listPaths(self):           
+    def listPaths(self):
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()
         if self.IfFoldersCategoryAndExistsBase():
             mount_points = self.cpsskins_getMountPoints()
-            base = self.base  
+            base = self.base
             if type(base) == type(''):
                 if mount_points.has_key(base):
                     mount_point = mount_points[base]
                     list = [p for p in list if p.startswith(mount_point)]
-        return list 
+        return list
 
 InitializeClass(PortalTab)
 

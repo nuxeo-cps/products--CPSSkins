@@ -65,33 +65,33 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
                      )
 
     _properties = BaseTemplet._properties + (
-        {'id': 'i18n', 
-         'type': 'boolean', 
-         'mode': 'w', 
+        {'id': 'i18n',
+         'type': 'boolean',
+         'mode': 'w',
          'label': 'Translate the image',
-         'default': 0, 
-        },
-        {'id': 'caption', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Image caption', 
-        },
-        {'id': 'link', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Link (http://, mailto: ...)', 
-        },
-        {'id': 'use_internal_link', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Use internal link?', 
          'default': 0,
         },
-        {'id': 'internal_link', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Internal link', 
-         'select_variable': 'cpsskins_listPaths', 
+        {'id': 'caption',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Image caption',
+        },
+        {'id': 'link',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Link (http://, mailto: ...)',
+        },
+        {'id': 'use_internal_link',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Use internal link?',
+         'default': 0,
+        },
+        {'id': 'internal_link',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Internal link',
+         'select_variable': 'cpsskins_listPaths',
          'visible': 'ifUseInternalLink',
         },
         )
@@ -106,7 +106,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
                  content_type = '',
                  precondition = '',
                  **kw) :
-        apply(Image.__init__, 
+        apply(Image.__init__,
                 (self, id, title, file, content_type, precondition))
         apply(BaseTemplet.__init__, (self, id), kw)
         self.i18n = i18n
@@ -114,7 +114,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         self.link = link
         self.internal_link = internal_link
         self.use_internal_link = use_internal_link
-      
+
     security.declarePublic('isCacheable')
     def isCacheable(self):
         """ Returns true if the Templet can be cached in RAM """
@@ -124,13 +124,13 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
     security.declarePublic('isPortalTemplet')
     def isPortalTemplet(self):
         """ is portal templet """
-           
+
         return self.isportaltemplet
 
     security.declarePublic('isImageBox')
     def isImageBox(self):
         """ Templet is an image box """
-           
+
         return 1
 
     #
@@ -158,7 +158,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
     def upload_image(self, REQUEST=None, **kw):
         """
         Uploads the image
-        If the i18n attribute is set the image will be uploaded 
+        If the i18n attribute is set the image will be uploaded
         inside this folder and be called 'i18n_image_xx' where 'xx'
         is the 2-letter language code.
         """
@@ -167,7 +167,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
             kw.update(REQUEST.form)
         file = kw.get('file', None)
         if file is None:
-            return 
+            return
         if file.filename == '':
             return
 
@@ -192,7 +192,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
 
     security.declarePublic('getI18nImages')
     def getI18nImages(self):
-        """Returns the internationalized images 
+        """Returns the internationalized images
            {id: <Image>, ...}
         """
 

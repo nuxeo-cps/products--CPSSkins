@@ -35,13 +35,13 @@ class TestPortalPalettes(CPSSkinsTestCase.CPSSkinsTestCase):
         for s in theme_container['palettes'].objectValues():
             self.assert_(s.aq_explicit.isPortalPalette())
             self.assert_(s.preview())
-            
+
 
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestPortalPalettes))
     return suite
-    
+
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
 

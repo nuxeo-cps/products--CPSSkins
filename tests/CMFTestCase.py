@@ -38,7 +38,7 @@ class CMFTestCase(ZopeTestCase.PortalTestCase):
 
     def createMemberarea(self, member_id):
         '''Creates a minimal memberarea.'''
-        # Owner 
+        # Owner
         uf = self.portal.acl_users
         user = uf.getUserById(member_id)
         if user is None:
@@ -107,6 +107,6 @@ def _optimize():
 
 
 # b/w compatibility
-def setupCMFSkins(id='', quiet=0): 
+def setupCMFSkins(id='', quiet=0):
     pass
 

@@ -12,7 +12,7 @@ else:
       show_docs = 0
 
 if base is None:
-    return 
+    return
 
 from Products.CPSNavigation.CPSNavigation import CPSNavigation
 utool = context.portal_url
@@ -57,7 +57,7 @@ for node in nav.getTree():
          'folderish': 1, #XXX
          'selected': node.get('is_open'),
         }
-    ) 
+    )
 
 create_url = ''
 if current_object is not None:

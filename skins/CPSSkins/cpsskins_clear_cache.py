@@ -3,5 +3,5 @@
 context.manage_clearCache()
 
 if REQUEST is not None:
-    url = REQUEST['HTTP_REFERER'] 
+    url = REQUEST['HTTP_REFERER']
     REQUEST.RESPONSE.redirect(url)

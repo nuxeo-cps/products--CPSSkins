@@ -1,6 +1,6 @@
-results = context.portal_catalog.searchResults(review_state='pending') 
+results = context.portal_catalog.searchResults(review_state='pending')
 
-docs = [] 
+docs = []
 for doc in results:
     if hasattr(doc.aq_explicit, 'getRID'):
         doc = doc.getObject()

@@ -23,7 +23,7 @@ for week in weeks:
     weekdays = []
     for day in week:
         weekday = {}
-        daynumber = day['day'] 
+        daynumber = day['day']
         event = day['event']
 
         weekday['daynumber'] = daynumber
@@ -39,13 +39,13 @@ for week in weeks:
             date_id = '%s%s%s' % (year, month, daynumber)
             info = {'date': datestring, 'date_id': 'day%s' % date_id, 'eventslist': day['eventslist'] }
             previews.append(info)
-                 
+
             weekday['date_id'] = date_id
             weekday['link'] = portal_url+'/calendar_day_view?date=' + datestring
         weekdays.append(weekday)
-    calendar.append(weekdays) 
+    calendar.append(weekdays)
 
-return {'calendar': calendar, 
+return {'calendar': calendar,
         'previews': previews,
         'this_month': this_month,
         'this_year': year,

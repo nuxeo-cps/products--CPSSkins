@@ -23,7 +23,7 @@ if hasattr(member, 'last_login_time'):
         if o.Title:
             title=o.Title
         else:
-            title=o.getId 
+            title=o.getId
         recent.append( {'title':title
                        ,'url':url
                        ,'icon':o.getIcon} )

@@ -55,65 +55,65 @@ class CollapsibleMenu(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-       {'id': 'show_docs', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Show documents in folders', 
+       {'id': 'show_docs',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Show documents in folders',
         'category': 'general',
         'default': 0
        },
-       {'id': 'folder_items_i18n', 
-        'type': 'boolean', 
-        'mode': 'w', 
+       {'id': 'folder_items_i18n',
+        'type': 'boolean',
+        'mode': 'w',
         'label': 'Translate folder items',
-        'default': 0, 
-        'category': 'folders', 
-       },
-       {'id': 'display_hidden_folders', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Display hidden folders', 
-        'category': 'folders', 
         'default': 0,
-       }, 
-       {'id': 'max_items', 
-        'type': 'int', 
-        'mode': 'w', 
-        'label': 'Maximum number of items', 
+        'category': 'folders',
+       },
+       {'id': 'display_hidden_folders',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Display hidden folders',
+        'category': 'folders',
+        'default': 0,
+       },
+       {'id': 'max_items',
+        'type': 'int',
+        'mode': 'w',
+        'label': 'Maximum number of items',
         'category': 'general'
        },
-       {'id': 'level', 
-        'type':'int', 
-        'mode':'w', 
-        'label': 'Depth level', 
+       {'id': 'level',
+        'type':'int',
+        'mode':'w',
+        'label': 'Depth level',
         'category': 'folders'
        },
-       {'id':'base', 
-        'type':'selection', 
-        'mode':'w',  
-        'label': 'Hierarchy base', 
-        'category': 'folders', 
+       {'id':'base',
+        'type':'selection',
+        'mode':'w',
+        'label': 'Hierarchy base',
+        'category': 'folders',
         'select_variable': 'cpsskins_listFolderRoots',
         'visible': 'cpsskins_ifExistsBase'
        },
-       {'id':'base_path', 
-        'type':'selection', 
-        'mode':'w', 
-        'label': 'Base path', 
-        'category': 'folders', 
+       {'id':'base_path',
+        'type':'selection',
+        'mode':'w',
+        'label': 'Base path',
+        'category': 'folders',
         'select_variable': 'listPaths'
        },
-       {'id': 'collapsiblemenu_style', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Collapsible Menu Style', 
-        'select_variable': 'listCollapsibleMenuStyles', 
+       {'id': 'collapsiblemenu_style',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Collapsible Menu Style',
+        'select_variable': 'listCollapsibleMenuStyles',
         'category': 'style',
         'style': 'Collapsible Menu Style'
        },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                        folder_items_i18n = 0,
                        display_hidden_folders = 0,
                        show_docs = 1,
@@ -149,18 +149,18 @@ class CollapsibleMenu(BaseTemplet):
         return params
 
     security.declarePublic('listPaths')
-    def listPaths(self):           
+    def listPaths(self):
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()
         if self.cpsskins_ifExistsBase():
             mount_points = self.cpsskins_getMountPoints()
-            base = self.base  
+            base = self.base
             if type(base) == type(''):
                 if mount_points.has_key(base):
                     mount_point = mount_points[base]
                     list = [p for p in list if p.startswith(mount_point)]
-        return list 
+        return list
 
     security.declarePublic('getI18nProperties')
     def getI18nProperties(self):

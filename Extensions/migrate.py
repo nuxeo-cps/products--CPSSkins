@@ -54,7 +54,7 @@ def migrate(self):
     theme_container = getToolByName(portal, 'portal_themes', None)
     if theme_container is None:
         portal.manage_addProduct['CPSSkins'].manage_addTool('Portal Themes Tool', None)
-    
+
     if theme_container.objectIds() == []:
         pr("  migrating the 'themes' folder to 'portal_themes'")
 
@@ -125,16 +125,16 @@ def migrate(self):
     portal_actions = actionstool
     pr(" Cleaning obsolete actions from earlier versions ...")
     actiondelmap = {
-        'portal_actions': [ 'skinconfig', 
-                            'uiconfig', 
-                            'imgconfig', 
+        'portal_actions': [ 'skinconfig',
+                            'uiconfig',
+                            'imgconfig',
                             'templetconfig',
-                            'lightskins_skinconfig', 
-                            'lightskins_templetconfig', 
+                            'lightskins_skinconfig',
+                            'lightskins_templetconfig',
                             'lightskins_uiconfig',
-                            'lightskins_myskinconfig', 
-                            'lightskins_mytempletconfig', 
-                            'lightskins_myuiconfig' 
+                            'lightskins_myskinconfig',
+                            'lightskins_mytempletconfig',
+                            'lightskins_myuiconfig'
                           ],
         }
 
@@ -143,7 +143,7 @@ def migrate(self):
         actions = list(portal[tool]._actions)
         for action in actions:
             if action.id in actionids:
-                actions_to_delete.append(action) 
+                actions_to_delete.append(action)
         for ac in actions_to_delete:
             pr(" Deleting %s : %s" %  (tool,ac.id))
             actions.remove(ac)
@@ -157,9 +157,9 @@ def migrate(self):
         'cpsskins_palettes' ):
 
         if skindir_name not in skinstool.objectIds():
-            continue 
+            continue
         dir = getattr(skinstool, skindir_name)
-        objs = dir.objectIds() 
+        objs = dir.objectIds()
         if skindir_name == 'icons' and not(len(objs) == 0 or 'actionbox_templet.gif' in objs):
             continue
         skinstool.manage_delObjects([skindir_name])
@@ -189,7 +189,7 @@ def migrate(self):
         pr(" Removing %s from custom" % CPSSKINS_RENDER_METHOD_ID)
     else:
         pr(" %s already removed" % CPSSKINS_RENDER_METHOD_ID)
-             
+
     if CPSSKINS_RAMCACHE_ID in portal.objectIds():
         portal._delObject(CPSSKINS_RAMCACHE_ID)
         pr(" Removing the %s RAM cache" % CPSSKINS_RAMCACHE_ID)

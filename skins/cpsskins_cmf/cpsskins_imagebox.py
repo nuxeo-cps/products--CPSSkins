@@ -5,9 +5,9 @@ REQUEST = context.REQUEST
 img = context
 if context.i18n:
     tmtool = context.portal_themes
-    lc = tmtool.getTranslationService(root=1); 
+    lc = tmtool.getTranslationService(root=1);
     current_lang = context.getDefaultLang()
-    if current_lang: 
+    if current_lang:
         img_id = 'i18n_image_%s' % current_lang
         img = getattr(context.aq_inner.aq_explicit, img_id, context)
 
@@ -28,12 +28,12 @@ if context.use_internal_link:
         link += internal_link
 else:
     link = context.link
-    
+
 if link:
     tag += '<a href="%s">' % link
 
 tag += '<img src="%s/index_html" width="%s" height="%s" border="0" alt="%s" />' % \
-        (img_url, width, height, title) 
+        (img_url, width, height, title)
 
 if link:
     tag += '</a>'

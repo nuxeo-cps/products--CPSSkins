@@ -55,17 +55,17 @@ class SearchBox(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'style', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Style', 
+        {'id': 'style',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Style',
          'select_variable': 'listLayoutModes',
-         'i18n': 1, 
+         'i18n': 1,
          'i18n_prefix': '_option_searchbox_'
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  style = 'advanced',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)

@@ -56,17 +56,17 @@ class DocumentInfo(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'content', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Content', 
+        {'id': 'content',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Content',
          'select_variable': 'listDisplayModes',
          'i18n': 1,
          'i18n_prefix': '_option_docinfo_',
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  content = 'title',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)

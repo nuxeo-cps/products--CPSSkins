@@ -17,7 +17,7 @@ file = kw.get('file', None)
 if file is None:
     return
 
-img = theme_container.addPortalImage(**kw) 
+img = theme_container.addPortalImage(**kw)
 if img is None:
     return
 

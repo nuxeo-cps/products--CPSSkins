@@ -82,28 +82,28 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 permissions=('View',),
                 category='global',
                 condition='python: member and portal.portal_membership.checkPermission(\'Manage Themes\', portal.portal_themes)',
-                visible=1, 
+                visible=1,
         ),
-    )            
+    )
 
     security = ClassSecurityInfo()
 
     manage_options = ( ThemeFolder.manage_options[0:1]
-                     + ( {'label': 'Default theme', 
+                     + ( {'label': 'Default theme',
 		          'action': 'manage_selectDefaultTheme'}, )
-                     + ( {'label' : 'External Themes', 
+                     + ( {'label' : 'External Themes',
 		          'action' : 'manage_externalThemes' }, )
-                     + ( {'label' : 'Method Themes', 
+                     + ( {'label' : 'Method Themes',
 		          'action' : 'manage_methodThemes' }, )
-                     + ( {'label': 'Rebuild', 
+                     + ( {'label': 'Rebuild',
 		          'action': 'manage_themesRebuild'}, )
-                     + ( {'label' : 'Overview', 
+                     + ( {'label' : 'Overview',
 		          'action' : 'manage_overview' }, )
-                     + ( {'label' : 'RAM Cache', 
+                     + ( {'label' : 'RAM Cache',
 		          'action' : 'manage_RAMCaches' }, )
-                     + ( {'label' : 'Options', 
+                     + ( {'label' : 'Options',
 		          'action' : 'manage_configureOptions' }, )
-                     + ActionProviderBase.manage_options 
+                     + ActionProviderBase.manage_options
                      )
 
     def __init__(self):
@@ -121,7 +121,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         Return actions provided via tool.
         """
-        return self._actions 
+        return self._actions
 
     #
     # ZMI
@@ -133,7 +133,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     manage_methodThemes = DTMLFile('zmi/manage_methodThemes', globals())
 
     security.declareProtected(ManageThemes, 'manage_selectDefaultTheme')
-    manage_selectDefaultTheme = DTMLFile('zmi/manage_selectDefaultTheme', 
+    manage_selectDefaultTheme = DTMLFile('zmi/manage_selectDefaultTheme',
                                           globals())
     security.declareProtected(ManageThemes, 'manage_themesRebuild')
     manage_themesRebuild = DTMLFile('zmi/manage_themesRebuild', globals())
@@ -231,7 +231,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             if path[p] == 'portal_themes' and p < path_length - 1:
                 theme_name = path[p+1]
                 theme_container = self.getThemeContainer(theme=theme_name)
-                return theme_container     
+                return theme_container
         if getattr(object.aq_inner.aq_explicit, 'isportaltheme', 0):
             return object
         return None
@@ -239,8 +239,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declarePublic('findStylesFor')
     def findStylesFor(self, category=None, object=None, title=None):
         """ Gets the list of available styles:
-            - by meta type ('category') 
-            - for a given object ('object') 
+            - by meta type ('category')
+            - for a given object ('object')
             - that has a given title ('title') [optional]
         """
         style = {}
@@ -328,10 +328,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def listPageRenderers(self):
         """ returns the list of page renderers """
 
-        renderers = ['default', 
-                     'compatible', 
-                     'textonly', 
-                     'automatic', 
+        renderers = ['default',
+                     'compatible',
+                     'textonly',
+                     'automatic',
                      'profiler',
                      'macroless',
                      'tableless']
@@ -358,11 +358,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 theme_renderer = 'textonly'
 
         return page_renderer_id
-    
+
     security.declarePublic('getThemeContainer')
     def getThemeContainer(self, theme=None, parent=None ):
         """Gets the themes container.
-           - theme = 'printable' | 'default' | ... 
+           - theme = 'printable' | 'default' | ...
            - theme = None : will return the first available theme
            - parent = 1 : returns the 'themes' folder
         """
@@ -384,7 +384,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getDefaultThemeName(self, REQUEST=None):
         """ gets the default theme
         """
-        themes =  self.getThemes() 
+        themes =  self.getThemes()
         for theme in themes:
             if theme.isDefaultTheme():
                 return theme.getId()
@@ -394,9 +394,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declareProtected('Manage Themes', 'setDefaultTheme')
     def setDefaultTheme(self, default_theme=None, REQUEST=None):
-        """ sets the default theme. 
+        """ sets the default theme.
         """
-        themes =  self.getThemes() 
+        themes =  self.getThemes()
         for theme in themes:
             if theme.getId() == default_theme:
                 theme.default = 1
@@ -448,17 +448,17 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
            where:
            - 'theme' is the theme id
            - (n, m) is a couple with n <= m that describes the interval
-             inside which the theme will be used. 
+             inside which the theme will be used.
              (0, 0) means the current folder and all subfolders
              (1, 0) means all subfolders below the current folder
              (1, 1) means the subfolders of level 1
              (0, 1) means the folder and the subfolders of level 1
-             (n, n) means the subfolders of level n 
+             (n, n) means the subfolders of level n
              ...
 
            Examples:
            * with a folder property called '.cpsskins_theme':
- 
+
              - lines with intervals:
 
                0-1:theme1
@@ -472,7 +472,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
              - string without interval:
 
                theme1
-            
+
            * with a script called '.cpsskins_theme.py' placed in a folder:
 
              - tuple with intervals:
@@ -639,13 +639,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         # selected by writing ?theme=... in the URL
         theme = FORM.get('theme')
         if theme is not None:
-            return theme 
+            return theme
 
         # session variable (used in edition mode)
         view_mode = self.getViewMode()
         theme = view_mode.get('theme')
         if theme is not None:
-            return theme 
+            return theme
 
         # cookie
         theme_cookie_id = self.getThemeCookieID()
@@ -781,7 +781,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 if iconobj is None:
                     continue
                 icon = icons.setdefault((category, id), {
-                    'path': icon_path, 
+                    'path': icon_path,
                     'url': iconobj.absolute_url(),
                     'width': iconobj.width,
                     'height': iconobj.height,
@@ -791,7 +791,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declareProtected(ManageThemes, 'delObject')
     def delObject(self, object=None):
         """ Deletes an object """
- 
+
         if object is None:
             return
 
@@ -813,8 +813,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declareProtected(ManageThemes, 'addPortalTheme')
     def addPortalTheme(self, empty=0, **kw):
-        """ Creates a new Portal Theme. Returns the theme's id. 
-            If 'empty' is set to 1, the theme will be empty, 
+        """ Creates a new Portal Theme. Returns the theme's id.
+            If 'empty' is set to 1, the theme will be empty,
             otherwise a minimal theme will be created.
         """
 
@@ -836,9 +836,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         col1 = pageblock.addCellSizer(xpos=int(0))
         col2 = pageblock.addCellSizer(xpos=int(1))
         col3 = pageblock.addCellSizer(xpos=int(2))
-        col1.edit(cellwidth='20%') 
-        col2.edit(cellwidth='60%') 
-        col3.edit(cellwidth='20%') 
+        col1.edit(cellwidth='20%')
+        col2.edit(cellwidth='60%')
+        col3.edit(cellwidth='20%')
         return theme
 
     security.declarePublic('getTranslationService')
@@ -849,7 +849,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         if portal_messages is not None:
             return portal_messages
 
-        # CMF / Plone1 / CPS3 
+        # CMF / Plone1 / CPS3
         localizer = getToolByName(self, 'Localizer', None)
         if localizer is not None:
             if root:
@@ -880,7 +880,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declareProtected(ManageThemes, 'getCachesSize')
     def getCachesSize(self):
-        """Returns the total RAM caches size""" 
+        """Returns the total RAM caches size"""
 
         size = 0
         for theme in self.getThemes():
@@ -909,7 +909,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         theme_id = tmp_dir.objectIds()[0]
         new_id = getFreeId(self, try_id=theme_id)
-        if new_id != theme_id: 
+        if new_id != theme_id:
             tmp_dir.manage_renameObjects([theme_id], [new_id])
 
         cookie = tmp_dir.manage_cutObjects([new_id])
@@ -994,7 +994,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declarePublic('getStatusMsgs')
     def getStatusMsgs(self):
         """ get the status codes """
-        
+
         info = {STATUS_NO_THEME_INFO: '',
                 STATUS_THEME_INSTALL_OK: 'Theme installed',
                 STATUS_THEME_INSTALL_FAILED: 'FAILED',
@@ -1008,15 +1008,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declareProtected('Manage portal', 'getExternalThemes')
     def getExternalThemes(self):
         """ gets a list of external themes """
-        
+
         if not hasattr(self, 'externalthemes'):
             self.externalthemes = PersistentList()
         return self.externalthemes
-        
+
     security.declarePublic('getExternalThemeIds')
     def getExternalThemeIds(self, REQUEST=None):
         """ get external theme ids """
-        
+
         externalthemes = self.getExternalThemes()
         return [t['themeid'] for t in externalthemes]
 
@@ -1045,9 +1045,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                    themeurl.startswith('https://') or \
                    themeurl.startswith('ftp://'):
                     index = externalthemes.index(key)
-                    externalthemes[index] = {'themeid': themeid, 
-                                             'themeurl': themeurl, 
-                                             'status': STATUS_NO_THEME_INFO, 
+                    externalthemes[index] = {'themeid': themeid,
+                                             'themeurl': themeurl,
+                                             'status': STATUS_NO_THEME_INFO,
                                              'updated': ''}
             self.externalthemes = externalthemes
 
@@ -1059,7 +1059,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declareProtected('Manage portal', 'manage_delExternalThemes')
     def manage_delExternalThemes(self, form={}, REQUEST=None):
         """ updates a list external themes """
-     
+
         form = form.copy()
         if REQUEST is not None:
             form.update(REQUEST.form)
@@ -1085,32 +1085,32 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """
         Adds an external theme
         """
-  
+
         msg = ''
         error = 0
         externalthemes = self.externalthemes
-      
+
         themeids = [t['themeid'] for t in externalthemes]
-        if not themeid.isalnum(): 
+        if not themeid.isalnum():
             msg += '\n- The theme ID is invalid'
             error = 1
 
-        if themeid in themeids: 
+        if themeid in themeids:
             msg += '\n- The theme ID is already in use'
             error = 1
 
         if not (themeurl.startswith('http://') or \
                 themeurl.startswith('https://') or \
-                themeurl.startswith('ftp://')): 
+                themeurl.startswith('ftp://')):
             msg += '\n- The theme URL must start with \
                     http://, https:// or ftp:// ...'
             error = 1
 
         if not error:
             externalthemes = self.getExternalThemes()
-            externalthemes.append({'themeid': themeid, 
-                                   'themeurl': themeurl, 
-                                   'updated': '', 
+            externalthemes.append({'themeid': themeid,
+                                   'themeurl': themeurl,
+                                   'updated': '',
                                    'status': STATUS_NO_THEME_INFO})
             self.externalthemes = externalthemes
             msg = 'Settings updated'
@@ -1124,7 +1124,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
     security.declareProtected(ManageThemes, 'installExternalTheme')
     def installExternalTheme(self, theme=None, REQUEST=None):
-        """ retrieves and installs an external theme 
+        """ retrieves and installs an external theme
             return the theme information """
 
         themeid = theme.get('themeid', None)
@@ -1163,7 +1163,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             self.manage_delObjects(themeid)
 
         current_id = tmp_dir.objectIds()[0]
-        if current_id != themeid: 
+        if current_id != themeid:
             tmp_dir.manage_renameObjects([current_id], [themeid])
 
         cookie = tmp_dir.manage_cutObjects([themeid])
@@ -1213,7 +1213,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             msg = '1 theme can be updated.'
         elif new_themes > 1:
             msg = '%s themes can be updated.' % new_themes
-        else: 
+        else:
             msg = 'All themes are up-to-date.'
         if REQUEST is not None:
             REQUEST.RESPONSE.redirect(self.absolute_url() + \
@@ -1310,7 +1310,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         else:
             return 1
 
-    
+
     #
     # Private
     #

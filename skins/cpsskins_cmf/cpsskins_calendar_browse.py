@@ -12,7 +12,7 @@ elif dir == 'nextmonth':
 
 referer_url = REQUEST.get('HTTP_REFERER', context.absolute_url())
 referer_url = referer_url.split('?')[0]
-url_string =  '%s?year:int=%d&month:int=%d' 
+url_string =  '%s?year:int=%d&month:int=%d'
 redirect_url = url_string % (referer_url, MonthTime.year(), MonthTime.month())
 
 REQUEST.RESPONSE.redirect(redirect_url)

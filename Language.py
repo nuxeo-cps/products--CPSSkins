@@ -51,27 +51,27 @@ class Language(BaseTemplet):
     portal_type = 'Language Templet'
 
     render_method = 'cpsskins_language'
-   
+
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'style', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Appearance', 
+        {'id': 'style',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Appearance',
          'select_variable': 'listLayoutModes',
          'i18n': 1,
          'i18n_prefix': '_option_',
         },
-        {'id': 'hide_current_lang', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Hide current language', 
+        {'id': 'hide_current_lang',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Hide current language',
          'default': 0,
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  style = 'flags',
                  hide_current_lang = 0,
                  **kw):

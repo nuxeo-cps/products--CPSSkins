@@ -54,15 +54,15 @@ class ThemeChooser(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'themes', 
-         'type': 'multiple selection', 
-         'mode': 'w', 
-         'label': 'Selectable themes', 
+        {'id': 'themes',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'Selectable themes',
          'select_variable': 'cpsskins_listGlobalThemes'
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  themes = [],
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)

@@ -1,8 +1,8 @@
-results = context.portal_catalog.searchResults(review_state='published', 
+results = context.portal_catalog.searchResults(review_state='published',
                                               end={'query': context.ZopeTime(), 'range': 'min'},
                                               portal_types=('Event', 'ATEvent'),
                                               )[:5]
-events = [] 
+events = []
 for res in results:
     if hasattr(res.aq_explicit, 'getRID'):
         res = res.getObject()

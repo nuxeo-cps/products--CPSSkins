@@ -168,7 +168,7 @@ class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
         cellblock.xpos = 2
         invisible_templets = page_container.getInvisibleTemplets()
         invisible_templets_titles = [getattr(t, 'title') for t in invisible_templets]
-        self.assertEquals(invisible_templets_titles, 
+        self.assertEquals(invisible_templets_titles,
                 ['Portal Box Templet', 'Search Box Templet', 'Action Box Templet'])
 
 def test_suite():

@@ -54,8 +54,8 @@ factory_type_information = (
      'aliases': {
           '(Default)': 'cpsskins_default_view',
           'view': 'cpsskins_default_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit_form': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
+          'edit_form': 'cpsskins_edit_form',
           'addcontent': 'cpsskins_addcontent_form', },
      'actions': (
          {'id': 'view',
@@ -100,59 +100,59 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     security = ClassSecurityInfo()
 
     _properties = (
-        {'id': 'title', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Title', 
+        {'id': 'title',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Title',
          'category': 'general'
         },
-        {'id': 'xpos', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'xpos',  
+        {'id': 'xpos',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'xpos',
          'category': 'none',
         },
-        {'id': 'height', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Height', 
+        {'id': 'height',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Height',
          'category': 'layout'
         },
-        {'id': 'maxcols', 
-         'type': 'int', 
-         'mode': 'w', 
-         'label': 'Number of columns', 
+        {'id': 'maxcols',
+         'type': 'int',
+         'mode': 'w',
+         'label': 'Number of columns',
          'category': 'layout'
         },
-        {'id': 'shape', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Shape', 
-         'select_variable': 'listAreaShapes', 
-         'style': 'Area Shape', 
+        {'id': 'shape',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Shape',
+         'select_variable': 'listAreaShapes',
+         'style': 'Area Shape',
          'category' : 'style'
         },
-        {'id': 'color', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Color', 
-         'select_variable': 'listAreaColors', 
-         'style': 'Area Color', 
+        {'id': 'color',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Color',
+         'select_variable': 'listAreaColors',
+         'style': 'Area Color',
          'category' : 'style'
         },
-        {'id': 'margin', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Cellblock margin',  
+        {'id': 'margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Cellblock margin',
          'category': 'layout',
         },
       )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  title = '',
                  xpos = 0,
                  maxcols = 2,
-                 height = '', 
+                 height = '',
                  color = '',
                  shape = '',
                  margin = '',
@@ -168,7 +168,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
 
     security.declarePublic('isCellBlock')
     def isCellBlock(self):
-        """ is a Cell Block ? """   
+        """ is a Cell Block ? """
 
         return self.iscellblock
 
@@ -225,10 +225,10 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
 
     security.declareProtected(ManageThemes, 'rebuild')
     def rebuild(self, **kw):
-        """                  
+        """
         Rebuild this page block
-        """              
-                         
+        """
+
         setperms = kw.get('setperms', 0)
         canonizeId(self)
         rebuild_properties(self)
@@ -260,7 +260,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         Gets all the objects inside a Page Block.
         Returns information about each cell (width, style, visibility, ...)
         """
- 
+
         objects = {}
         contents = {}
         cellsizer = {}
@@ -285,7 +285,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
                 continue
 
         for col in range(maxcols):
-            objects[col] = {'contents': contents[col], 
+            objects[col] = {'contents': contents[col],
                             'cellsizer': cellsizer[col],
                            }
         return objects
@@ -419,7 +419,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
             kw['title'] = type_name
         ypos = int(ypos)
         if ypos == 0:
-            newpos = ypos 
+            newpos = ypos
         else:
             newpos = ypos + 1
 
@@ -438,7 +438,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
     security.declareProtected(ManageThemes, 'expireCache')
     def expireCache(self):
         """Expires the cache for this Templet.
- 
+
            In a ZEO environment, the information will propagate
            between all ZEO instances as long as the Templet still
            exists.

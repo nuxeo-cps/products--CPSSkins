@@ -72,7 +72,7 @@ def install(self):
     securityCheck()
 
     portal = self.portal_url.getPortalObject()
-                                              
+
     log = []
     prlog = log.append
 
@@ -136,5 +136,5 @@ def install(self):
             else:
                 msg = 'update'
             pr(' - %s/%s (%s)' % (mapping['category'], mapping['action_id'], msg)  )
-             
+
     return '\n'.join(log)

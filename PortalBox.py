@@ -60,121 +60,121 @@ class PortalBox(BaseTemplet, SimpleBox):
 
     _properties = BaseTemplet._properties + \
                   SimpleBox._properties + (
-       {'id': 'title_source', 
-        'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Portal box title source', 
-         'select_variable': 'listTitleSources', 
+       {'id': 'title_source',
+        'type': 'selection',
+         'mode': 'w',
+         'label': 'Portal box title source',
+         'select_variable': 'listTitleSources',
          'category': 'general',
          'i18n': 1,
          'i18n_prefix': '_option_',
        },
-       {'id': 'box_title_i18n', 
-        'type': 'boolean', 
-        'mode': 'w', 
+       {'id': 'box_title_i18n',
+        'type': 'boolean',
+        'mode': 'w',
         'label': 'Translate the box title',
-        'default': 0, 
-        'category': 'general', 
+        'default': 0,
+        'category': 'general',
         'visible': 'IfCanTranslateTitleSource'
        },
-       {'id': 'content', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Portal box content', 
-        'select_variable': 'listDisplayModes', 
+       {'id': 'content',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Portal box content',
+        'select_variable': 'listDisplayModes',
         'category': 'general',
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
-       {'id': 'show_docs', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Show documents in folders', 
-        'category': 'folders', 
+       {'id': 'show_docs',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Show documents in folders',
+        'category': 'folders',
         'visible': 'IfFoldersCategory',
         'default': 0,
        },
-       {'id': 'display_hidden_folders', 
-        'type': 'boolean', 
-        'mode': 'w', 
-        'label': 'Display hidden folders', 
-        'category': 'folders', 
+       {'id': 'display_hidden_folders',
+        'type': 'boolean',
+        'mode': 'w',
+        'label': 'Display hidden folders',
+        'category': 'folders',
         'visible': 'IfFoldersCategory',
         'default': 0,
-       }, 
-       {'id': 'folder_items_i18n', 
-        'type': 'boolean', 
-        'mode': 'w', 
+       },
+       {'id': 'folder_items_i18n',
+        'type': 'boolean',
+        'mode': 'w',
         'label': 'Translate folder items',
-        'default': 0, 
-        'category': 'folders', 
+        'default': 0,
+        'category': 'folders',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'level', 
-        'type': 'int', 
-        'mode': 'w', 
-        'label': 'Depth level', 
-        'category': 'folders', 
+       {'id': 'level',
+        'type': 'int',
+        'mode': 'w',
+        'label': 'Depth level',
+        'category': 'folders',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'base', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Hierarchy base', 
-        'category': 'folders', 
-        'select_variable': 'cpsskins_listFolderRoots', 
+       {'id': 'base',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Hierarchy base',
+        'category': 'folders',
+        'select_variable': 'cpsskins_listFolderRoots',
         'visible': 'IfFoldersCategoryAndExistsBase'
        },
-       {'id': 'base_path', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'Base path', 
-        'category': 'folders', 
-        'select_variable': 'listPaths', 
+       {'id': 'base_path',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'Base path',
+        'category': 'folders',
+        'select_variable': 'listPaths',
         'visible': 'IfFoldersCategory'
        },
-       {'id': 'action_categories', 
-        'type': 'multiple selection', 
-        'mode': 'w', 
-        'label': 'Action categories', 
-        'select_variable': 'cpsskins_listActionCategories', 
-        'category': 'actions', 
+       {'id': 'action_categories',
+        'type': 'multiple selection',
+        'mode': 'w',
+        'label': 'Action categories',
+        'select_variable': 'cpsskins_listActionCategories',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'custom_action_categories', 
-        'type': 'lines', 
-        'mode': 'w', 
-        'label': 'Custom action categories', 
-        'category': 'actions', 
+       {'id': 'custom_action_categories',
+        'type': 'lines',
+        'mode': 'w',
+        'label': 'Custom action categories',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'invisible_actions', 
-        'type': 'lines', 
-        'mode': 'w', 
-        'label': 'Invisible actions', 
-        'category': 'actions', 
+       {'id': 'invisible_actions',
+        'type': 'lines',
+        'mode': 'w',
+        'label': 'Invisible actions',
+        'category': 'actions',
         'visible': 'IfActionsCategory'
        },
-       {'id': 'orientation', 
-        'type': 'selection', 
-        'mode': 'w', 
-        'label': 'List orientation', 
-        'select_variable': 'listOrientations', 
+       {'id': 'orientation',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'List orientation',
+        'select_variable': 'listOrientations',
         'category': 'layout',
         'i18n': 1,
         'i18n_prefix': '_option_',
        },
-       {'id': 'info', 
-        'type': 'text', 
-        'mode': 'w', 
-        'label': 'Info text', 
-        'category': 'general', 
+       {'id': 'info',
+        'type': 'text',
+        'mode': 'w',
+        'label': 'Info text',
+        'category': 'general',
         'visible': 'IfInfoCategory'
        },
     )
 
     def __init__(self, id,
-                 content = 'actions', 
+                 content = 'actions',
                  level = 0,
                  title_source = 'Templet title',
                  show_docs = 0,
@@ -209,7 +209,7 @@ class PortalBox(BaseTemplet, SimpleBox):
     security.declarePublic('isPortalBox')
     def isPortalBox(self):
         """ This templet is a Portal Box """
-           
+
         return 1
 
     security.declarePublic('isCacheable')
@@ -312,37 +312,37 @@ class PortalBox(BaseTemplet, SimpleBox):
         return params
 
     security.declarePublic('listTitleSources')
-    def listTitleSources(self):           
+    def listTitleSources(self):
         """ Returns a list of contents for this Templet's title"""
-                                   
-        list = ['Templet title', 
-                 'Workflow state', 
+
+        list = ['Templet title',
+                 'Workflow state',
                  'Username',
                  'Folder title']
-        return list  
+        return list
 
     security.declarePublic('listDisplayModes')
-    def listDisplayModes(self):           
+    def listDisplayModes(self):
         """ Returns a list of contents for this Templet's body"""
 
-        list = ['actions', 
-                'folders', 
-                'about', 
-                'login', 
-                'info', 
-                'related', 
-                'recent', 
+        list = ['actions',
+                'folders',
+                'about',
+                'login',
+                'info',
+                'related',
+                'recent',
                 'events',
                 'pending',
                 'language']
         return list
 
     security.declarePublic('listOrientations')
-    def listOrientations(self):           
+    def listOrientations(self):
         """ Returns a list of orientations for this Templet"""
-                                   
+
         list = ['horizontal', 'vertical']
-        return list  
+        return list
 
 
     security.declarePublic('getI18nProperties')
@@ -352,7 +352,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         return ['box_title_i18n', 'folder_items_i18n']
 
     security.declarePublic('IfActionsCategory')
-    def IfActionsCategory(self):           
+    def IfActionsCategory(self):
         """ Returns true if the box content is set 'actions' """
 
         if getattr(self, 'content', None) == 'actions':
@@ -360,7 +360,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         return None
 
     security.declarePublic('IfFoldersCategory')
-    def IfFoldersCategory(self):           
+    def IfFoldersCategory(self):
         """ Returns true if the box content is set 'folders' """
 
         if getattr(self, 'content', None) == 'folders':
@@ -368,8 +368,8 @@ class PortalBox(BaseTemplet, SimpleBox):
         return None
 
     security.declarePublic('IfFoldersCategoryAndExistsBase')
-    def IfFoldersCategoryAndExistsBase(self):           
-        """ Returns true if the box content is set 'folders' 
+    def IfFoldersCategoryAndExistsBase(self):
+        """ Returns true if the box content is set 'folders'
             and if the folders have a base """
 
         if not self.IfFoldersCategory():
@@ -380,38 +380,38 @@ class PortalBox(BaseTemplet, SimpleBox):
         return 1
 
     security.declarePublic('IfInfoCategory')
-    def IfInfoCategory(self):           
+    def IfInfoCategory(self):
         """ Returns true if the box content is set 'info' """
-                         
+
         if getattr(self, 'content', None) == 'info':
-            return 1    
+            return 1
         return None
 
     security.declarePublic('listPaths')
-    def listPaths(self):           
+    def listPaths(self):
         """ Returns a list of paths """
 
         list = self.cpsskins_listPaths()
         if self.cpsskins_ifExistsBase():
             mount_points = self.cpsskins_getMountPoints()
-            base = self.base  
+            base = self.base
             if type(base) == type(''):
                 if mount_points.has_key(base):
                     mount_point = mount_points[base]
                     list = [p for p in list if p.startswith(mount_point)]
-        return list  
+        return list
 
     security.declarePublic('IfCanTranslateTitleSource')
-    def IfCanTranslateTitleSource(self):           
+    def IfCanTranslateTitleSource(self):
         """ Returns true if the title source can be translated """
-                         
+
         if getattr(self, 'title_source', None) in \
                       ['Templet title', 'Folder title']:
             return 1
         return None
 
     security.declarePublic('getBoxState')
-    def getBoxState(self, REQUEST=None):           
+    def getBoxState(self, REQUEST=None):
         """ Returns the box state """
 
         tmtool = getToolByName(self, 'portal_themes')
@@ -427,7 +427,7 @@ class PortalBox(BaseTemplet, SimpleBox):
         return None
 
     security.declarePublic('listBoxLayouts')
-    def listBoxLayouts(self):           
+    def listBoxLayouts(self):
         """ Returns a list of orientations for this Templet"""
 
         return self.cpsskins_listBoxLayouts('PortalBox')

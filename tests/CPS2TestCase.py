@@ -47,7 +47,7 @@ def setupCPSSite(app, id='portal', quiet=0):
     '''Creates a CPS site.'''
     if not hasattr(aq_base(app), id):
         _start = time.time()
-        if not quiet: 
+        if not quiet:
             ZopeTestCase._print('Adding CPS Site ... ')
         # Add user and log in
         uf = app.acl_users
@@ -56,13 +56,13 @@ def setupCPSSite(app, id='portal', quiet=0):
         newSecurityManager(None, user)
         # Add CPS Site
         factory = app.manage_addProduct['NuxCPS']
-        factory.manage_addCPSSite(id, 
+        factory.manage_addCPSSite(id,
             root_password1="passwd", root_password2="passwd",
             langs_list=['en'])
         # Log out
         noSecurityManager()
         get_transaction().commit()
-        if not quiet: 
+        if not quiet:
             ZopeTestCase._print('done (%.3fs)\n' % (time.time()-_start,))
 
 def optimize():
@@ -83,6 +83,6 @@ optimize()
 # Create a CPS site in the test (demo-) storage
 app = ZopeTestCase.app()
 # PortalTestCase expects object to be called "portal", not "cps"
-setupCPSSite(app, id='portal') 
+setupCPSSite(app, id='portal')
 ZopeTestCase.close(app)
 

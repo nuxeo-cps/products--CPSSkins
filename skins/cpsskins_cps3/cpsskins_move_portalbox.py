@@ -13,7 +13,7 @@ checkPerm = context.portal_membership.checkPermission
 
 if src_slot == dest_slot:
     found = 0
-    for box in sboxes: 
+    for box in sboxes:
         order = int(box['settings']['order'])
         if order == dest_ypos and not found:
             found = 1
@@ -26,7 +26,7 @@ if src_slot == dest_slot:
 else:
     new_ypos = 0
     found = 0
-    for box in sboxes: 
+    for box in sboxes:
         order = int(box['settings']['order'])
         if order == dest_ypos and not found:
             found = 1

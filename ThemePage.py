@@ -53,8 +53,8 @@ factory_type_information = (
      'aliases': {
           '(Default)': 'cpsskins_default_view',
           'view': 'cpsskins_default_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit_form': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
+          'edit_form': 'cpsskins_edit_form',
           'addcontent': 'cpsskins_addcontent_form', },
      'actions': (
          {'id': 'view',
@@ -92,7 +92,7 @@ class ThemePage(ThemeFolder, StylableContent):
     security = ClassSecurityInfo()
 
     _properties = (
-        {'id': 'title', 
+        {'id': 'title',
          'type': 'string',
          'mode': 'w',
          'label': 'Title',
@@ -113,13 +113,13 @@ class ThemePage(ThemeFolder, StylableContent):
          'category': 'general',
          'image' : 'thumbnails'
         },
-        {'id': 'renderer', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Page renderer', 
+        {'id': 'renderer',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Page renderer',
          'select_variable' : 'listPageRenderers',
          'category': 'general',
-         'i18n': 1, 
+         'i18n': 1,
          'i18n_prefix': '_option_',
         },
         {'id': 'align',
@@ -147,10 +147,10 @@ class ThemePage(ThemeFolder, StylableContent):
          'style': 'Area Color',
          'category' : 'style'
         },
-        {'id': 'margin', 
-         'type': 'string', 
-         'mode': 'w', 
-         'label': 'Margin', 
+        {'id': 'margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Margin',
          'category' : 'layout'
         },
       )
@@ -327,7 +327,7 @@ class ThemePage(ThemeFolder, StylableContent):
                 if getattr(templet, prop_id, 0) == 1 and \
                            templet not in i18n_templets:
                     i18n_templets.append(templet)
-        return i18n_templets 
+        return i18n_templets
 
     security.declareProtected(ManageThemes, 'getInvisibleTemplets')
     def getInvisibleTemplets(self, **kw):
@@ -403,7 +403,7 @@ class ThemePage(ThemeFolder, StylableContent):
 
     security.declareProtected(ManageThemes, 'delete')
     def delete(self):
-        """Delete the page block 
+        """Delete the page block
         """
         theme_container = self.getContainer()
         theme_container.manage_delObjects(self.getId())

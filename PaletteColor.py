@@ -56,14 +56,14 @@ class PaletteColor(BasePalette):
 
 
     _properties = BasePalette._properties + (
-        {'id': 'value', 
-         'type': 'string', 
-         'mode': 'w', 
+        {'id': 'value',
+         'type': 'string',
+         'mode': 'w',
          'label': 'Color'
         },
     )
 
-    def __init__(self, id, 
+    def __init__(self, id,
                  value = '#CCCCCC',
                  **kw):
 

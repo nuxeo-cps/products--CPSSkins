@@ -10,7 +10,7 @@ theme_container = tmtool.getThemeContainer(theme=theme)
 if theme_container is None:
     return
 
-palette = theme_container.addPortalPalette(**kw) 
+palette = theme_container.addPortalPalette(**kw)
 if palette is None:
     return
 

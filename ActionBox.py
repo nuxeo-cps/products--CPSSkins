@@ -57,37 +57,37 @@ class ActionBox(BaseTemplet):
     security = ClassSecurityInfo()
 
     _properties = BaseTemplet._properties + (
-        {'id': 'actions_to_display', 
-         'type': 'multiple selection', 
-         'mode': 'w', 
-         'label': 'Action categories',  
-         'select_variable': 'listActionIcons', 
+        {'id': 'actions_to_display',
+         'type': 'multiple selection',
+         'mode': 'w',
+         'label': 'Action categories',
+         'select_variable': 'listActionIcons',
          'category': 'general'
         },
-        {'id': 'style', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Appearance', 
-         'select_variable': 'listLayoutModes', 
+        {'id': 'style',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Appearance',
+         'select_variable': 'listLayoutModes',
          'category': 'layout',
-         'i18n': 1, 
+         'i18n': 1,
          'i18n_prefix': '_option_',
         },
-        {'id': 'orientation', 
-         'type': 'selection', 
-         'mode': 'w', 
-         'label': 'Box orientation', 
-         'select_variable': 'listOrientations', 
+        {'id': 'orientation',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Box orientation',
+         'select_variable': 'listOrientations',
          'category': 'layout',
          'default': 'vertical',
-         'i18n': 1, 
+         'i18n': 1,
          'i18n_prefix': '_option_',
         },
     )
 
-    def __init__(self, id, 
-                 style='text and icons', 
-                 actions_to_display=['user:login', 'user:logout'],  
+    def __init__(self, id,
+                 style='text and icons',
+                 actions_to_display=['user:login', 'user:logout'],
                  orientation = 'horizontal',
                  **kw):
         apply(BaseTemplet.__init__, (self, id), kw)
@@ -114,20 +114,20 @@ class ActionBox(BaseTemplet):
     def listLayoutModes(self):
         """Returns a list of styles or layouts for this Templet"""
 
-        list = ['text only', 
-                'text and icons', 
+        list = ['text only',
+                'text and icons',
                 'icons only']
         return list
 
     security.declarePublic('listOrientations')
-    def listOrientations(self):           
+    def listOrientations(self):
         """Returns a list of orientations for this Templet"""
-                                   
+
         list = [ 'horizontal', 'vertical']
-        return list  
+        return list
 
     security.declarePublic('listActionIcons')
-    def listActionIcons(self):           
+    def listActionIcons(self):
         """Returns a list of action icons in category:id format"""
 
         actions = []
@@ -139,12 +139,12 @@ class ActionBox(BaseTemplet):
         if mtool.checkPermission('listActionIcons', aitool):
             actionicons = aitool.listActionIcons()
             for actionicon in actionicons:
-                actions.append('%s:%s' % (actionicon.getCategory(), 
+                actions.append('%s:%s' % (actionicon.getCategory(),
                                           actionicon.getActionId()))
         return actions
 
     security.declarePublic('getActionsIconInfo')
-    def getActionsIconInfo(self, **kw):           
+    def getActionsIconInfo(self, **kw):
         """Returns actions icon information"""
 
         REQUEST = self.REQUEST
@@ -158,7 +158,7 @@ class ActionBox(BaseTemplet):
 
         actions_to_display = self.actions_to_display
         actionicons = tmtool.getIconsInfo(actions_to_display)
-        actionicons_keys = actionicons.keys() 
+        actionicons_keys = actionicons.keys()
         actioniconsinfo = []
         actions_has_key = actions.has_key
         for action in actions_to_display:
@@ -172,7 +172,7 @@ class ActionBox(BaseTemplet):
             if actions_has_key(category):
                 for ac in actions[category]:
                     if ac.get('id') == action_id:
-                        actioniconsinfo.append( 
+                        actioniconsinfo.append(
                             {'url': ac.get('url'),
                              'title': ac.get('name'),
                              'action_icon': action_icon,

@@ -88,7 +88,7 @@ target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
 # CMF (CMFTestCase.CMFTestCase)
 if target == 'CMF':
-   import CMFTestCase 
+   import CMFTestCase
    sourceskin = 'Basic'
 
    class CPSSkinsTestCase(CMFTestCase.CMFTestCase):
@@ -137,7 +137,7 @@ class CPSSkinsInstaller:
         if localizer==1:
             self.fixupTranslationServices(portal_id)
         self.install_themes(portal_id, quiet)
-        self.fixupErrorLog(portal_id) 
+        self.fixupErrorLog(portal_id)
 
     def addUsers(self):
         users = (
@@ -162,7 +162,7 @@ class CPSSkinsInstaller:
 
     def setup(self, portal_id, target, quiet):
         portal = getattr(self.app, portal_id)
-        if not quiet: 
+        if not quiet:
             ZopeTestCase._print('Setting up CPSSkins ... \n')
         factory = portal.manage_addProduct['CPSSkins']
         factory.manage_addCPSSkins(portal_id, SourceSkin=sourceskin, \
@@ -179,7 +179,7 @@ class CPSSkinsInstaller:
     def install_themes(self, portal_id, quiet):
         portal = getattr(self.app, portal_id)
         tmtool = portal.portal_themes
-        if not quiet: 
+        if not quiet:
             ZopeTestCase._print('Installing CPSSkins test themes ...\n')
         zexpdir = os.path.join(os.curdir, 'data')
         for themeid in ['theme1', 'empty']:
@@ -199,12 +199,12 @@ class CPSSkinsInstaller:
         portal = getattr(self.app, portal_id)
         portal_objectIds = portal.objectIds()
         if 'portal_calendar' not in portal_objectIds:
-            if not quiet: 
+            if not quiet:
                 ZopeTestCase._print('Installing CMFCalendar ...\n')
-            install = ExternalMethod('install_cmfcalendar', 
-                                     'CMFCalendar', 
-                                     'CMFCalendar.Install', 
-                                     'install' ) 
+            install = ExternalMethod('install_cmfcalendar',
+                                     'CMFCalendar',
+                                     'CMFCalendar.Install',
+                                     'install' )
             portal._setObject('install_cmfcalendar', install)
             portal.install_cmfcalendar()
 

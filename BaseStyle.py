@@ -47,8 +47,8 @@ factory_type_information = (
      'filter_content_types': 0,
      'aliases': {
           '(Default)': 'cpsskins_style_view',
-          'edit': 'cpsskins_edit_form', 
-          'edit_form': 'cpsskins_edit_form', 
+          'edit': 'cpsskins_edit_form',
+          'edit_form': 'cpsskins_edit_form',
           'delete': 'cpsskins_object_delete', },
      'actions': (
          {'id': 'view',
@@ -99,33 +99,33 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
     _actions = factory_type_information[0]['actions']
 
     _properties = (
-        {'id': 'title', 
-         'type': 'string', 
-         'mode': 'w', 
+        {'id': 'title',
+         'type': 'string',
+         'mode': 'w',
          'label': 'Title'
         },
-        {'id': 'default', 
-         'type': 'boolean', 
-         'mode': 'w', 
-         'label': 'Default', 
+        {'id': 'default',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Default',
          'category': 'none',
          'default': 0,
         },
     )
 
-    def __init__(self, id, 
-                 title= 'Style', 
+    def __init__(self, id,
+                 title= 'Style',
                  default=0,
                  **kw):
         self.id = id
         self.title = title
         self.default = default
-                                
+
 
     security.declarePublic('isPortalStyle')
     def isPortalStyle(self):
         """Returns True is this is a style."""
-           
+
         return self.isportalstyle
 
     security.declarePublic('isDefaultStyle')
@@ -133,11 +133,11 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         """Returns True is this is a default style."""
 
         return getattr(self, 'default', None)
-           
+
     security.declareProtected(ManageThemes, 'setAsDefault')
     def setAsDefault(self):
         """Sets as the default style name for a type."""
-         
+
         tmtool = getToolByName(self, 'portal_themes')
         theme_container = tmtool.getPortalThemeRoot(self)
         meta_type = getattr(self, 'meta_type', None)
@@ -146,7 +146,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             for style in styles:
                 style.default = 0
             self.default = 1
-             
+
     security.declarePublic('getTitle')
     def getTitle(self):
         """Gets the style's title."""
@@ -177,7 +177,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
     security.declarePublic('getStyleImages')
     def getStyleImages(self):
         """Returns the list of images used by a style as a dictionary:
-           {'id': <image id>, 
+           {'id': <image id>,
             'prop': <style's property>,
             'category': <icons|backgrounds|...>
            }
@@ -205,7 +205,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
     security.declarePublic('findParents')
     def findParents(self, newtitle=None):
         """Find the style's parents.
-           If the 'newtitle' parameter is passed, the style's title 
+           If the 'newtitle' parameter is passed, the style's title
            will be updated in every object that uses the style.
         """
 
@@ -340,10 +340,10 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         # copy the style
         dest_container = dest_theme_container.getStylesFolder()
         cookie = container.manage_copyObjects(self.getId(), REQUEST=REQUEST)
-        res = dest_container.manage_pasteObjects(cookie) 
-        new_id = res[0]['new_id']            
+        res = dest_container.manage_pasteObjects(cookie)
+        new_id = res[0]['new_id']
         style = getattr(dest_container, new_id)
-        verifyThemePerms(style)            
+        verifyThemePerms(style)
         newtitle = getFreeTitle(dest_container, style.getTitle())
         setattr(style, 'title', newtitle)
 
@@ -365,8 +365,8 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
                 if dest_img.data == src_img.data:
                     continue
             cookie = image_dir.manage_copyObjects(img_id, REQUEST=REQUEST)
-            res = dest_image_dir.manage_pasteObjects(cookie) 
-            new_id = res[0]['new_id']            
+            res = dest_image_dir.manage_pasteObjects(cookie)
+            new_id = res[0]['new_id']
             if new_id != img_id:
                 style.edit({img['prop']:new_id})
         return style
@@ -385,7 +385,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         actions_list = ['delete']
 
         ti = self.getTypeInfo()
-        for actionid in actions_list:  
+        for actionid in actions_list:
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
@@ -395,7 +395,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
                 continue
             actioninfo['url']  = self.absolute_url() + '/' + obj.getId()
             infoblock[actionid] = actioninfo
-        return infoblock 
+        return infoblock
 
     security.declarePublic('getContainer')
     def getContainer(self):

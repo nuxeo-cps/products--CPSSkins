@@ -22,8 +22,8 @@ if paths:
                     }
         templet.manage_changeProperties(**prop_dict)
         templet.expireCache()
-        idx += 1  
- 
+        idx += 1
+
 if REQUEST is not None:
-    url = REQUEST['HTTP_REFERER'] 
+    url = REQUEST['HTTP_REFERER']
     REQUEST.RESPONSE.redirect(url)

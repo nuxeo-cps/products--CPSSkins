@@ -31,10 +31,10 @@ for block in page_container.getPageBlocks():
         contents_in_xpos = objects_in_xpos['contents']
         for content in contents_in_xpos:
               if getattr(content.aq_explicit, 'isportalboxgroup', 0):
-                  position =  getattr(content, 'position', None) 
-              else: 
+                  position =  getattr(content, 'position', None)
+              else:
                   continue
-              try: 
+              try:
                  position_int = int(position)
               except:
                  continue
@@ -61,5 +61,5 @@ for block in page_container.getPageBlocks():
 
 # compatibility with NuxPortal
 dict[1]['authorized_styles'] = ('box_std_template', )
-          
+
 return dict
