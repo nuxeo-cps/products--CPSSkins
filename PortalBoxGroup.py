@@ -193,6 +193,7 @@ class PortalBoxGroup(BaseTemplet):
             return ''
         context = kw.get('context')
         slot = self.getSlot()
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
         portlets = ptltool.getPortlets(context, slot)
 
         all_rendered = ''
