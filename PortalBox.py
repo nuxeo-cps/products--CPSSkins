@@ -305,9 +305,6 @@ class PortalBox(BaseTemplet, SimpleBox):
             cat_string = ','.join(categories)
             params.append('actions:' + cat_string)
 
-        elif content == 'pending':
-            params.append('actions')
-
         if self.boxlayout in ['drawer', 'drawer_notitle']:
             params.append('boxstate')
 

@@ -716,34 +716,22 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                 index_string = REQUEST.get('cpsskins_base_url')
 
             # CMF Actions
-            elif param == 'actions':
-                cmf_actions = REQUEST.get('cpsskins_cmfactions')
-                if cmf_actions:
-                    index_string = md5.new(str(cmf_actions)).hexdigest()
-
             elif param.startswith('actions:'):
                 prefix = 'actions'
                 cmf_actions = REQUEST.get('cpsskins_cmfactions')
+                current_url = REQUEST.get('cpsskins_url')
                 if cmf_actions:
-                    categories = getOptions(param)
-                    actions = [cmf_actions[x] for x in categories \
-                               if cmf_actions.has_key(x)]
-                    index_string = md5.new(str(actions)).hexdigest()
-                    current_url = REQUEST.get('cpsskins_url')
-                    for actions_by_cat in actions:
-                        for ac in actions_by_cat:
-                            ac_url = ac['url'].strip()
-                            if ac_url != current_url:
-                                continue
-                            index_string += ac_url
-                            break
-
-            # Workflow actions
-            elif param == 'wf_actions':
-                cmf_actions = REQUEST.get('cpsskins_cmfactions')
-                wf_actions = cmf_actions.get('workflow', None)
-                if wf_actions is not None:
-                    index_string = md5.new(str(wf_actions)).hexdigest()
+                    ac_list = []
+                    ac_list_extend = ac_list.extend
+                    for cat in getOptions(param):
+                        if not cmf_actions.has_key(cat):
+                            continue
+                        for ac in cmf_actions[cat]:
+                             ac_url = ac.get('url')
+                             ac_list_extend([ac.get('name'), ac_url])
+                             if ac_url == current_url:
+                                 ac_list_extend('on')
+                    index_string = md5.new(str(ac_list)).hexdigest()
 
             # current object
             elif param.startswith('object:'):
