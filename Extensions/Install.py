@@ -27,12 +27,14 @@ def logf(summary,message='',severity=0):
     zLOG.LOG('CPSSkins: ',severity,summary, message)
 
 def setperms(object, perms, pr=None):
+    """ """
     for perm, roles in perms.items():
         acquire = type(roles) == type([])
         object.manage_permission(perm, roles, acquire)
         pr("  Permission %s" % perm)
 
 def checktool(self, name):
+    """ """
     try:
         getToolByName(self, name)
     except AttributeError:
@@ -41,6 +43,7 @@ def checktool(self, name):
         return 1
              
 def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
+    """ """
     logf("START: CPSSkins Install")
     log = []
     prlog = log.append
@@ -62,6 +65,7 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
         prlog(" Already correctly installed")
 
     def portalhas(id, portal=portal):
+        """ """
         return id in portal.objectIds()
 
     pr_h2("Starting CPSSkins install")
@@ -235,6 +239,7 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
 
 
 def update(self):
+    """ Update """
     logf("START: CPSSkins Update")
     log = []
     prlog = log.append
@@ -542,7 +547,8 @@ def update(self):
     # portal skins
     Target = detectPortalType(self)
     pr_h3("Portal detection")
-    pr('Detected portal type is <strong>%s</strong>' % Target) 
+    pr('Detected portal type is <strong>%s</strong>' % Target)
+    SourceSkin = ''
     for skin in self.portal_skins.getSkinSelections():
         if skin != 'CPSSkins':
             SourceSkin = skin 
