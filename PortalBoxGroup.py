@@ -65,10 +65,10 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
          'slot': 'cpsskins_listBoxSlots', 
          'category': 'general'
         },
-        {'id': 'renderable', 
+        {'id': 'macroless', 
          'type':'boolean', 
          'mode':'w', 
-         'label':'Renderable', 
+         'label':'Macroless', 
          'category': 'general',
          'default': 0,
         },
@@ -76,18 +76,19 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
     def __init__(self, id,
                  box_group = '0',
-                 renderable = 0,
+                 macroless = 0,
                  **kw):
         BaseTemplet.__init__(self, id, **kw)
         SimpleBox.__init__(self, **kw)
         self.box_group = box_group
-        self.renderable = renderable
+        self.macroless = macroless 
 
     security.declarePublic('isRenderable')
     def isRenderable(self):
         """Returns true if the Templet can be rendered.
         """
-        return getattr(self, 'renderable', 0)
+        macroless = getattr(self, 'macroless', 0)
+        return macroless
 
     security.declarePublic('isPortalBoxGroup')
     def isPortalBoxGroup(self):

@@ -937,6 +937,10 @@ msgid "_Log in_"
 msgstr "Autenticati"
 
 
+msgid "_Macroless_"
+msgstr ""
+
+
 msgid "_Main Content Templet_"
 msgstr "Contenuto del templet della regione principale"
 

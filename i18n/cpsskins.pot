@@ -1821,3 +1821,6 @@ msgstr ""
 
 msgid "_Theme_rebuilt_"
 msgstr ""
+
+msgid "_Macroless_"
+msgstr ""

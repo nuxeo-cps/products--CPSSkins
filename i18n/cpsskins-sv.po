@@ -935,6 +935,10 @@ msgid "_Log in_"
 msgstr "Logga in"
 
 
+msgid "_Macroless_"
+msgstr ""
+
+
 msgid "_Main Content Templet_"
 msgstr ""
 

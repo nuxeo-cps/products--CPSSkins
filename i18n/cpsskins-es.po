@@ -944,6 +944,10 @@ msgid "_Log in_"
 msgstr "Autentificación"
 
 
+msgid "_Macroless_"
+msgstr ""
+
+
 msgid "_Main Content Templet_"
 msgstr "Templet de contenido principal"
 
