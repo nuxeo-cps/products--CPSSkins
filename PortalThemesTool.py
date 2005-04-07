@@ -87,27 +87,26 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 permissions=('View',),
                 category=THEME_CONFIG_ACTION_CATEGORY,
                 condition='python: member and portal.portal_membership.checkPermission(\'Manage Themes\', portal.portal_themes)',
-                visible=1,
-        ),
+                visible=1),
     )
 
     security = ClassSecurityInfo()
 
     manage_options = ( ThemeFolder.manage_options[0:1]
                      + ( {'label': 'Default theme',
-		          'action': 'manage_selectDefaultTheme'}, )
+                          'action': 'manage_selectDefaultTheme'}, )
                      + ( {'label' : 'External Themes',
-		          'action' : 'manage_externalThemes' }, )
+                          'action' : 'manage_externalThemes' }, )
                      + ( {'label' : 'Method Themes',
-		          'action' : 'manage_methodThemes' }, )
+                          'action' : 'manage_methodThemes' }, )
                      + ( {'label': 'Rebuild',
-		          'action': 'manage_themesRebuild'}, )
+                          'action': 'manage_themesRebuild'}, )
                      + ( {'label' : 'Overview',
-		          'action' : 'manage_overview' }, )
+                          'action' : 'manage_overview' }, )
                      + ( {'label' : 'RAM Cache',
-		          'action' : 'manage_RAMCaches' }, )
+                          'action' : 'manage_RAMCaches' }, )
                      + ( {'label' : 'Options',
-		          'action' : 'manage_configureOptions' }, )
+                          'action' : 'manage_configureOptions' }, )
                      + ActionProviderBase.manage_options
                      )
 
@@ -258,7 +257,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             portal_url = utool(relative=1)
             if portal_url != '/':
                 portal_url = '/' + portal_url
-            context_obj = self.unrestrictedTraverse(portal_url + context_rurl, default=None)
+            context_obj = self.unrestrictedTraverse(
+                portal_url + context_rurl, default=None)
 
         if context_obj is None:
             context_obj = REQUEST.get('context_obj', context)
@@ -1365,7 +1365,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
 
         self.debug_mode = not self.debug_mode
         if REQUEST is not None:
-            return self.manage_configureOptions(manage_tabs_message='Settings updated')
+            return self.manage_configureOptions(
+                manage_tabs_message='Settings updated')
 
     security.declareProtected(ManageThemes, 'manage_setAccessKey')
     def manage_setAccessKey(self, accesskey='', REQUEST=None):
@@ -1375,7 +1376,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return
         self.accesskey = str(accesskey)[0]
         if REQUEST is not None:
-            return self.manage_configureOptions(manage_tabs_message='Settings updated')
+            return self.manage_configureOptions(
+                manage_tabs_message='Settings updated')
 
     security.declareProtected(ManageThemes, 'manage_setMethodThemes')
     def manage_setMethodThemes(self, form={}, REQUEST=None):
