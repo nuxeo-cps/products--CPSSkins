@@ -41,6 +41,8 @@ else:
 
 target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 
+_TESTS_PATH = os.path.split(__file__)[0]
+
 # CMF (CMFTestCase.CMFTestCase)
 if target == 'CMF':
     import CMFTestCase
@@ -124,7 +126,7 @@ class CPSSkinsInstaller:
         tmtool = portal.portal_themes
         if not quiet:
             ZopeTestCase._print('Installing CPSSkins test themes ...\n')
-        zexpdir = os.path.join(os.curdir, 'data')
+        zexpdir =  os.path.join(_TESTS_PATH, 'data')
         for themeid in ['theme1', 'empty']:
             zexppath  = os.path.join(zexpdir, '%s.zexp' % themeid)
             ZopeTestCase.utils.importObjectFromFile(tmtool, zexppath)

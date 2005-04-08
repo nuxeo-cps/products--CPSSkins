@@ -19,6 +19,10 @@ from glob import glob
 from gettext import GNUTranslations
 from msgfmt import Msgfmt, PoSyntaxError
 
+_TESTS_PATH = os.path.split(__file__)[0]
+if not _TESTS_PATH:
+    _TESTS_PATH = '.'
+
 try:
     import commands
 except ImportError:
@@ -39,8 +43,8 @@ def getLanguageFromPath(path):
     lang = file.split('-')[1:][-1:]
     return '-'.join(lang)
 
-def getPoFiles(path, pot):
-    i18nPath = os.path.abspath(path)
+def getPoFiles(pot):
+    i18nPath = os.path.join(_TESTS_PATH, '../i18n')
     potPathPrefix = os.path.join(i18nPath, pot.split('.')[0])
     poFiles= glob(potPathPrefix + '-[a-z][a-z].po') + \
              glob(potPathPrefix + '-[a-z][a-z]_[A-Z][A-Z].po')
@@ -53,7 +57,8 @@ class TestPOT(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def testNoDuplicateMsgId(self):
         """Check that there are no duplicate msgid:s in the pot files"""
-        cmd='grep ^msgid ../i18n/%s|sort|uniq --repeated' % potFile
+        cmd='grep ^msgid %s/../i18n/%s|sort|uniq --repeated' % (
+            _TESTS_PATH, potFile)
         status = commands.getstatusoutput(cmd)
         assert len(status[1])  == 0, "Duplicate msgid:s were found:\n\n%s" \
                                      % status[1]
@@ -120,7 +125,8 @@ class TestMsg(CPSSkinsTestCase.CPSSkinsTestCase):
     def checkMsgExists(self,po,template):
         """Check that each existing message is translated and
            that there are no extra messages."""
-        cmd='LC_ALL=C msgcmp --directory=../i18n %s %s' % (po,template)
+        cmd='LC_ALL=C msgcmp --directory=%s/../i18n %s %s' % (
+            _TESTS_PATH, po,template)
         status = commands.getstatusoutput(cmd)
         if status[0] != 0:
             return status
@@ -151,7 +157,7 @@ for potFile in ['cpsskins.pot', 'cpsskins-default.pot', 'cpsskins-plone.pot']:
         potFile = potFile
     tests.append(TestOnePOT)
 
-    for poFile in getPoFiles('../i18n', potFile):
+    for poFile in getPoFiles(potFile):
         class TestOneMsg(TestMsg):
             poFile = poFile
             potFile = potFile

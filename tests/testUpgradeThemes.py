@@ -8,6 +8,8 @@ from Testing import ZopeTestCase
 
 import CPSSkinsTestCase
 
+_TESTS_PATH = os.path.split(__file__)[0]
+
 class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
@@ -31,7 +33,7 @@ class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
                 tmtool.manage_delObjects(theme_id)
 
             # import the theme from ../Install
-            install_dir = os.path.abspath('../Install')
+            install_dir = os.path.join(_TESTS_PATH, '../Install')
             old_file  = os.path.join(install_dir, '%s.zexp' % theme_name)
             new_file = os.path.join(self.export_dir, '%s.zexp' % theme_name)
             tmtool._importObjectFromFile(old_file, verify=0)
@@ -53,7 +55,7 @@ class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
             self.assert_(theme.render(
                 shield=0, context_obj=self.portal, theme=theme_id, page=page))
 
-    local_home = os.path.join(os.curdir, 'data')
+    local_home = os.path.join(_TESTS_PATH, 'data')
     export_dir = os.path.join(local_home, 'export')
 
     def setupLocalEnvironment(self):
