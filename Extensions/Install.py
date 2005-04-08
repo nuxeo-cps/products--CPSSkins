@@ -218,41 +218,72 @@ def install(self, SourceSkin=None, Target=None, ReinstallDefaultThemes=None):
                                   not portalhas('themes')):
 
         # the first theme in each category is the default theme.
-        themes_list = { 'CMF':     ( 'CMF-Plone',
-                                     'CMF-Printable',
-                                   ),
-                        'CPS2':    ( 'CPS2-LightSkins',
-                                     'CPS2-Plone',
-                                     'CMF-Printable',
-                                   ),
-                        'CPS3':    ( 'CPS3-Default',
-                                     'CPS3-LightSkins',
-                                     'CPS3-Autumn',
-                                     'CMF-Printable',
-                                     'CPS3-Plone',
-                                   ),
-                        'Plone':   ( 'Plone-Plone',
-                                     'CMF-Printable',
-                                   ),
-                        'Plone2':  ( 'Plone2-Plone',
-                                     'Plone2-Autumn',
-                                     'CMF-Printable',
-                                   ),
+        themes_list = {'CMF':    ({'id': 'plone',
+                                  'file': 'CMF-Plone.zexp',
+                                  },
+                                  {'id': 'printable',
+                                   'file': 'CMF-Printable.zexp',
+                                  },
+                                 ),
+                       'CPS2':   ({'id': 'lightskins',
+                                   'file': 'CPS2-LightSkins.zexp',
+                                  },
+                                  {'id': 'plone',
+                                   'file': 'CPS2-Plone.zexp',
+                                  },
+                                  {'id': 'printable',
+                                   'file': 'CMF-Printable.zexp',
+                                  },
+                                 ),
+                       'CPS3':   ({'id': 'default',
+                                   'file': 'CPS3-Default.zexp',
+                                  },
+                                  {'id': 'lightskins',
+                                   'file': 'CPS3-LightSkins.zexp',
+                                  },
+                                  {'id': 'autumn',
+                                   'file': 'CPS3-Autumn.zexp',
+                                  },
+                                  {'id': 'printable',
+                                   'file': 'CMF-Printable.zexp',
+                                  },
+                                  {'id': 'plone',
+                                   'file': 'CPS3-Plone.zexp',
+                                  },
+                                 ),
+                       'Plone':  ({'id': 'plone',
+                                   'file': 'Plone-Plone.zexp',
+                                  },
+                                  {'id': 'printable',
+                                   'file': 'CMF-Printable.zexp',
+                                  },
+                                 ),
+                       'Plone2': ({'id': 'plone',
+                                   'file': 'Plone2-Plone.zexp',
+                                  },
+                                  {'id': 'autumn',
+                                   'file': 'Plone2-Autumn.zexp',
+                                  },
+                                  {'id': 'printable',
+                                   'file': 'CMF-Printable.zexp',
+                                  },
+                                 ),
                       }
+
         if Target in ['CMF', 'CPS2', 'CPS3', 'Plone', 'Plone2' ]:
             theme_ids = theme_container.objectIds()
             theme_container.manage_delObjects(theme_ids)
             target_themes = themes_list[Target]
-            for theme_name in target_themes:
-                pr(" Importing %s theme" % theme_name)
-                zexppath = os.path.join(zexpdir, '%s.%s' % (theme_name, 'zexp'))
+            for theme in target_themes:
+                pr(" Importing %s theme" % theme['id'])
+                zexppath = os.path.join(zexpdir, theme['file'])
                 try:
                     theme_container._importObjectFromFile(zexppath)
                 except:
-                    pr("    Could not import theme  %s" % theme_name)
+                    pr("    Could not import theme  %s" % theme['id'])
 
             # set the first theme in the list as the default one.
-            theme_container.setDefaultTheme(target_themes[0])
+            theme_container.setDefaultTheme(target_themes[0]['id'])
 
     pr(portal.cpsskinsupdate())
     pr(portal.cpsskinsmigrate())
