@@ -24,8 +24,8 @@ from Products.CMFCore import utils
 from Products.CMFCore.CMFCorePermissions import AddPortalContent
 from Products.CMFCore.DirectoryView import registerDirectory
 
-from CPSSkinsInstaller import manage_addInstaller
-from PortalThemesTool import PortalThemesTool
+import CPSSkinsInstaller
+import PortalThemesTool
 
 import AllowModules
 
@@ -78,7 +78,7 @@ import BoxCorners
 
 this_module = sys.modules[__name__]
 
-tools = (PortalThemesTool, )
+tools = (PortalThemesTool.PortalThemesTool, )
 
 portalthemeClasses = (
     PortalTheme.PortalTheme,
@@ -241,7 +241,7 @@ for path in (
 def initialize(registrar):
     registrar.registerClass(
         CPSSkinsInstaller.Installer,
-        constructors=(manage_addInstaller,
+        constructors=(CPSSkinsInstaller.manage_addInstaller,
                       CPSSkinsInstaller.manage_addCPSSkins,),
         )
 

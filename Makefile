@@ -1,6 +1,9 @@
 .PHONY: clean doc perms i18n
 
-all: clean perms 
+all: check
+	
+check:
+	pychecker2 *.py
 
 perms:
 	chmod -R go+r *
