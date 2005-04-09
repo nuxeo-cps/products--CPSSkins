@@ -65,6 +65,12 @@ input.SearchBox {
   padding-left: 2px !important;
 }
 
+/* Item description */
+.cpsskinsBox ul.cpsskinsMenu li a span.itemDescription {
+  font-size: 85%;
+  display: block;
+}
+
 /* horizontal layout (tabs) */
 .cpsskinsTab ul.cpsskinsMenu, .cpsskinsTab ul.cpsskinsMenu li {
   margin: 0px;
@@ -78,6 +84,11 @@ input.SearchBox {
   display: inline;
   background-repeat: no-repeat;
   background-position: left center;
+}
+
+/* Item description */
+.cpsskinsTab ul.cpsskinsMenu span.itemDescription {
+  display: none;
 }
 
 /* Buttons (min/max/close/edit) */
@@ -125,6 +136,11 @@ input.SearchBox {
   float: none;
 }
 /* End IE5-Mac hack */
+
+/* Item description */
+.cpsskinsTabs ul.cpsskinsMenu span.itemDescription {
+  display: none;
+}
 
 /* Drop-down menus */
 .cpsskinsTabs li ul {
@@ -225,3 +241,4 @@ div.xmlExportButtons a {
   text-decoration: none;
   padding: 0 0.3em 0 0.3em;
 }
+
