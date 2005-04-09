@@ -71,6 +71,21 @@ input.SearchBox {
   display: block;
 }
 
+.cpsskinsBox div.xmlExportButtons {
+  text-align: right;
+  padding-top: 1em;
+}
+
+.cpsskinsBox div.xmlExportButtons a {
+  border: 0.1em outset #ff6600;
+  background: #f60;
+  color: #fff !important;
+  font: bold 70% 'Lucida Grande', Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  padding: 0 0.3em 0 0.3em;
+}
+
+
 /* horizontal layout (tabs) */
 .cpsskinsTab ul.cpsskinsMenu, .cpsskinsTab ul.cpsskinsMenu li {
   margin: 0px;
@@ -88,6 +103,10 @@ input.SearchBox {
 
 /* Item description */
 .cpsskinsTab ul.cpsskinsMenu span.itemDescription {
+  display: none;
+}
+
+.cpsskinsTab div.xmlExportButtons {
   display: none;
 }
 
@@ -139,6 +158,10 @@ input.SearchBox {
 
 /* Item description */
 .cpsskinsTabs ul.cpsskinsMenu span.itemDescription {
+  display: none;
+}
+
+.cpsskinsTabs div.xmlExportButtons {
   display: none;
 }
 
@@ -228,17 +251,4 @@ input.SearchBox {
   display: none;
 }
 
-div.xmlExportButtons {
-  text-align: right;
-  padding-top: 1em;
-}
-
-div.xmlExportButtons a {
-  border: 0.1em outset #ff6600;
-  background: #f60;
-  color: #fff !important;
-  font: bold 70% 'Lucida Grande', Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  padding: 0 0.3em 0 0.3em;
-}
 
