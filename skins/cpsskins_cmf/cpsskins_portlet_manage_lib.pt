@@ -243,17 +243,17 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 
 <metal:block define-macro="override_control" i18n:domain="cpsskins">
   <div style="float:right; padding: 4px">
-    <a i18n:translate="" tal:condition="not:override" alt="test"
+    <a tal:condition="not:override"
     tal:attributes="href string:${tmtool_url}/setViewMode?portlets_override=1&reload=1">
-      <img src="" width="16" height="16" title="_Hide_overriden_portlets_"
-       i18n:attributes="title"
-       tal:attributes="src string:${base_url}cpsskins_images/portlet_override.png"/>
+      <img src="" width="16" height="16" i18n:attributes="title"
+       tal:attributes="title string:_Hide_overriden_portlets_;
+         src string:${base_url}cpsskins_images/portlet_override.png"/>
     </a>
-    <a i18n:translate="" tal:condition="override"
+    <a tal:condition="override"
     tal:attributes="href string:${tmtool_url}/setViewMode?portlets_override=0&reload=1">
-      <img src="" width="16" height="16" title="_Reveal_overriden_portlets_"
-       i18n:attributes="title"
-       tal:attributes="src string:${base_url}cpsskins_images/portlet_nooverride.png"/>
+      <img src="" width="16" height="16" i18n:attributes="title"
+       tal:attributes="title string:_Reveal_overriden_portlets_;
+         src string:${base_url}cpsskins_images/portlet_nooverride.png"/>
     </a>
   </div>
 </metal:block>
