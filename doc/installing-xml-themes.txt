@@ -113,7 +113,7 @@ some functional code ready to be inserted in your install.py script.
 
 
         def installThemeSettings(self, filename):
-            """Install a theme (XML)"""
+            """Install theme settings (XML)"""
 
             themesdir = os.path.join(self.product_home, 'themes')
             filepath = os.path.join(themesdir, filename)
