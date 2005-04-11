@@ -56,3 +56,75 @@ parameters ::
                 plugin='CPS3Importer')
             ....
 
+
+Example code
+-------------
+
+some functional code ready to be inserted in your install.py script.
+(requires CPSIO and CPSInstaller) ::
+
+    from Products.CPSInstaller.CPSInstaller import CPSInstaller
+
+    class DummyFileUpload:
+        def __init__(self, **kw):
+            for k, v in kw.items():
+                setattr(self, k, v)
+
+    class ProductInstaller(CPSInstaller):
+        """ Installer class
+        """
+
+        def package_home(self, name):
+            """Returns path to Products.name"""
+            m = sys.modules['Products.%s' % name]
+            return (m.__path__[0])
+
+        def install(self):
+            """
+            - 'default.zip' is a theme
+            - 'settings.zip' are theme settings
+
+            they are located in the 'themes/' folder of your product.
+            """"
+
+            # install the theme
+            self.installTheme('default.zip')
+
+            # install the theme settings
+            self.installThemeSettings('settings.zip')
+
+
+        def installTheme(self, theme=''):
+            """Install a theme (XML)"""
+
+            themesdir = os.path.join(self.product_home, 'themes')
+            filepath = os.path.join(themesdir, theme)
+
+            tmtool = self.getTool('portal_themes')
+            fs = DummyFileUpload(
+                file=open(filepath, 'r'),
+                headers={'Content-Type': 'application/zip'},
+                filename=theme)
+            tmtool.manage_xmlImport(
+                FileUpload(fs),
+                options=['import_overwrite'],
+                plugin='CPSSkinsImporter')
+            self.log('Importing theme %s' % theme)
+
+
+        def installThemeSettings(self, filename):
+            """Install a theme (XML)"""
+
+            themesdir = os.path.join(self.product_home, 'themes')
+            filepath = os.path.join(themesdir, filename)
+
+            tmtool = self.getTool('portal_themes')
+            fs = DummyFileUpload(
+                file=open(filepath, 'r'),
+                headers={'Content-Type': 'application/zip'},
+                filename=filename)
+            tmtool.manage_xmlImport(
+                FileUpload(fs),
+                options=['import_theme_settings'],
+                plugin='CPS3Importer')
+            self.log('Importing themes settings %s' % filename)
