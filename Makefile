@@ -22,6 +22,7 @@ clean:
 	rm -f i18n/i18nchart.png
 
 i18n:
+# sync po files with pot
 	i18ndude sync --pot i18n/cpsskins.pot -s \
            i18n/cpsskins-[a-z][a-z].po \
            i18n/cpsskins-[a-z][a-z]_[A-Z][A-Z].po
@@ -31,6 +32,16 @@ i18n:
 	i18ndude sync --pot i18n/cpsskins-plone.pot -s \
            i18n/cpsskins-plone-[a-z][a-z].po \
            i18n/cpsskins-plone-[a-z][a-z]_[A-Z][A-Z].po
+
+i18n-en:
+# add untranslated msgstrs from the English translations
+	for pofile in i18n/*.po; do \
+           i18ndude admix $$pofile i18n/cpsskins-en.po > i18n/temp-po; \
+           mv -f i18n/temp-po $$pofile; \
+        done
+
+i18nchart:
+# draw a chart
 	i18ndude chart -o i18n/i18nchart.png --pot i18n/cpsskins.pot \
            i18n/cpsskins-[a-z][a-z].po \
            i18n/cpsskins-[a-z][a-z]_[A-Z][A-Z].po
