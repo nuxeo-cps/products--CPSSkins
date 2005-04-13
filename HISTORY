@@ -1,3 +1,19 @@
+*******************************************
+** CPSSkins V2.3.3 [R1 build 2005/04/13-10:31 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- use nuxeo packaging tools
+
 
 CPSSkins - the visual theme editor for CMF, CPS and Plone. Version 2.2
 --------------------------------------------------------------------------
