@@ -13,7 +13,7 @@ import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-import CPSSkinsTestCase
+from Testing import ZopeTestCase
 import unittest
 from glob import glob
 from gettext import GNUTranslations
@@ -52,7 +52,7 @@ def getPoFiles(pot):
         raise IOError('No po files found in %s!' % i18nPath)
     return poFiles
 
-class TestPOT(CPSSkinsTestCase.CPSSkinsTestCase):
+class TestPOT(ZopeTestCase.ZopeTestCase):
     potFile = None
 
     def testNoDuplicateMsgId(self):
@@ -64,7 +64,7 @@ class TestPOT(CPSSkinsTestCase.CPSSkinsTestCase):
                                      % status[1]
 
 
-class TestPoFile(CPSSkinsTestCase.CPSSkinsTestCase):
+class TestPoFile(ZopeTestCase.ZopeTestCase):
     poFile = None
 
     def testPoFile(self):
@@ -118,7 +118,7 @@ class TestPoFile(CPSSkinsTestCase.CPSSkinsTestCase):
              (poName, language, fileLang))
 
 
-class TestMsg(CPSSkinsTestCase.CPSSkinsTestCase):
+class TestMsg(ZopeTestCase.ZopeTestCase):
     poFile = None
     potFile = None
 
