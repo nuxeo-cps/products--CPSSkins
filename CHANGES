@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- cpsskins_cps3/cpsskins_getNavigationInfo.py: better traversal to obtain
+  root proxy folders.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

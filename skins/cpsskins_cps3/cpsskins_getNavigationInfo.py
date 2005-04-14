@@ -31,7 +31,8 @@ utool = context.portal_url
 
 if base in ttool.objectIds():
     base_obj = ttool[base]
-    base_obj_as_proxy = getattr(context.portal_proxies, base)
+    base_obj_as_proxy = context.restrictedTraverse(base_obj.getRoot(),
+        default=None)
 else:
     return {'menuentries': [],
             'create_url': '', 'folder_title': ''}
