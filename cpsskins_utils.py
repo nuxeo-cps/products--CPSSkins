@@ -220,7 +220,6 @@ def detectPortalType(self):
     portal_type = 'CMF'
     utool = getToolByName(self, 'portal_url')
     portal = utool.getPortalObject()
-    meta_type = portal.meta_type
 
     # CPS2
     if getToolByName(self, 'portal_hierarchies', None) is not None:
@@ -235,8 +234,13 @@ def detectPortalType(self):
         if cps_version[1] == 3:
             return 'CPS3'
 
-    if meta_type == 'CPSDefault Site':
-        return 'CPS3'
+    try:
+        from Products.CPSDefault.Portal import CPSDefaultSite
+    except ImportError:
+        pass
+    else:
+        if isinstance(portal, CPSDefaultSite):
+            return 'CPS3'
 
     # Plone
     migrationtool = getToolByName(self, 'portal_migration', None)
