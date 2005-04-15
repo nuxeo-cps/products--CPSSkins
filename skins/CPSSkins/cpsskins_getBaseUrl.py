@@ -1,9 +1,11 @@
 
 # return the base url of the zope instance, ex: /cps/ or /
 
-utool = context.portal_url
-
 REQUEST = getattr(context, 'REQUEST', None)
+
+# check whether the base url is already cached in the REQUEST
+if REQUEST is not None and REQUEST.has_key('cpsskins_base_url'):
+    return REQUEST['cpsskins_base_url']
 
 if REQUEST is None:
     path_info = ''
@@ -18,10 +20,16 @@ if path_info.startswith('/VirtualHostBase/'):
         base = path_info.split('_vh_')[1]
         if base.find('/') > 0:
             base = base.split('/')[0]
-        return '/' + base + '/'
+        base_url = '/' + base + '/'
     else:
-        return '/'
+        base_url = '/'
 else:
     # XXX squid detection
     # classic case
-    return utool.getPortalPath() + '/'
+    utool = context.portal_url
+    base_url = utool.getPortalPath() + '/'
+
+# cache the base url in the REQUEST
+if REQUEST is not None:
+    REQUEST.set('cpsskins_base_url', base_url)
+return base_url

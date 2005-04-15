@@ -13,4 +13,4 @@ Bug fixes:
 - Made the installer more robust on how to find CPSSkins .po files.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- better caching of the base url.
