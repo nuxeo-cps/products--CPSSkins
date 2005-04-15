@@ -532,16 +532,19 @@ def update(self):
     if mcat is not None:
         # importing CPSSkins .po files
         pr(" Checking available languages for skin %s" % skin)
-        podir = os.path.join('Products', 'CPSSkins' )
-        popath = getPath(podir, 'i18n')
-        if popath is None:
+        # The products directory might not be in the Zope instance
+        import Products
+        product_file = getattr(Products, 'CPSSkins').__file__
+        product_path = os.path.dirname(product_file)
+        po_path = os.path.join(product_path, 'i18n')
+        if po_path is None:
             pr(" !!! Unable to find .po dir")
         else:
             pr("  Checking installable languages")
             langs = []
             avail_langs = mcat.get_languages()
             pr("    Available languages: %s" % str(avail_langs))
-            for file in os.listdir(popath):
+            for file in os.listdir(po_path):
                 if file.endswith('.po'):
                     m = match('^.*([a-z][a-z]|[a-z][a-z]_[A-Z][A-Z])\.po$', file)
                     if m is None:
@@ -549,7 +552,7 @@ def update(self):
                         continue
                     lang = m.group(1)
                     if lang in avail_langs:
-                        lang_po_path = os.path.join(popath, file)
+                        lang_po_path = os.path.join(po_path, file)
                         lang_file = open(lang_po_path)
                         pr("    Importing %s into '%s' locale" % (file, lang))
                         # Localizer < 1.1
@@ -567,12 +570,15 @@ def update(self):
 
     if defaultmcat is not None:
         # importing default .po files
-        podir = os.path.join('Products', 'CPSSkins' )
-        popath = getPath(podir, 'i18n')
-        if popath is not None:
+        # The products directory might not be in the Zope instance
+        import Products
+        product_file = getattr(Products, 'CPSSkins').__file__
+        product_path = os.path.dirname(product_file)
+        po_path = os.path.join(product_path, 'i18n')
+        if po_path is not None:
             langs = []
             avail_langs = defaultmcat.get_languages()
-            for file in os.listdir(popath):
+            for file in os.listdir(po_path):
                 if file.endswith('.po'):
                     m = match('^.*([a-z][a-z]|[a-z][a-z]_[A-Z][A-Z])\.po$', file)
                     if m is None:
@@ -580,7 +586,7 @@ def update(self):
                         continue
                     lang = m.group(1)
                     if lang in avail_langs:
-                        lang_po_path = os.path.join(popath, file)
+                        lang_po_path = os.path.join(po_path, file)
                         lang_file = open(lang_po_path)
                         pr("    Importing %s into default '%s' locale" % (file, lang))
                         # Localizer < 1.1
