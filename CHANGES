@@ -8,6 +8,8 @@ Bug fixes:
 ~~~~~~~~~~
 - cpsskins_cps3/cpsskins_getNavigationInfo.py: better traversal to obtain
   root proxy folders.
+- made cell block editing less modal: the layout of cell blocks can be edited
+  even if they are not selected.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

@@ -27,10 +27,7 @@
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="width python: cellsize and cellsize.cellwidth or None">
 
-          <tal:block condition="python: selected_content == here.getId()">
-            <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
-          </tal:block>
-
+          <metal:block use-macro="here/cpsskins_theme_widgets/macros/cellsizer" />
           <div class="contentDest" i18n:attributes="title"
            style="border: 1px dashed red; padding: 8px"
            tal:condition="not:contents_in_xpos"
