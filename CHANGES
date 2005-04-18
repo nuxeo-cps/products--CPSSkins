@@ -11,6 +11,7 @@ Bug fixes:
 - Made cell block editing less modal: the layout of cell blocks can be edited
   even if they are not selected.
 - Made the installer more robust on how to find CPSSkins .po files.
+- duplicating the default theme should not lead to having 2 default themes.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

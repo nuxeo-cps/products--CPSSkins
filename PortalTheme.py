@@ -1080,11 +1080,18 @@ class PortalTheme(ThemeFolder, StylableContent):
     def duplicate(self):
         """Duplicate this theme
         """
+        # save the name of the default theme
+        tmtool = getToolByName(self, 'portal_themes')
+        default_theme = tmtool.getDefaultThemeName()
+
         container = self.getContainer()
         newid = getFreeId(container)
         container.manage_clone(self, newid)
         newobj = getattr(container, newid, None)
         verifyThemePerms(newobj)
+
+        # restore the default theme
+        tmtool.setDefaultTheme(default_theme)
         return newobj
 
     security.declarePublic('get_object_position')
