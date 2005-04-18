@@ -145,7 +145,8 @@ def getFreeId(container=None, try_id=None):
     return randomid
 
 
-def getFreeTitle(container=None, title='Noname', type_name=None):
+def getFreeTitle(container=None, title='Noname',
+                 type_name=None, exclude_self=0):
     """ This method looks for a free object title in a container
         and returns a title.
 
@@ -160,6 +161,8 @@ def getFreeTitle(container=None, title='Noname', type_name=None):
         return None
 
     titles = [obj.title for obj in container.objectValues(type_name)]
+    if exclude_self and title in titles:
+        titles.remove(title)
 
     new_title = title
     i = 0

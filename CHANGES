@@ -12,6 +12,8 @@ Bug fixes:
   even if they are not selected.
 - Made the installer more robust on how to find CPSSkins .po files.
 - duplicating the default theme should not lead to having 2 default themes.
+- fixed a bug where style items pasted from another theme were renamed
+  after being pasted.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

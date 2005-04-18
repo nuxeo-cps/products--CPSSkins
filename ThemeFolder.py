@@ -157,7 +157,10 @@ class ThemeFolder(PortalFolder):
                     continue
                 if getattr(aq_base(obj), 'isportalstyle', 0):
                     title = obj.getTitle()
-                    newtitle = getFreeTitle(container, title, obj.meta_type)
+                    newtitle = getFreeTitle(container=container,
+                        title=title,
+                        type_name=obj.meta_type,
+                        exclude_self=1)
                     obj.manage_changeProperties(title=newtitle)
 
         RESPONSE = REQUEST.RESPONSE
