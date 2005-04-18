@@ -17,6 +17,7 @@ from TestUtil import DummyTranslationService, DummyMessageCatalog
 ZopeTestCase.installProduct('PageTemplates', quiet=1)
 ZopeTestCase.installProduct('PythonScripts', quiet=1)
 ZopeTestCase.installProduct('ExternalMethod', quiet=1)
+ZopeTestCase.installProduct('ZCTextIndex', quiet=1)
 
 ZopeTestCase.installProduct('CPSSkins', quiet=1)
 
