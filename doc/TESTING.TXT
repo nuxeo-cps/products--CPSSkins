@@ -22,6 +22,11 @@ Running CPSSkins unit tests under CPS3 ::
 
  $ CPSSKINS_TARGET=CPS3 python runalltests.py
 
+or better (with Zope 2.7) ::
+
+ $ cd $INSTANCE_HOME
+ $ CPSSKINS_TARGET=CPS3 bin/zopectl test CPSSkins
+
 Running CPSSkins unit tests under Plone2 ::
 
  $ CPSSKINS_TARGET=Plone2 python runalltests.py
