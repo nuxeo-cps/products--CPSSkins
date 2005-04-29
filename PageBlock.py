@@ -232,9 +232,8 @@ class PageBlock(ThemeFolder, StylableContent):
         rendered = []
         main_tag = []
         main_tag.append('class="%s"' % self.getCSSClass())
-        if layout_style:
-            main_tag.append('style="%s"' % \
-                self.getCSSLayoutStyle(layout_style))
+        main_tag.append('style="%s"' % \
+            self.getCSSLayoutStyle(layout_style))
         rendered_append = rendered.append
         rendered_append('<div %s>' % " ".join(main_tag))
 
@@ -293,9 +292,8 @@ class PageBlock(ThemeFolder, StylableContent):
         rendered = []
         table_tag = []
         table_tag.append('class="%s"' % self.getCSSClass())
-        if layout_style:
-            table_tag.append('style="%s"' % \
-                self.getCSSLayoutStyle(layout_style))
+        table_tag.append('style="%s"' % \
+            self.getCSSLayoutStyle(layout_style))
         rendered_append = rendered.append
         rendered_append('<table cellpadding="0" cellspacing="0" summary="" %s><tr>' % \
             " ".join(table_tag))
