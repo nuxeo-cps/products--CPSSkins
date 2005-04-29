@@ -125,7 +125,7 @@ def install(self):
                                    , title=mapping['title']
                                    , priority=0
                                    )
-            except:
+            except KeyError:
                 aitool.addActionIcon( category=mapping['category']
                                    , action_id=mapping['action_id']
                                    , icon_expr=mapping['icon_expr']

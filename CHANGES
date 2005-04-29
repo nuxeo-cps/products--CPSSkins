@@ -14,6 +14,7 @@ Bug fixes:
 - duplicating the default theme should not lead to having 2 default themes.
 - fixed a bug where style items pasted from another theme were renamed
   after being pasted.
+- removed bare except: in Extensions/install_actionicons.py
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
