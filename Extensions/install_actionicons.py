@@ -98,7 +98,7 @@ def install(self):
         try:
             cmfactionicons = portal.manage_addProduct['CMFActionIcons']
             cmfactionicons.manage_addTool('Action Icons Tool', None)
-        except:
+        except AttributeError:
             pr('CMFActionIcons not found, skipping')
         else:
             pr('Installing CMF Action Icons Tool')
