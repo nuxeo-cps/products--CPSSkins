@@ -39,7 +39,7 @@ BOX_LAYOUTS = {
         },
 
     'one_frame': {
-        'markup': """<div class="body"><h4>%s</h4>%s</div>""",
+        'markup': """<fieldset class="body"><legend class="title">%s</legend>%s</fieldset>""",
         },
 
     'notitle_noframe': {

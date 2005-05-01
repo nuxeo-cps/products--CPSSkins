@@ -20,3 +20,4 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
 - Check CPS3 instance by checking the isntance type instead of the meta_type
+- the "Frame Box" layout now uses the <fieldset> markup
