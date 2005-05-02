@@ -1,5 +1,7 @@
 <tal:block 
  define="mcat python: request.get('cpsskins_mcat'); 
+         utool nocall:here/portal_url;
+         base_url here/cpsskins_getBaseUrl;
          max_items python: here.max_items;
          base_path python: here.base_path; 
          base python: here.base; 
@@ -7,7 +9,7 @@
          show_docs python: here.show_docs; 
          display_hidden_folders python: here.display_hidden_folders;
          context_obj nocall:options/context_obj;
-         context_url python: '/' + context_obj.absolute_url(1);
+         context_url python: base_url + utool.getRelativeUrl(context_obj);
          getNavigationInfo python: here.cpsskins_getNavigationInfo;
          navinfo python: getNavigationInfo(level=level, base=base, show_docs=0, base_path=base_path, display_hidden_folders=display_hidden_folders, context_obj=context_obj);">
   <div tal:attributes="class string:collapsibleMenu${here/collapsiblemenu_style}"

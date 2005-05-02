@@ -16,6 +16,7 @@ Bug fixes:
   after being pasted.
 - removed bare except: in Extensions/install_actionicons.py
 - fixed pageblock layout rendering in macroless mode.
+- Collapsible Menu Templet: more robust computation of relative urls.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
