@@ -17,6 +17,7 @@ Bug fixes:
 - removed bare except: in Extensions/install_actionicons.py
 - fixed pageblock layout rendering in macroless mode.
 - Collapsible Menu Templet: more robust computation of relative urls.
+- fixed crash under CPSSharedCalendar / Five in the lookup of method themes.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

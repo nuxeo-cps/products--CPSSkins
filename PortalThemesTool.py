@@ -450,7 +450,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """Returns a theme + page by the method name (zpt, py, dtml, ...)
         """
 
-        return self.method_themes.get(meth, None)
+        method_themes = self.method_themes
+        if meth in method_themes.keys():
+            return method_themes[meth]
 
     #
     # Local themes
