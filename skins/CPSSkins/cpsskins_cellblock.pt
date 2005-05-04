@@ -16,7 +16,7 @@
         <td valign="top"
          tal:define="contents_in_xpos python: objects_in_xpos['contents'];
                      cellsize python: objects_in_xpos['cellsizer']"
-         tal:attributes="width python: cellsize and cellsize.cellwidth or None">
+         tal:attributes="style python: cellsize and 'width:%s' % cellsize.cellwidth or None">
           <tal:block repeat="content contents_in_xpos">
             <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
                  tal:attributes="align python: content.align;
