@@ -19,6 +19,8 @@ Bug fixes:
 - Collapsible Menu Templet: more robust computation of relative urls.
 - fixed crash under CPSSharedCalendar / Five in the lookup of method themes.
 - Strict XHTML compliance in the rendering of cell blocks.
+- added missing kw 'portlet' argument needed for the rendering of global
+  portlets boxes.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

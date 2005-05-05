@@ -153,6 +153,7 @@ class PortletBox(BaseTemplet, SimpleBox):
         if portlet is None:
             return ''
 
+        kw['portlet'] = portlet
         if shield:
             try:
                 body = portlet.render_cache(**kw)
@@ -188,7 +189,7 @@ class PortletBox(BaseTemplet, SimpleBox):
                 boxlayout=self.boxlayout,
                 title=title,
                 body=body,
-                portlet=portlet, **kw))
+                **kw))
             # close the box frame
             rendered_box.extend('</div>')
             if boxstyle:
