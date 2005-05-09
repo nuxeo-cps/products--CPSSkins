@@ -17,6 +17,9 @@ Bug fixes:
 - removed bare except: in Extensions/install_actionicons.py
 - fixed pageblock layout rendering in macroless mode.
 - Collapsible Menu Templet: more robust computation of relative urls.
+- Strict XHTML compliance in the rendering of cell blocks.  
+- added missing kw 'portlet' argument needed for the rendering of global  
+  portlets boxes.
 - fixed crash under CPSSharedCalendar / Five in the lookup of method themes.
   Also getThemeByMethod() is not called in case the id of the published object
   could not be obtained.
