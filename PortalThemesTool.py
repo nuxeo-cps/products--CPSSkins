@@ -710,9 +710,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 published = published.getId()
             except AttributeError:
                 pass
-            theme = self.getThemeByMethod(published)
-            if theme is not None:
-                return self._extractThemeAndPageName(theme, None)
+            else:
+                theme = self.getThemeByMethod(published)
+                if theme is not None:
+                    return self._extractThemeAndPageName(theme, None)
 
         # local theme + page
         theme = self.getLocalThemeName(**kw)
