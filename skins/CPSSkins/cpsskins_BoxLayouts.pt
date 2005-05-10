@@ -55,7 +55,8 @@
               maximized python: state == 'maximized';
               portlet_url portlet/getURL;
               base_url python: request.get('cpsskins_base_url')">
-  <div class="title buttons">
+  <div class="title buttons"
+   tal:condition="python: str(user) != 'Anonymous User'">
     <a tal:condition="not:maximized"
      tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=maximized">
      <img src="" width="16" height="16" alt=""
@@ -81,7 +82,8 @@
               portlet_url portlet/getURL;
               base_url python: request.get('cpsskins_base_url')">
   <tal:block tal:condition="python: state != 'closed'">
-    <div class="title buttons">
+    <div class="title buttons"
+     tal:condition="python: str(user) != 'Anonymous User'">
       <a tal:condition="python: state != 'closed'"
       tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=closed">
        <img src="" width="16" height="16" alt="" 
@@ -118,7 +120,8 @@
               portlet_url portlet/getURL;
               base_url python: request.get('cpsskins_base_url')">
   <tal:block tal:condition="python: state != 'closed'">
-    <div class="title buttons">
+    <div class="title buttons"
+      tal:condition="python: str(user) != 'Anonymous User'">
       <a tal:condition="python: state != 'closed'"
       tal:attributes="href string:${portlet_url}/cpsskins_setPortletState?state=closed">
        <img src="" width="16" height="16" alt="" 

@@ -23,6 +23,7 @@ Bug fixes:
 - fixed crash under CPSSharedCalendar / Five in the lookup of method themes.
   Also getThemeByMethod() is not called in case the id of the published object
   could not be obtained.
+- Buttons in the box title bar should not be displayed for anonymous users.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
