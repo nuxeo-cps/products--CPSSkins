@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Added a shortcut button ('+') in the theme tabs for adding new themes.
 Bug fixes:
 ~~~~~~~~~~
 - cpsskins_cps3/cpsskins_getNavigationInfo.py: better traversal to obtain

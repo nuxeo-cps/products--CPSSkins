@@ -51,6 +51,21 @@ tal:define="themes tmtool/getThemes;
           <td class="separator"></td>
         </tal:block>
       </tal:block>
+      <td class="ltab">
+        <img alt="" src="" width="5" height="5"
+        tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
+      </td>
+      <td class="tab">
+        <a i18n:attributes="title"
+         tal:define="title string:_Add a theme_"
+         tal:attributes="href string:${base_url}cpsskins_theme_add;
+                         title python: mcat and mcat(title) or title"
+         tal:content="structure string:&nbsp;+&nbsp;" />
+      </td>
+      <td class="rtab">
+        <img alt="" src="" width="5" height="5"
+        tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
+      </td>
     </tr>
   </table>
 </metal:block>
