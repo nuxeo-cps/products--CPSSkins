@@ -193,7 +193,7 @@ class ThemeFolder(PortalFolder):
 
         try:
             items = self.cb_dataItems()
-        except KeyError:
+        except (KeyError, AttributeError):
             items = []
 
         pastableItems = [item for item in items

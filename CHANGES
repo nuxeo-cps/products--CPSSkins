@@ -24,6 +24,8 @@ Bug fixes:
   Also getThemeByMethod() is not called in case the id of the published object
   could not be obtained.
 - Buttons in the box title bar should not be displayed for anonymous users.
+- Pastable objects located in a non-existent themes triggered an AttributeError
+  exception.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
