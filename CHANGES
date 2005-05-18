@@ -32,3 +32,4 @@ New internal features:
 - Check CPS3 instance by checking the isntance type instead of the meta_type
 - the "Frame Box" layout now uses the <fieldset> markup
 - CMF / Plone: folder roots under the portal are now listed.
+- Portlet box states (min/max/closed) can be set by anonymous users.

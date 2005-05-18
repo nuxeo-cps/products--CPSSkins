@@ -1,9 +1,9 @@
-##parameters=state=None, REQUEST=None
+##parameters=state='', REQUEST=None
 
-if state is None:
+if not state:
     return
 
-context.setState(state=state)
+context.setState(state=state, REQUEST=REQUEST)
 
 if REQUEST is not None:
     url = REQUEST['HTTP_REFERER']
