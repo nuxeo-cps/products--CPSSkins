@@ -30,7 +30,7 @@ tal:define="themes tmtool/getThemes;
                 tal:condition="python: theme_id in externalthemes"
                 tal:attributes="src string:${base_url}cpsskins_images/img_externaltheme.png" />
               </a>
-              <span class="ContextualMenu"
+              <span class="ContextualMenu"  tal:condition="theme_editable"
                tal:attributes="themeid python: not we_are_here and theme_id or None;
                                icon python: base_url + theme.getIcon(1);
                                istheme python: 1;
@@ -51,21 +51,23 @@ tal:define="themes tmtool/getThemes;
           <td class="separator"></td>
         </tal:block>
       </tal:block>
-      <td class="ltab">
-        <img alt="" src="" width="5" height="5"
-        tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
-      </td>
-      <td class="tab">
-        <a i18n:attributes="title"
-         tal:define="title string:_Add a theme_"
-         tal:attributes="href string:${base_url}cpsskins_theme_add;
-                         title python: mcat and mcat(title) or title"
-         tal:content="structure string:&nbsp;+&nbsp;" />
-      </td>
-      <td class="rtab">
-        <img alt="" src="" width="5" height="5"
-        tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
-      </td>
+      <tal:block condition="theme_editable">
+        <td class="ltab">
+          <img alt="" src="" width="5" height="5"
+          tal:attributes="src string:${base_url}cpsskins_images/ltab.png" />
+        </td>
+        <td class="tab">
+          <a i18n:attributes="title"
+           tal:define="title string:_Add a theme_"
+           tal:attributes="href string:${base_url}cpsskins_theme_add;
+                           title python: mcat and mcat(title) or title"
+           tal:content="structure string:&nbsp;+&nbsp;" />
+        </td>
+        <td class="rtab">
+          <img alt="" src="" width="5" height="5"
+          tal:attributes="src string:${base_url}cpsskins_images/rtab.png" />
+        </td>
+      </tal:block>
     </tr>
   </table>
 </metal:block>
@@ -90,7 +92,7 @@ tal:define="pages theme_container/getPages;">
              href string:${tmtool_url}/setViewMode?page=$page_id&amp;scrolly=0&amp;reload=1;
              style style"
              tal:content="page_title" />
-            <span class="ContextualMenu" tal:attributes="
+            <span tal:condition="theme_editable" class="ContextualMenu" tal:attributes="
              pageid python: not we_are_here and page_id or None;
              icon python: base_url + page.getIcon(1);
              alignments python: '|'.join(align_list);
@@ -106,7 +108,7 @@ tal:define="pages theme_container/getPages;">
           </div>
         </td>
       </tal:block>
-      <td>
+      <td tal:condition="theme_editable">
         <a class="addItem"
          tal:attributes="href string:${theme_container_url}/cpsskins_page_add"
          tal:content="structure string:&nbsp;+&nbsp;" />

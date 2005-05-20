@@ -48,7 +48,7 @@
    </tal:block> 
   </div>
 
-  <div class="editSpace">
+  <div class="editSpace" tal:define="theme_editable python:1">
    <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
     <tal:block condition="python: panel in ['wysiwyg', 'layout', 'mixed']">
       <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />

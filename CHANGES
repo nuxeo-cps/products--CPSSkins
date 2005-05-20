@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Added a shortcut button ('+') in the theme tabs for adding new themes.
+- Added tabs in the portlet editor to switch between themes and pages.
 Bug fixes:
 ~~~~~~~~~~
 - cpsskins_cps3/cpsskins_getNavigationInfo.py: better traversal to obtain
