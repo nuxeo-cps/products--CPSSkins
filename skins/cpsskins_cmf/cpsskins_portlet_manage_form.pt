@@ -51,9 +51,12 @@
     use-macro="here/cpsskins_portlet_manage_lib/macros/portlet_add_panel" />
   </div>
 
-  <div class="editSpace" tal:define="theme_editable python:0">
-    <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
-    <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />
+  <div class="editSpace">
+    <tal:block define="theme_editable python:0"
+      condition="python: panel in ['portlet_slots', 'wysiwyg']">
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
+      <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />
+    </tal:block>
 
     <tal:block condition="python: panel in ['site_structure', 'portlet_slots', 'wysiwyg']">
       <metal:block
