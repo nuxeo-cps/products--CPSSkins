@@ -269,7 +269,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             # add the box decoration
             title = portlet.title
             if box_title_i18n and mcat is not None:
-                title = mcat(title).encode("ISO-8859-15", 'ignore')
+                title = mcat(title).decode("ISO-8859-15").encode("ISO-8859-15", 'ignore')
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
                 title=title,
