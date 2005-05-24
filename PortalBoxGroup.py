@@ -33,6 +33,8 @@ from Products.CMFCore.utils import getToolByName
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 
+from cpsskins_utils import is_ascii
+
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
      'meta_type': 'Portal Box Group Templet',
@@ -269,7 +271,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             # add the box decoration
             title = portlet.title
             if box_title_i18n and mcat is not None:
-                title = mcat(title).encode("ISO-8859-15", 'ignore')
+                title = mcat(title)
+                if isinstance(title, unicode):
+                    title = title.encode('ISO-8859-15', 'ignore')
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
                 title=title,
