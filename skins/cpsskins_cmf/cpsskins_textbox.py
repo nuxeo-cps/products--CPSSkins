@@ -8,6 +8,6 @@ if i18n:
     tmtool = context.portal_themes
     mcat = tmtool.getTranslationService(cat='default')
     if mcat is not None:
-        text = mcat(text).decode("ISO-8859-15").encode("ISO-8859-15", 'ignore')
+        text = mcat(text).encode("ISO-8859-15", 'ignore')
 
 return context.render_text_as(text, text_format)

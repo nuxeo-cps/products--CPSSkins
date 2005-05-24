@@ -27,7 +27,6 @@ Bug fixes:
 - Buttons in the box title bar should not be displayed for anonymous users.
 - Pastable objects located in a non-existent themes triggered an AttributeError
   exception.
-- fixed unicode exception when encoding characters to "ISO-8859-15"
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
