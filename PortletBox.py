@@ -35,8 +35,6 @@ from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes
 
-from cpsskins_utils import is_ascii
-
 factory_type_information = (
     {'id': 'Portlet Box Templet',
      'description': ('_portletbox_templet_description_'),

@@ -33,8 +33,6 @@ from Products.CMFCore.utils import getToolByName
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 
-from cpsskins_utils import is_ascii
-
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
      'meta_type': 'Portal Box Group Templet',

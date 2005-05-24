@@ -4,13 +4,6 @@ text = context.text
 i18n = context.i18n
 text_format = context.text_format
 
-def is_ascii(s):
-    try:
-        unicode(s, 'ascii')
-        return True
-    except UnicodeError:
-        return False
-
 if i18n:
     tmtool = context.portal_themes
     mcat = tmtool.getTranslationService(cat='default')
