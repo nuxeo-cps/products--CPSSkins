@@ -35,7 +35,7 @@ except ImportError:
 def existCmd(binary):
     """search for a binary in the PATH"""
     result = None
-    mode   = os.R_OK | os.X_OK
+    mode = os.X_OK
     PATH = os.environ.get('PATH', '')
     for p in PATH.split(':'):
         path = os.path.join(p, binary)
