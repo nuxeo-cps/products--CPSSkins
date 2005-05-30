@@ -18,9 +18,9 @@ msgstr ""
 "Preferred-encodings: utf-8 latin1\n"
 
 msgid "_You are here:_"
-msgstr ""
+msgstr "Te afli aici:"
 
 
 msgid "_action_themes_reconfig_"
-msgstr ""
+msgstr "Temele vizuale"
 
