@@ -32,6 +32,18 @@ except ImportError:
                due to a dependency on Python's commands.getstatusoutput().")
 
 
+def existCmd(binary):
+    """search for a binary in the PATH"""
+    result = None
+    mode   = os.R_OK | os.X_OK
+    PATH = os.environ.get('PATH', '')
+    for p in PATH.split(':'):
+        path = os.path.join(p, binary)
+        if os.access(path, mode):
+            result = path
+            break    
+    return result
+
 def canonizeLang(lang):
     return lang.lower().replace('_', '-')
 
@@ -158,10 +170,11 @@ for potFile in ['cpsskins.pot', 'cpsskins-default.pot', 'cpsskins-plone.pot']:
     tests.append(TestOnePOT)
 
     for poFile in getPoFiles(potFile):
-        class TestOneMsg(TestMsg):
-            poFile = poFile
-            potFile = potFile
-        tests.append(TestOneMsg)
+        if existCmd('msgcmp'):
+            class TestOneMsg(TestMsg):
+                poFile = poFile
+                potFile = potFile
+            tests.append(TestOneMsg)
 
         class TestOnePoFile(TestPoFile):
             poFile = poFile
