@@ -30,6 +30,7 @@ Bug fixes:
 - i18n of box titles: making sure that the string is in unicode before encoding
   in ISO-8859-15
 - checking the existence of 'msgcmp' before running the 'TestOneMsg' tests.
+- Portlet editor: fixes to avoid having URLs beginning with '//...'
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

@@ -70,6 +70,7 @@ function Portlet_add(selected_items, target_node) {
   dest_slot = dest.getAttribute('dest_slot');
   dest_ypos = dest.getAttribute('dest_ypos');
   insert_url = dest.getAttribute('insert_url');
+  if (insert_url == '/') insert_url = '';
   create_url = insert_url + '/cpsskins_addportlet_form?ptype_id=' + ptype_id + '&order=' + dest_ypos;
   if (dest_rurl != null) create_url = create_url + '&dest_rurl=' + dest_rurl;
   if (dest_slot != null) create_url = create_url + '&slot=' + dest_slot;
@@ -131,6 +132,7 @@ function Choice_paste_from_clipboard() {
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
   folder_url = pd_selected_item.getAttribute('folder_url');
+  if (folder_url == '/') folder_url = '';
   new_url = folder_url + '/cpsskins_paste_from_clipboard';
   new_url = new_url + '?dest_ypos=' + dest_ypos;
   if (dest_slot != null) new_url = new_url + '&dest_slot=' + dest_slot;
@@ -144,6 +146,7 @@ function Choice_insert() {
   dest_slot = pd_selected_item.getAttribute('src_slot');
   dest_ypos = pd_selected_item.getAttribute('src_ypos');
   insert_url = pd_selected_item.getAttribute('insert_url');
+  if (insert_url == '/') insert_url = '';
   insert_url = insert_url + '/cpsskins_addportlet_form?order=' + dest_ypos;
   if (dest_slot != null) insert_url = insert_url + '&slot=' + dest_slot;
   newWindow(insert_url);
