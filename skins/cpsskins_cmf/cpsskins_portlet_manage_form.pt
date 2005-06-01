@@ -53,7 +53,7 @@
 
   <div class="editSpace">
     <tal:block define="theme_editable python:0"
-      condition="python: panel in ['portlet_slots', 'wysiwyg']">
+      condition="python: panel in ['portlet_slots', 'wysiwyg', 'site_structure']">
       <metal:block use-macro="here/cpsskins_theme_widgets/macros/themetabs" />
       <metal:block use-macro="here/cpsskins_theme_widgets/macros/pagetabs" />
     </tal:block>

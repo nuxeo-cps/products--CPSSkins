@@ -33,6 +33,8 @@ Bug fixes:
 - Portlet editor: fixes to avoid having URLs beginning with '//...'
 - Portlet editor: the information about overriden portlets was incorrect in
   'Site structure' mode. Portlets are now sorted by slot (fixes #695)
+- The navigation tabs are now also displayed in 'Site structure' mode
+  to make it possible to switch between theme and pages.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.
