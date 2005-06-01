@@ -31,6 +31,8 @@ Bug fixes:
   in ISO-8859-15
 - checking the existence of 'msgcmp' before running the 'TestOneMsg' tests.
 - Portlet editor: fixes to avoid having URLs beginning with '//...'
+- Portlet editor: the information about overriden portlets was incorrect in
+  'Site structure' mode. Portlets are now sorted by slot (fixes #695)
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - better caching of the base url.

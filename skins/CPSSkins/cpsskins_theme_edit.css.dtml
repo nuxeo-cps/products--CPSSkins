@@ -1057,6 +1057,12 @@ cursor: crosshair;
   background-color: #ffffcc;
 }
 
+.portletSlotGroup {
+  font-weight: bold;
+  font-size: 130%;
+  background-color: #ffcc00;
+}
+
 .navBreadCrumbs {
   background-color: #f9f9f9;
   padding: 5px;

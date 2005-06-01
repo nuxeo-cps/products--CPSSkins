@@ -361,7 +361,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
   <em tal:content="folder_url" />
   <br style="clear: both" />
 
-  <table border=0 width="100%" cellpadding="3" cellspacing="2">
+  <table border="0" width="100%" cellpadding="3" cellspacing="2">
     <tr>
       <th tal:repeat="bc python: ptltool.getBreadCrumbs(context=here)">
         <span class="portletBoxDest" style="cursor:help"
@@ -373,7 +373,14 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
          tal:content="bc/id" />
       </th>
     </tr>
-    <tal:block define="portlets python:ptltool.getPortlets(context=here, override=override, visibility_check=0)"
+    <tal:block repeat="slot page_container/getSlots">
+    <tr>
+      <td class="portletSlotGroup"
+          tal:attributes="colspan python: here_depth > 0 and here_depth + 1 or None"
+          tal:content="slot" />
+    </tr>
+    <tal:block define="portlets python:ptltool.getPortlets(context=here, override=override,
+                                                           visibility_check=0, slot=slot)"
                repeat="portlet portlets">
       <tr tal:define="ypos portlet/getOrder;
                       fti portlet/getTypeInfo;
@@ -418,7 +425,6 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                tal:attributes="style python: selected and 'border: 2px solid #000' or ''">
                 <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
                 tal:content="portlet/title_or_id" href="javascript:void(0)"/>
-                (<span tal:content="group" />)
                 <p>
                   <img width="16" height="16" alt=""
                    tal:condition="nocall:portlet_icon"
@@ -442,6 +448,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
          tal:attributes="colspan python: here_depth - portlet_depth">
         </td> 
       </tr>       
+    </tal:block> 
     </tal:block> 
   </table>    
 </metal:block>
