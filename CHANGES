@@ -3,42 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Added a shortcut button ('+') in the theme tabs for adding new themes.
-- Added tabs in the portlet editor to switch between themes and pages.
+-
 Bug fixes:
 ~~~~~~~~~~
-- cpsskins_cps3/cpsskins_getNavigationInfo.py: better traversal to obtain
-  root proxy folders.
-- Made cell block editing less modal: the layout of cell blocks can be edited
-  even if they are not selected.
-- Made the installer more robust on how to find CPSSkins .po files.
-- duplicating the default theme should not lead to having 2 default themes.
-- fixed a bug where style items pasted from another theme were renamed
-  after being pasted.
-- removed bare except: in Extensions/install_actionicons.py
-- fixed pageblock layout rendering in macroless mode.
-- Collapsible Menu Templet: more robust computation of relative urls.
-- Strict XHTML compliance in the rendering of cell blocks.  
-- added missing kw 'portlet' argument needed for the rendering of global  
-  portlets boxes.
-- fixed crash under CPSSharedCalendar / Five in the lookup of method themes.
-  Also getThemeByMethod() is not called in case the id of the published object
-  could not be obtained.
-- Buttons in the box title bar should not be displayed for anonymous users.
-- Pastable objects located in a non-existent themes triggered an AttributeError
-  exception.
-- i18n of box titles: making sure that the string is in unicode before encoding
-  in ISO-8859-15
-- checking the existence of 'msgcmp' before running the 'TestOneMsg' tests.
-- Portlet editor: fixes to avoid having URLs beginning with '//...'
-- Portlet editor: the information about overriden portlets was incorrect in
-  'Site structure' mode. Portlets are now sorted by slot (fixes #695)
-- The navigation tabs are now also displayed in 'Site structure' mode
-  to make it possible to switch between theme and pages.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- better caching of the base url.
-- Check CPS3 instance by checking the isntance type instead of the meta_type
-- the "Frame Box" layout now uses the <fieldset> markup
-- CMF / Plone: folder roots under the portal are now listed.
-- Portlet box states (min/max/closed) can be set by anonymous users.
+-
