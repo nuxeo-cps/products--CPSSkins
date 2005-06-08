@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- triggering persistence in manage_setMethodThemes() when the method theme
+  dictionary has been modified.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

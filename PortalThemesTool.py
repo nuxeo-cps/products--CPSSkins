@@ -1391,6 +1391,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             form.update(REQUEST.form)
 
         err = ''
+        changed = 0
         for k, v in form.items():
             if k.startswith('update_'):
                 index = int(k[len('update_'):])
@@ -1410,11 +1411,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 if page:
                     theme_page += '+' + page
                 self.method_themes[meth] = theme_page
+                changed = 1
 
             if k.startswith('remove_'):
                 index = int(k[len('remove_'):])
                 meth = form['method_%s' % index]
                 del self.method_themes[meth]
+                changed = 1
+
+        if changed:
+            self._p_changed = 1
 
         if REQUEST is not None:
             return self.manage_methodThemes(
