@@ -1,6 +1,6 @@
 ##parameters=langs=None
 
-mcat = context.Localizer.default
+mcat = context.translation_service
 
 tr_langs = []
 for lang in langs:
