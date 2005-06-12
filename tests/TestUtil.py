@@ -53,6 +53,15 @@ class DummyTranslationService(SimpleItem):
     def translate(self, domain, msgid, *args, **kw):
         return msgid
 
+    def translateDefault(self, msgid, target_language, *args, **kw):
+        if msgid == 'words_meaningless' and target_language == 'en':
+            msgstr = "a the this these those of am is are has have or and i maybe perhaps"
+        elif msgid == 'words_meaningless' and target_language == 'fr':
+            msgstr = "et ou un une le la les l de des ces que qui est sont a ont je voici"
+        else:
+            msgstr = msgid
+        return msgstr
+
     def __call__(self, *args, **kw):
         return self.translate('default', *args, **kw)
 
@@ -67,6 +76,9 @@ class DummyTranslationService(SimpleItem):
 
     def getSelectedLanguage(self):
         return 'en'
+
+    def getSupportedLanguages(self):
+        return ['en', 'fr', 'de']
 
 ##########################################
 class DummyMessageCatalog(SimpleItem):
