@@ -11,6 +11,8 @@
 }
 
 <dtml-with expr="getThemeContainer().backgrounds">
+
+<dtml-if TopLeft_bg_image>
 <dtml-var class> .rbtop div {
 <dtml-with expr="_.getitem(TopLeft_bg_image)">
 <dtml-let url="base_url + portal_url.getRelativeUrl(this())">
@@ -19,7 +21,9 @@
 </dtml-let>
 </dtml-with>
 }
+</dtml-if>
 
+<dtml-if TopRight_bg_image>
 <dtml-var class> .rbtop {
 <dtml-with expr="_.getitem(TopRight_bg_image)">
 <dtml-let url="base_url + portal_url.getRelativeUrl(this())">
@@ -28,7 +32,9 @@
 </dtml-let>
 </dtml-with>
 }
+</dtml-if>
 
+<dtml-if BottomLeft_bg_image>
 <dtml-var class> .rbbot div {
 <dtml-with expr="_.getitem(BottomLeft_bg_image)">
 <dtml-let url="base_url + portal_url.getRelativeUrl(this())">
@@ -37,7 +43,9 @@
 </dtml-let>
 </dtml-with>
 }
+</dtml-if>
 
+<dtml-if BottomRight_bg_image>
 <dtml-var class> .rbbot {
 <dtml-with expr="_.getitem(BottomRight_bg_image)">
 <dtml-let url="base_url + portal_url.getRelativeUrl(this())">
@@ -46,6 +54,8 @@
 </dtml-let>
 </dtml-with>
 } 
+</dtml-if>
+
 </dtml-with>
 
 </dtml-let>
