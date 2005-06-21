@@ -1,0 +1,45 @@
+<metal:page define-macro="master"><metal:doctype define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></metal:doctype>
+<metal:block define-slot="top_slot" />
+<metal:block use-macro="here/global_defines/macros/defines" />
+<metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      tal:define="dummy python: request.set('cpsskins_cmfactions', actions)"
+      tal:attributes="lang default_language|default;
+                      xml:lang default_language|default;">
+  <head metal:use-macro="here/header/macros/html_header">
+    <metal:fillbase fill-slot="base">
+      <metal:baseslot define-slot="base">
+        <base href="" tal:attributes="href here/renderBase" />
+      </metal:baseslot>
+    </metal:fillbase>
+    <metal:headslot fill-slot="head_slot"
+                    tal:define="language here/Language;
+                                lang language | default_language;
+                                charset site_properties/default_charset|string:utf-8">
+      <metal:cache use-macro="here/global_cache_settings/macros/cacheheaders">
+      </metal:cache>
+      <metal:headslot define-slot="head_slot" />
+    </metal:headslot>
+    <metal:cssslot fill-slot="css_slot">
+      <metal:cssslot define-slot="css_slot" />
+      <metal:cpsskins use-macro="here/?main_macro/macros/head" />
+    </metal:cssslot>
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+      <metal:javascriptslot define-slot="javascript_head_slot" />
+    </metal:javascriptslot>
+  </head>
+  <body tal:attributes="class cpsskins_bodyclass;
+                        style cpsskins_bodystyle">
+    <metal:block use-macro="here/?main_macro/macros/main">
+      <metal:block fill-slot="maincontent">
+        <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+        </div>
+        <metal:bodytext metal:define-slot="prefs_configlet_main" tal:content="nothing">
+        </metal:bodytext>
+      </metal:block>
+    </metal:block>
+  </body>
+</html>
+</metal:page>

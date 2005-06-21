@@ -10,6 +10,7 @@ Bug fixes:
   dictionary has been modified.
 - fixed the CSS rendering of box corners when not all background images
   are specified. (#785)
+- misc Plone2.1 fixes (breadcrumbs, new panel template)
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
