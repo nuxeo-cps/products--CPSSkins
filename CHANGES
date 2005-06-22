@@ -13,4 +13,4 @@ Bug fixes:
 - misc Plone2.1 fixes (breadcrumbs, new panel template)
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- support for ERP5 sites (by Yoshinori Okuji)

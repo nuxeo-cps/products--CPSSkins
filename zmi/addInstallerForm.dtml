@@ -8,10 +8,10 @@
           parent="restrictedTraverse(parent_path)"
 >
 
-<dtml-if "parent.meta_type in ['CMF Site', 'CPS Site', 'Plone Site', 'CPSDefault Site']">
+<dtml-if "parent.meta_type in ['ERP5 Site', 'CMF Site', 'CPS Site', 'Plone Site', 'CPSDefault Site']">
 
 <p>
-You are about to install CPSSkins on top of <strong><dtml-var "parent.id"> (<dtml-var "parent.title">)</strong>, which is either a CMF site, a CPS site (version 2 or 3) or Plone site (version 1 or 2) .
+You are about to install CPSSkins on top of <strong><dtml-var "parent.id"> (<dtml-var "parent.title">)</strong>, which either is a CMF site, a CPS site (version 2 or 3), a Plone site (version 1 or 2) or an ERP5 site.
 </p>
 
 
