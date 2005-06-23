@@ -11,6 +11,7 @@ Bug fixes:
 - fixed the CSS rendering of box corners when not all background images
   are specified. (#785)
 - misc Plone2.1 fixes (breadcrumbs, new panel template)
+- Updated the pt_BR translations.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - support for ERP5 sites (by Yoshinori Okuji)
