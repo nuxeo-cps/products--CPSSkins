@@ -20,14 +20,13 @@
   <form tal:condition="python: style == 'advanced'"
    style="margin:0px; padding:0px" method="get"
    tal:attributes="action python: portal_url + '/' + search_script_url">
-    <strong tal:define="title string:_searchbox_Search_"
-     tal:content="python: mcat and mcat(title) or title" 
+    <label tal:define="title string:_searchbox_Search_"
+     tal:content="python: mcat and mcat(title) or title"
+     tal:attributes="for string:searchBoxInput"
      i18n:translate="" />
     <span style="white-space: nowrap">
-      <label>
-        <input type="text" name="SearchableText" size="18" />
-        <input type="submit" value="OK" class="SearchBox" />
-      </label>
+      <input id="searchBoxInput" type="text" name="SearchableText" size="18" />
+      <input type="submit" value="OK" class="SearchBox" />
     </span>
     <br/>
     <a i18n:translate=""

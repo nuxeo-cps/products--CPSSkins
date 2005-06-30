@@ -12,6 +12,8 @@ Bug fixes:
   are specified. (#785)
 - misc Plone2.1 fixes (breadcrumbs, new panel template)
 - Updated the pt_BR translations.
+- Made the searchbox more accessible by associating its label with the text
+  input.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - support for ERP5 sites (by Yoshinori Okuji)
