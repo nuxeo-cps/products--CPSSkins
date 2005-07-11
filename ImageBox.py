@@ -28,6 +28,7 @@ from Acquisition import aq_base
 from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.Image import Image
+from OFS.Cache import Cacheable
 
 from BaseTemplet import BaseTemplet
 from ThemeFolder import ThemeFolder
@@ -62,7 +63,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
     manage_options = ( PropertyManager.manage_options     # Properties
                      + ( {'label': 'Preview',
                           'action': 'manage_templetPreview'}, )
-                     )
+                     ) + Cacheable.manage_options
 
     _properties = BaseTemplet._properties + (
         {'id': 'i18n',
