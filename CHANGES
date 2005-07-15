@@ -14,6 +14,8 @@ Bug fixes:
 - Updated the pt_BR translations.
 - Made the searchbox more accessible by associating its label with the text
   input.
+- fixed getLocalThemeName() after security synthesis in CPSCore (#413)
+  and refactored the traversal.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - support for ERP5 sites (by Yoshinori Okuji)

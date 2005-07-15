@@ -545,30 +545,34 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             bmf = context
 
         # get themes from the root to current path
-        # XXX This is badly reinventing traversal.
-        # XXX Use aq_parent(aq_inner(ob)) the other way round instead.
         utool = getToolByName(self, 'portal_url')
-        rpath = utool.getRelativeContentPath(bmf)
-        bmf_depth = len(rpath)
-        obj = utool.getPortalObject()
+        portal = utool.getPortalObject()
+        level = len(utool.getRelativeContentPath(bmf))
+
+        ob = bmf
+        objs = []
+        while ob is not None:
+            objs.append(ob)
+            # move to the parent
+            ob = aq_parent(aq_inner(ob))
+            # we ignore the portal object since local themes are not supposed
+            # to be set at the root of the portal.
+            if ob is portal:
+                break
+
+        # we revert the list since we want to start from the portal and move
+        # to the current object, i.e. local themes if they apply to a given
+        # folder override the themes set in the folders above.
+        objs.reverse()
+
+        # get the local theme
         localtheme = None
-        level = bmf_depth
-        for elem in ('',) + rpath:
-            if not elem:
-                continue
+        for obj in objs:
             level -= 1
-            obj = getattr(aq_base(obj), elem, None)
-            # Note (2005-07-15): getattr(obj, elem) will fail for repository
-            # objects that appear to reside under the proxy. If 'elem' is
-            # the id of a repository object then we should consider that
-            # the object is not worthy of containing local themes.
-            # (see also http://svn.nuxeo.org/trac/pub/ticket/413)
-            if obj is None:
-                continue
-            # get the local theme
             theme = self._getLocalTheme(folder=obj, level=level)
             if theme is not None:
                 localtheme = theme
+            # we continue since the local theme can be still be overriden.
         return localtheme
 
     security.declarePublic('getLocalThemes')
