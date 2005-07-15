@@ -550,11 +550,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         level = len(utool.getRelativeContentPath(bmf))
 
         ob = bmf
-        objs = []
-        while ob is not None:
-            objs.append(ob)
+        objs = [ob]
+        while True:
             # move to the parent
             ob = aq_parent(aq_inner(ob))
+            if ob is None:
+                break
+            objs.append(ob)
             if ob is portal:
                 break
 
@@ -566,8 +568,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         # get the local theme
         localtheme = None
         for obj in objs:
-            level -= 1
             theme = self._getLocalTheme(folder=obj, level=level)
+            level -= 1
             if theme is not None:
                 localtheme = theme
             # we continue since the local theme can be still be overriden.
