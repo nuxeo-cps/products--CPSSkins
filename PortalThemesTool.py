@@ -545,6 +545,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             bmf = context
 
         # get themes from the root to current path
+        # XXX This is badly reinventing traversal.
+        # XXX Use aq_parent(aq_inner(ob)) the other way round instead.
         utool = getToolByName(self, 'portal_url')
         rpath = utool.getRelativeContentPath(bmf)
         bmf_depth = len(rpath)
