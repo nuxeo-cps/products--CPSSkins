@@ -147,6 +147,21 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=subfolder)
         self.assert_(theme == ('theme2', None))
 
+    def test_local_theme_6(self):
+        if self.folder_root:
+            testfolder = getattr(self.portal, self.folder_root)
+        else:
+            testfolder = self.portal
+        testfolder.invokeFactory(type_name=self.folder_type, id='folder')
+        folder = getattr(testfolder, 'folder')
+        value = ['1-0:theme1+page1']
+        testfolder.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'lines')
+        theme = self.tmtool.getRequestedThemeAndPageName(
+                                          context_obj=testfolder)
+        self.assert_(theme == ('default', None))
+        theme = self.tmtool.getRequestedThemeAndPageName(context_obj=folder)
+        self.assert_(theme == ('theme1', 'page1'))
+
 tests=[]
 target = os.environ.get('CPSSKINS_TARGET', 'CMF')
 if target == 'CPS3':

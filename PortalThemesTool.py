@@ -555,8 +555,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             objs.append(ob)
             # move to the parent
             ob = aq_parent(aq_inner(ob))
-            # we ignore the portal object since local themes are not supposed
-            # to be set at the root of the portal.
             if ob is portal:
                 break
 
