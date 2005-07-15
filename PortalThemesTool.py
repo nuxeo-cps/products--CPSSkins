@@ -555,7 +555,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             if not elem:
                 continue
             level -= 1
-            obj = getattr(obj, elem)
+            obj = getattr(aq_base(obj), elem, None)
+            # Note (2005-07-15): getattr(obj, elem) will fail for repository
+            # objects that appear to reside under the proxy. If 'elem' is
+            # the id of a repository object then we should consider that
+            # the object is not worthy of containing local themes.
+            # (see also http://svn.nuxeo.org/trac/pub/ticket/413)
+            if obj is None:
+                continue
+            # get the local theme
             theme = self._getLocalTheme(folder=obj, level=level)
             if theme is not None:
                 localtheme = theme
