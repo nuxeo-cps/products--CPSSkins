@@ -8,6 +8,7 @@
   <form tal:condition="python: style == 'compact'"
    style="margin:0px; padding:0px; white-space: nowrap" method="get"
    tal:attributes="action python: portal_url + '/' + search_script_url">
+    <p>
     <label>
       <input type="text" name="SearchableText" size="12"
        maxLength="256" />
@@ -16,10 +17,12 @@
        tal:attributes="value python: mcat and mcat(title) or title"
        type="submit" class="SearchBox"/>
     </label>
+    </p>
   </form>
   <form tal:condition="python: style == 'advanced'"
    style="margin:0px; padding:0px" method="get"
    tal:attributes="action python: portal_url + '/' + search_script_url">
+    <p>
     <label tal:define="title string:_searchbox_Search_"
      tal:content="python: mcat and mcat(title) or title"
      tal:attributes="for string:searchBoxInput"
@@ -34,5 +37,6 @@
                  advanced_search_form_url python: search_urls['advanced']"
      tal:content="python: mcat and mcat(title) or title"
      tal:attributes="href python: portal_url + '/' + advanced_search_form_url" />
+    </p>
   </form>
 </tal:block>
