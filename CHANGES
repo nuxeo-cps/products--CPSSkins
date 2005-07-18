@@ -22,3 +22,4 @@ New internal features:
 - added a 'Cache' management option in the ZMI to set cache settings for
   the Image Box Templet (e.g. Accelarated HTTP Cache Manager)
 - local themes can be set at the portal root
+- Switched to the XHTML Strict doctype under CPS3.
