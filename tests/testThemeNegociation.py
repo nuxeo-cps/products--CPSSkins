@@ -148,13 +148,20 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(theme == ('theme2', None))
 
     def test_local_theme_6(self):
+        self.tmtool.setDefaultTheme('printable')
         portal = self.portal
         value = ['1-0:theme1+page1']
-        testfolder = getattr(self.portal, self.folder_root)
+        folder_id = self.folder_root
+        if not folder_id:
+            folder_id = 'folder'
+            portal.invokeFactory(type_name=self.folder_type,
+                                 id=folder_id)
+        testfolder = getattr(portal, folder_id)
+
         portal.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'lines')
         theme = self.tmtool.getRequestedThemeAndPageName(
                                           context_obj=portal)
-        self.assert_(theme == ('default', None))
+        self.assert_(theme == ('printable', None))
         theme = self.tmtool.getRequestedThemeAndPageName(
                                           context_obj=testfolder)
         self.assert_(theme == ('theme1', 'page1'))
