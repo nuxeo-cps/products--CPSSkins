@@ -251,12 +251,20 @@ def initialize(registrar):
     utils.initializeBasesPhase2(z_bases, registrar)
     utils.initializeBasesPhase2(z_tool_bases, registrar)
 
-    utils.ToolInit(
-        'Portal Themes Tool',
-        tools=tools,
-        product_name='CPSSkins',
-        icon='draw.png',
-    ).initialize(registrar)
+    try:
+        utils.ToolInit(
+            'Portal Themes Tool',
+            tools=tools,
+            icon='draw.png',
+        ).initialize(registrar)
+    # BBB: CMF 1.4.x
+    except TypeError:
+        utils.ToolInit(
+            'Portal Themes Tool',
+            tools=tools,
+            product_name='CPSSkins',
+            icon='draw.png',
+        ).initialize(registrar)
 
     utils.ContentInit(
         'CPSSkins Content',
