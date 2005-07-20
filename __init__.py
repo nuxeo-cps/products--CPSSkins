@@ -21,7 +21,10 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 import sys
 
 from Products.CMFCore import utils
-from Products.CMFCore.CMFCorePermissions import AddPortalContent
+try:
+    from Products.CMFCore.permissions import AddPortalContent
+except ImportError:
+    from Products.CMFCore.CMFCorePermissions import AddPortalContent
 from Products.CMFCore.DirectoryView import registerDirectory
 
 import CPSSkinsInstaller
