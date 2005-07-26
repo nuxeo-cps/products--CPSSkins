@@ -13,27 +13,10 @@ if getattr(utool.aq_inner.aq_explicit, 'getBaseUrl', None) is not None:
     return utool.getBaseUrl()
 
 # CMF, CPS < 3.3.5, Plone ...
-if REQUEST is None:
-    path_info = ''
-else:
-    path_info = getattr(REQUEST, 'PATH_INFO', '')
-
-if path_info.startswith('/VirtualHostBase/'):
-    # apache detection
-
-    # Inside-out hosting (VHM _vh_)
-    if path_info.find('_vh_') > 0:
-        base = path_info.split('_vh_')[1]
-        if base.find('/') > 0:
-            base = base.split('/')[0]
-        base_url = '/' + base + '/'
-    else:
-        base_url = '/'
-else:
-    # XXX squid detection
-    # classic case
-    utool = context.portal_url
-    base_url = utool.getPortalPath() + '/'
+portal = utool.getPortalObject()
+base_url = portal.absolute_url_path()
+if not base_url.endswith('/'):
+    base_url += '/'
 
 # cache the base url in the REQUEST
 if REQUEST is not None:
