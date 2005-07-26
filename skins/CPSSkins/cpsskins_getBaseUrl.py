@@ -7,6 +7,12 @@ REQUEST = getattr(context, 'REQUEST', None)
 if REQUEST is not None and REQUEST.has_key('cpsskins_base_url'):
     return REQUEST['cpsskins_base_url']
 
+# use utool.getBaseUrl() if it is present
+utool = context.portal_url
+if getattr(utool.aq_inner.aq_explicit, 'getBaseUrl', None) is not None:
+    return utool.getBaseUrl()
+
+# CMF, CPS < 3.3.5, Plone ...
 if REQUEST is None:
     path_info = ''
 else:

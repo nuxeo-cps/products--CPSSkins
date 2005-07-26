@@ -51,7 +51,7 @@ here_rurl_slash = here_rurl + '/'
 parent_url = here_rurl
 path_list = here_rurl.split('/')
 
-base_url = REQUEST.get('cpsskins_base_url', '')
+base_url = context.cpsskins_getBaseUrl()
 
 base_create_path = ''
 base_create_obj = None

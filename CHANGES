@@ -24,3 +24,4 @@ New internal features:
 - local themes can be set at the portal root
 - Switched to the XHTML Strict doctype under CPS3.
 - Using the same cpsskins_RecentDocuments.py for both CPS3 and CMF.
+- Using the new CPS3 URLTool API (getBaseUrl, ...) with backward compatibility.

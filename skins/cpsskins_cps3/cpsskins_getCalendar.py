@@ -2,9 +2,7 @@
 from DateTime import DateTime
 
 REQUEST = context.REQUEST
-base_url = REQUEST.get('cpsskins_base_url')
-if base_url is None:
-    base_url = context.cpsskins_getBaseUrl()
+base_url = context.cpsskins_getBaseUrl()
 
 # remove the trailing /
 context_url = base_url[:-1]
