@@ -16,6 +16,7 @@ Bug fixes:
   input.
 - fixed getLocalThemeName() after security synthesis in CPSCore (#413)
   and refactored the traversal.
+- macroless pages where not rendered in macroless mode.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - support for ERP5 sites (by Yoshinori Okuji)
