@@ -73,6 +73,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     Portal Themes Tool
     """
 
+    __implements__ = ActionProviderBase.__implements__
+
     id = 'portal_themes'
     meta_type = 'Portal Themes Tool'
     portal_type = 'Portal Themes Tool'
@@ -116,16 +118,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         self.method_themes = PersistentMapping()
         self.debug_mode = 0
         self.accesskey = DEFAULT_ACCESSKEY
-
-    #
-    #   ActionProvider interface
-    #
-    security.declarePublic('listActions')
-    def listActions(self, info=None):
-        """
-        Return actions provided via tool.
-        """
-        return self._actions
 
     #
     # ZMI
