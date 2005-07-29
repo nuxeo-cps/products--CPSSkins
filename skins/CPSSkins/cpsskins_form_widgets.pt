@@ -421,8 +421,8 @@ tal:define="meta_type here/meta_type|nothing;
   tal:define="ti python: here.getTypeInfo();
               description ti/description|nothing;
               doctype python: ti and ti.Title() or nothing;">
-  <div class="objectInfo">                               
-      <img tal:attributes="src string:${base_url}${here/getIcon}" alt="" width="16" height="16" />
+  <div class="objectInfo">
+      <img tal:attributes="src python: base_url + here.getIcon(1)" alt="" width="16" height="16" />
       <strong tal:condition="doctype" 
        tal:define="title python: '_%s_' %doctype" 
        i18n:translate="" tal:content="python: mcat and mcat(title) or title" />:
@@ -459,7 +459,7 @@ tal:define="meta_type here/meta_type|nothing;
   <br/>
   <br/>
   <span tal:repeat="parent parents" style="white-space: nowrap">
-    <img src="" tal:attributes="src string:${base_url}${parent/getIcon}"
+    <img src="" tal:attributes="src python: base_url + parent.getIcon(1)"
      align="middle" alt="" width="16" height="16" />
     <a href=""
      tal:attributes="href string:${parent/absolute_url}/edit_form?cat=style"

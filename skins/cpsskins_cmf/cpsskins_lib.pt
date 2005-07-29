@@ -16,7 +16,7 @@
     </div>
     <div tal:attributes="style string:padding:${content/padding}">
       <img src="" alt="" width="16" height="16"
-       tal:attributes="src string:${content/getIcon}" />
+       tal:attributes="src python: base_url + content.getIcon(1)" />
       <tal:block content="content/title" />
     </div>
   </div>

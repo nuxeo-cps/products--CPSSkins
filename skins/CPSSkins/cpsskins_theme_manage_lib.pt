@@ -112,7 +112,7 @@
         <tal:block repeat="obj tmtool/listStyleTypes">
           <dt tal:define="stylecat obj/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src string:${base_url}${obj/getIcon}" />
+             tal:attributes="src python:base_url + obj.getIcon(1)" />
             <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
                            title python:'_%s_' % stylecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?style=$stylecat_quoted"
@@ -152,7 +152,7 @@
             </td>
             <td width="20">
               <img src="" alt="" width="16" height="16"
-               tal:attributes="src string:${style/getIcon}" />
+               tal:attributes="src python: base_url + style.getIcon(1)" />
             </td>
             <td>
               <a href="javascript:void(0)"
@@ -326,7 +326,7 @@
         <tal:block repeat="obj tmtool/listPaletteTypes">
           <dt tal:define="palettecat obj/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src string:${base_url}${obj/getIcon}" />
+             tal:attributes="src python: base_url + obj.getIcon(1)" />
             <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
                            title python:'_%s_' % palettecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?palette=$palettecat_quoted"
@@ -371,7 +371,7 @@
               </td>
               <td width="20">
                 <img src="" alt="" width="16" height="16"
-                 tal:attributes="src string:${palette/getIcon}" />
+                 tal:attributes="src python: base_url + palette.getIcon(1)" />
               </td>
               <td>
                 <a href="javascript:void(0)"
@@ -485,7 +485,7 @@
                   tal:attributes="style python: theme_id == current_theme and 'background-color: #fcfcfc' or ''">
                   <td width="16">
                     <img src="" align="middle" alt=""
-                    tal:attributes="src string:${base_url}${theme/getIcon}" />
+                    tal:attributes="src python: base_url + theme.getIcon(1)" />
                   </td>
                   <td>
                     <a tal:attributes="href string:${tmtool_url}/setViewMode?theme=$theme_id&amp;themes_panel=theme&amp;reload=1;
@@ -575,7 +575,7 @@
                     tal:define="content_cacheable content/cacheable|nothing">
                   <td>
                     <img align="middle"
-                    tal:attributes="src string:${base_url}${content/getIcon}" />
+                    tal:attributes="src python: base_url + content.getIcon(1)" />
                     <a href="javascript:void(0)"
                      tal:attributes="onClick string:newWindow('${content/absolute_url}/edit_form')"
                      tal:content="python: content.title_or_id()" />
@@ -699,7 +699,7 @@
               <tr>
                 <td width="20">
                   <img src="" alt=""
-                   tal:attributes="src string:${base_url}${style/getIcon}" />
+                   tal:attributes="src python: base_url + style.getIcon(1)" />
                 </td>
                 <td>
                   <a href="javascript:void(0)"
@@ -744,7 +744,7 @@
                   <tal:block repeat="style blocks">
                     <tr>
                       <td width="20">
-                        <img tal:attributes="src string:${base_url}${style/getIcon}" />
+                        <img tal:attributes="src python: base_url + style.getIcon(1)" />
                       </td>
                       <td>
                         <a href="javascript:void(0)"
@@ -779,7 +779,7 @@
           class="tableFrame" width="100%">
             <tr tal:repeat="templet i18n_templets">
               <td width="30%">
-                <img tal:attributes="src string:${base_url}${templet/getIcon}" />
+                <img tal:attributes="src python: base_url + templet.getIcon(1)" />
                 <a href="javascript:void(0)"
                  tal:attributes="onClick string:newWindow('${templet/absolute_url}/edit_form')"
                  tal:content="templet/getTitle" />
@@ -819,7 +819,7 @@
             <tal:block repeat="templet invisible_templets">
               <tr>
                 <td width="20">
-                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
+                  <img tal:attributes="src python: base_url + templet.getIcon(1)" />
                 </td>
                 <td>
                   <a href="javascript:void(0)"
@@ -853,7 +853,7 @@
             <tal:block repeat="templet uncached_templets">
               <tr>
                 <td width="20">
-                  <img tal:attributes="src string:${base_url}${templet/getIcon}" />
+                  <img tal:attributes="src python: base_url + templet.getIcon(1)" />
                 </td>
                 <td>
                   <a href="javascript:void(0)"

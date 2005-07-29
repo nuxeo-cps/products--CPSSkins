@@ -53,7 +53,7 @@
                     tal:define="content_cacheable content/cacheable|nothing">
                   <td>
                     <img align="middle"
-                    tal:attributes="src string:${base_url}${content/getIcon}" />
+                    tal:attributes="src python: base_url + content.getIcon(1)" />
                     <a tal:attributes="href string:${content/absolute_url}/edit_form"
                      tal:content="python: content.title_or_id()" />
                     <input type="hidden" name="paths" 

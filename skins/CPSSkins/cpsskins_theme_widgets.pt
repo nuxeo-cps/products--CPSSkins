@@ -32,7 +32,7 @@ tal:define="themes tmtool/getThemes;
               </a>
               <span class="ContextualMenu"  tal:condition="theme_editable"
                tal:attributes="themeid python: not we_are_here and theme_id or None;
-                               icon python: base_url + theme.getIcon(1);
+                               icon python:base_url + theme.getIcon(1);
                                istheme python: 1;
                                title theme_title;
                                contenturl theme_url;
@@ -267,7 +267,7 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
         <tal:block repeat="style tmtool/listStyleTypes">
           <div class="context-menu-item"
            tal:define="style_type style/Metatype|nothing;
-                       style_icon style/getIcon|nothing;"
+                       style_icon python: base_url + style.getIcon(1)"
            tal:attributes="onmouseup string:Choice_style('${style_type}');
                            filter string:pd_selected_item && (pd_selected_item.getAttribute('styles').indexOf('${style_type}') >= 0)">
             <img width="16" height="16" 

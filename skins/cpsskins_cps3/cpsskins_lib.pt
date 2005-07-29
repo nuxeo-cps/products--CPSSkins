@@ -32,7 +32,7 @@
       <tal:block content="content/box_group" />
     </div>
     <div tal:attributes="style string:padding:${content/padding}">
-      <img tal:attributes="src string:${content/getIcon}"
+      <img tal:attributes="src python: base_url + content.getIcon(1)"
        width="16" height="16" />
       <tal:block content="content/title" />
     </div>
