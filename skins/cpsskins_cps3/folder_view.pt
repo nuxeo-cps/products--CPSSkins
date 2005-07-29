@@ -5,9 +5,9 @@
   current_page python:current_view[1];
   theme_container python: tmtool.getThemeContainer(theme=current_theme);
   page_container python: theme_container.getPageContainer(current_page);
-  global macroless python: page_container.renderer == 'macroless'">
+  global macroless page_container/macroless">
 
-<tal:block condition="macroless"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<tal:block condition="macroless"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
   <metal:block use-macro="here/cpsskins_main_template_macroless/macros/master" />
 </tal:block>
 
