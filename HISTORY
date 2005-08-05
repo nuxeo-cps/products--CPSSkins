@@ -1,4 +1,36 @@
 *******************************************
+** CPSSkins V2.5.0 [R1 build 2005/08/05-13:58 by ben]
+** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 25426
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- triggering persistence in manage_setMethodThemes() when the method theme
+  dictionary has been modified.
+- fixed the CSS rendering of box corners when not all background images
+  are specified. (#785)
+- misc Plone2.1 fixes (breadcrumbs, new panel template)
+- Updated the pt_BR translations.
+- Made the searchbox more accessible by associating its label with the text
+  input.
+- fixed getLocalThemeName() after security synthesis in CPSCore (#413)
+  and refactored the traversal.
+- macroless pages where not rendered in macroless mode.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- support for ERP5 sites (by Yoshinori Okuji)
+- added a 'Cache' management option in the ZMI to set cache settings for
+  the Image Box Templet (e.g. Accelarated HTTP Cache Manager)
+- local themes can be set at the portal root
+- Switched to the XHTML Strict doctype under CPS3.
+- Using the same cpsskins_RecentDocuments.py for both CPS3 and CMF.
+- Using the new CPS3 URLTool API (getBaseUrl, ...) with backward compatibility.
+
+*******************************************
 ** CPSSkins V2.4.0 [R1 build 2005/06/02-09:38 by fguillaume]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 22058
 Requires:
