@@ -24,7 +24,7 @@ import re
 import random
 
 from DateTime import DateTime
-from Acquisition import  aq_base
+from Acquisition import  aq_base, aq_parent, aq_inner
 from AccessControl import Unauthorized
 
 try:
@@ -419,7 +419,7 @@ def moveToLostAndFound(self, obj):
     """ moves the object to the lost+found folder of the theme"""
 
     tmtool = getToolByName(self, 'portal_themes')
-    container = obj.getContainer()
+    container = aq_parent(aq_inner(obj))
     cookie = container.manage_copyObjects(obj.getId())
     theme_container = tmtool.getPortalThemeRoot(object=obj)
     lost_and_found = theme_container.getLostAndFoundFolder(create=1)

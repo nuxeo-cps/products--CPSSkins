@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- moveToLostAndFound() did not get the correct container of objects
+  moved to the lost-and-found folder.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

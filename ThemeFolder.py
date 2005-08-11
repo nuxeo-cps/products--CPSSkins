@@ -107,7 +107,7 @@ class ThemeFolder(PortalFolder):
 
     security.declarePublic('getContainer')
     def getContainer(self):
-        """Return the page block's container"""
+        """Return the folder's container"""
 
         return aq_parent(aq_inner(self))
 
