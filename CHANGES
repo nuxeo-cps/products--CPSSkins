@@ -8,6 +8,8 @@ Bug fixes:
 ~~~~~~~~~~
 - moveToLostAndFound() did not get the correct container of objects
   moved to the lost-and-found folder.
+- Box states were not set properly on boxes (drawer box layout) because
+  the page's id was missing.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

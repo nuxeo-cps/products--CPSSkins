@@ -5,7 +5,7 @@ if boxid is None or state is None:
 
 tmtool = context.portal_themes
 current_theme, current_page = tmtool.getEffectiveThemeAndPageName()
-cookie_name = 'cpsskins_%s_%s' % (current_theme, boxid)
+cookie_name = 'cpsskins_%s_%s_%s' % (current_theme, current_page, boxid)
 
 if REQUEST is not None:
     RESPONSE = REQUEST.RESPONSE
