@@ -10,6 +10,8 @@ Bug fixes:
   moved to the lost-and-found folder.
 - Box states were not set properly on boxes (drawer box layout) because
   the page's id was missing.
+- getIcon(relative_to_portal=1) instead of getIcon() was called on some CMF
+  type information.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
