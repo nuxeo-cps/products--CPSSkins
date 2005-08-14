@@ -109,17 +109,17 @@
       tal:content="python: mcat and mcat(title) or title"
       i18n:translate="" />
       <dl>
-        <tal:block repeat="obj tmtool/listStyleTypes">
-          <dt tal:define="stylecat obj/getId">
+        <tal:block repeat="ti tmtool/listStyleTypes">
+          <dt tal:define="stylecat ti/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src python:base_url + obj.getIcon(1)" />
+             tal:attributes="src python:base_url + ti.getIcon()" />
             <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
                            title python:'_%s_' % stylecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?style=$stylecat_quoted"
                i18n:translate=""
                tal:content="python: mcat and mcat(title) or title" />
           </dt>
-          <dd tal:define="title obj/description" i18n:translate=""
+          <dd tal:define="title ti/description" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
       </dl>
@@ -323,17 +323,17 @@
        tal:content="python: mcat and mcat(title) or title"
        i18n:translate="" />
       <dl>
-        <tal:block repeat="obj tmtool/listPaletteTypes">
-          <dt tal:define="palettecat obj/getId">
+        <tal:block repeat="ti tmtool/listPaletteTypes">
+          <dt tal:define="palettecat ti/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src python: base_url + obj.getIcon(1)" />
+             tal:attributes="src python: base_url + ti.getIcon()" />
             <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
                            title python:'_%s_' % palettecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?palette=$palettecat_quoted"
                i18n:translate=""
                tal:content="python: mcat and mcat(title) or title" />
           </dt>
-          <dd tal:define="title obj/description" i18n:translate=""
+          <dd tal:define="title ti/description" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />
         </tal:block>
       </dl>

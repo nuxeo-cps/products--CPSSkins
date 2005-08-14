@@ -264,10 +264,10 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
        define="title string:_menu_Edit styles_"
        content="python: mcat and mcat(title) or title" /> ...
       <div class="context-submenu">
-        <tal:block repeat="style tmtool/listStyleTypes">
+        <tal:block repeat="ti tmtool/listStyleTypes">
           <div class="context-menu-item"
-           tal:define="style_type style/Metatype|nothing;
-                       style_icon python: base_url + style.getIcon()"
+           tal:define="style_type ti/Metatype|nothing;
+                       style_icon python: base_url + ti.getIcon()"
            tal:attributes="onmouseup string:Choice_style('${style_type}');
                            filter string:pd_selected_item && (pd_selected_item.getAttribute('styles').indexOf('${style_type}') >= 0)">
             <img width="16" height="16" 
