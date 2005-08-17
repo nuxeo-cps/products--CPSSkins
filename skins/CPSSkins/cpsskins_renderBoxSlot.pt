@@ -8,9 +8,10 @@
              fti slot/getTypeInfo;
              slot_icon fti/getIcon|nothing">
   <div class="portletSlotTitle" tal:content="slot_title" />
-  <div class="portletBoxDest"
+  <div
    tal:omit-tag="rendered"
-   tal:attributes="dest_slot slot_id;
+   tal:attributes="class python: folder_editable and 'portletBoxDest' or None;
+                   dest_slot slot_id;
                    dest_ypos python: 0;
                    insert_url folder_url">
     <div class="portletBoxEditMenu"

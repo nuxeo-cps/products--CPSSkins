@@ -176,8 +176,9 @@
              ypos portlet/getOrder;
              group portlet/getSlot;
              selected python: portlet_id == selected_portlet">
-  <div class="portletBoxDest"
-   tal:attributes="dest_rurl portlet_folder_rurl;
+  <div
+   tal:attributes="class python: folder_editable and 'portletBoxDest' or None;
+                   dest_rurl portlet_folder_rurl;
                    dest_slot group;
                    insert_url folder_url;
                    dest_ypos python: ypos and ypos or 0;
