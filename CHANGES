@@ -12,6 +12,8 @@ Bug fixes:
   the page's id was missing.
 - getIcon(relative_to_portal=1) instead of getIcon() was called on some CMF
   type information.
+- avoid raising UnAuthorized exceptions when users are not allowed to manage
+  portlets in a given folder.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

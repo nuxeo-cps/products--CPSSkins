@@ -19,9 +19,10 @@
                    src_slot group;
                    editable editable;
                    class python: editable and 'boxGroupBoxSlot portletBoxDrag' or 'boxGroupBoxSlot'">
-    <div class="portletBoxDest"
+    <div
      tal:define="box_style python: box_selected and 'border: 2px solid #000' or 'border: none'"
       tal:attributes="style box_style;
+                      class python: folder_editable and 'portletBoxDest' or None;
                       insert_url folder_url;
                       dest_slot group;
                       dest_ypos python: ypos and ypos or 0">
@@ -213,9 +214,10 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
 </metal:block>
 
 <metal:block define-macro="empty_slot">
-  <div class="portletBoxDest" style="margin:4px"
+  <div style="margin:4px"
    tal:condition="python:len(portlets) == 0"
    tal:attributes="dest_slot group;
+                   class python: folder_editable and 'portletBoxDest' or None;
                    dest_ypos python: 0;
                    insert_url folder_url">
     <div class="portletBoxEditMenu"
@@ -420,7 +422,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                              dest_rurl portlet_folder_rurl;
                              dest_slot group;
                              dest_ypos python: ypos and ypos or 0;
-                             class python: editable and 'portletBoxDest' or None">
+                             class python: folder_editable and 'portletBoxDest' or None">
               <div class="portletInfo"
                tal:attributes="style python: selected and 'border: 2px solid #000' or ''">
                 <a tal:attributes="onclick string:newWindow('${base_url}${portlet_rurl}/edit_form')"
