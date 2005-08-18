@@ -48,7 +48,7 @@
         <div class="body">
           <img src="" width="16" height="16" alt=""
           tal:condition="nocall:portlet_icon"
-          tal:attributes="src string:${base_url}${portlet_icon}" />
+          tal:attributes="src portlet_icon" />
           <em tal:content="structure python: cpsmcat(portlet_type)" />
           <p>
             <tal:block i18n:translate="listingheader_location" />:
@@ -70,7 +70,7 @@
          tal:attributes="ptype_id ti/id">
           <img src="" alt="" tal:define="title ti/Title" width="16" height="16"
            i18n:attributes="title"
-           tal:attributes="src string:${base_url}${ti/getIcon};
+           tal:attributes="src ti/getIcon;
                            title title" /><br/>
         </td>
       </tal:block>
@@ -87,7 +87,7 @@
            tal:attributes="value ti/id;
                            id choice_id" />
           <img width="16" height="16" alt=""
-           tal:attributes="src string:${base_url}${ti/getIcon}" />
+           tal:attributes="src ti/getIcon" />
           <label for="" tal:attributes="for choice_id">
             <strong tal:define="title ti/Title"
                     tal:content="python: mcat and mcat(title) or title"
@@ -430,7 +430,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                 <p>
                   <img width="16" height="16" alt=""
                    tal:condition="nocall:portlet_icon"
-                   tal:attributes="src string:${base_url}${portlet_icon};
+                   tal:attributes="src portlet_icon;
                                    title python: cpsmcat(portlet_type)" />
                   <em tal:content="structure python: cpsmcat(portlet_type)" />.
                   <span tal:content="portlet/description" /><br/>
@@ -571,7 +571,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
             <img width="16" height="16" alt=""
              tal:condition="nocall:portlet_icon"
              tal:attributes="
-               src string:${base_url}${portlet_icon};
+               src portlet_icon;
                title python: cpsmcat(portlet_type)" />
           </td>
           <td>

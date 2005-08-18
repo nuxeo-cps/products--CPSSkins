@@ -49,7 +49,7 @@
            tal:attributes="value ti/id;
                            id choice_id" />
           <img width="16" height="16" alt=""
-           tal:attributes="src string:${base_url}${ti/getIcon}" />
+           tal:attributes="src ti/getIcon" />
           <label for="" tal:attributes="for choice_id">
             <strong tal:define="title python: '_%s_' % ti.Title()"
                     tal:content="python: mcat and mcat(title) or title"
@@ -112,7 +112,7 @@
         <tal:block repeat="ti tmtool/listStyleTypes">
           <dt tal:define="stylecat ti/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src python:base_url + ti.getIcon()" />
+             tal:attributes="src ti/getIcon" />
             <a tal:define="stylecat_quoted python: pss.url_quote_plus(stylecat);
                            title python:'_%s_' % stylecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?style=$stylecat_quoted"
@@ -326,7 +326,7 @@
         <tal:block repeat="ti tmtool/listPaletteTypes">
           <dt tal:define="palettecat ti/getId">
             <img width="16" height="16" alt="" align="top"
-             tal:attributes="src python: base_url + ti.getIcon()" />
+             tal:attributes="src ti/getIcon" />
             <a tal:define="palettecat_quoted python: pss.url_quote_plus(palettecat);
                            title python:'_%s_' % palettecat"
                tal:attributes="href string:${here_url}/cpsskins_theme_manage_form?palette=$palettecat_quoted"

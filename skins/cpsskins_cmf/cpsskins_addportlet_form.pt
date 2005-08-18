@@ -20,7 +20,7 @@
     <div class="objectInfo" tal:condition="ptype_id"
      tal:define="ti python: ttool.getTypeInfo(ptype_id)">
       <img width="16" height="16" alt=""
-       tal:attributes="src string:${base_url}${ti/getIcon}" />
+       tal:attributes="src ti/getIcon" />
       <strong tal:define="title ti/Title"
               tal:content="python: mcat and mcat(title) or title"
               i18n:translate="" />
