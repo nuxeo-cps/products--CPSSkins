@@ -15,6 +15,7 @@ Bug fixes:
 - avoid raising UnAuthorized exceptions when users are not allowed to manage
   portlets in a given folder.
 - removed the base url before ti/getIcon
+- portlet editor: url fix in virtual hosting
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
