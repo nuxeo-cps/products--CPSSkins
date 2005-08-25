@@ -155,9 +155,7 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="portlet_edit"
- tal:define="utool nocall:here/portal_url;
-             tmtool here/portal_themes;
-             mtool here/portal_membership;
+ tal:define="tmtool here/portal_themes;
              base_url python: request.get('cpsskins_base_url', '');
              fti portlet/getTypeInfo;
              portlet_icon fti/getIcon;
@@ -165,13 +163,13 @@
              portlet_title portlet/title_or_id;
              portlet_rurl portlet/getRelativeUrl;
              portlet_folder portlet/getLocalFolder;
-             portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
-             portlet_folder_url options/portlet_folder_url;
+             portlet_folder_rurl options/portlet_folder_rurl;
+             portlet_folder_url string:${base_url}${portlet_folder_rurl};
              context_obj nocall:options/context_obj;
              view_mode tmtool/getViewMode;
              editable options/editable|nothing;
              folder_editable options/folder_editable;
-             folder_url options/folder_url;
+             folder_url string:${base_url}${options/folder_rurl};
              selected_portlet view_mode/selected_portlet|nothing;
              ypos portlet/getOrder;
              group portlet/getSlot;

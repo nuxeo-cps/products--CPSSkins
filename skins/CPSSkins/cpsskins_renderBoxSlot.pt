@@ -1,7 +1,8 @@
 <div class="portletSlotFrame"
  tal:define="rendered options/rendered;
+             base_url python: request.get('cpsskins_base_url');
              folder_editable options/folder_editable;
-             folder_url options/folder_url;
+             folder_url string:${base_url}${options/folder_rurl};
              slot nocall:options/slot;
              slot_title slot/title;
              slot_id slot/getSlot;
