@@ -230,7 +230,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         if boxedit:
             bmf = ptltool.getBottomMostFolder(context=context)
             kw['folder_editable'] = checkPerm('Manage Portlets', bmf)
-            kw['folder_url'] = bmf.absolute_url(1)
+            kw['folder_url'] = bmf.absolute_url()
 
         all_rendered = []
         for portlet in portlets:
@@ -280,7 +280,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             if boxedit:
                 kw['editable'] = checkPerm('Manage Portlets', portlet)
                 portlet_folder = portlet.getLocalFolder()
-                kw['portlet_folder_url'] = portlet_folder.absolute_url(1)
+                kw['portlet_folder_url'] = portlet_folder.absolute_url()
                 # wrap the edition markup around the box in edit mode
                 rendered = renderBoxLayout(
                     boxlayout='portlet_edit',

@@ -340,8 +340,8 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
 <metal:block define-macro="edit_online" i18n:domain="cpsskins">
   <a href="javascript:void(0)" i18n:translate=""
   tal:define="title string:_edit online_;
-              here_rurl python: here.absolute_url(1)"
-  tal:attributes="href python:'/%s/externalEdit_?path=%s/' % (here_rurl, here_rurl)"
+              here_url python: base_url + utool.getRelativeUrl(here)"
+  tal:attributes="href python:'%s/externalEdit_?path=%s' % (here_url, here_url)"
   tal:content="python: mcat and mcat(title) or title" />
 </metal:block>
 

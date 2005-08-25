@@ -166,7 +166,7 @@
              portlet_rurl portlet/getRelativeUrl;
              portlet_folder portlet/getLocalFolder;
              portlet_folder_rurl python: utool.getRelativeUrl(portlet_folder);
-             portlet_folder_url string:${base_url}${portlet_folder_rurl};
+             portlet_folder_url options/portlet_folder_url;
              context_obj nocall:options/context_obj;
              view_mode tmtool/getViewMode;
              editable options/editable|nothing;
