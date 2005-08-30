@@ -25,6 +25,7 @@ div p {
 
 img {
   border-style: none;
+  vertical-align: middle;
 }
 
 h3, h4, h5, h6 {
