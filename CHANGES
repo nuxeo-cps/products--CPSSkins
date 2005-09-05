@@ -18,4 +18,4 @@ Bug fixes:
 - portlet editor: url fix in virtual hosting
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- CPS3: The Main Content Templet can be rendered in macroless page mode. (#834)

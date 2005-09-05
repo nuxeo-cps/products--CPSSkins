@@ -26,6 +26,8 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 
+from Products.CMFCore.utils import getToolByName
+
 from BaseTemplet import BaseTemplet
 
 factory_type_information = (
@@ -92,6 +94,20 @@ class MainContent(BaseTemplet):
         """ Can the templet be deleted ?"""
 
         return 1
+
+    security.declarePublic('render')
+    def render(self, template=None, **kw):
+        """Render the main content area by switching to a 'macroless' skin
+        inside the request.
+        """
+        rendered = ''
+        if template is None:
+            return self.cpsskins_maincontent()
+        stool = getToolByName(self, 'portal_skins')
+        stool.changeSkin('CPSSkins-macroless')
+        rendered = template.pt_render()
+        stool.changeSkin('CPSSkins')
+        return rendered
 
 InitializeClass(MainContent)
 

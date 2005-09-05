@@ -1,0 +1,26 @@
+<metal:block define-macro="master" tal:define="
+  utool nocall:here/portal_url;
+  atool here/portal_actions;
+  mtool here/portal_membership;
+  ttool here/portal_trees;
+  wtool here/portal_workflow;
+  btool here/portal_boxes;
+  boxes python:[];
+  context_url python:here.getContextUrl(utool=utool);
+  base_url python:utool.getBaseUrl();
+  here_url python:here.absolute_url();
+  member mtool/getAuthenticatedMember;
+  isAnon mtool/isAnonymousUser;
+  isHomeless python:isAnon or member.getProperty('homeless', 0);
+  isHomeless python:(isHomeless == '0' and [0] or [isHomeless])[0];
+  actions python: request.get('cpsskins_cmfactions') or atool.listFilteredActionsFor(here);
+  wf_state python:wtool.getInfoFor(here,'review_state','');
+  uname python:isAnon and 'Guest' or member.getUserName();
+  checkPerm nocall:mtool/checkPermission;
+  cpsmcat nocall:here/translation_service;
+  locale here/translation_service/getSelectedLanguage;
+  in_ws here/isInWorkspacesTree;
+  ">
+  <metal:block use-macro="here/generic_lib_portal_message/macros/portal_message" />
+  <metal:block define-slot="main" />
+</metal:block>

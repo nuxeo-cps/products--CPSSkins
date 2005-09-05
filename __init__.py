@@ -237,6 +237,7 @@ for path in (
     'skins/cpsskins_cmf',
     'skins/cpsskins_cps2',
     'skins/cpsskins_cps3',
+    'skins/cpsskins_cps3_macroless',
     'skins/cpsskins_plone',
     'skins/cpsskins_plone2') :
     registerDirectory(path, globals())

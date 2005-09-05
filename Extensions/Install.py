@@ -643,14 +643,14 @@ def update(self):
         'cpsskins_cmf': 'skins/cpsskins_cmf',
         'cpsskins_cps2': 'skins/cpsskins_cps2',
         'cpsskins_cps3': 'skins/cpsskins_cps3',
+        'cpsskins_cps3_macroless': 'skins/cpsskins_cps3_macroless',
         'cpsskins_plone': 'skins/cpsskins_plone',
         'cpsskins_plone2': 'skins/cpsskins_plone2',
         'cpsskins_icons': 'icons',
     }
 
     pr_h3("Portal skins")
-    for skin in skins:
-        rel_path = paths[skin]
+    for skin, rel_path in paths.items():
         rel_path = rel_path.replace('/', os.sep)
         path = os.path.join('CPSSkins', rel_path)
         pr(" FS Directory View '%s'" % skin)
@@ -676,6 +676,14 @@ def update(self):
             path = list(skins) + path
         npath = ', '.join(path)
         skinstool.addSkinSelection('CPSSkins', npath)
+
+        # Set up the macroless skin (for CPS3)
+        if 'cpsskins_cps3,' in npath:
+            pr(" Added the 'CPSSkins-macroless' skin.")
+            npath = npath.replace('cpsskins_cps3,',
+                                  'cpsskins_cps3_macroless, cpsskins_cps3,')
+            skinstool.addSkinSelection('CPSSkins-macroless', npath)
+
     pr(" Setting 'CPSSkins' as default skin")
     skinstool.default_skin = 'CPSSkins'
 
