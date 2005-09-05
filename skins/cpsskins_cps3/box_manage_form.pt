@@ -22,6 +22,7 @@
       tal:content="context_url" /></p>
     </metal:header>
     <metal:main fill-slot="main">
+      <tal:block condition="page_container|nothing">
       <tal:block define="tmtool here/portal_themes">
         <tal:block repeat="block python: page_container.getPageBlocks()">
           <table cellpadding="0" cellspacing="3" width="100%">
@@ -131,6 +132,7 @@
       // --></script>
     <!-- End pdlib footer -->
 
+    </tal:block>
     </metal:main>
   </metal:body>
 </metal:html>
