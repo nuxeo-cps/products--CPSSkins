@@ -103,10 +103,10 @@ class MainContent(BaseTemplet):
         rendered = ''
         if template is None:
             return self.cpsskins_maincontent()
-        stool = getToolByName(self, 'portal_skins')
-        stool.changeSkin('CPSSkins-macroless')
+        portal = getToolByName(self, 'portal_url').getPortalObject()
+        portal.changeSkin('CPSSkins-macroless')
         rendered = template.pt_render()
-        stool.changeSkin('CPSSkins')
+        portal.changeSkin('CPSSkins')
         return rendered
 
 InitializeClass(MainContent)
