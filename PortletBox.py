@@ -176,9 +176,7 @@ class PortletBox(BaseTemplet, SimpleBox):
             tmtool = getToolByName(self, 'portal_themes')
             mcat = tmtool.getTranslationService(cat='default')
             if mcat is not None:
-                title = mcat(title)
-                if isinstance(title, unicode):
-                    title = title.encode('ISO-8859-15', 'ignore')
+                title = mcat(title).encode('ISO-8859-15', 'ignore')
         rendered_box = []
         if body:
             # add the box frame
