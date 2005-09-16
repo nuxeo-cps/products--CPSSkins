@@ -35,6 +35,7 @@ tal:define="themes tmtool/getThemes;
                                icon python:base_url + theme.getIcon(1);
                                istheme python: 1;
                                title theme_title;
+                               prompt_id python: 1;
                                contenturl theme_url;
                                notdefault python: not theme.isDefaultTheme() or None;
                                styles python:''">
@@ -99,6 +100,7 @@ tal:define="pages theme_container/getPages;">
              styles python: '|'.join([s['meta_type'] for s in styles_list]);
              isalignable python: page.isAlignable();
              haslayout python: 1;
+             prompt_id python: 1;
              notdefault python: not page.isDefaultPage() or None;
              title page_title;
              contenturl page_url">
