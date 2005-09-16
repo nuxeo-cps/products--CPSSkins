@@ -368,7 +368,7 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             res = dest_image_dir.manage_pasteObjects(cookie)
             new_id = res[0]['new_id']
             if new_id != img_id:
-                style.edit({img['prop']:new_id})
+                style.edit(**{img['prop']:new_id})
         return style
 
     security.declarePublic('can_delete')
