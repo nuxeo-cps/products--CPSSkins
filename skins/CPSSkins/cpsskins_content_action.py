@@ -8,7 +8,11 @@ action = kw.get('action', None)
 
 selected_obj = context
 if action == 'duplicate':
-    selected_obj = context.duplicate(id=kw.get('id'))
+    id=kw.get('id')
+    if id:
+        selected_obj = context.duplicate(id)
+    else:
+        selected_obj = context.duplicate()
     url = context.absolute_url() + '/cpsskins_theme_manage_form'
 
 elif action == 'set_styles':
