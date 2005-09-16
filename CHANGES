@@ -16,6 +16,7 @@ Bug fixes:
   portlets in a given folder.
 - removed the base url before ti/getIcon
 - portlet editor: url fix in virtual hosting
+- the id generator did not check for reserved ids.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - CPS3: The Main Content Templet can be rendered in macroless page mode. (#834)

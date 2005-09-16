@@ -136,7 +136,7 @@ def getFreeId(container=None, try_id=None):
 
     ids = container.objectIds()
     if try_id is not None:
-        if not try_id in ids:
+        if not try_id in ids and container.checkIdAvailable(try_id):
             return try_id
     while 1:
         randomid = str(random.randrange(1, 2147483600))
