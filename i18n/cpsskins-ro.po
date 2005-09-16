@@ -1909,6 +1909,10 @@ msgid "_edit online_"
 msgstr ""
 
 
+msgid "_enter_new_id_"
+msgstr ""
+
+
 msgid "_flashbox_templet_description_"
 msgstr ""
 

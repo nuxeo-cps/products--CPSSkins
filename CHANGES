@@ -19,3 +19,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - CPS3: The Main Content Templet can be rendered in macroless page mode. (#834)
+- the id of duplicated themes / pages can be entered by users  #929

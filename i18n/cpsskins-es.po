@@ -23,1516 +23,2023 @@ msgstr ""
 msgid "_(default style)_"
 msgstr "(Estilo por defecto)"
 
+
 msgid "_A active_"
 msgstr "Color de los enlaces activos"
+
 
 msgid "_A hover_"
 msgstr "Color de los enlaces al pasar por encima"
 
+
 msgid "_A link_"
 msgstr "Color de los enlaces"
+
 
 msgid "_A visited_"
 msgstr "Color de los enlaces visitados"
 
+
 msgid "_A_active_decoration_"
 msgstr "Decoración de los enlaces activos"
+
 
 msgid "_A_hover_decoration_"
 msgstr "Decoración de los enlaces al pasar por encima"
 
+
 msgid "_A_link_decoration_"
 msgstr "Decoración de los enlaces"
+
 
 msgid "_A_visited_decoration_"
 msgstr "Decoración de los enlaces visitados"
 
+
 msgid "_Action Box Templet_"
 msgstr "Plantilla de caja de acción"
+
 
 msgid "_Action box_"
 msgstr "Caja de acción"
 
+
 msgid "_Action categories_"
 msgstr "Categorías de acciones"
+
 
 msgid "_Add a column_"
 msgstr "Añadir una columna"
 
+
 msgid "_Add a theme_"
 msgstr "Añadir un nuevo theme"
+
 
 msgid "_Add an image_"
 msgstr "Añadir una imagen"
 
+
 msgid "_Add content_"
 msgstr "Añadir contenido"
+
 
 msgid "_Add_a_new_Templet_"
 msgstr "Añadir nueva plantilla"
 
+
 msgid "_Add_a_new_palette_entry_"
 msgstr "Añadir una nueva paleta"
+
 
 msgid "_Add_a_new_style_"
 msgstr "Añadir un nuevo estilo"
 
+
 msgid "_Add_a_portlet_"
 msgstr "Añadir un portlet"
+
 
 msgid "_Align_"
 msgstr "Alinear"
 
+
 msgid "_Appearance_"
 msgstr "Aspecto"
+
 
 msgid "_April_"
 msgstr "Abril"
 
+
 msgid "_Area Color_"
 msgstr "Color del área"
+
 
 msgid "_Area Shape_"
 msgstr "Forma del área"
 
+
 msgid "_Area active background color_"
 msgstr "área de activación del color de fondo"
+
 
 msgid "_Area active border color_"
 msgstr "área de activación del color de los bordes"
 
+
 msgid "_Area background color_"
 msgstr "Color de fondo"
+
 
 msgid "_Area background image_"
 msgstr "Imagen de fondo"
 
+
 msgid "_Area background position_"
 msgstr "área de posición del fondo"
+
 
 msgid "_Area background repeat_"
 msgstr "área de repetición de fondo"
 
+
 msgid "_Area border color_"
 msgstr "Color del borde"
+
 
 msgid "_Area border style_"
 msgstr "Estilo de borde"
 
+
 msgid "_Area border width_"
 msgstr "Grosor del borde"
+
 
 msgid "_Area color_"
 msgstr "Color del área"
 
+
 msgid "_Area font color_"
 msgstr "Color del tipo de letra"
+
 
 msgid "_Area shape_"
 msgstr "Forma del área"
 
+
 msgid "_Area text transform_"
 msgstr "área de transformación de texto"
+
 
 msgid "_August_"
 msgstr "Agosto"
 
+
 msgid "_Author_"
 msgstr "Autor"
+
 
 msgid "_Background image_"
 msgstr "Imagen de fondo"
 
+
 msgid "_Background position_"
 msgstr "Posición del fondo"
+
 
 msgid "_Background repeat_"
 msgstr "repetición del fondo"
 
+
 msgid "_Base path_"
 msgstr "Ruta base:"
+
 
 msgid "_Border style_"
 msgstr "Estilo de borde"
 
+
 msgid "_Bottom border color_"
 msgstr "Color del borde inferior"
+
 
 msgid "_Bottom left image_"
 msgstr "imagen inferior izquierda"
 
+
 msgid "_Bottom right image_"
 msgstr "imagen inferior derecha"
+
 
 msgid "_Box Corners_"
 msgstr "esquinas de la caja"
 
+
 msgid "_Box color_"
 msgstr "Color de la caja del portal"
+
 
 msgid "_Box corners_"
 msgstr "esquinas de la caja"
 
+
 msgid "_Box layout_"
 msgstr "Disposición de la caja del portal"
+
 
 msgid "_Box orientation_"
 msgstr "Orientación de la caja del portal"
 
+
 msgid "_Box shape_"
 msgstr "Forma de la caja"
+
 
 msgid "_BoxBody background color_"
 msgstr "Color de fondo del cuerpo de la caja"
 
+
 msgid "_BoxBody background image_"
 msgstr "Color de fondo del cuerpo de la caja"
+
 
 msgid "_BoxBody border color_"
 msgstr "Color del borde del cuerpo de la caja"
 
+
 msgid "_BoxBody border style_"
 msgstr "Estilo de borde del cuerpo de la caja"
+
 
 msgid "_BoxBody border width_"
 msgstr "Grosor del borde del cuerpo de la caja"
 
+
 msgid "_BoxBody menuin border color_"
 msgstr "Color del borde del menú seleccionado"
+
 
 msgid "_BoxBody menuin border style_"
 msgstr "Estilo de borde del menú seleccionado"
 
+
 msgid "_BoxBody menuin border width_"
 msgstr "Grosor de borde del menú seleccionado"
+
 
 msgid "_BoxBody menuin color_"
 msgstr "Color de fondo del menú seleccionado"
 
+
 msgid "_BoxBody menuin icon_"
 msgstr "Icono del menú seleccionado"
+
 
 msgid "_BoxBody menuin margin_"
 msgstr "Márgenes del menú seleccionado"
 
+
 msgid "_BoxBody menuin padding_"
 msgstr "Acolchado del  menú seleccionado"
+
 
 msgid "_BoxBody menuout border color_"
 msgstr "Color del borde del menú"
 
+
 msgid "_BoxBody menuout border style_"
 msgstr "Estilo de borde del menú"
+
 
 msgid "_BoxBody menuout border width_"
 msgstr "Grosor de borde del menú"
 
+
 msgid "_BoxBody menuout color_"
 msgstr "Color de fondo del menú"
+
 
 msgid "_BoxBody menuout icon_"
 msgstr "Icono del menú"
 
+
 msgid "_BoxBody menuout margin_"
 msgstr "Márgenes del menú"
+
 
 msgid "_BoxBody menuout padding_"
 msgstr "Acolchado del menú"
 
+
 msgid "_BoxBody padding_"
 msgstr "Acolchado del cuerpo de la caja"
+
 
 msgid "_BoxBody text align_"
 msgstr "Alineación del texto del cuerpo de la caja"
 
+
 msgid "_BoxTitle background color_"
 msgstr "Color de fondo del título de la caja"
+
 
 msgid "_BoxTitle background image_"
 msgstr "Imagen de fondo del título de la caja"
 
+
 msgid "_BoxTitle border color_"
 msgstr "Color del borde del título de la caja "
+
 
 msgid "_BoxTitle border style_"
 msgstr "Estilo de borde del título de caja"
 
+
 msgid "_BoxTitle border width_"
 msgstr "Grosor del borde del título de caja"
+
 
 msgid "_BoxTitle display_"
 msgstr "Criterios de visualización del título de caja"
 
+
 msgid "_BoxTitle font color_"
 msgstr "Color de la fuente del título de la caja"
+
 
 msgid "_BoxTitle font_"
 msgstr "fuente del título de la caja"
 
+
 msgid "_BoxTitle padding_"
 msgstr "Acolchado del título de caja"
+
 
 msgid "_BoxTitle text align_"
 msgstr "Alineación del texto del título de caja"
 
+
 msgid "_Breadcrumbs Templet_"
 msgstr "Plantilla de menú de navegación"
+
 
 msgid "_Breadcrumbs_"
 msgstr "Menú de navegación"
 
+
 msgid "_Broken Templet!_"
 msgstr "¡Plantilla rota!"
+
 
 msgid "_Cache effectivity_"
 msgstr "Efectividad del caché"
 
+
 msgid "_Cache lifetime_"
 msgstr "Tiempo de vida del caché"
+
 
 msgid "_Cache manager_"
 msgstr "Gestor del caché"
 
+
 msgid "_Cache parameters updated_"
 msgstr "Parámetros del caché actualizados"
+
 
 msgid "_Cacheable in RAM_"
 msgstr "Cacheable en la RAM"
 
+
 msgid "_Cacheable?_"
 msgstr "¿Cacheable?"
+
 
 msgid "_Caching_"
 msgstr "Cacheando"
 
+
 msgid "_Calendar Style_"
 msgstr "Estilo del calendario"
+
 
 msgid "_Calendar Templet_"
 msgstr "Plantilla de calendario"
 
+
 msgid "_Calendar_"
 msgstr "Calendario"
+
 
 msgid "_Cell Block_"
 msgstr "Bloqueador de celda"
 
+
 msgid "_Cell Hider_"
 msgstr "Ocultador de celda"
+
 
 msgid "_Cell Sizer_"
 msgstr "Redimensionador de celda"
 
+
 msgid "_Cell Styler_"
 msgstr "Estilizador de celda"
+
 
 msgid "_Cell width_"
 msgstr "Anchura de la celda"
 
+
 msgid "_Cellblock margin_"
 msgstr "Margen"
+
 
 msgid "_Collapsible Menu Style_"
 msgstr "Estilo de menú colapsable"
 
+
 msgid "_Collapsible Menu Templet_"
 msgstr "Plantilla de menú colapsable"
+
 
 msgid "_Collapsible menu_"
 msgstr "Menú colapsable"
 
+
 msgid "_Color_"
 msgstr "Color"
+
 
 msgid "_Columns_"
 msgstr "Columnas"
 
+
 msgid "_Content_"
 msgstr "Contenido"
 
+
 msgid "_Copy_"
 msgstr "Copiar"
+
 
 # He hecho traducción literal del francés.
 msgid "_Copyright_"
 msgstr "Derechos de autor y otros"
 
+
 msgid "_Create a copy_"
 msgstr "Crear una copia"
+
 
 msgid "_Created by:_"
 msgstr "Creado por:"
 
+
 msgid "_Creator_"
 msgstr "Creador"
+
 
 msgid "_Custom action categories_"
 msgstr "Categorías de acciones personalizadas"
 
+
 msgid "_Cut_"
 msgstr "Cortar"
+
 
 msgid "_Days background color_"
 msgstr "Color de fondo de los días"
 
+
 msgid "_Days font color_"
 msgstr "Color del texto de los días"
+
 
 msgid "_December_"
 msgstr "Diciembre"
 
+
 msgid "_Default page_"
 msgstr "Página por defecto"
+
 
 msgid "_Default theme_"
 msgstr "Theme por defecto"
 
+
 msgid "_Default_font_"
 msgstr "Tipo de letra por defecto"
+
 
 msgid "_Delete Templet?_"
 msgstr "¿Borrar plantilla?"
 
+
 msgid "_Delete style?_"
 msgstr "¿Borrar estilo?"
+
 
 msgid "_Delete theme?_"
 msgstr "¿Borrar este theme?"
 
+
 msgid "_Delete_"
 msgstr "Borrar"
+
 
 msgid "_Deleting this image, are you sure?_"
 msgstr "Se borrará esta imagen, ¿está seguro?"
 
+
 msgid "_Deleting this palette entry, are you sure?_"
 msgstr "Se borrará esta entrada de paleta, ¿está seguro?"
+
 
 msgid "_Deleting this style, are you sure?_"
 msgstr "Se borrará este estilo, ¿está seguro?"
 
+
 msgid "_Depth level_"
 msgstr "Nivel de profundidad relativo"
+
 
 msgid "_Description_"
 msgstr "Descripción"
 
+
 msgid "_Destination_slot_"
 msgstr "Dispositivo de destino"
+
 
 msgid "_Display a contextual icon_"
 msgstr "Mostrar un icono contextual"
 
+
 msgid "_Display hidden folders_"
 msgstr "Mostrar carpetas ocultas"
+
 
 msgid "_Display title in text mode_"
 msgstr "Mostrar el título en modo texto"
 
+
 msgid "_Document Info Templet_"
 msgstr "Plantilla de info del documento"
+
 
 msgid "_Document info_"
 msgstr "Info del documento"
 
+
 msgid "_ESI fragment_"
 msgstr "Fragmento ESI (Edge Sides Includes)"
+
 
 msgid "_ESI_"
 msgstr "ESI"
 
+
 msgid "_Edit images_"
 msgstr "Editar las imágenes"
+
 
 msgid "_Edit palettes_"
 msgstr "Editar paletas"
 
+
 msgid "_Edit styles_"
 msgstr "Editar estilos"
+
 
 msgid "_Edit the current style_"
 msgstr "Editar el estilo actual"
 
+
 msgid "_Edit the page_"
 msgstr "Editar la página"
+
 
 msgid "_Edit the theme_"
 msgstr "Editar el theme"
 
+
 msgid "_Edit this page block_"
 msgstr "Editar este bloque de página"
+
 
 # Mismo comentario de arriba en modificar
 msgid "_Edit_"
 msgstr "Editar"
 
+
 msgid "_Elements_"
 msgstr "Elementos"
+
 
 msgid "_Enable ESI_"
 msgstr "Activar ESI (Edge Side Includes)"
 
+
 msgid "_End string_"
 msgstr "Cadena final"
+
 
 msgid "_Event background color_"
 msgstr "Color de fondo de los eventos"
 
+
 msgid "_Event border color_"
 msgstr "Color del borde de los eventos"
+
 
 msgid "_Event font color_"
 msgstr "Color del tipo de letra de los eventos"
 
+
 msgid "_Exit_"
 msgstr "Salir"
+
 
 msgid "_February_"
 msgstr "Febrero"
 
+
 msgid "_Flash Box Templet_"
 msgstr "Plantilla de caja Flash"
+
 
 msgid "_Flash box_"
 msgstr "Caja Flash"
 
+
 msgid "_Flash caption_"
 msgstr "Pie del Flash"
+
 
 msgid "_Flash movie height_"
 msgstr "Altura de la animación Flash"
 
+
 msgid "_Flash movie width_"
 msgstr "Anchura de la animación Flash"
+
 
 msgid "_Font Color_"
 msgstr "Colores del tipo de letra"
 
+
 msgid "_Font Shape_"
 msgstr "Forma del tipo de letra"
+
 
 msgid "_Font color_"
 msgstr "Colores del tipo de letra"
 
+
 msgid "_Font shape_"
 msgstr "Forma del tipo de letra"
+
 
 msgid "_Forgot your password?_"
 msgstr "¿Olvidó su contraseña?"
 
+
 msgid "_Form Style_"
 msgstr "Estilo del formulario"
+
 
 msgid "_Form padding_"
 msgstr "Relleno del formulario"
 
+
 msgid "_Form style_"
 msgstr "Estilo de formulario"
+
 
 msgid "_Form_"
 msgstr "Formulario"
 
+
 msgid "_Fr_"
 msgstr "Vi"
+
 
 msgid "_Guest_"
 msgstr "Invitado"
 
+
 msgid "_H1_"
 msgstr "H1"
+
 
 msgid "_H1_bg_color_"
 msgstr "Color de fondo H1"
 
+
 msgid "_H1_border_color_"
 msgstr "Color de borde H1"
+
 
 msgid "_H1_border_style_"
 msgstr "Estilo de borde H1"
 
+
 msgid "_H1_border_width_"
 msgstr "Grosor de borde H1"
+
 
 msgid "_H1_font_"
 msgstr "Tipo de letra H1"
 
+
 msgid "_H1_font_color_"
 msgstr "Color del tipo (H1)"
+
 
 msgid "_H1_margin_"
 msgstr "Margen H1"
 
+
 msgid "_H1_padding_"
 msgstr "Acolchado H1"
+
 
 msgid "_H2_"
 msgstr "H2"
 
+
 msgid "_H2_bg_color_"
 msgstr "Color de fondo H2"
+
 
 msgid "_H2_border_color_"
 msgstr "Color de borde H2"
 
+
 msgid "_H2_border_style_"
 msgstr "Estilo de borde H2"
+
 
 msgid "_H2_border_width_"
 msgstr "Grosor de borde H2"
 
+
 msgid "_H2_font_"
 msgstr "Tipo de letra H2"
+
 
 msgid "_H2_font_color_"
 msgstr "Color del tipo (H2)"
 
+
 msgid "_H2_margin_"
 msgstr "Margen H2"
+
 
 msgid "_H2_padding_"
 msgstr "Acolchado H2"
 
+
 msgid "_H3_"
 msgstr "H3"
+
 
 msgid "_H3_bg_color_"
 msgstr "Color de fondo H3"
 
+
 msgid "_H3_border_color_"
 msgstr "Color de borde H3"
+
 
 msgid "_H3_border_style_"
 msgstr "Estilo de borde H3"
 
+
 msgid "_H3_border_width_"
 msgstr "Grosor de borde H3"
+
 
 msgid "_H3_font_"
 msgstr "Tipo de letra H3"
 
+
 msgid "_H3_font_color_"
 msgstr "Color del tipo (H3)"
+
 
 msgid "_H3_margin_"
 msgstr "Margen H3"
 
+
 msgid "_H3_padding_"
 msgstr "Acolchado H3"
+
 
 msgid "_H456_"
 msgstr "H4, H5, H6"
 
+
 msgid "_H456_bg_color_"
 msgstr "Color de fondo H3, H4, H5"
+
 
 msgid "_H456_border_color_"
 msgstr "Color de borde H4, H5, H6"
 
+
 msgid "_H456_border_style_"
 msgstr "Estilo de borde H4, H5, H6"
+
 
 msgid "_H456_border_width_"
 msgstr "Grosor de borde H4, H5, H6"
 
+
 msgid "_H456_font_"
 msgstr "Tipo de letra H4, H5, H6"
+
 
 msgid "_H456_font_color_"
 msgstr "Color del tipo (H4, H5, H6)"
 
+
 msgid "_H456_margin_"
 msgstr "Margen H4, H5, H6"
+
 
 msgid "_H456_padding_"
 msgstr "Acolchado H4, H5, H6"
 
+
 msgid "_Header background color_"
 msgstr "Color de fondo de la cabecera"
+
 
 msgid "_Header font color_"
 msgstr "Color del texto de la cabecera"
 
+
 msgid "_Height_"
 msgstr "Altura"
+
 
 msgid "_Hidden in text mode_"
 msgstr "Oculto en modo texto"
 
+
 msgid "_Hide current language_"
 msgstr "Ocultar el idioma actual"
+
 
 msgid "_Hide this cell_"
 msgstr "Ocultar esta celda"
 
+
 msgid "_Hide title_"
 msgstr "Ocultar el título"
+
 
 msgid "_Hide_overriden_portlets_"
 msgstr "Ocultar los portlets sobreescritos"
 
+
 msgid "_Hierarchy base_"
 msgstr "Base de la jerarquía"
+
 
 msgid "_Horizontal alignment_"
 msgstr "Alineación horizontal"
 
+
 msgid "_Horizontal margin_"
 msgstr "Margen horizontal"
+
 
 msgid "_Horizontal padding_"
 msgstr "Relleno horizontal"
 
+
 msgid "_Icon size_"
 msgstr "Tamaño del icono"
+
 
 msgid "_Image Box Templet_"
 msgstr "Plantilla de caja de imagen"
 
+
 msgid "_Image box_"
 msgstr "Caja de imagen"
+
 
 msgid "_Image caption_"
 msgstr "Pie de la imagen"
 
+
 msgid "_Images_"
 msgstr "Imágenes"
+
 
 msgid "_Import a theme_"
 msgstr "Importar un theme"
 
+
 msgid "_Info text_"
 msgstr "Texto de información"
+
 
 msgid "_Insert a Templet here_"
 msgstr "Insertar una plantilla aquí"
 
+
 msgid "_Insert a page block_"
 msgstr "Insertar un bloque de página"
+
 
 msgid "_Internal link_"
 msgstr "Enlace interno"
 
+
 msgid "_Invisible actions_"
 msgstr "Acciones invisibles"
+
 
 msgid "_January_"
 msgstr "Enero"
 
+
 msgid "_July_"
 msgstr "Julio"
+
 
 msgid "_June_"
 msgstr "Junio"
 
+
 msgid "_KB_"
 msgstr "KB"
+
 
 msgid "_Language Templet_"
 msgstr "Plantilla de idioma"
 
+
 msgid "_Language selector_"
 msgstr "Selector de idiomas"
+
 
 msgid "_Last modified:_"
 msgstr "Última modificación:"
 
+
 msgid "_Left-side image_"
 msgstr "Imagen a la izquierda"
+
 
 msgid "_License_"
 msgstr "Licencia"
 
+
 msgid "_Link (http://, mailto: ...)_"
 msgstr "Enlace (http://, mailto: ...)"
+
 
 msgid "_List orientation_"
 msgstr "Orientación de la lista"
 
+
 msgid "_Location_"
 msgstr "Ubicación"
+
 
 msgid "_Log in_"
 msgstr "Autentificación"
 
+
 msgid "_Macroless_"
 msgstr "Macroless"
+
 
 msgid "_Main Content Templet_"
 msgstr "Plantilla de contenido principal"
 
+
 msgid "_Main content_"
 msgstr "Contenido principal"
+
 
 msgid "_Manage_"
 msgstr "Administrar"
 
+
 msgid "_March_"
 msgstr "Marzo"
+
 
 msgid "_Margin_"
 msgstr "Margen"
 
+
 msgid "_Maximum number of items_"
 msgstr "Número máximo de elementos"
+
 
 msgid "_May_"
 msgstr "Mayo"
 
+
 msgid "_Memory usage_"
 msgstr "Uso de la memoria"
+
 
 msgid "_Menu entry_"
 msgstr "Entrada del menú"
 
+
 msgid "_Menu title_"
 msgstr "Título del menú"
+
 
 msgid "_Merge this style?_"
 msgstr "¿Fundir este estilo?"
 
+
 msgid "_Minimize / Maximize_"
 msgstr "Minimizar / Maximizar"
+
 
 msgid "_Mo_"
 msgstr "Lu"
 
+
 msgid "_Month_"
 msgstr "Mes"
+
 
 msgid "_More ..._"
 msgstr "Más ..."
 
+
 msgid "_Move down_"
 msgstr "Mover hacia abajo"
+
 
 msgid "_Move left_"
 msgstr "Mover a la izquierda"
 
+
 msgid "_Move right_"
 msgstr "Mover a la derecha"
+
 
 msgid "_Move this cell to the left_"
 msgstr "Mover esta celda a la izquierda"
 
+
 msgid "_Move this cell to the right_"
 msgstr "Mover esta celda a la derecha"
+
 
 msgid "_Move up_"
 msgstr "Mover hacia arriba"
 
+
 msgid "_No items published since your last log-in_"
 msgstr "Ningún documento publicado desde su última sesión"
+
 
 msgid "_No preview_"
 msgstr "Sin previsualización"
 
+
 msgid "_Not available in layout mode_"
 msgstr "No está disponible en modo diseño"
+
 
 msgid "_November_"
 msgstr "Noviembre"
 
+
 msgid "_Number of columns_"
 msgstr "Número de columnas"
+
 
 msgid "_October_"
 msgstr "Octubre"
 
+
 msgid "_Only select items that are supposed to get translated:_"
 msgstr "Sólo seleccione los ítem que deben ser transladados:"
+
 
 msgid "_Other categories_"
 msgstr "Otras categorías"
 
+
 msgid "_Other images_"
 msgstr "Otras imágenes"
+
 
 msgid "_Other palettes_"
 msgstr "Otras paletas"
 
+
 msgid "_Other portlets_"
 msgstr "Otros portlets"
+
 
 msgid "_Other styles_"
 msgstr "Otros estilos"
 
+
 msgid "_Other themes_"
 msgstr "Otros themes"
+
 
 msgid "_P_font_"
 msgstr "Tipo de letra de párrafo"
 
+
 msgid "_P_padding_"
 msgstr "Acolchado para el párrafo"
+
 
 msgid "_Page Block_"
 msgstr "Bloque de página"
 
+
 msgid "_Page renderer_"
 msgstr "Visualizador de página"
+
 
 msgid "_Palette Border_"
 msgstr "Bordes"
 
+
 msgid "_Palette Color_"
 msgstr "Colores"
+
 
 msgid "_Palettes_"
 msgstr "Paletas"
 
+
 msgid "_Password_"
 msgstr "Contraseña"
+
 
 msgid "_Paste_"
 msgstr "Pegar"
 
+
 msgid "_Portal Box Color_"
 msgstr "Color de las cajas del portal"
+
 
 msgid "_Portal Box Group Templet_"
 msgstr "Plantilla de grupo de cajas del portal"
 
+
 msgid "_Portal Box Shape_"
 msgstr "Forma de las cajas del portal"
+
 
 msgid "_Portal Box Templet_"
 msgstr "Plantilla de caja del portal"
 
+
 msgid "_Portal Tab Style_"
 msgstr "Estilo de etiquetas"
+
 
 msgid "_Portal Tab Templet_"
 msgstr "Plantilla de etiquetas"
 
+
 msgid "_Portal Tab_"
 msgstr "Etiqueta"
 
+
 msgid "_Portal Theme_"
 msgstr "Theme del portal"
+
 
 # plural?
 msgid "_Portal box color_"
 msgstr "Color de las cajas del portal"
 
+
 msgid "_Portal box content_"
 msgstr "Contenido de la caja del portal"
 
+
 msgid "_Portal box group_"
 msgstr "Grupo de cajas del portal"
+
 
 # plural?
 msgid "_Portal box shape_"
 msgstr "Forma de las cajas del portal"
 
+
 msgid "_Portal box title source_"
 msgstr "Origen del título de la caja del portal"
+
 
 msgid "_Portal box_"
 msgstr "Caja del portal"
 
+
 msgid "_Portlet Box Templet_"
 msgstr "Plantilla de caja de portlet"
+
 
 msgid "_Portlet type_"
 msgstr "Tipo de portlet"
 
+
 msgid "_Portlet_"
 msgstr "Portlet"
+
 
 msgid "_Preview background color_"
 msgstr "Previsualizar color de fondo"
 
+
 msgid "_Preview border color_"
 msgstr "Previsualizar color de borde"
+
 
 msgid "_Preview font color_"
 msgstr "Previsualizar color de la fuente"
 
+
 msgid "_Preview_"
 msgstr "Previsualización"
+
 
 msgid "_Read more_"
 msgstr "Leer más &gt;&gt;"
 
+
 msgid "_Remove a column_"
 msgstr "Borrar una columna"
+
 
 msgid "_Repeat string_"
 msgstr "Repetir la cadena"
 
+
 msgid "_Reveal_overriden_portlets_"
 msgstr "Mostrar portlets sobreescritos"
+
 
 msgid "_Right-side image_"
 msgstr "Imagen a la derecha"
 
+
 msgid "_STRONG_font_"
 msgstr "Tipografía resaltada"
+
 
 msgid "_Sa_"
 msgstr "Sá"
 
+
 msgid "_Search Box Templet_"
 msgstr "Plantilla de caja de búsqueda"
+
 
 msgid "_Search box_"
 msgstr "Caja de búsqueda"
 
+
 msgid "_See the error log_"
 msgstr "Ver el log de errores"
+
 
 msgid "_Select a style_"
 msgstr "Seleccionar un estilo"
 
+
 msgid "_Select a theme to manage_"
 msgstr "Seleccionar un theme para administrar"
+
 
 msgid "_Selectable themes_"
 msgstr "Themes seleccionables"
 
+
 msgid "_September_"
 msgstr "Septiembre"
+
 
 msgid "_Set the size of this cell_"
 msgstr "Fijar el tamaño de la celda"
 
+
 msgid "_Shape_"
 msgstr "Forma"
+
 
 msgid "_Shortcut icon_"
 msgstr "Icono de atajo"
 
+
 msgid "_Show action icons_"
 msgstr "Mostrar iconos de acciones"
+
 
 msgid "_Show add items_"
 msgstr "Mostrar un botón para añadir nuevos ítem"
 
+
 msgid "_Show all categories_"
 msgstr "Mostrar todas las categorías"
+
 
 msgid "_Show documents in folders_"
 msgstr "Mostrar documentos en las carpetas"
 
+
 msgid "_Show month_"
 msgstr "Mostrar mes"
+
 
 msgid "_Show preview_"
 msgstr "Mostrar previsualización"
 
+
 msgid "_Show weekdays_"
 msgstr "Mostrar días de la semana"
+
 
 msgid "_Show year_"
 msgstr "Mostrar año"
 
+
 msgid "_Simulate this URL ..._"
 msgstr "Simular esta URL ..."
+
 
 msgid "_Slot name_"
 msgstr "Nombre de slot"
 
+
 msgid "_Some items can be pasted here_"
 msgstr "Algunos ítem se pueden pegar aquí"
+
 
 msgid "_Start string_"
 msgstr "Cadena de comienzo"
 
+
 msgid "_Style_"
 msgstr "Estilo"
+
 
 msgid "_Styles_"
 msgstr "Estilos"
 
+
 msgid "_Stylize this cell_"
 msgstr "Estilizar esta celda"
+
 
 msgid "_Su_"
 msgstr "Do"
 
+
 msgid "_Sub-menu background color_"
 msgstr "Color de fondo"
+
 
 msgid "_Sub-menu border color_"
 msgstr "Color de borde de submenú"
 
+
 msgid "_Sub-menu border style_"
 msgstr "Estilo de borde de submenú"
+
 
 msgid "_Sub-menu font color_"
 msgstr "Color de la fuente de submenú"
 
+
 msgid "_Sub-menu font_"
 msgstr "Fuente de submenú"
+
 
 msgid "_Sub-menu hover background color_"
 msgstr "Color de fondo de submenú al pasar por encima"
 
+
 msgid "_Sub-menu hover font color_"
 msgstr "Color de la fuente de submenú al pasar por encima"
+
 
 msgid "_Sub-menu items width_"
 msgstr "Anchura de los elementos de submenú"
 
+
 msgid "_Tab style_"
 msgstr "Estilo de etiqueta"
+
 
 msgid "_Tab width_"
 msgstr "Anchura de etiqueta"
 
+
 msgid "_Tableless_"
 msgstr "Formulario css"
+
 
 msgid "_Templet color_"
 msgstr "Color de la plantilla"
 
+
 msgid "_Templet height_"
 msgstr "Altura de la plantilla"
+
 
 msgid "_Templet margin_"
 msgstr "Margen de la plantilla"
 
+
 msgid "_Templet padding_"
 msgstr "Acolchado de la plantilla"
+
 
 msgid "_Templet shape_"
 msgstr "Forma de la plantilla"
 
+
 msgid "_Templets_"
 msgstr "Plantillas"
+
 
 msgid "_Text Box Templet_"
 msgstr "Plantilla de caja de texto"
 
+
 msgid "_Text box_"
 msgstr "Caja de texto"
+
 
 msgid "_Text format_"
 msgstr "Formato de texto"
 
+
 msgid "_Th_"
 msgstr "Ju"
+
 
 msgid "_The benchmark timer is not installed_"
 msgstr "El monitor de rendimiento no está instalado"
 
+
 msgid "_The languages in which it is visible_"
 msgstr "Idiomas en los que es visible:"
+
 
 msgid "_The visibility paths_"
 msgstr "Visible en las rutas:"
 
+
 msgid "_Theme Chooser Templet_"
 msgstr "Plantilla de selección de theme"
+
 
 msgid "_Theme Page_"
 msgstr "Página de themes"
 
+
 msgid "_Theme chooser_"
 msgstr "Selector de themes"
+
 
 msgid "_Theme editor_"
 msgstr "Editor de themes"
 
+
 msgid "_Theme export_"
 msgstr "Exportar theme"
+
 
 msgid "_Theme name_"
 msgstr "Nombre del theme"
 
+
 msgid "_Theme optimizer_"
 msgstr "Optimizador de theme"
+
 
 # Aquí en francés era "generador de temas".
 msgid "_Theme renderer_"
 msgstr "Visualizador de themes"
 
+
 msgid "_Theme_"
 msgstr "Theme"
+
 
 msgid "_Theme_rebuilt_"
 msgstr "Reconstruir theme"
 
+
 msgid "_Themes manager_"
 msgstr "Gestor de themes"
+
 
 msgid "_These Templets are invisible and can be deleted:_"
 msgstr "Estas plantillas son invisibles y pueden borrarse:"
 
+
 msgid "_These Templets could be cached in memory for faster rendering:_"
 msgstr "Estas plantillas se pueden cachear en memoria para una visualización más veloz."
+
 
 msgid "_These styles are identical and can be merged together:_"
 msgstr "Estos estilos son idénticos y pueden fundirse:"
 
+
 msgid "_These styles are not used and can be deleted:_"
 msgstr "Estos estilos no se usan y pueden ser borrados:"
+
 
 msgid "_This style is already used by_"
 msgstr "Este estilo ya está siendo usado por"
 
+
 msgid "_This style will be used by default_"
 msgstr "Este estilo será usado por defecto"
+
 
 msgid "_This theme is completely optimized_"
 msgstr "Este theme ha sido optimizado"
 
+
 msgid "_Title_"
 msgstr "Título"
+
 
 msgid "_Today border color_"
 msgstr "Color de borde del día de hoy"
 
+
 msgid "_Top left image_"
 msgstr "Imagen superior"
+
 
 msgid "_Top menu background color_"
 msgstr "Color de fondo del menú superior"
 
+
 msgid "_Top menu border color_"
 msgstr "Color del borde de menú superior"
+
 
 msgid "_Top menu border style_"
 msgstr "Estilo de borde de menú superior"
 
+
 msgid "_Top menu font color_"
 msgstr "Color de la tipografía del menú superior"
+
 
 msgid "_Top menu font_"
 msgstr "Tipografía del menú superior"
 
+
 msgid "_Top menu hover background color_"
 msgstr "Color de fondo del menú superior al pasar por encima"
+
 
 msgid "_Top menu hover font color_"
 msgstr "Color de la fuente del menú superior al pasar por encima"
 
+
 msgid "_Top menu items width_"
 msgstr "Anchura de los elementos del menú superior"
+
 
 msgid "_Top right image_"
 msgstr "Imagen superior derecha"
 
+
 msgid "_Translate folder items_"
 msgstr "Traducir los ítem de carpeta"
+
 
 msgid "_Translate the box title_"
 msgstr "Traducir el título de la caja"
 
+
 msgid "_Translate the breadcrumbs_"
 msgstr "Traducir los menúes de navegación"
+
 
 msgid "_Translate the image_"
 msgstr "Traducir la imagen"
 
+
 msgid "_Translate the text_"
 msgstr "Traducir el texto"
+
 
 msgid "_Translations_"
 msgstr "Traducciones"
 
+
 msgid "_Tu_"
 msgstr "Ma"
+
 
 msgid "_Use internal link?_"
 msgstr "¿Usar un enlace interno?"
 
+
 msgid "_Use the cache?_"
 msgstr "¿Usar la caché?"
+
 
 msgid "_Use this as the default style_"
 msgstr "Utilizar como estilo por defecto"
 
+
 msgid "_Username_"
 msgstr "Nombre de usuario"
+
 
 msgid "_Value_"
 msgstr "Valor"
 
+
 msgid "_Vertical padding_"
 msgstr "Acolchado vertical"
+
 
 msgid "_Visibility criteria_"
 msgstr "Criterios de visibilidad"
 
+
 msgid "_We_"
 msgstr "Mi"
+
 
 msgid "_Weekdays background color_"
 msgstr "Color de fondo de los días de la semana"
 
+
 msgid "_Weekdays border color_"
 msgstr "Color del borde de los días de la semana"
+
 
 msgid "_Weekdays font color_"
 msgstr "Color de la fuente de los días de la semana"
 
+
 msgid "_Width_"
 msgstr "Anchura"
+
 
 msgid "_XML export_"
 msgstr "Exportar en formato XML"
 
+
 msgid "_XML format_"
 msgstr "Formato XML"
+
 
 msgid "_Year_"
 msgstr "Año"
 
+
 msgid "_You can drop a Portlet into this area_"
 msgstr "Puede soltar un Portlet dentro de esta área."
+
 
 msgid "_You can drop a Templet into this area_"
 msgstr "Puede soltar un Portlet dentro de esta área."
 
+
 msgid "_Your text_"
 msgstr "Su texto"
+
 
 msgid "_ZMI_"
 msgstr "ZMI"
 
+
 msgid "_about_"
 msgstr "Acerca de"
+
 
 msgid "_actionbox_templet_description_"
 msgstr "una barra de herramientas que contiene botones de acciones con iconos"
 
+
 msgid "_actions_"
 msgstr "Acciones"
+
 
 msgid "_areacolor_description_"
 msgstr "este estilo define el color de fondo, de borde y del texto de un área."
 
+
 msgid "_areashape_description_"
 msgstr "este estilo define el estilo y grosor de borde de un área."
+
 
 msgid "_back_"
 msgstr "atrás"
 
+
 msgid "_backgrounds_"
 msgstr "Fondos"
+
 
 msgid "_box body_"
 msgstr "Cuerpo de la caja"
 
+
 msgid "_box title_"
 msgstr "Título de la caja"
+
 
 msgid "_boxcolor_"
 msgstr "Color de la caja del portal"
 
+
 msgid "_boxcolor_description_"
 msgstr "este estilo define los colores de las cajas del portal"
+
 
 msgid "_boxcorners_description_"
 msgstr "este estilo define la apariencia de las esquinas de la caja"
 
+
 msgid "_boxshape_"
 msgstr "Forma de la caja del portal"
+
 
 msgid "_boxshape_description_"
 msgstr "este estilo define las formas de las cajas del portal"
 
+
 msgid "_breadcrumbs_templet_description_"
 msgstr "un rmenú de navegación desde la página de inicio hasta la actual"
+
 
 msgid "_button_cache_manager_"
 msgstr "Administrar caché"
 
+
 msgid "_button_clear_the_cache_"
 msgstr "Limpiar la caché"
+
 
 msgid "_button_close_"
 msgstr "Cerrar"
 
+
 msgid "_button_create_"
 msgstr "Crear"
+
 
 msgid "_button_delete_"
 msgstr "Borrar"
 
+
 msgid "_button_export_theme_"
 msgstr "Exportar este theme"
+
 
 msgid "_button_fullscreen_"
 msgstr "Pantalla completa"
 
+
 msgid "_button_import_theme_"
 msgstr "Importar theme"
+
 
 msgid "_button_import_themes_"
 msgstr "Importar themes"
 
+
 msgid "_button_local_roles_"
 msgstr "Roles locales"
+
 
 msgid "_button_modify_"
 msgstr "Modificar"
 
+
 msgid "_button_normal_mode_"
 msgstr "Modo normal"
+
 
 msgid "_button_optimize_theme_"
 msgstr "Optimizar este theme"
 
+
 msgid "_button_rebuild_theme_"
 msgstr "Reconstruir este theme"
+
 
 msgid "_button_set_theme_as_default_"
 msgstr "Fijar como theme por defecto"
 
+
 msgid "_button_upload_flashfile_"
 msgstr "Subir animación Flash"
+
 
 msgid "_button_upload_image_"
 msgstr "Subir imagen"
 
+
 msgid "_calendar_style_"
 msgstr "Estilo del calendario"
+
 
 msgid "_calendar_templet_description_"
 msgstr "un calendario con eventos mensuales"
 
+
 msgid "_calendarstyle_description_"
 msgstr "este estilo define el aspecto visual del calendario."
+
 
 msgid "_cellblock_description_"
 msgstr "Un Bloque de Celda permite mostrar varias plantillas horizontalmente dentro de un Bloque de Página."
 
+
 msgid "_cellhider_description_"
 msgstr "El Escondedor de celda controla la visibilidad de una celda."
+
 
 msgid "_cellsizer_description_"
 msgstr "Un Redimensionador de celda fija la anchura de una celda."
 
+
 msgid "_cellstyler_description_"
 msgstr "Un Estilizador de celda modifica el estilo de una celda."
+
 
 msgid "_clipboard_"
 msgstr "Portapapeles"
 
+
 msgid "_collapsiblemenu_style_"
 msgstr "Estilo del menú desplegable"
+
 
 msgid "_collapsiblemenu_templet_description_"
 msgstr "un menú desplegable que muestra elementos de carpeta"
 
+
 msgid "_collapsiblemenustyle_description_"
 msgstr "este estilo define el aspecto visual de los menúes colapsables"
+
 
 msgid "_color_"
 msgstr "Color del área"
 
+
 msgid "_colors_"
 msgstr "Colores"
+
 
 msgid "_confirm delete_"
 msgstr "¿Está seguro de querer borrarlo?"
 
+
 msgid "_days_"
 msgstr "días"
+
 
 msgid "_default tab_"
 msgstr "Etiqueta por defecto"
 
+
 msgid "_dimensions_"
 msgstr "Dimensiones"
+
 
 msgid "_documentinfo_templet_description_"
 msgstr "información acerca del documento actual: su título, fecha de última modificación, nombre del autor, etc."
 
+
 msgid "_edit online_"
 msgstr "Editar en línea"
+
+
+msgid "_enter_new_id_"
+msgstr ""
+
 
 msgid "_flashbox_templet_description_"
 msgstr "Una caja para Macromedia Flash(tm) con pie"
 
+
 msgid "_folders_"
 msgstr "Carpetas"
+
 
 msgid "_fontcolor_"
 msgstr "Color de la fuente"
 
+
 msgid "_fontcolor_description_"
 msgstr "este estilo define el color de la fuente, los enlaces y las decoraciones."
+
 
 msgid "_fontshape_"
 msgstr "Forma de la fuente"
 
+
 msgid "_fontshape_description_"
 msgstr "este estilo define tamaños de fuentes, enclaces y estilos de decoración."
+
 
 msgid "_formstyle_description_"
 msgstr "este estilo define la apariencia del formulario y de los elementos del mismo."
 
+
 msgid "_general_"
 msgstr "General"
+
 
 msgid "_header_"
 msgstr "Cabecera"
 
+
 msgid "_icons_"
 msgstr "Iconos"
+
 
 msgid "_imagebox_templet_description_"
 msgstr "una imagen con un enlace y un pie de foto"
 
+
 msgid "_info_"
 msgstr "Info"
+
 
 msgid "_language_templet_description_"
 msgstr "un selector de idioma"
 
+
 msgid "_layout mode_"
 msgstr "Modo de disposición/distribución"
+
 
 msgid "_layout_"
 msgstr "Disposición/distribución"
 
+
 msgid "_maincontent_templet_description_"
 msgstr "el área de contenido principal donde se muestran los documentos"
+
 
 msgid "_menu item_"
 msgstr "Ítem del menú"
 
+
 msgid "_menu_Align center_"
 msgstr "Centrado"
+
 
 msgid "_menu_Align justify_"
 msgstr "Justificado"
 
+
 msgid "_menu_Align left_"
 msgstr "Alineado a la izquierda"
+
 
 msgid "_menu_Align right_"
 msgstr "Alineado a la derecha"
 
+
 msgid "_menu_Area Color_"
 msgstr "Color del área"
+
 
 msgid "_menu_Area Shape_"
 msgstr "Forma del área"
 
+
 msgid "_menu_Box Corners_"
 msgstr "Esquina de la caja"
+
 
 msgid "_menu_Calendar Style_"
 msgstr "Estilo del calendario"
 
+
 msgid "_menu_Collapsible Menu Style_"
 msgstr "Estilo de menú desplegable"
+
 
 msgid "_menu_Copy_"
 msgstr "Copiar"
 
+
 msgid "_menu_Delete_"
 msgstr "Borrar"
+
 
 msgid "_menu_Duplicate_"
 msgstr "Duplicar"
 
+
 msgid "_menu_Edit styles_"
 msgstr "Editar los estilos"
+
 
 # Siguiendo la traducción francesa, prefiero
 # modificar, un término predigital. El problema
@@ -1542,452 +2049,602 @@ msgstr "Editar los estilos"
 msgid "_menu_Edit_"
 msgstr "Modificar"
 
+
 msgid "_menu_Font Color_"
 msgstr "Color del tipo de letra"
+
 
 msgid "_menu_Font Shape_"
 msgstr "Forma de la tipografía"
 
+
 msgid "_menu_Form Style_"
 msgstr "Estilo de la forma"
+
 
 msgid "_menu_Insert_"
 msgstr "Insertar"
 
+
 msgid "_menu_Manage_"
 msgstr "Administrar"
+
 
 msgid "_menu_Paste_"
 msgstr "Pegar"
 
+
 msgid "_menu_Portal Box Color_"
 msgstr "Color de la caja"
+
 
 msgid "_menu_Portal Box Shape_"
 msgstr "Forma de la caja"
 
+
 msgid "_menu_Portal Tab Style_"
 msgstr "Estilo de etiquetas"
+
 
 msgid "_menu_Set alignment_"
 msgstr "Establecer alineación"
 
+
 msgid "_menu_Set layout_"
 msgstr "Establecer diseño"
+
 
 msgid "_menu_Set styles_"
 msgstr "Establecer estilos"
 
+
 msgid "_menu_Set_as_default_"
 msgstr "Establecer por defecto"
+
 
 msgid "_mixed mode_"
 msgstr "Modo mixto"
 
+
 msgid "_option_Folder title_"
 msgstr "Título de la carpeta"
+
 
 msgid "_option_Templet title_"
 msgstr "Título de la plantilla"
 
+
 msgid "_option_Username_"
 msgstr "Nombre de usuario"
+
 
 msgid "_option_Workflow state_"
 msgstr "Estado del flujo de trabajo"
 
+
 msgid "_option_about_"
 msgstr "Acerca de este objeto"
+
 
 msgid "_option_actions_"
 msgstr "Acciones del portal"
 
+
 msgid "_option_always_"
 msgstr "Siempre"
+
 
 msgid "_option_automatic_"
 msgstr "Detección automática"
 
+
 msgid "_option_bg_no-repeat_"
 msgstr "No repetir"
+
 
 msgid "_option_bg_repeat-x_"
 msgstr "Horizontalmente"
 
+
 msgid "_option_bg_repeat-y_"
 msgstr "Verticalmente"
+
 
 msgid "_option_bg_repeat_"
 msgstr "Para cubrir el área"
 
+
 msgid "_option_block_"
 msgstr "Anchura de la caja"
+
 
 msgid "_option_center_"
 msgstr "Centrar"
 
+
 msgid "_option_compatible_"
 msgstr "Compatible modo NS4"
+
 
 msgid "_option_debug_"
 msgstr "Modo de depuración"
 
+
 msgid "_option_default_"
 msgstr "Por defecto"
+
 
 msgid "_option_docinfo_created_by_"
 msgstr "Creado por..."
 
+
 msgid "_option_docinfo_last_modified_"
 msgstr "Fecha de la última modificación"
+
 
 msgid "_option_docinfo_title_"
 msgstr "Título del documento"
 
+
 msgid "_option_drawer_"
 msgstr "Cajón"
+
 
 msgid "_option_drawer_notitle_"
 msgstr "Cajón sin título"
 
+
 msgid "_option_dropdown list_"
 msgstr "Listado en cascada"
+
 
 msgid "_option_events_"
 msgstr "Subiendo eventos"
 
+
 msgid "_option_everywhere_except_in_"
 msgstr "En todos los sitios excepto en ..."
+
 
 msgid "_option_flags_"
 msgstr "Banderas de los países"
 
+
 msgid "_option_folders_"
 msgstr "Carpetas del portal"
+
 
 msgid "_option_horizontal_"
 msgstr "Horizontal"
 
+
 msgid "_option_horizontal_menu_"
 msgstr "Menú horizontal"
+
 
 msgid "_option_html_"
 msgstr "HTML"
 
+
 msgid "_option_icons only_"
 msgstr "Sólo iconos"
+
 
 msgid "_option_if_anonymous_"
 msgstr "Si anónimo"
 
+
 msgid "_option_if_authenticated_"
 msgstr "Si autenticado"
+
 
 msgid "_option_if_secure_connection_"
 msgstr "Si conexión segura"
 
+
 msgid "_option_info_"
 msgstr "Caja de información"
+
 
 msgid "_option_inline_"
 msgstr "Anchura del título"
 
+
 msgid "_option_justify_"
 msgstr "Justificar"
+
 
 msgid "_option_language names_"
 msgstr "Nombres de los idiomas"
 
+
 msgid "_option_language_"
 msgstr "Selector de idiomas"
+
 
 msgid "_option_left_"
 msgstr "Izquierda"
 
+
 msgid "_option_lifetime_10_"
 msgstr "10 segundos"
+
 
 msgid "_option_lifetime_1800_"
 msgstr "30 minutos"
 
+
 msgid "_option_lifetime_300_"
 msgstr "5 minutos"
+
 
 msgid "_option_lifetime_30_"
 msgstr "30 segundos"
 
+
 msgid "_option_lifetime_3600_"
 msgstr "1 hora"
+
 
 msgid "_option_lifetime_600_"
 msgstr "10 minutos"
 
+
 msgid "_option_lifetime_60_"
 msgstr "1 minuto"
+
 
 msgid "_option_lifetime_900_"
 msgstr "15 minutos"
 
+
 msgid "_option_login_"
 msgstr "Autenticación"
+
 
 msgid "_option_macroless_"
 msgstr "Macroless"
 
+
 msgid "_option_min_max_"
 msgstr "Min/máx caja"
+
 
 msgid "_option_min_max_close_"
 msgstr "Min/máx/cerrar caja"
 
+
 msgid "_option_min_max_edit_close_"
 msgstr "Min/máx/editar/cerrar caja"
+
 
 msgid "_option_no_frames_"
 msgstr "Sin marcos"
 
+
 msgid "_option_notitle_"
 msgstr "Marco de la caja sin título"
+
 
 msgid "_option_notitle_noframe_"
 msgstr "Sin marco ni título"
 
+
 msgid "_option_one_frame_"
 msgstr "Marco de la caja"
+
 
 msgid "_option_only_in_"
 msgstr "Sólo en..."
 
+
 msgid "_option_pending_"
 msgstr "Documentos pendientes"
+
 
 msgid "_option_plain text_"
 msgstr "Texto simple"
 
+
 msgid "_option_plain_"
 msgstr "Simple"
+
 
 msgid "_option_profiler_"
 msgstr "Reactivador"
 
+
 msgid "_option_recent_"
 msgstr "Documentos recientes"
+
 
 msgid "_option_related_"
 msgstr "Documentos relacionados"
 
+
 msgid "_option_right_"
 msgstr "Derecha"
+
 
 msgid "_option_rounded_box_"
 msgstr "Caja redondeada"
 
+
 msgid "_option_rounded_box_notitle_"
 msgstr "Caja redondeada sin título"
+
 
 msgid "_option_searchbox_advanced_"
 msgstr "Avanzado"
 
+
 msgid "_option_searchbox_compact_"
 msgstr "Compacto"
+
 
 msgid "_option_standard_"
 msgstr "Caja estándar"
 
+
 msgid "_option_starting_from_"
 msgstr "Empezando desde..."
+
 
 msgid "_option_stx_"
 msgstr "Texto estructurado"
 
+
 msgid "_option_tableless_"
 msgstr "Tableless"
+
 
 msgid "_option_text and icons_"
 msgstr "Texto e iconos"
 
+
 msgid "_option_text only_"
 msgstr "Sólo texto"
+
 
 msgid "_option_text_transform_capitalize_"
 msgstr "Letra Mayúscua En Cada Palabra"
 
+
 msgid "_option_text_transform_lowercase_"
 msgstr "texto a letras minúsculas"
+
 
 msgid "_option_text_transform_none_"
 msgstr "Sin transformación"
 
+
 msgid "_option_text_transform_uppercase_"
 msgstr "TEXTO A LETRAS MAYÚSCULAS"
+
 
 msgid "_option_textonly_"
 msgstr "Sólo texto"
 
+
 msgid "_option_up_till_"
 msgstr "Subir hasta..."
+
 
 msgid "_option_vertical_"
 msgstr "Vertical"
 
+
 msgid "_pageblock_description_"
 msgstr "Un Bloque de página está compuesto de Celdas (columnas). El aspecto visual de una Celda puede ser modificado utilizando Estilizadores de celda, Redimensionadores de celda y Escondedores de celda."
+
 
 msgid "_paletteborder_description_"
 msgstr "estas entradas de paleta definen la forma de los bordes utilizados en los estilos."
 
+
 msgid "_palettecolor_description_"
 msgstr "estas paletas definen los colores utilizados en los estilos."
+
 
 msgid "_portalbox_templet_description_"
 msgstr "una caja genérica que muestra aciones, carpetas, una caja 'acerca de', una caja de autentificación, una caja de info, etc."
 
+
 msgid "_portalboxgroup_templet_description_"
 msgstr "un dispositivo que muestra las cajas originales del portal"
+
 
 msgid "_portaltab_templet_description_"
 msgstr "una caja genérica que despliega acciones, carpetas y, refiriéndose a cajas, de autenticación, de información..."
 
+
 msgid "_portaltabstyle_"
 msgstr "Estilo de etiqueta del portal"
+
 
 msgid "_portaltabstyle_description_"
 msgstr "este estilo define la apariencia de las etiquetas del portal"
 
+
 msgid "_portaltheme_description_"
 msgstr "Un theme modifica el aspecto y la disposición del portal. Se compone de bloques horizontales."
+
 
 msgid "_portletbox_templet_description_"
 msgstr "Una caja que contiene un portlet."
 
+
 msgid "_preview_"
 msgstr "Previsualización"
+
 
 msgid "_searchbox_Advanced_search"
 msgstr "Búsqueda avanzada"
 
+
 msgid "_searchbox_Search_"
 msgstr "Búsqueda"
+
 
 msgid "_searchbox_templet_description_"
 msgstr "una caja con un campo de entrada para hacer búsquedas"
 
+
 msgid "_select this slot_"
 msgstr "seleccionar este dispositivo"
+
 
 msgid "_selected menu item_"
 msgstr "Ítem de menú seleccionado"
 
+
 msgid "_selected tab_"
 msgstr "Etiqueta seleccionada"
+
 
 msgid "_set as default style_"
 msgstr "establecer como estilo por defecto"
 
+
 msgid "_shape_"
 msgstr "Forma del área"
+
 
 msgid "_size_"
 msgstr "Tamaño"
 
+
 msgid "_style_"
 msgstr "Estilo"
+
 
 msgid "_submenu_"
 msgstr "Submenú"
 
+
 msgid "_submenus_"
 msgstr "submenúes"
+
 
 msgid "_textbox_templet_description_"
 msgstr "una caja que muestra texto plano o HTML"
 
+
 msgid "_themechooser_templet_description_"
 msgstr "un selector de themes para los visitantes (las cookies deben estar activadas)"
+
 
 msgid "_themepage_description_"
 msgstr "Una página de themes se compone de Bloques de Página colocados uno sobre otro."
 
+
 msgid "_thumbnails_"
 msgstr "Miniaturas"
+
 
 msgid "_topmenu_"
 msgstr "menú superior"
 
+
 msgid "_visibility_"
 msgstr "Visibilidad"
+
 
 msgid "_wysiwyg mode_"
 msgstr "modo WYSIWYG"
 
+
 msgid "_zexp export_"
 msgstr "Exportar en formato .zexp"
+
 
 msgid "_zexp format_"
 msgstr "formato zexp"
 
+
 msgid "description_confirm_delete_portlet"
 msgstr "Se va a borrar el portlet, ¿está seguro?"
+
 
 msgid "description_confirm_delete_unused_portlets"
 msgstr "Se van a borrar todos los portlets no utilizados, ¿está usted seguro?"
 
+
 msgid "description_delete_unused_boxes"
 msgstr "Borrar cajas no utilizadas"
+
 
 msgid "description_delete_unused_portlets"
 msgstr "Borrar portlets no utilizados"
 
+
 msgid "description_portlets_visible_from"
 msgstr "Portlets visibles desde"
+
 
 msgid "description_unused_boxes"
 msgstr "Cajas que son invisibles porque su slot no está en este tema"
 
+
 msgid "description_unused_boxes_deleted"
 msgstr "Borradas las cajas no utilizadas"
+
 
 msgid "description_unused_portlets"
 msgstr "Cajas que no son visibles, dado que su slot no pertenece a este theme"
 
+
 msgid "heading_portlet_browser_by_topic"
 msgstr "Por tema"
+
 
 msgid "heading_portlet_browser_by_type"
 msgstr "Por tipo"
 
+
 msgid "heading_portlet_manage_form"
 msgstr "Administración de Portlets"
+
 
 msgid "heading_unused_boxes"
 msgstr "Cajas no utilizadas"
 
+
 msgid "heading_unused_portlets"
 msgstr "Portlets no utilizados"
+
 
 msgid "menu_insert_box"
 msgstr "Insertar una caja..."
 
+
 msgid "menu_insert_portlet"
 msgstr "Insertar un portlet..."
+
 
 msgid "portlet_browser_panel"
 msgstr "Navegador de portlets"
 
+
 msgid "portlet_slots_panel"
 msgstr "Slots de Portlet"
+
 
 msgid "psm_image_uploaded"
 msgstr "Imagen subida"
 
+
 msgid "psm_portlet_deleted"
 msgstr "Portlet borrado."
+
 
 msgid "site_structure_panel"
 msgstr "Estructura del sitio"
 
+
 msgid "unused_portlets_panel"
 msgstr "Portlets no utilizados"
+
 
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG"

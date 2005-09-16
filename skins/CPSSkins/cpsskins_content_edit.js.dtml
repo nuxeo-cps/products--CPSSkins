@@ -58,16 +58,20 @@ function Choice_style(styleprop) {
   newWindow(new_url);
 }
 
-function Choice_action(action, confirm_msg) {
+function Choice_action(action, msg) {
   pd_hideContextMenu();
   if (pd_selected_item == null) 
      return;
   new_url = pd_selected_item.getAttribute('contenturl');
   if (new_url == null) return;
   if (action == 'delete')
-    if (! window.confirm(confirm_msg))
+    if (! window.confirm(msg))
       return;
-  window.location = new_url + '/cpsskins_content_action?action=' + action;
+  new_url += '/cpsskins_content_action?action=' + action;
+  if (action == 'duplicate')
+    var id = prompt(msg, '');
+    new_url += '&id=' + id;
+  window.location = new_url
 }
 
 function Choice_edit() {

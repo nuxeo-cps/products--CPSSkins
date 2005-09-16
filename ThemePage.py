@@ -448,11 +448,11 @@ class ThemePage(ThemeFolder, StylableContent):
         theme_container.manage_delObjects(self.getId())
 
     security.declareProtected(ManageThemes, 'duplicate')
-    def duplicate(self):
+    def duplicate(self, id=None):
         """Duplicate this page
         """
         container = self.getContainer()
-        newid = getFreeId(container)
+        newid = getFreeId(container, id)
         container.manage_clone(self, newid)
         newobj = getattr(container, newid, None)
         verifyThemePerms(newobj)

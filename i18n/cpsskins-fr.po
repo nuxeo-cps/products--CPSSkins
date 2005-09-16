@@ -1909,6 +1909,10 @@ msgid "_edit online_"
 msgstr "éditer en ligne"
 
 
+msgid "_enter_new_id_"
+msgstr "Nouvel identifiant"
+
+
 msgid "_flashbox_templet_description_"
 msgstr "une animation Macromedia Flash(tm) avec légende."
 

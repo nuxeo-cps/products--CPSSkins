@@ -1907,6 +1907,10 @@ msgid "_edit online_"
 msgstr "edit online"
 
 
+msgid "_enter_new_id_"
+msgstr "Enter a new id"
+
+
 msgid "_flashbox_templet_description_"
 msgstr "a Macromedia Flash(tm) box with a caption"
 

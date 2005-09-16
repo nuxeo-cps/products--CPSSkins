@@ -1907,6 +1907,10 @@ msgid "_edit online_"
 msgstr "redigera online"
 
 
+msgid "_enter_new_id_"
+msgstr "Nytt id"
+
+
 msgid "_flashbox_templet_description_"
 msgstr "En Macromedia Flash(tm)-ruta med en rubrik"
 
