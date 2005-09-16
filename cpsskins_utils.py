@@ -136,11 +136,13 @@ def getFreeId(container=None, try_id=None):
 
     ids = container.objectIds()
     if try_id is not None:
-        if not try_id in ids and container.checkIdAvailable(try_id):
+        try_id = cleanUpId(try_id)
+        if container.checkIdAvailable(try_id):
             return try_id
+
     while 1:
         randomid = str(random.randrange(1, 2147483600))
-        if not randomid in ids:
+        if container.checkIdAvailable(randomid):
             break
     return randomid
 
@@ -187,19 +189,24 @@ def canonizeStyleTitle(title=''):
             newtitle += character
     return newtitle
 
-def canonizeId(self):
-    """ This method canonizes a Zope Id
-    """
-
-    current_id = self.getId()
+def cleanUpId(id=''):
     new_id = ''
-    for i in range(len(current_id)):
-        character = current_id[i]
+    for i in range(len(id)):
+        character = id[i]
         if character.isalnum() or character in ['_', '-']:
             new_id += character
 
     if new_id.startswith('copy_of_'):
         new_id = new_id[len('copy_of_'):]
+
+    return new_id
+
+def canonizeId(self):
+    """ This method canonizes a Zope Id
+    """
+
+    current_id = self.getId()
+    new_id = cleanUpId(current_id)
 
     if new_id != current_id:
         container = self.getContainer()
