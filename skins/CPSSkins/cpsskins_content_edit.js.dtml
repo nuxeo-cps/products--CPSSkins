@@ -69,9 +69,9 @@ function Choice_action(action, msg) {
       return;
   new_url += '/cpsskins_content_action?action=' + action;
   prompt_id = pd_selected_item.getAttribute('prompt_id');
-  if (action == 'duplicate' && prompt_id != null) {
+  if (action == 'duplicate' && prompt_id) {
     var id = prompt(msg, '');
-    new_url += '&id=' + id;
+    if (id) new_url += '&id=' + id;
     }
   window.location = new_url
 }
