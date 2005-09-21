@@ -34,6 +34,11 @@ ZopeTestCase.installProduct('CPSDocument', quiet=1)
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('Epoz', quiet=1)
 
+# Optional, but must be installed if the exist:
+ZopeTestCase.installProduct('Five', quiet=1)
+ZopeTestCase.installProduct('CMFonFive', quiet=1)
+ZopeTestCase.installProduct('CPSSharedCalendar', quiet=1)
+
 # other products
 for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
                 'CPSRSS', 'CPSChat', 'CPSCalendar',
@@ -109,6 +114,10 @@ class CPSInstaller:
 def setupPortal(PortalInstaller=CPSInstaller):
     # Create a CPS site in the test (demo-) storage
     app = ZopeTestCase.app()
+    # Set up Error Log:
+    from Products.SiteErrorLog.SiteErrorLog import manage_addErrorLog
+    if 'error_log' not in app.objectIds():
+        manage_addErrorLog(app)
     # PortalTestCase expects object to be called "portal", not "cps"
     if hasattr(app, 'portal'):
         app.manage_delObjects(['portal'])
