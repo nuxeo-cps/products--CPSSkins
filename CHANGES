@@ -1,25 +1,12 @@
 Requires:
 ~~~~~~~~~
-- TranslationService > 0.9.1
+-
 New features:
 ~~~~~~~~~~~~~
 -
 Bug fixes:
 ~~~~~~~~~~
-- moveToLostAndFound() did not get the correct container of objects
-  moved to the lost-and-found folder.
-- Box states were not set properly on boxes (drawer box layout) because
-  the page's id was missing.
-- getIcon(relative_to_portal=1) instead of getIcon() was called on some CMF
-  type information.
-- avoid raising UnAuthorized exceptions when users are not allowed to manage
-  portlets in a given folder.
-- removed the base url before ti/getIcon
-- portlet editor: url fix in virtual hosting
-- the id generator did not check for reserved ids.
-- fixed typo in BaseStyle.edit() (missing ** between keyword arguments)
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- CPS3: The Main Content Templet can be rendered in macroless page mode. (#834)
-- the id of duplicated themes / pages can be entered by users  #929
-- add a doctype slot within the main_template
+-
