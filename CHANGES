@@ -3,10 +3,15 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
+- updated Brazilian Portuguese translations (Thanks to Mario Olimpio de Menezes
+  <mario [at] curiango.ipen.br>)
 -
 Bug fixes:
 ~~~~~~~~~~
+- PortalBoxGroup render method crashed translating the box title if string
+  could no be encoded in iso-8859-15.
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
+

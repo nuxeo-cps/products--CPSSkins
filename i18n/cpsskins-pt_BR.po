@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cpsskins-pt_BR\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2005-06-15 14:28-0300\n"
+"PO-Revision-Date: 2005-09-29 15:00-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: pt-BR <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1909,7 +1909,7 @@ msgstr "editar online"
 
 
 msgid "_enter_new_id_"
-msgstr ""
+msgstr "entrar novo id"
 
 
 msgid "_flashbox_templet_description_"
