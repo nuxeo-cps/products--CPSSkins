@@ -3,6 +3,7 @@
   base_url python:here.cpsskins_getBaseUrl();
   imagecat request/form/imagecat|nothing;
   tmtool here/portal_themes;
+  utool nocall:here/portal_url;
   mcat python: tmtool.getTranslationService();
   mtool here/portal_membership;
   checkPerm nocall:mtool/checkPermission">
