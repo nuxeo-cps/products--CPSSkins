@@ -216,50 +216,31 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
         theme_container = tmtool.getPortalThemeRoot(self)
         parents = []
 
-        for page in theme_container.getPages():
-            for obj in page.getPageBlocks():
-                # page blocks
-                for pm in aq_base(obj).propertyMap():
-                    if pm.get('style') != meta_type:
-                        continue
-                    style_type = pm.get('id')
-                    style = getattr(obj, style_type, None)
-                    if style != style_title:
-                        continue
-                    rebuild_properties(obj)
-                    parents.append(obj)
-                    if newtitle is None:
-                        continue
-                    obj.edit(**{style_type:newtitle})
-
-                # cell blocks
-                for obj2 in obj.objectValues():
-                    for pm in aq_base(obj2).propertyMap():
-                        if pm.get('style') != meta_type:
-                            continue
-                        style_type = pm.get('id')
-                        style = getattr(obj2, style_type, None)
-                        if style != style_title:
-                            continue
-                        rebuild_properties(obj2)
-                        parents.append(obj2)
-                        if newtitle is None:
-                            continue
-                        obj2.edit(**{style_type:newtitle})
-
-            for pm in page.propertyMap():
+        def _findParents(obj):
+            parents = []
+            for pm in aq_base(obj).propertyMap():
                 if pm.get('style') != meta_type:
                     continue
                 style_type = pm.get('id')
-                style = getattr(theme_container.aq_inner.aq_explicit,
-                    style_type, None)
+                style = getattr(aq_base(obj), style_type, None)
                 if style != style_title:
                     continue
-                rebuild_properties(theme_container)
-                parents.append(theme_container)
+                rebuild_properties(obj)
+                parents.append(obj)
                 if newtitle is None:
                     continue
-                page.edit(**{style_type:newtitle})
+                obj.edit(**{style_type:newtitle})
+            return parents
+
+        for page in theme_container.getPages():
+            parents.extend(_findParents(page))
+
+            for pageblock in page.getPageBlocks():
+                parents.extend(_findParents(pageblock))
+
+                for obj in pageblock.objectValues():
+                    parents.extend(_findParents(obj))
+
         return parents
 
     security.declarePublic('isOrphan')

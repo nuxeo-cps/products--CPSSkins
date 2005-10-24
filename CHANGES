@@ -12,6 +12,7 @@ Bug fixes:
 - PortalBoxGroup render method crashed translating the box title if string
   could no be encoded in iso-8859-15.
 - #1026 added missing utool declaration.
+- #1050 the theme optimizer proposed the deletion of styles used by theme pages
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

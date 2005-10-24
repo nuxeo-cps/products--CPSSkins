@@ -169,6 +169,14 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         parents = style.findParents()
         self.assert_(parents == [templet])
 
+    def test_findParents_ThemePage(self):
+        theme_container = self.theme_container
+        style = theme_container.addPortalStyle(type_name='Area Color')
+        page = theme_container.addThemePage()
+        page.color = style.getTitle()
+        parents = style.findParents()
+        self.assert_(parents == [page])
+
     def test_findParents_PageBlock(self):
         theme_container = self.theme_container
         style = theme_container.addPortalStyle(type_name='Area Color')
