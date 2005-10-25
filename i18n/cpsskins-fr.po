@@ -1426,7 +1426,7 @@ msgstr "Largeur des onglets"
 
 
 msgid "_Tableless_"
-msgstr "Sans-tables"
+msgstr "Sans tables"
 
 
 msgid "_Templet color_"
