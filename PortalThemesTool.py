@@ -1111,6 +1111,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 rendered += ptltool.renderAccessKey(**kw)
             except AttributeError:
                 pass
+        if rendered != '':
+            rendered = '<p>%s</p>' % rendered
         return rendered
 
     #

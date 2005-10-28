@@ -13,6 +13,8 @@ Bug fixes:
   could no be encoded in iso-8859-15.
 - #1026 added missing utool declaration.
 - #1050 the theme optimizer proposed the deletion of styles used by theme pages
+- Fixed PortalThemesTool.renderAccessKeys so that it produces XHTML 1.0 Strict
+  valid output.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
