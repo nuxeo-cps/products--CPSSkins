@@ -1112,7 +1112,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             except AttributeError:
                 pass
         if rendered != '':
-            rendered = '<p>%s</p>' % rendered
+            rendered = '<div>%s</div>' % rendered
         return rendered
 
     #
