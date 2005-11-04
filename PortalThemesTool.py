@@ -1062,21 +1062,18 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getDefaultAccessKey(self):
         """Return the value of the default access key
         """
-
         return DEFAULT_ACCESSKEY
 
     security.declarePublic('getAccessKey')
     def getAccessKey(self):
         """Return the value of the key used to access the tool
         """
-
         return self.accesskey
 
     security.declarePublic('renderAccessKey')
     def renderAccessKey(self, actions=[], **kw):
         """Render the access key html markup
         """
-
         rendered = ''
 
         if not actions:
@@ -1095,16 +1092,35 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         else:
             return rendered
 
-        rendered = '<a href="%s" accesskey="%s"></a>' % \
-            (action['url'], self.getAccessKey())
+        rendered = ('<a href="%s" accesskey="%s"></a>'
+                    % (action['url'], self.getAccessKey()))
         return rendered
 
     security.declarePublic('renderAccessKeys')
     def renderAccessKeys(self, **kw):
         """Render all access keys
         """
-        rendered = self.renderAccessKey(**kw)
-        # CPSPortlets
+        rendered = ''
+
+        # Retrieving the accesskeys for CPSDefault which are defined in a
+        # vocabulary.
+        vtool = getToolByName(self, 'portal_vocabularies', None)
+        utool = getToolByName(self, 'portal_url')
+        portal = utool.getPortalObject()
+        if vtool is not None:
+            accesskeys_voc = getattr(vtool, 'accesskeys', {})
+            for accesskey, path in accesskeys_voc.items():
+                if not path.startswith('#'):
+                    url = join(portal.absolute_url(), path)
+                else:
+                    url = path
+                rendered += ('<a href="%s" accesskey="%s"></a>'
+                             % (url, accesskey))
+
+        # Retrieving the accesskey for CPSSkins
+        rendered += self.renderAccessKey(**kw)
+
+        # Retrieving the accesskey for CPSPortlets
         ptltool = getToolByName(self, 'portal_cpsportlets', None)
         if ptltool is not None:
             try:
