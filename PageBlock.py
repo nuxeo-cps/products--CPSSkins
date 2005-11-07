@@ -247,7 +247,7 @@ class PageBlock(ThemeFolder, StylableContent):
             cell_tag = []
             cellsize = objects_in_xpos['cellsizer']
             if more_than_one_column:
-                style_tag = ['float:left', 'overflow-x:hidden']
+                style_tag = ['float:left', 'overflow:hidden']
             else:
                 style_tag = []
             if cellsize:

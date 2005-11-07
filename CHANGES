@@ -17,6 +17,7 @@ Bug fixes:
   valid output.
 - Added support for rendering accesskeys defined in an external CPS vocabulary.
   This fixes #983.
+- #1095 replaced CSS3's 'overflow-x' with 'overflow' in the tableless renderer.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
