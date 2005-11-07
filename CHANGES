@@ -3,22 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- updated Brazilian Portuguese translations (Thanks to Mario Olimpio de Menezes
-  <mario [at] curiango.ipen.br>)
-- added invisible Text Templets with <div id="content"/> and <div id="menu"/>
-  for accesskeys targets in CPS3-Default theme.
+-
 Bug fixes:
 ~~~~~~~~~~
-- PortalBoxGroup render method crashed translating the box title if string
-  could no be encoded in iso-8859-15.
-- #1026 added missing utool declaration.
-- #1050 the theme optimizer proposed the deletion of styles used by theme pages
-- Fixed PortalThemesTool.renderAccessKeys so that it produces XHTML 1.0 Strict
-  valid output.
-- Added support for rendering accesskeys defined in an external CPS vocabulary.
-  This fixes #983.
-- #1095 replaced CSS3's 'overflow-x' with 'overflow' in the tableless renderer.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
-
