@@ -1110,13 +1110,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         portal = utool.getPortalObject()
         if vtool is not None:
             accesskeys_voc = getattr(vtool, 'accesskeys', {})
-            for accesskey, value in accesskeys_voc.items():
-                if value.startswith('/'):
+            for accesskey, path in accesskeys_voc.items():
+                if path.startswith('/'):
                     # For example: "/", "/accessibility"
-                    url = portal.absolute_url() + value
+                    url = portal.absolute_url() + path
                 else:
                     # For example: "#content", "mailto:xxx"
-                    url = value
+                    url = path
                 rendered += ('<a href="%s" accesskey="%s"></a>'
                              % (url, accesskey))
 
