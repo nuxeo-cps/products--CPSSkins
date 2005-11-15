@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<theme xmlns:tal="http://xml.zope.org/namespaces/tal"
+       tal:define="theme_id options/theme_id;
+                   subobjects python: here.listThemeObjects(theme_id)"
+       tal:content="structure python: context.generateObjectNodes(subobjects)"
+/>

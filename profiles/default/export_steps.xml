@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="themes"
+              handler="Products.CPSSkins.setup.handlers.exportPortalThemes"
+              title="Portal themes">
+  Export portal themes
+ </export-step>
+</export-steps>

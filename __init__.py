@@ -27,6 +27,13 @@ except ImportError:
     from Products.CMFCore.CMFCorePermissions import AddPortalContent
 from Products.CMFCore.DirectoryView import registerDirectory
 
+# CMFSetup
+try:
+    from Products.CMFSetup import profile_registry
+    has_profile_registry = True
+except ImportError:
+    has_profile_registry = False
+
 import CPSSkinsInstaller
 import PortalThemesTool
 
@@ -315,4 +322,11 @@ def initialize(registrar):
         (PaletteBorder.PaletteBorder, 'palette_border.png'),
     ):
         utils.registerIcon(classname, 'icons/%s' % icon, globals())
+
+    if has_profile_registry:
+        profile_registry.registerProfile('default',
+                                         'CPSSkins',
+                                         'Profile for a CPSSkins-based site.',
+                                         'profiles/default',
+                                         'CPSSkins')
 

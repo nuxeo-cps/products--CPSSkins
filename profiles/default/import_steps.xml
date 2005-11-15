@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="themes" version="20050914-01"
+              handler="Products.CPSSkins.setup.handlers.importPortalThemes"
+              title="Portal themes">
+  Import portal themes
+ </import-step>
+</import-steps>
