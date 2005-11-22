@@ -324,9 +324,10 @@ def initialize(registrar):
         utils.registerIcon(classname, 'icons/%s' % icon, globals())
 
     if has_profile_registry:
-        profile_registry.registerProfile('default',
-                                         'CPSSkins',
-                                         'Profile for a CPSSkins-based site.',
-                                         'profiles/default',
-                                         'CPSSkins')
+        # fix when running zope in debug mode to avoid raising a 
+        # KeyError: Duplicate profile ID exception.
+        if 'CPSSkins:default' not in profile_registry.listProfiles():
+            profile_registry.registerProfile(
+                'default', 'CPSSkins', 'Profile for a CPSSkins-based site.',
+                'profiles/default', 'CPSSkins')
 
