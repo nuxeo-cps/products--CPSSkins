@@ -28,6 +28,12 @@ from AccessControl.SecurityManagement import noSecurityManager
 from Acquisition import aq_base
 import time
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
+
 portal_name = 'portal'
 portal_owner = 'portal_owner'
 default_user = ZopeTestCase.user_name
@@ -68,7 +74,7 @@ class PloneTestCase(ZopeTestCase.PortalTestCase):
         catalog.unindexObject(personal)
 
     def setGroups(self, groups, name=default_user):
-        '''Changes the specified user's groups. Assumes GRUF.'''
+        """Changes the specified user's groups. Assumes GRUF."""
         uf = self.portal.acl_users
         uf._updateUser(name, groups=groups, domains=[])
         if name == getSecurityManager().getUser().getId():
@@ -96,7 +102,7 @@ def setupPloneSite(app=None, id=portal_name, quiet=0):
         factory.manage_addSite(id, '', create_userfolder=1)
         # Log out
         noSecurityManager()
-        get_transaction().commit()
+        transaction.commit()
         if not quiet: ZopeTestCase._print('done (%.3fs)\n' % (time.time()-_start,))
 
 

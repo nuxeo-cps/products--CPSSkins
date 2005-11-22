@@ -38,6 +38,12 @@ from AccessControl.User import User
 from Acquisition import aq_base
 import time
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
+
 
 class CPSTestCase(ZopeTestCase.PortalTestCase):
     pass
@@ -61,7 +67,7 @@ def setupCPSSite(app, id='portal', quiet=0):
             langs_list=['en'])
         # Log out
         noSecurityManager()
-        get_transaction().commit()
+        transaction.commit()
         if not quiet:
             ZopeTestCase._print('done (%.3fs)\n' % (time.time()-_start,))
 

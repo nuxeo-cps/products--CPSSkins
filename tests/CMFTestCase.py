@@ -19,6 +19,12 @@ from Testing.ZopeTestCase import installProduct
 from Testing.ZopeTestCase import hasProduct
 from Testing.ZopeTestCase import utils
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
+
 portal_name = 'cmf'
 portal_owner = 'portal_owner'
 default_user = ZopeTestCase.user_name
@@ -83,7 +89,7 @@ def _setupCMFSite(app, portal_name, quiet):
         factory.manage_addCMFSite(portal_name, '', create_userfolder=1)
         # Log out and commit
         noSecurityManager()
-        get_transaction().commit()
+        transaction.commit()
         if not quiet: ZopeTestCase._print('done (%.3fs)\n' % (time.time()-start,))
 
 

@@ -34,6 +34,11 @@ for product in ('Localizer',
     except:
         pass
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
 
 
 ERROR_LOG_ID = 'error_log'
@@ -161,7 +166,7 @@ class CPSSkinsInstaller:
 
     def logout(self):
         noSecurityManager()
-        get_transaction().commit()
+        transaction.commit()
 
 def optimize():
     '''Significantly reduces portal creation time.'''

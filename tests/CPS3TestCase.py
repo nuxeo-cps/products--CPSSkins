@@ -50,6 +50,12 @@ for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
     except:
         pass
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
+
 class CPSTestCase(ZopeTestCase.PortalTestCase):
     def setUp(self):
         ZopeTestCase.PortalTestCase.setUp(self)
@@ -105,7 +111,7 @@ class CPSInstaller:
 
     def logout(self):
         noSecurityManager()
-        get_transaction().commit()
+        transaction.commit()
         if not self._quiet:
             ZopeTestCase._print('done (%.3fs)\n'
                 % (time.time() - self._start,))

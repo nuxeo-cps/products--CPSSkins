@@ -8,12 +8,18 @@ from Testing import ZopeTestCase
 
 import CPSSkinsTestCase
 
+try:
+    import transaction
+except ImportError:
+    # BBB: for Zope 2.7
+    from Products.CMFCore.utils import transaction
+
 _TESTS_PATH = os.path.split(__file__)[0]
 
 class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
-        get_transaction().begin()
+        transaction.begin()
         self.login('cpsskins_root')
         self.setupLocalEnvironment()
 
@@ -37,12 +43,12 @@ class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
             old_file  = os.path.join(install_dir, '%s.zexp' % theme_name)
             new_file = os.path.join(self.export_dir, '%s.zexp' % theme_name)
             tmtool._importObjectFromFile(old_file, verify=0)
-            get_transaction().commit()
+            transaction.commit()
 
             theme = tmtool[theme_id]
             # rebuild the theme
             theme.rebuild()
-            get_transaction().commit()
+            transaction.commit()
 
             # rename 'theme_id' as 'theme_name'
             tmtool.manage_renameObject(theme_id, theme_name)
