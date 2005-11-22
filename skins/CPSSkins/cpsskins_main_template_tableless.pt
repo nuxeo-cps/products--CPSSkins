@@ -34,9 +34,9 @@
                          cellsize python: objects_in_xpos['cellsizer'];
                          cellstyle python: objects_in_xpos['cellstyler'];
                          cellwidth python: cellsize and cellsize.cellwidth or '';
-                         style python: cellwidth and 'width: %s;;' % cellwidth or None"
+                         style python: cellwidth and 'width:%s;;' % cellwidth or ''"
              tal:attributes="class python: cellstyle and cellstyle.getCSSClass(level=2) or None;
-                             style string:$style float: left;; overflow: hidden">
+                             style string:${style}float:left;;overflow:hidden">
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
                                  isRenderable python: content.isRenderable();

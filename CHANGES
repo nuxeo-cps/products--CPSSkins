@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - #928 added a label for the current screen name (portlet editor / theme editor)
+- #1024 fixed the tableless renderer when no cell width is specified
 Bug fixes:
 ~~~~~~~~~~
 -
