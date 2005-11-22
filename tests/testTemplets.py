@@ -319,7 +319,7 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def test_Calendar_Templet(self):
         ctool = getToolByName(self.portal, 'portal_calendar', None)
-        if ctool is not None and ctool.MetaType() == 'CMF Calendar Tool':
+        if ctool is not None and ctool.meta_type == 'CMF Calendar Tool':
             pageblock = self.pageblock
             templet = pageblock.addContent(type_name='Calendar Templet')
             self.assertEquals('Calendar Templet', getattr(templet, 'title'))

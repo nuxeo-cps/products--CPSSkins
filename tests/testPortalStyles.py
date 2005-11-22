@@ -3,6 +3,7 @@ if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
 import unittest
+from Products.CMFCore.utils import getToolByName
 import CPSSkinsTestCase
 
 class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
@@ -98,7 +99,8 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
             self.assert_(s.preview())
 
     def test_addPortalStyle_CalendarStyle(self):
-        if 'portal_calendar' in self.portal.objectIds():
+        ctool = getToolByName(self.portal, 'portal_calendar', None)
+        if ctool is not None and ctool.meta_type == 'CMF Calendar Tool':
             theme_container = self.theme_container
             theme_container.addPortalStyle(type_name='Calendar Style')
             theme_container.addPortalStyle(type_name='Calendar Style')
