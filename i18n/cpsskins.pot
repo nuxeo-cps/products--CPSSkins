@@ -1979,3 +1979,6 @@ msgstr ""
 
 msgid "_enter_new_id_"
 msgstr ""
+
+msgid "_Portlet editor_"
+msgstr ""

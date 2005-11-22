@@ -1229,6 +1229,10 @@ msgid "_Portlet Box Templet_"
 msgstr "Boîte portlet"
 
 
+msgid "_Portlet editor_"
+msgstr "Editeur de portlets"
+
+
 msgid "_Portlet type_"
 msgstr "Type de portlet"
 

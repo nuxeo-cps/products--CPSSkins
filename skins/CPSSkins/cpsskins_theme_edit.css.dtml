@@ -334,6 +334,13 @@ div.simulate_hierarchies {
   padding-top: 0.5em;
 }
 
+div.screenname {
+  font: bold 11px Arial, sans-serif;
+  float: right;
+  margin-right: 0.5em;
+  color: #fff;
+}
+
 /* Theme tabs */
 
 .themeTabs {

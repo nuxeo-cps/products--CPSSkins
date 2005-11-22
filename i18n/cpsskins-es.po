@@ -1236,6 +1236,10 @@ msgid "_Portlet Box Templet_"
 msgstr "Plantilla de caja de portlet"
 
 
+msgid "_Portlet editor_"
+msgstr ""
+
+
 msgid "_Portlet type_"
 msgstr "Tipo de portlet"
 

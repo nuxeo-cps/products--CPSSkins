@@ -42,6 +42,9 @@
   style python: panel != 'wysiwyg' and 'background-color: #fff' or None;
   class python: page_container and 'color%s' % page_container.color or None">
   <div class="floatingHeader">
+   <div class="screenname" i18n:translate=""
+    tal:define="title string:_Portlet editor_"
+    tal:content="python: mcat and mcat(title) or title">Portlet editor</div>
    <metal:block 
     use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />
    <metal:block 
