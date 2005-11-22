@@ -55,6 +55,7 @@ class TestCellBlocks(CPSSkinsTestCase.CPSSkinsTestCase):
         pageblock = self.pageblock
         cellblock = pageblock.addContent(type_name='Cell Block', xpos=0, ypos=0)
         cellsizer = cellblock.addCellSizer(xpos=0, cellwidth='100%')
+        self.assert_(cellsizer.getInfo())
         self.assert_(cellblock.objectValues('Cell Sizer') == [cellsizer])
 
     def test_getTemplets(self):

@@ -370,11 +370,18 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
             actioninfo = {}
             if actionid == 'delete':
                 actioninfo['can_delete'] = self.can_delete()
-            action = ti.getActionById(actionid)
-            obj = self.unrestrictedTraverse(action, default=None)
-            if obj is None:
-                continue
-            actioninfo['url']  = self.absolute_url() + '/' + obj.getId()
+            try:
+                ti.queryMethodID # CMF 1.5?
+            except AttributeError:
+                # BBB for CMF 1.4
+                action = ti.getActionById(actionid)
+                obj = self.unrestrictedTraverse(action, default=None)
+                if obj is None:
+                    continue
+                action = obj.getId()
+            else:
+                action = actionid
+            actioninfo['url']  = self.absolute_url() + '/' + action
             infoblock[actionid] = actioninfo
         return infoblock
 

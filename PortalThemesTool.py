@@ -316,29 +316,36 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         palette['object'] = object_list
         return palette
 
+    security.declarePrivate('_getTypeInfosHavingActionId')
+    def _getTypeInfosHavingActionId(self, id):
+        l = []
+        for ti in self.portal_types.listTypeInfo():
+            try:
+                ti.queryMethodID # CMF 1.5?
+            except AttributeError:
+                # BBB for CMF 1.4
+                if ti.getActionById(id, None):
+                    l.append(ti)
+            else:
+                for action in ti.listActions():
+                    if action.getId() == id:
+                        l.append(ti)
+                        break
+        return l
+
     security.declarePublic('listPaletteTypes')
     def listPaletteTypes(self):
         """Gets the list of palette types.
            Returns the type information.
         """
-
-        list = []
-        for ti in self.portal_types.listTypeInfo():
-            if ti.getActionById('isportalpalette', None):
-                list.append(ti)
-        return list
+        return self._getTypeInfosHavingActionId('isportalpalette')
 
     security.declarePublic('listStyleTypes')
     def listStyleTypes(self):
         """Gets the list of style types.
            Returns the type information.
         """
-
-        list = []
-        for ti in self.portal_types.listTypeInfo():
-            if ti.getActionById('isportalstyle', None):
-                list.append(ti)
-        return list
+        return self._getTypeInfosHavingActionId('isportalstyle')
 
     security.declarePublic('listStyleMetaTypes')
     def listStyleMetaTypes(self):

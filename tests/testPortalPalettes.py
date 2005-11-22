@@ -23,6 +23,7 @@ class TestPortalPalettes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['PaletteColor', 'PaletteColor1'], palettenames)
         for s in theme_container['palettes'].objectValues():
             self.assert_(s.aq_explicit.isPortalPalette())
+            self.assert_(s.getInfo())
             self.assert_(s.preview())
 
     def test_addPortalPalette_Border(self):
@@ -34,6 +35,7 @@ class TestPortalPalettes(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['PaletteBorder', 'PaletteBorder1'], palettenames)
         for s in theme_container['palettes'].objectValues():
             self.assert_(s.aq_explicit.isPortalPalette())
+            self.assert_(s.getInfo())
             self.assert_(s.preview())
 
 

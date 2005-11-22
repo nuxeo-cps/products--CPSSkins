@@ -23,6 +23,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['AreaColor', 'AreaColor1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -35,6 +36,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['AreaShape', 'AreaShape1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -47,6 +49,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['PortalBoxShape', 'PortalBoxShape1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -59,6 +62,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['PortalBoxColor', 'PortalBoxColor1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -71,6 +75,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['FontColor', 'FontColor1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -83,6 +88,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['FontShape', 'FontShape1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -95,6 +101,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['CollapsibleMenuStyle', 'CollapsibleMenuStyle1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -109,6 +116,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
             self.assertEquals(['CalendarStyle', 'CalendarStyle1'], stylenames)
             for s in theme_container['styles'].objectValues():
                 self.assert_(s.aq_explicit.isPortalStyle())
+                self.assert_(s.getInfo())
                 self.assert_(s.render())
                 self.assert_(s.preview())
 
@@ -121,6 +129,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['PortalTabStyle', 'PortalTabStyle1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
@@ -133,6 +142,7 @@ class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assertEquals(['FormStyle', 'FormStyle1'], stylenames)
         for s in theme_container['styles'].objectValues():
             self.assert_(s.aq_explicit.isPortalStyle())
+            self.assert_(s.getInfo())
             self.assert_(s.render())
             self.assert_(s.preview())
 
