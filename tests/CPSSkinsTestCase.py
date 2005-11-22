@@ -23,8 +23,12 @@ ZopeTestCase.installProduct('CPSCompat', quiet=1)
 ZopeTestCase.installProduct('CPSSkins', quiet=1)
 
 # Other products
-for product in ('Localizer', 'TranslationService', 'CMFCalendar',
-                     'CMFActionIcons', 'ZChecker'):
+for product in ('Localizer',
+                'TranslationService',
+                'CMFTopic',
+                'CMFCalendar',
+                'CMFActionIcons',
+                'ZChecker'):
     try:
         ZopeTestCase.installProduct(product, quiet=1)
     except:
