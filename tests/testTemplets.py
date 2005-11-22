@@ -5,6 +5,7 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
+from Products.CMFCore.utils import getToolByName
 from Products.CPSSkins import tests
 TEST_IMG = os.path.join(tests.__path__[0], 'TestImage.jpg')
 
@@ -317,7 +318,8 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
 
     def test_Calendar_Templet(self):
-        if 'portal_calendar' in self.portal.objectIds():
+        ctool = getToolByName(self.portal, 'portal_calendar', None)
+        if ctool is not None and ctool.MetaType() == 'CMF Calendar Tool':
             pageblock = self.pageblock
             templet = pageblock.addContent(type_name='Calendar Templet')
             self.assertEquals('Calendar Templet', getattr(templet, 'title'))
