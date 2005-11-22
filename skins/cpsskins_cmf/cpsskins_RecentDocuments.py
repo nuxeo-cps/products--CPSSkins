@@ -6,8 +6,8 @@ if mtool.isAnonymousUser():
 member = mtool.getAuthenticatedMember()
 
 query = {
-     'modified': member.last_login_time,
-     'modified_usage': 'range:min',
+     'modified': {'query': member.last_login_time,
+                  'range': 'min'},
      'sort_on': 'modified',
      'sort_order': 'reverse',
      'review_state': 'published',
