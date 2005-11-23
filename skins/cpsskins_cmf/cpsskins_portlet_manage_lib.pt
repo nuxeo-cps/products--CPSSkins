@@ -323,7 +323,8 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
                  tal:define="slot_icon python: base_url + content.getIcon(1);
                              slot_title content/title_or_id">
                   <div tal:content="group" class="boxGroupBoxSlotTitle" />
-                  <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group, override=override)">
+                  <tal:block define="portlets python:ptltool.getPortlets(context=here, slot=group,
+                                                                         visibility_check=0, override=override)">
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/box_slot" />
                     <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/empty_slot" />
                   </tal:block>

@@ -5,6 +5,8 @@ New features:
 ~~~~~~~~~~~~~
 - #928 added a label for the current screen name (portlet editor / theme editor)
 - #1024 fixed the tableless renderer when no cell width is specified
+- #1077 portlets that are invisible because of the portlet guard are visible
+  in the portlet editor.
 Bug fixes:
 ~~~~~~~~~~
 -
