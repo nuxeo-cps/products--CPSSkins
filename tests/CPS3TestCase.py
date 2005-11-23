@@ -32,6 +32,7 @@ ZopeTestCase.installProduct('CPSSubscriptions', quiet=1)
 ZopeTestCase.installProduct('CPSSchemas', quiet=1)
 ZopeTestCase.installProduct('CPSDocument', quiet=1)
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
+ZopeTestCase.installProduct('FCKeditor', quiet=1)
 ZopeTestCase.installProduct('Epoz', quiet=1)
 
 # Optional, but must be installed if the exist:
