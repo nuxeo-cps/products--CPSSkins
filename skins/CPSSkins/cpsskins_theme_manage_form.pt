@@ -38,9 +38,9 @@
   style python: panel != 'wysiwyg' and 'background-color: #fff' or None;
   class python: page_container and 'color%s' % page_container.color or None">
   <div class="floatingHeader">
-   <div class="screenname" i18n:translate=""
+   <h1 class="screenname" i18n:translate=""
     tal:define="title string:_Theme editor_"
-    tal:content="python: mcat and mcat(title) or title">Theme editor</div>
+    tal:content="python: mcat and mcat(title) or title">Theme editor</h1>
    <metal:block use-macro="here/cpsskins_theme_widgets/macros/navigate" />
    <tal:block define=" display_url_simulation python: panel != 'layout'"
     condition="python: panel in ['wysiwyg', 'layout', 'mixed']">
