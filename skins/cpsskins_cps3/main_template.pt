@@ -6,7 +6,6 @@
               mtool here/portal_membership;
               ttool here/portal_trees;
               wtool here/portal_workflow;
-              btool here/portal_boxes;
               context_url python:here.getContextUrl(utool=utool);
               base_url here/cpsskins_getBaseUrl;
               here_url here/absolute_url;
@@ -26,7 +25,6 @@
 <metal:block define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></metal:block>
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
-   tal:define="boxes python: renderer != 'macroless' and btool.getBoxes(here) or []"
    tal:attributes="lang locale;
                    xml:lang locale">
     <head>

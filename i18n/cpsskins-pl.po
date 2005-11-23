@@ -2561,24 +2561,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "potwierdzenie skasowania nieu¿ywanych portletów"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "skasuj nieu¿ywane ramki"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "skasuj nieu¿ywane portlety"
 
 
 msgid "description_portlets_visible_from"
 msgstr "widoczne portlety"
-
-
-msgid "description_unused_boxes"
-msgstr "Ramki niewidoczne poniewa¿ bie¿±cy slot nie wystêpuje w tym motywie"
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Nieu¿ywane ramki skasowano"
 
 
 msgid "description_unused_portlets"
@@ -2595,10 +2583,6 @@ msgstr "wy¶wietl portlety (wg. typu)"
 
 msgid "heading_portlet_manage_form"
 msgstr "zarz±dzanie portletem"
-
-
-msgid "heading_unused_boxes"
-msgstr "nieu¿ywane ramki"
 
 
 msgid "heading_unused_portlets"

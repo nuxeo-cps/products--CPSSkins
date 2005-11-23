@@ -2561,24 +2561,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Stai eliminando tutti i portlets non utilizzati. Sei sicuro?"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Elimina le caselle non utilizzate"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "Elimina i portlets non utilizzati"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Portlets visualizzabili a partire da"
-
-
-msgid "description_unused_boxes"
-msgstr "Questi contenitori  non sono visualizzabili in quanto il loro alloggiamento non è presente nella struttura di questo tema."
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Le caselle non utilizzate sono state eliminate."
 
 
 msgid "description_unused_portlets"
@@ -2595,10 +2583,6 @@ msgstr "per tipo di portlet"
 
 msgid "heading_portlet_manage_form"
 msgstr "Gestione dei portlets"
-
-
-msgid "heading_unused_boxes"
-msgstr "Contenitori non utilizzati"
 
 
 msgid "heading_unused_portlets"

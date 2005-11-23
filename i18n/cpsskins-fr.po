@@ -2561,24 +2561,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Les portlets inutilisés vont être supprimés, êtes-vous sûr?"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Supprimer les boîtes inutilisées"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "Supprimer les portlets inutilisés"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Portlets visibles à partir de"
-
-
-msgid "description_unused_boxes"
-msgstr "Ces boîtes sont invisibles car leur groupe ne fait pas partie de ce thème"
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Les boîtes inutilisées ont été supprimées."
 
 
 msgid "description_unused_portlets"
@@ -2595,10 +2583,6 @@ msgstr "Par type de portlet"
 
 msgid "heading_portlet_manage_form"
 msgstr "Gestion des portlets"
-
-
-msgid "heading_unused_boxes"
-msgstr "Boîtes inutilisées"
 
 
 msgid "heading_unused_portlets"

@@ -2559,24 +2559,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Unbenutzte Boxen löschen ?"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Unbenutzte Boxen löschen"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "Unbenutzte Portlets löschen"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Boxen anzeigen ab "
-
-
-msgid "description_unused_boxes"
-msgstr "Unsichtbare Boxen weil ihr Slot nicht im aktuellen Thema enthalten ist"
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Unbenutzte Boxen gelöscht"
 
 
 msgid "description_unused_portlets"
@@ -2593,10 +2581,6 @@ msgstr "Portlets nach Typ sortiert "
 
 msgid "heading_portlet_manage_form"
 msgstr "Portlet Überschrift bearbeiten"
-
-
-msgid "heading_unused_boxes"
-msgstr "Unbenutzte Boxen"
 
 
 msgid "heading_unused_portlets"

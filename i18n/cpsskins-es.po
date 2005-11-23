@@ -2574,24 +2574,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Se van a borrar todos los portlets no utilizados, ¿está usted seguro?"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Borrar cajas no utilizadas"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "Borrar portlets no utilizados"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Portlets visibles desde"
-
-
-msgid "description_unused_boxes"
-msgstr "Cajas que son invisibles porque su slot no está en este tema"
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Borradas las cajas no utilizadas"
 
 
 msgid "description_unused_portlets"
@@ -2608,10 +2596,6 @@ msgstr "Por tipo"
 
 msgid "heading_portlet_manage_form"
 msgstr "Administración de Portlets"
-
-
-msgid "heading_unused_boxes"
-msgstr "Cajas no utilizadas"
 
 
 msgid "heading_unused_portlets"

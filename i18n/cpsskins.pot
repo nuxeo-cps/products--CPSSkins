@@ -893,12 +893,6 @@ msgstr ""
 msgid "_Sub-menu border style_"
 msgstr ""
 
-msgid "heading_unused_boxes"
-msgstr ""
-
-msgid "description_unused_boxes"
-msgstr ""
-
 msgid "_Theme optimizer_"
 msgstr ""
 
@@ -1038,12 +1032,6 @@ msgid "_Edit styles_"
 msgstr ""
 
 msgid "_colors_"
-msgstr ""
-
-msgid "description_delete_unused_boxes"
-msgstr ""
-
-msgid "description_unused_boxes_deleted"
 msgstr ""
 
 msgid "_actionbox_templet_description_"

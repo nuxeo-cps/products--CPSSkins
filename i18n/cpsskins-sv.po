@@ -2559,24 +2559,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Tar bort alla ej använda portlets, är du säker?"
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Ta bort ej använda rutor"
-
-
 msgid "description_delete_unused_portlets"
 msgstr "Ta bort ej använda portlets"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Portlets synliga från"
-
-
-msgid "description_unused_boxes"
-msgstr "Boxar som är osynliga pga att deras slot inte används i detta tema."
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Ej använda rutor borttagna"
 
 
 msgid "description_unused_portlets"
@@ -2593,10 +2581,6 @@ msgstr "Efter typ"
 
 msgid "heading_portlet_manage_form"
 msgstr "Hantering portlets"
-
-
-msgid "heading_unused_boxes"
-msgstr "Ej använda rutor"
 
 
 msgid "heading_unused_portlets"

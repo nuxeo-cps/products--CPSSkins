@@ -2570,24 +2570,12 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr ""
 
 
-msgid "description_delete_unused_boxes"
-msgstr "Vonona ireo boaty tsy miasa"
-
-
 msgid "description_delete_unused_portlets"
 msgstr ""
 
 
 msgid "description_portlets_visible_from"
 msgstr ""
-
-
-msgid "description_unused_boxes"
-msgstr "Tsy hita ireo boaty ireo satria ny vondrona misy azy dia tsy ao anatin'io thème io."
-
-
-msgid "description_unused_boxes_deleted"
-msgstr "Voafafa ireo boaty tsy miasa."
 
 
 msgid "description_unused_portlets"
@@ -2604,10 +2592,6 @@ msgstr ""
 
 msgid "heading_portlet_manage_form"
 msgstr ""
-
-
-msgid "heading_unused_boxes"
-msgstr "Boaty tsy miasa"
 
 
 msgid "heading_unused_portlets"
