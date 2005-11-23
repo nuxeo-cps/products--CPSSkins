@@ -337,7 +337,7 @@ div.simulate_hierarchies {
 h1.screenname {
   font: bold 14px Arial, sans-serif;
   float: right;
-  margin-right: 0.5em;
+  margin: 0 0.5em;
   color: #fff;
 }
 
