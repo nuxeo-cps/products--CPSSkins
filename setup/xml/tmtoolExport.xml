@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object xmlns:tal="http://xml.zope.org/namespaces/tal"
+   tal:define="tm_info context/getToolInfo"
+   tal:attributes="
+      accesskey tm_info/accesskey;
+      debug_mode tm_info/debug_mode;
+      externalthemes tm_info/externalthemes;
+      method_themes tm_info/method_themes"
+/>

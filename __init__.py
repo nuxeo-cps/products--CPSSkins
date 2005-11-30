@@ -332,6 +332,7 @@ def initialize(registrar):
                 'default', 'CPSSkins', 'CPSSkins installation profile.',
                 'profiles/default', 'CPSSkins', EXTENSION)
 
+        if 'CPSSkins:cps3' not in profile_registry.listProfiles():
             profile_registry.registerProfile(
                 'cps3', 'CPS3 themes', 'CPS3 themes for a CPSSkins-based site',
                 'profiles/cps3', 'CPSSkins', EXTENSION)

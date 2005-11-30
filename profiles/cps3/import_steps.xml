@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
 <import-steps>
-
+ <import-step id="cpsskins-themestool" version="20051130-01"
+              handler="Products.CPSSkins.setup.handlers.importThemesTool"
+              title="Themes tool">
+  Import themes tool settings
+ </import-step>
  <import-step id="cpsskins-themes" version="20051130-01"
               handler="Products.CPSSkins.setup.handlers.importPortalThemes"
               title="CPSSkins themes for CPS3">
   Import portal themes
  </import-step>
-
 </import-steps>
