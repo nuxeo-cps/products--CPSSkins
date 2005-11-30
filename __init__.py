@@ -29,6 +29,7 @@ from Products.CMFCore.DirectoryView import registerDirectory
 
 # CMFSetup
 try:
+    from Products.CMFSetup import EXTENSION
     from Products.CMFSetup import profile_registry
     has_profile_registry = True
 except ImportError:
@@ -329,5 +330,5 @@ def initialize(registrar):
         if 'CPSSkins:default' not in profile_registry.listProfiles():
             profile_registry.registerProfile(
                 'default', 'CPSSkins', 'Profile for a CPSSkins-based site.',
-                'profiles/default', 'CPSSkins')
+                'profiles/default', 'CPSSkins', EXTENSION)
 
