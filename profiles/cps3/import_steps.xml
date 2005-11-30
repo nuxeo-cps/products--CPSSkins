@@ -4,7 +4,6 @@
  <import-step id="cpsskins-themes" version="20051130-01"
               handler="Products.CPSSkins.setup.handlers.importPortalThemes"
               title="CPSSkins themes for CPS3">
- <dependency step="cpsskins-toolset"/>
   Import portal themes
  </import-step>
 
