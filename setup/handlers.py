@@ -36,6 +36,7 @@ def importPortalThemes(context):
         return 'Portal themes: Nothing to import.'
 
     #TODO
+    print xml
     return 'Portal themes imported'
 
 def exportPortalThemes(context):
@@ -44,10 +45,12 @@ def exportPortalThemes(context):
     site = context.getSite()
     tmtool = getToolByName(site, 'portal_themes')
     themes = tmtool.getThemes()
-    #ttec = ThemesToolExportConfigurator(site).__of__(site)
-    #context.writeDataFile(_FILENAME, theme_xml, 'text/xml')
 
     tec = ThemeExportConfigurator(site).__of__(site)
+    themes_xml = tec.generateXML()
+
+    context.writeDataFile(_FILENAME, themes_xml, 'text/xml')
+
     for theme in themes:
         theme_id = theme.getId()
         theme_filename = '%s.xml' % theme_id.replace(' ', '_')
@@ -80,6 +83,11 @@ class ThemeExportConfigurator(ExportConfiguratorBase):
         tmtool = getToolByName(self._site, 'portal_themes')
         theme = tmtool.getThemeContainer(theme=theme_id)
         return self._extractObject(theme)['subobjects']
+
+    def getThemes(self):
+        """Return the list of themes.
+        """
+        return getToolByName(self._site, 'portal_themes').getThemes()
 
     def _getExportTemplate(self):
         return PageTemplateFile('themeExport.xml', _xmldir)

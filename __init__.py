@@ -329,6 +329,10 @@ def initialize(registrar):
         # KeyError: Duplicate profile ID exception.
         if 'CPSSkins:default' not in profile_registry.listProfiles():
             profile_registry.registerProfile(
-                'default', 'CPSSkins', 'Profile for a CPSSkins-based site.',
+                'default', 'CPSSkins', 'CPSSkins installation profile.',
                 'profiles/default', 'CPSSkins', EXTENSION)
+
+            profile_registry.registerProfile(
+                'cps3', 'CPS3 themes', 'CPS3 themes for a CPSSkins-based site',
+                'profiles/cps3', 'CPSSkins', EXTENSION)
 

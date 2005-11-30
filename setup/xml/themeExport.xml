@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
-<theme xmlns:tal="http://xml.zope.org/namespaces/tal"
-       tal:define="theme_id options/theme_id;
+<tal:block xmlns:tal="http://xml.zope.org/namespaces/tal"
+        tal:define="theme_id options/theme_id|nothing">
+<themes tal:condition="not:theme_id" tal:define="themes here/getThemes">
+  <theme xmlns:tal="http://xml.zope.org/namespaces/tal"
+        tal:repeat="theme themes"
+        tal:attributes="id theme/id"
+  />
+</themes>
+<theme tal:condition="theme_id"
+       tal:define="theme_id options/theme_id|nothing;
                    subobjects python: here.listThemeObjects(theme_id)"
        tal:content="structure python: context.generateObjectNodes(subobjects)"
 />
+</tal:block>
