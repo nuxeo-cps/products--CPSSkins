@@ -1,0 +1,1132 @@
+<?xml version="1.0"?>
+
+
+<theme>
+ <object name="styles" meta_type="Theme Folder">
+  <property name="title"></property>
+ <object name="1234" meta_type="Area Color">
+  <property name="title">Transparent</property>
+  <property name="default">1</property>
+  <property name="Area_border_color">#cccccc</property>
+  <property name="Area_bg_color"></property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="2143215" meta_type="Portal Box Color">
+  <property name="title">NavigationMenu</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_bg_color">#eeeeee</property>
+  <property name="BoxTitle_border_color">#666666</property>
+  <property name="BoxTitle_bg_position"></property>
+  <property name="BoxTitle_bg_repeat">repeat</property>
+  <property name="BoxBody_bg_color">#ffffff</property>
+  <property name="BoxBody_bg_position"></property>
+  <property name="BoxBody_bg_repeat">repeat</property>
+  <property name="BoxBody_border_color">#ffffff</property>
+  <property name="BoxBody_menuout_color">#ffffff</property>
+  <property name="BoxBody_menuout_border_color">#8caebd</property>
+  <property name="BoxBody_menuin_color">#dee7ef</property>
+  <property name="BoxBody_menuin_border_color">#8caebd #8caebd #dee7ef #8caebd</property>
+  <property name="BoxTitle_font_color">Black</property>
+  <property name="BoxTitle_bg_image"></property>
+  <property name="BoxBody_bg_image"></property>
+  <property name="BoxBody_menuin_icon"></property>
+  <property name="BoxBody_menuout_icon"></property>
+ </object>
+ <object name="3452345" meta_type="Area Color">
+  <property name="title">PloneLightBlue</property>
+  <property name="default">0</property>
+  <property name="Area_border_color">#8baebd</property>
+  <property name="Area_bg_color">#dee7ef</property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="dfg" meta_type="Area Shape">
+  <property name="title">Solid</property>
+  <property name="default">0</property>
+  <property name="Area_border_style">solid</property>
+  <property name="Area_border_width">1px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="sdaf" meta_type="Portal Box Shape">
+  <property name="title">Plone</property>
+  <property name="default">1</property>
+  <property name="BoxTitle_font"></property>
+  <property name="BoxTitle_border_style">solid solid none solid</property>
+  <property name="BoxTitle_border_width">1px</property>
+  <property name="BoxTitle_padding">0em 1.2em 0em 0.9em</property>
+  <property name="BoxTitle_display">inline</property>
+  <property name="BoxBody_border_style">solid solid solid solid</property>
+  <property name="BoxBody_border_width">1px</property>
+  <property name="BoxBody_padding">0.7em 0.7em 0.7em 0.7em</property>
+  <property name="BoxBody_menuin_padding">1px 0px 1px 3px</property>
+  <property name="BoxBody_menuout_padding">1px 0px 1px 3px</property>
+  <property name="BoxBody_menuout_border_style">none</property>
+  <property name="BoxBody_menuout_border_width">0px</property>
+  <property name="BoxBody_menuout_margin">0em</property>
+  <property name="BoxBody_menuin_border_style">none</property>
+  <property name="BoxBody_menuin_border_width">0px</property>
+  <property name="BoxBody_menuin_margin">0em</property>
+ </object>
+ <object name="testshape" meta_type="Area Shape">
+  <property name="title">NoBorder</property>
+  <property name="default">1</property>
+  <property name="Area_border_style">none</property>
+  <property name="Area_border_width">0px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="1065281259" meta_type="Portal Box Shape">
+  <property name="title">Navigation</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_font"></property>
+  <property name="BoxTitle_border_style">none</property>
+  <property name="BoxTitle_border_width">1px</property>
+  <property name="BoxTitle_padding">0em 1.2em 0em 0.9em</property>
+  <property name="BoxTitle_display">block</property>
+  <property name="BoxBody_border_style">none none solid none</property>
+  <property name="BoxBody_border_width">1px</property>
+  <property name="BoxBody_padding">0px</property>
+  <property name="BoxBody_menuin_padding">0px 18px 1px 18px</property>
+  <property name="BoxBody_menuout_padding">0px 18px 1px 18px</property>
+  <property name="BoxBody_menuout_border_style">solid solid none solid</property>
+  <property name="BoxBody_menuout_border_width">1px</property>
+  <property name="BoxBody_menuout_margin">0px 3px 0px 2px</property>
+  <property name="BoxBody_menuin_border_style">solid solid solid solid</property>
+  <property name="BoxBody_menuin_border_width">1px</property>
+  <property name="BoxBody_menuin_margin">0px 3px 0px 2px</property>
+ </object>
+ <object name="1066158575" meta_type="Area Color">
+  <property name="title">White</property>
+  <property name="default">0</property>
+  <property name="Area_border_color">#8baebd</property>
+  <property name="Area_bg_color">#FFFFFF</property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="1066159228" meta_type="Portal Box Color">
+  <property name="title">PloneLightBlue</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_bg_color">#d0d0d0</property>
+  <property name="BoxTitle_border_color">#999999</property>
+  <property name="BoxTitle_bg_position"></property>
+  <property name="BoxTitle_bg_repeat">repeat</property>
+  <property name="BoxBody_bg_color">#dee7ef</property>
+  <property name="BoxBody_bg_position"></property>
+  <property name="BoxBody_bg_repeat">repeat</property>
+  <property name="BoxBody_border_color">#8caebd</property>
+  <property name="BoxBody_menuout_color">#dee7ef</property>
+  <property name="BoxBody_menuout_border_color">#dee7ef</property>
+  <property name="BoxBody_menuin_color">#dee7ef</property>
+  <property name="BoxBody_menuin_border_color">#dee7ef</property>
+  <property name="BoxTitle_font_color">Black</property>
+  <property name="BoxTitle_bg_image"></property>
+  <property name="BoxBody_bg_image"></property>
+  <property name="BoxBody_menuin_icon">blue_arrow_plone.gif</property>
+  <property name="BoxBody_menuout_icon">blue_arrow_plone.gif</property>
+ </object>
+ <object name="1066159366" meta_type="Area Shape">
+  <property name="title">TopBottom</property>
+  <property name="default">0</property>
+  <property name="Area_border_style">solid none solid none</property>
+  <property name="Area_border_width">1px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="1066159546" meta_type="Portal Box Shape">
+  <property name="title">TopBottom</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_font"></property>
+  <property name="BoxTitle_border_style">none none none none</property>
+  <property name="BoxTitle_border_width">1px</property>
+  <property name="BoxTitle_padding">0em 1.2em 0em 0.9em</property>
+  <property name="BoxTitle_display">block</property>
+  <property name="BoxBody_border_style">solid none solid none</property>
+  <property name="BoxBody_border_width">1px</property>
+  <property name="BoxBody_padding">0em 0.5em 0em 0.5em</property>
+  <property name="BoxBody_menuin_padding">0px 5px 0px 5px</property>
+  <property name="BoxBody_menuout_padding">0px 5px 0px 5px</property>
+  <property name="BoxBody_menuout_border_style">none</property>
+  <property name="BoxBody_menuout_border_width">0px</property>
+  <property name="BoxBody_menuout_margin">0em</property>
+  <property name="BoxBody_menuin_border_style">none</property>
+  <property name="BoxBody_menuin_border_width">0px</property>
+  <property name="BoxBody_menuin_margin">0em</property>
+ </object>
+ <object name="1066160467" meta_type="Portal Box Color">
+  <property name="title">PloneWhite</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_bg_color">#dee7ef</property>
+  <property name="BoxTitle_border_color">#8caebd</property>
+  <property name="BoxTitle_bg_position"></property>
+  <property name="BoxTitle_bg_repeat">repeat</property>
+  <property name="BoxBody_bg_color">#ffffff</property>
+  <property name="BoxBody_bg_position"></property>
+  <property name="BoxBody_bg_repeat">repeat</property>
+  <property name="BoxBody_border_color">#8caebd</property>
+  <property name="BoxBody_menuout_color">#ffffff</property>
+  <property name="BoxBody_menuout_border_color">#ffffff</property>
+  <property name="BoxBody_menuin_color">#ffffff</property>
+  <property name="BoxBody_menuin_border_color">#ffffff</property>
+  <property name="BoxTitle_font_color">Black</property>
+  <property name="BoxTitle_bg_image"></property>
+  <property name="BoxBody_bg_image"></property>
+  <property name="BoxBody_menuin_icon">folder_plone.gif</property>
+  <property name="BoxBody_menuout_icon">folder_plone.gif</property>
+ </object>
+ <object name="4066160467" meta_type="Portal Box Color">
+  <property name="title">PloneWhite2</property>
+  <property name="default">1</property>
+  <property name="BoxTitle_bg_color">#dee7ef</property>
+  <property name="BoxTitle_border_color">#8caebd</property>
+  <property name="BoxTitle_bg_position"></property>
+  <property name="BoxTitle_bg_repeat">repeat</property>
+  <property name="BoxBody_bg_color">#ffffff</property>
+  <property name="BoxBody_bg_position"></property>
+  <property name="BoxBody_bg_repeat">repeat</property>
+  <property name="BoxBody_border_color">#8caebd</property>
+  <property name="BoxBody_menuout_color">#ffffff</property>
+  <property name="BoxBody_menuout_border_color">#ffffff</property>
+  <property name="BoxBody_menuin_color">#ffffff</property>
+  <property name="BoxBody_menuin_border_color">#ffffff</property>
+  <property name="BoxTitle_font_color">Black</property>
+  <property name="BoxTitle_bg_image"></property>
+  <property name="BoxBody_bg_image"></property>
+  <property name="BoxBody_menuin_icon">arrow_out_plone.gif</property>
+  <property name="BoxBody_menuout_icon">arrow_out_plone.gif</property>
+ </object>
+ <object name="2066159366" meta_type="Area Shape">
+  <property name="title">Bottom</property>
+  <property name="default">0</property>
+  <property name="Area_border_style">none none solid none</property>
+  <property name="Area_border_width">1px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="1066826946" meta_type="Area Shape">
+  <property name="title">n</property>
+  <property name="default">0</property>
+  <property name="Area_border_style">solid solid none solid</property>
+  <property name="Area_border_width">1px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="1066853519" meta_type="Font Shape">
+  <property name="title">Verdana</property>
+  <property name="default">1</property>
+  <property name="Default_font">11px Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H1_font">normal 150% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H1_padding">0.8em 0em 0em 0em</property>
+  <property name="H1_margin"></property>
+  <property name="H1_border_width">1px</property>
+  <property name="H1_border_style">none none solid none</property>
+  <property name="H2_font">bold 125% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H2_padding">0.6em 0em 0em 0em</property>
+  <property name="H2_margin"></property>
+  <property name="H2_border_width">1px</property>
+  <property name="H2_border_style">none none solid none</property>
+  <property name="H3_font">bold 120% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H3_padding">0.6em 0em 0em 0em</property>
+  <property name="H3_margin"></property>
+  <property name="H3_border_width">1px</property>
+  <property name="H3_border_style">none none solid none</property>
+  <property name="H456_font">bold 115% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H456_padding">0.4em 0em 0em 0em</property>
+  <property name="H456_margin"></property>
+  <property name="H456_border_width">1px</property>
+  <property name="H456_border_style">none none solid none</property>
+  <property name="P_font">100% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="STRONG_font">bold 100% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="P_padding">0.2em 0em 0.2em 0em</property>
+  <property name="A_link_decoration">none</property>
+  <property name="A_visited_decoration">none</property>
+  <property name="A_active_decoration">none</property>
+  <property name="A_hover_decoration">none</property>
+ </object>
+ <object name="1066853673" meta_type="Font Color">
+  <property name="title">Black</property>
+  <property name="default">1</property>
+  <property name="H1_font_color">Black</property>
+  <property name="H1_border_color">#8baebd</property>
+  <property name="H1_bg_color"></property>
+  <property name="H2_font_color">Black</property>
+  <property name="H2_border_color">#8baebd</property>
+  <property name="H2_bg_color"></property>
+  <property name="H3_font_color">Black</property>
+  <property name="H3_border_color">#8baebd</property>
+  <property name="H3_bg_color"></property>
+  <property name="H456_font_color">Black</property>
+  <property name="H456_border_color">#8baebd</property>
+  <property name="H456_bg_color"></property>
+  <property name="A_link">#416973</property>
+  <property name="A_visited">#416973</property>
+  <property name="A_active">#416973</property>
+  <property name="A_hover">#416973</property>
+ </object>
+ <object name="2066853519" meta_type="Font Shape">
+  <property name="title">VerdanaBig</property>
+  <property name="default">0</property>
+  <property name="Default_font">12px Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H1_font">normal 150% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H1_padding">0.8em 0em 0em 0em</property>
+  <property name="H1_margin"></property>
+  <property name="H1_border_width">0px</property>
+  <property name="H1_border_style">none</property>
+  <property name="H2_font">bold 125% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H2_padding">0.6em 0em 0em 0em</property>
+  <property name="H2_margin"></property>
+  <property name="H2_border_width">0px</property>
+  <property name="H2_border_style">none</property>
+  <property name="H3_font">bold 120% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H3_padding">0.6em 0em 0em 0em</property>
+  <property name="H3_margin"></property>
+  <property name="H3_border_width">0px</property>
+  <property name="H3_border_style">none</property>
+  <property name="H456_font">bold 115% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="H456_padding">0.4em 0em 0em 0em</property>
+  <property name="H456_margin"></property>
+  <property name="H456_border_width">0px</property>
+  <property name="H456_border_style">none</property>
+  <property name="P_font">100% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="STRONG_font">bold 100% Verdana, Arial, Helvetica, sans-serif</property>
+  <property name="P_padding">0.2em 0em 0.2em 0em</property>
+  <property name="A_link_decoration">none</property>
+  <property name="A_visited_decoration">none</property>
+  <property name="A_active_decoration">none</property>
+  <property name="A_hover_decoration">none</property>
+ </object>
+ <object name="1066928213" meta_type="Portal Box Color">
+  <property name="title">Green</property>
+  <property name="default">0</property>
+  <property name="BoxTitle_bg_color">#cde2a4</property>
+  <property name="BoxTitle_border_color">#73ae08</property>
+  <property name="BoxTitle_bg_position"></property>
+  <property name="BoxTitle_bg_repeat">repeat</property>
+  <property name="BoxBody_bg_color">#ffffff</property>
+  <property name="BoxBody_bg_position"></property>
+  <property name="BoxBody_bg_repeat">repeat</property>
+  <property name="BoxBody_border_color">#ffffff</property>
+  <property name="BoxBody_menuout_color">#ffffff</property>
+  <property name="BoxBody_menuout_border_color">#73ae08</property>
+  <property name="BoxBody_menuin_color">#cde2a4</property>
+  <property name="BoxBody_menuin_border_color">#73ae08 #73ae08 #cde2a4 #73ae08</property>
+  <property name="BoxTitle_font_color">Black</property>
+  <property name="BoxTitle_bg_image"></property>
+  <property name="BoxBody_bg_image"></property>
+  <property name="BoxBody_menuin_icon"></property>
+  <property name="BoxBody_menuout_icon"></property>
+ </object>
+ <object name="1066928336" meta_type="Area Color">
+  <property name="title">GreenBox</property>
+  <property name="default">0</property>
+  <property name="Area_border_color">#73ae08</property>
+  <property name="Area_bg_color">#FFFFFF</property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="1066928360" meta_type="Area Color">
+  <property name="title">PloneGreen</property>
+  <property name="default">0</property>
+  <property name="Area_border_color">#73ae08</property>
+  <property name="Area_bg_color">#cde2a4</property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="1392560913" meta_type="Portal Tab Style">
+  <property name="title">OSX</property>
+  <property name="default">0</property>
+  <property name="HorizontalMargin">0px</property>
+  <property name="VerticalPadding">2px</property>
+  <property name="HorizontalPadding">10px</property>
+  <property name="Tab_width"></property>
+  <property name="Tabs_bg_image">OSX-bg.gif</property>
+  <property name="Tab_bottom_border_color">#ccc</property>
+  <property name="TabIn_bottom_border_color">#69c</property>
+  <property name="Tab_left_bg_image">OSX-left.png</property>
+  <property name="Tab_right_bg_image">OSX-right.png</property>
+  <property name="TabIn_left_bg_image">OSX-left-sel.png</property>
+  <property name="TabIn_right_bg_image">OSX-right-sel.png</property>
+ </object>
+ </object>
+ <object name="icons" meta_type="Theme Folder">
+  <property name="title"></property>
+ <object name="arrow_out_orange.gif" meta_type="Image">
+  <property name="title">arrow_out_orange.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">8</property>
+  <property name="width" type="string">8</property>
+ </object>
+ <object name="folder_yellow.gif" meta_type="Image">
+  <property name="title">folder_yellow.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">14</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="folder_yellow_selected.gif" meta_type="Image">
+  <property name="title">folder_yellow_selected.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">14</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="folder_opera.gif" meta_type="Image">
+  <property name="title">folder_opera.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">14</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="folder_opera_selected.gif" meta_type="Image">
+  <property name="title">folder_opera_selected.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">14</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="yellow_bullet.gif" meta_type="Image">
+  <property name="title">yellow_bullet.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">16</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="folder_plone.gif" meta_type="Image">
+  <property name="title">folder_plone.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">12</property>
+  <property name="width" type="string">14</property>
+ </object>
+ <object name="arrow_out_plone.gif" meta_type="Image">
+  <property name="title">arrow_out_plone.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">9</property>
+  <property name="width" type="string">6</property>
+ </object>
+ <object name="blue_arrow_plone.gif" meta_type="Image">
+  <property name="title">blue_arrow_plone.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">11</property>
+  <property name="width" type="string">6</property>
+ </object>
+ <object name="cpsicon.png" meta_type="Image">
+  <property name="title"></property>
+  <property name="content_type">image/png</property>
+  <property name="height" type="string">16</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="blue_folder.gif" meta_type="Image">
+  <property name="title">blue_folder.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">16</property>
+  <property name="width" type="string">16</property>
+ </object>
+ </object>
+ <object name="backgrounds" meta_type="Theme Folder">
+  <property name="title"></property>
+ <object name="LightGrayStripes.gif" meta_type="Image">
+  <property name="title">LightGrayStripes.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">9</property>
+  <property name="width" type="string">9</property>
+ </object>
+ <object name="LightGrayStripes2.gif" meta_type="Image">
+  <property name="title">LightGrayStripes2.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">15</property>
+  <property name="width" type="string">16</property>
+ </object>
+ <object name="OSX-left-sel.png" meta_type="Portal Image">
+  <property name="title">OSX-left-sel.png</property>
+  <property name="content_type">image/png</property>
+  <property name="height" type="string">24</property>
+  <property name="width" type="string">36</property>
+ </object>
+ <object name="OSX-right-sel.png" meta_type="Portal Image">
+  <property name="title">OSX-right-sel.png</property>
+  <property name="content_type">image/png</property>
+  <property name="height" type="string">24</property>
+  <property name="width" type="string">160</property>
+ </object>
+ <object name="OSX-right.png" meta_type="Portal Image">
+  <property name="title">OSX-right.png</property>
+  <property name="content_type">image/png</property>
+  <property name="height" type="string">24</property>
+  <property name="width" type="string">160</property>
+ </object>
+ <object name="OSX-left.png" meta_type="Portal Image">
+  <property name="title">OSX-left.png</property>
+  <property name="content_type">image/png</property>
+  <property name="height" type="string">24</property>
+  <property name="width" type="string">35</property>
+ </object>
+ <object name="OSX-bg.gif" meta_type="Portal Image">
+  <property name="title">OSX-bg.gif</property>
+  <property name="content_type">image/gif</property>
+  <property name="height" type="string">33</property>
+  <property name="width" type="string">1</property>
+ </object>
+ </object>
+ <object name="palettes" meta_type="Theme Folder">
+  <property name="title"></property>
+ <object name="1066900781" meta_type="Palette Border">
+  <property name="title">Solid</property>
+  <property name="value">solid</property>
+ </object>
+ <object name="1066928132" meta_type="Palette Color">
+  <property name="title">green</property>
+  <property name="value">#cde2a4</property>
+ </object>
+ <object name="1066928155" meta_type="Palette Color">
+  <property name="title">DarkGreen</property>
+  <property name="value">#73ae08</property>
+ </object>
+ <object name="1067463343" meta_type="Palette Color">
+  <property name="title">PloneLightBlue</property>
+  <property name="value">#dee6ee</property>
+ </object>
+ <object name="1067463388" meta_type="Palette Border">
+  <property name="title">n</property>
+  <property name="value">solid solid none solid</property>
+ </object>
+ <object name="1067463405" meta_type="Palette Border">
+  <property name="title">u</property>
+  <property name="value">none solid solid solid</property>
+ </object>
+ </object>
+ <object name="2108898057" meta_type="Theme Page">
+  <property name="title">Default Page</property>
+  <property name="default">1</property>
+  <property name="preview"></property>
+  <property name="renderer">default</property>
+  <property name="macroless">0</property>
+  <property name="tableless">0</property>
+  <property name="align">center</property>
+  <property name="shape"></property>
+  <property name="color">Transparent</property>
+  <property name="margin">0.5em</property>
+ <object name="1060267354" meta_type="Page Block">
+  <property name="title">top</property>
+  <property name="closed">0</property>
+  <property name="width">100%</property>
+  <property name="height">8em</property>
+  <property name="maxcols">3</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+ <object name="1060893038" meta_type="Image Box Templet">
+  <property name="title">banner</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="i18n">0</property>
+  <property name="caption"></property>
+  <property name="link"></property>
+  <property name="use_internal_link">1</property>
+  <property name="internal_link">/</property>
+ </object>
+ <object name="1060281267" meta_type="Search Box Templet">
+  <property name="title">search box</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">2</property>
+  <property name="align">right</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="style">compact</property>
+ </object>
+ <object name="1060281286" meta_type="Text Box Templet">
+  <property name="title">welcome box</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">1</property>
+  <property name="align">center</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">VerdanaBig</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="text">&lt;h2&gt;Welcome to CPSSkins!&lt;/h2&gt;
+</property>
+  <property name="text_format">html</property>
+  <property name="i18n">0</property>
+ </object>
+ <object name="1060524208" meta_type="Cell Sizer">
+  <property name="xpos">1</property>
+  <property name="cellwidth">60%</property>
+ </object>
+ <object name="1060791958" meta_type="Cell Sizer">
+  <property name="xpos">0</property>
+  <property name="cellwidth">25%</property>
+ </object>
+ <object name="1060937699" meta_type="Cell Sizer">
+  <property name="xpos">2</property>
+  <property name="cellwidth">15%</property>
+ </object>
+ <object name="1060343700" meta_type="Language Templet">
+  <property name="title">flags</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">2</property>
+  <property name="align">right</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor"></property>
+  <property name="fontshape"></property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="style">flags</property>
+  <property name="hide_current_lang">0</property>
+ </object>
+ </object>
+ <object name="1060543125" meta_type="Page Block">
+  <property name="title">Navigation</property>
+  <property name="closed">0</property>
+  <property name="width">100%</property>
+  <property name="height">60px</property>
+  <property name="maxcols">1</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+ <object name="1065028650" meta_type="Portal Box Templet">
+  <property name="title">level1</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">900</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0em</property>
+  <property name="margin">0.5em 0.5em 0em 1.2em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Navigation</property>
+  <property name="boxcolor">NavigationMenu</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">notitle</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">folders</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">1</property>
+  <property name="base">sections</property>
+  <property name="base_path">/sections/</property>
+  <property name="action_categories">
+   <element value="user" />
+   <element value="global" /></property>
+  <property name="custom_action_categories"></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">horizontal</property>
+  <property name="info"></property>
+ </object>
+ <object name="1066159495" meta_type="Portal Box Templet">
+  <property name="title">actionbox</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">10</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">0</property>
+  <property name="align">right</property>
+  <property name="padding">0em</property>
+  <property name="margin">0em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">TopBottom</property>
+  <property name="boxcolor">PloneLightBlue</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">notitle</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">actions</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">0</property>
+  <property name="base"></property>
+  <property name="base_path"></property>
+  <property name="action_categories">
+   <element value="global_header" /></property>
+  <property name="custom_action_categories">
+   <element value="" /></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">horizontal</property>
+  <property name="info"></property>
+ </object>
+ <object name="fewfwef" meta_type="Breadcrumbs Templet">
+  <property name="title">Breadcrumbs</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">10</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0em 0.5em 0em 1.2em</property>
+  <property name="margin">0em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">Bottom</property>
+  <property name="color">White</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="show_icon">0</property>
+  <property name="separator_start">_You are here:_</property>
+  <property name="separator_repeat">&amp;raquo;</property>
+  <property name="separator_end"></property>
+  <property name="i18n">0</property>
+ </object>
+ </object>
+ <object name="main" meta_type="Page Block">
+  <property name="title">Main Columns</property>
+  <property name="closed">0</property>
+  <property name="width">100%</property>
+  <property name="height">400px</property>
+  <property name="maxcols">3</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+ <object name="1066168368" meta_type="Portal Box Templet">
+  <property name="title">workflow</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">60</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">1</property>
+  <property name="align">left</property>
+  <property name="padding">0em</property>
+  <property name="margin">2em 1.7em 0em 1.7em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Navigation</property>
+  <property name="boxcolor">Green</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">notitle</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">actions</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">0</property>
+  <property name="base"></property>
+  <property name="base_path"></property>
+  <property name="action_categories">
+   <element value="workflow" /></property>
+  <property name="custom_action_categories">
+   <element value="" /></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">horizontal</property>
+  <property name="info"></property>
+ </object>
+ <object name="1066826742" meta_type="Text Box Templet">
+  <property name="title">spacer</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">1</property>
+  <property name="align">left</property>
+  <property name="padding">0px</property>
+  <property name="margin">0em 1.2em 0em 1.2em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">n</property>
+  <property name="color">PloneGreen</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="text">&amp;nbsp;</property>
+  <property name="text_format">html</property>
+  <property name="i18n">0</property>
+ </object>
+ <object name="1394458385" meta_type="Portal Box Templet">
+  <property name="title">Global user actions</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">60</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Plone</property>
+  <property name="boxcolor">PloneWhite2</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">standard</property>
+  <property name="title_source">Username</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">actions</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">1</property>
+  <property name="base">workspaces</property>
+  <property name="base_path">/workspaces/</property>
+  <property name="action_categories">
+   <element value="user" />
+   <element value="global" /></property>
+  <property name="custom_action_categories"></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">vertical</property>
+  <property name="info"></property>
+ </object>
+ <object name="1764779358" meta_type="Portal Box Templet">
+  <property name="title">Workspaces</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">10</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Plone</property>
+  <property name="boxcolor">PloneWhite</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">standard</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">folders</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">1</property>
+  <property name="base">workspaces</property>
+  <property name="base_path">/workspaces/</property>
+  <property name="action_categories">
+   <element value="user" />
+   <element value="global" /></property>
+  <property name="custom_action_categories"></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">vertical</property>
+  <property name="info"></property>
+ </object>
+ <object name="1067702891" meta_type="Portal Box Templet">
+  <property name="title">Log in</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">60</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">if_anonymous</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Plone</property>
+  <property name="boxcolor">PloneWhite2</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout"></property>
+  <property name="title_source">Username</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">login</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">0</property>
+  <property name="base"></property>
+  <property name="base_path"></property>
+  <property name="action_categories">
+   <element value="user" />
+   <element value="global" /></property>
+  <property name="custom_action_categories"></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">vertical</property>
+  <property name="info"></property>
+ </object>
+ <object name="590561205" meta_type="Portal Box Templet">
+  <property name="title">Object actions</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">30</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">2</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Plone</property>
+  <property name="boxcolor">PloneWhite2</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">standard</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">actions</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">1</property>
+  <property name="base">main</property>
+  <property name="base_path"></property>
+  <property name="action_categories">
+   <element value="object" /></property>
+  <property name="custom_action_categories">
+   <element value="" /></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">vertical</property>
+  <property name="info"></property>
+ </object>
+ <object name="1067644512" meta_type="Portal Box Templet">
+  <property name="title">About</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">2</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="boxshape">Plone</property>
+  <property name="boxcolor">PloneWhite</property>
+  <property name="boxcorners"></property>
+  <property name="portaltabstyle"></property>
+  <property name="boxlayout">standard</property>
+  <property name="title_source">Templet title</property>
+  <property name="box_title_i18n">0</property>
+  <property name="content">about</property>
+  <property name="show_docs">0</property>
+  <property name="display_hidden_folders">0</property>
+  <property name="folder_items_i18n">0</property>
+  <property name="level">0</property>
+  <property name="base"></property>
+  <property name="base_path"></property>
+  <property name="action_categories">
+   <element value="user" />
+   <element value="global" /></property>
+  <property name="custom_action_categories"></property>
+  <property name="invisible_actions">
+   <element value="" /></property>
+  <property name="orientation">vertical</property>
+  <property name="info"></property>
+ </object>
+ <object name="maincontent" meta_type="Main Content Templet">
+  <property name="title">Main Content</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">60</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">1</property>
+  <property name="align">left</property>
+  <property name="padding">1em</property>
+  <property name="margin">0em 1.2em 1em 1.2em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">Solid</property>
+  <property name="color">GreenBox</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+ </object>
+ <object name="1064876987" meta_type="Document Info Templet">
+  <property name="title">Last modified</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">900</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">1</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">0.5em 1em 0.5em 1em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="content">last_modified</property>
+ </object>
+ <object name="1619077293" meta_type="Cell Sizer">
+  <property name="xpos">0</property>
+  <property name="cellwidth">18%</property>
+ </object>
+ <object name="1060524952" meta_type="Cell Sizer">
+  <property name="xpos">1</property>
+  <property name="cellwidth">64%</property>
+ </object>
+ <object name="1060791994" meta_type="Cell Sizer">
+  <property name="xpos">2</property>
+  <property name="cellwidth">18%</property>
+ </object>
+ </object>
+ <object name="1066168123" meta_type="Page Block">
+  <property name="title">bottom</property>
+  <property name="closed">0</property>
+  <property name="width">100%</property>
+  <property name="height"></property>
+  <property name="maxcols">1</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+ <object name="1066168155" meta_type="Text Box Templet">
+  <property name="title">footer</property>
+  <property name="cacheable">1</property>
+  <property name="cache_lifetime">3600</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">0</property>
+  <property name="xpos">0</property>
+  <property name="align">center</property>
+  <property name="padding">0.5em 0em 0.5em 0em</property>
+  <property name="margin">0em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Verdana</property>
+  <property name="shape">TopBottom</property>
+  <property name="color">PloneLightBlue</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+  <property name="text">CPSSkins is Copyright &amp;copy; 2003-2005 by Jean-Marc Orliaguet.&lt;br/&gt;
+CPS is Copyright &amp;copy; 2002-2005 by Nuxeo SARL.&lt;br/&gt;
+Plone and its visual design is Copyright &amp;copy; 2000-2005 by Alexander Limi, Alan Runyan, Vidar Andersen.</property>
+  <property name="text_format">html</property>
+  <property name="i18n">False</property>
+ </object>
+ </object>
+ </object>
+ <object name="thumbnails" meta_type="Theme Folder">
+  <property name="title"></property>
+ </object></theme>
+

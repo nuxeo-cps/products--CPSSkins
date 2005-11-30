@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+
+<theme>
+ <object name="styles" meta_type="Theme Folder">
+  <property name="title"></property>
+ <object name="1234" meta_type="Area Color">
+  <property name="title">Transparent</property>
+  <property name="default">0</property>
+  <property name="Area_border_color">#cccccc</property>
+  <property name="Area_bg_color">#FFFFFF</property>
+  <property name="Area_bg_image"></property>
+  <property name="Area_bg_position"></property>
+  <property name="Area_bg_repeat">repeat</property>
+  <property name="Area_font_color">#000000</property>
+ </object>
+ <object name="testshape" meta_type="Area Shape">
+  <property name="title">NoBorder</property>
+  <property name="default">0</property>
+  <property name="Area_border_style">none</property>
+  <property name="Area_border_width">0px</property>
+  <property name="Area_text_transform">none</property>
+ </object>
+ <object name="1066241976" meta_type="Font Color">
+  <property name="title">Black</property>
+  <property name="default">0</property>
+  <property name="H1_font_color">Black</property>
+  <property name="H1_border_color">#8baebd</property>
+  <property name="H1_bg_color"></property>
+  <property name="H2_font_color">Black</property>
+  <property name="H2_border_color">#8baebd</property>
+  <property name="H2_bg_color"></property>
+  <property name="H3_font_color">Black</property>
+  <property name="H3_border_color">#666666</property>
+  <property name="H3_bg_color"></property>
+  <property name="H456_font_color">Black</property>
+  <property name="H456_border_color">#666666</property>
+  <property name="H456_bg_color"></property>
+  <property name="A_link">#003399</property>
+  <property name="A_visited">#003399</property>
+  <property name="A_active">#003399</property>
+  <property name="A_hover">#3399FF</property>
+ </object>
+ <object name="1067452786" meta_type="Font Shape">
+  <property name="title">Arial</property>
+  <property name="default">0</property>
+  <property name="Default_font">12px Arial, Helvetica, sans-serif</property>
+  <property name="H1_font">normal 150% Arial, Helvetica, sans-serif</property>
+  <property name="H1_padding">0.8em 0em 0em 0em</property>
+  <property name="H1_margin"></property>
+  <property name="H1_border_width">0px</property>
+  <property name="H1_border_style">none</property>
+  <property name="H2_font">bold 125% Arial, Helvetica, sans-serif</property>
+  <property name="H2_padding">0.6em 0em 0em 0em</property>
+  <property name="H2_margin"></property>
+  <property name="H2_border_width">0px</property>
+  <property name="H2_border_style">none</property>
+  <property name="H3_font">bold 120% Arial, Helvetica, sans-serif</property>
+  <property name="H3_padding">0.6em 0em 0em 0em</property>
+  <property name="H3_margin"></property>
+  <property name="H3_border_width">0px</property>
+  <property name="H3_border_style">none</property>
+  <property name="H456_font">bold 115% Arial, Helvetica, sans-serif</property>
+  <property name="H456_padding">0.4em 0em 0em 0em</property>
+  <property name="H456_margin"></property>
+  <property name="H456_border_width">0px</property>
+  <property name="H456_border_style">none</property>
+  <property name="P_font">100% Arial, Helvetica, sans-serif</property>
+  <property name="STRONG_font">bold 100% Arial, Helvetica, sans-serif</property>
+  <property name="P_padding">0em</property>
+  <property name="A_link_decoration">none</property>
+  <property name="A_visited_decoration">none</property>
+  <property name="A_active_decoration">none</property>
+  <property name="A_hover_decoration">none</property>
+ </object>
+ </object>
+ <object name="icons" meta_type="Theme Folder">
+  <property name="title"></property>
+ </object>
+ <object name="backgrounds" meta_type="Theme Folder">
+  <property name="title"></property>
+ </object>
+ <object name="palettes" meta_type="Theme Folder">
+  <property name="title"></property>
+ </object>
+ <object name="2139549731" meta_type="Theme Page">
+  <property name="title">Default Page</property>
+  <property name="default">1</property>
+  <property name="preview"></property>
+  <property name="renderer">default</property>
+  <property name="macroless">0</property>
+  <property name="tableless">0</property>
+  <property name="align">left</property>
+  <property name="shape"></property>
+  <property name="color">Transparent</property>
+  <property name="margin">0.5em</property>
+ <object name="main" meta_type="Page Block">
+  <property name="title">Page Block</property>
+  <property name="closed">0</property>
+  <property name="width">700px</property>
+  <property name="height"></property>
+  <property name="maxcols">1</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+ <object name="1326734290" meta_type="Main Content Templet">
+  <property name="title">Main content</property>
+  <property name="cacheable">0</property>
+  <property name="cache_lifetime">60</property>
+  <property name="hidden_in_text_mode">0</property>
+  <property name="display_title_in_text_mode">1</property>
+  <property name="xpos">0</property>
+  <property name="align">left</property>
+  <property name="padding">0.5em</property>
+  <property name="margin">2em</property>
+  <property name="templet_height"></property>
+  <property name="fontcolor">Black</property>
+  <property name="fontshape">Arial</property>
+  <property name="shape">NoBorder</property>
+  <property name="color">Transparent</property>
+  <property name="formstyle"></property>
+  <property name="visibility">always</property>
+  <property name="visibility_paths"></property>
+  <property name="languages"></property>
+  <property name="esi_fragment">0</property>
+ </object>
+ </object>
+ </object>
+ <object name="thumbnails" meta_type="Theme Folder">
+  <property name="title"></property>
+ </object></theme>
+
