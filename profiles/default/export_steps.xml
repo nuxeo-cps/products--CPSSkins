@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <export-steps>
+ <export-step id="actions"
+              handler="Products.CMFSetup.actions.exportActionProviders"
+              title="Action Providers">
+  Export actions tool's action providers and their actions.
+ </export-step>
  <export-step id="themes"
               handler="Products.CPSSkins.setup.handlers.exportPortalThemes"
               title="Portal themes">

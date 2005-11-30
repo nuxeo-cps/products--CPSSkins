@@ -5,7 +5,8 @@ from Globals import InitializeClass
 from Globals import package_home
 
 from Products.CMFCore.utils import getToolByName
-from Products.CMFSetup.utils import ConfiguratorBase
+from Products.CMFSetup.utils import ExportConfiguratorBase
+from Products.CMFSetup.utils import ImportConfiguratorBase
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 
 _pkgdir = package_home(globals())
@@ -13,12 +14,28 @@ _xmldir = os.path.join(_pkgdir, 'xml')
 
 _FILENAME = 'themes.xml'
 
+#######################################################################
+# Handlers
+#######################################################################
+
+def importThemesTool(context):
+    """Import the theme tool's properties.
+    """
+
+def exportThemesTool(context):
+    """Export the theme tool's properties.
+    """
+
 def importPortalThemes(context):
     site = context.getSite()
     tmtool = getToolByName(site, 'portal_themes')
-    ttic = ThemesToolImportConfigurator(site).__of__(site)
-    # TODO
+    ttic = ThemeImportConfigurator(site).__of__(site)
 
+    xml = context.readDataFile(_FILENAME)
+    if xml is None:
+        return 'Portal themes: Nothing to import.'
+
+    #TODO
     return 'Portal themes imported'
 
 def exportPortalThemes(context):
@@ -38,26 +55,20 @@ def exportPortalThemes(context):
         context.writeDataFile(theme_filename, theme_xml, 'text/xml', 'themes')
     return 'Portal themes exported'
 
+#######################################################################
+# Configurators
+#######################################################################
 
-class ThemesToolImportConfigurator(ConfiguratorBase):
+class ThemesToolImportConfigurator(ImportConfiguratorBase):
     """ """
 
-InitializeClass(ThemesToolImportConfigurator)
-
-
-class ThemesToolExportConfigurator(ConfiguratorBase):
+class ThemesToolExportConfigurator(ExportConfiguratorBase):
     """ """
 
-InitializeClass(ThemesToolExportConfigurator)
-
-
-class ThemeImportConfigurator(ConfiguratorBase):
+class ThemeImportConfigurator(ImportConfiguratorBase):
     """ """
 
-InitializeClass(ThemeImportConfigurator)
-
-
-class ThemeExportConfigurator(ConfiguratorBase):
+class ThemeExportConfigurator(ExportConfiguratorBase):
     """ """
 
     def _propertyMap(self):
@@ -73,4 +84,8 @@ class ThemeExportConfigurator(ConfiguratorBase):
     def _getExportTemplate(self):
         return PageTemplateFile('themeExport.xml', _xmldir)
 
+
+InitializeClass(ThemesToolImportConfigurator)
+InitializeClass(ThemesToolExportConfigurator)
+InitializeClass(ThemeImportConfigurator)
 InitializeClass(ThemeExportConfigurator)
