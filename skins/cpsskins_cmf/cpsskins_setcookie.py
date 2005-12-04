@@ -10,5 +10,5 @@ if REQUEST is not None:
     RESPONSE = REQUEST.RESPONSE
     RESPONSE.setCookie(cookie_name, theme)
 
-    redirect_url = REQUEST['HTTP_REFERER'] or '.'
+    redirect_url = REQUEST['HTTP_REFERER'] or context.absolute_url()
     RESPONSE.redirect(redirect_url)
