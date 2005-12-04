@@ -9,7 +9,7 @@ New features:
   in the portlet editor.
 Bug fixes:
 ~~~~~~~~~~
--
+- fixed redirection in cpsskins_setcookie if the referer is ''
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
