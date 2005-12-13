@@ -9,9 +9,11 @@ New features:
   in the portlet editor.
 Bug fixes:
 ~~~~~~~~~~
-- fixed redirection in cpsskins_setcookie if the referer is ''
+- Fixed redirection in cpsskins_setcookie if the referer is ''.
+- Made the "CPS3 Default theme" tabs behave well with very short and very long
+  titles (from 1 to 100 letters).
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
-- removed support for CPSBoxes, updated the default CPS3 theme to have it
+- Removed support for CPSBoxes, updated the default CPS3 theme to have it
   work without boxes.
