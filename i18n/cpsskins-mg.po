@@ -1178,6 +1178,10 @@ msgid "_Paste_"
 msgstr ""
 
 
+msgid "_Please select a portlet type_"
+msgstr ""
+
+
 msgid "_Portal Box Color_"
 msgstr "Lokon'ny boaty"
 

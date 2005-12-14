@@ -1167,6 +1167,10 @@ msgid "_Paste_"
 msgstr "einfügen"
 
 
+msgid "_Please select a portlet type_"
+msgstr "Bitte wählen Sie eine Portlet Art"
+
+
 msgid "_Portal Box Color_"
 msgstr "Farbe der Portal Box"
 
@@ -2622,5 +2626,3 @@ msgstr "Übersicht unbenutzte Portlets "
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG Übersicht"
 
-msgid "_Please select a portlet type_"
-msgstr "Bitte wählen Sie eine Portlet Art"

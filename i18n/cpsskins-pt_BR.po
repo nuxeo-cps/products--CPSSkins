@@ -1168,6 +1168,10 @@ msgid "_Paste_"
 msgstr "Colar"
 
 
+msgid "_Please select a portlet type_"
+msgstr ""
+
+
 msgid "_Portal Box Color_"
 msgstr "Cor da caixa do portal"
 
