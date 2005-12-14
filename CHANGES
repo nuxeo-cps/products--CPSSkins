@@ -14,6 +14,8 @@ Bug fixes:
   titles (from 1 to 100 letters).
 - #821 the search box templet in the CPS3 default theme is no longer set in the
   cache for one hour by default.
+- #1165 Added a 'content_well' slot in the 'printable' and in the 'autumn'
+  themes
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
