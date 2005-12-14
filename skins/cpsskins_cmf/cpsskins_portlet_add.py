@@ -3,7 +3,11 @@
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-ptype_id = kw.get('ptype_id', '')
+ptype_id = kw.get('ptype_id')
+if ptype_id is None:
+   # redirect not so convenient (does HTTP_REFERER survives virtual hosting?)
+   return # user stays on same page
+
 title = kw.get('title', ptype_id)
 
 dest_rurl = kw.get('dest_rurl')

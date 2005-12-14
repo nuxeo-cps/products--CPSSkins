@@ -2622,3 +2622,5 @@ msgstr "Übersicht unbenutzte Portlets "
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG Übersicht"
 
+msgid "_Please select a portlet type_"
+msgstr "Bitte wählen Sie eine Portlet Art"

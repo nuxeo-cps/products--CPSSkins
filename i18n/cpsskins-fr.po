@@ -2620,7 +2620,8 @@ msgstr "Structure du site"
 msgid "unused_portlets_panel"
 msgstr "Portlets inutilisés"
 
-
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG"
 
+msgid "_Please select a portlet type_"
+msgstr "Veuillez choisir un type de portlet"

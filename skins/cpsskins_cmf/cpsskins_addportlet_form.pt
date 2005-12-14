@@ -4,6 +4,7 @@
   ttool here/portal_types;
   base_url python:here.cpsskins_getBaseUrl();
   mcat python: tmtool.getTranslationService();
+  cps3mcat nocall:here/translation_service|nothing;
   global boxedit python:1">
   <head>
     <link rel="Stylesheet" type="text/css"
@@ -12,6 +13,20 @@
     tal:content="string:@import url(${base_url}cpsskins_theme_edit.css);" />
     <style type="text/css" media="all"
     tal:content="string:@import url(${base_url}cpsskins_common-css2.css);" />
+    <script language="javascript" >
+      function forbid_empty(button, msg)
+      {
+          elts = button.form.ptype_id; 
+	  nonempty = false; 
+	  for (var i=0; i<elts.length; i++)  {
+	  nonempty = nonempty || elts[i].checked 
+	  } 
+	  if (!nonempty) {
+	    alert(msg)
+	  }  
+	  return(nonempty)
+      }
+    </script>
   </head>
   <body tal:define="
     order request/form/order|python:0; 
@@ -61,8 +76,12 @@
         <input type="string" name="Title"
         tal:attributes="value ptype_id" />
         <input type="submit" class="mainbutton"
-        i18n:attributes="value" tal:define="title string:_button_create_"
-        tal:attributes="value python: mcat and mcat(title) or title" />
+        i18n:attributes="value" 
+	tal:define="title string:_button_create_;
+	            error_msg string:Please select a portlet type;
+		    error_msgid string:_${error_msg}_"
+        tal:attributes="value python: mcat and mcat(title) or title; 
+			onClick python:test(ptype_id, '', 'return forbid_empty(this, \'%s\')' % (cps3mcat and cps3mcat(error_msgid) or mcat and mcat(error_msgid) or error_msg))" />
       </form>
     </div>
   </body>
