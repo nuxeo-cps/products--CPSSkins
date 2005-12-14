@@ -933,6 +933,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     security.declarePublic('getTranslationService')
     def getTranslationService(self, root=0, cat=''):
         """Return the translation service
+
+        Returns None in CPS3 context, because translations will be done
+        by i18n:translate tags in PTs.
         """
         # CMF / Plone1 / CPS3
         localizer = getToolByName(self, 'Localizer', None)
