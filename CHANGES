@@ -12,6 +12,8 @@ Bug fixes:
 - Fixed redirection in cpsskins_setcookie if the referer is ''.
 - Made the "CPS3 Default theme" tabs behave well with very short and very long
   titles (from 1 to 100 letters).
+- #821 the search box templet in the CPS3 default theme is no longer set in the
+  cache for one hour by default.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
