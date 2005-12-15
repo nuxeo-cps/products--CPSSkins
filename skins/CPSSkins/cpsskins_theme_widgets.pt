@@ -155,6 +155,14 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
     tal:content="python:mcat and mcat(title) or title" />
     &nbsp;
     <a class="exit"
+       tal:define="ptltool nocall:here/portal_cpsportlets|nothing;
+       title string:_Portlet editor_"
+       tal:condition="python:ptltool is not None and checkPerm('Manage Portlets', ptltool)"
+       tal:attributes="href string:${base_url}cpsskins_portlet_manage_form;
+                       accesskey ptltool/getAccessKey"
+       i18n:translate=""
+       tal:content="python:mcat and mcat(title) or title" />
+    <a class="exit"
        tal:condition="can_manage" 
        tal:attributes="href string:${tmtool_url}/manage_main"
        tal:define="title string:_ZMI_" i18n:translate="" 
@@ -164,7 +172,6 @@ tal:define="sections python: ['layout', 'mixed', 'wysiwyg'];
                        accesskey tmtool/getAccessKey"
        tal:define="title string:_Exit_" i18n:translate=""
        tal:content="python:mcat and mcat(title) or title" />
-    &nbsp;
   </div>
 </metal:block>
 

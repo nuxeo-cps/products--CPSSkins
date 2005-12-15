@@ -16,6 +16,8 @@ Bug fixes:
   cache for one hour by default.
 - #1165 Added a 'content_well' slot in the 'printable' and in the 'autumn'
   themes
+- Fixed #1149: provide easy navigation between the theme tool management screen
+  to the portlet management through links and accesskeys.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
