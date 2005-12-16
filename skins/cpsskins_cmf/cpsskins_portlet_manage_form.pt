@@ -45,9 +45,9 @@
    <h1 class="screenname" i18n:translate=""
     tal:define="title string:_Portlet editor_"
     tal:content="python: mcat and mcat(title) or title">Portlet editor</h1>
-   <metal:block 
+   <metal:block
     use-macro="here/cpsskins_portlet_manage_lib/macros/clipboard" />
-   <metal:block 
+   <metal:block
     use-macro="here/cpsskins_portlet_manage_lib/macros/navigate" />
    <br style="clear:both" />
    <metal:block
@@ -77,7 +77,7 @@
            tal:content="python: mcat and mcat(title) or title">Main slot</div>
         </metal:block>
       </metal:block>
-    </tal:block> 
+    </tal:block>
 
     <tal:block condition="not:wysiwyg">
       <div class="editForm" tal:condition="python: panel=='unused_portlets'">
@@ -95,20 +95,20 @@
       <div class="editForm"
        tal:condition="python: panel == 'portlet_slots'">
        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/main_canvas" />
-      </div> 
+      </div>
 
       <div class="editForm"
        tal:condition="python: panel == 'portlet_browser'">
        <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/browser_panel" />
-      </div> 
-    </tal:block> 
+      </div>
+    </tal:block>
   </div>
 
   <metal:block use-macro="here/cpsskins_portlet_manage_lib/macros/contextual_menu" />
 
   <!-- Begin pdlib footer -->
   <div id="drag-feedback-box"></div>
-    <script type="text/javascript"><!-- 
+    <script type="text/javascript"><!--
     pd_setupPage();
     // --></script>
   <!-- End pdlib footer -->
