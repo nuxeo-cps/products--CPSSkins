@@ -19,6 +19,8 @@ Bug fixes:
 - Fixed #1149: provide easy navigation between the theme tool management screen
   and the portlet management screen through links and accesskeys.
 - Added a permission check on the access to the Portlet editor.
+- #1210 fixed bullets display problem and converted all icons and backgrounds
+  in the default theme to PNG
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
