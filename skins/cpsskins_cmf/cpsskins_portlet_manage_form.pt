@@ -29,6 +29,11 @@
                   bmf python: ptltool.getBottomMostFolder(context=here);
                   folder_url python: base_url + utool.getRelativeUrl(bmf);
                   folder_editable python: checkPerm('Manage Portlets', bmf);">
+
+<tal:block condition="python:not checkPerm('Manage Portlets', here)">
+  <tal:block define="dummy request/RESPONSE/unauthorized" />
+</tal:block>
+
 <metal:block use-macro="here/cpsskins_global_defines/macros/defines" />
 <head>
   <metal:block use-macro="here/cpsskins_main_template_portlet_edit/macros/head" />
