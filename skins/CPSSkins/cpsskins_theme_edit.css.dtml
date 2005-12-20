@@ -344,8 +344,6 @@ h1.screenname {
 /* Theme tabs */
 
 .themeTabs {
-  position: absolute:
-  margin: 0px;
   background-color: #000;
   width: 100%;
   margin-bottom: 3px;
@@ -1126,7 +1124,7 @@ cursor: crosshair;
 
 .slotSelector a {
   text-decoration: none;
-  font-style: bold
+  font-style: bold;
 }
 
 .slotSelector a:hover {
