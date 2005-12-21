@@ -467,7 +467,7 @@ def update(self):
             ttool.manage_addTypeInformation(
                 id=ptype,
                 add_meta_type='Factory-based Type Information',
-                typeinfo_name=prod+': '+ptype,
+                typeinfo_name='%s: %s (%s)' % (prod, ptype, ptype)
                 )
             pr("   Installation")
 
