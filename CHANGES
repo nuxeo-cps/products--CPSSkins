@@ -26,3 +26,5 @@ New internal features:
 - Got rid of some warnings in test output.
 - Removed support for CPSBoxes, updated the default CPS3 theme to have it
   work without boxes.
+- Improved session behaviour by avoiding potential conflicts when nothing
+  interesting is actually in the session.
