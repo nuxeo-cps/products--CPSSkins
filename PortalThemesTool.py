@@ -50,10 +50,10 @@ from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
                           _writeFileInImportDirectory
 
 try:
-    from Products.CPSUtil.session import sessionHasKey
+    from Products.CPSUtil.session import sessionGet
 except ImportError:
-    def sessionHasKey(request, key):
-        return request.SESSION.has_key(key)
+    def sessionGet(request, key, default):
+        return request.SESSION.get(key, default)
 
 
 # Theme negociation
@@ -166,10 +166,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getViewMode(self):
         """ Gets the current view mode """
 
-        request = self.REQUEST
-        if sessionHasKey(request, VIEW_MODE_SESSION_KEY):
-            return request.SESSION[VIEW_MODE_SESSION_KEY]
-        return {}
+        return sessionGet(self.REQUEST, VIEW_MODE_SESSION_KEY, {})
 
     security.declarePublic('setViewMode')
     def setViewMode(self, reload=0, **kw):
