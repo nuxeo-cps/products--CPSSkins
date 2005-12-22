@@ -49,6 +49,13 @@ from cpsskins_utils import getFreeId
 from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
                           _writeFileInImportDirectory
 
+try:
+    from Products.CPSUtil.session import sessionHasKey
+except ImportError:
+    def sessionHasKey(request, key):
+        return request.SESSION.has_key(key)
+
+
 # Theme negociation
 CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
 CPSSKINS_LOCAL_THEME_ID = '.cpsskins_theme'
@@ -159,9 +166,9 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getViewMode(self):
         """ Gets the current view mode """
 
-        session = self.REQUEST.SESSION
-        if session.has_key(VIEW_MODE_SESSION_KEY):
-            return session[VIEW_MODE_SESSION_KEY]
+        request = self.REQUEST
+        if sessionHasKey(request, VIEW_MODE_SESSION_KEY):
+            return request.SESSION[VIEW_MODE_SESSION_KEY]
         return {}
 
     security.declarePublic('setViewMode')
