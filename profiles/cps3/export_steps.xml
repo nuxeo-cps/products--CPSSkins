@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
 <export-steps>
- <export-step id="cpsskins-themestool"
-              handler="Products.CPSSkins.setup.handlers.exportThemesTool"
-              title="Themes tool">
-  Export themes tool settings
- </export-step>
  <export-step id="cpsskins-themes"
-              handler="Products.CPSSkins.setup.handlers.exportPortalThemes"
-              title="Portal themes">
-  Export portal themes
+              handler="Products.CPSSkins.exportimport.exportThemeTool"
+              title="Themes tool">
+  Export themes tool and themes.
  </export-step>
 </export-steps>

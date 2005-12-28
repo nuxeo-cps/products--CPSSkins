@@ -1,24 +1,9 @@
 <?xml version="1.0"?>
 <import-steps>
-
- <import-step id="cpsskins-toolset" version="20051130-01"
-              handler="Products.CMFSetup.tool.importToolset"
-              title="Required tools for CPSSkins">
-  Create required tools, replacing any of the wrong class, and remove
-  forbidden ones.
+ <import-step id="cpsskins-themes" version="20051130-01"
+              handler="Products.CPSSkins.setup.handlers.importPortalThemes"
+              title="Portal themes">
+  <dependency step="toolset"/>
+  Import portal themes.
  </import-step>
-
- <import-step id="cpsskins-actions" version="20051130-01"
-              handler="Products.CMFSetup.actions.importActionProviders"
-              title="Action Providers for CPSSkins">
- <dependency step="cpsskins-toolset"/>
-   Import actions tool's action providers and their actions.
- </import-step>
-
- <import-step id="cpsskins-typeinfo" version="20051130-01"
-              handler="Products.CMFSetup.typeinfo.importTypesTool"
-              title="Types Info for CPSSkins">
-   Import types tool's type information objects.
- </import-step>
-
 </import-steps>
