@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<object name="main" meta_type="Page Block">
+ <property name="title">Main Columns</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height">500px</property>
+ <property name="maxcols">4</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <object name="1086757157" meta_type="Portal Box Templet"/>
+ <object name="1065028650" meta_type="Portal Box Templet"/>
+ <object name="1069961077" meta_type="Portal Box Templet"/>
+ <object name="1069881946" meta_type="Portal Box Templet"/>
+ <object name="1069883010" meta_type="Portal Box Templet"/>
+ <object name="1069107113" meta_type="Portal Box Group Templet"/>
+ <object name="1068985234" meta_type="Portal Box Templet"/>
+ <object name="2106203779" meta_type="Portal Box Group Templet"/>
+ <object name="1070154557" meta_type="Portal Box Group Templet"/>
+ <object name="187416655" meta_type="Portal Box Group Templet"/>
+ <object name="maincontent" meta_type="Main Content Templet"/>
+ <object name="1069107593" meta_type="Portal Box Group Templet"/>
+ <object name="68175730" meta_type="Cell Sizer"/>
+ <object name="1060524952" meta_type="Cell Sizer"/>
+ <object name="1068985669" meta_type="Portal Box Templet"/>
+ <object name="1063872114" meta_type="Portal Box Group Templet"/>
+ <object name="1067647649" meta_type="Cell Styler"/>
+ <object name="1069153904" meta_type="Cell Sizer"/>
+ <object name="1071251329" meta_type="Cell Sizer"/>
+</object>

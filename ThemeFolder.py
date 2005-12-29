@@ -31,6 +31,10 @@ from Products.CMFCore.PortalFolder import PortalFolder
 from CPSSkinsPermissions import ManageThemes
 from Products.CPSSkins.cpsskins_utils import getFreeTitle
 
+from zope.interface import implements
+from Products.CPSSkins.interfaces import IThemeFolder
+
+
 factory_type_information = (
     {'id': 'Theme Folder',
      'meta_type': 'Theme Folder',
@@ -55,6 +59,8 @@ class ThemeFolder(PortalFolder):
     """
     Class for Theme Folder.
     """
+
+    implements(IThemeFolder)
 
     meta_type = "Theme Folder"
     portal_type = "Theme Folder"

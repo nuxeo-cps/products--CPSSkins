@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="1060543125" meta_type="Page Block">
+ <property name="title">Navigation</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height"></property>
+ <property name="maxcols">1</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <object name="1063975908" meta_type="Action Box Templet"/>
+ <object name="1065028650" meta_type="Portal Box Templet"/>
+ <object name="1064958168" meta_type="Portal Box Templet"/>
+</object>

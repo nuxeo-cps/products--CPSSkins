@@ -1,2 +1,2 @@
 Jean-Marc Orliaguet <jmo@ita.chalmers.se>
-
+Florent Guillaume <fg@nuxeo.com>

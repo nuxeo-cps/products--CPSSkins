@@ -35,6 +35,10 @@ from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import rebuild_properties, callAction, \
                            verifyThemePerms, canonizeId
 
+from zope.interface import implements
+from Products.CPSSkins.interfaces import ICellModifier
+
+
 factory_type_information = (
     {'id': 'Base Cell Modifier',
      'meta_type': 'Base CellModifier',
@@ -75,6 +79,8 @@ class BaseCellModifier(DynamicType, PropertyManager, SimpleItem):
     """
     Base class for cell modifiers.
     """
+
+    implements(ICellModifier)
 
     meta_type = None
     portal_type = None

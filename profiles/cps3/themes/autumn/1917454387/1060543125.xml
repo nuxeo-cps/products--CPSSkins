@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="1060543125" meta_type="Page Block">
+ <property name="title">Navigation</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height">35px</property>
+ <property name="maxcols">1</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <object name="fewfwef" meta_type="Breadcrumbs Templet"/>
+ <object name="1068987983" meta_type="Cell Sizer"/>
+</object>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="styles" meta_type="Theme Folder">
+ <property name="title"></property>
+ <object name="1061651112" meta_type="Portal Box Color"/>
+ <object name="1063871955" meta_type="Portal Box Shape"/>
+ <object name="1066853203" meta_type="Font Color"/>
+ <object name="1066853399" meta_type="Font Shape"/>
+ <object name="1170504231" meta_type="Area Color"/>
+ <object name="545566743" meta_type="Area Color"/>
+ <object name="441453788" meta_type="Area Shape"/>
+ <object name="478492636" meta_type="Portal Tab Style"/>
+ <object name="1596457706" meta_type="Area Color"/>
+</object>

@@ -49,6 +49,9 @@ from cpsskins_utils import getFreeId
 from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
                           _writeFileInImportDirectory
 
+from zope.interface import implements
+from Products.CPSSkins.interfaces import IThemeTool
+
 try:
     from Products.CPSUtil.session import sessionGet
 except ImportError:
@@ -81,7 +84,7 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     Portal Themes Tool
     """
 
-    __implements__ = ActionProviderBase.__implements__
+    implements(IThemeTool)
 
     id = 'portal_themes'
     meta_type = 'Portal Themes Tool'

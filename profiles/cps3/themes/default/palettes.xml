@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="palettes" meta_type="Theme Folder">
+ <property name="title"></property>
+ <object name="1066857760" meta_type="Palette Color"/>
+ <object name="1066858308" meta_type="Palette Color"/>
+ <object name="1066858879" meta_type="Palette Border"/>
+ <object name="1066858966" meta_type="Palette Border"/>
+ <object name="1066859016" meta_type="Palette Border"/>
+ <object name="1066859061" meta_type="Palette Border"/>
+ <object name="1066859095" meta_type="Palette Border"/>
+ <object name="1066859414" meta_type="Palette Border"/>
+ <object name="1476364984" meta_type="Palette Color"/>
+ <object name="1777096575" meta_type="Palette Color"/>
+ <object name="1746415855" meta_type="Palette Color"/>
+ <object name="1518915977" meta_type="Palette Color"/>
+ <object name="1866646727" meta_type="Palette Color"/>
+ <object name="10256998" meta_type="Palette Color"/>
+</object>

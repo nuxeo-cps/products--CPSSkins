@@ -1,0 +1,321 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    >
+
+  <adapter
+      factory=".exportimport.ThemeToolXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IThemeTool
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.PropertyManagerXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IStyle
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.PropertyManagerXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IPalette
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.PropertyManagerXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.ICellModifier
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.PropertyManagerXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IThemeFolder
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.PropertyManagerXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IPageBlockContent
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".exportimport.FileBodyAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSSkins.interfaces.IOFSFile
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <five:implements
+      class="OFS.Image.File"
+      interface="Products.CPSSkins.interfaces.IOFSFile"
+      />
+
+  <!-- class registration -->
+
+  <five:registerClass
+      class=".ActionBox.ActionBox"
+      meta_type="Action Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".AreaColor.AreaColor"
+      meta_type="Area Color"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".AreaShape.AreaShape"
+      meta_type="Area Shape"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".BoxCorners.BoxCorners"
+      meta_type="Box Corners"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".Breadcrumbs.Breadcrumbs"
+      meta_type="Breadcrumbs Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".Calendar.Calendar"
+      meta_type="Calendar Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CalendarStyle.CalendarStyle"
+      meta_type="Calendar Style"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CellBlock.CellBlock"
+      meta_type="Cell Block"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CellHider.CellHider"
+      meta_type="Cell Hider"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CellSizer.CellSizer"
+      meta_type="Cell Sizer"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CellStyler.CellStyler"
+      meta_type="Cell Styler"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CollapsibleMenu.CollapsibleMenu"
+      meta_type="Collapsible Menu Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".CollapsibleMenuStyle.CollapsibleMenuStyle"
+      meta_type="Collapsible Menu Style"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".DocumentInfo.DocumentInfo"
+      meta_type="Document Info Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".FlashBox.FlashBox"
+      meta_type="Flash Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".FontColor.FontColor"
+      meta_type="Font Color"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".FontShape.FontShape"
+      meta_type="Font Shape"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".FormStyle.FormStyle"
+      meta_type="Form Style"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".ImageBox.ImageBox"
+      meta_type="Image Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".Language.Language"
+      meta_type="Language Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".MainContent.MainContent"
+      meta_type="Main Content Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PageBlock.PageBlock"
+      meta_type="Page Block"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PaletteBorder.PaletteBorder"
+      meta_type="Palette Border"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PaletteColor.PaletteColor"
+      meta_type="Palette Color"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalBox.PortalBox"
+      meta_type="Portal Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalBoxColor.PortalBoxColor"
+      meta_type="Portal Box Color"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalBoxGroup.PortalBoxGroup"
+      meta_type="Portal Box Group Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalBoxShape.PortalBoxShape"
+      meta_type="Portal Box Shape"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalTab.PortalTab"
+      meta_type="Portal Tab Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalTabStyle.PortalTabStyle"
+      meta_type="Portal Tab Style"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortalTheme.PortalTheme"
+      meta_type="Portal Theme"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".PortletBox.PortletBox"
+      meta_type="Portlet Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".SearchBox.SearchBox"
+      meta_type="Search Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".TextBox.TextBox"
+      meta_type="Text Box Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".ThemeChooser.ThemeChooser"
+      meta_type="Theme Chooser Templet"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".ThemeFolder.ThemeFolder"
+      meta_type="Theme Folder"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <five:registerClass
+      class=".ThemePage.ThemePage"
+      meta_type="Theme Page"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+</configure>

@@ -32,6 +32,10 @@ from Products.CMFCore.DynamicType import DynamicType
 from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import callAction, renderMeth
 
+from zope.interface import implements
+from Products.CPSSkins.interfaces import IPalette
+
+
 factory_type_information = (
     {'id': 'Base Palette',
      'meta_type': 'Base Palette',
@@ -78,6 +82,8 @@ class BasePalette(DynamicType, PropertyManager, SimpleItem):
     """
     Base class for palettes
     """
+
+    implements(IPalette)
 
     meta_type = None
     portal_type = None

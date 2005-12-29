@@ -7,6 +7,7 @@ New features:
 - #1024 fixed the tableless renderer when no cell width is specified
 - #1077 portlets that are invisible because of the portlet guard are visible
   in the portlet editor.
+- GenericSetup-based import/export of themes. Requires GenericSetup >= r41050
 Bug fixes:
 ~~~~~~~~~~
 - Fixed redirection in cpsskins_setcookie if the referer is ''.

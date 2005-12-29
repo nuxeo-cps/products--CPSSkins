@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="main" meta_type="Page Block">
+ <property name="title">Main Columns</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height">400px</property>
+ <property name="maxcols">3</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <object name="887806807" meta_type="Portal Box Group Templet"/>
+ <object name="1074983170" meta_type="Portal Box Group Templet"/>
+ <object name="fewfwef" meta_type="Breadcrumbs Templet"/>
+ <object name="1063872114" meta_type="Portal Box Group Templet"/>
+ <object name="maincontent" meta_type="Main Content Templet"/>
+ <object name="1074983213" meta_type="Portal Box Group Templet"/>
+ <object name="1064876987" meta_type="Document Info Templet"/>
+ <object name="442246780" meta_type="Cell Sizer"/>
+ <object name="1060524952" meta_type="Cell Sizer"/>
+ <object name="1060791994" meta_type="Cell Sizer"/>
+ <object name="1061721170" meta_type="Cell Styler"/>
+ <object name="64799004" meta_type="Portal Box Group Templet"/>
+ <object name="1067647649" meta_type="Cell Styler"/>
+</object>

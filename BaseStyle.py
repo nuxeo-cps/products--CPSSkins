@@ -36,6 +36,10 @@ from cpsskins_utils import rebuild_properties, callAction, renderMeth, \
                            getFreeId, getFreeTitle, canonizeStyleTitle, \
                            verifyThemePerms, canonizeId
 
+from zope.interface import implements
+from Products.CPSSkins.interfaces import IStyle
+
+
 factory_type_information = (
     {'id': 'Base Style',
      'meta_type': 'Base Style',
@@ -81,6 +85,8 @@ class BaseStyle(DynamicType, PropertyManager, SimpleItem):
     """
     Base class for styles
     """
+
+    implements(IStyle)
 
     meta_type = None
     portal_type = None
