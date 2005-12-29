@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cpsskins-default-it.po\n"
+"Project-Id-Version: CPSSkins Default Italian Translation\n"
 "POT-Creation-Date: 2003-09-26 12:00+CET\n"
-"PO-Revision-Date: 2004-10-01 08:41+0100\n"
-"Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
-"Language-Team: Fabio Nosari <fabnos@fastwebnet.it>\n"
+"PO-Revision-Date: 2005-11-07 18:05+0100\n"
+"Last-Translator: Stefano Schintu <schintu@gmail.com>\n"
+"Language-Team: Italian <cps-devel@nuxeo.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,10 +17,9 @@ msgstr ""
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
-msgid "_You are here:_"
-msgstr "Sei qui:"
-
-
 msgid "_action_themes_reconfig_"
 msgstr "Configura i temi del portale"
+
+msgid "_You are here:_"
+msgstr "Sei qui:"
 
