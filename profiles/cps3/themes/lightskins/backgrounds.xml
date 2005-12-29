@@ -3,5 +3,5 @@
  <property name="title"></property>
  <object name="LightGrayStripes.gif" meta_type="Image"/>
  <object name="LightGrayStripes2.gif" meta_type="Image"/>
- <object name="stripes.gif" meta_type="Portal Image"/>
+ <object name="stripes.gif" meta_type="Image"/>
 </object>
