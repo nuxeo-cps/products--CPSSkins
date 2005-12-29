@@ -32,7 +32,7 @@ from Products.CMFCore.DynamicType import DynamicType
 from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import callAction, renderMeth
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IPalette
 
 

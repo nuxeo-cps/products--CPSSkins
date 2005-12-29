@@ -49,7 +49,7 @@ from cpsskins_utils import getFreeId
 from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
                           _writeFileInImportDirectory
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IThemeTool
 
 try:

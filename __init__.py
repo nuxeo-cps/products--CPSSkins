@@ -27,13 +27,21 @@ except ImportError:
     from Products.CMFCore.CMFCorePermissions import AddPortalContent
 from Products.CMFCore.DirectoryView import registerDirectory
 
-# CMFSetup
+# GenericSetup
 try:
-    from Products.CMFSetup import EXTENSION
-    from Products.CMFSetup import profile_registry
+    from Products.GenericSetup import EXTENSION
+    from Products.GenericSetup import profile_registry
     has_profile_registry = True
 except ImportError:
+    if sys.exc_info()[2].tb_next is not None: raise
     has_profile_registry = False
+
+# CPS
+try:
+    from Products.CPSDefault.interfaces import ICPSSite
+except ImportError:
+    if sys.exc_info()[2].tb_next is not None: raise
+    ICPSSite = None
 
 import CPSSkinsInstaller
 import PortalThemesTool
@@ -336,11 +344,13 @@ def initialize(registrar):
                 'CPSSkins',
                 EXTENSION)
 
-        if 'CPSSkins:cps3' not in profile_registry.listProfiles():
-            profile_registry.registerProfile(
-                'cps3',
-                'CPS Default Themes',
-                "CPS3 themes for a CPSSkins-based site",
-                'profiles/cps3',
-                'CPSSkins',
-                EXTENSION)
+        if ICPSSite is not None:
+            if 'CPSSkins:cps3' not in profile_registry.listProfiles():
+                profile_registry.registerProfile(
+                    'cps3',
+                    'CPS Default Themes',
+                    "CPS3 themes for a CPSSkins-based site",
+                    'profiles/cps3',
+                    'CPSSkins',
+                    EXTENSION,
+                    for_=ICPSSite)

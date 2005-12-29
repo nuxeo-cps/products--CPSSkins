@@ -34,7 +34,7 @@ from Products.CMFCore.utils import getToolByName
 from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import getFreeId, verifyThemePerms
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IPageBlockContent
 
 

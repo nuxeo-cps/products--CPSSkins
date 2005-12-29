@@ -31,7 +31,7 @@ from Products.CMFCore.PortalFolder import PortalFolder
 from CPSSkinsPermissions import ManageThemes
 from Products.CPSSkins.cpsskins_utils import getFreeTitle
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IThemeFolder
 
 

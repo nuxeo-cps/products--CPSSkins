@@ -19,8 +19,17 @@
 """CPSSkins interfaces.
 """
 
-from zope.interface import Interface
-from OFS.interfaces import IPropertyManager
+import sys
+try:
+    from zope.interface import implements
+    from zope.interface import Interface
+    from OFS.interfaces import IPropertyManager
+except ImportError:
+    # Zope 3 not available
+    if sys.exc_info()[2].tb_next is not None: raise
+    def implements(*args): pass
+    class Interface(object): pass
+    class IPropertyManager(Interface): pass
 
 
 class IThemeFolder(IPropertyManager):

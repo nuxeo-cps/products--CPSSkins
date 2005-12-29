@@ -35,7 +35,7 @@ from CPSSkinsPermissions import ManageThemes
 from cpsskins_utils import rebuild_properties, callAction, \
                            verifyThemePerms, canonizeId
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import ICellModifier
 
 

@@ -36,7 +36,7 @@ from cpsskins_utils import rebuild_properties, callAction, renderMeth, \
                            getFreeId, getFreeTitle, canonizeStyleTitle, \
                            verifyThemePerms, canonizeId
 
-from zope.interface import implements
+from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IStyle
 
 
