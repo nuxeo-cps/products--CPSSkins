@@ -21,6 +21,9 @@
 
 from Acquisition import aq_base
 from StringIO import StringIO
+import OFS.Image
+from xml.dom.minidom import parseString
+from xml.parsers.expat import ExpatError
 from Products.CMFCore.utils import getToolByName
 from Products.GenericSetup.utils import exportObjects
 from Products.GenericSetup.utils import importObjects
@@ -37,8 +40,10 @@ from Products.GenericSetup.interfaces import ISetupEnviron
 from Products.GenericSetup.interfaces import IFilesystemExporter
 from Products.GenericSetup.interfaces import IFilesystemImporter
 from Products.CPSSkins.interfaces import IThemeTool
-from Products.CPSSkins.interfaces import IOFSFile
+from Products.CPSSkins.interfaces import IOFSImage
 from OFS.interfaces import IPropertyManager
+
+from ZODB.loglevels import BLATHER as VERBOSE
 
 
 TOOL = 'portal_themes'
@@ -144,17 +149,21 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
 
     _LOGGER_ID = NAME
 
-    def _exportNode(self):
+    def _exportFullNode(self):
         """Export the object as a DOM node.
         """
         node = self._getObjectNode('object')
         node.appendChild(self._extractProperties())
         node.appendChild(self._extractObjects())
         ob = self.context
-        self._logger.info("%s %r exported." % (ob.meta_type, ob.getId()))
+        msg = "%s %r exported." % (ob.meta_type, ob.getId())
+        if ob.meta_type == 'Portal Theme':
+            self._logger.info(msg)
+        else:
+            self._logger.log(VERBOSE, msg)
         return node
 
-    def _importNode(self, node):
+    def _importFullNode(self, node):
         """Import the object from the DOM node.
         """
         if self.environ.shouldPurge():
@@ -163,29 +172,74 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
         self._initProperties(node)
         self._initObjects(node)
         ob = self.context
-        self._logger.info("%s %r imported." % (ob.meta_type, ob.getId()))
+        msg = "%s %r imported." % (ob.meta_type, ob.getId())
+        if ob.meta_type == 'Portal Theme':
+            self._logger.info(msg)
+        else:
+            self._logger.log(VERBOSE, msg)
+
+    def _exportBody(self):
+        """Export the object as a file body.
+        """
+        self._doc.appendChild(self._exportFullNode())
+        return self._doc.toprettyxml(' ')
+
+    def _importBody(self, body):
+        """Import the object from the file body.
+        """
+        try:
+            dom = parseString(body)
+        except ExpatError, e:
+            filename = (self.filename or
+                        '/'.join(self.context.getPhysicalPath()))
+            raise ExpatError('%s: %s' % (filename, e))
+        self._importFullNode(dom.documentElement)
+
+    def _initObjects(self, node):
+        # Hack around _initObjects so that we can construct Image instances
+        # whose constructor takes 3 arguments. Stupid Image.
+        import Products
+        saved_meta_types = Products.meta_types
+        try:
+            if Products.meta_types[0]['name'] != 'Image':
+                Products.meta_types = ({
+                    'name': 'Image',
+                    'instance': self._constructImage,
+                    },) + Products.meta_types
+            ObjectManagerHelpers._initObjects(self, node)
+        finally:
+            Products.meta_types = saved_meta_types
+
+    def _constructImage(self, id):
+        return OFS.Image.Image(id, '', '')
 
 
-class FileBodyAdapter(BodyAdapterBase):
-    """Body exporter/importer for files or images.
+class ImageBodyAdapter(BodyAdapterBase):
+    """Body exporter/importer for images.
     """
 
-    adapts(IOFSFile, ISetupEnviron)
+    adapts(IOFSImage, ISetupEnviron)
     implements(IBody)
 
-    _LOGGER_ID = 'file'
+    _LOGGER_ID = NAME
 
     def __init__(self, context, environ):
-        super(FileBodyAdapter, self).__init__(context, environ)
+        super(ImageBodyAdapter, self).__init__(context, environ)
         # Used during export
         self.mime_type = self.context.getContentType()
+
+    def _getObjectNode(self, name, i18n=True):
+        node = self._doc.createElement(name)
+        node.setAttribute('name', self.context.getId())
+        node.setAttribute('meta_type', 'Image') # hardcode Image on export
+        return node
 
     def _exportBody(self):
         """Export the object as a file body.
         """
         ob = self.context
-        self._logger.info("%s %r exported." % (ob.__class__.__name__,
-                                               ob.getId()))
+        msg = "Image %r exported." % ob.getId()
+        self._logger.log(VERBOSE, msg)
         return str(ob.data)
 
     def _importBody(self, body):
@@ -193,7 +247,5 @@ class FileBodyAdapter(BodyAdapterBase):
         """
         ob = self.context
         ob.manage_upload(body)
-        self._logger.info("%s %r imported." % (ob.__class__.__name__,
-                                               ob.getId()))
-
-    body = property(_exportBody, _importBody)
+        msg = "Image %r imported." % ob.getId()
+        self._logger.log(VERBOSE, msg)

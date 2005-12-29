@@ -97,7 +97,8 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         },
         )
 
-    def __init__(self, id, title,
+    def __init__(self, id,
+                 title = '',
                  i18n = 0,
                  caption = '',
                  link = '',
