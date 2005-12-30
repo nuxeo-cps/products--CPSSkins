@@ -22,8 +22,8 @@
       </metal:cache>
       <metal:headslot define-slot="head_slot" />
     </metal:headslot>
-    <metal:cssslot fill-slot="css_slot">
-      <metal:cssslot define-slot="css_slot" />
+    <metal:cssslot fill-slot="style_slot">
+      <metal:cssslot define-slot="style_slot" />
       <metal:cpsskins use-macro="here/?main_macro/macros/head" />
     </metal:cssslot>
     <metal:javascriptslot fill-slot="javascript_head_slot">
