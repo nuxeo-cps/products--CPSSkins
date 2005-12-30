@@ -1168,10 +1168,6 @@ msgid "_Paste_"
 msgstr "Colar"
 
 
-msgid "_Please select a portlet type_"
-msgstr ""
-
-
 msgid "_Portal Box Color_"
 msgstr "Cor da caixa do portal"
 
@@ -1230,10 +1226,6 @@ msgstr "Caixa do Portal"
 
 msgid "_Portlet Box Templet_"
 msgstr "Modelo de caixa de portlet"
-
-
-msgid "_Portlet editor_"
-msgstr ""
 
 
 msgid "_Portlet type_"
@@ -2564,12 +2556,24 @@ msgid "description_confirm_delete_unused_portlets"
 msgstr "Removento todos os portlets não utilizados, você tem certeza?"
 
 
+msgid "description_delete_unused_boxes"
+msgstr "Remover caixas não utilizadas"
+
+
 msgid "description_delete_unused_portlets"
 msgstr "Remover portlets não utilizados"
 
 
 msgid "description_portlets_visible_from"
 msgstr "Portlets visíveis a partir de"
+
+
+msgid "description_unused_boxes"
+msgstr "Caixas que estão invisíveis porque seus encaixes não estão neste tema"
+
+
+msgid "description_unused_boxes_deleted"
+msgstr "Caixas não utilizadas removidas"
 
 
 msgid "description_unused_portlets"
@@ -2586,6 +2590,10 @@ msgstr "Por tipo"
 
 msgid "heading_portlet_manage_form"
 msgstr "Administração de Portlet"
+
+
+msgid "heading_unused_boxes"
+msgstr "Caixas não utilizadas"
 
 
 msgid "heading_unused_portlets"
