@@ -149,7 +149,7 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
 
     _LOGGER_ID = NAME
 
-    def _exportFullNode(self):
+    def _exportNode(self):
         """Export the object as a DOM node.
         """
         node = self._getObjectNode('object')
@@ -163,7 +163,7 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
             self._logger.log(VERBOSE, msg)
         return node
 
-    def _importFullNode(self, node):
+    def _importNode(self, node):
         """Import the object from the DOM node.
         """
         if self.environ.shouldPurge():
@@ -177,23 +177,6 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
             self._logger.info(msg)
         else:
             self._logger.log(VERBOSE, msg)
-
-    def _exportBody(self):
-        """Export the object as a file body.
-        """
-        self._doc.appendChild(self._exportFullNode())
-        return self._doc.toprettyxml(' ')
-
-    def _importBody(self, body):
-        """Import the object from the file body.
-        """
-        try:
-            dom = parseString(body)
-        except ExpatError, e:
-            filename = (self.filename or
-                        '/'.join(self.context.getPhysicalPath()))
-            raise ExpatError('%s: %s' % (filename, e))
-        self._importFullNode(dom.documentElement)
 
     def _initObjects(self, node):
         # Hack around _initObjects so that we can construct Image instances
@@ -249,3 +232,5 @@ class ImageBodyAdapter(BodyAdapterBase):
         ob.manage_upload(body)
         msg = "Image %r imported." % ob.getId()
         self._logger.log(VERBOSE, msg)
+
+    body = property(_exportBody, _importBody)

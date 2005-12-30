@@ -2,8 +2,8 @@
 <import-steps>
  <import-step id="cpsskins-themes" version="20051130-01"
               handler="Products.CPSSkins.exportimport.importThemeTool"
-              title="Themes tool">
+              title="Theme tool">
   <dependency step="toolset"/>
-  Import themes tool and themes.
+  Import theme tool and themes.
  </import-step>
 </import-steps>

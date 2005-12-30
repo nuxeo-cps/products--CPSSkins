@@ -2,7 +2,7 @@
 <export-steps>
  <export-step id="cpsskins-themes"
               handler="Products.CPSSkins.exportimport.exportThemeTool"
-              title="Themes tool">
-  Export themes tool and themes.
+              title="Theme tool">
+  Export theme tool and themes.
  </export-step>
 </export-steps>
