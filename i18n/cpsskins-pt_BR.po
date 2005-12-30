@@ -2635,3 +2635,14 @@ msgstr "Portlets não utilizados"
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG"
 
+
+#, fuzzy
+msgid "_Portlet editor_"
+msgstr "Portlet editor"
+
+
+#, fuzzy
+msgid "_Please select a portlet type_"
+msgstr "Veuillez choisir un type de portlet"
+
+
