@@ -148,7 +148,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
     #
     security.declarePublic('getCacheParams')
     def getCacheParams(self):
-        """Return a list of cache parameters"
+        """Return a list of cache parameters
         """
 
         params = ['baseurl']

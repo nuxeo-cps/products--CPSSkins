@@ -36,13 +36,6 @@ except ImportError:
     if sys.exc_info()[2].tb_next is not None: raise
     has_profile_registry = False
 
-# CPS
-try:
-    from Products.CPSDefault.interfaces import ICPSSite
-except ImportError:
-    if sys.exc_info()[2].tb_next is not None: raise
-    ICPSSite = None
-
 import CPSSkinsInstaller
 import PortalThemesTool
 
@@ -343,14 +336,3 @@ def initialize(registrar):
                 'profiles/default',
                 'CPSSkins',
                 EXTENSION)
-
-        if ICPSSite is not None:
-            if 'CPSSkins:cps3' not in profile_registry.listProfiles():
-                profile_registry.registerProfile(
-                    'cps3',
-                    'CPS Default Themes',
-                    "CPS3 themes for a CPSSkins-based site",
-                    'profiles/cps3',
-                    'CPSSkins',
-                    EXTENSION,
-                    for_=ICPSSite)

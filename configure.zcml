@@ -45,18 +45,6 @@
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
-  <adapter
-      factory=".exportimport.ImageBodyAdapter"
-      provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IOFSImage
-           Products.GenericSetup.interfaces.ISetupEnviron"
-      />
-
-  <five:implements
-      class="OFS.Image.Image"
-      interface="Products.CPSSkins.interfaces.IOFSImage"
-      />
-
   <!-- class registration -->
 
   <five:registerClass

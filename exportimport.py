@@ -21,7 +21,6 @@
 
 from Acquisition import aq_base
 from StringIO import StringIO
-import OFS.Image
 from xml.dom.minidom import parseString
 from xml.parsers.expat import ExpatError
 from Products.CMFCore.utils import getToolByName
@@ -39,8 +38,9 @@ from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
 from Products.GenericSetup.interfaces import IFilesystemExporter
 from Products.GenericSetup.interfaces import IFilesystemImporter
+
+from Products.CPSDocument.exportimport import CPSObjectManagerHelpers
 from Products.CPSSkins.interfaces import IThemeTool
-from Products.CPSSkins.interfaces import IOFSImage
 from OFS.interfaces import IPropertyManager
 
 from ZODB.loglevels import BLATHER as VERBOSE
@@ -137,11 +137,11 @@ class ThemeToolXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
         # TODO: external themes, method themes
 
 
-class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
-                                PropertyManagerHelpers):
+class PropertyManagerXMLAdapter(XMLAdapterBase, PropertyManagerHelpers,
+                                CPSObjectManagerHelpers):
     """XML importer and exporter for a property-based object.
 
-    This also adapts subobjects.
+    This also adapts subobjects, and Images using CPSObjectManagerHelpers.
     """
 
     adapts(IPropertyManager, ISetupEnviron) # adapts many things
@@ -177,60 +177,3 @@ class PropertyManagerXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
             self._logger.info(msg)
         else:
             self._logger.log(VERBOSE, msg)
-
-    def _initObjects(self, node):
-        # Hack around _initObjects so that we can construct Image instances
-        # whose constructor takes 3 arguments. Stupid Image.
-        import Products
-        saved_meta_types = Products.meta_types
-        try:
-            if Products.meta_types[0]['name'] != 'Image':
-                Products.meta_types = ({
-                    'name': 'Image',
-                    'instance': self._constructImage,
-                    },) + Products.meta_types
-            ObjectManagerHelpers._initObjects(self, node)
-        finally:
-            Products.meta_types = saved_meta_types
-
-    def _constructImage(self, id):
-        return OFS.Image.Image(id, '', '')
-
-
-class ImageBodyAdapter(BodyAdapterBase):
-    """Body exporter/importer for images.
-    """
-
-    adapts(IOFSImage, ISetupEnviron)
-    implements(IBody)
-
-    _LOGGER_ID = NAME
-
-    def __init__(self, context, environ):
-        super(ImageBodyAdapter, self).__init__(context, environ)
-        # Used during export
-        self.mime_type = self.context.getContentType()
-
-    def _getObjectNode(self, name, i18n=True):
-        node = self._doc.createElement(name)
-        node.setAttribute('name', self.context.getId())
-        node.setAttribute('meta_type', 'Image') # hardcode Image on export
-        return node
-
-    def _exportBody(self):
-        """Export the object as a file body.
-        """
-        ob = self.context
-        msg = "Image %r exported." % ob.getId()
-        self._logger.log(VERBOSE, msg)
-        return str(ob.data)
-
-    def _importBody(self, body):
-        """Import the object from the file body.
-        """
-        ob = self.context
-        ob.manage_upload(body)
-        msg = "Image %r imported." % ob.getId()
-        self._logger.log(VERBOSE, msg)
-
-    body = property(_exportBody, _importBody)

@@ -56,6 +56,3 @@ class IPageBlockContent(IPropertyManager):
     """Base interface for page block content (templets).
     """
 
-class IOFSImage(Interface):
-    """OFS Image interface.
-    """
