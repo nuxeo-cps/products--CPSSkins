@@ -655,7 +655,7 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
     #
     security.declarePublic('getCacheParams')
     def getCacheParams(self):
-        """Return a list of cache parameters"
+        """Return a list of cache parameters.
         """
         return []
 
