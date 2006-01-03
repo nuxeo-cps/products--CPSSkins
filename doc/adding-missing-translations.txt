@@ -1,20 +1,33 @@
-A NOTE ABOUT ADDED MISSING TRANSLATIONS
----------------------------------------
+=======================================
+A Note About Added Missing Translations
+=======================================
 
-If some message translations are missing for your language, you may run:
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+If some message translations are missing for your language, you
+may run::
 
   $ cd Products/CPSSkins
-
   $ make i18n-en
 
-this will add translations in English for all untranslated messages.
+This will add translations in English for all untranslated messages.
 
 
-You will also need to install 'i18ndude'
+You will also need to install 'i18ndude'::
 
   $ cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/plone-i18n co -P i18ndude
-
   $ cd i18ndude
-
   $ python setup.py install
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
 
