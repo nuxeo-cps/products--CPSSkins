@@ -1,14 +1,24 @@
-CPSSkins Documentation
-=========================
+===============================
+Index to CPSSkins Documentation
+===============================
+
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
 
 General Documentation
----------------------
+=====================
+
 - `Description <DESCRIPTION.html>`_
 - `Running benchmarks <BENCHMARKING.html>`_
 - `Running tests <TESTING.html>`_
 
+
 Internals
----------
+=========
+
 - `Integration with CPS3 <CPS3-Integration.html>`_
 - `I18n <i18n.html>`_
 - `Adding missing message translations <adding-missing-translations.html>`_
@@ -16,6 +26,17 @@ Internals
 - `Naming conventions <naming-conventions.html>`_
 - `Install themes saved in XML format <installing-xml-themes.html>`_
 
+
 Misc
-----
+====
+
 - `tidy configuration <tidy.conf>`_
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
