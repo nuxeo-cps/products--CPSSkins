@@ -1,15 +1,25 @@
-Local themes:
-=============
+============
+Local themes
+============
+
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+Explanation
+===========
 
 Local theme names are obtained from folder attributes, i.e.
 
 - as the property of a folder (one theme per line)
 
-- as an object located in the folder that is callable and that returns a
-  tuple.
+- as an object located in the folder that is callable and that
+  returns a tuple.
 
-Local themes are computed by collecting all theme information from the portal
-to the context folder.
+Local themes are computed by collecting all theme information from
+the portal to the context folder.
 
 The format for describing themes is:
 
@@ -17,7 +27,7 @@ The format for describing themes is:
 
 - 'n-m:theme'
 
-where:
+Where:
 
 - 'theme' is the theme id
 
@@ -35,44 +45,53 @@ where:
     (n, n) means the subfolders of level n
     ...
 
-Examples:
----------
+Examples
+========
 
-* with a folder property called '.cpsskins_theme':
+- With a folder property called '.cpsskins_theme':
 
-- lines with intervals::
+- Lines with intervals::
 
     0-1:theme1
     2-4:theme2
     6-0:theme3
 
-- string with interval::
+- String with interval::
 
     0-1:theme1
 
-- string without interval::
+- String without interval::
 
     theme1
 
-* with a script called '.cpsskins_theme.py' placed in a folder:
+- With a script called '.cpsskins_theme.py' placed in a folder:
 
-- tuple with intervals::
+- Tuple with intervals::
 
     return ('0-1:theme1', '2-4:theme2', '6-0:theme3')
 
-- string with interval::
+- String with interval::
 
     return '0-1:theme'
 
-Specifying the page
--------------------
 
-To select the page of a theme, add '+page' to the theme name where 'page' is
-the page's name.
+Specifying the Page
+===================
 
-- example::
+To select the page of a theme, add '+page' to the theme name where
+'page' is the page's name.
+
+- Example::
 
     0-1:theme1+green
     2-4:theme2+red
     6-0:theme3+blue
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
 
