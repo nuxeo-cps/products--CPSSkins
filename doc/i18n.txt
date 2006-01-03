@@ -1,7 +1,15 @@
+====================
 Internationalization
 ====================
 
-How to internationalize entries in the selection or multi selection lists.
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+How to internationalize entries in the selection or multi
+selection lists.
 
 - 'i18n'
 
@@ -9,9 +17,10 @@ How to internationalize entries in the selection or multi selection lists.
 
   default: 0
 
-  explanation: if 'i18n' is set the entries in the selection list will be 
-  translated using Localizer / Translation service. msgids are computed
-  on the basis of the list values returned by the 'select_variable'.
+  explanation: if 'i18n' is set the entries in the selection list
+  will be translated using Localizer / Translation service. msgids
+  are computed on the basis of the list values returned by the
+  'select_variable'.
 
 - 'i18n_prefix'
 
@@ -20,7 +29,8 @@ How to internationalize entries in the selection or multi selection lists.
   default: '_'
 
   explanation: the 'i18n_prefix' is prepended to select entries.
-  (e.g. if 'i18n_prefix' is '_option_' 'xxx' becomes 'msgid "_option_xxx"')
+  (e.g. if 'i18n_prefix' is '_option_' 'xxx' becomes 'msgid
+  "_option_xxx"')
 
 - 'i18n_suffix'
 
@@ -37,8 +47,8 @@ How to internationalize entries in the selection or multi selection lists.
 
   default: 0
 
-  if 'i18n_default_domain' is true the default message catalogue will be used 
-  instead of the 'cpsskins' message catalogue.
+  If 'i18n_default_domain' is true the default message catalogue
+  will be used instead of the 'cpsskins' message catalogue.
 
 - 'i18n_transform'
 
@@ -46,14 +56,13 @@ How to internationalize entries in the selection or multi selection lists.
 
   default: ''
   
-  if 'i18n_transform' contains the name of a method, the entry titles will
-  be transformed using the specified method. 
-  This is needed for instance to convert portal type ids to portal type titles.
+  If 'i18n_transform' contains the name of a method, the entry
+  titles will be transformed using the specified method.  This is
+  needed for instance to convert portal type ids to portal type
+  titles.
 
 
-Example:
-
- if 'def LifetimeList()' returns ['10', '20', '30'] ::
+Example:  If 'def LifetimeList()' returns ['10', '20', '30']::
 
   _properties = (
      {'id': 'cache_lifetime', 
@@ -66,10 +75,19 @@ Example:
      }
   )
 
- msgids will be:
+msgids will be:
 
-  - '_option_lifetime_10_' 
-  - '_option_lifetime_20_'
-  - '_option_lifetime_30_'
+- '_option_lifetime_10_' 
+- '_option_lifetime_20_'
+- '_option_lifetime_30_'
 
-  ( 'i18n_suffix' is '_' by default )
+The 'i18n_suffix' is '_' by default.
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
