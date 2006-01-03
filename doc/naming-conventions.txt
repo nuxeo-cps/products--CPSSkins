@@ -1,21 +1,38 @@
+==================
+Naming Conventions
+==================
+
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
 
 
-METHOD NAMES
+Method Names
 ------------
 
-* methods that return information about pre-defined portal objects 
+- Methods that return information about pre-defined portal objects 
   are called 'listXYZ'
 
   e.g. 'listPortalStyles()' ...
 
 
-* methods that return contextual information, folder content, etc.
+- Methods that return contextual information, folder content, etc.
   are called 'getXYZ'
 
   e.g. 'getPageBlocks()'
 
 
-* methods that require a search, an advanced algorithm, etc. 
+- Methods that require a search, an advanced algorithm, etc. 
   are called 'findXYZ'
 
   e.g. 'findOrphanedStyles', 'findIdenticalStyles' ...
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
