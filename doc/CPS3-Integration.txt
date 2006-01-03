@@ -1,103 +1,138 @@
-
+==============================
 CPSSkins <-> CPS3 integration.
 ==============================
 
-Author:
-  Jean-Marc Orliaguet <jmo@ita.chalmers.se>
-Date:
-  2004-08-29
 
-The integration between CPSSkins and CPS3 is done through CPSPortlets.
-CPSPortlets is a product for CPS3 that uses schemas, widgets, vocabularies and 
-layouts to represent portlets. CPSPortlets depends on CPSSchemas and on
-CPSDocument so it should be possible to use CPS Portlets inside CMF/Plone 
-with CPS4CMFPlone.
+:Author: Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+:Date: 2004-08-29
+:Revision: $Id$
 
-Definitions:
-------------
-A portlet is an aggregation of widgets placed on a canvas (portlet layout).
-The markup language used to represent the portlet is restricted to semantic tags
-(i.e. <em> instead of <i>, <strong> instead of <b>, etc.) and no inline 
-style tags are used. CSS classes are allowed (e.g. class="menuselected").
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+Introduction
+============
+
+The integration between CPSSkins and CPS3 is done through
+CPSPortlets. CPSPortlets is a product for CPS3 that uses schemas,
+widgets, vocabularies and layouts to represent portlets.
+CPSPortlets depends on CPSSchemas and on CPSDocument so it should
+be possible to use CPS Portlets inside CMF/Plone with
+CPS4CMFPlone.
+
+
+Definitions
+===========
+
+A portlet is an aggregation of widgets placed on a canvas (portlet
+layout). The markup language used to represent the portlet is
+restricted to semantic tags (i.e. <em> instead of <i>, <strong>
+instead of <b>, etc.) and no inline style tags are used. CSS
+classes are allowed (e.g. class="menuselected").
 
 Portlets are divided into two categories:
 
-- Global portlets are displayed on every page of the portal.
-  They are equivalent to notion of Templet in CPSSkins but without the
+- Global portlets are displayed on every page of the portal. They
+  are equivalent to notion of Templet in CPSSkins but without the
   containing box and its decoration (open, close button, etc.)
-  They are managed by the Portlets Manager (role defined in CPSPortlets) that
-  comprises the portal manager and the Theme Manager (role defined in CPSSkins).
-  Global portlets are displayed inside Portlet Box Templets (CPSSkins).
-  A Portlet Box has a style, a position on a theme layout, decorations, etc. 
-  Its content (the portlet) can be cached in RAM as with any other Templet.
+  They are managed by the Portlets Manager (role defined in
+  CPSPortlets) that comprises the portal manager and the Theme
+  Manager (role defined in CPSSkins). Global portlets are
+  displayed inside Portlet Box Templets (CPSSkins). A Portlet Box
+  has a style, a position on a theme layout, decorations, etc. 
+  Its content (the portlet) can be cached in RAM as with any other
+  Templet.
 
-- Local portlets are displayed in local folders (workspaces, sections, etc.)
-  and in subfolders.
-  They are equivalent to CPS3 local boxes but without the box decoration and 
-  style.
-  They are managed by users who may add Portlets to folders (to be defined).
+- Local portlets are displayed in local folders (workspaces,
+  sections, etc.) and in sub-folders. They are equivalent to CPS3
+  local boxes but without the box decoration and style. They are
+  managed by users who may add Portlets to folders (to be
+  defined).
 
   Local portlets are only visible inside a slot on a theme canvas.
-  Slots correspond to CPS3 macro slots in CPSDefault. They are called Portal 
-  Box Group Templets in CPSSkins. They are identified by a slot name ('left', 
-  'right', ...). The contents of a slot are not known a priori and may 
-  therefor vary depending on the context.
+  Slots correspond to CPS3 macro slots in CPSDefault. They are
+  called Portal Box Group Templets in CPSSkins. They are
+  identified by a slot name ('left', 'right', ...). The contents
+  of a slot are not known a priori and may therefor vary depending
+  on the context.
 
-  The Theme Manager may create slots and users may insert portlets inside
-  slots. The slot acts as a sort of proxy by refering to all portlets that are
-  associated to the slot's name.
+  The Theme Manager may create slots and users may insert portlets
+  inside slots. The slot acts as a sort of proxy by referring to
+  all portlets that are associated to the slot's name.
 
-  When a slot gets removed or is being renamed, the associated portlets are 
-  not removed. They become invisible portlets as long as they are not
-  associated to a visible slot again.
+  When a slot gets removed or is being renamed, the associated
+  portlets are not removed. They become invisible portlets as long
+  as they are not associated to a visible slot again.
 
-  Local portlets may be visible in a given theme and invisible in another theme.
+  Local portlets may be visible in a given theme and invisible in
+  another theme.
 
-Import / export of portlets:
-----------------------------
 
-- Exporting/Importing Portlet Boxes.
-  CPSSkins themes are exported as usual. Only references to portlets
-  (portlet id for global portlets) or references to slot names for local
-  portlets are exported. References are preserved when themes is imported.
+Import/Export of Portlets
+===========================
 
-- Exporting/Importing CPS portlets:
-  Portlets may be exported just like CPS documents. 
-  It is important that the portlet ids are preserved when importing global
-  portlets and that the slot name is preserved when importing local portlets.
+- Exporting/importing Portlet Boxes.
 
-RAM cache:
-----------
+  CPSSkins themes are exported as usual. Only references to
+  portlets (portlet id for global portlets) or references to slot
+  names for local portlets are exported. References are preserved
+  when themes is imported.
 
-- Portlets can use the internal RAM cache of CPSSkins to improve performance.
-  If the content of a portlet changes depending on the context (e.g. navigation,
-  actions, etc.) the portlet should inform CPSSkins about the minimal set of
-  parameters needed to build the RAM cache index (e.g. the current url, 
-  the username, the current language, etc.)
+- Exporting/importing CPS portlets:
 
-  The rendering time of cached portlets is the same independently of the type
-  and the complexity of the portlet (typically 0.01s) which highly increases
-  CPU availability.
+  Portlets may be exported just like CPS documents.  It is
+  important that the portlet IDs are preserved when importing
+  global portlets and that the slot name is preserved when
+  importing local portlets.
 
-Management screens:
--------------------
 
-- Global portlets are managed directly in CPSSkins like any other Templet
-  using the WYSIWYG editor (drag-and-drop, contextual menus, style
-  management, etc.).
-  An extra tab called 'Portlet' is displayed in the Templet's edit form.
+RAM Cache
+=========
 
-- Local portlets are managed in a portlet management screen similar to CPS3's
-  box management form with support for drag-and-drop, contextual menus, etc. 
-  This screen is available outside the theme editor to users who may manage
-  portlets in their home folder or inside group folders, etc.
-  It is kept separate from the box management screen of CPS3 and existing boxes
-  will coexist with portlets by sharing the same slots if necessary to allow 
-  for a smooth transition from CPS3 boxes to CPS portlets.
+- Portlets can use the internal RAM cache of CPSSkins to improve
+  performance. If the content of a portlet changes depending on
+  the context (e.g. navigation, actions, etc.) the portlet should
+  inform CPSSkins about the minimal set of parameters needed to
+  build the RAM cache index (e.g. the current URL, the username,
+  the current language, etc.)
 
-Slot names.
------------
+  The rendering time of cached portlets is the same independently
+  of the type and the complexity of the portlet (typically 0.01s)
+  which highly increases CPU availability.
 
-- Slot names are no longer predetermined. New names can be added arbitrarily
-  but existing CPS3 boxes can only be displayed inside the standard slots 
-  ('left', 'right', 'top', ...)
+
+Management Screens
+==================
+
+- Global portlets are managed directly in CPSSkins like any other
+  Templet using the WYSIWYG editor (drag-and-drop, contextual
+  menus, style management, etc.). An extra tab called 'Portlet' is
+  displayed in the Templet's edit form.
+
+- Local portlets are managed in a portlet management screen
+  similar to CPS3's box management form with support for
+  drag-and-drop, contextual menus, etc.  This screen is available
+  outside the theme editor to users who may manage portlets in
+  their home folder or inside group folders, etc. It is kept
+  separate from the box management screen of CPS3 and existing
+  boxes will coexist with portlets by sharing the same slots if
+  necessary to allow for a smooth transition from CPS3 boxes to
+  CPS portlets.
+
+
+Slot Names
+==========
+
+- Slot names are no longer predetermined. New names can be added
+  arbitrarily but existing CPS3 boxes can only be displayed inside
+  the standard slots ('left', 'right', 'top', ...)
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
