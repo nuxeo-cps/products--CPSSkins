@@ -20,7 +20,6 @@ msgstr ""
 msgid "_You are here:_"
 msgstr "Jeste¶ tutaj:"
 
-
 msgid "_action_themes_reconfig_"
 msgstr "Style Portala"
 

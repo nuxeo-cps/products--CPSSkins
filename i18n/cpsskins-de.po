@@ -18,2610 +18,1958 @@ msgstr ""
 msgid "_(default style)_"
 msgstr "(Standard Style)"
 
-
 msgid "_A active_"
 msgstr "Farbe des aktiven Linkes"
-
 
 msgid "_A hover_"
 msgstr "Farbe des schwebenden Linkes"
 
-
 msgid "_A link_"
 msgstr "Link Farbe"
-
 
 msgid "_A visited_"
 msgstr "Farbe des besuchten Linkes"
 
-
 msgid "_A_active_decoration_"
 msgstr "Verzierung des aktiven Linkes"
-
 
 msgid "_A_hover_decoration_"
 msgstr "Verzierung des schwebenden Linkes"
 
-
 msgid "_A_link_decoration_"
 msgstr "Verzierung eines Linkes"
-
 
 msgid "_A_visited_decoration_"
 msgstr "Verzierung eines besuchten Linkes"
 
-
 msgid "_Action Box Templet_"
 msgstr "Action Box Templet"
-
 
 msgid "_Action box_"
 msgstr "Action Box"
 
-
 msgid "_Action categories_"
 msgstr "Aktions-Kategorien"
-
 
 msgid "_Add a column_"
 msgstr "Spalte hinzufügen"
 
-
 msgid "_Add a theme_"
 msgstr "Thema hinzufügen"
-
 
 msgid "_Add an image_"
 msgstr "Bild hinzufügen"
 
-
 msgid "_Add content_"
 msgstr "Inhalt hinzufügen"
-
 
 msgid "_Add_a_new_Templet_"
 msgstr "Neues Templet hinzufügen"
 
-
 msgid "_Add_a_new_palette_entry_"
 msgstr "Neues Paletten Eintrag hinzufügen"
-
 
 msgid "_Add_a_new_style_"
 msgstr "Neues Style hinzufügen"
 
-
 msgid "_Add_a_portlet_"
 msgstr "Neues Portlet hinzufügen"
-
 
 msgid "_Align_"
 msgstr "Ausrichtung"
 
-
 msgid "_Appearance_"
 msgstr "Aussehen"
-
 
 msgid "_April_"
 msgstr "April"
 
-
 msgid "_Area Color_"
 msgstr "Farbe des Arbeitsbereiches"
-
 
 msgid "_Area Shape_"
 msgstr "Form des Arbeitsbereiches"
 
-
 msgid "_Area active background color_"
 msgstr "Hintergrundfarbe aktiver Bereich"
-
 
 msgid "_Area active border color_"
 msgstr "Rahmenfarbe aktiver Bereich"
 
-
 msgid "_Area background color_"
 msgstr "Hintergrundfarbe"
-
 
 msgid "_Area background image_"
 msgstr "Hintergrundbild"
 
-
 msgid "_Area background position_"
 msgstr "Bereich Hintergrund Position"
-
 
 msgid "_Area background repeat_"
 msgstr "Bereich Hintergrund Wiederholen"
 
-
 msgid "_Area border color_"
 msgstr "Rahmenfarbe"
-
 
 msgid "_Area border style_"
 msgstr "Rahmenstil"
 
-
 msgid "_Area border width_"
 msgstr "Rahmenbreite"
-
 
 msgid "_Area color_"
 msgstr "Farben des Arbeitsbereiches"
 
-
 msgid "_Area font color_"
 msgstr "Schriftfarbe"
-
 
 msgid "_Area shape_"
 msgstr "Form des Arbeitsbereiches"
 
-
 msgid "_Area text transform_"
 msgstr "Textbereich verändern"
-
 
 msgid "_August_"
 msgstr "August"
 
-
 msgid "_Author_"
 msgstr "Autor"
-
 
 msgid "_Background image_"
 msgstr "Hintergrund Bild"
 
-
 msgid "_Background position_"
 msgstr ""
-
 
 msgid "_Background repeat_"
 msgstr ""
 
-
 msgid "_Base path_"
 msgstr "Basispfad"
-
 
 msgid "_Border style_"
 msgstr "Rahmenstil"
 
-
 msgid "_Bottom border color_"
 msgstr "Randfarbe unten"
-
 
 msgid "_Bottom left image_"
 msgstr "unteres linkes Bild"
 
-
 msgid "_Bottom right image_"
 msgstr "unteres rechtes Bild"
-
 
 msgid "_Box Corners_"
 msgstr "Rahmen Ecken"
 
-
 msgid "_Box color_"
 msgstr "Farbe einer Portal Box"
-
 
 msgid "_Box corners_"
 msgstr "Ecken der Box"
 
-
 msgid "_Box layout_"
 msgstr "Layout einer Portal Box"
-
 
 msgid "_Box orientation_"
 msgstr "Ausrichtung einer Portal Box"
 
-
 msgid "_Box shape_"
 msgstr "Form einer Portal Box"
-
 
 msgid "_BoxBody background color_"
 msgstr "Box-Titel Hintergrundfarbe"
 
-
 msgid "_BoxBody background image_"
 msgstr "Hintergundbild für Box-Inhalt"
-
 
 msgid "_BoxBody border color_"
 msgstr "Box-Titel Rahmenfarbe"
 
-
 msgid "_BoxBody border style_"
 msgstr "Rand-Stil des Box-Inhaltes"
-
 
 msgid "_BoxBody border width_"
 msgstr "Rahmenbreite des Box-Inhaltes"
 
-
 msgid "_BoxBody menuin border color_"
 msgstr "Farbe des Menü-Rahmens (selektiert)"
-
 
 msgid "_BoxBody menuin border style_"
 msgstr "Rahmen-Stil des ausgwählten Menüs"
 
-
 msgid "_BoxBody menuin border width_"
 msgstr "Rahmenbreite des ausgwählten Menüs"
-
 
 msgid "_BoxBody menuin color_"
 msgstr "Farbe des ausgewählten Menüs"
 
-
 msgid "_BoxBody menuin icon_"
 msgstr "Icon für ausgewähltes Menü"
-
 
 msgid "_BoxBody menuin margin_"
 msgstr "Rand des ausgwählten Menüs"
 
-
 msgid "_BoxBody menuin padding_"
 msgstr "Padding für ausgewähltes Menü"
-
 
 msgid "_BoxBody menuout border color_"
 msgstr "Farbe des Menü-Rahmens"
 
-
 msgid "_BoxBody menuout border style_"
 msgstr "Rand-Stil des Menüs"
-
 
 msgid "_BoxBody menuout border width_"
 msgstr "Menü Rahmenbreite"
 
-
 msgid "_BoxBody menuout color_"
 msgstr "Menü Farbe"
-
 
 msgid "_BoxBody menuout icon_"
 msgstr "Menü Icon"
 
-
 msgid "_BoxBody menuout margin_"
 msgstr "Menü Rand"
-
 
 msgid "_BoxBody menuout padding_"
 msgstr "Menü Padding"
 
-
 msgid "_BoxBody padding_"
 msgstr "Padding des Box-Inhaltes"
-
 
 msgid "_BoxBody text align_"
 msgstr "Textausrichtung des Box-Inhaltes"
 
-
 msgid "_BoxTitle background color_"
 msgstr "Box-Titel Hintergrundfarbe"
-
 
 msgid "_BoxTitle background image_"
 msgstr "Box-Titel Hintergrundbild"
 
-
 msgid "_BoxTitle border color_"
 msgstr "Box-Titel Farbe"
-
 
 msgid "_BoxTitle border style_"
 msgstr "Stil des Box-Überschrift-Rahmens"
 
-
 msgid "_BoxTitle border width_"
 msgstr "Rahmenbreite der Box-Überschrift"
-
 
 msgid "_BoxTitle display_"
 msgstr "Anzeige der Box-Überschrift"
 
-
 msgid "_BoxTitle font color_"
 msgstr "Box-Titel Schriftfarbe"
-
 
 msgid "_BoxTitle font_"
 msgstr "Box-Titel Schriftfart"
 
-
 msgid "_BoxTitle padding_"
 msgstr "Padding der Box-Überschrift"
-
 
 msgid "_BoxTitle text align_"
 msgstr "Textausrichtung der Box-Überschrift"
 
-
 msgid "_Breadcrumbs Templet_"
 msgstr "Brotkrumen Templet"
-
 
 msgid "_Breadcrumbs_"
 msgstr "Brotkrumen"
 
-
 msgid "_Broken Templet!_"
 msgstr "Dieses Templet ist Defekt"
-
 
 msgid "_Cache effectivity_"
 msgstr "Cache effizienz"
 
-
 msgid "_Cache lifetime_"
 msgstr "Cache Aufbewahrungszeit"
-
 
 msgid "_Cache manager_"
 msgstr "Cache Manager"
 
-
 msgid "_Cache parameters updated_"
 msgstr "Cache Parameter aktualisiert"
-
 
 msgid "_Cacheable in RAM_"
 msgstr "Im Arbeitsspeicher zwischenspeichern"
 
-
 msgid "_Cacheable?_"
 msgstr "Cache-fähig?"
-
 
 msgid "_Caching_"
 msgstr "Caching "
 
-
 msgid "_Calendar Style_"
 msgstr "Kalender Stil"
-
 
 msgid "_Calendar Templet_"
 msgstr "Kalender Templet"
 
-
 msgid "_Calendar_"
 msgstr "Kalender"
-
 
 msgid "_Cell Block_"
 msgstr "Zellen Block"
 
-
 msgid "_Cell Hider_"
 msgstr "Zellen-Verstecker"
-
 
 msgid "_Cell Sizer_"
 msgstr "Zellen-Vergrößerer"
 
-
 msgid "_Cell Styler_"
 msgstr "Zellen-Styler"
-
 
 msgid "_Cell width_"
 msgstr "Zellenbreite"
 
-
 msgid "_Cellblock margin_"
 msgstr "Seitenblock Rand"
-
 
 msgid "_Collapsible Menu Style_"
 msgstr "Zusammenklappbares Menü Stil"
 
-
 msgid "_Collapsible Menu Templet_"
 msgstr "Zusammenklappbares Menü Templet"
-
 
 msgid "_Collapsible menu_"
 msgstr "Zusammenklappbares Menü"
 
-
 msgid "_Color_"
 msgstr "Farbe"
-
 
 msgid "_Columns_"
 msgstr "Spalten"
 
-
 msgid "_Content_"
 msgstr "Inhalt"
-
 
 msgid "_Copy_"
 msgstr "kopieren"
 
-
 msgid "_Copyright_"
 msgstr "Copyright"
-
 
 msgid "_Create a copy_"
 msgstr "Kopie erstellen"
 
-
 msgid "_Created by:_"
 msgstr "Erstellt von:"
-
 
 msgid "_Creator_"
 msgstr "Urheber"
 
-
 msgid "_Custom action categories_"
 msgstr "Eigene Aktions-Kategorien"
-
 
 msgid "_Cut_"
 msgstr "ausschneiden"
 
-
 msgid "_Days background color_"
 msgstr "Hintergrundfarbe für Tage"
-
 
 msgid "_Days font color_"
 msgstr "Schriftfarbe für Tage"
 
-
 msgid "_December_"
 msgstr "Dezember"
-
 
 msgid "_Default page_"
 msgstr "Standardseite"
 
-
 msgid "_Default theme_"
 msgstr "Standardthema"
-
 
 msgid "_Default_font_"
 msgstr "Standard-Schriftart"
 
-
 msgid "_Delete Templet?_"
 msgstr "Templet löschen?"
-
 
 msgid "_Delete style?_"
 msgstr "Stil löschen?"
 
-
 msgid "_Delete theme?_"
 msgstr "Thema löschen?"
-
 
 msgid "_Delete_"
 msgstr "Löschen"
 
-
 msgid "_Deleting this image, are you sure?_"
 msgstr "Soll dieses Bild wirklich gelöscht werden?"
-
 
 msgid "_Deleting this palette entry, are you sure?_"
 msgstr "Soll dieser Paletten-Eintrag wirklich gelöscht werden?"
 
-
 msgid "_Deleting this style, are you sure?_"
 msgstr "Soll dieser Stil wirklich gelöscht werden?"
-
 
 msgid "_Depth level_"
 msgstr "Verschachtelungs-Tiefe"
 
-
 msgid "_Description_"
 msgstr "dieser Stile definiert Farben für Portal Boxens"
-
 
 msgid "_Destination_slot_"
 msgstr "ziel Slot"
 
-
 msgid "_Display a contextual icon_"
 msgstr "Kontextbezogens Icon"
-
 
 msgid "_Display hidden folders_"
 msgstr "versteckte Ordner anzeigen"
 
-
 msgid "_Display title in text mode_"
 msgstr "Titel im Textmodus anzeigen"
-
 
 msgid "_Document Info Templet_"
 msgstr "Dokumenteninfo Templet"
 
-
 msgid "_Document info_"
 msgstr "Dokumenteninfo"
-
 
 msgid "_ESI fragment_"
 msgstr "ESI Fragmente"
 
-
 msgid "_ESI_"
 msgstr "ESI (Edge Side Includes ) "
-
 
 msgid "_Edit images_"
 msgstr "Bilder bearbeiten"
 
-
 msgid "_Edit palettes_"
 msgstr "Paletten bearbeiten"
-
 
 msgid "_Edit styles_"
 msgstr "Stil "
 
-
 msgid "_Edit the current style_"
 msgstr "aktiven Stil bearbeiten"
-
 
 msgid "_Edit the page_"
 msgstr "Seite  bearbeiten"
 
-
 msgid "_Edit the theme_"
 msgstr "Thema bearbeiten"
-
 
 msgid "_Edit this page block_"
 msgstr "Diese Seiten Block editieren "
 
-
 msgid "_Edit_"
 msgstr "Bearbeiten"
-
 
 msgid "_Elements_"
 msgstr "Elemente"
 
-
 msgid "_Enable ESI_"
 msgstr "ESI Benutzen ?"
-
 
 msgid "_End string_"
 msgstr "End string"
 
-
 msgid "_Event background color_"
 msgstr "Hintergrundfarbe für Ereignisse"
-
 
 msgid "_Event border color_"
 msgstr "Rahmenfarbe für Ereignisse"
 
-
 msgid "_Event font color_"
 msgstr "Schriftfarbe für Ereignisse"
-
 
 msgid "_Exit_"
 msgstr "Tschüss"
 
-
 msgid "_February_"
 msgstr "Februar"
-
 
 msgid "_Flash Box Templet_"
 msgstr "Flash Box Templet"
 
-
 msgid "_Flash box_"
 msgstr "Flash Box"
-
 
 msgid "_Flash caption_"
 msgstr "Flash Überschrift"
 
-
 msgid "_Flash movie height_"
 msgstr "Höhe des Flash-Filmes"
-
 
 msgid "_Flash movie width_"
 msgstr "Breite des Flash-Filmes"
 
-
 msgid "_Font Color_"
 msgstr "Schriftartfarbe"
-
 
 msgid "_Font Shape_"
 msgstr "Form der Schriftart"
 
-
 msgid "_Font color_"
 msgstr "Schriftart-Farbe"
-
 
 msgid "_Font shape_"
 msgstr "Schriftart-Form"
 
-
 msgid "_Forgot your password?_"
 msgstr "Passwort vergessen?"
-
 
 msgid "_Form Style_"
 msgstr "Zellen Stil"
 
-
 msgid "_Form padding_"
 msgstr "Rahmen Padding"
-
 
 msgid "_Form style_"
 msgstr "Rahmenstil"
 
-
 msgid "_Form_"
 msgstr "Rahmen"
-
 
 msgid "_Fr_"
 msgstr "Fr"
 
-
 msgid "_Guest_"
 msgstr "Gast"
-
 
 msgid "_H1_"
 msgstr "H1"
 
-
 msgid "_H1_bg_color_"
 msgstr "H1 Hintergrundfarbe"
-
 
 msgid "_H1_border_color_"
 msgstr "H1 Rahmenfarbe"
 
-
 msgid "_H1_border_style_"
 msgstr "H1 Rahmen-Stil"
-
 
 msgid "_H1_border_width_"
 msgstr "H1 Rahmenbreite"
 
-
 msgid "_H1_font_"
 msgstr "H1 Schriftart"
-
 
 msgid "_H1_font_color_"
 msgstr "H1 Schriftfarbe"
 
-
 msgid "_H1_margin_"
 msgstr "H1 Rand"
-
 
 msgid "_H1_padding_"
 msgstr "H1 Padding"
 
-
 msgid "_H2_"
 msgstr "H2"
-
 
 msgid "_H2_bg_color_"
 msgstr "H2 Hintergrundfarbe"
 
-
 msgid "_H2_border_color_"
 msgstr "H2 Rahmenfarbe"
-
 
 msgid "_H2_border_style_"
 msgstr "H2 Rahmen-Stil"
 
-
 msgid "_H2_border_width_"
 msgstr "H2 Rahmenbreite"
-
 
 msgid "_H2_font_"
 msgstr "H2 Schriftart"
 
-
 msgid "_H2_font_color_"
 msgstr "H2 Schriftfarbe"
-
 
 msgid "_H2_margin_"
 msgstr "H2 Rand"
 
-
 msgid "_H2_padding_"
 msgstr "H2 Padding"
-
 
 msgid "_H3_"
 msgstr "H3"
 
-
 msgid "_H3_bg_color_"
 msgstr "H3 Hintergrundfarbe"
-
 
 msgid "_H3_border_color_"
 msgstr "H3 Rahmenfarbe"
 
-
 msgid "_H3_border_style_"
 msgstr "H3 Rahmen-Stil"
-
 
 msgid "_H3_border_width_"
 msgstr "H3 Rahmenbreite"
 
-
 msgid "_H3_font_"
 msgstr "H3 Schriftart"
-
 
 msgid "_H3_font_color_"
 msgstr "H3 Schriftfarbe"
 
-
 msgid "_H3_margin_"
 msgstr "H3 Rand"
-
 
 msgid "_H3_padding_"
 msgstr "H3 Padding"
 
-
 msgid "_H456_"
 msgstr "H4, H5, H6"
-
 
 msgid "_H456_bg_color_"
 msgstr "H4, H5, H6 Hintergrundfarbe"
 
-
 msgid "_H456_border_color_"
 msgstr "H4, H5, H6 Rahmenfarbe"
-
 
 msgid "_H456_border_style_"
 msgstr "H4, H5, H6 Rahmen-Stil"
 
-
 msgid "_H456_border_width_"
 msgstr "H4, H5, H6 Rahmenbreite"
-
 
 msgid "_H456_font_"
 msgstr "H4, H5, H6 Schriftart"
 
-
 msgid "_H456_font_color_"
 msgstr "H4, H5, H6 Schriftfarbe"
-
 
 msgid "_H456_margin_"
 msgstr "H4, H5, H6 Rand"
 
-
 msgid "_H456_padding_"
 msgstr "H4, H5, H6 Padding"
-
 
 msgid "_Header background color_"
 msgstr "Hintergrundfarbe für Kopfbereich"
 
-
 msgid "_Header font color_"
 msgstr "Schriftfarbe für Kopfbereich"
-
 
 msgid "_Height_"
 msgstr "Höhe"
 
-
 msgid "_Hidden in text mode_"
 msgstr "Im Textmodus versteckt"
-
 
 msgid "_Hide current language_"
 msgstr "Aktuelle Sprache verstecken"
 
-
 msgid "_Hide this cell_"
 msgstr "Zelle verstecken"
-
 
 msgid "_Hide title_"
 msgstr "Titel verstecken"
 
-
 msgid "_Hide_overriden_portlets_"
 msgstr "Überschiebene Portlets "
-
 
 msgid "_Hierarchy base_"
 msgstr "Hierarchie-Basis"
 
-
 msgid "_Horizontal alignment_"
 msgstr "Horizontale Ausrichtung"
-
 
 msgid "_Horizontal margin_"
 msgstr "Horizontale Grenze"
 
-
 msgid "_Horizontal padding_"
 msgstr "Horizontale Füllung"
-
 
 msgid "_Icon size_"
 msgstr "Icon Größe"
 
-
 msgid "_Image Box Templet_"
 msgstr "Bild Box Templet"
-
 
 msgid "_Image box_"
 msgstr "Bild Box"
 
-
 msgid "_Image caption_"
 msgstr "Bildüberschrift"
-
 
 msgid "_Images_"
 msgstr "Bilder"
 
-
 msgid "_Import a theme_"
 msgstr "Portal Thema importieren"
-
 
 msgid "_Info text_"
 msgstr "Informationstext"
 
-
 msgid "_Insert a Templet here_"
 msgstr "Neues Templet einfügen"
-
 
 msgid "_Insert a page block_"
 msgstr "Page Block einfügen"
 
-
 msgid "_Internal link_"
 msgstr "Interner Link"
-
 
 msgid "_Invisible actions_"
 msgstr "Unsichtbare Aktionen"
 
-
 msgid "_January_"
 msgstr "Januar"
-
 
 msgid "_July_"
 msgstr "Juli"
 
-
 msgid "_June_"
 msgstr "Juni"
-
 
 msgid "_KB_"
 msgstr "KB"
 
-
 msgid "_Language Templet_"
 msgstr "Sprach Selektor Templet"
-
 
 msgid "_Language selector_"
 msgstr "Sprach-Selektor"
 
-
 msgid "_Last modified:_"
 msgstr "Zuletzt geändert:"
-
 
 msgid "_Left-side image_"
 msgstr "Bild linker Rand"
 
-
 msgid "_License_"
 msgstr "Lizenz"
-
 
 msgid "_Link (http://, mailto: ...)_"
 msgstr "Link (http://, mailto: ...)"
 
-
 msgid "_List orientation_"
 msgstr "Listen Ausrichtung"
-
 
 msgid "_Location_"
 msgstr "ablage ort"
 
-
 msgid "_Log in_"
 msgstr "Log in"
-
 
 msgid "_Macroless_"
 msgstr "ohne Makros"
 
-
 msgid "_Main Content Templet_"
 msgstr "Hauptinhalt Templet"
-
 
 msgid "_Main content_"
 msgstr "Hauptinhalt"
 
-
 msgid "_Manage_"
 msgstr "Bearbeiten"
-
 
 msgid "_March_"
 msgstr "März"
 
-
 msgid "_Margin_"
 msgstr "Rand"
-
 
 msgid "_Maximum number of items_"
 msgstr "Maximale Anzahl von Einträgen"
 
-
 msgid "_May_"
 msgstr "May"
-
 
 msgid "_Memory usage_"
 msgstr "Speicherverbrauch"
 
-
 msgid "_Menu entry_"
 msgstr "Menü Eintrag"
-
 
 msgid "_Menu title_"
 msgstr "Menü Titel"
 
-
 msgid "_Merge this style?_"
 msgstr "Stil zusammenfassen?"
-
 
 msgid "_Minimize / Maximize_"
 msgstr "Minimieren / Maximieren"
 
-
 msgid "_Mo_"
 msgstr "Mo"
-
 
 msgid "_Month_"
 msgstr "Monat"
 
-
 msgid "_More ..._"
 msgstr "Mehr ..."
-
 
 msgid "_Move down_"
 msgstr "Nach unten"
 
-
 msgid "_Move left_"
 msgstr "Nach links"
-
 
 msgid "_Move right_"
 msgstr "Nach rechts"
 
-
 msgid "_Move this cell to the left_"
 msgstr "Diese Zelle nach links bewegen"
-
 
 msgid "_Move this cell to the right_"
 msgstr "Diese Zelle nach rechts bewegen"
 
-
 msgid "_Move up_"
 msgstr "Nach oben"
-
 
 msgid "_No items published since your last log-in_"
 msgstr "Seit der letzen Anmeldung wurde nichts publiziert"
 
-
 msgid "_No preview_"
 msgstr "keine Vorschau möglich"
-
 
 msgid "_Not available in layout mode_"
 msgstr "Im Layoutmodus nicht verfügbar"
 
-
 msgid "_November_"
 msgstr "November"
-
 
 msgid "_Number of columns_"
 msgstr "Anzahl Spalten"
 
-
 msgid "_October_"
 msgstr "Oktober"
-
 
 msgid "_Only select items that are supposed to get translated:_"
 msgstr "Nur ausgesuchte Einträge übersetzen"
 
-
 msgid "_Other categories_"
 msgstr "Andere Kategorien"
-
 
 msgid "_Other images_"
 msgstr "Andere Bilder"
 
-
 msgid "_Other palettes_"
 msgstr "Andere Paletten"
-
 
 msgid "_Other portlets_"
 msgstr "Andere Portlets"
 
-
 msgid "_Other styles_"
 msgstr "Andere Stile"
-
 
 msgid "_Other themes_"
 msgstr "Andere Themen"
 
-
 msgid "_P_font_"
 msgstr "Absatz Schriftart"
-
 
 msgid "_P_padding_"
 msgstr "Paragraph Padding"
 
-
 msgid "_Page Block_"
 msgstr "Seitenblock"
-
 
 msgid "_Page renderer_"
 msgstr "Seiten Renderer"
 
-
 msgid "_Palette Border_"
 msgstr "Rahmen"
-
 
 msgid "_Palette Color_"
 msgstr "Farben"
 
-
 msgid "_Palettes_"
 msgstr "Paletten"
-
 
 msgid "_Password_"
 msgstr "Passwort"
 
-
 msgid "_Paste_"
 msgstr "einfügen"
-
 
 msgid "_Please select a portlet type_"
 msgstr "Bitte wählen Sie eine Portlet Art"
 
-
 msgid "_Portal Box Color_"
 msgstr "Farbe der Portal Box"
-
 
 msgid "_Portal Box Group Templet_"
 msgstr "Portal Box Gruppe Templet"
 
-
 msgid "_Portal Box Shape_"
 msgstr "Form der Portal Box"
-
 
 msgid "_Portal Box Templet_"
 msgstr "Portal Box Templet"
 
-
 msgid "_Portal Tab Style_"
 msgstr "Stil Portal Tab "
-
 
 msgid "_Portal Tab Templet_"
 msgstr "Portal Tab Templet"
 
-
 msgid "_Portal Tab_"
 msgstr "Portal Tab"
-
 
 msgid "_Portal Theme_"
 msgstr "Portal Thema"
 
-
 msgid "_Portal box color_"
 msgstr "Portal Box Farbe"
-
 
 msgid "_Portal box content_"
 msgstr "Portal Box Inhalt"
 
-
 msgid "_Portal box group_"
 msgstr "Portal Box Gruppe"
-
 
 msgid "_Portal box shape_"
 msgstr "Portal box Form"
 
-
 msgid "_Portal box title source_"
 msgstr "Portal Box Titelquelle"
-
 
 msgid "_Portal box_"
 msgstr "Portal Box"
 
-
 msgid "_Portlet Box Templet_"
 msgstr "Portlet Box Templet"
-
 
 msgid "_Portlet editor_"
 msgstr ""
 
-
 msgid "_Portlet type_"
 msgstr "Portlet Art"
-
 
 msgid "_Portlet_"
 msgstr "Portlet"
 
-
 msgid "_Preview background color_"
 msgstr "Hintergrundfarbe für Vorschau"
-
 
 msgid "_Preview border color_"
 msgstr "Rahmenfarbe für Vorschau"
 
-
 msgid "_Preview font color_"
 msgstr "Schriftfarbe für Vorschau"
-
 
 msgid "_Preview_"
 msgstr "Vorschau "
 
-
 msgid "_Read more_"
 msgstr "Mehr"
-
 
 msgid "_Remove a column_"
 msgstr "Spalte entfernen"
 
-
 msgid "_Repeat string_"
 msgstr "Wiederholungstext"
-
 
 msgid "_Reveal_overriden_portlets_"
 msgstr "Portlets Überschreiben ?"
 
-
 msgid "_Right-side image_"
 msgstr "Bild rechter Rand"
-
 
 msgid "_STRONG_font_"
 msgstr "Fettschrift"
 
-
 msgid "_Sa_"
 msgstr "Sa"
-
 
 msgid "_Search Box Templet_"
 msgstr "Such Box Templet"
 
-
 msgid "_Search box_"
 msgstr "Suchbox"
-
 
 msgid "_See the error log_"
 msgstr "Hinweise im Fehlerbericht"
 
-
 msgid "_Select a style_"
 msgstr "Stil auswählen"
-
 
 msgid "_Select a theme to manage_"
 msgstr "Auswählbare Themen zum Bearbeiten"
 
-
 msgid "_Selectable themes_"
 msgstr "Auswählbare Themen"
-
 
 msgid "_September_"
 msgstr "September"
 
-
 msgid "_Set the size of this cell_"
 msgstr "Größe der Zelle setzen"
-
 
 msgid "_Shape_"
 msgstr "Form"
 
-
 msgid "_Shortcut icon_"
 msgstr "Shortcut Icon"
-
 
 msgid "_Show action icons_"
 msgstr "Aktions-Icons anzeigen"
 
-
 msgid "_Show add items_"
 msgstr "Einträge hinzufügen"
-
 
 msgid "_Show all categories_"
 msgstr "Alle Kategorien anzeigen"
 
-
 msgid "_Show documents in folders_"
 msgstr "Documents im Ordner anzeigen"
-
 
 msgid "_Show month_"
 msgstr "Monat anzeigen"
 
-
 msgid "_Show preview_"
 msgstr "Vorschau "
-
 
 msgid "_Show weekdays_"
 msgstr "Wochentage anzeigen"
 
-
 msgid "_Show year_"
 msgstr "Jahr anzeigen"
-
 
 msgid "_Simulate this URL ..._"
 msgstr "URL simulieren ..."
 
-
 msgid "_Slot name_"
 msgstr "Slot Name"
-
 
 msgid "_Some items can be pasted here_"
 msgstr "Objekte einfügen"
 
-
 msgid "_Start string_"
 msgstr "Start Text"
-
 
 msgid "_Style_"
 msgstr "Stil"
 
-
 msgid "_Styles_"
 msgstr "Styles"
-
 
 msgid "_Stylize this cell_"
 msgstr "Stil der Zelle bestimmen"
 
-
 msgid "_Su_"
 msgstr "So"
-
 
 msgid "_Sub-menu background color_"
 msgstr "Hintergrundfarbe für Untermenüs"
 
-
 msgid "_Sub-menu border color_"
 msgstr "Rahmenfarbe für Untermenüs"
-
 
 msgid "_Sub-menu border style_"
 msgstr "Rahmenstil für Untermenüs"
 
-
 msgid "_Sub-menu font color_"
 msgstr "Schriftfarbe für Untermenüs"
-
 
 msgid "_Sub-menu font_"
 msgstr "Schriftart für Untermenüs"
 
-
 msgid "_Sub-menu hover background color_"
 msgstr "Hintergrundfarbe für schwebende Untermenüs"
-
 
 msgid "_Sub-menu hover font color_"
 msgstr "Schriftfarbe für schwebende Untermenüs"
 
-
 msgid "_Sub-menu items width_"
 msgstr "Breite der Untermenüpunkte"
-
 
 msgid "_Tab style_"
 msgstr "Tab Stil"
 
-
 msgid "_Tab width_"
 msgstr "Zellenbreite"
-
 
 msgid "_Tableless_"
 msgstr "ohne Tabellen"
 
-
 msgid "_Templet color_"
 msgstr "Templet Farbe"
-
 
 msgid "_Templet height_"
 msgstr "Templet Höhe"
 
-
 msgid "_Templet margin_"
 msgstr "Templet Rand"
-
 
 msgid "_Templet padding_"
 msgstr "Templet Padding"
 
-
 msgid "_Templet shape_"
 msgstr "Templet Form"
-
 
 msgid "_Templets_"
 msgstr "Templets"
 
-
 msgid "_Text Box Templet_"
 msgstr "Text Box Templet"
-
 
 msgid "_Text box_"
 msgstr "Text Box"
 
-
 msgid "_Text format_"
 msgstr "Text Format"
-
 
 msgid "_Th_"
 msgstr "Do"
 
-
 msgid "_The benchmark timer is not installed_"
 msgstr "Der Benchmark Timer ist nicht installiert"
-
 
 msgid "_The languages in which it is visible_"
 msgstr "Die Sprache, in der es sichtbar ist"
 
-
 msgid "_The visibility paths_"
 msgstr "Die Sichtbarkeits-Pfade"
-
 
 msgid "_Theme Chooser Templet_"
 msgstr "Themen Selektor Templet"
 
-
 msgid "_Theme Page_"
 msgstr "Portal Thema"
-
 
 msgid "_Theme chooser_"
 msgstr "Themen Selektor"
 
-
 msgid "_Theme editor_"
 msgstr "Themen Editor"
-
 
 msgid "_Theme export_"
 msgstr "Thema exportieren"
 
-
 msgid "_Theme name_"
 msgstr "Name des Themes"
-
 
 msgid "_Theme optimizer_"
 msgstr "Themen Optimierer"
 
-
 msgid "_Theme renderer_"
 msgstr "Themen Rendere"
-
 
 msgid "_Theme_"
 msgstr "Name des Themes"
 
-
 msgid "_Theme_rebuilt_"
 msgstr "Thema neuaufbauen "
-
 
 msgid "_Themes manager_"
 msgstr "Themen Manager"
 
-
 msgid "_These Templets are invisible and can be deleted:_"
 msgstr "Diese Templets sind unsichtbar und können gelöscht werden:"
-
 
 msgid "_These Templets could be cached in memory for faster rendering:_"
 msgstr "Diese Templets können im Speicher gehalten werden um die Anzeige zu beschleunigen"
 
-
 msgid "_These styles are identical and can be merged together:_"
 msgstr "Die Stile sind identisch und können zusammengefasst werden:"
-
 
 msgid "_These styles are not used and can be deleted:_"
 msgstr "Diese Stile werden nicht benutzt und können gelöscht werden:"
 
-
 msgid "_This style is already used by_"
 msgstr "Dieser Stil wird schon benutzt von :"
-
 
 msgid "_This style will be used by default_"
 msgstr "Dieser Stil wird als standard benutzt"
 
-
 msgid "_This theme is completely optimized_"
 msgstr "Dieser Stil ist vollständig optimiert"
-
 
 msgid "_Title_"
 msgstr "Titel"
 
-
 msgid "_Today border color_"
 msgstr "Rahmenfarbe für Heute"
-
 
 msgid "_Top left image_"
 msgstr "oberes linkes Bild"
 
-
 msgid "_Top menu background color_"
 msgstr "Hintergrundfarbe der Hauptmenüpunkte"
-
 
 msgid "_Top menu border color_"
 msgstr "Farbe der Hauptmenüpunkte"
 
-
 msgid "_Top menu border style_"
 msgstr "Rahmenstil des Hauptmenüs"
-
 
 msgid "_Top menu font color_"
 msgstr "Schriftfarbe für Hauptmenüpunkte"
 
-
 msgid "_Top menu font_"
 msgstr "Schriftart für Hauptmenü"
-
 
 msgid "_Top menu hover background color_"
 msgstr "Farbe für schwebende Hauptmenüpunkte"
 
-
 msgid "_Top menu hover font color_"
 msgstr "Schriftfarbe für schwebende Hauptmenüpunkte"
-
 
 msgid "_Top menu items width_"
 msgstr "Breite der Hauptmenüpunkte"
 
-
 msgid "_Top right image_"
 msgstr "oberes rechtes Bild"
-
 
 msgid "_Translate folder items_"
 msgstr "Ordner Inhalte übersetzen ?"
 
-
 msgid "_Translate the box title_"
 msgstr "Box überschrift übersetzen ?"
-
 
 msgid "_Translate the breadcrumbs_"
 msgstr "breadcrumbs übersetzen ?"
 
-
 msgid "_Translate the image_"
 msgstr "Bild Übersetzen ?"
-
 
 msgid "_Translate the text_"
 msgstr "Soll der Text übersetzt werden ?"
 
-
 msgid "_Translations_"
 msgstr "Übersetzungen"
-
 
 msgid "_Tu_"
 msgstr "Die"
 
-
 msgid "_Use internal link?_"
 msgstr "Internen Link benutzen?"
-
 
 msgid "_Use the cache?_"
 msgstr "Den Cache benutzen ?"
 
-
 msgid "_Use this as the default style_"
 msgstr "Als Standard Style benutzen"
-
 
 msgid "_Username_"
 msgstr "Benutzername"
 
-
 msgid "_Value_"
 msgstr "Wert"
-
 
 msgid "_Vertical padding_"
 msgstr "Vertikales Padding"
 
-
 msgid "_Visibility criteria_"
 msgstr "Sichbarkeits-Kriterium"
-
 
 msgid "_We_"
 msgstr "Mit"
 
-
 msgid "_Weekdays background color_"
 msgstr "Hintergrundfarbe für Wochentage"
-
 
 msgid "_Weekdays border color_"
 msgstr "Rahmenfarbe für Wochentage"
 
-
 msgid "_Weekdays font color_"
 msgstr "Schriftfarbe für Wochentage"
-
 
 msgid "_Width_"
 msgstr "Weite"
 
-
 msgid "_XML export_"
 msgstr "XML Export"
-
 
 msgid "_XML format_"
 msgstr "XML Format"
 
-
 msgid "_Year_"
 msgstr "Jahr"
-
 
 msgid "_You can drop a Portlet into this area_"
 msgstr "Sie können hier ein Portlet ablegen"
 
-
 msgid "_You can drop a Templet into this area_"
 msgstr "Sie können hier ein Templet ablegen"
-
 
 msgid "_Your text_"
 msgstr "Dein Text"
 
-
 msgid "_ZMI_"
 msgstr "ZMI"
-
 
 msgid "_about_"
 msgstr "über"
 
-
 msgid "_actionbox_templet_description_"
 msgstr "Templet, mit  einer Toolbar die Aktionsknöpfe mit Icons enthält"
-
 
 msgid "_actions_"
 msgstr "Aktionen"
 
-
 msgid "_areacolor_description_"
 msgstr "dieser Stil definiert Hintergrund, Rahmen und Textfarbe eines Bereiches."
-
 
 msgid "_areashape_description_"
 msgstr "dieser Stil definiert Rahmenstil und Dicke eines Bereiches."
 
-
 msgid "_back_"
 msgstr "zurück"
-
 
 msgid "_backgrounds_"
 msgstr "Hintergründe"
 
-
 msgid "_box body_"
 msgstr "Box Inhalt"
-
 
 msgid "_box title_"
 msgstr "Box Überschrift"
 
-
 msgid "_boxcolor_"
 msgstr "Farbe einer Portal Box"
-
 
 msgid "_boxcolor_description_"
 msgstr "dieser Stil definiert Farben für Portal Boxens"
 
-
 msgid "_boxcorners_description_"
 msgstr "dieser Stile definiert Ecken für Portal Boxens"
-
 
 msgid "_boxshape_"
 msgstr "Form einer Portal Box"
 
-
 msgid "_boxshape_description_"
 msgstr "dieser Stil definiert Formen für Portal Boxens"
-
 
 msgid "_breadcrumbs_templet_description_"
 msgstr "ein Navigationspfad von der höchsten Ebene bis zur aktuellen Seite"
 
-
 msgid "_button_cache_manager_"
 msgstr "Cache Manager"
-
 
 msgid "_button_clear_the_cache_"
 msgstr "Cache Löschen ?"
 
-
 msgid "_button_close_"
 msgstr "Schliessen"
-
 
 msgid "_button_create_"
 msgstr "Erzeugen"
 
-
 msgid "_button_delete_"
 msgstr "Löschen"
-
 
 msgid "_button_export_theme_"
 msgstr "Thema exportieren"
 
-
 msgid "_button_fullscreen_"
 msgstr "Vollansicht"
-
 
 msgid "_button_import_theme_"
 msgstr "Thema importieren"
 
-
 msgid "_button_import_themes_"
 msgstr "Importiere Themen"
-
 
 msgid "_button_local_roles_"
 msgstr "Lokale Rollen"
 
-
 msgid "_button_modify_"
 msgstr "Ändern"
-
 
 msgid "_button_normal_mode_"
 msgstr "Abspeichern und zurück "
 
-
 msgid "_button_optimize_theme_"
 msgstr "Thema optimieren"
-
 
 msgid "_button_rebuild_theme_"
 msgstr "Thema neu aufbauen"
 
-
 msgid "_button_set_theme_as_default_"
 msgstr "Als Standard-Thema setzen"
-
 
 msgid "_button_upload_flashfile_"
 msgstr "Flash-Datei hochladen"
 
-
 msgid "_button_upload_image_"
 msgstr "Bild hochladen"
-
 
 msgid "_calendar_style_"
 msgstr "Kalender Stil"
 
-
 msgid "_calendar_templet_description_"
 msgstr "Templet mit einem Kalender mit monatlichen Ereignissen"
-
 
 msgid "_calendarstyle_description_"
 msgstr "dieser Stil definiert das Aussehen von Kalendern."
 
-
 msgid "_cellblock_description_"
 msgstr "Ein Seitenblock ist aus Zellen aufgebaut (Spalten). Das Aussehen einer Zelle läßt sich mit Hilfe von Zellen-Stylers, Zellen-Vergrößerern und Zellen-Versteckern anpassen"
-
 
 msgid "_cellhider_description_"
 msgstr "ein Zellen-Verstecker kontrolliert die Sichtbarkeit einer Zelle."
 
-
 msgid "_cellsizer_description_"
 msgstr "ein Zellen-Vergrößerer setzt die Breite einer Zelle."
-
 
 msgid "_cellstyler_description_"
 msgstr "ein Zellen-Styler passt den Stil einer Zelle an."
 
-
 msgid "_clipboard_"
 msgstr "Clipboard"
-
 
 msgid "_collapsiblemenu_style_"
 msgstr "Stil eine zusammenklappbaren Menüs"
 
-
 msgid "_collapsiblemenu_templet_description_"
 msgstr "Templet mit einem zusammenklappbares Menü, das Ordner-Inhalte anzeigt"
-
 
 msgid "_collapsiblemenustyle_description_"
 msgstr "dieser Stil definiert das Aussehen von zusammenklappbaren Menüs."
 
-
 msgid "_color_"
 msgstr "Farbe "
-
 
 msgid "_colors_"
 msgstr "Farben"
 
-
 msgid "_confirm delete_"
 msgstr "Löschen bestätigen"
-
 
 msgid "_days_"
 msgstr "tage"
 
-
 msgid "_default tab_"
 msgstr "Standard Tab"
-
 
 msgid "_dimensions_"
 msgstr "abmessungen"
 
-
 msgid "_documentinfo_templet_description_"
 msgstr "templet mit Informationen über das aktuelle Dokument, z.B. Titel, letztes Änderungsdatum, Ersteller-Name, ..."
-
 
 msgid "_edit online_"
 msgstr "online bearbeiten"
 
-
 msgid "_enter_new_id_"
 msgstr ""
-
 
 msgid "_flashbox_templet_description_"
 msgstr "Templet mit einer Macromedia Flash(tm) Box mit Überschrift"
 
-
 msgid "_folders_"
 msgstr "Ordner"
-
 
 msgid "_fontcolor_"
 msgstr "Schriftfarbe"
 
-
 msgid "_fontcolor_description_"
 msgstr "dieser Stil definiert Farben für Schriftarten, Links und Verzierungen."
-
 
 msgid "_fontshape_"
 msgstr "Schriftform"
 
-
 msgid "_fontshape_description_"
 msgstr "dieser Stil definiert Schriftgröße, Links und Verzierungs-Stile."
-
 
 msgid "_formstyle_description_"
 msgstr "ein Zellen-Styler passt den Stil einer Zelle an."
 
-
 msgid "_general_"
 msgstr "Allgemein"
-
 
 msgid "_header_"
 msgstr "Kopfzeile"
 
-
 msgid "_icons_"
 msgstr "Icons"
-
 
 msgid "_imagebox_templet_description_"
 msgstr "Templet mit einem Bild mit einem Link und einer Überschrift"
 
-
 msgid "_info_"
 msgstr "Info"
-
 
 msgid "_language_templet_description_"
 msgstr "Templet mit einem  Sprachselektor"
 
-
 msgid "_layout mode_"
 msgstr "Layout Modus"
-
 
 msgid "_layout_"
 msgstr "Layout"
 
-
 msgid "_maincontent_templet_description_"
 msgstr "Templet mit einem Hauptbereich, in dem Dokumente anzegeigt werden"
-
 
 msgid "_menu item_"
 msgstr "Menü Objekt"
 
-
 msgid "_menu_Align center_"
 msgstr "zentriert"
-
 
 msgid "_menu_Align justify_"
 msgstr "Blocksatz"
 
-
 msgid "_menu_Align left_"
 msgstr "linksbündig"
-
 
 msgid "_menu_Align right_"
 msgstr "rechtsbündig"
 
-
 msgid "_menu_Area Color_"
 msgstr "Farbe "
-
 
 msgid "_menu_Area Shape_"
 msgstr "Form "
 
-
 msgid "_menu_Box Corners_"
 msgstr "Box ecken"
-
 
 msgid "_menu_Calendar Style_"
 msgstr "Stil des Kalenders"
 
-
 msgid "_menu_Collapsible Menu Style_"
 msgstr "Stil des zusammenklappbaren Menüs"
-
 
 msgid "_menu_Copy_"
 msgstr "Kopieren"
 
-
 msgid "_menu_Delete_"
 msgstr "Löschen"
-
 
 msgid "_menu_Duplicate_"
 msgstr "Kopieren"
 
-
 msgid "_menu_Edit styles_"
 msgstr "Stil "
-
 
 msgid "_menu_Edit_"
 msgstr "Bearbeiten"
 
-
 msgid "_menu_Font Color_"
 msgstr "Schriftfarbe"
-
 
 msgid "_menu_Font Shape_"
 msgstr "Schriftstil"
 
-
 msgid "_menu_Form Style_"
 msgstr "Rahmen Stil"
-
 
 msgid "_menu_Insert_"
 msgstr "Einfügen"
 
-
 msgid "_menu_Manage_"
 msgstr "Bearbeiten"
-
 
 msgid "_menu_Paste_"
 msgstr "Einfügen"
 
-
 msgid "_menu_Portal Box Color_"
 msgstr "Box Farbe"
-
 
 msgid "_menu_Portal Box Shape_"
 msgstr "Box Form"
 
-
 msgid "_menu_Portal Tab Style_"
 msgstr "Portal Tab Stil"
-
 
 msgid "_menu_Set alignment_"
 msgstr "Ausrichtung "
 
-
 msgid "_menu_Set layout_"
 msgstr "Layout"
-
 
 msgid "_menu_Set styles_"
 msgstr "Stil"
 
-
 msgid "_menu_Set_as_default_"
 msgstr "Als Standard setzen"
-
 
 msgid "_mixed mode_"
 msgstr "Misch Modus"
 
-
 msgid "_option_Folder title_"
 msgstr "Ordner Überschrift"
-
 
 msgid "_option_Templet title_"
 msgstr "Templet Überschrift"
 
-
 msgid "_option_Username_"
 msgstr "Benutzername"
-
 
 msgid "_option_Workflow state_"
 msgstr "Workflow Status"
 
-
 msgid "_option_about_"
 msgstr "über"
-
 
 msgid "_option_actions_"
 msgstr "mögliche Aktionen"
 
-
 msgid "_option_always_"
 msgstr "immer Sichtbar"
-
 
 msgid "_option_automatic_"
 msgstr "automatisch"
 
-
 msgid "_option_bg_no-repeat_"
 msgstr "Hintergrund nich wiederholen "
-
 
 msgid "_option_bg_repeat-x_"
 msgstr "Hintergrund wiederholen X Richtung"
 
-
 msgid "_option_bg_repeat-y_"
 msgstr "Hintergrund wiederholen Y Richtung"
-
 
 msgid "_option_bg_repeat_"
 msgstr "Hintergrund wiederholen"
 
-
 msgid "_option_block_"
 msgstr "Blocksatz"
-
 
 msgid "_option_center_"
 msgstr "Ausrichtung Mittig"
 
-
 msgid "_option_compatible_"
 msgstr "Kompatibel"
-
 
 msgid "_option_debug_"
 msgstr "debug"
 
-
 msgid "_option_default_"
 msgstr "Standard"
-
 
 msgid "_option_docinfo_created_by_"
 msgstr "Dokument erzeugt von"
 
-
 msgid "_option_docinfo_last_modified_"
 msgstr "Dokument zuletzt verändert am "
-
 
 msgid "_option_docinfo_title_"
 msgstr "Dokument Titel"
 
-
 msgid "_option_drawer_"
 msgstr "einfache Box"
-
 
 msgid "_option_drawer_notitle_"
 msgstr "einfache Box ohne Titel"
 
-
 msgid "_option_dropdown list_"
 msgstr "Auswahlbox ?"
-
 
 msgid "_option_events_"
 msgstr "Event Dokumente"
 
-
 msgid "_option_everywhere_except_in_"
 msgstr "überall Sichtbar ausser in "
-
 
 msgid "_option_flags_"
 msgstr "Flaggen anzeigen ?"
 
-
 msgid "_option_folders_"
 msgstr "Ordner"
-
 
 msgid "_option_horizontal_"
 msgstr "Horizontal"
 
-
 msgid "_option_horizontal_menu_"
 msgstr "Horizontal"
-
 
 msgid "_option_html_"
 msgstr "HTML"
 
-
 msgid "_option_icons only_"
 msgstr "nur Bilder"
-
 
 msgid "_option_if_anonymous_"
 msgstr "unangemeldet / Anonymous"
 
-
 msgid "_option_if_authenticated_"
 msgstr "wenn Angemeldet"
-
 
 msgid "_option_if_secure_connection_"
 msgstr "bei sicherer Verbindung ( HTTPS)"
 
-
 msgid "_option_info_"
 msgstr "Informationen"
-
 
 msgid "_option_inline_"
 msgstr "Inline"
 
-
 msgid "_option_justify_"
 msgstr "ausrichtung"
-
 
 msgid "_option_language names_"
 msgstr "Sprachen"
 
-
 msgid "_option_language_"
 msgstr "Sprache"
-
 
 msgid "_option_left_"
 msgstr "Ausrichtung Links"
 
-
 msgid "_option_lifetime_10_"
 msgstr "10 Sekunden "
-
 
 msgid "_option_lifetime_1800_"
 msgstr "1800 Sekunden "
 
-
 msgid "_option_lifetime_300_"
 msgstr "300 Sekunden "
-
 
 msgid "_option_lifetime_30_"
 msgstr "30 Sekunden "
 
-
 msgid "_option_lifetime_3600_"
 msgstr "3600 Sekunden "
-
 
 msgid "_option_lifetime_600_"
 msgstr "600 Sekunden "
 
-
 msgid "_option_lifetime_60_"
 msgstr "60 Sekunden "
-
 
 msgid "_option_lifetime_900_"
 msgstr "900 Sekunden "
 
-
 msgid "_option_login_"
 msgstr "Anmeldung"
-
 
 msgid "_option_macroless_"
 msgstr "ohne Makros"
 
-
 msgid "_option_min_max_"
 msgstr "Minimieren / Maximieren"
-
 
 msgid "_option_min_max_close_"
 msgstr "Minimieren / Maximieren / Schliessen"
 
-
 msgid "_option_min_max_edit_close_"
 msgstr "Minimieren / Maximieren / Bearbeiten / Schliessen"
-
 
 msgid "_option_no_frames_"
 msgstr "ohne Rahmen"
 
-
 msgid "_option_notitle_"
 msgstr "ohne Titel"
-
 
 msgid "_option_notitle_noframe_"
 msgstr "kein Titel und Rahmen"
 
-
 msgid "_option_one_frame_"
 msgstr "nur ein Rahmen"
-
 
 msgid "_option_only_in_"
 msgstr "nur in "
 
-
 msgid "_option_pending_"
 msgstr "Schwebende Dokumente"
-
 
 msgid "_option_plain text_"
 msgstr "reiner Text"
 
-
 msgid "_option_plain_"
 msgstr "Einfach"
-
 
 msgid "_option_profiler_"
 msgstr "Profiler"
 
-
 msgid "_option_recent_"
 msgstr "neue Dokumente"
-
 
 msgid "_option_related_"
 msgstr "zugehörig"
 
-
 msgid "_option_right_"
 msgstr "Ausrichtung Rechts"
-
 
 msgid "_option_rounded_box_"
 msgstr "abgerundete Ecken"
 
-
 msgid "_option_rounded_box_notitle_"
 msgstr "abgerundete Ecken ohne Titel"
-
 
 msgid "_option_searchbox_advanced_"
 msgstr "Erweiteret Suche"
 
-
 msgid "_option_searchbox_compact_"
 msgstr "Suche"
-
 
 msgid "_option_standard_"
 msgstr "Standard"
 
-
 msgid "_option_starting_from_"
 msgstr "startend von "
-
 
 msgid "_option_stx_"
 msgstr "Strukturierter Text"
 
-
 msgid "_option_tableless_"
 msgstr "ohne Tabellen"
-
 
 msgid "_option_text and icons_"
 msgstr "Text und Bilder"
 
-
 msgid "_option_text only_"
 msgstr "Nur Text"
-
 
 msgid "_option_text_transform_capitalize_"
 msgstr "Text mit Kapitälchen"
 
-
 msgid "_option_text_transform_lowercase_"
 msgstr "Text in Kleinbuchstaben"
-
 
 msgid "_option_text_transform_none_"
 msgstr "Text nicht verändern"
 
-
 msgid "_option_text_transform_uppercase_"
 msgstr "Text in Grossbuchstaben"
-
 
 msgid "_option_textonly_"
 msgstr "nur Text"
 
-
 msgid "_option_up_till_"
 msgstr "bis zu"
-
 
 msgid "_option_vertical_"
 msgstr "Vertikal"
 
-
 msgid "_pageblock_description_"
 msgstr "Ein Seitenblock ist aus Zellen aufgebaut (Spalten). Das Aussehen einer Zelle läßt sich mit Hilfe von Zellen-Stylers, Zellen-Vergrößerern und Zellen-Versteckern anpassen"
-
 
 msgid "_paletteborder_description_"
 msgstr "diese Palleten definieren Rahmenformen, die in Stilen benutzt werden."
 
-
 msgid "_palettecolor_description_"
 msgstr "diese Palleten definieren die Farben, die in Stilen benutzt werden."
-
 
 msgid "_portalbox_templet_description_"
 msgstr "Templet mit einer generische Box, die Aktionen, Ordner, eine Über-Box, eine Login-Box, eine Info-Box, ... anzeigt"
 
-
 msgid "_portalboxgroup_templet_description_"
 msgstr "Templet mit einen Slot, der die Original Portal Boxen anzeigt (Portalboxgroup)"
-
 
 msgid "_portaltab_templet_description_"
 msgstr "Portal Tab templet Beschreibung  (fehlt noch ...)"
 
-
 msgid "_portaltabstyle_"
 msgstr "Portal Tab Stil"
-
 
 msgid "_portaltabstyle_description_"
 msgstr "Beschreibung Portal Tab (Reiter)"
 
-
 msgid "_portaltheme_description_"
 msgstr "ein Portal-Thema ändert das Aussehen und das Layout des Portals. Das Themen-Layout ist aus horizontalen Seiten-Blöcken aufgebaut."
-
 
 msgid "_portletbox_templet_description_"
 msgstr "ein generisches Portlet, die Aktionen, Ordner, eine Über-Box, eine Login-Box, eine Info-Box, ... anzeigt"
 
-
 msgid "_preview_"
 msgstr "Vorschau"
-
 
 msgid "_searchbox_Advanced_search"
 msgstr "Erweiterte Suche"
 
-
 msgid "_searchbox_Search_"
 msgstr "Suche"
-
 
 msgid "_searchbox_templet_description_"
 msgstr "Templet mit einer Box mit einem Eingabefeld zum Durchsuchen der Site"
 
-
 msgid "_select this slot_"
 msgstr "Diesen  Slot auswählen"
-
 
 msgid "_selected menu item_"
 msgstr "ausgewählet Menü Objekte"
 
-
 msgid "_selected tab_"
 msgstr "Ausgewälter Tab"
-
 
 msgid "_set as default style_"
 msgstr "Als Standard Stil festlegen ?"
 
-
 msgid "_shape_"
 msgstr "Form "
-
 
 msgid "_size_"
 msgstr "Größe"
 
-
 msgid "_style_"
 msgstr "Stil"
-
 
 msgid "_submenu_"
 msgstr "untermenu"
 
-
 msgid "_submenus_"
 msgstr "Untermenüs"
-
 
 msgid "_textbox_templet_description_"
 msgstr "Templet mit einer Box, die einfachen Text oder HTML anzeigt"
 
-
 msgid "_themechooser_templet_description_"
 msgstr "Templet mit einem Themen-Selektor für Besucher (Cookies müssen aktiviert sein)"
-
 
 msgid "_themepage_description_"
 msgstr "ein Portal-Thema ändert das Aussehen und das Layout des Portals. Das Themen-Layout ist aus horizontalen Seiten-Blöcken aufgebaut."
 
-
 msgid "_thumbnails_"
 msgstr "Thumbnail"
-
 
 msgid "_topmenu_"
 msgstr "Hauptmenü"
 
-
 msgid "_visibility_"
 msgstr "Sichtbarkeit"
-
 
 msgid "_wysiwyg mode_"
 msgstr "WYSIWYG Modus"
 
-
 msgid "_zexp export_"
 msgstr "zexp export"
-
 
 msgid "_zexp format_"
 msgstr "zexp format"
 
-
 msgid "description_confirm_delete_portlet"
 msgstr "Boxen löschen ?"
-
 
 msgid "description_confirm_delete_unused_portlets"
 msgstr "Unbenutzte Boxen löschen ?"
 
-
 msgid "description_delete_unused_portlets"
 msgstr "Unbenutzte Portlets löschen"
-
 
 msgid "description_portlets_visible_from"
 msgstr "Boxen anzeigen ab "
 
-
 msgid "description_unused_portlets"
 msgstr "Unsichtbare Portlets weil ihr Slot nicht im aktuellen Thema enthalten ist"
-
 
 msgid "heading_portlet_browser_by_topic"
 msgstr "Portlets nach Thema sortiert "
 
-
 msgid "heading_portlet_browser_by_type"
 msgstr "Portlets nach Typ sortiert "
-
 
 msgid "heading_portlet_manage_form"
 msgstr "Portlet Überschrift bearbeiten"
 
-
 msgid "heading_unused_portlets"
 msgstr "Unbenutzte Portlets"
-
 
 msgid "menu_insert_box"
 msgstr "Box einfügen"
 
-
 msgid "menu_insert_portlet"
 msgstr "Box Einfügen"
-
 
 msgid "portlet_browser_panel"
 msgstr "Portlet Übersicht"
 
-
 msgid "portlet_slots_panel"
 msgstr "Portal Slots Übersicht"
-
 
 msgid "psm_image_uploaded"
 msgstr "PSM Bild hochladen "
 
-
 msgid "psm_portlet_deleted"
 msgstr "PSM Portlet Löschen"
-
 
 msgid "site_structure_panel"
 msgstr "Seiten Struktur Übersicht"
 
-
 msgid "unused_portlets_panel"
 msgstr "Übersicht unbenutzte Portlets "
-
 
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG Übersicht"

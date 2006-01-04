@@ -17,7 +17,6 @@ msgstr ""
 msgid "_You are here:_"
 msgstr "Você está aqui:"
 
-
 msgid "_action_themes_reconfig_"
 msgstr "Temas do Portal"
 
