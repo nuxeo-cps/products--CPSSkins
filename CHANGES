@@ -30,3 +30,4 @@ New internal features:
 - Improved session behaviour by avoiding potential conflicts when nothing
   interesting is actually in the session.
 - CPS css_slot was renamed style_slot to comply with later CMF/Zope 3 standard.
+- i18n: upgraded to i18ndude 2.0 - updated the Makefile's i18n section

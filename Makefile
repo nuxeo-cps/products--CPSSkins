@@ -23,13 +23,13 @@ clean:
 
 i18n:
 # sync po files with pot
-	i18ndude sync --pot i18n/cpsskins.pot -s \
+	i18ndude sync --pot i18n/cpsskins.pot \
            i18n/cpsskins-[a-z][a-z].po \
            i18n/cpsskins-[a-z][a-z]_[A-Z][A-Z].po
-	i18ndude sync --pot i18n/cpsskins-default.pot -s \
+	i18ndude sync --pot i18n/cpsskins-default.pot \
            i18n/cpsskins-default-[a-z][a-z].po \
            i18n/cpsskins-default-[a-z][a-z]_[A-Z][A-Z].po
-	i18ndude sync --pot i18n/cpsskins-plone.pot -s \
+	i18ndude sync --pot i18n/cpsskins-plone.pot \
            i18n/cpsskins-plone-[a-z][a-z].po \
            i18n/cpsskins-plone-[a-z][a-z]_[A-Z][A-Z].po
 
