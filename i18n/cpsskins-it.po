@@ -1972,3 +1972,6 @@ msgstr "Inserisci un nuovo ID"
 msgid "_Portlet editor_"
 msgstr "Editor dei portlet"
 
+msgid "_Please select a portlet type_"
+msgstr ""
+
