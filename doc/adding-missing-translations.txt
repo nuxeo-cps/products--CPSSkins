@@ -15,9 +15,15 @@ may run::
   $ make i18n-en
 
 This will add translations in English for all untranslated messages.
+You can then edit the po files and translate from the English.
 
 
-You will also need to install 'i18ndude'::
+To add empty message strings for missing translations, run instead::
+
+  $ make i18n
+
+
+You will first need to install 'i18ndude'::
 
   http://plone.org/products/i18ndude
 
