@@ -1,0 +1,45 @@
+========================
+How to benchmark a theme
+========================
+
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+In the theme configuration menu choose the **profiler** theme renderer.
+
+Here is a typical output::
+
+ Profiling lvl:-1 cpsskins_main_template_profiler:
+ t       mark       delta t
+ 0.0000: Start      + 0.0000
+ 0.0000: --------- [top] ----------------------------------  + 0.0000
+ 0.0100: CPSSkins: banner..................................  + 0.0100
+ 0.0100: CPSSkins: welcome box.............................  + 0.0000
+ 0.0100: CPSSkins: search box..............................  + 0.0000
+ 0.0200: CPSSkins: Action Box Templet......................  + 0.0100
+ 0.0200: --------- [Navigation] ---------------------------  + 0.0000
+ 0.0300: CPSSkins: maintabs................................  + 0.0100
+ 0.0300: CPSSkins: actionbox...............................  + 0.0000
+ 0.0400: CPSSkins: Breadcrumbs.............................  + 0.0100
+ 0.0400: --------- [Main Columns] -------------------------  + 0.0000
+ 0.1200:           Left-column slot........................  + 0.0800
+ 0.1300: CPSSkins: action tab..............................  + 0.0100
+ 0.2000:           Content actions.........................  + 0.0700
+ 0.2800:           Main Content............................  + 0.0800
+ 0.3000: CPSSkins: Workflow actions........................  + 0.0200
+ 0.4100:           Right-column slot.......................  + 0.1100
+ 0.4100: --------- [bottom] -------------------------------  + 0.0000
+ 0.4200: CPSSkins: footer..................................  + 0.0100
+ 0.4200: Stop       + 0.0000
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
