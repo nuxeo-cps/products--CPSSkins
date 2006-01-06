@@ -88,8 +88,6 @@ import PortalTabStyle
 import FormStyle
 import BoxCorners
 
-this_module = sys.modules[__name__]
-
 tools = (PortalThemesTool.PortalThemesTool, )
 
 portalthemeClasses = (
