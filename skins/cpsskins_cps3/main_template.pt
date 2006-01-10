@@ -1,9 +1,10 @@
 <metal:block define-macro="master"
   tal:define="showthirdcol showthirdcol|python:1;
               emptybody emptybody|request/emptybody|nothing;
+              mtool here/portal_membership;
+              can_raise python:mtool.assertViewable(here);
               utool nocall:here/portal_url;
               atool here/portal_actions;
-              mtool here/portal_membership;
               ttool here/portal_trees;
               wtool here/portal_workflow;
               context_url python:here.getContextUrl(utool=utool);
