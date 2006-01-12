@@ -71,12 +71,12 @@ input.SearchBox {
   display: block;
 }
 
-.cpsskinsBox div.xmlExportButtons {
+div.xmlExportButtons {
   text-align: right;
   padding-top: 1em;
 }
 
-.cpsskinsBox div.xmlExportButtons a {
+div.xmlExportButtons a {
   border: 0.1em outset #ff6600;
   background: #f60;
   color: #fff !important;
