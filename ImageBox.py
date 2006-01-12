@@ -49,6 +49,7 @@ factory_type_information = (
     },
 )
 
+# BBB: Image base class should go away at some point
 class ImageBox(ThemeFolder, Image, BaseTemplet):
     """
     Image Box Templet.
@@ -105,12 +106,10 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
                  internal_link = '',
                  use_internal_link = 0,
                  file = '',
-                 content_type = '',
-                 precondition = '',
                  **kw) :
-        apply(Image.__init__,
-                (self, id, title, file, content_type, precondition))
-        apply(BaseTemplet.__init__, (self, id, title), kw)
+        Image.__init__(self, id, '', '')
+        self.upload_image(file=file)
+        BaseTemplet.__init__(self, id, title, **kw)
         self.i18n = i18n
         self.caption = caption
         self.link = link
@@ -168,29 +167,40 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         if REQUEST is not None:
             kw.update(REQUEST.form)
         file = kw.get('file', None)
-        if file is None:
-            return
-        if file.filename == '':
+        if not file or not file.filename:
             return
 
         if not getattr(self, 'i18n', 0):
-            self.manage_upload(file)
+            self.data = '' # BBB: clear old data
+            img_id = 'image'
         else:
             lang_id = self.getDefaultLang()
-            if lang_id is not None:
-                img_id = 'i18n_image_%s' % lang_id
-                i18n_images = self.getI18nImages()
-                if img_id in i18n_images.keys():
-                    self.manage_delObjects(img_id)
-                cmfdefault = self.manage_addProduct['CMFDefault']
-                cmfdefault.manage_addContent(id=img_id, type='Portal Image')
-                img = getattr(aq_base(self), img_id, None)
-                img.manage_upload(file)
+            if lang_id is None:
+                return
+            img_id = 'i18n_image_%s' % lang_id
+
+        if img_id in self.objectIds():
+            self.manage_delObjects(img_id)
+        img = Image(img_id, '', '')
+        self._setObject(img_id, img)
+        img = self._getOb(img_id)
+        img.manage_upload(file)
+
         self.expireCache()
 
         if REQUEST is not None:
             url = self.absolute_url()
             REQUEST.RESPONSE.redirect(url + '/edit_form?portal_status_message=psm_image_uploaded')
+
+    def index_html(self, REQUEST, RESPONSE):
+        """Download the image as binary with headers.
+        """
+        if self.data != '':
+            # BBB: image used to be stored in self (we inherit from Image)
+            img = self
+        else:
+            img = self.image
+        return Image.index_html(img, REQUEST, RESPONSE)
 
     security.declarePublic('getI18nImages')
     def getI18nImages(self):
@@ -199,7 +209,7 @@ class ImageBox(ThemeFolder, Image, BaseTemplet):
         """
 
         images = {}
-        for obj in self.objectValues('Portal Image'):
+        for obj in self.objectValues(('Portal Image', 'Image')):
             obj_id = obj.getId()
             if obj_id.startswith('i18n_image_'):
                 images[obj_id] = obj

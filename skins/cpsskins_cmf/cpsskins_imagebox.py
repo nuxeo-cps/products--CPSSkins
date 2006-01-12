@@ -4,7 +4,7 @@ from cgi import escape
 
 REQUEST = context.REQUEST
 
-img = context
+img = None
 if context.i18n:
     tmtool = context.portal_themes
     lc = tmtool.getTranslationService(root=1);
@@ -12,6 +12,12 @@ if context.i18n:
     if current_lang:
         img_id = 'i18n_image_%s' % current_lang
         img = getattr(context.aq_inner.aq_explicit, img_id, context)
+if img is None:
+    if 'image' in context.objectIds():
+        img = context.image
+    else:
+        # BBB: image used to be stored in self (we inherit from Image)
+        img = context
 
 base_url = REQUEST.get('cpsskins_base_url')
 if base_url is None:
@@ -19,7 +25,7 @@ if base_url is None:
 
 height = img.height
 width = img.width
-title = img.title
+title = context.title
 tag = ''
 
 img_url = base_url + context.portal_url.getRelativeUrl(img)
