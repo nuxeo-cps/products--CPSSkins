@@ -6,42 +6,42 @@
   <adapter
       factory=".exportimport.ThemeToolXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IThemeTool
+      for=".interfaces.IThemeTool
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <adapter
       factory=".exportimport.PropertyManagerXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IStyle
+      for=".interfaces.IStyle
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <adapter
       factory=".exportimport.PropertyManagerXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IPalette
+      for=".interfaces.IPalette
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <adapter
       factory=".exportimport.PropertyManagerXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.ICellModifier
+      for=".interfaces.ICellModifier
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <adapter
       factory=".exportimport.PropertyManagerXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IThemeFolder
+      for=".interfaces.IThemeFolder
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <adapter
       factory=".exportimport.PropertyManagerXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSSkins.interfaces.IPageBlockContent
+      for=".interfaces.IPageBlockContent
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
