@@ -22,6 +22,7 @@ Bug fixes:
 - Added a permission check on the access to the Portlet editor.
 - #1210 fixed bullets display problem and converted all icons and backgrounds
   in the default theme to PNG
+- #1274 fixed the rendering of the portlet box edit form
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.

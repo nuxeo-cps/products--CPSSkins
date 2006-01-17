@@ -1,9 +1,0 @@
-<metal:block define-macro="edit_form"
- tal:define="id request/form/id|here/id">
-  <tal:block define="ptltool nocall:here/portal_cpsportlets;
-                     portlet_id here/portlet_id|nothing;
-                     portlet python: ptltool.getPortletById(portlet_id)"
-             condition="nocall:portlet">
-   <div tal:replace="structure python:portlet.render(layout_mode='edit', context_obj=here)" />
-  </tal:block>
-</metal:block>

@@ -431,22 +431,21 @@ tal:define="meta_type here/meta_type|nothing;
   </div>
 </metal:block>
 
-<metal:block define-macro="portlet_edit">
-    <!-- XXX this has to move to CPSSchemas -->
-    <script type="text/javascript">
-    <!--
-     function popup_rte(input_id, label_edit) {
-       var args, value
-       value = document.getElementById(input_id).value;
-       args='?input_id='+input_id+'&label_edit='+escape(label_edit);
-       popup = window.open('popup_rte_form'+args, input_id, 'toolbar=0, scrollbars=0, location=0, statusbar=0, menubar=0, resizable=0, dependent=1, width=640, height=480')
-       if(!popup.opener)
-         popup.opener = window;
-       return false;
-   }
-   //-->
-   </script>
-  <metal:block use-macro="here/cpsskins_portlet_lib/macros/edit_form" />
+<metal:block define-macro="portlet_edit"
+ tal:define="id request/form/id|here/id">
+  <tal:block define="ptltool nocall:here/portal_cpsportlets;
+                     portlet_id here/portlet_id|nothing;
+                     portlet python: ptltool.getPortletById(portlet_id)"
+             condition="nocall:portlet">
+    <form tal:attributes="action string:${portlet/absolute_url}/cpsskins_portletbox_edit"
+          method="post" enctype="multipart/form-data">
+     <tal:block content="structure python:portlet.cpsdocument_edit_render(request=request)" />
+     <input type="submit" class="mainbutton" i18n:domain="cpsskins"
+      i18n:attributes="value"
+      tal:define="title string:_button_modify_"
+      tal:attributes="value python:mcat and mcat(title) or title" />
+    </form>
+  </tal:block>
 </metal:block>
 
 <metal:block define-macro="check_style_parents" i18n:domain="cpsskins"
