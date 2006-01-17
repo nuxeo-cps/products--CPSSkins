@@ -74,12 +74,9 @@ if target == 'CPS2':
 
 # CPS3 (CPSDefault.CPSTestCase)
 if target == 'CPS3':
-    import CPS3TestCase
+    from CPS3TestCase import CPSSkinsTestCase
     sourceskin = 'Basic'
 
-    class CPSSkinsTestCase(CPS3TestCase.CPSTestCase):
-        '''Base test case for CPSSkins testing under CPS3
-        '''
 
 # Plone2 (CMFPlone.PloneTestCase)
 if target == 'Plone2':
@@ -216,7 +213,6 @@ if target == 'CPS2':
 
 if target == 'CPS3':
     portal_id='portal'
-    CPS3TestCase.setupPortal()
     app = ZopeTestCase.app()
 
 if target == 'Plone2':
@@ -224,8 +220,8 @@ if target == 'Plone2':
     app = ZopeTestCase.app()
     Plone2TestCase.setupPloneSite(app)
 
-setupTestUsers(app, portal_id)
-ZopeTestCase.utils.setupCoreSessions(app)
-CPSSkinsInstaller(app).install(portal_id, target, quiet=0)
-
-ZopeTestCase.close(app)
+if target != 'CPS3':
+    setupTestUsers(app, portal_id)
+    ZopeTestCase.utils.setupCoreSessions(app)
+    CPSSkinsInstaller(app).install(portal_id, target, quiet=0)
+    ZopeTestCase.close(app)

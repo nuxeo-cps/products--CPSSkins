@@ -6,12 +6,6 @@ import time
 import os, tempfile
 from Testing import ZopeTestCase
 
-import Products
-from Products.ExternalMethod.ExternalMethod import ExternalMethod
-
-from AccessControl.SecurityManagement \
-    import newSecurityManager, noSecurityManager
-
 ZopeTestCase.installProduct('BTreeFolder2', quiet=1)
 ZopeTestCase.installProduct('CMFCalendar', quiet=1)
 ZopeTestCase.installProduct('CMFCore', quiet=1)
@@ -51,83 +45,24 @@ for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
     except:
         pass
 
-try:
-    import transaction
-except ImportError:
-    # BBB: for Zope 2.7
-    from Products.CMFCore.utils import transaction
+import transaction
 
-class CPSTestCase(ZopeTestCase.PortalTestCase):
-    def setUp(self):
-        ZopeTestCase.PortalTestCase.setUp(self)
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 
-        # Some skins need sessions (not sure if it's a good thing).
-        # Localizer too.
-        # Both lines below are needed.
-        SESSION = {}
-        self.portal.REQUEST['SESSION'] = SESSION
-        self.portal.REQUEST.SESSION = SESSION
+class CPSSkinsTestCase(CPSTestCase):
 
-class CPSInstaller:
-    def __init__(self, app, quiet=0):
-        if not quiet:
-            ZopeTestCase._print('Adding Portal Site ... ')
-        self.app = app
-        self._start = time.time()
-        self._quiet = quiet
-
-    def install(self, portal_id):
-        self.addUser()
-        self.login()
-        self.addPortal(portal_id)
-        self.logout()
-
-    def addUser(self):
-        uf = self.app.acl_users
-        uf._doAddUser('CPSTestCase', '', ['Manager'], [])
-
-    def login(self):
-        uf = self.app.acl_users
-        user = uf.getUserById('CPSTestCase').__of__(uf)
-        newSecurityManager(None, user)
-
-    def addPortal(self, portal_id, version=None):
-        factory = self.app.manage_addProduct['CPSDefault']
-
-        # CPS 3.2
-        try:
-            factory.manage_addCPSDefaultSite(portal_id,
-                root_password1="passwd",
-                root_password2="passwd",
-                langs_list=['en']
-                )
-        # > CPS 3.2
-        except TypeError:
-            factory.manage_addCPSDefaultSite(portal_id,
-                langs_list=['en'],
-                manager_email='webmaster@localhost',
-                manager_password='passwd',
-                manager_password_confirmation='passwd',
-                )
-
-    def logout(self):
-        noSecurityManager()
-        transaction.commit()
-        if not self._quiet:
-            ZopeTestCase._print('done (%.3fs)\n'
-                % (time.time() - self._start,))
-
-
-def setupPortal(PortalInstaller=CPSInstaller):
-    # Create a CPS site in the test (demo-) storage
-    app = ZopeTestCase.app()
-    # Set up Error Log:
-    from Products.SiteErrorLog.SiteErrorLog import manage_addErrorLog
-    if 'error_log' not in app.objectIds():
-        manage_addErrorLog(app)
-    # PortalTestCase expects object to be called "portal", not "cps"
-    if hasattr(app, 'portal'):
-        app.manage_delObjects(['portal'])
-    PortalInstaller(app).install('portal')
-    ZopeTestCase.close(app)
-
+    def _setupUser(self):
+        CPSTestCase._setupUser(self)
+        aclu = self.portal.acl_users
+        users = (
+            {'id': 'cpsskins_root',
+             'roles': ['Manager']
+            },
+            {'id': 'cpsskins_user',
+             'roles': ['Member']
+            },
+            {'id': 'cpsskins_theme_manager',
+             'roles': ['Member', 'ThemeManager'],
+            })
+        for user in users:
+            aclu._doAddUser(user['id'], 'secret', user['roles'], [])
