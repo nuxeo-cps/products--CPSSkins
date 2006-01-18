@@ -2,6 +2,7 @@
   utool nocall:here/portal_url;
   atool here/portal_actions;
   mtool here/portal_membership;
+  can_raise python:mtool.assertViewable(here);
   ttool here/portal_trees;
   wtool here/portal_workflow;
   context_url python:here.getContextUrl(utool=utool);
