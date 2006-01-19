@@ -38,9 +38,9 @@
         </metal:block>
       </metal:block>
       <metal:block define-slot="head_slot" />
-      <metal:block define-slot="style_slot" />
+      <metal:block define-slot="css_slot" />
       <metal:block define-slot="javascript_head_slot" />
-      <metal:block metal:fill-slot="style_slot">
+      <metal:block metal:fill-slot="css_slot">
       <metal:block
       use-macro="here/?main_macro/macros/head" />
       </metal:block>
