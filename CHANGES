@@ -23,6 +23,7 @@ Bug fixes:
 - #1210 fixed bullets display problem and converted all icons and backgrounds
   in the default theme to PNG
 - #1274 fixed the rendering of the portlet box edit form
+- Removed dependency to CPSBoxes property cps_is_portalbox in profile
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of some warnings in test output.
