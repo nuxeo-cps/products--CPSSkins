@@ -1,4 +1,7 @@
 
+
+MAX_DOCUMENTS = 5
+
 mtool = context.portal_membership
 if mtool.isAnonymousUser():
     return []
@@ -6,7 +9,8 @@ if mtool.isAnonymousUser():
 member = mtool.getAuthenticatedMember()
 
 query = {
-     'modified': {'query': member.last_login_time,
+     # XXX: are we sure that every member has a last_login_time attribute ?
+     'modified': {'query': getattr(member, 'last_login_time', 0),
                   'range': 'min'},
      'sort_on': 'modified',
      'sort_order': 'reverse',
@@ -15,9 +19,9 @@ query = {
 
 brains = context.portal_catalog(**query)
 
-recent=[]
+recent = []
 
-for brain in brains[:5]:
+for brain in brains[:MAX_DOCUMENTS]:
     obj = brain.getObject()
     recent.append(
         {'title': brain['Title'],
