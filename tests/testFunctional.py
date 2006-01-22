@@ -36,50 +36,50 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         tmtool = self.portal.portal_themes
         test_url = '/%s/cpsskins_theme_add' % tmtool.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(tmtool.getThemes()) == 2)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(tmtool.getThemes()), 2)
 
     def test_add_style(self):
         test_url = '/%s/cpsskins_style_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Area+Color', 'PortalTheme')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         styles_dir = self.theme_container.getStylesFolder()
         styles = styles_dir.objectValues('Area Color')
-        self.assert_(len(styles) == 1)
+        self.assertEquals(len(styles), 1)
 
     def test_add_palette(self):
         test_url = '/%s/cpsskins_palette_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Palette+Color', 'PortalTheme')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         palettes_dir = self.theme_container.getPalettesFolder()
         palettes = palettes_dir.objectValues('Palette Color')
-        self.assert_(len(palettes) == 1)
+        self.assertEquals(len(palettes), 1)
 
     def test_add_cellhider(self):
         pageblock = self.pageblock
         test_url = '/%s/cpsskins_cellhider_add?xpos=0' % \
             self.pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(pageblock.getObjects()[0]['cellhider']) == 1)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(pageblock.getObjects()[0]['cellhider']), 1)
 
     def test_add_cellsizer(self):
         pageblock = self.pageblock
         test_url = '/%s/cpsskins_cellsizer_add?xpos=0' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(pageblock.getObjects()[0]['cellsizer']) == 1)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(pageblock.getObjects()[0]['cellsizer']), 1)
 
     def test_add_cellstyler(self):
         pageblock = self.pageblock
         test_url = '/%s/cpsskins_cellstyler_add?xpos=0' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(pageblock.getObjects()[0]['cellstyler']) == 1)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(pageblock.getObjects()[0]['cellstyler']), 1)
 
 
     def test_addContent(self):
@@ -88,18 +88,18 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_content_add?xpos=%s&ypos=%s&type_name=%s' \
             % (pageblock.absolute_url(1), 1, 0, 'Text Box Templet')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         templet = pageblock.objectValues('Text Box Templet')[0]
-        self.assert_(templet.xpos == 1)
+        self.assertEquals(templet.xpos, 1)
 
     def test_addPageBlock_at_the_top(self):
         test_url = '/%s/cpsskins_pageblock_add?pageblock_ypos=%s' \
             % (self.page_container.absolute_url(1), 0)
         response = self.publish(test_url, self.basic_auth)
         pageblocks = self.page_container.objectValues('Page Block')
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(pageblocks) == 2)
-        self.assert_(pageblocks[1].getId() == self.pageblock.getId())
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(pageblocks), 2)
+        self.assertEquals(pageblocks[1].getId(), self.pageblock.getId())
 
     def test_addPageBlock_at_the_bottom(self):
         orig_pageblock = self.pageblock
@@ -107,42 +107,42 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
             self.page_container.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
         pageblocks = self.page_container.objectValues('Page Block')
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(len(pageblocks) == 2)
-        self.assert_(pageblocks[0].getId() == orig_pageblock.getId())
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(len(pageblocks), 2)
+        self.assertEquals(pageblocks[0].getId(), orig_pageblock.getId())
 
     # Modifying / deleting objects
     def test_pageblock_delete(self):
         pageblock = self.pageblock
         test_url = '/%s/cpsskins_object_delete' % pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         pageblocks = self.page_container.objectValues('Page Block')
-        self.assert_(len(pageblocks) == 0)
+        self.assertEquals(len(pageblocks), 0)
 
     def test_Templet_delete(self):
         pageblock = self.pageblock
         templet = pageblock.addContent(type_name='Text Box Templet')
         test_url = '/%s/cpsskins_object_delete' % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() !=  HTTP_UNAUTHORIZED )
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED )
         templets = pageblock.objectValues('Text Box Templet')
-        self.assert_(len(templets) == 0)
+        self.assertEquals(len(templets), 0)
 
     def test_delete_cellhider(self):
         pageblock = self.pageblock
         cellhider = pageblock.addCellHider(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellhider.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(pageblock.getObjects()[0]['cellhider'] == None)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(pageblock.getObjects()[0]['cellhider'], None)
 
     def test_delete_cellstyler(self):
         pageblock = self.pageblock
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellstyler.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(pageblock.getObjects()[0]['cellstyler'] == None)
 
     def test_delete_cellsizer(self):
@@ -150,7 +150,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         cellsizer = pageblock.addCellSizer(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellsizer.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(pageblock.getObjects()[0]['cellsizer'] == None)
 
     # Moving / copying objects
@@ -162,7 +162,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['contents']) == 0)
         self.assert_(len(pageblock.getObjects()[1]['contents']) == 1)
 
@@ -174,7 +174,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['contents']) == 1)
         self.assert_(len(pageblock.getObjects()[1]['contents']) == 0)
 
@@ -190,7 +190,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
             (self.theme_container.getId(), self.page_container.getId())
         response = self.publish(test_url, self.basic_auth)
         templet_moved = pageblock.objectValues('Text Box Templet')[0]
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(templet_moved.xpos == 0)
         self.assert_(templet_moved.getVerticalPosition() == 0)
 
@@ -208,7 +208,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
            % (templet.absolute_url(1), 1, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
         templets_in_dest = pageblock_dest.objectValues('Text Box Templet')
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(templets_in_dest) >= 0)
 
     def test_copy_Templet_to_another_Theme(self):
@@ -229,15 +229,15 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
             (0, dest_theme_container.getId(), dest_page_container.getId())
         response = self.publish(test_url, self.basic_auth)
         templet_copied = pageblock_dest.objectValues('Text Box Templet')[0]
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(getattr(templet_copied, 'title'),
-                     getattr(templet, 'title'))
-        self.assert_(getattr(templet_copied, 'align'),
-                     getattr(templet, 'align'))
-        self.assert_(getattr(templet_copied, 'text'),
-                     getattr(templet, 'text'))
-        self.assert_(getattr(templet_copied, 'text_format'),
-                     getattr(templet, 'text_format'))
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(getattr(templet_copied, 'title'),
+                          getattr(templet, 'title'))
+        self.assertEquals(getattr(templet_copied, 'align'),
+                          getattr(templet, 'align'))
+        self.assertEquals(getattr(templet_copied, 'text'),
+                          getattr(templet, 'text'))
+        self.assertEquals(getattr(templet_copied, 'text_format'),
+                          getattr(templet, 'text_format'))
 
     def test_copy_Templet_to_another_Page(self):
         tmtool = self.portal.portal_themes
@@ -250,15 +250,15 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url += '?dest_page=%s' % dest_page_container.getId()
         response = self.publish(test_url, self.basic_auth)
         templet_copied = dest_page_container.getTemplets()[0]
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
-        self.assert_(getattr(templet_copied, 'title'),
-                     getattr(templet, 'title'))
-        self.assert_(getattr(templet_copied, 'align'),
-                     getattr(templet, 'align'))
-        self.assert_(getattr(templet_copied, 'text'),
-                     getattr(templet, 'text'))
-        self.assert_(getattr(templet_copied, 'text_format'),
-                     getattr(templet, 'text_format'))
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
+        self.assertEquals(getattr(templet_copied, 'title'),
+                          getattr(templet, 'title'))
+        self.assertEquals(getattr(templet_copied, 'align'),
+                          getattr(templet, 'align'))
+        self.assertEquals(getattr(templet_copied, 'text'),
+                          getattr(templet, 'text'))
+        self.assertEquals(getattr(templet_copied, 'text_format'),
+                          getattr(templet, 'text_format'))
 
     # Contextual menu
     def test_duplicate_Templet(self):
@@ -267,7 +267,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_content_action?action=duplicate' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         templets = pageblock.objectValues('Text Box Templet')
         self.assert_(len(templets) == 2)
 
@@ -277,7 +277,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_content_action?action=delete' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         templets = pageblock.objectValues('Text Box Templet')
         self.assert_(len(templets) == 0)
 
@@ -287,7 +287,7 @@ class TestFunctionalAsManagerOrThemeManager(TestFunctional):
         test_url = '/%s/cpsskins_find_mystyles?styleprop=color' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertNotEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
 
 class TestFunctionalAsMember(TestFunctional):
