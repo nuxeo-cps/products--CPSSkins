@@ -301,14 +301,14 @@ class TestFunctionalAsMember(TestFunctional):
         tmtool = self.portal.portal_themes
         test_url = '/%s/cpsskins_theme_add' % tmtool.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(tmtool.getThemes()) == 1)
 
     def test_add_style(self):
         test_url = '/%s/cpsskins_style_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Area+Color', 'PortalTheme')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         styles_dir = self.theme_container.getStylesFolder()
         styles = styles_dir.objectValues('Area Color')
         self.assert_(len(styles) == 0)
@@ -317,7 +317,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_palette_add?type_name=%s&theme=%s' % \
             (self.theme_url, 'Palette+Color', 'PortalTheme')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         palettes_dir = self.theme_container.getPalettesFolder()
         palettes = palettes_dir.objectValues('Palette Color')
         self.assert_(len(palettes) == 0)
@@ -327,7 +327,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_cellhider_add?xpos=0' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(pageblock.getObjects()[0]['cellhider'] == None)
 
     def test_add_cellsizer(self):
@@ -335,7 +335,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_cellsizer_add?xpos=0' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(pageblock.getObjects()[0]['cellsizer'] == None)
 
     def test_add_cellstyler(self):
@@ -343,13 +343,13 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_cellstyler_add?xpos=0' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(pageblock.getObjects()[0]['cellstyler'] == None)
 
     def test_ZMI(self):
         test_url = '/%s/manage_main' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_move_Cell_to_the_right(self):
         pageblock = self.pageblock
@@ -359,7 +359,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['contents']) == 1)
         self.assert_(len(pageblock.getObjects()[1]['contents']) == 0)
 
@@ -371,7 +371,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_move_cell?xpos=0&dir=right' % \
             pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['contents']) == 0)
         self.assert_(len(pageblock.getObjects()[1]['contents']) == 1)
 
@@ -385,7 +385,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
            % (templet.absolute_url(1), 0, 0, dest_block)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_move_Templet_between_different_PageBlocks(self):
         pageblock_src = self.pageblock
@@ -396,7 +396,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_move_content?xpos=%s&ypos=%s&dest_block=%s' \
            % (templet.absolute_url(1), 1, 0, pageblock_dest.getId())
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_addContent(self):
         pageblock = self.pageblock
@@ -404,7 +404,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_content_add?xpos=%s&ypos=%s&type_name=%s' \
             % (pageblock.absolute_url(1), 1, 0, 'Text Box Templet')
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_copy_Templet_to_another_Theme(self):
         tmtool = self.portal.portal_themes
@@ -422,7 +422,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url += '?ypos=%s&dest_theme=%s' \
            % (0, dest_theme_container.getId())
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_copy_Templet_to_another_Page(self):
         tmtool = self.portal.portal_themes
@@ -434,7 +434,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_move_content' % templet.absolute_url(1)
         test_url += '?dest_page=%s' % dest_page_container.getId()
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     # Contextual menu
     def test_duplicate_Templet(self):
@@ -446,7 +446,7 @@ class TestFunctionalAsMember(TestFunctional):
             (self.page_container.absolute_url(1), 0)
         response = self.publish(test_url, self.basic_auth)
         pageblocks = self.page_container.objectValues('Page Block')
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblocks) == 1)
 
     def test_addPageBlock_at_the_bottom(self):
@@ -454,7 +454,7 @@ class TestFunctionalAsMember(TestFunctional):
             self.page_container.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
         pageblocks = self.page_container.objectValues('Page Block')
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblocks) == 1)
 
     def test_duplicate_Templet(self):
@@ -463,7 +463,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_content_action?action=duplicate' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         templets = pageblock.objectValues('Text Box Templet')
         self.assert_(len(templets) == 1)
 
@@ -473,7 +473,7 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_content_action?action=delete' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         templets = pageblock.objectValues('Text Box Templet')
         self.assert_(len(templets) == 1)
 
@@ -483,13 +483,13 @@ class TestFunctionalAsMember(TestFunctional):
         test_url = '/%s/cpsskins_find_mystyles?styleprop=color' \
            % templet.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
     def test_pageblock_delete(self):
         test_url = '/%s/cpsskins_object_delete' % \
             self.pageblock.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         pageblocks = self.page_container.objectValues('Page Block')
         self.assert_(len(pageblocks) == 1)
 
@@ -498,7 +498,7 @@ class TestFunctionalAsMember(TestFunctional):
         cellhider = pageblock.addCellHider(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellhider.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['cellhider']) == 1)
 
     def test_delete_cellstyler(self):
@@ -506,7 +506,7 @@ class TestFunctionalAsMember(TestFunctional):
         cellstyler = pageblock.addCellStyler(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellstyler.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['cellstyler']) == 1)
 
     def test_delete_cellsizer(self):
@@ -514,7 +514,7 @@ class TestFunctionalAsMember(TestFunctional):
         cellsizer = pageblock.addCellSizer(**{'xpos':0})
         test_url = '/%s/cpsskins_object_delete' % cellsizer.absolute_url(1)
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
         self.assert_(len(pageblock.getObjects()[0]['cellsizer']) == 1)
 
 class TestFunctionalAsManager(TestFunctionalAsManagerOrThemeManager):
@@ -525,7 +525,7 @@ class TestFunctionalAsManager(TestFunctionalAsManagerOrThemeManager):
     def test_ZMI(self):
         test_url = '/%s/manage_main' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() != HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
 
 class TestFunctionalAsThemeManager(TestFunctionalAsManagerOrThemeManager):
@@ -536,7 +536,7 @@ class TestFunctionalAsThemeManager(TestFunctionalAsManagerOrThemeManager):
     def test_ZMI(self):
         test_url = '/%s/manage_main' % self.theme_url
         response = self.publish(test_url, self.basic_auth)
-        self.assert_(response.getStatus() == HTTP_UNAUTHORIZED)
+        self.assertEquals(response.getStatus(), HTTP_UNAUTHORIZED)
 
 
 
@@ -552,8 +552,9 @@ class TestFunctionalCalendar(TestFunctional):
         base_url = '%s/cpsskins_calendar_browse' % self.portal.absolute_url(1)
         test_url = base_url + '?year:int=2004&month:int=8&dir=nextmonth'
         response = self.publish(test_url, self.basic_auth)
+        self.assertEquals(response.getStatus(), HTTP_REDIRECT)
         location = self.location_re.search(response.getOutput())
-        redirect_url = location and location.group(1)
+        redirect_url = location.group(1)
         self.assert_(redirect_url.find('?year:int=2004&month:int=9') >= 0 )
 
     def test_Calendar_browse_prev_month(self):
@@ -562,8 +563,9 @@ class TestFunctionalCalendar(TestFunctional):
         base_url = '%s/cpsskins_calendar_browse' % self.portal.absolute_url(1)
         test_url = base_url + '?year:int=2004&month:int=8&dir=prevmonth'
         response = self.publish(test_url, self.basic_auth)
+        self.assertEquals(response.getStatus(), HTTP_REDIRECT)
         location = self.location_re.search(response.getOutput())
-        redirect_url = location and location.group(1)
+        redirect_url = location.group(1)
         self.assert_(redirect_url.find('?year:int=2004&month:int=7') >= 0 )
 
 def test_suite():
