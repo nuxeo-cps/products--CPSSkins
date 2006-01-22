@@ -201,7 +201,7 @@ def setupTestUsers(app, portal_id):
 # Install
 
 if target == 'CMF':
-    portal_id='cmf'
+    portal_id = 'cmf'
     CMFTestCase.setupCMFSite()
     CMFTestCase.setupCMFSkins()
     app = ZopeTestCase.app()
@@ -212,11 +212,11 @@ if target == 'CPS2':
     app = ZopeTestCase.app()
 
 if target == 'CPS3':
-    portal_id='portal'
+    portal_id = 'portal'
     app = ZopeTestCase.app()
 
 if target == 'Plone2':
-    portal_id='portal'
+    portal_id = 'portal'
     app = ZopeTestCase.app()
     Plone2TestCase.setupPloneSite(app)
 
