@@ -25,7 +25,7 @@
  'Content-Type', 'text/html;; charset=%s' % charset)" />
 <meta http-equiv="Content-Type" tal:attributes="
  content string:text/html;;charset=${charset}" />
-<meta name="generator" content="CPSSkins 2.3" />
+<meta name="engine" content="CPSSkins 2.3" />
 <tal:block content="structure python:theme_container.renderIcon()" />
 <!-- CSS1 -->
 <link rel="Stylesheet" type="text/css"

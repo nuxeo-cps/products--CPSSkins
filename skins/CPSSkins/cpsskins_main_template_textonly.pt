@@ -1,5 +1,5 @@
 <metal:block define-macro="head">
-  <meta name="generator" content="CPSSkins 2.3" />
+  <meta name="engine" content="CPSSkins 2.3" />
 </metal:block>
 <metal:block define-macro="main" tal:condition="nocall:page_container">
   <tal:block content="structure tmtool/renderAccessKey" />
