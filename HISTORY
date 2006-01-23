@@ -1,4 +1,45 @@
 *******************************************
+** CPSSkins V2.8.0 [R1 build 2006/01/23-17:31 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 31976
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- #928 added a label for the current screen name (portlet editor / theme editor)
+- #1024 fixed the tableless renderer when no cell width is specified
+- #1077 portlets that are invisible because of the portlet guard are visible
+  in the portlet editor.
+- GenericSetup-based import/export of themes. Requires GenericSetup >= r41050
+Bug fixes:
+~~~~~~~~~~
+- Fixed redirection in cpsskins_setcookie if the referer is ''.
+- Made the "CPS3 Default theme" tabs behave well with very short and very long
+  titles (from 1 to 100 letters).
+- #821 the search box templet in the CPS3 default theme is no longer set in the
+  cache for one hour by default.
+- #1165 Added a 'content_well' slot in the 'printable' and in the 'autumn'
+  themes
+- Fixed #1149: provide easy navigation between the theme tool management screen
+  and the portlet management screen through links and accesskeys.
+- Added a permission check on the access to the Portlet editor.
+- #1210 fixed bullets display problem and converted all icons and backgrounds
+  in the default theme to PNG
+- #1274 fixed the rendering of the portlet box edit form
+- Removed dependency to CPSBoxes property cps_is_portalbox in profile
+- expire the cache entries when the portlet box templet is updated.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Got rid of some warnings in test output.
+- Removed support for CPSBoxes, updated the default CPS3 theme to have it
+  work without boxes.
+- Improved session behaviour by avoiding potential conflicts when nothing
+  interesting is actually in the session.
+- CPS css_slot was renamed style_slot to comply with later CMF/Zope 3 standard.
+- i18n: upgraded to i18ndude 2.0 - updated the Makefile's i18n section
+- Changed ImageBox templet to always store its image as a subobject.
+
+*******************************************
 ** CPSSkins V2.7.0 [R1 build 2005/11/07-15:26 by fguillaume]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 29058
 Requires:
