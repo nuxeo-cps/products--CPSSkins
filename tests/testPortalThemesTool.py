@@ -1,6 +1,11 @@
 import os, sys
+
+from Testing import ZopeTestCase
+
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
+
+_TESTS_PATH = os.path.split(__file__)[0]
 
 import unittest
 import CPSSkinsTestCase
@@ -10,6 +15,15 @@ class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
     def afterSetUp(self):
         CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         self.portal.REQUEST.SESSION = {}
+
+        # install test themes
+        tmtool = self.portal.portal_themes
+        zexpdir =  os.path.join(_TESTS_PATH, 'data')
+        for themeid in ('theme1', 'empty'):
+            if themeid in tmtool.objectIds():
+                continue
+            zexppath  = os.path.join(zexpdir, '%s.zexp' % themeid)
+            ZopeTestCase.utils.importObjectFromFile(tmtool, zexppath)
 
     def test_check_meta_type(self):
         portal = self.portal

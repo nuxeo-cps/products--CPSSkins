@@ -101,7 +101,6 @@ class CPSSkinsInstaller:
         self.setup(portal_id, target, quiet)
         if localizer:
             self.fixupTranslationServices(portal_id)
-        self.install_themes(portal_id, quiet)
         self.fixupErrorLog(portal_id)
 
     def addUser(self):
@@ -128,16 +127,6 @@ class CPSSkinsInstaller:
         localizer = portal.Localizer
         for domain in localizer.objectIds():
             setattr(localizer, domain, DummyMessageCatalog())
-
-    def install_themes(self, portal_id, quiet):
-        portal = getattr(self.app, portal_id)
-        tmtool = portal.portal_themes
-        if not quiet:
-            ZopeTestCase._print('Installing CPSSkins test themes ...\n')
-        zexpdir =  os.path.join(_TESTS_PATH, 'data')
-        for themeid in ['theme1', 'empty']:
-            zexppath  = os.path.join(zexpdir, '%s.zexp' % themeid)
-            ZopeTestCase.utils.importObjectFromFile(tmtool, zexppath)
 
     # remove ignored exceptions
     def fixupErrorLog(self, portal_id):
