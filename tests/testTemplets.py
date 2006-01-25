@@ -20,8 +20,9 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.pageblock = self.page_container.addPageBlock()
         atool = self.portal.portal_actions
         self.portal.REQUEST.SESSION = {}
-        self.portal.REQUEST.set('cpsskins_mcat',
-                                tmtool.getTranslationService())
+        # fix for CPS3.4
+        #self.portal.REQUEST.set('cpsskins_mcat',
+        #                        tmtool.getTranslationService())
         self.portal.REQUEST.set('cpsskins_cmfactions',
                                 atool.listFilteredActionsFor(self.portal))
         self.portal.REQUEST.set('cpsskins_language', 'en')

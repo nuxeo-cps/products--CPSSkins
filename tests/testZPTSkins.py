@@ -16,7 +16,9 @@ class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
             tmtool.manage_delObjects(['PortalTheme'])
         self.theme_container = tmtool.addPortalTheme()
         self.portal.REQUEST.SESSION = {}
-        self.portal.REQUEST.set('cpsskins_mcat', tmtool.getTranslationService())
+        # fix for CPS3.4
+        #self.portal.REQUEST.set('cpsskins_mcat',
+        #                         tmtool.getTranslationService())
 
     def test_1(self):
         self.assert_(self.portal.index_html())
