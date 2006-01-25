@@ -47,9 +47,17 @@ for product in ('CPSWorkflow', 'CPSBoxes', 'NuxMetaDirectories',
 
 import transaction
 
-from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase, MANAGER_ID
 
 class CPSSkinsTestCase(CPSTestCase):
+
+    def afterSetUp(self):
+        self.login(MANAGER_ID)
+        CPSTestCase.afterSetUp(self)
+
+    def beforeTearDown(self):
+        CPSTestCase.beforeTearDown(self)
+        self.logout()
 
     def _setupUser(self):
         CPSTestCase._setupUser(self)

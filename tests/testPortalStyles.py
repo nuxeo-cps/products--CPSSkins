@@ -9,6 +9,7 @@ import CPSSkinsTestCase
 class TestPortalStyles(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         tmtool = self.portal.portal_themes
         if 'PortalTheme' in tmtool.objectIds():
             tmtool.manage_delObjects(['PortalTheme'])

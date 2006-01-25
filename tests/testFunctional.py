@@ -17,6 +17,7 @@ class TestFunctional(ZopeTestCase.Functional,
                      CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         tmtool = self.portal.portal_themes
         self.tmtool = tmtool
         tmtool.manage_delObjects(tmtool.objectIds())

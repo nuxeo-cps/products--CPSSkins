@@ -11,12 +11,14 @@ from Testing import ZopeTestCase
 class TestPortalTheme(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         portal = self.portal
         tmtool = portal.portal_themes
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme()
         self.portal.REQUEST.SESSION = {}
         self.portal.REQUEST.set('cpsskins_mcat', tmtool.getTranslationService())
+
     def test_Theme_structure(self):
         portal = self.portal
         tmtool = portal.portal_themes

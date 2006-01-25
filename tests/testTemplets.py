@@ -12,6 +12,7 @@ TEST_IMG = os.path.join(tests.__path__[0], 'TestImage.jpg')
 class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         tmtool = self.portal.portal_themes
         tmtool.manage_delObjects(tmtool.objectIds())
         self.theme_container = tmtool.addPortalTheme(empty=1)

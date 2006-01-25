@@ -19,8 +19,8 @@ _TESTS_PATH = os.path.split(__file__)[0]
 class TestUpgradeThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         transaction.begin()
-        self.login('cpsskins_root')
         self.setupLocalEnvironment()
 
     def beforeTearDown(self):

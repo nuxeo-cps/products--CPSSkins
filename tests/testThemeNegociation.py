@@ -14,7 +14,7 @@ from Products.CPSSkins.PortalThemesTool import CPSSKINS_THEME_COOKIE_ID, \
 class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
-        self.login('cpsskins_root')
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         self.REQUEST = self.portal.REQUEST
         self.REQUEST.SESSION = {}
         self.REQUEST.cookies = {}

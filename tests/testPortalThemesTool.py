@@ -8,6 +8,7 @@ import CPSSkinsTestCase
 class TestPortalThemesTool(CPSSkinsTestCase.CPSSkinsTestCase):
 
     def afterSetUp(self):
+        CPSSkinsTestCase.CPSSkinsTestCase.afterSetUp(self)
         self.portal.REQUEST.SESSION = {}
 
     def test_check_meta_type(self):
