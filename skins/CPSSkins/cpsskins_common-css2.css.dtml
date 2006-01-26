@@ -42,6 +42,37 @@ input.SearchBox {
   border: 1px solid #b0b0b0;
 }
 
+div.searchField {
+  background: url("<dtml-var portal_url>/cpsskins_images/portlet_search_icon.png"); 
+  background-repeat: no-repeat;
+  background-position: center left;
+  padding: 2px 2px 2px 20px;
+}
+
+.toggle_icon {
+  float: left;
+  clear: left;
+  padding: 2px 0 0 3px;
+}
+
+.missing_toggle {
+  padding: 0 0 0 13px;
+}
+
+.tree_node {
+  padding: 0 0 0 8px;
+}
+
+.tree_leaf {
+  padding: 0 0 0 22px;
+}
+
+.action_icon {
+  float: left;
+  clear: left;
+  padding: 0 6px 0 0;
+}
+
 /* Portal boxes */
 
 /* Standard vertical layout */
