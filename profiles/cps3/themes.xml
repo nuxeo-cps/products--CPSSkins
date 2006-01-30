@@ -7,4 +7,5 @@
  <object name="autumn" meta_type="Portal Theme"/>
  <object name="printable" meta_type="Portal Theme"/>
  <object name="plone" meta_type="Portal Theme"/>
+ <object name="cps-3.3" meta_type="Portal Theme"/>
 </object>
