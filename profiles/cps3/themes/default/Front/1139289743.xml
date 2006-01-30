@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<object name="1139289743" meta_type="Page Block">
+ <property name="title">Header</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height">10px</property>
+ <property name="maxcols">4</property>
+ <property name="shape"></property>
+ <property name="color">Headercandybarbackground</property>
+ <object name="1767036500" meta_type="Portal Box Group Templet"/>
+ <object name="1590480821" meta_type="Portal Box Group Templet"/>
+ <object name="1901880379" meta_type="Portlet Box Templet"/>
+ <object name="429822844" meta_type="Cell Sizer"/>
+ <object name="939389691" meta_type="Cell Sizer"/>
+ <object name="1035074740" meta_type="Cell Sizer"/>
+ <object name="326700260" meta_type="Cell Sizer"/>
+ <object name="1102809076" meta_type="Cell Styler"/>
+ <object name="745682226" meta_type="Cell Styler"/>
+</object>

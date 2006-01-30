@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="1527694959" meta_type="Page Block">
+ <property name="title">Footer</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height">80px</property>
+ <property name="maxcols">3</property>
+ <property name="shape"></property>
+ <property name="color">Footergradient</property>
+ <object name="1507015224" meta_type="Portlet Box Templet"/>
+ <object name="1883562153" meta_type="Cell Block"/>
+ <object name="429822844" meta_type="Cell Sizer"/>
+ <object name="939389691" meta_type="Cell Sizer"/>
+ <object name="1035074740" meta_type="Cell Sizer"/>
+ <object name="326700260" meta_type="Cell Sizer"/>
+ <object name="1102809076" meta_type="Cell Styler"/>
+ <object name="745682226" meta_type="Cell Styler"/>
+</object>

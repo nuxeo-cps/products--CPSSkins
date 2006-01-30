@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<object name="styles" meta_type="Theme Folder">
+ <property name="title"></property>
+ <object name="445882929" meta_type="Area Color"/>
+ <object name="541266115" meta_type="Area Color"/>
+ <object name="1380324516" meta_type="Area Color"/>
+ <object name="2033975224" meta_type="Area Color"/>
+ <object name="191447722" meta_type="Area Color"/>
+ <object name="1678390898" meta_type="Portal Tab Style"/>
+ <object name="1037776740" meta_type="Area Color"/>
+ <object name="335528212" meta_type="Area Color"/>
+ <object name="338454940" meta_type="Font Shape"/>
+ <object name="1775761467" meta_type="Font Shape"/>
+ <object name="1228683774" meta_type="Area Color"/>
+ <object name="1696335935" meta_type="Portal Box Shape"/>
+ <object name="491527438" meta_type="Portal Box Color"/>
+ <object name="595846177" meta_type="Font Color"/>
+ <object name="1397486605" meta_type="Area Color"/>
+ <object name="1295184216" meta_type="Area Color"/>
+ <object name="1428230793" meta_type="Area Color"/>
+ <object name="1449759912" meta_type="Area Color"/>
+ <object name="2067799801" meta_type="Portal Box Shape"/>
+ <object name="1262551179" meta_type="Portal Box Color"/>
+ <object name="1905266337" meta_type="Portal Box Shape"/>
+ <object name="1923814183" meta_type="Portal Box Color"/>
+ <object name="1094747913" meta_type="Font Color"/>
+ <object name="1744980808" meta_type="Area Color"/>
+ <object name="1458750549" meta_type="Font Color"/>
+ <object name="2079330727" meta_type="Font Shape"/>
+ <object name="2044753840" meta_type="Box Corners"/>
+ <object name="1115700026" meta_type="Portal Tab Style"/>
+ <object name="1042931358" meta_type="Area Color"/>
+ <object name="1890140826" meta_type="Box Corners"/>
+ <object name="1144365502" meta_type="Font Shape"/>
+ <object name="1515828409" meta_type="Font Color"/>
+ <object name="1711671878" meta_type="Portal Box Shape"/>
+ <object name="678796708" meta_type="Portal Box Color"/>
+</object>

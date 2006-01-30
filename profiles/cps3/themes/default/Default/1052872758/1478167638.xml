@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="1478167638" meta_type="Cell Block">
+ <property name="title">brilliant_banners</property>
+ <property name="xpos">1</property>
+ <property name="height"></property>
+ <property name="maxcols">6</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <property name="margin">10px 30px 20px 30px</property>
+ <object name="1543944979" meta_type="Portlet Box Templet"/>
+ <object name="1139520668" meta_type="Portlet Box Templet"/>
+ <object name="592462492" meta_type="Portlet Box Templet"/>
+ <object name="1720604504" meta_type="Portlet Box Templet"/>
+ <object name="688575758" meta_type="Cell Sizer"/>
+ <object name="216511937" meta_type="Cell Sizer"/>
+ <object name="1248757033" meta_type="Cell Sizer"/>
+ <object name="1970287904" meta_type="Cell Sizer"/>
+ <object name="439472746" meta_type="Cell Sizer"/>
+ <object name="205436592" meta_type="Cell Sizer"/>
+</object>

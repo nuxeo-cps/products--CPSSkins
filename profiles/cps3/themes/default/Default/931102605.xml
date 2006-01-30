@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<object name="931102605" meta_type="Page Block">
+ <property name="title">Main</property>
+ <property name="closed">False</property>
+ <property name="width">100%</property>
+ <property name="height"></property>
+ <property name="maxcols">4</property>
+ <property name="shape">NoBorder</property>
+ <property name="color">Transparent</property>
+ <object name="1949281924" meta_type="Portal Box Group Templet"/>
+ <object name="1893647020" meta_type="Portal Box Group Templet"/>
+ <object name="951990922" meta_type="Portal Box Group Templet"/>
+ <object name="243553708" meta_type="Main Content Templet"/>
+ <object name="1899032495" meta_type="Portal Box Group Templet"/>
+ <object name="799026211" meta_type="Portal Box Group Templet"/>
+ <object name="contentwell" meta_type="Portal Box Group Templet"/>
+ <object name="1968852416" meta_type="Portlet Box Templet"/>
+ <object name="773236679" meta_type="Cell Sizer"/>
+ <object name="692327374" meta_type="Cell Sizer"/>
+ <object name="1201053626" meta_type="Cell Sizer"/>
+ <object name="743387521" meta_type="Cell Styler"/>
+ <object name="993854963" meta_type="Cell Sizer"/>
+ <object name="2110389968" meta_type="Cell Styler"/>
+ <object name="724863353" meta_type="Cell Sizer"/>
+ <object name="309820339" meta_type="Cell Styler"/>
+ <object name="1978894201" meta_type="Cell Styler"/>
+</object>
