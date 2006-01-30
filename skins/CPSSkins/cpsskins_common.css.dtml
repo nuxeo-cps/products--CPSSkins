@@ -65,7 +65,7 @@ td.odd {
 input, select, textarea, button {
   font: 11px Verdana, Arial, sans-serif !important;
   color:  Black;
-  background-color: #efefef;
+  background-color: white;
 }
 
 .formmeta {

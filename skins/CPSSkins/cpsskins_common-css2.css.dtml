@@ -9,15 +9,19 @@ html, body {
   height: 100%;
 }
 
-/* */
-input, select, textarea, button {
-  border: 1px solid #336699;
-  background-color: #f9f9f9;
-  margin: 3px;
+/* January 2006 Thibaut Soulcié for CPS Default 3.4 changed input&buttons border-style and border-color */
+
+input, textarea, select, button {
+  background-color: white;
+  margin: 0;
+}
+
+input {
+  border: 1px inset #757575;
 }
 
 input, button {
-  padding: 0.1em;
+  padding: 3px;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -38,8 +42,8 @@ input.SearchBox {
   background-repeat: no-repeat;
   background-position: center left;
   padding: 2px 2px 2px 20px;
-  background-color: #fcfcfc;
-  border: 1px solid #b0b0b0;
+  background-color: white;
+  border: 1px inset #757575;
 }
 
 div.searchField {
@@ -102,12 +106,12 @@ div.searchField {
   display: block;
 }
 
-div.xmlExportButtons {
+.cpsskinsBox div.xmlExportButtons {
   text-align: right;
   padding-top: 1em;
 }
 
-div.xmlExportButtons a {
+.cpsskinsBox div.xmlExportButtons a {
   border: 0.1em outset #ff6600;
   background: #f60;
   color: #fff !important;
