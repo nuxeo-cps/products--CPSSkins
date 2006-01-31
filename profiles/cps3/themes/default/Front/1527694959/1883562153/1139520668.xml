@@ -24,7 +24,7 @@
  <property name="boxcorners"></property>
  <property name="portaltabstyle"></property>
  <property name="boxlayout">notitle_noframe</property>
- <property name="portlet_id">portlet_953663577</property>
+ <property name="portlet_id">portlet_image_valid_rss2</property>
  <property name="portlet_type">Image Portlet</property>
  <property name="box_title_i18n">False</property>
 </object>
