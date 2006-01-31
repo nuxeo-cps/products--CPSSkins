@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="1478167638" meta_type="Cell Block">
+<object name="cell_brilliant_banners" meta_type="Cell Block">
  <property name="title">brilliant_banners</property>
  <property name="xpos">1</property>
  <property name="height"></property>
