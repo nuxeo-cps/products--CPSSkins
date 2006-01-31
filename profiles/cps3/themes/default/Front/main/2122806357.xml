@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="2122806357" meta_type="Cell Block">
+ <property name="title">3 stamps</property>
+ <property name="xpos">2</property>
+ <property name="height"></property>
+ <property name="maxcols">3</property>
+ <property name="shape"></property>
+ <property name="color"></property>
+ <property name="margin"></property>
+ <object name="50834872" meta_type="Portlet Box Templet"/>
+ <object name="1263431812" meta_type="Portlet Box Templet"/>
+ <object name="1787834094" meta_type="Portlet Box Templet"/>
+ <object name="642938953" meta_type="Cell Sizer"/>
+ <object name="103805252" meta_type="Cell Sizer"/>
+ <object name="1214080008" meta_type="Cell Sizer"/>
+</object>

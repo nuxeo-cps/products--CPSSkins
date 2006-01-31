@@ -10,7 +10,7 @@
  <property name="shape"></property>
  <property name="color"></property>
  <property name="margin">0px</property>
- <object name="1139289743" meta_type="Page Block"/>
- <object name="822175872" meta_type="Page Block"/>
- <object name="1527694959" meta_type="Page Block"/>
+ <object name="header" meta_type="Page Block"/>
+ <object name="main" meta_type="Page Block"/>
+ <object name="footer" meta_type="Page Block"/>
 </object>
