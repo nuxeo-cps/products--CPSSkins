@@ -11,7 +11,7 @@
   <tr>
     <tal:block define="objects python: context.getObjects()"
                repeat="x_pos python: range(int(maxcols))">
-      <tal:block 
+      <tal:block
        define="objects_in_xpos python: objects.get(x_pos, None)">
         <td valign="top"
          tal:define="contents_in_xpos python: objects_in_xpos['contents'];
@@ -19,8 +19,7 @@
          tal:attributes="style python: cellsize and 'width:%s' % cellsize.cellwidth or None">
           <tal:block repeat="content contents_in_xpos">
             <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
-                 tal:attributes="align python: content.align;
-                                 style python: 'padding:%s' % content.margin">
+                 tal:attributes="style string:text-align:${content/align};;padding:${content/margin}">
               <div tal:attributes="class python: content.getCSSClass(level=2);
                                    style python: content.getCSSLayoutStyle()"
                tal:content="structure rendered" />
