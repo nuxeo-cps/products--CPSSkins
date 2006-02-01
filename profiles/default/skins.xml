@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="portal_skins" meta_type="CMF Skins Tool">
+<object name="portal_skins" meta_type="CMF Skins Tool"
+        default_skin="CPSSkins">
  <object name="CPSSkins" meta_type="Filesystem Directory View"
     directory="CPSSkins/skins/CPSSkins"/>
  <object name="cpsskins_cmf" meta_type="Filesystem Directory View"
