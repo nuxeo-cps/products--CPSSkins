@@ -15,10 +15,8 @@
  <property name="shape"></property>
  <property name="color">mainleftborder</property>
  <property name="formstyle"></property>
- <property name="visibility">everywhere_except_in</property>
- <property name="visibility_paths">
-  <element value="/sections/"/>
- </property>
+ <property name="visibility">always</property>
+ <property name="visibility_paths"/>
  <property name="languages"/>
  <property name="esi_fragment">False</property>
 </object>
