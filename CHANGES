@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- #1343 sessions have been replaced by cookies to store transient information.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3

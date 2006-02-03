@@ -22,6 +22,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 import re
 import random
+import base64
 
 from DateTime import DateTime
 from Acquisition import  aq_base, aq_parent, aq_inner
@@ -36,6 +37,7 @@ except ImportError:
 
 from Products.CMFCore.utils import getToolByName, _getViewFor
 
+from Products.CPSSkins import minjson as json
 from CPSSkinsPermissions import ManageThemes
 
 def rebuild_properties(obj):
@@ -472,3 +474,25 @@ def html_slimmer(html):
     html = re.sub(r'\n\s+\n','', html)
     return html
 
+def serializeForCookie(obj):
+    """Convert a python data structure into a base64 encoded string suitable
+    for storing in a cookie."""
+
+    string = json.write(obj)
+    v = base64.encodestring(string)
+    return v.replace('\n', '') # cookie values cannot contain newlines
+
+def unserializeFromCookie(string='', default=None):
+    """Convert a base64 string into a python object"""
+
+    value = default
+    if not string:
+        return value
+
+    v = base64.decodestring(string)
+    try:
+        value = json.read(v)
+    except IndexError:
+        pass
+
+    return value

@@ -52,12 +52,16 @@ from QuickImporter import manage_doQuickImport, _deleteFileInImportDirectory, \
 from Products.CPSSkins.interfaces import implements
 from Products.CPSSkins.interfaces import IThemeTool
 
+from cpsskins_utils import serializeForCookie, unserializeFromCookie
+
 try:
     from Products.CPSUtil.session import sessionGet
 except ImportError:
     def sessionGet(request, key, default):
         return request.SESSION.get(key, default)
 
+
+MAX_COOKIE_LENGTH = 4096
 
 # Theme negociation
 CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
@@ -72,7 +76,7 @@ STATUS_THEME_REBUILD_FAILED = 4
 STATUS_NO_NEW_THEME = 5
 STATUS_NEW_THEME_AVAILABLE = 6
 
-VIEW_MODE_SESSION_KEY = 'cpsskins_view_mode'
+VIEW_MODE_COOKIE_ID = 'cpsskins_view_mode'
 
 # Actions
 THEME_CONFIG_ACTION_ID = 'configThemes'
@@ -169,7 +173,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def getViewMode(self):
         """ Gets the current view mode """
 
-        return sessionGet(self.REQUEST, VIEW_MODE_SESSION_KEY, {})
+        ser = self.REQUEST.cookies.get(VIEW_MODE_COOKIE_ID, '')
+        if not ser:
+            return {}
+        return unserializeFromCookie(ser, default={})
 
     security.declarePublic('setViewMode')
     def setViewMode(self, reload=0, **kw):
@@ -178,12 +185,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         REQUEST = self.REQUEST
         kw.update(REQUEST.form)
 
-        session = REQUEST.SESSION
-        session_dict = session.get(VIEW_MODE_SESSION_KEY, {})
+        view_params = self.getViewMode()
 
         fullscreen = kw.get('fullscreen')
         if fullscreen in ['0', '1']:
-            session_dict['fullscreen'] = int(fullscreen)
+            view_params['fullscreen'] = int(fullscreen)
 
         for param in ['themes_panel',
                       'portlets_panel',
@@ -200,12 +206,21 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                       'scrolly',
                       'current_url']:
             if kw.has_key(param):
-                session_dict[param] = kw[param]
+                view_params[param] = kw[param]
 
-        session[VIEW_MODE_SESSION_KEY] = session_dict
+        value = serializeForCookie(view_params)
+        cookie_path = self.cpsskins_getBaseUrl()
+
+        if len(VIEW_MODE_COOKIE_ID) + len(value) > MAX_COOKIE_LENGTH:
+            # XXX: this shouldn't occur buy the cookie value and name length
+            # must be less than 4K.
+            raise ValueError("CPSSkins.PortalThemesTool.setViewMode: "
+                "Cannot store the view mode information in a single cookie.")
+
+        REQUEST.RESPONSE.setCookie(VIEW_MODE_COOKIE_ID, value, path=cookie_path)
 
         # reload the page
-        if reload and REQUEST is not None:
+        if reload:
             redirect_url = REQUEST['HTTP_REFERER']
             if '?' in redirect_url:
                 redirect_url = redirect_url.split('?')[0]
@@ -216,15 +231,14 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         """ clear view modes """
 
         REQUEST = self.REQUEST
-        session = REQUEST.SESSION
-        session_dict = session.get(VIEW_MODE_SESSION_KEY, {})
+        view_params = self.getViewMode()
 
         for k in args:
-            if k not in session_dict.keys():
+            if k not in view_params:
                 continue
-            del session_dict[k]
+            del view_params[k]
 
-        session[VIEW_MODE_SESSION_KEY] = session_dict
+        self.setViewMode(view_params)
 
     security.declarePublic('getPortalThemeRoot')
     def getPortalThemeRoot(self, object=None):
