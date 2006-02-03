@@ -54,13 +54,6 @@ from Products.CPSSkins.interfaces import IThemeTool
 
 from cpsskins_utils import serializeForCookie, unserializeFromCookie
 
-try:
-    from Products.CPSUtil.session import sessionGet
-except ImportError:
-    def sessionGet(request, key, default):
-        return request.SESSION.get(key, default)
-
-
 MAX_COOKIE_LENGTH = 4096
 
 # Theme negociation
