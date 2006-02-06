@@ -7,6 +7,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - #1343 sessions have been replaced by cookies to store transient information.
+- cps-3.3 is no longuer set as default (since 'default' is already the default
+  theme) in the 'cps3' profile
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
