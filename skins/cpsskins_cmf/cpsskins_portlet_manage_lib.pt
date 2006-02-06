@@ -611,6 +611,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
     <div class="previewBox hidden"
      tal:define="portlet_id portlet/getId"
      tal:attributes="id portlet_id"
-     tal:content="structure python: portlet.render_cache(context_obj=here)" />
+     tal:content="structure python: portlet.render_cache(portlet=portlet,
+                                                         context_obj=here)" />
   </tal:block>
 </metal:block>
