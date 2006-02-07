@@ -10,6 +10,8 @@ Bug fixes:
 - cps-3.3 is no longuer set as default (since 'default' is already the default
   theme) in the 'cps3' profile
 - #1369: "Unused portlets" page was broken
+- part of #1290: remove empty space in folder_view -> move contentwell templet
+  above main_content templet
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
