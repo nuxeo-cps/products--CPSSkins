@@ -12,6 +12,8 @@ Bug fixes:
 - #1369: "Unused portlets" page was broken
 - part of #1290: remove empty space in folder_view -> move contentwell templet
   above main_content templet
+- #1358: replaced RSS templet/portlet with a WAI templet/portlet
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
+

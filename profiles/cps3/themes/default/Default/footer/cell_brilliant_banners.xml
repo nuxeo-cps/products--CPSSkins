@@ -8,7 +8,7 @@
  <property name="color"></property>
  <property name="margin">10px 30px 20px 30px</property>
  <object name="portlet_box_brilliant_banner_cps" meta_type="Portlet Box Templet"/>
- <object name="portlet_box_rss" meta_type="Portlet Box Templet"/>
+ <object name="portlet_box_wai" meta_type="Portlet Box Templet"/>
  <object name="portlet_box_valid_css" meta_type="Portlet Box Templet"/>
  <object name="portlet_box_xhtml" meta_type="Portlet Box Templet"/>
  <object name="cell_sizer2" meta_type="Cell Sizer"/>

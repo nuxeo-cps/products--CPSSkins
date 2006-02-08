@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object name="1139520668" meta_type="Portlet Box Templet">
- <property name="title">RSSValid</property>
+ <property name="title">WAIValid</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>
  <property name="hidden_in_text_mode">False</property>
@@ -24,7 +24,7 @@
  <property name="boxcorners"></property>
  <property name="portaltabstyle"></property>
  <property name="boxlayout">notitle_noframe</property>
- <property name="portlet_id">portlet_image_valid_rss2</property>
+ <property name="portlet_id">portlet_image_valid_wai</property>
  <property name="portlet_type">Image Portlet</property>
  <property name="box_title_i18n">False</property>
 </object>
