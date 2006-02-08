@@ -757,6 +757,12 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         theme that effectively exists and a page existing in this theme.
         Otherwise return the name of the default theme and of the default page.
         """
+        REQUEST = self.REQUEST
+
+        # get the cached value
+        if 'cpsskins_effective_theme_page' in REQUEST:
+            return REQUEST['cpsskins_effective_theme_page']
+
         theme, page = self.getRequestedThemeAndPageName(**kw)
         # theme
         if theme not in self.getThemeNames():
@@ -771,6 +777,10 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             theme = self.getDefaultThemeName()
             theme_container = self.getThemeContainer(theme)
             page = theme_container.getDefaultPageName()
+
+        # cache the information in the request
+        REQUEST['cpsskins_effective_theme_page'] = theme, page
+
         return theme, page
 
     security.declarePublic('getThemes')

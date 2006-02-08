@@ -16,4 +16,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
-
+- the effective theme and page information is cached in the REQUEST
