@@ -809,6 +809,12 @@ class PortalTheme(ThemeFolder, StylableContent):
         img.manage_upload(file)
 
         self.expireCSSCache()
+
+        # clear the portlet's cache
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            ptltool.clearCache()
+
         return img
 
     #

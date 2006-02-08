@@ -993,6 +993,11 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         for theme in self.getThemes():
             theme.clearCache()
 
+        # clear the portlet's cache
+        ptltool = getToolByName(self, 'portal_cpsportlets', None)
+        if ptltool is not None:
+            ptltool.clearCache()
+
         if REQUEST is not None:
             REQUEST.RESPONSE.redirect(self.absolute_url() + '/manage_RAMCaches')
 
