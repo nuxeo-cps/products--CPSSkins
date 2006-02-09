@@ -3,6 +3,7 @@
              enable_esi options/enable_esi|nothing;
              boxedit options/boxedit|nothing;
              context_obj nocall:options/context_obj;
+             template nocall:options/template|nothing;
              maxcols python: context['maxcols']"
  tal:condition="maxcols"
  tal:attributes="summary python: context['title'];
@@ -18,7 +19,7 @@
                      cellsize python: objects_in_xpos['cellsizer']"
          tal:attributes="style python: cellsize and 'width:%s' % cellsize.cellwidth or None">
           <tal:block repeat="content contents_in_xpos">
-            <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
+            <div tal:define="rendered python: content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit, template=template)"
                  tal:attributes="style string:text-align:${content/align};;padding:${content/margin}">
               <div tal:attributes="class python: content.getCSSClass(level=2);
                                    style python: content.getCSSLayoutStyle()"

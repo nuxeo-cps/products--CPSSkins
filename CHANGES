@@ -13,6 +13,8 @@ Bug fixes:
 - part of #1290: remove empty space in folder_view -> move contentwell templet
   above main_content templet
 - #1358: replaced RSS templet/portlet with a WAI templet/portlet
+- #1392: Main Content Templet was not rendered inside cell block in macroless
+         mode
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
