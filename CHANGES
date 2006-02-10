@@ -15,6 +15,7 @@ Bug fixes:
 - #1358: replaced RSS templet/portlet with a WAI templet/portlet
 - #1392: Main Content Templet was not rendered inside cell block in macroless
          mode
+- #1315: enabled visibility creteria for Plone2 w/ Linguaplone
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3

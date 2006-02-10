@@ -272,15 +272,30 @@ def getObjectVisibility(self, **kw):
     REQUEST = self.REQUEST
     lang_list = self.languages
     utool = getToolByName(self, 'portal_url')
+
     if lang_list:
         portal = utool.getPortalObject()
+        selected_language = None
+
         if 'Localizer' in portal.objectIds():
             lctool = portal.Localizer
         else:
             lctool = getToolByName(self, 'portal_messages', None)
-        if lctool is None:
+
+        if lctool is not None:
+            selected_language = lctool.get_selected_language()
+        else:
+            # try with linguaplone
+            pl = getToolByName(self, 'portal_languages', None)
+            if pl is not None:
+               prefLang = pl.getLanguageBindings()
+               selected_language = prefLang and prefLang[0] or None
+            else:
+               return None
+
+        if selected_language is None:
             return None
-        selected_language = lctool.get_selected_language()
+
         if selected_language not in lang_list:
             return None
 
@@ -394,6 +409,7 @@ def getDefaultLang(self):
                     if lang['selected']:
                         default_lang = lang['id']
                         break
+
     return default_lang
 
 
@@ -410,6 +426,11 @@ def getAvailableLangs(self):
             available_langs = lc.get_available_languages
             if callable(available_langs):
                 langs = available_langs()
+
+    pl = getToolByName(self, 'portal_languages', None)
+    if pl is not None:
+        return [p[0] for p in pl.listSupportedLanguages()]
+
     return langs
 
 
