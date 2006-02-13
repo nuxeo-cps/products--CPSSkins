@@ -114,16 +114,28 @@ class ThemeToolXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
         child.appendChild(text)
         fragment.appendChild(child)
 
-        # TODO: external themes, method themes
+        # extract Method Themes
+        child = self._doc.createElement('property')
+        child.setAttribute('name', 'method_themes')
+        mt = tmtool.method_themes
+        for key, value in mt.items():
+            childElement = self._doc.createElement('element')
+            childElement.setAttribute('key', str(key))
+            childElement.setAttribute('value', str(value))
+            child.appendChild(childElement)
+        fragment.appendChild(child)
+
+        # TODO: external themes
 
         return fragment
 
     def _purgeToolProperties(self):
-        # TODO: purge external themes, method themes
-        return
+        # TODO: purge external themes
+        self.context.method_themese = {}
 
     def _initToolProperties(self, node):
         tmtool = self.context
+        mt = tmtool.method_themes
         for child in node.childNodes:
             if child.nodeName != 'property':
                 continue
@@ -133,8 +145,14 @@ class ThemeToolXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
                 tmtool.manage_setAccessKey(value)
             elif name == 'debug_mode':
                 tmtool.debug_mode = self._convertToBoolean(value)
+            elif name == 'method_themes':
+                for sub in child.childNodes:
+                    if sub.nodeName == 'element':
+                        key = sub.getAttribute('key').encode('utf-8')
+                        value = sub.getAttribute('value').encode('utf-8')
+                        mt[key] = value
 
-        # TODO: external themes, method themes
+        # TODO: external themes
 
 
 class PropertyManagerXMLAdapter(XMLAdapterBase, PropertyManagerHelpers,

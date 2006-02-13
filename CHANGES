@@ -16,6 +16,7 @@ Bug fixes:
 - #1392: Main Content Templet was not rendered inside cell block in macroless
          mode. The templet was not visible in editing mode either.
 - #1315: enabled visibility creteria for Plone2 w/ Linguaplone
+- #1415: implement GenericSetup I/O for Method Themes used by portal_themes
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
