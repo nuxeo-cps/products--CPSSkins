@@ -67,7 +67,7 @@ class MainContent(BaseTemplet):
     def isRenderable(self):
         """Returns true if the Templet can be rendered.
         """
-        return 1
+        return None
 
     security.declarePublic('isMainContent')
     def isMainContent(self):
