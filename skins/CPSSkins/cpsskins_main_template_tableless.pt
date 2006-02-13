@@ -40,7 +40,7 @@
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
                                  isRenderable python: content.isRenderable();
-                                 rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit)"
+                                 rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit, template=template)"
                      tal:condition="python: rendered or not isRenderable"
                      tal:attributes="style margin_style"
                      tal:omit-tag="not:margin_style">
@@ -48,10 +48,6 @@
                                        style python: content.getCSSLayoutStyle()">
                     <tal:block condition="rendered" content="structure rendered" />
                     <tal:block condition="not:isRenderable">
-                      <tal:block condition="python:content.isMainContent()">
-                        <metal:block define-slot="maincontent" />
-                        <br style="clear:both" />
-                      </tal:block>
                       <tal:block condition="python:content.isPortalBoxGroup()">
                         <tal:block define="render_box python:1;
                                            box_group content/box_group|nothing">
