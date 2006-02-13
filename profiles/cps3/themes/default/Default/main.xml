@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="931102605" meta_type="Page Block">
+<object name="main" meta_type="Page Block">
  <property name="title">Main</property>
  <property name="closed">False</property>
  <property name="width">100%</property>
@@ -7,7 +7,7 @@
  <property name="maxcols">4</property>
  <property name="shape">NoBorder</property>
  <property name="color">Transparent</property>
- <object name="1949281924" meta_type="Portal Box Group Templet"/>
+ <object name="656453240" meta_type="Cell Block"/>
  <object name="1893647020" meta_type="Portal Box Group Templet"/>
  <object name="951990922" meta_type="Portal Box Group Templet"/>
  <object name="contentwell" meta_type="Portal Box Group Templet"/>

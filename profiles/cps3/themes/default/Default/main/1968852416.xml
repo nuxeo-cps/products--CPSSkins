@@ -11,7 +11,7 @@
  <property name="margin"></property>
  <property name="templet_height">20px</property>
  <property name="fontcolor">defaultnovisitedlinks</property>
- <property name="fontshape">average</property>
+ <property name="fontshape">mini</property>
  <property name="shape"></property>
  <property name="color">mainlittlecorner</property>
  <property name="formstyle"></property>

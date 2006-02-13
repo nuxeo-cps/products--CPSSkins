@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="portlet_box_brilliant_banner_cps" meta_type="Portlet Box Templet">
+<object name="portlet_box_brilliant_banner_cps"
+   meta_type="Portlet Box Templet">
  <property name="title">Brilliant_banner_cps</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>

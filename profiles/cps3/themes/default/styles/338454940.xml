@@ -5,15 +5,15 @@
  <property
     name="Default_font">12px Arial,  sans-serif, Verdana, Helvetica</property>
  <property
-    name="H1_font">bold 175% Arial,  sans-serif, Verdana, Helvetica</property>
- <property name="H1_padding">0px 0px 0px 20px</property>
- <property name="H1_margin">10px 0px 0px 0px</property>
+    name="H1_font">bold 185% Arial,  sans-serif, Verdana, Helvetica</property>
+ <property name="H1_padding">0px 0px 0px 19px</property>
+ <property name="H1_margin">7px 0px 0px 0px</property>
  <property name="H1_border_width">0px</property>
  <property name="H1_border_style">none</property>
  <property
     name="H2_font">bold 150% Arial,  sans-serif, Verdana, Helvetica</property>
- <property name="H2_padding">0.6em 0em 0em 0em</property>
- <property name="H2_margin"></property>
+ <property name="H2_padding">0px 0px 0px 19px</property>
+ <property name="H2_margin">7px 0px 0px 0px</property>
  <property name="H2_border_width">0</property>
  <property name="H2_border_style">none</property>
  <property
@@ -31,7 +31,7 @@
  <property
     name="P_font">100% Arial,  sans-serif, Verdana, Helvetica</property>
  <property name="STRONG_font"></property>
- <property name="P_padding">0px 0px 0px 0px</property>
+ <property name="P_padding">5px 10px 10px 20px</property>
  <property name="A_link_decoration">none</property>
  <property name="A_visited_decoration">none</property>
  <property name="A_active_decoration">underline overline</property>
