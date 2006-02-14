@@ -187,6 +187,9 @@ msgstr "Agosto"
 msgid "_Author_"
 msgstr "Autor"
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr "Imagem de fundo"
 
@@ -330,6 +333,9 @@ msgstr "Básico"
 
 msgid "_Broken Templet!_"
 msgstr "Modelo quebrado!"
+
+msgid "_Buttons_"
+msgstr ""
 
 msgid "_Cache effectivity_"
 msgstr "Efetividade do Cache"
@@ -727,6 +733,12 @@ msgstr "Margem horizontal"
 msgid "_Horizontal padding_"
 msgstr "Preenchimento horizontal"
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr "Tamanho do ícone"
 
@@ -909,6 +921,9 @@ msgstr "Fonte do parágrafo"
 
 msgid "_P_padding_"
 msgstr "Preenchimento do parágrafo"
+
+msgid "_Padding_"
+msgstr ""
 
 msgid "_Page Block_"
 msgstr "Bloco de Página"

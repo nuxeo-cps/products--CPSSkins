@@ -195,6 +195,9 @@ msgstr "Aogositra"
 msgid "_Author_"
 msgstr "Mpamorona"
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr "Sarin'ny fond"
 
@@ -338,6 +341,9 @@ msgstr "Piste de navigation"
 
 msgid "_Broken Templet!_"
 msgstr "Templet simba!"
+
+msgid "_Buttons_"
+msgstr ""
 
 msgid "_Cache effectivity_"
 msgstr "Fahombiazan'ny cache"
@@ -735,6 +741,12 @@ msgstr "Marge horizontale"
 msgid "_Horizontal padding_"
 msgstr "Faritra famenoana marindrano"
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr "Taille de l'icône"
 
@@ -919,6 +931,9 @@ msgstr "Police de caractère des paragraphes"
 
 msgid "_P_padding_"
 msgstr "Espace de remplissage des paragraphes"
+
+msgid "_Padding_"
+msgstr ""
 
 msgid "_Page Block_"
 msgstr "Bloc"

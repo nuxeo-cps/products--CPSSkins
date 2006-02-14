@@ -188,6 +188,9 @@ msgstr "Agosto"
 msgid "_Author_"
 msgstr "Autore"
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr "Immagine di sfondo"
 
@@ -331,6 +334,9 @@ msgstr "Percorsi di navigazione"
 
 msgid "_Broken Templet!_"
 msgstr "Templet interrotto!"
+
+msgid "_Buttons_"
+msgstr ""
 
 msgid "_Cache effectivity_"
 msgstr "Efficacia della cache"
@@ -728,6 +734,12 @@ msgstr "Spaziatura orizzontale"
 msgid "_Horizontal padding_"
 msgstr "Spazio di riempimento orizzontale <br>all'interno del margine del templet "
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr "Dimensioni dell'icona"
 
@@ -910,6 +922,9 @@ msgstr "Tipo di carattere dei paragrafi"
 
 msgid "_P_padding_"
 msgstr "Spazio di riempimento dei paragrafi"
+
+msgid "_Padding_"
+msgstr ""
 
 msgid "_Page Block_"
 msgstr "Blocco di pagina"

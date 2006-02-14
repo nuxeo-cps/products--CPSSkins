@@ -151,6 +151,63 @@ class FormStyle(BaseStyle):
          'palette' : 'Palette Color',
          'category': 'Elements',
         },
+        {'id': 'Button_padding',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Padding',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area border color',
+         'palette' : 'Palette Color',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_border_style',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area border style',
+         'palette' : 'Palette Color',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_border_width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area border width',
+         'palette' : 'Palette Color',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Background color',
+         'palette' : 'Palette Color',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_hover_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Hover background color',
+         'palette' : 'Palette Color',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_bg_image',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Background image',
+         'select_variable' : 'cpsskins_listBackgrounds',
+         'image': 'backgrounds',
+         'category': 'Buttons',
+        },
+        {'id': 'Button_hover_bg_image',
+         'type': 'selection',
+         'mode': 'w',
+         'label': 'Hover background image',
+         'select_variable' : 'cpsskins_listBackgrounds',
+         'image': 'backgrounds',
+         'category': 'Buttons',
+        },
     )
 
     def __init__(self, id,
@@ -168,6 +225,14 @@ class FormStyle(BaseStyle):
                  Element_active_bg_color = '#ffd',
                  Element_font_color = '',
                  Element_padding = '',
+                 Button_padding = '',
+                 Button_border_color = '#999 #333 #333 #999',
+                 Button_border_style = 'solid',
+                 Button_border_width = '1px',
+                 Button_bg_color = '#f0f0f0',
+                 Button_hover_bg_color = '#fff',
+                 Button_bg_image = '',
+                 Button_hover_bg_image = '',
                  **kw):
 
         apply(BaseStyle.__init__, (self, id), kw)
@@ -185,6 +250,13 @@ class FormStyle(BaseStyle):
         self.Element_active_bg_color = Element_active_bg_color
         self.Element_font_color = Element_font_color
         self.Element_padding = Element_padding
+        self.Button_border_color = Button_border_color
+        self.Button_border_style = Button_border_style
+        self.Button_border_width = Button_border_width
+        self.Button_bg_color = Button_bg_color
+        self.Button_hover_bg_color = Button_hover_bg_color
+        self.Button_bg_image = Button_bg_image
+        self.Button_hover_bg_image = Button_hover_bg_image
 
 InitializeClass(FormStyle)
 

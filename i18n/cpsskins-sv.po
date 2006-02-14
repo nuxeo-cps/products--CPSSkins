@@ -186,6 +186,9 @@ msgstr "Augusti"
 msgid "_Author_"
 msgstr "Författare"
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr "Bakgrundsbild"
 
@@ -329,6 +332,9 @@ msgstr "Breadcrumbs"
 
 msgid "_Broken Templet!_"
 msgstr "Trasig Templet!"
+
+msgid "_Buttons_"
+msgstr ""
 
 msgid "_Cache effectivity_"
 msgstr "Effektivitet"
@@ -726,6 +732,12 @@ msgstr "Horisontell marginal"
 msgid "_Horizontal padding_"
 msgstr "Horisontell fyllning"
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr "Ikonstorlek"
 
@@ -908,6 +920,9 @@ msgstr "Styckets font"
 
 msgid "_P_padding_"
 msgstr "Styckefyllnad"
+
+msgid "_Padding_"
+msgstr ""
 
 msgid "_Page Block_"
 msgstr "Sidblock"

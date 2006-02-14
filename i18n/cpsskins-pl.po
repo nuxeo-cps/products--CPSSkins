@@ -188,6 +188,9 @@ msgstr "Kwiecieñ"
 msgid "_Author_"
 msgstr "Autor"
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr "Obrazek t³a"
 
@@ -331,6 +334,9 @@ msgstr "Pasek nawigacji"
 
 msgid "_Broken Templet!_"
 msgstr "B³êdny szablon!"
+
+msgid "_Buttons_"
+msgstr ""
 
 msgid "_Cache effectivity_"
 msgstr "Efektywno¶æ pamiêci podrêcznej"
@@ -728,6 +734,12 @@ msgstr "Margines poziomy"
 msgid "_Horizontal padding_"
 msgstr "Odstêp poziomy"
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr "Rozmiar ikon"
 
@@ -910,6 +922,9 @@ msgstr "Czcionka paragrafu"
 
 msgid "_P_padding_"
 msgstr "Odstêp paragrafu"
+
+msgid "_Padding_"
+msgstr ""
 
 msgid "_Page Block_"
 msgstr "Blok strony"

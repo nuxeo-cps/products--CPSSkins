@@ -2031,3 +2031,18 @@ msgstr ""
 msgid "_A_hover_bg_color_"
 msgstr ""
 
+msgid "_Buttons_"
+msgstr ""
+
+msgid "_Padding_"
+msgstr ""
+
+msgid "_Background color_"
+msgstr ""
+
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+

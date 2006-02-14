@@ -1,4 +1,6 @@
-<dtml-let class="'.formStyle' + title">
+<dtml-let base_url="cpsskins_getBaseUrl()"
+          theme_url="base_url + portal_url.getRelativeUrl(getThemeContainer())"
+          class="'.formStyle' + title">
 
 <dtml-var class> form {
 <dtml-if Form_border_color>
@@ -62,6 +64,36 @@
 </dtml-if>
 <dtml-if Element_active_bg_color>
   background-color: <dtml-var Element_active_bg_color>;
+</dtml-if>
+}
+
+<dtml-var class> button {
+<dtml-if Button_padding>
+  padding: <dtml-var Button_padding>;
+</dtml-if>
+<dtml-if Button_border_color>
+  border-color: <dtml-var Button_border_color>;
+</dtml-if>
+<dtml-if Button_border_width>
+  border-width: <dtml-var Button_border_width>;
+</dtml-if>
+<dtml-if Button_border_style>
+  border-style: <dtml-var Button_border_style>;
+</dtml-if>
+<dtml-if Button_bg_color>
+  background-color: <dtml-var Button_bg_color>;
+</dtml-if>
+<dtml-if Button_bg_image>
+  background-image: url(<dtml-var theme_url>/backgrounds/<dtml-var Button_bg_image>);
+</dtml-if>
+}
+
+<dtml-var class> button:hover {
+<dtml-if Button_hover_bg_color>
+  background-color: <dtml-var Button_hover_bg_color>;
+</dtml-if>
+<dtml-if Button_hover_bg_image>
+  background-image: url(<dtml-var theme_url>/backgrounds/<dtml-var Button_hover_bg_image>);
 </dtml-if>
 }
 

@@ -188,6 +188,9 @@ msgstr ""
 msgid "_Author_"
 msgstr ""
 
+msgid "_Background color_"
+msgstr ""
+
 msgid "_Background image_"
 msgstr ""
 
@@ -330,6 +333,9 @@ msgid "_Breadcrumbs_"
 msgstr ""
 
 msgid "_Broken Templet!_"
+msgstr ""
+
+msgid "_Buttons_"
 msgstr ""
 
 msgid "_Cache effectivity_"
@@ -728,6 +734,12 @@ msgstr ""
 msgid "_Horizontal padding_"
 msgstr ""
 
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
 msgid "_Icon size_"
 msgstr ""
 
@@ -909,6 +921,9 @@ msgid "_P_font_"
 msgstr ""
 
 msgid "_P_padding_"
+msgstr ""
+
+msgid "_Padding_"
 msgstr ""
 
 msgid "_Page Block_"

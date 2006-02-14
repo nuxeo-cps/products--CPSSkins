@@ -186,6 +186,9 @@ msgstr "Août"
 msgid "_Author_"
 msgstr "Auteur"
 
+msgid "_Background color_"
+msgstr "Couleur de fond"
+
 msgid "_Background image_"
 msgstr "Image de fond"
 
@@ -329,6 +332,9 @@ msgstr "Piste de navigation"
 
 msgid "_Broken Templet!_"
 msgstr "Templet cassé!"
+
+msgid "_Buttons_"
+msgstr "Boutons"
 
 msgid "_Cache effectivity_"
 msgstr "Efficacité du cache"
@@ -726,6 +732,12 @@ msgstr "Marge horizontale"
 msgid "_Horizontal padding_"
 msgstr "Espace de remplissage horizontal"
 
+msgid "_Hover background color_"
+msgstr "Couleur de fond (selectionné)"
+
+msgid "_Hover background image_"
+msgstr "Image de fond (selectionné)"
+
 msgid "_Icon size_"
 msgstr "Taille de l'icône"
 
@@ -910,6 +922,9 @@ msgstr "Police de caractère des paragraphes"
 
 msgid "_P_padding_"
 msgstr "Espace de remplissage des paragraphes"
+
+msgid "_Padding_"
+msgstr "Espace de remplissage"
 
 msgid "_Page Block_"
 msgstr "Bloc"
@@ -1545,7 +1560,7 @@ msgid "_layout_"
 msgstr "Mise en forme"
 
 msgid "_link_"
-msgstr ""
+msgstr "Lien"
 
 msgid "_maincontent_templet_description_"
 msgstr "le région principale dans laquelle les documents sont affichés."
