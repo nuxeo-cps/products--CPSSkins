@@ -96,7 +96,7 @@ class MainContent(BaseTemplet):
         return 1
 
     security.declarePublic('render')
-    def render(self, template=None, **kw):
+    def render(self, template=None, options={}, **kw):
         """Render the main content area by switching to a 'macroless' skin
         inside the request.
         """
@@ -105,7 +105,7 @@ class MainContent(BaseTemplet):
             return self.cpsskins_maincontent()
         portal = getToolByName(self, 'portal_url').getPortalObject()
         portal.changeSkin('CPSSkins-macroless')
-        rendered = template.pt_render()
+        rendered = template.pt_render(extra_context={'options':options})
         portal.changeSkin('CPSSkins')
         return rendered
 

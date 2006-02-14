@@ -40,7 +40,7 @@
               <tal:block repeat="content contents_in_xpos">
                 <div tal:define="margin_style python: content.getCSSMarginStyle();
                                  isRenderable python: content.isRenderable();
-                                 rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit, template=template)"
+                                 rendered python: isRenderable and content.render_cache(shield=shield, context_obj=context_obj, enable_esi=enable_esi, boxedit=boxedit, template=template, options=options)"
                      tal:condition="python: rendered or not isRenderable"
                      tal:attributes="style margin_style"
                      tal:omit-tag="not:margin_style">
