@@ -39,14 +39,38 @@ msgstr "Lokon'ireo rohy"
 msgid "_A visited_"
 msgstr "Lokon'ny rohy notsidihina"
 
+msgid "_A_active_border_style_"
+msgstr ""
+
+msgid "_A_active_border_width_"
+msgstr ""
+
 msgid "_A_active_decoration_"
 msgstr "Fampihaingoana ireo rohy mandeha"
+
+msgid "_A_hover_border_style_"
+msgstr ""
+
+msgid "_A_hover_border_width_"
+msgstr ""
 
 msgid "_A_hover_decoration_"
 msgstr "Fampihaigoana ireo rohy voafidy"
 
+msgid "_A_link_border_style_"
+msgstr ""
+
+msgid "_A_link_border_width_"
+msgstr ""
+
 msgid "_A_link_decoration_"
 msgstr "Fampihaingoana ireo rohy"
+
+msgid "_A_visited_border_style_"
+msgstr ""
+
+msgid "_A_visited_border_width_"
+msgstr ""
 
 msgid "_A_visited_decoration_"
 msgstr "Fampihaingoana ireo rohy notsidihina"
@@ -974,6 +998,9 @@ msgstr ""
 msgid "_Right-side image_"
 msgstr "Sary amin'ny havanana"
 
+msgid "_SMALL_font_"
+msgstr ""
+
 msgid "_STRONG_font_"
 msgstr "Soratra matevina"
 
@@ -1498,6 +1525,9 @@ msgstr "Fanamboarana ny pejy"
 
 msgid "_layout_"
 msgstr "Fanamboarana ny endrika"
+
+msgid "_link_"
+msgstr ""
 
 msgid "_maincontent_templet_description_"
 msgstr "le région principale dans laquelle les documents sont affichés."

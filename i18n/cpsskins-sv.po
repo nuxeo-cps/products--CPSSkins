@@ -30,14 +30,38 @@ msgstr "Länkfärg"
 msgid "_A visited_"
 msgstr "Färg besökt länk"
 
+msgid "_A_active_border_style_"
+msgstr ""
+
+msgid "_A_active_border_width_"
+msgstr ""
+
 msgid "_A_active_decoration_"
 msgstr "Dekoration aktiv länk"
+
+msgid "_A_hover_border_style_"
+msgstr ""
+
+msgid "_A_hover_border_width_"
+msgstr ""
 
 msgid "_A_hover_decoration_"
 msgstr "Dekoration svävande länk"
 
+msgid "_A_link_border_style_"
+msgstr ""
+
+msgid "_A_link_border_width_"
+msgstr ""
+
 msgid "_A_link_decoration_"
 msgstr "Dekoration länk"
+
+msgid "_A_visited_border_style_"
+msgstr ""
+
+msgid "_A_visited_border_width_"
+msgstr ""
 
 msgid "_A_visited_decoration_"
 msgstr "Dekoration besökt länk"
@@ -963,6 +987,9 @@ msgstr "Visa åsidosatta Portlets"
 msgid "_Right-side image_"
 msgstr "Högerställd bild"
 
+msgid "_SMALL_font_"
+msgstr ""
+
 msgid "_STRONG_font_"
 msgstr "STRONG typsnitt"
 
@@ -1487,6 +1514,9 @@ msgstr "Layout-läge"
 
 msgid "_layout_"
 msgstr "Layout"
+
+msgid "_link_"
+msgstr ""
 
 msgid "_maincontent_templet_description_"
 msgstr "yta för huvudinnehåll där dokument visas"

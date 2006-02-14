@@ -192,6 +192,12 @@ class FontShape(BaseStyle):
          'label': 'P_font',
          'category' : 'general'
         },
+        {'id': 'SMALL_font',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'SMALL_font',
+         'category' : 'general'
+        },
         {'id': 'STRONG_font',
          'type': 'string',
          'mode': 'w',
@@ -208,21 +214,21 @@ class FontShape(BaseStyle):
          'type': 'string',
          'mode': 'w',
          'label': 'A_link_decoration',
-         'category': 'general',
+         'category': 'link',
          'palette': 'Palette Border'
         },
         {'id': 'A_visited_decoration',
          'type': 'string',
          'mode': 'w',
          'label': 'A_visited_decoration',
-         'category': 'general',
+         'category': 'link',
          'palette': 'Palette Border'
         },
         {'id': 'A_active_decoration',
          'type': 'string',
          'mode': 'w',
          'label': 'A_active_decoration',
-         'category' : 'general',
+         'category' : 'link',
          'palette': 'Palette Border'
         },
         {'id': 'A_hover_decoration',
@@ -230,6 +236,58 @@ class FontShape(BaseStyle):
          'mode': 'w',
          'label': 'A_hover_decoration',
          'category': 'general',
+         'palette': 'Palette Border'
+        },
+        {'id': 'A_link_border_width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_link_border_width',
+         'category': 'link',
+        },
+        {'id': 'A_visited_border_width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_visited_border_width',
+         'category': 'link',
+        },
+        {'id': 'A_active_border_width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_active_border_width',
+         'category' : 'link',
+        },
+        {'id': 'A_hover_border_width',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_hover_border_width',
+         'category': 'link',
+        },
+        {'id': 'A_link_border_style',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_link_border_style',
+         'category': 'link',
+         'palette': 'Palette Border'
+        },
+        {'id': 'A_visited_border_style',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_visited_border_style',
+         'category': 'link',
+         'palette': 'Palette Border'
+        },
+        {'id': 'A_active_border_style',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_active_border_style',
+         'category' : 'link',
+         'palette': 'Palette Border'
+        },
+        {'id': 'A_hover_border_style',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_hover_border_style',
+         'category': 'link',
          'palette': 'Palette Border'
         },
     )
@@ -257,12 +315,21 @@ class FontShape(BaseStyle):
                  H456_border_width = '1px',
                  H456_border_style = 'none',
                  P_font = '100% Verdana, Arial, Helvetica, sans-serif',
+                 SMALL_font = '',
                  STRONG_font = '',
-                 P_padding = '0em',
+                 P_padding = '',
                  A_link_decoration = 'none',
                  A_visited_decoration = 'none',
                  A_active_decoration = 'none',
                  A_hover_decoration = 'none',
+                 A_link_border_width = '',
+                 A_visited_border_width = '',
+                 A_active_border_width = '',
+                 A_hover_border_width = '',
+                 A_link_border_style = '',
+                 A_visited_border_style = '',
+                 A_active_border_style = '',
+                 A_hover_border_style = '',
                  **kw):
         apply(BaseStyle.__init__, (self, id), kw)
         self.Default_font = Default_font
@@ -289,10 +356,19 @@ class FontShape(BaseStyle):
         self.P_font = P_font
         self.P_padding = P_padding
         self.STRONG_font = STRONG_font
+        self.SMALL_font = SMALL_font
         self.A_link_decoration = A_link_decoration
         self.A_visited_decoration = A_visited_decoration
         self.A_active_decoration = A_active_decoration
         self.A_hover_decoration = A_hover_decoration
+        self.A_link_border_width = A_link_border_width
+        self.A_visited_border_width = A_visited_border_width
+        self.A_active_border_width = A_active_border_width
+        self.A_hover_border_width = A_hover_border_width
+        self.A_link_border_style = A_link_border_style
+        self.A_visited_border_style = A_visited_border_style
+        self.A_active_border_style = A_active_border_style
+        self.A_hover_border_style = A_hover_border_style
 
 InitializeClass(FontShape)
 

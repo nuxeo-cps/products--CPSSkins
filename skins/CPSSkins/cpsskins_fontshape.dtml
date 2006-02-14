@@ -19,6 +19,11 @@
   font: <dtml-var STRONG_font> !important;
 } </dtml-if>
 
+<dtml-if SMALL_font>
+<dtml-var class> small {
+  font: <dtml-var SMALL_font> !important;
+} </dtml-if>
+
 <dtml-var class> h1, <dtml-var class> .h1 {
 <dtml-if H1_font>
   font: <dtml-var H1_font> !important;
@@ -119,6 +124,62 @@
 <dtml-var class> a:hover div,
 <dtml-var class> a:hover span {
   text-decoration: <dtml-var A_hover_decoration>;
+} </dtml-if>
+
+<dtml-if A_link_border_style>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  border-style: <dtml-var A_link_border_style>;
+} </dtml-if>
+
+<dtml-if A_visited_border_style>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  border-style: <dtml-var A_visited_border_style>;
+} </dtml-if>
+
+<dtml-if A_active_border_style>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  border-style: <dtml-var A_active_border_style>;
+} </dtml-if>
+
+<dtml-if A_hover_border_style>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  border-style: <dtml-var A_hover_border_style>;
+} </dtml-if>
+
+<dtml-if A_link_border_width>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  border-width: <dtml-var A_link_border_width>;
+} </dtml-if>
+
+<dtml-if A_visited_border_width>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  border-width: <dtml-var A_visited_border_width>;
+} </dtml-if>
+
+<dtml-if A_active_border_width>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  border-width: <dtml-var A_active_border_width>;
+} </dtml-if>
+
+<dtml-if A_hover_border_width>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  border-width: <dtml-var A_hover_border_width>;
 } </dtml-if>
 
 </dtml-let>

@@ -32,14 +32,38 @@ msgstr "Kolor odno¶nika"
 msgid "_A visited_"
 msgstr "Kolor odwiedzonego odno¶nika"
 
+msgid "_A_active_border_style_"
+msgstr ""
+
+msgid "_A_active_border_width_"
+msgstr ""
+
 msgid "_A_active_decoration_"
 msgstr "Zaznaczony odno¶nik aktywny"
+
+msgid "_A_hover_border_style_"
+msgstr ""
+
+msgid "_A_hover_border_width_"
+msgstr ""
 
 msgid "_A_hover_decoration_"
 msgstr "Zaznaczony odno¶nik wskazany"
 
+msgid "_A_link_border_style_"
+msgstr ""
+
+msgid "_A_link_border_width_"
+msgstr ""
+
 msgid "_A_link_decoration_"
 msgstr "Zaznaczony odno¶nik"
+
+msgid "_A_visited_border_style_"
+msgstr ""
+
+msgid "_A_visited_border_width_"
+msgstr ""
 
 msgid "_A_visited_decoration_"
 msgstr "Zaznaczony odno¶nik odwiedzony"
@@ -965,6 +989,9 @@ msgstr ""
 msgid "_Right-side image_"
 msgstr "Prawa strona obrazka"
 
+msgid "_SMALL_font_"
+msgstr ""
+
 msgid "_STRONG_font_"
 msgstr "Pogrubiona czcionka"
 
@@ -1489,6 +1516,9 @@ msgstr "Tryb uk³adu"
 
 msgid "_layout_"
 msgstr "Uk³ad"
+
+msgid "_link_"
+msgstr ""
 
 msgid "_maincontent_templet_description_"
 msgstr "G³ówny obszar dokumentu w którym jest wy¶wietlona zawarto¶æ"

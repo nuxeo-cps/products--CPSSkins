@@ -35,14 +35,38 @@ msgstr "Color de los enlaces"
 msgid "_A visited_"
 msgstr "Color de los enlaces visitados"
 
+msgid "_A_active_border_style_"
+msgstr ""
+
+msgid "_A_active_border_width_"
+msgstr ""
+
 msgid "_A_active_decoration_"
 msgstr "Decoración de los enlaces activos"
+
+msgid "_A_hover_border_style_"
+msgstr ""
+
+msgid "_A_hover_border_width_"
+msgstr ""
 
 msgid "_A_hover_decoration_"
 msgstr "Decoración de los enlaces al pasar por encima"
 
+msgid "_A_link_border_style_"
+msgstr ""
+
+msgid "_A_link_border_width_"
+msgstr ""
+
 msgid "_A_link_decoration_"
 msgstr "Decoración de los enlaces"
+
+msgid "_A_visited_border_style_"
+msgstr ""
+
+msgid "_A_visited_border_width_"
+msgstr ""
 
 msgid "_A_visited_decoration_"
 msgstr "Decoración de los enlaces visitados"
@@ -972,6 +996,9 @@ msgstr "Mostrar portlets sobreescritos"
 msgid "_Right-side image_"
 msgstr "Imagen a la derecha"
 
+msgid "_SMALL_font_"
+msgstr ""
+
 msgid "_STRONG_font_"
 msgstr "Tipografía resaltada"
 
@@ -1497,6 +1524,9 @@ msgstr "Modo de disposición/distribución"
 
 msgid "_layout_"
 msgstr "Disposición/distribución"
+
+msgid "_link_"
+msgstr ""
 
 msgid "_maincontent_templet_description_"
 msgstr "el área de contenido principal donde se muestran los documentos"
