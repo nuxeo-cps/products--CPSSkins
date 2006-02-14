@@ -97,6 +97,12 @@ class FormStyle(BaseStyle):
          'palette' : 'Palette Color',
          'category': 'Form',
         },
+        {'id': 'Element_padding',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Area padding',
+         'category': 'Elements',
+        },
         {'id': 'Element_border_color',
          'type': 'string',
          'mode': 'w',
@@ -161,6 +167,7 @@ class FormStyle(BaseStyle):
                  Element_bg_color = '',
                  Element_active_bg_color = '#ffd',
                  Element_font_color = '',
+                 Element_padding = '',
                  **kw):
 
         apply(BaseStyle.__init__, (self, id), kw)
@@ -177,6 +184,7 @@ class FormStyle(BaseStyle):
         self.Element_bg_color = Element_bg_color
         self.Element_active_bg_color = Element_active_bg_color
         self.Element_font_color = Element_font_color
+        self.Element_padding = Element_padding
 
 InitializeClass(FormStyle)
 

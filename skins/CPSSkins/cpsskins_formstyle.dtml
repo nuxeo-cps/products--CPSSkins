@@ -39,6 +39,9 @@
 <dtml-if Element_font_color>
   color: <dtml-var Element_font_color>;
 </dtml-if>
+<dtml-if Element_padding>
+  padding: <dtml-var Element_padding>;
+</dtml-if>
 }
 
 <dtml-var class> option {

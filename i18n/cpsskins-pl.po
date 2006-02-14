@@ -173,6 +173,9 @@ msgstr "Obszar koloru"
 msgid "_Area font color_"
 msgstr "Kolor czcionki"
 
+msgid "_Area padding_"
+msgstr ""
+
 msgid "_Area shape_"
 msgstr "Obszar formy"
 

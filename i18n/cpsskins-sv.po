@@ -171,6 +171,9 @@ msgstr "Färg"
 msgid "_Area font color_"
 msgstr "Fontfärg"
 
+msgid "_Area padding_"
+msgstr ""
+
 msgid "_Area shape_"
 msgstr "Form"
 

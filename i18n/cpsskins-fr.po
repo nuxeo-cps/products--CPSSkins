@@ -171,6 +171,9 @@ msgstr "Couleur des aires"
 msgid "_Area font color_"
 msgstr "Couleur du texte"
 
+msgid "_Area padding_"
+msgstr "Remplissage des aires"
+
 msgid "_Area shape_"
 msgstr "Contour des aires"
 

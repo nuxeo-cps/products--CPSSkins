@@ -180,6 +180,9 @@ msgstr "Lokon'ny faritra"
 msgid "_Area font color_"
 msgstr "Lokon'ny lahatsoratra"
 
+msgid "_Area padding_"
+msgstr ""
+
 msgid "_Area shape_"
 msgstr "Manodidina ny faritra"
 

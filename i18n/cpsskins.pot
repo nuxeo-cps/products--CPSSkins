@@ -1722,6 +1722,9 @@ msgstr ""
 msgid "_Form padding_"
 msgstr ""
 
+msgid "_Area padding_"
+msgstr ""
+
 msgid "psm_portlet_deleted"
 msgstr ""
 

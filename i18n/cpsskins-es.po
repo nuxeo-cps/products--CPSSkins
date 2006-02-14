@@ -176,6 +176,9 @@ msgstr "Color del área"
 msgid "_Area font color_"
 msgstr "Color del tipo de letra"
 
+msgid "_Area padding_"
+msgstr ""
+
 msgid "_Area shape_"
 msgstr "Forma del área"
 
