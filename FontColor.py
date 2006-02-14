@@ -141,24 +141,84 @@ class FontColor(BaseStyle):
          'type': 'string',
          'mode': 'w',
          'label': 'A link',
+         'category': 'link',
          'palette': 'Palette Color'
         },
         {'id': 'A_visited',
          'type': 'string',
          'mode': 'w',
          'label': 'A visited',
+         'category': 'link',
          'palette': 'Palette Color'
         },
         {'id': 'A_active',
          'type': 'string',
          'mode': 'w',
          'label': 'A active',
+         'category': 'link',
          'palette': 'Palette Color'
         },
         {'id': 'A_hover',
          'type': 'string',
          'mode': 'w',
          'label': 'A hover',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_link_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_link_border_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_visited_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_visited_border_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_active_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_active_border_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_hover_border_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_hover_border_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_link_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_link_bg_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_visited_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_visited_bg_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_active_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_active_bg_color',
+         'category': 'link',
+         'palette': 'Palette Color'
+        },
+        {'id': 'A_hover_bg_color',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'A_hover_bg_color',
+         'category': 'link',
          'palette': 'Palette Color'
         },
 )
@@ -180,6 +240,14 @@ class FontColor(BaseStyle):
                  H3_bg_color = '',
                  H456_border_color = '#666666',
                  H456_bg_color = '',
+                 A_link_border_color = '',
+                 A_visited_border_color = '',
+                 A_active_border_color = '',
+                 A_hover_border_color = '',
+                 A_link_bg_color = '',
+                 A_visited_bg_color = '',
+                 A_active_bg_color = '',
+                 A_hover_bg_color = '',
                  **kw):
         apply(BaseStyle.__init__, (self, id), kw)
 
@@ -199,6 +267,14 @@ class FontColor(BaseStyle):
         self.H3_bg_color = H3_bg_color
         self.H456_border_color = H456_border_color
         self.H456_bg_color = H456_bg_color
+        self.A_link_border_color = A_link_border_color
+        self.A_visited_border_color = A_visited_border_color
+        self.A_active_border_color = A_active_border_color
+        self.A_hover_border_color = A_hover_border_color
+        self.A_link_bg_color = A_link_bg_color
+        self.A_visited_bg_color = A_visited_bg_color
+        self.A_active_bg_color = A_active_bg_color
+        self.A_hover_bg_color = A_hover_bg_color
 
 InitializeClass(FontColor)
 

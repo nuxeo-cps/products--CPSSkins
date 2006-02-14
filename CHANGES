@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- #1365: added new CSS properties to font shape.
+- #1365: added new CSS properties to font shape / font color.
 Bug fixes:
 ~~~~~~~~~~
 - #1343 sessions have been replaced by cookies to store transient information.

@@ -32,6 +32,12 @@ msgstr "Colore dei collegamenti"
 msgid "_A visited_"
 msgstr "Colore del collegamento già percorso"
 
+msgid "_A_active_bg_color_"
+msgstr ""
+
+msgid "_A_active_border_color_"
+msgstr ""
+
 msgid "_A_active_border_style_"
 msgstr ""
 
@@ -40,6 +46,12 @@ msgstr ""
 
 msgid "_A_active_decoration_"
 msgstr "Decorazione dei collegamenti attivi"
+
+msgid "_A_hover_bg_color_"
+msgstr ""
+
+msgid "_A_hover_border_color_"
+msgstr ""
 
 msgid "_A_hover_border_style_"
 msgstr ""
@@ -50,6 +62,12 @@ msgstr ""
 msgid "_A_hover_decoration_"
 msgstr "Decorazione dei collegamenti selezionati"
 
+msgid "_A_link_bg_color_"
+msgstr ""
+
+msgid "_A_link_border_color_"
+msgstr ""
+
 msgid "_A_link_border_style_"
 msgstr ""
 
@@ -58,6 +76,12 @@ msgstr ""
 
 msgid "_A_link_decoration_"
 msgstr "Decorazione dei collegamenti"
+
+msgid "_A_visited_bg_color_"
+msgstr ""
+
+msgid "_A_visited_border_color_"
+msgstr ""
 
 msgid "_A_visited_border_style_"
 msgstr ""

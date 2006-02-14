@@ -78,4 +78,60 @@
   color: <dtml-var A_hover>;
 } </dtml-if>
 
+<dtml-if A_link_border_color>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  border-color: <dtml-var A_link_border_color>;
+} </dtml-if>
+
+<dtml-if A_visited_border_color>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  border-color: <dtml-var A_visited_border_color>;
+} </dtml-if>
+
+<dtml-if A_active_border_color>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  border-color: <dtml-var A_active_border_color>;
+} </dtml-if>
+
+<dtml-if A_hover_border_color>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  border-color: <dtml-var A_hover_border_color>;
+} </dtml-if>
+
+<dtml-if A_link_bg_color>
+<dtml-var class> a,
+<dtml-var class> a div,
+<dtml-var class> a span {
+  background-color: <dtml-var A_link_bg_color>;
+} </dtml-if>
+
+<dtml-if A_visited_bg_color>
+<dtml-var class> a:visited,
+<dtml-var class> a:visited div,
+<dtml-var class> a:visited span {
+  background-color: <dtml-var A_visited_bg_color>;
+} </dtml-if>
+
+<dtml-if A_active_bg_color>
+<dtml-var class> a:active,
+<dtml-var class> a:active div,
+<dtml-var class> a:active span {
+  background-color: <dtml-var A_active_bg_color>;
+} </dtml-if>
+
+<dtml-if A_hover_bg_color>
+<dtml-var class> a:hover,
+<dtml-var class> a:hover div,
+<dtml-var class> a:hover span {
+  background-color: <dtml-var A_hover_bg_color>;
+} </dtml-if>
+
 </dtml-let>
