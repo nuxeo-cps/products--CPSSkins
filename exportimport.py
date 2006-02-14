@@ -131,7 +131,7 @@ class ThemeToolXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
 
     def _purgeToolProperties(self):
         # TODO: purge external themes
-        self.context.method_themese = {}
+        self.context.method_themes = {}
 
     def _initToolProperties(self, node):
         tmtool = self.context
