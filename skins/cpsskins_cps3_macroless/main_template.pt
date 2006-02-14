@@ -21,5 +21,7 @@
   in_ws here/isInWorkspacesTree;
   ">
   <metal:block use-macro="here/generic_lib_portal_message/macros/portal_message" />
+  <metal:block define-slot="header" />
   <metal:block define-slot="main" />
+  <metal:block define-slot="sub" />
 </metal:block>

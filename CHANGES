@@ -17,7 +17,8 @@ Bug fixes:
          mode. The templet was not visible in editing mode either.
 - #1315: enabled visibility creteria for Plone2 w/ Linguaplone
 - #1415: implement GenericSetup I/O for Method Themes used by portal_themes
-- the Main Content template did not pass options from the calling template
+- the Main Content templet did not pass options from the calling template
+- Main content templet: added the header and the sub slot.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for CPS3
