@@ -24,7 +24,7 @@
  <property name="boxcorners"></property>
  <property name="portaltabstyle">TabStyle</property>
  <property name="boxlayout">horizontal_menu</property>
- <property name="box_group">portal_3tabs</property>
+ <property name="box_group">portal_tabs</property>
  <property name="macroless">False</property>
  <property name="box_title_i18n">False</property>
 </object>
