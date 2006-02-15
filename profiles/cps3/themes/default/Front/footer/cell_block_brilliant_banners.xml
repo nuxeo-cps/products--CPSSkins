@@ -7,12 +7,12 @@
  <property name="shape"></property>
  <property name="color"></property>
  <property name="margin">0px 30px 10px 30px</property>
- <object name="1543944979" meta_type="Portlet Box Templet"/>
- <object name="1720604504" meta_type="Portlet Box Templet"/>
- <object name="592462492" meta_type="Portlet Box Templet"/>
- <object name="1139520668" meta_type="Portlet Box Templet"/>
- <object name="1829450454" meta_type="Cell Sizer"/>
- <object name="380052349" meta_type="Cell Sizer"/>
- <object name="2068486532" meta_type="Cell Sizer"/>
- <object name="752160630" meta_type="Cell Sizer"/>
+ <object name="portlet_box_brilliant_banner" meta_type="Portlet Box Templet"/>
+ <object name="portlet_box_valid_xhtml" meta_type="Portlet Box Templet"/>
+ <object name="portlet_box_valid_css" meta_type="Portlet Box Templet"/>
+ <object name="portlet_box_waivalid" meta_type="Portlet Box Templet"/>
+ <object name="cell_sizer1" meta_type="Cell Sizer"/>
+ <object name="cell_sizer3" meta_type="Cell Sizer"/>
+ <object name="cell_sizer2" meta_type="Cell Sizer"/>
+ <object name="cell_sizer4" meta_type="Cell Sizer"/>
 </object>
