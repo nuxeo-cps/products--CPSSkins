@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="280120655" meta_type="Language Templet">
+<object name="language_selector" meta_type="Language Templet">
  <property name="title">Lang_selector3</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>

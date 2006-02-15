@@ -7,6 +7,6 @@
  <property name="shape"></property>
  <property name="color">maintopcorner</property>
  <property name="margin">10px 0px 0px 0px</property>
- <object name="280120655" meta_type="Language Templet"/>
- <object name="1949281924" meta_type="Portal Box Group Templet"/>
+ <object name="language_selector" meta_type="Language Templet"/>
+ <object name="portal_box_breadcrumb" meta_type="Portal Box Group Templet"/>
 </object>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="1949281924" meta_type="Portal Box Group Templet">
+<object name="portal_box_breadcrumb" meta_type="Portal Box Group Templet">
  <property name="title">breadcrumb</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>
