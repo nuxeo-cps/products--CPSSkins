@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<object name="948185879" meta_type="Portal Box Group Templet">
- <property name="title">latest_news</property>
+<object name="portal_box_latest_published" meta_type="Portal Box Group Templet">
+ <property name="title">Latest published</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>
  <property name="hidden_in_text_mode">False</property>
@@ -8,7 +8,7 @@
  <property name="xpos">1</property>
  <property name="align">left</property>
  <property name="padding">0px</property>
- <property name="margin">10px 0px 10px 10px</property>
+ <property name="margin">0px 0px 10px 10px</property>
  <property name="templet_height">100%</property>
  <property name="fontcolor">titleindex</property>
  <property name="fontshape">Titleindex</property>
@@ -24,7 +24,7 @@
  <property name="boxcorners">RoundedBoxCorners</property>
  <property name="portaltabstyle"></property>
  <property name="boxlayout">rounded_box</property>
- <property name="box_group">latest_news</property>
+ <property name="box_group">latest_published</property>
  <property name="macroless">False</property>
  <property name="box_title_i18n">False</property>
 </object>
