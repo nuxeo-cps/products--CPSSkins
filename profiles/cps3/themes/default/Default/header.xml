@@ -7,15 +7,15 @@
  <property name="maxcols">4</property>
  <property name="shape"></property>
  <property name="color">Headercandybarbackground</property>
- <object name="1396693754" meta_type="Portal Box Group Templet"/>
- <object name="2025765178" meta_type="Portal Box Group Templet"/>
- <object name="974221548" meta_type="Portal Box Group Templet"/>
- <object name="1639620677" meta_type="Portlet Box Templet"/>
- <object name="773236679" meta_type="Cell Sizer"/>
- <object name="692327374" meta_type="Cell Sizer"/>
- <object name="1201053626" meta_type="Cell Sizer"/>
- <object name="743387521" meta_type="Cell Styler"/>
- <object name="993854963" meta_type="Cell Sizer"/>
- <object name="2110389968" meta_type="Cell Styler"/>
- <object name="1122088911" meta_type="Cell Sizer"/>
+ <object name="portal_box_search" meta_type="Portal Box Group Templet"/>
+ <object name="portal_box_user_actions" meta_type="Portal Box Group Templet"/>
+ <object name="portal_box_tabs" meta_type="Portal Box Group Templet"/>
+ <object name="portlet_box_logo" meta_type="Portlet Box Templet"/>
+ <object name="cell_sizer4" meta_type="Cell Sizer"/>
+ <object name="cell_sizer3" meta_type="Cell Sizer"/>
+ <object name="cell_sizer1" meta_type="Cell Sizer"/>
+ <object name="cell_styler2" meta_type="Cell Styler"/>
+ <object name="cell_sizer5" meta_type="Cell Sizer"/>
+ <object name="cell_styler1" meta_type="Cell Styler"/>
+ <object name="cell_sizer2" meta_type="Cell Sizer"/>
 </object>
