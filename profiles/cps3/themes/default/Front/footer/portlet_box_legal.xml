@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="1507015224" meta_type="Portlet Box Templet">
+<object name="portlet_box_legal" meta_type="Portlet Box Templet">
  <property name="title">legal</property>
  <property name="cacheable">False</property>
  <property name="cache_lifetime">60</property>
