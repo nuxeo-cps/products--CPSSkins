@@ -124,7 +124,6 @@
                                      isalignable python: content.isAlignable();
                                      alignments python: '|'.join(align_list);
                                      icon python:base_url + content.getIcon(1);
-                                     title content_title;
                                      panel panel;
                                      theme current_theme;">
                       <tal:block
