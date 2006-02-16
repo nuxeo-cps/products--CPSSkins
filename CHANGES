@@ -21,6 +21,6 @@ Bug fixes:
 - Main content templet: added the header and the sub slot.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- added extension profile for CPS3
+- added extension profile for themes to be used by CPS
 - the effective theme and page information is cached in the REQUEST
 - the portlet cache is cleared when exiting the theme manager.

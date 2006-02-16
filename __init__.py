@@ -342,12 +342,11 @@ def initialize(registrar):
                 'profiles/default',
                 'CPSSkins',
                 EXTENSION)
-
         if ICPSSite is not None:
             if 'CPSSkins:cps3' not in profile_registry.listProfiles():
                 profile_registry.registerProfile(
                     'cps3',
-                    'CPS Skins',
+                    'CPS Skins Themes',
                     "CPSSkins for CPS3",
                     'profiles/cps3',
                     'CPSSkins',

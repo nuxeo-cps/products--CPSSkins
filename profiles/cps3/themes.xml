@@ -1,11 +1,5 @@
 <?xml version="1.0"?>
-<object name="portal_themes" meta_type="Portal Themes Tool">
- <property name="accesskey">*</property>
- <property name="debug_mode">False</property>
- <property name="method_themes">
-  <element key="index_html" value="default+Front"/>
- </property>
- <object name="default" meta_type="Portal Theme"/>
+<object name="portal_themes">
  <object name="lightskins" meta_type="Portal Theme"/>
  <object name="autumn" meta_type="Portal Theme"/>
  <object name="printable" meta_type="Portal Theme"/>

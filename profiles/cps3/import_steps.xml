@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<import-steps>
- <import-step id="themes" version="20051130-01"
-              handler="Products.CPSSkins.exportimport.importThemeTool"
-              title="Theme tool">
-  <dependency step="toolset"/>
-  Import theme tool and themes.
- </import-step>
-</import-steps>
