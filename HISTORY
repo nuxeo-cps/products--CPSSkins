@@ -1,4 +1,37 @@
 *******************************************
+** CPSSkins V2.9.0 [R1 build 2006/02/17-20:25 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 32986
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- #1365: added new CSS properties to font shape, font color, form style.
+Bug fixes:
+~~~~~~~~~~
+- #1343 sessions have been replaced by cookies to store transient information.
+- cps-3.3 is no longuer set as default (since 'default' is already the default
+  theme) in the 'cps3' profile
+- #1369: "Unused portlets" page was broken
+- part of #1290: remove empty space in folder_view -> move contentwell templet
+  above main_content templet
+- #1358: replaced RSS templet/portlet with a WAI templet/portlet
+- #1392: Main Content Templet was not rendered inside cell block in macroless
+         mode. The templet was not visible in editing mode either.
+- #1315: enabled visibility creteria for Plone2 w/ Linguaplone
+- #1415: implement GenericSetup I/O for Method Themes used by portal_themes
+- the Main Content templet did not pass options from the calling template
+- Main content templet: added the header and the sub slot.
+- the templet's title is not inserted in the templet's 'title' attribute 
+  since it can trigger a UnicodeDecodeError.
+- string values returned by getViewMode() were encoded in unicode
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- added extension profile for themes to be used by CPS
+- the effective theme and page information is cached in the REQUEST
+- the portlet cache is cleared when exiting the theme manager.
+
+*******************************************
 ** CPSSkins V2.8.0 [R1 build 2006/01/23-17:31 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 31976
 Requires:
