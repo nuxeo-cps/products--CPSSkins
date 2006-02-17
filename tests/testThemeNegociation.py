@@ -8,7 +8,6 @@ import CPSSkinsTestCase
 from Testing import ZopeTestCase
 
 from Products.CPSSkins.PortalThemesTool import CPSSKINS_THEME_COOKIE_ID, \
-                                               VIEW_MODE_SESSION_KEY, \
                                                CPSSKINS_LOCAL_THEME_ID
 
 class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
