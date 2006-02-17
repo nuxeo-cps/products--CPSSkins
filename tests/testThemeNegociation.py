@@ -146,9 +146,8 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         theme = self.tmtool.getRequestedThemeAndPageName(context_obj=subfolder)
         self.assert_(theme == ('theme2', None))
 
-    # FIXME: this test does not pass
-    def disabled_test_local_theme_6(self):
-        self.tmtool.setDefaultTheme('printable')
+    def test_local_theme_6(self):
+        self.tmtool.setDefaultTheme('default')
         portal = self.portal
         value = ['1-0:theme1+page1']
         folder_id = self.folder_root
@@ -161,7 +160,7 @@ class TestGetThemes(CPSSkinsTestCase.CPSSkinsTestCase):
         portal.manage_addProperty(CPSSKINS_LOCAL_THEME_ID, value, 'lines')
         theme = self.tmtool.getRequestedThemeAndPageName(
                                           context_obj=portal)
-        self.assert_(theme == ('printable', None))
+        self.assert_(theme == ('default', None))
         theme = self.tmtool.getRequestedThemeAndPageName(
                                           context_obj=testfolder)
         self.assert_(theme == ('theme1', 'page1'))
