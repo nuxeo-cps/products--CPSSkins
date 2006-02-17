@@ -30,9 +30,8 @@ class TestZPTSkins(CPSSkinsTestCase.CPSSkinsTestCase):
 
 def test_suite():
     suite = unittest.TestSuite()
-    # FIXME: test do not pass
-    #if target != 'CMF':
-    #    suite.addTest(unittest.makeSuite(TestZPTSkins))
+    if target != 'CMF':
+        suite.addTest(unittest.makeSuite(TestZPTSkins))
     return suite
 
 if __name__ == '__main__':
