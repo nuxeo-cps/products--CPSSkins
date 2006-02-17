@@ -169,7 +169,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         ser = self.REQUEST.cookies.get(VIEW_MODE_COOKIE_ID, '')
         if not ser:
             return {}
-        return unserializeFromCookie(ser, default={})
+
+        view_mode = unserializeFromCookie(ser, default={})
+        # convert unicode encoded strings.
+        for k, v in view_mode.items():
+            if isinstance(v, unicode):
+                view_mode[k] = str(v)
+        return view_mode
 
     security.declarePublic('setViewMode')
     def setViewMode(self, reload=0, **kw):

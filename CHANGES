@@ -21,6 +21,7 @@ Bug fixes:
 - Main content templet: added the header and the sub slot.
 - the templet's title is not inserted in the templet's 'title' attribute 
   since it can trigger a UnicodeDecodeError.
+- string values returned by getViewMode() were encoded in unicode
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added extension profile for themes to be used by CPS

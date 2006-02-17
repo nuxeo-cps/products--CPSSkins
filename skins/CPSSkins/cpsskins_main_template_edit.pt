@@ -125,6 +125,7 @@
                                      alignments python: '|'.join(align_list);
                                      icon python:base_url + content.getIcon(1);
                                      panel panel;
+                                     title content_title;
                                      theme current_theme;">
                       <tal:block
                        condition="render_as_title"
