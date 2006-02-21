@@ -146,6 +146,8 @@ class ThemeToolXMLAdapter(XMLAdapterBase, ObjectManagerHelpers,
             elif name == 'debug_mode':
                 tmtool.debug_mode = self._convertToBoolean(value)
             elif name == 'method_themes':
+                if self._convertToBoolean(child.getAttribute('purge')):
+                    mt.clear()
                 for sub in child.childNodes:
                     if sub.nodeName == 'element':
                         key = sub.getAttribute('key').encode('utf-8')

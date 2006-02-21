@@ -6,9 +6,9 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Add new layout, horizontal_box_notitle to handle right/left/center 
+- Add new layout, horizontal_box_notitle to handle right/left/center
   items alignment;
-  
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- added the hability to purge the method_theme property
