@@ -250,6 +250,7 @@ class FormStyle(BaseStyle):
         self.Element_active_bg_color = Element_active_bg_color
         self.Element_font_color = Element_font_color
         self.Element_padding = Element_padding
+        self.Button_padding = Button_padding
         self.Button_border_color = Button_border_color
         self.Button_border_style = Button_border_style
         self.Button_border_width = Button_border_width
