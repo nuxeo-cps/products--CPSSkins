@@ -288,21 +288,26 @@ div.xmlExportButtons a {
 }
 
 .cpsskinsHBox{
-  margin: 0.5em;
+  margin: 6px;
 }
 
 .cpsskinsHBox ul.cpsskinsMenu, .cpsskinsHBox ul.cpsskinsMenu li {
   margin: 0px;
-  padding: 0px;
+  padding: 6px 0 5px 0;
   line-height: normal;
   list-style-type: none;
   display: inline;
 }
 
+/* IE6 hack */
+* html .cpsskinsHBox ul.cpsskinsMenu {padding: 0px}
+* html .cpsskinsHBox ul.cpsskinsMenu li {padding: 0px}
+
+
 .cpsskinsHBox ul.cpsskinsMenu li a {
   display: inline;
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: left top;
 }
 
 /* Item description */
