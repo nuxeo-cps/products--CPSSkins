@@ -1740,6 +1740,9 @@ msgstr "Horizontal"
 msgid "_option_horizontal_menu_"
 msgstr "Menu horizontal"
 
+msgid "_option_horizontal_box_notitle_"
+msgstr "Caixa horizontal sem título"
+
 msgid "_option_html_"
 msgstr "HTML"
 

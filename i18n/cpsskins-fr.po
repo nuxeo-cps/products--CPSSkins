@@ -1739,6 +1739,9 @@ msgstr "En horizontal"
 msgid "_option_horizontal_menu_"
 msgstr "Menu horizontal"
 
+msgid "_option_horizontal_box_notitle_"
+msgstr "Boîte horizontal sans titre"
+
 msgid "_option_html_"
 msgstr "HTML"
 

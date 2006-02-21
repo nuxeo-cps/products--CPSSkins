@@ -1739,6 +1739,9 @@ msgstr "Orizzontale"
 msgid "_option_horizontal_menu_"
 msgstr "Menù a sviluppo orizzontale"
 
+msgid "_option_horizontal_box_notitle_"
+msgstr "Contenitore a sviluppo orizzontale ma senza titolo"
+
 msgid "_option_html_"
 msgstr "HTML"
 

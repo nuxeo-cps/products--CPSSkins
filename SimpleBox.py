@@ -78,6 +78,11 @@ BOX_LAYOUTS = {
         'markup': """<div class="cpsskinsTabs body">%s</div>
                      <div style="clear:both"></div>""",
         },
+    
+    'horizontal_box_notitle': {
+        'markup': """<div class="cpsskinsHBox body">%s</div>
+                     <div style="clear:both"></div>""",
+        },
 }
 
 BOX_LAYOUT_MACRO = 'cpsskins_BoxLayouts'
@@ -179,7 +184,8 @@ class SimpleBox(ExtensionClass.Base):
             orientation = getattr(self, 'orientation', '')
             if orientation == 'horizontal':
                 boxclass.append('cpsskinsTab')
-            elif self.boxlayout != 'horizontal_menu':
+            elif self.boxlayout not in ['horizontal_menu', 
+                                        'horizontal_box_notitle']:
                 boxclass.append('cpsskinsBox')
 
         if len(boxclass) > 0:
@@ -211,6 +217,8 @@ class SimpleBox(ExtensionClass.Base):
             return BOX_LAYOUTS['rounded_box_notitle']['markup'] % body
         elif boxlayout == 'horizontal_menu':
             return BOX_LAYOUTS['horizontal_menu']['markup'] % body
+        elif boxlayout == 'horizontal_box_notitle':
+            return BOX_LAYOUTS['horizontal_box_notitle']['markup'] % body
 
         macro_path = self.restrictedTraverse(
             '%s/macros/%s' % (BOX_LAYOUT_MACRO, boxlayout),

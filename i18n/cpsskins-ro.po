@@ -1739,6 +1739,9 @@ msgstr ""
 msgid "_option_horizontal_menu_"
 msgstr ""
 
+msgid "_option_horizontal_box_notitle_"
+msgstr "Caseta orizontala fara titlu"
+
 msgid "_option_html_"
 msgstr ""
 

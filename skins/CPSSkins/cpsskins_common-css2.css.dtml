@@ -287,4 +287,29 @@ div.xmlExportButtons a {
   display: none;
 }
 
+.cpsskinsHBox{
+  margin: 0.5em;
+}
 
+.cpsskinsHBox ul.cpsskinsMenu, .cpsskinsHBox ul.cpsskinsMenu li {
+  margin: 0px;
+  padding: 0px;
+  line-height: normal;
+  list-style-type: none;
+  display: inline;
+}
+
+.cpsskinsHBox ul.cpsskinsMenu li a {
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+/* Item description */
+.cpsskinsHBox ul.cpsskinsMenu span.itemDescription {
+  display: none;
+}
+
+.cpsskinsHBox div.xmlExportButtons {
+  display: none;
+}

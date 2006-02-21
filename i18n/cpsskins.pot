@@ -1806,6 +1806,9 @@ msgstr ""
 msgid "_option_horizontal_menu_"
 msgstr ""
 
+msgid "_option_horizontal_box_notitle_"
+msgstr ""
+
 msgid "_Edit the current style_"
 msgstr ""
 

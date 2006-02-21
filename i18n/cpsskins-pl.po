@@ -1739,6 +1739,9 @@ msgstr "poziomo"
 msgid "_option_horizontal_menu_"
 msgstr "poziome menu"
 
+msgid "_option_horizontal_box_notitle_"
+msgstr ""
+
 msgid "_option_html_"
 msgstr "html"
 

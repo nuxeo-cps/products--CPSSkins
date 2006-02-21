@@ -1737,6 +1737,9 @@ msgstr "Horisontell"
 msgid "_option_horizontal_menu_"
 msgstr "Horisontell meny"
 
+msgid "_option_horizontal_box_notitle_"
+msgstr "Horisontell ruta utan titel"
+
 msgid "_option_html_"
 msgstr "HTML"
 
