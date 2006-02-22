@@ -288,12 +288,12 @@ div.xmlExportButtons a {
 }
 
 .cpsskinsHBox{
-  margin: 6px;
+/* XXX It depends on VerticalPadding of TabStyle. */
+  margin: 3px;
 }
 
 .cpsskinsHBox ul.cpsskinsMenu, .cpsskinsHBox ul.cpsskinsMenu li {
-  margin: 0px;
-  padding: 6px 0 5px 0;
+  padding: 3px 0 2px 0;
   line-height: normal;
   list-style-type: none;
   display: inline;
