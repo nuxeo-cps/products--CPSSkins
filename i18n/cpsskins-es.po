@@ -1,11 +1,9 @@
-# translation of cpsskins-es.po to Español
-# Álvaro Tejero Cantero <alvaro@antalia.com>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSskins\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2005-05-19 10:52+0100\n"
-"Last-Translator: Jesús <jesusmartin@lasalle.es>\n"
+"PO-Revision-Date: 2006-02-23 16:31+0100\n"
+"Last-Translator: Jesús Martín <jesusmartin@lasalle.es>\n"
 "Language-Team: español <jesusmartin@lasalle.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-15\n"
@@ -36,70 +34,70 @@ msgid "_A visited_"
 msgstr "Color de los enlaces visitados"
 
 msgid "_A_active_bg_color_"
-msgstr ""
+msgstr "Color de fondo de los enlaces activos"
 
 msgid "_A_active_border_color_"
-msgstr ""
+msgstr "Color del borde de los enlaces activos"
 
 msgid "_A_active_border_style_"
-msgstr ""
+msgstr "Estilo de borde de los enlaces activos"
 
 msgid "_A_active_border_width_"
-msgstr ""
+msgstr "Anchura del borde de los enlaces activos"
 
 msgid "_A_active_decoration_"
 msgstr "Decoración de los enlaces activos"
 
 msgid "_A_hover_bg_color_"
-msgstr ""
+msgstr "Color de fondo de los enlaces seleccionados"
 
 msgid "_A_hover_border_color_"
-msgstr ""
+msgstr "Color del borde de los enlaces seleccionados"
 
 msgid "_A_hover_border_style_"
-msgstr ""
+msgstr "Estilo de borde de los enlaces seleccionados"
 
 msgid "_A_hover_border_width_"
-msgstr ""
+msgstr "Anchura del borde de los enlaces seleccionados"
 
 msgid "_A_hover_decoration_"
-msgstr "Decoración de los enlaces al pasar por encima"
+msgstr "Decoración de los enlaces seleccionados"
 
 msgid "_A_link_bg_color_"
-msgstr ""
+msgstr "Color de fondo de los enlaces"
 
 msgid "_A_link_border_color_"
-msgstr ""
+msgstr "Color del borde de los enlaces"
 
 msgid "_A_link_border_style_"
-msgstr ""
+msgstr "Estilo de borde de los enlaces"
 
 msgid "_A_link_border_width_"
-msgstr ""
+msgstr "Anchura de borde"
 
 msgid "_A_link_decoration_"
 msgstr "Decoración de los enlaces"
 
 msgid "_A_visited_bg_color_"
-msgstr ""
+msgstr "Color de fondo de los enlaces visitados"
 
 msgid "_A_visited_border_color_"
-msgstr ""
+msgstr "Color del borde de los enlaces visitados"
 
 msgid "_A_visited_border_style_"
-msgstr ""
+msgstr "Estilo de borde de los enlaces visitados"
 
 msgid "_A_visited_border_width_"
-msgstr ""
+msgstr "Anchura del borde de los enlaces visitados"
 
 msgid "_A_visited_decoration_"
 msgstr "Decoración de los enlaces visitados"
 
 msgid "_Action Box Templet_"
-msgstr "Plantilla de caja de acción"
+msgstr "Caja de herramientas"
 
 msgid "_Action box_"
-msgstr "Caja de acción"
+msgstr "Caja de acciones"
 
 msgid "_Action categories_"
 msgstr "Categorías de acciones"
@@ -140,6 +138,9 @@ msgstr "Abril"
 msgid "_Area Color_"
 msgstr "Color del área"
 
+msgid "_Area padding_"
+msgstr "Espacio de relleno"
+
 msgid "_Area Shape_"
 msgstr "Forma del área"
 
@@ -176,14 +177,11 @@ msgstr "Color del área"
 msgid "_Area font color_"
 msgstr "Color del tipo de letra"
 
-msgid "_Area padding_"
-msgstr ""
-
 msgid "_Area shape_"
 msgstr "Forma del área"
 
 msgid "_Area text transform_"
-msgstr "área de transformación de texto"
+msgstr "Transformación de texto"
 
 msgid "_August_"
 msgstr "Agosto"
@@ -192,16 +190,16 @@ msgid "_Author_"
 msgstr "Autor"
 
 msgid "_Background color_"
-msgstr ""
+msgstr "Color de fondo"
 
 msgid "_Background image_"
 msgstr "Imagen de fondo"
 
 msgid "_Background position_"
-msgstr "Posición del fondo"
+msgstr "Posición de la imagen"
 
 msgid "_Background repeat_"
-msgstr "repetición del fondo"
+msgstr "Extender la imagen"
 
 msgid "_Base path_"
 msgstr "Ruta base:"
@@ -213,19 +211,19 @@ msgid "_Bottom border color_"
 msgstr "Color del borde inferior"
 
 msgid "_Bottom left image_"
-msgstr "imagen inferior izquierda"
+msgstr "Imagen inferior izquierda"
 
 msgid "_Bottom right image_"
-msgstr "imagen inferior derecha"
+msgstr "Imagen inferior derecha"
 
 msgid "_Box Corners_"
-msgstr "esquinas de la caja"
+msgstr "Esquinas de la caja"
 
 msgid "_Box color_"
 msgstr "Color de la caja del portal"
 
 msgid "_Box corners_"
-msgstr "esquinas de la caja"
+msgstr "Esquinas de la caja"
 
 msgid "_Box layout_"
 msgstr "Disposición de la caja del portal"
@@ -270,7 +268,7 @@ msgid "_BoxBody menuin margin_"
 msgstr "Márgenes del menú seleccionado"
 
 msgid "_BoxBody menuin padding_"
-msgstr "Acolchado del  menú seleccionado"
+msgstr "Espacio de relleno del  menú seleccionado"
 
 msgid "_BoxBody menuout border color_"
 msgstr "Color del borde del menú"
@@ -291,10 +289,10 @@ msgid "_BoxBody menuout margin_"
 msgstr "Márgenes del menú"
 
 msgid "_BoxBody menuout padding_"
-msgstr "Acolchado del menú"
+msgstr "Espacio de relleno del menú"
 
 msgid "_BoxBody padding_"
-msgstr "Acolchado del cuerpo de la caja"
+msgstr "Espacio de relleno del cuerpo de la caja"
 
 msgid "_BoxBody text align_"
 msgstr "Alineación del texto del cuerpo de la caja"
@@ -321,13 +319,13 @@ msgid "_BoxTitle font color_"
 msgstr "Color de la fuente del título de la caja"
 
 msgid "_BoxTitle font_"
-msgstr "fuente del título de la caja"
+msgstr "Tipografía del título de la caja"
 
 msgid "_BoxTitle padding_"
-msgstr "Acolchado del título de caja"
+msgstr "Espacio de relleno"
 
 msgid "_BoxTitle text align_"
-msgstr "Alineación del texto del título de caja"
+msgstr "Alineación del texto"
 
 msgid "_Breadcrumbs Templet_"
 msgstr "Plantilla de menú de navegación"
@@ -339,7 +337,7 @@ msgid "_Broken Templet!_"
 msgstr "¡Plantilla rota!"
 
 msgid "_Buttons_"
-msgstr ""
+msgstr "Botones"
 
 msgid "_Cache effectivity_"
 msgstr "Efectividad del caché"
@@ -390,13 +388,13 @@ msgid "_Cellblock margin_"
 msgstr "Margen"
 
 msgid "_Collapsible Menu Style_"
-msgstr "Estilo de menú colapsable"
+msgstr "Estilo de menú extensible"
 
 msgid "_Collapsible Menu Templet_"
-msgstr "Plantilla de menú colapsable"
+msgstr "Menú extensible"
 
 msgid "_Collapsible menu_"
-msgstr "Menú colapsable"
+msgstr "Menú extensible"
 
 msgid "_Color_"
 msgstr "Color"
@@ -424,7 +422,7 @@ msgid "_Creator_"
 msgstr "Creador"
 
 msgid "_Custom action categories_"
-msgstr "Categorías de acciones personalizadas"
+msgstr "Categorías de acciones suplementarias"
 
 msgid "_Cut_"
 msgstr "Cortar"
@@ -487,10 +485,10 @@ msgid "_Display title in text mode_"
 msgstr "Mostrar el título en modo texto"
 
 msgid "_Document Info Templet_"
-msgstr "Plantilla de info del documento"
+msgstr "Información del documento"
 
 msgid "_Document info_"
-msgstr "Info del documento"
+msgstr "Información del documento"
 
 msgid "_ESI fragment_"
 msgstr "Fragmento ESI (Edge Sides Includes)"
@@ -502,10 +500,10 @@ msgid "_Edit images_"
 msgstr "Editar las imágenes"
 
 msgid "_Edit palettes_"
-msgstr "Editar paletas"
+msgstr "Editar las paletas"
 
 msgid "_Edit styles_"
-msgstr "Editar estilos"
+msgstr "Editar los estilos"
 
 msgid "_Edit the current style_"
 msgstr "Editar el estilo actual"
@@ -517,7 +515,7 @@ msgid "_Edit the theme_"
 msgstr "Editar el theme"
 
 msgid "_Edit this page block_"
-msgstr "Editar este bloque de página"
+msgstr "Editar el bloque"
 
 # Mismo comentario de arriba en modificar
 msgid "_Edit_"
@@ -530,7 +528,7 @@ msgid "_Enable ESI_"
 msgstr "Activar ESI (Edge Side Includes)"
 
 msgid "_End string_"
-msgstr "Cadena final"
+msgstr "Marcador del final"
 
 msgid "_Event background color_"
 msgstr "Color de fondo de los eventos"
@@ -620,7 +618,7 @@ msgid "_H1_margin_"
 msgstr "Margen H1"
 
 msgid "_H1_padding_"
-msgstr "Acolchado H1"
+msgstr "Espacio de relleno H1"
 
 msgid "_H2_"
 msgstr "H2"
@@ -647,7 +645,7 @@ msgid "_H2_margin_"
 msgstr "Margen H2"
 
 msgid "_H2_padding_"
-msgstr "Acolchado H2"
+msgstr "Espacio de relleno H2"
 
 msgid "_H3_"
 msgstr "H3"
@@ -674,7 +672,7 @@ msgid "_H3_margin_"
 msgstr "Margen H3"
 
 msgid "_H3_padding_"
-msgstr "Acolchado H3"
+msgstr "Espacio de relleno H3"
 
 msgid "_H456_"
 msgstr "H4, H5, H6"
@@ -701,7 +699,7 @@ msgid "_H456_margin_"
 msgstr "Margen H4, H5, H6"
 
 msgid "_H456_padding_"
-msgstr "Acolchado H4, H5, H6"
+msgstr "Espacio de relleno H4, H5, H6"
 
 msgid "_Header background color_"
 msgstr "Color de fondo de la cabecera"
@@ -740,16 +738,16 @@ msgid "_Horizontal padding_"
 msgstr "Relleno horizontal"
 
 msgid "_Hover background color_"
-msgstr ""
+msgstr "Color de fondo (seleccionado)"
 
 msgid "_Hover background image_"
-msgstr ""
+msgstr "Imagen de fondo (seleccionado)"
 
 msgid "_Icon size_"
 msgstr "Tamaño del icono"
 
 msgid "_Image Box Templet_"
-msgstr "Plantilla de caja de imagen"
+msgstr "Caja de imagen"
 
 msgid "_Image box_"
 msgstr "Caja de imagen"
@@ -926,10 +924,10 @@ msgid "_P_font_"
 msgstr "Tipo de letra de párrafo"
 
 msgid "_P_padding_"
-msgstr "Acolchado para el párrafo"
+msgstr "Espacio de relleno para el párrafo"
 
 msgid "_Padding_"
-msgstr ""
+msgstr "Espacio de relleno"
 
 msgid "_Page Block_"
 msgstr "Bloque de página"
@@ -953,57 +951,57 @@ msgid "_Paste_"
 msgstr "Pegar"
 
 msgid "_Please select a portlet type_"
-msgstr ""
+msgstr "Seleccione un tipo de portlet"
 
 msgid "_Portal Box Color_"
-msgstr "Color de las cajas del portal"
+msgstr "Color de las cajas"
 
 msgid "_Portal Box Group Templet_"
-msgstr "Plantilla de grupo de cajas del portal"
+msgstr "Grupo de cajas"
 
 msgid "_Portal Box Shape_"
-msgstr "Forma de las cajas del portal"
+msgstr "Forma de las cajas"
 
 msgid "_Portal Box Templet_"
-msgstr "Plantilla de caja del portal"
+msgstr "Caja"
 
 msgid "_Portal Tab Style_"
-msgstr "Estilo de etiquetas"
+msgstr "Estilo de pestañas del portal"
 
 msgid "_Portal Tab Templet_"
-msgstr "Plantilla de etiquetas"
+msgstr "Pestañas del portal"
 
 msgid "_Portal Tab_"
-msgstr "Etiqueta"
+msgstr "Pestañas del portal"
 
 msgid "_Portal Theme_"
-msgstr "Theme del portal"
+msgstr "Theme"
 
 # plural?
 msgid "_Portal box color_"
-msgstr "Color de las cajas del portal"
+msgstr "Color de las cajas"
 
 msgid "_Portal box content_"
-msgstr "Contenido de la caja del portal"
+msgstr "Contenido de la caja"
 
 msgid "_Portal box group_"
-msgstr "Grupo de cajas del portal"
+msgstr "Grupo de cajas"
 
 # plural?
 msgid "_Portal box shape_"
-msgstr "Forma de las cajas del portal"
+msgstr "Contorno de las cajas"
 
 msgid "_Portal box title source_"
-msgstr "Origen del título de la caja del portal"
+msgstr "Origen del título de la caja"
 
 msgid "_Portal box_"
-msgstr "Caja del portal"
+msgstr "Caja"
 
 msgid "_Portlet Box Templet_"
-msgstr "Plantilla de caja de portlet"
+msgstr "Caja de portlet"
 
 msgid "_Portlet editor_"
-msgstr ""
+msgstr "Editor de Portlets"
 
 msgid "_Portlet type_"
 msgstr "Tipo de portlet"
@@ -1039,7 +1037,7 @@ msgid "_Right-side image_"
 msgstr "Imagen a la derecha"
 
 msgid "_SMALL_font_"
-msgstr ""
+msgstr "Tipografía más pequeña"
 
 msgid "_STRONG_font_"
 msgstr "Tipografía resaltada"
@@ -1075,13 +1073,13 @@ msgid "_Shape_"
 msgstr "Forma"
 
 msgid "_Shortcut icon_"
-msgstr "Icono de atajo"
+msgstr "Icono de página web"
 
 msgid "_Show action icons_"
 msgstr "Mostrar iconos de acciones"
 
 msgid "_Show add items_"
-msgstr "Mostrar un botón para añadir nuevos ítem"
+msgstr "Mostrar un botón para añadir contenido"
 
 msgid "_Show all categories_"
 msgstr "Mostrar todas las categorías"
@@ -1138,22 +1136,22 @@ msgid "_Sub-menu font color_"
 msgstr "Color de la fuente de submenú"
 
 msgid "_Sub-menu font_"
-msgstr "Fuente de submenú"
+msgstr "Tipografía del submenú"
 
 msgid "_Sub-menu hover background color_"
-msgstr "Color de fondo de submenú al pasar por encima"
+msgstr "Color de fondo de submenú (seleccionados)"
 
 msgid "_Sub-menu hover font color_"
-msgstr "Color de la fuente de submenú al pasar por encima"
+msgstr "Color de la tipografia del submenú (seleccionados)"
 
 msgid "_Sub-menu items width_"
 msgstr "Anchura de los elementos de submenú"
 
 msgid "_Tab style_"
-msgstr "Estilo de etiqueta"
+msgstr "Estilo de pestaña"
 
 msgid "_Tab width_"
-msgstr "Anchura de etiqueta"
+msgstr "Anchura de pestaña"
 
 msgid "_Tableless_"
 msgstr "Formulario css"
@@ -1168,7 +1166,7 @@ msgid "_Templet margin_"
 msgstr "Margen de la plantilla"
 
 msgid "_Templet padding_"
-msgstr "Acolchado de la plantilla"
+msgstr "Espacio de relleno de la plantilla"
 
 msgid "_Templet shape_"
 msgstr "Forma de la plantilla"
@@ -1262,28 +1260,28 @@ msgid "_Top left image_"
 msgstr "Imagen superior"
 
 msgid "_Top menu background color_"
-msgstr "Color de fondo del menú superior"
+msgstr "Color de fondo del menú principal"
 
 msgid "_Top menu border color_"
-msgstr "Color del borde de menú superior"
+msgstr "Color del borde de menú principal"
 
 msgid "_Top menu border style_"
-msgstr "Estilo de borde de menú superior"
+msgstr "Estilo de borde de menú principal"
 
 msgid "_Top menu font color_"
-msgstr "Color de la tipografía del menú superior"
+msgstr "Color de la tipografía del menú principal"
 
 msgid "_Top menu font_"
-msgstr "Tipografía del menú superior"
+msgstr "Tipografía del menú principal"
 
 msgid "_Top menu hover background color_"
-msgstr "Color de fondo del menú superior al pasar por encima"
+msgstr "Color de fondo del menú principal (al ser seleccionado)"
 
 msgid "_Top menu hover font color_"
-msgstr "Color de la fuente del menú superior al pasar por encima"
+msgstr "Color del texto del menú principal (al ser seleccionado)"
 
 msgid "_Top menu items width_"
-msgstr "Anchura de los elementos del menú superior"
+msgstr "Anchura de los elementos del menú principal"
 
 msgid "_Top right image_"
 msgstr "Imagen superior derecha"
@@ -1325,7 +1323,7 @@ msgid "_Value_"
 msgstr "Valor"
 
 msgid "_Vertical padding_"
-msgstr "Acolchado vertical"
+msgstr "Espacio de relleno vertical"
 
 msgid "_Visibility criteria_"
 msgstr "Criterios de visibilidad"
@@ -1472,16 +1470,16 @@ msgid "_calendarstyle_description_"
 msgstr "este estilo define el aspecto visual del calendario."
 
 msgid "_cellblock_description_"
-msgstr "Un Bloque de Celda permite mostrar varias plantillas horizontalmente dentro de un Bloque de Página."
+msgstr "un bloque de celda permite mostrar varias plantillas horizontalmente dentro de un Bloque de Página."
 
 msgid "_cellhider_description_"
-msgstr "El Escondedor de celda controla la visibilidad de una celda."
+msgstr "un borrador controla la visibilidad de una celda."
 
 msgid "_cellsizer_description_"
-msgstr "Un Redimensionador de celda fija la anchura de una celda."
+msgstr "un dimensionador permite fijar la anchura de una celda."
 
 msgid "_cellstyler_description_"
-msgstr "Un Estilizador de celda modifica el estilo de una celda."
+msgstr "Un diseñador modifica el estilo de una celda."
 
 msgid "_clipboard_"
 msgstr "Portapapeles"
@@ -1508,7 +1506,7 @@ msgid "_days_"
 msgstr "días"
 
 msgid "_default tab_"
-msgstr "Etiqueta por defecto"
+msgstr "Pestaña por defecto"
 
 msgid "_dimensions_"
 msgstr "Dimensiones"
@@ -1520,7 +1518,7 @@ msgid "_edit online_"
 msgstr "Editar en línea"
 
 msgid "_enter_new_id_"
-msgstr ""
+msgstr "introducir nuevo ID"
 
 msgid "_flashbox_templet_description_"
 msgstr "Una caja para Macromedia Flash(tm) con pie"
@@ -1568,7 +1566,7 @@ msgid "_layout_"
 msgstr "Disposición/distribución"
 
 msgid "_link_"
-msgstr ""
+msgstr "Enlace"
 
 msgid "_maincontent_templet_description_"
 msgstr "el área de contenido principal donde se muestran los documentos"
@@ -1648,7 +1646,7 @@ msgid "_menu_Portal Box Shape_"
 msgstr "Forma de la caja"
 
 msgid "_menu_Portal Tab Style_"
-msgstr "Estilo de etiquetas"
+msgstr "Estilo de pestañas"
 
 msgid "_menu_Set alignment_"
 msgstr "Establecer alineación"
@@ -1885,7 +1883,7 @@ msgid "_option_stx_"
 msgstr "Texto estructurado"
 
 msgid "_option_tableless_"
-msgstr "Tableless"
+msgstr "Sin tablas"
 
 msgid "_option_text and icons_"
 msgstr "Texto e iconos"
@@ -1897,13 +1895,13 @@ msgid "_option_text_transform_capitalize_"
 msgstr "Letra Mayúscua En Cada Palabra"
 
 msgid "_option_text_transform_lowercase_"
-msgstr "texto a letras minúsculas"
+msgstr "texto en letras minúsculas"
 
 msgid "_option_text_transform_none_"
 msgstr "Sin transformación"
 
 msgid "_option_text_transform_uppercase_"
-msgstr "TEXTO A LETRAS MAYÚSCULAS"
+msgstr "TEXTO EN LETRAS MAYÚSCULAS"
 
 msgid "_option_textonly_"
 msgstr "Sólo texto"
@@ -1915,10 +1913,10 @@ msgid "_option_vertical_"
 msgstr "Vertical"
 
 msgid "_pageblock_description_"
-msgstr "Un Bloque de página está compuesto de Celdas (columnas). El aspecto visual de una Celda puede ser modificado utilizando Estilizadores de celda, Redimensionadores de celda y Escondedores de celda."
+msgstr "un bloque está compuesto de celdas (columnas). El aspecto visual de una celda puede ser modificado utilizando diseñadores de celda, dimensionadores de celda y borradores de celda."
 
 msgid "_paletteborder_description_"
-msgstr "estas entradas de paleta definen la forma de los bordes utilizados en los estilos."
+msgstr "estas paletas definen la forma de los bordes utilizados en los estilos."
 
 msgid "_palettecolor_description_"
 msgstr "estas paletas definen los colores utilizados en los estilos."
@@ -1927,16 +1925,16 @@ msgid "_portalbox_templet_description_"
 msgstr "una caja genérica que muestra aciones, carpetas, una caja 'acerca de', una caja de autentificación, una caja de info, etc."
 
 msgid "_portalboxgroup_templet_description_"
-msgstr "un dispositivo que muestra las cajas originales del portal"
+msgstr "un tablón de anuncios que reagrupa un conjunto de cajas o de portlets."
 
 msgid "_portaltab_templet_description_"
-msgstr "una caja genérica que despliega acciones, carpetas y, refiriéndose a cajas, de autenticación, de información..."
+msgstr "pestañas horizontales que despliegan acciones, comandos..."
 
 msgid "_portaltabstyle_"
-msgstr "Estilo de etiqueta del portal"
+msgstr "Estilo de pestaña del portal"
 
 msgid "_portaltabstyle_description_"
-msgstr "este estilo define la apariencia de las etiquetas del portal"
+msgstr "este estilo define la apariencia de las pestañas del portal"
 
 msgid "_portaltheme_description_"
 msgstr "Un theme modifica el aspecto y la disposición del portal. Se compone de bloques horizontales."
@@ -1963,7 +1961,7 @@ msgid "_selected menu item_"
 msgstr "Ítem de menú seleccionado"
 
 msgid "_selected tab_"
-msgstr "Etiqueta seleccionada"
+msgstr "Pestaña seleccionada"
 
 msgid "_set as default style_"
 msgstr "establecer como estilo por defecto"
