@@ -1,0 +1,6 @@
+<metal:page define-macro="master">
+  <metal:block use-macro="here/global_defines/macros/defines" />
+  <metal:header metal:define-slot="header" />
+  <metal:bodytext metal:define-slot="main" />
+  <metal:sub metal:define-slot="sub" />
+</metal:page>

@@ -646,6 +646,7 @@ def update(self):
         'cpsskins_cps3_macroless': 'skins/cpsskins_cps3_macroless',
         'cpsskins_plone': 'skins/cpsskins_plone',
         'cpsskins_plone2': 'skins/cpsskins_plone2',
+        'cpsskins_plone2_macroless': 'skins/cpsskins_plone2_macroless',
         'cpsskins_icons': 'icons',
     }
 
@@ -682,6 +683,13 @@ def update(self):
             pr(" Added the 'CPSSkins-macroless' skin.")
             npath = npath.replace('cpsskins_cps3,',
                                   'cpsskins_cps3_macroless, cpsskins_cps3,')
+            skinstool.addSkinSelection('CPSSkins-macroless', npath)
+
+        # Set up the macroless skin (for Plone2)
+        if 'cpsskins_plone2,' in npath:
+            pr(" Added the 'CPSSkins-macroless' skin.")
+            npath = npath.replace('cpsskins_plone2,',
+                                  'cpsskins_plone2_macroless, cpsskins_plone2,')
             skinstool.addSkinSelection('CPSSkins-macroless', npath)
 
     pr(" Setting 'CPSSkins' as default skin")

@@ -8,6 +8,7 @@ Bug fixes:
 ~~~~~~~~~~
 - Add new layout, horizontal_box_notitle to handle right/left/center
   items alignment;
+- Plone2: the macroless skin was missing.
 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
