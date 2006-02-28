@@ -235,7 +235,7 @@ class FontShape(BaseStyle):
          'type': 'string',
          'mode': 'w',
          'label': 'A_hover_decoration',
-         'category': 'general',
+         'category': 'link',
          'palette': 'Palette Border'
         },
         {'id': 'A_link_border_width',
