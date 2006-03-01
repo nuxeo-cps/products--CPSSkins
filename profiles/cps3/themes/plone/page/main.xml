@@ -15,7 +15,6 @@
  <object name="objectactions" meta_type="Portal Box Templet"/>
  <object name="about" meta_type="Portal Box Templet"/>
  <object name="contentwell" meta_type="Portal Box Group Templet"/>
- <object name="maincontent" meta_type="Main Content Templet"/>
  <object name="lastmodified" meta_type="Document Info Templet"/>
  <object name="sizer1" meta_type="Cell Sizer"/>
  <object name="sizer2" meta_type="Cell Sizer"/>
