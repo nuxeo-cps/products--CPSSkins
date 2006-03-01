@@ -13,7 +13,6 @@
  <object name="menuaccesskey" meta_type="Text Box Templet"/>
  <object name="left" meta_type="Portal Box Group Templet"/>
  <object name="closed1" meta_type="Portal Box Group Templet"/>
- <object name="maincontent" meta_type="Main Content Templet"/>
  <object name="centerbottom" meta_type="Portal Box Group Templet"/>
  <object name="sizer1" meta_type="Cell Sizer"/>
  <object name="sizer2" meta_type="Cell Sizer"/>
