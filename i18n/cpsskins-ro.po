@@ -1,291 +1,294 @@
+# translation of cpsskins-ro.po to
+# Dragos Ivan <div@nuxeo.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: CPSSkins 2.3\n"
+"Project-Id-Version: cpsskins-ro\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Your Name <your@email>\n"
-"Language-Team: Name <email>\n"
+"PO-Revision-Date: 2006-03-03 17:54+0200\n"
+"Last-Translator: Dragos Ivan <div@nuxeo.com>\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: ro\n"
+"Language-Name: Romanian\n"
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: cpsskins\n"
 "Language-code: ro\n"
 "Language-name: Romanian\n"
 "Preferred-encodings: utf-8 latin1\n"
+"X-Generator: KBabel 1.11.1\n"
 
 msgid "_(default style)_"
-msgstr ""
+msgstr "(stilul implicit)"
 
 msgid "_A active_"
-msgstr ""
+msgstr "Culoare link activ"
 
 msgid "_A hover_"
-msgstr ""
+msgstr "Culoare link 'hover'"
 
 msgid "_A link_"
-msgstr ""
+msgstr "Culoare link"
 
 msgid "_A visited_"
-msgstr ""
+msgstr "Culoare link vizitat"
 
 msgid "_A_active_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal link activ"
 
 msgid "_A_active_border_color_"
-msgstr ""
+msgstr "Culoare contur link activ"
 
 msgid "_A_active_border_style_"
-msgstr ""
+msgstr "Stil contur link activ"
 
 msgid "_A_active_border_width_"
-msgstr ""
+msgstr "Latime contur link activ"
 
 msgid "_A_active_decoration_"
-msgstr ""
+msgstr "Mod de decorare link activ"
 
 msgid "_A_hover_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal link 'hover'"
 
 msgid "_A_hover_border_color_"
-msgstr ""
+msgstr "Culoare contur link 'hover'"
 
 msgid "_A_hover_border_style_"
-msgstr ""
+msgstr "Stil contur link 'hover'"
 
 msgid "_A_hover_border_width_"
-msgstr ""
+msgstr "Latime contur link 'hover'"
 
 msgid "_A_hover_decoration_"
-msgstr ""
+msgstr "Mod de decorare link 'hover'"
 
 msgid "_A_link_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal link"
 
 msgid "_A_link_border_color_"
-msgstr ""
+msgstr "Culoare contur link"
 
 msgid "_A_link_border_style_"
-msgstr ""
+msgstr "Stil contur link"
 
 msgid "_A_link_border_width_"
-msgstr ""
+msgstr "Latime contur link"
 
 msgid "_A_link_decoration_"
-msgstr ""
+msgstr "Mod de decorare link"
 
 msgid "_A_visited_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal link vizitat"
 
 msgid "_A_visited_border_color_"
-msgstr ""
+msgstr "Culoare contur link vizitat"
 
 msgid "_A_visited_border_style_"
-msgstr ""
+msgstr "Stil contur link vizitat"
 
 msgid "_A_visited_border_width_"
-msgstr ""
+msgstr "Latime contur link vizitat"
 
 msgid "_A_visited_decoration_"
-msgstr ""
+msgstr "Mod de decorare link vizitat"
 
 msgid "_Action Box Templet_"
 msgstr ""
 
 msgid "_Action box_"
-msgstr ""
+msgstr "Box de actiuni"
 
 msgid "_Action categories_"
-msgstr ""
+msgstr "Categorii de actiuni"
 
 msgid "_Add a column_"
-msgstr ""
+msgstr "Adauga o coloana"
 
 msgid "_Add a theme_"
-msgstr ""
+msgstr "Adauga o tema"
 
 msgid "_Add an image_"
-msgstr ""
+msgstr "Adauga o imagine"
 
 msgid "_Add content_"
-msgstr ""
+msgstr "Adauga continut"
 
 msgid "_Add_a_new_Templet_"
-msgstr ""
+msgstr "Adauga un Templet nou"
 
 msgid "_Add_a_new_palette_entry_"
-msgstr ""
+msgstr "Adauga o noua inregistrare in paleta"
 
 msgid "_Add_a_new_style_"
-msgstr ""
+msgstr "Adauga un nou stil"
 
 msgid "_Add_a_portlet_"
-msgstr ""
+msgstr "Adauga un portlet"
 
 msgid "_Align_"
-msgstr ""
+msgstr "Aliniere"
 
 msgid "_Appearance_"
-msgstr ""
+msgstr "Infatisare"
 
 msgid "_April_"
-msgstr ""
+msgstr "Aprilie"
 
 msgid "_Area Color_"
-msgstr ""
+msgstr "Culoare zona"
 
 msgid "_Area Shape_"
-msgstr ""
+msgstr "Forma zona"
 
 msgid "_Area active background color_"
-msgstr ""
+msgstr "Culoare de fundal zona activa"
 
 msgid "_Area active border color_"
-msgstr ""
+msgstr "Culoare contur zona activa"
 
 msgid "_Area background color_"
-msgstr ""
+msgstr "Culoare de fundal zona"
 
 msgid "_Area background image_"
-msgstr ""
+msgstr "Imagine de fundal zona"
 
 msgid "_Area background position_"
-msgstr ""
+msgstr "Positia fundalului zona"
 
 msgid "_Area background repeat_"
-msgstr ""
+msgstr "Repeta imaginea de fundal"
 
 msgid "_Area border color_"
-msgstr ""
+msgstr "Culoare contur zona"
 
 msgid "_Area border style_"
-msgstr ""
+msgstr "Stil contur zona"
 
 msgid "_Area border width_"
-msgstr ""
+msgstr "Latime contur zona"
 
 msgid "_Area color_"
-msgstr ""
+msgstr "Culoare zona"
 
 msgid "_Area font color_"
-msgstr ""
+msgstr "Culoare font-ului zona"
 
 msgid "_Area padding_"
 msgstr ""
 
 msgid "_Area shape_"
-msgstr ""
+msgstr "Forma zona"
 
 msgid "_Area text transform_"
-msgstr ""
+msgstr "Transformarea textului"
 
 msgid "_August_"
-msgstr ""
+msgstr "August"
 
 msgid "_Author_"
-msgstr ""
+msgstr "Autor"
 
 msgid "_Background color_"
-msgstr ""
+msgstr "Culoare fundalului"
 
 msgid "_Background image_"
-msgstr ""
+msgstr "Imagine de fundal"
 
 msgid "_Background position_"
-msgstr ""
+msgstr "Positia fundalului"
 
 msgid "_Background repeat_"
-msgstr ""
+msgstr "Fundalul se repeta"
 
 msgid "_Base path_"
 msgstr ""
 
 msgid "_Border style_"
-msgstr ""
+msgstr "Stil contur"
 
 msgid "_Bottom border color_"
-msgstr ""
+msgstr "Culoare contur de jos"
 
 msgid "_Bottom left image_"
-msgstr ""
+msgstr "Imagine stanga jos"
 
 msgid "_Bottom right image_"
-msgstr ""
+msgstr "Imagine dreapta jos"
 
 msgid "_Box Corners_"
-msgstr ""
+msgstr "Colturi box"
 
 msgid "_Box color_"
-msgstr ""
+msgstr "Culoare box"
 
 msgid "_Box corners_"
-msgstr ""
+msgstr "Colturi box"
 
 msgid "_Box layout_"
-msgstr ""
+msgstr "Asezarea in pagina a box-ului"
 
 msgid "_Box orientation_"
-msgstr ""
+msgstr "Orientare box"
 
 msgid "_Box shape_"
-msgstr ""
+msgstr "Forma box"
 
 msgid "_BoxBody background color_"
-msgstr ""
+msgstr "Culoare de fundal"
 
 msgid "_BoxBody background image_"
-msgstr ""
+msgstr "Imagine de fundal"
 
 msgid "_BoxBody border color_"
-msgstr ""
+msgstr "Culoare contur"
 
 msgid "_BoxBody border style_"
-msgstr ""
+msgstr "Stil contur"
 
 msgid "_BoxBody border width_"
-msgstr ""
+msgstr "Latime contur"
 
 msgid "_BoxBody menuin border color_"
-msgstr ""
+msgstr "Culoare contur"
 
 msgid "_BoxBody menuin border style_"
-msgstr ""
+msgstr "Stil contur"
 
 msgid "_BoxBody menuin border width_"
-msgstr ""
+msgstr "Latime contur"
 
 msgid "_BoxBody menuin color_"
-msgstr ""
+msgstr "Culoare"
 
 msgid "_BoxBody menuin icon_"
-msgstr ""
+msgstr "Iconita"
 
 msgid "_BoxBody menuin margin_"
-msgstr ""
+msgstr "Contur"
 
 msgid "_BoxBody menuin padding_"
 msgstr ""
 
 msgid "_BoxBody menuout border color_"
-msgstr ""
+msgstr "Culoare contur"
 
 msgid "_BoxBody menuout border style_"
-msgstr ""
+msgstr "Stil contur"
 
 msgid "_BoxBody menuout border width_"
-msgstr ""
+msgstr "Latime contur"
 
 msgid "_BoxBody menuout color_"
-msgstr ""
+msgstr "Culoare"
 
 msgid "_BoxBody menuout icon_"
-msgstr ""
+msgstr "Iconita"
 
 msgid "_BoxBody menuout margin_"
-msgstr ""
+msgstr "Contur"
 
 msgid "_BoxBody menuout padding_"
 msgstr ""
@@ -294,61 +297,61 @@ msgid "_BoxBody padding_"
 msgstr ""
 
 msgid "_BoxBody text align_"
-msgstr ""
+msgstr "Aliniere text"
 
 msgid "_BoxTitle background color_"
-msgstr ""
+msgstr "Culoare de fundal"
 
 msgid "_BoxTitle background image_"
-msgstr ""
+msgstr "Imagine de fundal"
 
 msgid "_BoxTitle border color_"
-msgstr ""
+msgstr "Culoare contur"
 
 msgid "_BoxTitle border style_"
-msgstr ""
+msgstr "Stil contur"
 
 msgid "_BoxTitle border width_"
-msgstr ""
+msgstr "Latime contur"
 
 msgid "_BoxTitle display_"
-msgstr ""
+msgstr "Criterii de afisare"
 
 msgid "_BoxTitle font color_"
-msgstr ""
+msgstr "Culoare font"
 
 msgid "_BoxTitle font_"
-msgstr ""
+msgstr "Font"
 
 msgid "_BoxTitle padding_"
 msgstr ""
 
 msgid "_BoxTitle text align_"
-msgstr ""
+msgstr "Aliniere text"
 
 msgid "_Breadcrumbs Templet_"
-msgstr ""
+msgstr "Cale de navigare"
 
 msgid "_Breadcrumbs_"
-msgstr ""
+msgstr "Cale de navigare"
 
 msgid "_Broken Templet!_"
-msgstr ""
+msgstr "Templet defect"
 
 msgid "_Buttons_"
-msgstr ""
+msgstr "Butoane"
 
 msgid "_Cache effectivity_"
-msgstr ""
+msgstr "Eficienta cache"
 
 msgid "_Cache lifetime_"
-msgstr ""
+msgstr "Timp de viata cache"
 
 msgid "_Cache manager_"
-msgstr ""
+msgstr "Manager cache"
 
 msgid "_Cache parameters updated_"
-msgstr ""
+msgstr "Parametri cache actualizati"
 
 msgid "_Cacheable in RAM_"
 msgstr ""
@@ -360,16 +363,16 @@ msgid "_Caching_"
 msgstr ""
 
 msgid "_Calendar Style_"
-msgstr ""
+msgstr "Stil calendar"
 
 msgid "_Calendar Templet_"
-msgstr ""
+msgstr "Templet calendar"
 
 msgid "_Calendar_"
-msgstr ""
+msgstr "Calendar"
 
 msgid "_Cell Block_"
-msgstr ""
+msgstr "Celula"
 
 msgid "_Cell Hider_"
 msgstr ""
@@ -381,10 +384,10 @@ msgid "_Cell Styler_"
 msgstr ""
 
 msgid "_Cell width_"
-msgstr ""
+msgstr "Latime celula"
 
 msgid "_Cellblock margin_"
-msgstr ""
+msgstr "Contur celula"
 
 msgid "_Collapsible Menu Style_"
 msgstr ""
@@ -396,529 +399,529 @@ msgid "_Collapsible menu_"
 msgstr ""
 
 msgid "_Color_"
-msgstr ""
+msgstr "Culoare"
 
 msgid "_Columns_"
-msgstr ""
+msgstr "Coloane"
 
 msgid "_Content_"
-msgstr ""
+msgstr "Continut"
 
 msgid "_Copy_"
-msgstr ""
+msgstr "Copiaza"
 
 msgid "_Copyright_"
-msgstr ""
+msgstr "Copyright"
 
 msgid "_Create a copy_"
-msgstr ""
+msgstr "Creaza o copie"
 
 msgid "_Created by:_"
-msgstr ""
+msgstr "Creat(a) de:"
 
 msgid "_Creator_"
-msgstr ""
+msgstr "Creator"
 
 msgid "_Custom action categories_"
-msgstr ""
+msgstr "Categorii de actiuni suplimentare"
 
 msgid "_Cut_"
-msgstr ""
+msgstr "Taie"
 
 msgid "_Days background color_"
-msgstr ""
+msgstr "Culoare de fundal zile"
 
 msgid "_Days font color_"
-msgstr ""
+msgstr "Culoare font zile"
 
 msgid "_December_"
-msgstr ""
+msgstr "Decembrie"
 
 msgid "_Default page_"
-msgstr ""
+msgstr "Pagina initiala"
 
 msgid "_Default theme_"
-msgstr ""
+msgstr "Tema initiala"
 
 msgid "_Default_font_"
-msgstr ""
+msgstr "Font initial"
 
 msgid "_Delete Templet?_"
-msgstr ""
+msgstr "Sterge Templet?"
 
 msgid "_Delete style?_"
-msgstr ""
+msgstr "Sterge stil?"
 
 msgid "_Delete theme?_"
-msgstr ""
+msgstr "Sterge tema?"
 
 msgid "_Delete_"
-msgstr ""
+msgstr "Sterge"
 
 msgid "_Deleting this image, are you sure?_"
-msgstr ""
+msgstr "Stergere imagine, esti sigur?"
 
 msgid "_Deleting this palette entry, are you sure?_"
-msgstr ""
+msgstr "Stergere inregistrare paleta, esti sigur?"
 
 msgid "_Deleting this style, are you sure?_"
-msgstr ""
+msgstr "Stergere stil, esti sigur?"
 
 msgid "_Depth level_"
-msgstr ""
+msgstr "Nivel profunzime"
 
 msgid "_Description_"
-msgstr ""
+msgstr "Descriere"
 
 msgid "_Destination_slot_"
-msgstr ""
+msgstr "Slot destinatie"
 
 msgid "_Display a contextual icon_"
-msgstr ""
+msgstr "Afiseaza iconita contextuala"
 
 msgid "_Display hidden folders_"
-msgstr ""
+msgstr "Afiseaza folderele ascunse"
 
 msgid "_Display title in text mode_"
-msgstr ""
+msgstr "Afiseaza titlu in modul text"
 
 msgid "_Document Info Templet_"
-msgstr ""
+msgstr "Templet cu informatii despre document"
 
 msgid "_Document info_"
-msgstr ""
+msgstr "Informatii despre document"
 
 msgid "_ESI fragment_"
-msgstr ""
+msgstr "Fragment ESI"
 
 msgid "_ESI_"
-msgstr ""
+msgstr "ESI"
 
 msgid "_Edit images_"
-msgstr ""
+msgstr "Editeaza imagini"
 
 msgid "_Edit palettes_"
-msgstr ""
+msgstr "Editeaza palete"
 
 msgid "_Edit styles_"
-msgstr ""
+msgstr "Editeaza stiluri"
 
 msgid "_Edit the current style_"
-msgstr ""
+msgstr "Editeaza stilul curent"
 
 msgid "_Edit the page_"
-msgstr ""
+msgstr "Editeaza pagina"
 
 msgid "_Edit the theme_"
-msgstr ""
+msgstr "Editeaza tema"
 
 msgid "_Edit this page block_"
-msgstr ""
+msgstr "Editeaza acest bloc"
 
 msgid "_Edit_"
-msgstr ""
+msgstr "Editeaza"
 
 msgid "_Elements_"
-msgstr ""
+msgstr "Elemente"
 
 msgid "_Enable ESI_"
-msgstr ""
+msgstr "Activeaza ESI"
 
 msgid "_End string_"
 msgstr ""
 
 msgid "_Event background color_"
-msgstr ""
+msgstr "Culoare de fundal eveniment"
 
 msgid "_Event border color_"
-msgstr ""
+msgstr "Culoare contur eveniment"
 
 msgid "_Event font color_"
-msgstr ""
+msgstr "Culoare font eveniment"
 
 msgid "_Exit_"
-msgstr ""
+msgstr "Iesire"
 
 msgid "_February_"
-msgstr ""
+msgstr "Februarie"
 
 msgid "_Flash Box Templet_"
-msgstr ""
+msgstr "Templet Flash"
 
 msgid "_Flash box_"
-msgstr ""
+msgstr "Box Flash"
 
 msgid "_Flash caption_"
-msgstr ""
+msgstr "Text"
 
 msgid "_Flash movie height_"
-msgstr ""
+msgstr "Inaltime animatie Flash"
 
 msgid "_Flash movie width_"
-msgstr ""
+msgstr "Latime animatie flash"
 
 msgid "_Font Color_"
-msgstr ""
+msgstr "Culoare font"
 
 msgid "_Font Shape_"
-msgstr ""
+msgstr "Forma font"
 
 msgid "_Font color_"
-msgstr ""
+msgstr "Culoare font"
 
 msgid "_Font shape_"
-msgstr ""
+msgstr "Forma font"
 
 msgid "_Forgot your password?_"
-msgstr ""
+msgstr "Ti-ai uitat parola?"
 
 msgid "_Form Style_"
-msgstr ""
+msgstr "Stil formular"
 
 msgid "_Form padding_"
 msgstr ""
 
 msgid "_Form style_"
-msgstr ""
+msgstr "Stil formular"
 
 msgid "_Form_"
-msgstr ""
+msgstr "Formular"
 
 msgid "_Fr_"
-msgstr ""
+msgstr "Vi"
 
 msgid "_Guest_"
-msgstr ""
+msgstr "Oaspete"
 
 msgid "_H1_"
-msgstr ""
+msgstr "H1"
 
 msgid "_H1_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal H1"
 
 msgid "_H1_border_color_"
-msgstr ""
+msgstr "Culoare contur H1"
 
 msgid "_H1_border_style_"
-msgstr ""
+msgstr "Stil contur H1"
 
 msgid "_H1_border_width_"
-msgstr ""
+msgstr "Latime contur H1"
 
 msgid "_H1_font_"
-msgstr ""
+msgstr "Font H1"
 
 msgid "_H1_font_color_"
-msgstr ""
+msgstr "Culoare font H1"
 
 msgid "_H1_margin_"
-msgstr ""
+msgstr "Contur H1"
 
 msgid "_H1_padding_"
 msgstr ""
 
 msgid "_H2_"
-msgstr ""
+msgstr "H2"
 
 msgid "_H2_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal H2"
 
 msgid "_H2_border_color_"
-msgstr ""
+msgstr "Culoare contur H2"
 
 msgid "_H2_border_style_"
-msgstr ""
+msgstr "Stil contur H2"
 
 msgid "_H2_border_width_"
-msgstr ""
+msgstr "Latime contur H2"
 
 msgid "_H2_font_"
-msgstr ""
+msgstr "Font H2"
 
 msgid "_H2_font_color_"
-msgstr ""
+msgstr "Culoare font H2"
 
 msgid "_H2_margin_"
-msgstr ""
+msgstr "Contur H2"
 
 msgid "_H2_padding_"
 msgstr ""
 
 msgid "_H3_"
-msgstr ""
+msgstr "H3"
 
 msgid "_H3_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal H3"
 
 msgid "_H3_border_color_"
-msgstr ""
+msgstr "Culoare contur H3"
 
 msgid "_H3_border_style_"
-msgstr ""
+msgstr "Stil contur H3"
 
 msgid "_H3_border_width_"
-msgstr ""
+msgstr "Latime contur H3"
 
 msgid "_H3_font_"
-msgstr ""
+msgstr "Font H3"
 
 msgid "_H3_font_color_"
-msgstr ""
+msgstr "Culoare font H3"
 
 msgid "_H3_margin_"
-msgstr ""
+msgstr "Contur H3"
 
 msgid "_H3_padding_"
 msgstr ""
 
 msgid "_H456_"
-msgstr ""
+msgstr "H4, H5, H6"
 
 msgid "_H456_bg_color_"
-msgstr ""
+msgstr "Culoare de fundal H4, H5, H6"
 
 msgid "_H456_border_color_"
-msgstr ""
+msgstr "Culoare contur H4, H5, H6"
 
 msgid "_H456_border_style_"
-msgstr ""
+msgstr "Stil contur H4, H5, H6"
 
 msgid "_H456_border_width_"
-msgstr ""
+msgstr "Latime contur H4, H5, H6"
 
 msgid "_H456_font_"
-msgstr ""
+msgstr "Font H4, H5, H6"
 
 msgid "_H456_font_color_"
-msgstr ""
+msgstr "Culoare font H4, H5, H6"
 
 msgid "_H456_margin_"
-msgstr ""
+msgstr "Contur H4, H5, H6"
 
 msgid "_H456_padding_"
 msgstr ""
 
 msgid "_Header background color_"
-msgstr ""
+msgstr "Culoare de fundal antet"
 
 msgid "_Header font color_"
-msgstr ""
+msgstr "Culoare font antet"
 
 msgid "_Height_"
-msgstr ""
+msgstr "Inaltime"
 
 msgid "_Hidden in text mode_"
-msgstr ""
+msgstr "Invizibil in mod text"
 
 msgid "_Hide current language_"
-msgstr ""
+msgstr "Ascunde limba curenta"
 
 msgid "_Hide this cell_"
-msgstr ""
+msgstr "Ascunde celula"
 
 msgid "_Hide title_"
-msgstr ""
+msgstr "Ascunde titlul"
 
 msgid "_Hide_overriden_portlets_"
-msgstr ""
+msgstr "Ascunde portletii suprascrisi"
 
 msgid "_Hierarchy base_"
 msgstr ""
 
 msgid "_Horizontal alignment_"
-msgstr ""
+msgstr "Aliniere pe orizontala"
 
 msgid "_Horizontal margin_"
-msgstr ""
+msgstr "Contur orizontal"
 
 msgid "_Horizontal padding_"
 msgstr ""
 
 msgid "_Hover background color_"
-msgstr ""
+msgstr "Culoare de fundal (hover)"
 
 msgid "_Hover background image_"
-msgstr ""
+msgstr "Imagine de fundal (hover)"
 
 msgid "_Icon size_"
-msgstr ""
+msgstr "Dimensiune iconita"
 
 msgid "_Image Box Templet_"
-msgstr ""
+msgstr "Templet imagine"
 
 msgid "_Image box_"
-msgstr ""
+msgstr "Box imagine"
 
 msgid "_Image caption_"
-msgstr ""
+msgstr "Text imagine"
 
 msgid "_Images_"
-msgstr ""
+msgstr "Imagini"
 
 msgid "_Import a theme_"
-msgstr ""
+msgstr "Importa tema"
 
 msgid "_Info text_"
-msgstr ""
+msgstr "Text informativ"
 
 msgid "_Insert a Templet here_"
-msgstr ""
+msgstr "Insereaza un Templet aici"
 
 msgid "_Insert a page block_"
-msgstr ""
+msgstr "Insereaza un bloc"
 
 msgid "_Internal link_"
-msgstr ""
+msgstr "Link intern"
 
 msgid "_Invisible actions_"
-msgstr ""
+msgstr "Actiuni invizibile"
 
 msgid "_January_"
-msgstr ""
+msgstr "Ianuarie"
 
 msgid "_July_"
-msgstr ""
+msgstr "Iulie"
 
 msgid "_June_"
-msgstr ""
+msgstr "Iunie"
 
 msgid "_KB_"
-msgstr ""
+msgstr "KB"
 
 msgid "_Language Templet_"
-msgstr ""
+msgstr "Templet limba"
 
 msgid "_Language selector_"
-msgstr ""
+msgstr "Selector limba"
 
 msgid "_Last modified:_"
-msgstr ""
+msgstr "Ultima modificare:"
 
 msgid "_Left-side image_"
-msgstr ""
+msgstr "Imagine din stanga"
 
 msgid "_License_"
-msgstr ""
+msgstr "Licenta"
 
 msgid "_Link (http://, mailto: ...)_"
-msgstr ""
+msgstr "Link (http://, mailto: ...)"
 
 msgid "_List orientation_"
-msgstr ""
+msgstr "Orientarea listei"
 
 msgid "_Location_"
-msgstr ""
+msgstr "Locatie"
 
 msgid "_Log in_"
-msgstr ""
+msgstr "Logare"
 
 msgid "_Macroless_"
-msgstr ""
+msgstr "Fara macro"
 
 msgid "_Main Content Templet_"
-msgstr ""
+msgstr "Templet de continut principal"
 
 msgid "_Main content_"
-msgstr ""
+msgstr "Continut principal"
 
 msgid "_Manage_"
-msgstr ""
+msgstr "Administreaza"
 
 msgid "_March_"
-msgstr ""
+msgstr "Martie"
 
 msgid "_Margin_"
-msgstr ""
+msgstr "Contur"
 
 msgid "_Maximum number of items_"
-msgstr ""
+msgstr "Numar maxim de inregistrari"
 
 msgid "_May_"
-msgstr ""
+msgstr "Mai"
 
 msgid "_Memory usage_"
-msgstr ""
+msgstr "Utilizare memorie"
 
 msgid "_Menu entry_"
-msgstr ""
+msgstr "Intrare meniu"
 
 msgid "_Menu title_"
-msgstr ""
+msgstr "Titlu meniu"
 
 msgid "_Merge this style?_"
 msgstr ""
 
 msgid "_Minimize / Maximize_"
-msgstr ""
+msgstr "Minimizeaza / Maximizeaza"
 
 msgid "_Mo_"
-msgstr ""
+msgstr "Lu"
 
 msgid "_Month_"
-msgstr ""
+msgstr "Luna"
 
 msgid "_More ..._"
-msgstr ""
+msgstr "Mai mult"
 
 msgid "_Move down_"
-msgstr ""
+msgstr "Muta mai jos"
 
 msgid "_Move left_"
-msgstr ""
+msgstr "Muta la stanga"
 
 msgid "_Move right_"
-msgstr ""
+msgstr "Muta la dreapta"
 
 msgid "_Move this cell to the left_"
-msgstr ""
+msgstr "Muta celula la stanga"
 
 msgid "_Move this cell to the right_"
-msgstr ""
+msgstr "Muta celula la dreapta"
 
 msgid "_Move up_"
-msgstr ""
+msgstr "Muta mai sus"
 
 msgid "_No items published since your last log-in_"
-msgstr ""
+msgstr "Nici o inregistrare publicata de la ultima autentificare"
 
 msgid "_No preview_"
-msgstr ""
+msgstr "Fara previzualizare"
 
 msgid "_Not available in layout mode_"
-msgstr ""
+msgstr "Nedisponibil(a) in timpul asezarii in pagina"
 
 msgid "_November_"
-msgstr ""
+msgstr "Noiembrie"
 
 msgid "_Number of columns_"
-msgstr ""
+msgstr "Numar coloane"
 
 msgid "_October_"
-msgstr ""
+msgstr "Octombrie"
 
 msgid "_Only select items that are supposed to get translated:_"
-msgstr ""
+msgstr "Selecteaza numai inregistrarile care trebuie traduse:"
 
 msgid "_Other categories_"
-msgstr ""
+msgstr "Alte categorii"
 
 msgid "_Other images_"
-msgstr ""
+msgstr "Alte imagini"
 
 msgid "_Other palettes_"
-msgstr ""
+msgstr "Alte palete"
 
 msgid "_Other portlets_"
-msgstr ""
+msgstr "Alti portleti"
 
 msgid "_Other styles_"
-msgstr ""
+msgstr "Alte stiluri"
 
 msgid "_Other themes_"
-msgstr ""
+msgstr "Alte teme"
 
 msgid "_P_font_"
-msgstr ""
+msgstr "Font paragraf"
 
 msgid "_P_padding_"
 msgstr ""
@@ -927,13 +930,13 @@ msgid "_Padding_"
 msgstr ""
 
 msgid "_Page Block_"
-msgstr ""
+msgstr "Bloc"
 
 msgid "_Page renderer_"
-msgstr ""
+msgstr "Generator de pagina"
 
 msgid "_Palette Border_"
-msgstr ""
+msgstr "Contur"
 
 msgid "_Palette Color_"
 msgstr ""
