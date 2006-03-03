@@ -1,4 +1,23 @@
 *******************************************
+** CPSSkins V2.10.0 [R1 build 2006/03/03-17:30 by ben]
+** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 33855
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Add new layout, horizontal_box_notitle to handle right/left/center
+  items alignment;
+- Plone2: the macroless skin was missing.
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- added the hability to purge the method_theme property
+
+*******************************************
 ** CPSSkins V2.9.1 [R1 build 2006/02/17-20:48 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 33086
 Requires:
