@@ -9,13 +9,15 @@
     <tal:block condition="python: style == 'dropdown list'">
       <form style="margin:0;padding:0;" name="cpsskins_i18n" method="post"
       tal:attributes="action string:${lc_url}/changeLanguage">
-        <select name="lang" onchange="cpsskins_i18n.submit()"
-          tal:define="tr_langs python: here.cpsskins_translateLangs(langs)">
-          <option tal:repeat="lang tr_langs"
-          tal:attributes="value lang/id; selected lang/selected|nothing;"
-          tal:content="lang/title">
-          Language</option>
-        </select>
+        <p>
+          <select name="lang" onchange="cpsskins_i18n.submit()"
+            tal:define="tr_langs python: here.cpsskins_translateLangs(langs)">
+            <option tal:repeat="lang tr_langs"
+            tal:attributes="value lang/id; selected lang/selected|nothing;"
+            tal:content="lang/title">
+            Language</option>
+          </select>
+        </p>
       </form>
     </tal:block>
     <tal:block condition="python: style == 'flags'"

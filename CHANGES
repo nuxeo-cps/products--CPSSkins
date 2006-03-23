@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Fixed an XHTML validity bug in Language Templet.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
