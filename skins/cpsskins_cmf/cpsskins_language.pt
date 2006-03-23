@@ -1,7 +1,7 @@
 <div
  tal:define="tmtool here/portal_themes;
-             lc python: tmtool.getTranslationService(root=1); 
-	     langs python: lc and lc.get_languages_map() or []; 
+             lc python: tmtool.getTranslationService(root=1);
+             langs python: lc and lc.get_languages_map() or [];
              lc_url python: lc and lc.absolute_url() or nothing;
              style python: here.style;
              hide_current_lang python: here.hide_current_lang"
@@ -11,7 +11,7 @@
       tal:attributes="action string:${lc_url}/changeLanguage">
         <select name="lang" onchange="cpsskins_i18n.submit()"
           tal:define="tr_langs python: here.cpsskins_translateLangs(langs)">
-          <option tal:repeat="lang tr_langs"  
+          <option tal:repeat="lang tr_langs"
           tal:attributes="value lang/id; selected lang/selected|nothing;"
           tal:content="lang/title">
           Language</option>
@@ -37,13 +37,13 @@
       <tal:block define="tr_langs python: here.cpsskins_translateLangs(langs)"
                  repeat="lang tr_langs"
                  condition="python: len(tr_langs) > 1">
-        <tal:block define="lang_id lang/id; 
+        <tal:block define="lang_id lang/id;
                            selected lang/selected|nothing;
                            title lang/title">
-           <strong tal:content="title" 
+           <strong tal:content="title"
             tal:condition="python: selected and not hide_current_lang" />
-           <a href="" tal:condition="not:selected" 
-              tal:content="title" 
+           <a href="" tal:condition="not:selected"
+              tal:content="title"
               tal:attributes="href string:${lc_url}/changeLanguage?lang=$lang_id" />
         </tal:block>
       </tal:block>
