@@ -308,6 +308,7 @@ div.xmlExportButtons a {
   display: inline;
   background-repeat: no-repeat;
   background-position: left top;
+  margin-left: 0 !important;
 }
 
 /* Item description */
