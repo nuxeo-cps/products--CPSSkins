@@ -115,7 +115,7 @@ msgid "_Add_a_new_Templet_"
 msgstr "Add a new Templet"
 
 msgid "_Add_a_new_palette_entry_"
-msgstr "Add a new palettre entry"
+msgstr "Add a new palette entry"
 
 msgid "_Add_a_new_style_"
 msgstr "Add a new style"
