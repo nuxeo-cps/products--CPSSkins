@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cpsskins-pt_BR\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2005-09-29 15:00-0300\n"
+"PO-Revision-Date: 2006-04-03 15:57-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: pt-BR <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,61 +32,61 @@ msgid "_A visited_"
 msgstr "Cor do link visitado"
 
 msgid "_A_active_bg_color_"
-msgstr ""
+msgstr "Cor de fundo do link ativo"
 
 msgid "_A_active_border_color_"
-msgstr ""
+msgstr "Cor da borda do link ativo"
 
 msgid "_A_active_border_style_"
-msgstr ""
+msgstr "Estilo da borda do link ativo"
 
 msgid "_A_active_border_width_"
-msgstr ""
+msgstr "Largura da borda do link ativo"
 
 msgid "_A_active_decoration_"
 msgstr "Decoração do link ativo"
 
 msgid "_A_hover_bg_color_"
-msgstr ""
+msgstr "Cor de fundo do link sobrevoado"
 
 msgid "_A_hover_border_color_"
-msgstr ""
+msgstr "Cor da borda do link sobrevoado"
 
 msgid "_A_hover_border_style_"
-msgstr ""
+msgstr "Estilo da borda do link sobrevoado"
 
 msgid "_A_hover_border_width_"
-msgstr ""
+msgstr "Largura da borda do link sobrevoado"
 
 msgid "_A_hover_decoration_"
-msgstr "Decoração do link ao pairar sobre"
+msgstr "Decoração do link sobrevoado"
 
 msgid "_A_link_bg_color_"
-msgstr ""
+msgstr "Cor de fundo do link"
 
 msgid "_A_link_border_color_"
-msgstr ""
+msgstr "Cor da borda do link"
 
 msgid "_A_link_border_style_"
-msgstr ""
+msgstr "Estilo da borda do link"
 
 msgid "_A_link_border_width_"
-msgstr ""
+msgstr "Largura da borda do link"
 
 msgid "_A_link_decoration_"
 msgstr "Decoração do link"
 
 msgid "_A_visited_bg_color_"
-msgstr ""
+msgstr "Cor de fundo do link visitado"
 
 msgid "_A_visited_border_color_"
-msgstr ""
+msgstr "Cor da borda do link visitado"
 
 msgid "_A_visited_border_style_"
-msgstr ""
+msgstr "Estilo da borda do link visitado"
 
 msgid "_A_visited_border_width_"
-msgstr ""
+msgstr "Largura da borda do link visitado"
 
 msgid "_A_visited_decoration_"
 msgstr "Decoração do link visitado"
@@ -173,7 +173,7 @@ msgid "_Area font color_"
 msgstr "Cor da fonte"
 
 msgid "_Area padding_"
-msgstr ""
+msgstr "Preenchimento de área"
 
 msgid "_Area shape_"
 msgstr "Forma da área"
@@ -188,7 +188,7 @@ msgid "_Author_"
 msgstr "Autor"
 
 msgid "_Background color_"
-msgstr ""
+msgstr "Cor de fundo"
 
 msgid "_Background image_"
 msgstr "Imagem de fundo"
@@ -335,7 +335,7 @@ msgid "_Broken Templet!_"
 msgstr "Modelo quebrado!"
 
 msgid "_Buttons_"
-msgstr ""
+msgstr "Botões"
 
 msgid "_Cache effectivity_"
 msgstr "Efetividade do Cache"
@@ -734,10 +734,10 @@ msgid "_Horizontal padding_"
 msgstr "Preenchimento horizontal"
 
 msgid "_Hover background color_"
-msgstr ""
+msgstr "Cor de fundo ao sobrevoar"
 
 msgid "_Hover background image_"
-msgstr ""
+msgstr "Imagem de fundo ao sobrevoar"
 
 msgid "_Icon size_"
 msgstr "Tamanho do ícone"
@@ -923,7 +923,7 @@ msgid "_P_padding_"
 msgstr "Preenchimento do parágrafo"
 
 msgid "_Padding_"
-msgstr ""
+msgstr "Preenchimento"
 
 msgid "_Page Block_"
 msgstr "Bloco de Página"
@@ -946,9 +946,8 @@ msgstr "Senha"
 msgid "_Paste_"
 msgstr "Colar"
 
-#, fuzzy
 msgid "_Please select a portlet type_"
-msgstr "Veuillez choisir un type de portlet"
+msgstr "Selecione um tipo de portlet"
 
 msgid "_Portal Box Color_"
 msgstr "Cor da caixa do portal"
@@ -995,9 +994,8 @@ msgstr "Caixa do Portal"
 msgid "_Portlet Box Templet_"
 msgstr "Modelo de caixa de portlet"
 
-#, fuzzy
 msgid "_Portlet editor_"
-msgstr "Portlet editor"
+msgstr "Editor de Portlet"
 
 msgid "_Portlet type_"
 msgstr "Tipo de portlet"
@@ -1033,7 +1031,7 @@ msgid "_Right-side image_"
 msgstr "Imagem do lado direito"
 
 msgid "_SMALL_font_"
-msgstr ""
+msgstr "Fonte pequena"
 
 msgid "_STRONG_font_"
 msgstr "Fonte forte"
@@ -1561,7 +1559,7 @@ msgid "_layout_"
 msgstr "Layout"
 
 msgid "_link_"
-msgstr ""
+msgstr "Link"
 
 msgid "_maincontent_templet_description_"
 msgstr "a área de conteúdo principal onde os documentos são mostrados"
