@@ -493,28 +493,28 @@ msgid "_ESI_"
 msgstr "ESI"
 
 msgid "_Edit images_"
-msgstr "Editer les images"
+msgstr "Modifier les images"
 
 msgid "_Edit palettes_"
-msgstr "Editer les palettes"
+msgstr "Modifier les palettes"
 
 msgid "_Edit styles_"
-msgstr "Editer les styles"
+msgstr "Modifier les styles"
 
 msgid "_Edit the current style_"
-msgstr "Editer ce style"
+msgstr "Modifier ce style"
 
 msgid "_Edit the page_"
-msgstr "Editer la page"
+msgstr "Modifier la page"
 
 msgid "_Edit the theme_"
 msgstr "Edit le thème"
 
 msgid "_Edit this page block_"
-msgstr "Editer ce bloc"
+msgstr "Modifier ce bloc"
 
 msgid "_Edit_"
-msgstr "Editer"
+msgstr "Modifier"
 
 msgid "_Elements_"
 msgstr "Élements"
@@ -996,7 +996,7 @@ msgid "_Portlet Box Templet_"
 msgstr "Boîte portlet"
 
 msgid "_Portlet editor_"
-msgstr "Editeur de portlets"
+msgstr "Gestionnaire de portlets"
 
 msgid "_Portlet type_"
 msgstr "Type de portlet"
@@ -1200,7 +1200,7 @@ msgid "_Theme chooser_"
 msgstr "Sélecteur de thème"
 
 msgid "_Theme editor_"
-msgstr "Editeur de thèmes"
+msgstr "Gestionnaire de thèmes"
 
 msgid "_Theme export_"
 msgstr "Export du thème"
@@ -1605,10 +1605,10 @@ msgid "_menu_Duplicate_"
 msgstr "Dupliquer"
 
 msgid "_menu_Edit styles_"
-msgstr "Editer les styles"
+msgstr "Modifier les styles"
 
 msgid "_menu_Edit_"
-msgstr "Editer"
+msgstr "Modifier"
 
 msgid "_menu_Font Color_"
 msgstr "Couleurs de caractères"
