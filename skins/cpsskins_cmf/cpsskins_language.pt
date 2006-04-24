@@ -26,15 +26,18 @@
       <a style="text-decoration: none"
       tal:define="lang_id lang/id;
                   lang_title lang/title;
-                  img_path python:'here/cpsskins_images/flag-%s.png' % lang_id;
-                  img_tag python:exists(img_path) and path(img_path) or nothing;
+                  img_rpath python:'cpsskins_images/flag-%s.png' % lang_id;
+                  img_path python:'here/' + img_rpath;
+                  img_exists python:exists(img_path) or nothing;
                   lang_selected lang/selected"
        tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id};
                        title lang_title"
        tal:condition="python: not (hide_current_lang and lang_selected)">
-        <tal:block condition="img_tag" content="structure img_tag"/>
-        <span tal:condition="python: not img_tag"
-        tal:content="string:[$lang_id]" />
+        <img tal:condition="img_exists"
+             tal:attributes="src string:${here/portal_url}/${img_rpath};
+                             alt lang_title;"/>
+        <span tal:condition="python:not img_exists"
+        tal:content="string:[$lang_title]" />
       </a>
     </tal:block>
     <tal:block condition="python: style == 'language names'">
