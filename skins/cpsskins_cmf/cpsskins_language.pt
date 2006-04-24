@@ -21,16 +21,18 @@
       </form>
     </tal:block>
     <tal:block condition="python: style == 'flags'"
-    repeat="lang langs">
+               define="tr_langs python:here.cpsskins_translateLangs(langs)"
+               repeat="lang tr_langs">
       <a style="text-decoration: none"
       tal:define="lang_id lang/id;
-                  img_path python: 'here/cpsskins_images/flag-%s.png' % lang_id;
-                  img_tag python: exists(img_path) and path(img_path) or nothing;
+                  lang_title lang/title;
+                  img_path python:'here/cpsskins_images/flag-%s.png' % lang_id;
+                  img_tag python:exists(img_path) and path(img_path) or nothing;
                   lang_selected lang/selected"
-       tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id}"
+       tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id};
+                       title lang_title"
        tal:condition="python: not (hide_current_lang and lang_selected)">
-        <tal:block condition="img_tag" content="structure img_tag"
-        tal:attributes="alt lang_id" />
+        <tal:block condition="img_tag" content="structure img_tag"/>
         <span tal:condition="python: not img_tag"
         tal:content="string:[$lang_id]" />
       </a>
@@ -41,11 +43,11 @@
                  condition="python: len(tr_langs) > 1">
         <tal:block define="lang_id lang/id;
                            selected lang/selected|nothing;
-                           title lang/title">
-           <strong tal:content="title"
+                           lang_title lang/title">
+           <strong tal:content="lang_title"
             tal:condition="python: selected and not hide_current_lang" />
            <a href="" tal:condition="not:selected"
-              tal:content="title"
+              tal:content="lang_title"
               tal:attributes="href string:${lc_url}/changeLanguage?lang=$lang_id" />
         </tal:block>
       </tal:block>
