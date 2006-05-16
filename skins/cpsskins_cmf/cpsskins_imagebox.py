@@ -1,7 +1,6 @@
 ##parameters=**kw
 
 from cgi import escape
-from urllib import quote
 
 REQUEST = context.REQUEST
 
@@ -39,10 +38,10 @@ else:
     link = context.link
 
 if link:
-    tag += '<a href="%s" title="%s">' % (quote(link), escape(title))
+    tag += '<a href="%s" title="%s">' % (escape(link), escape(title))
 
 tag += '<img src="%s/index_html" width="%s" height="%s" alt="%s" />' % \
-        (quote(img_url), width, height, escape(title))
+        (escape(img_url), width, height, escape(title))
 
 if link:
     tag += '</a>'
