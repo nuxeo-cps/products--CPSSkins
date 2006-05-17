@@ -2062,3 +2062,7 @@ msgstr "Portlets no utilizados"
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG"
 
+#, fuzzy
+msgid "switch_portal_to_lang ${lang_title}"
+msgstr "Switch the portal language to ${lang_title}"
+

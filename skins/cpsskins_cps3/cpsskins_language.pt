@@ -1,0 +1,74 @@
+<div
+ tal:define="tmtool here/portal_themes;
+             lc python: tmtool.getTranslationService(root=1);
+             langs python: lc and lc.get_languages_map() or [];
+             lc_url python: lc and lc.absolute_url() or nothing;
+             style python: here.style;
+             hide_current_lang python: here.hide_current_lang"
+ tal:condition="python:len(langs)>1">
+    <tal:block condition="python: style == 'dropdown list'">
+      <form style="margin:0;padding:0;" id="cpsskins_i18n" method="post"
+            tal:attributes="action string:${lc_url}/changeLanguage">
+        <p>
+          <label for="cpsskins_i18n_chooser"
+                 i18n:translate="_Change language_"
+                 >Change language:</label>
+          <select name="lang" id="cpsskins_i18n_chooser"
+            onchange="var elt = document.getElementById('cpsskins_i18n'); if (elt) {elt.submit()}"
+            tal:define="tr_langs python: here.cpsskins_translateLangs(langs)"
+            >
+            <option tal:repeat="lang tr_langs"
+            tal:attributes="value lang/id; selected lang/selected|nothing;"
+            tal:content="lang/title">
+            Language</option>
+          </select>
+          <button type="submit" i18n:translate="_button_ok_">OK</button>
+        </p>
+      </form>
+    </tal:block>
+    <tal:block condition="python: style == 'flags'"
+               define="tr_langs python:here.cpsskins_translateLangs(langs)"
+               repeat="lang tr_langs">
+      <a style="text-decoration: none"
+      tal:define="lang_id lang/id;
+                  lang_title lang/title;
+                  switch_to_lang python:here.translation_service.translate(
+                                 'cpsskins',
+                                 'switch_portal_to_lang ${lang_title}',
+                                 mapping={'lang_title': lang_title});
+                  img_rpath python:'cpsskins_images/flag-%s.png' % lang_id;
+                  img_path python:'here/' + img_rpath;
+                  img_exists python:exists(img_path) or nothing;
+                  lang_selected lang/selected"
+       tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id};
+                       title switch_to_lang"
+       tal:condition="python: not (hide_current_lang and lang_selected)">
+        <img tal:condition="img_exists"
+             tal:attributes="src string:${here/portal_url}/${img_rpath};
+                             alt lang_title;"/>
+        <span tal:condition="python:not img_exists"
+        tal:content="string:[$lang_title]" />
+      </a>
+    </tal:block>
+    <tal:block condition="python: style == 'language names'">
+      <tal:block define="tr_langs python: here.cpsskins_translateLangs(langs)"
+                 repeat="lang tr_langs"
+                 condition="python: len(tr_langs) > 1">
+        <tal:block define="lang_id lang/id;
+                           selected lang/selected|nothing;
+                           lang_title lang/title;
+                           switch_to_lang python:here.translation_service.translate(
+                                          'cpsskins',
+                                          'switch_portal_to_lang ${lang_title}',
+                                          mapping={'lang_title': lang_title});
+                           ">
+           <strong tal:content="lang_title"
+            tal:condition="python: selected and not hide_current_lang" />
+           <a href="" tal:condition="not:selected"
+              tal:content="lang_title"
+              tal:attributes="href string:${lc_url}/changeLanguage?lang=$lang_id;
+                              title switch_to_lang" />
+        </tal:block>
+      </tal:block>
+    </tal:block>
+</div>

@@ -2051,3 +2051,7 @@ msgstr "Portlets inutilisés"
 msgid "wysiwyg_panel"
 msgstr "WYSIWYG"
 
+msgid "switch_portal_to_lang ${lang_title}"
+msgstr "Passer la langue du portail en ${lang_title}"
+
+
