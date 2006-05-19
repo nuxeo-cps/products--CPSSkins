@@ -115,7 +115,7 @@ div.xmlExportButtons a {
   border: 0.1em outset #ff6600;
   background: #f60;
   color: #fff !important;
-  font: bold 70% 'Lucida Grande', Arial, Helvetica, sans-serif;
+  font: bold 70% 'Lucida Grande', Arial, Helvetica, sans-serif !important;
   text-decoration: none;
   padding: 0 0.3em 0 0.3em;
   margin: 0 0.1em 0 0.1em;
