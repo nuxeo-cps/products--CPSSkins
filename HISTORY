@@ -1,4 +1,26 @@
 *******************************************
+** CPSSkins V2.10.1 [R1 build 2006/05/19-13:07 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk Revision: 45740
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Fixed an XHTML validity bug in Language Templet.
+- #1577: portal tabs display was wrong when the depth was greater than 1 if 
+  "horizontal box without title" layout was used
+- Updated brazilian portugese translations (thanks to mo.menezes@gmail.com).
+- Fixed #1573: The lang selector is not accessible, by redefining
+  cpsskins_language.pt in the CPS3 dedicated skin to able to take full advantage
+  of the CPS translation service.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSSkins V2.10.0 [R1 build 2006/03/03-17:30 by ben]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSSkins/trunk Revision: 33855
 Requires:
