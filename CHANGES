@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Fixed encoding in cpsskins_language.pt.
+- Fixed wording in French po file.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

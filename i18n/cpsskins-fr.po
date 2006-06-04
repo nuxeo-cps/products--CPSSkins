@@ -6,12 +6,12 @@ msgstr ""
 "Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
 "Language-Team: Jean-Marc Orliaguet, Jean-François Romanowski <>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: fr\n"
 "Language-Name: French\n"
-"Preferred-Encodings: latin1 utf-8\n"
+"Preferred-Encodings: latin9 utf-8\n"
 "Domain: cpsskins\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch\n"
 
@@ -2052,6 +2052,6 @@ msgid "wysiwyg_panel"
 msgstr "WYSIWYG"
 
 msgid "switch_portal_to_lang ${lang_title}"
-msgstr "Passer la langue du portail en ${lang_title}"
+msgstr "Passer la langue du portail à ${lang_title}"
 
 
