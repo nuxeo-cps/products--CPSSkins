@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Make it possible to configure the charset through portal.default_charset,
+  'unicode' means do no encoding.
 Bug fixes:
 ~~~~~~~~~~
 - Fixed encoding in cpsskins_language.pt.

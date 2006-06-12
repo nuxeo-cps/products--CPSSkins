@@ -209,6 +209,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         utool = getToolByName(self, 'portal_url')
         checkPerm = mtool.checkPermission
         portlets = ptltool.getPortlets(context, slot, **kw)
+        charset = utool.getPortalObject().default_charset
 
         box_title_i18n = self.box_title_i18n
         if box_title_i18n:
@@ -271,11 +272,12 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             title = portlet.title
             if box_title_i18n and mcat is not None:
                 title = mcat(title)
-                try:
-                    title = title.encode('ISO-8859-15', 'ignore')
-                except UnicodeDecodeError:
-                    LOG("PortalBoxGroup.render", DEBUG,
-                        "UnicodeDecodeError on %r"%(title,))
+                if charset != 'unicode':
+                    try:
+                        title = title.encode(charset, 'ignore')
+                    except UnicodeDecodeError:
+                        LOG("PortalBoxGroup.render", DEBUG,
+                            "UnicodeDecodeError on %r"%(title,))
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
                 title=title,
