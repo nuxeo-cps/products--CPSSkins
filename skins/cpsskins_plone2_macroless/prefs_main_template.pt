@@ -1,0 +1,4 @@
+<metal:page define-macro="master">
+  <metal:block use-macro="here/global_defines/macros/defines" />
+  <metal:bodytext metal:define-slot="prefs_configlet_main" tal:content="nothing" />
+</metal:page>
