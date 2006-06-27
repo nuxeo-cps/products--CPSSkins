@@ -32,10 +32,11 @@
       <a style="text-decoration: none"
       tal:define="lang_id lang/id;
                   lang_title lang/title;
+                  lang_title_latin9 python:lang_title.encode('iso-8859-15', 'ignore');
                   switch_to_lang python:here.translation_service.translate(
                                  'cpsskins',
                                  'switch_portal_to_lang ${lang_title}',
-                                 mapping={'lang_title': lang_title});
+                                 mapping={'lang_title': lang_title_latin9});
                   img_rpath python:'cpsskins_images/flag-%s.png' % lang_id;
                   img_path python:'here/' + img_rpath;
                   img_exists python:exists(img_path) or nothing;
@@ -57,10 +58,11 @@
         <tal:block define="lang_id lang/id;
                            selected lang/selected|nothing;
                            lang_title lang/title;
+                           lang_title_latin9 python:lang_title.encode('iso-8859-15', 'ignore');
                            switch_to_lang python:here.translation_service.translate(
                                           'cpsskins',
                                           'switch_portal_to_lang ${lang_title}',
-                                          mapping={'lang_title': lang_title});
+                                          mapping={'lang_title': lang_title_latin9});
                            ">
            <strong tal:content="lang_title"
             tal:condition="python: selected and not hide_current_lang" />
