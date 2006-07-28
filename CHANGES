@@ -5,6 +5,7 @@ New features:
 ~~~~~~~~~~~~~
 - Make it possible to configure the charset through portal.default_charset,
   'unicode' means do no encoding.
+- #1702: Added new Catalan translation thanks to Santi Camps.
 Bug fixes:
 ~~~~~~~~~~
 - Fixed encoding in cpsskins_language.pt.
