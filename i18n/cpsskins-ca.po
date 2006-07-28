@@ -1,0 +1,2082 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CPSskins\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2006-07-15 21:33+0100\n"
+"Last-Translator: Domènec Arcalís <darcalis@gmail.com>\n"
+"Language-Team: català <darcalis@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: ca\n"
+"Language-Name: Catala\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: cpsskins\n"
+"X-Is-Fallback-For: ca ca-es\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+
+msgid "_(default style)_"
+msgstr "(Estil per defecte)"
+
+msgid "_A active_"
+msgstr "Color dels enllaços actius"
+
+msgid "_A hover_"
+msgstr "Color dels enllaços al passar-hi per damunt"
+
+msgid "_A link_"
+msgstr "Color dels enllaços"
+
+msgid "_A visited_"
+msgstr "Color dels enllaços visitats"
+
+msgid "_A_active_bg_color_"
+msgstr "Color de fons dels enllaços actius"
+
+msgid "_A_active_border_color_"
+msgstr "Color de la vora dels enllaços actius"
+
+msgid "_A_active_border_style_"
+msgstr "Estil de la vora dels enllaços actius"
+
+msgid "_A_active_border_width_"
+msgstr "Amplada de la vora dels enllaços actius"
+
+msgid "_A_active_decoration_"
+msgstr "Decoració dels enllaços actius"
+
+msgid "_A_hover_bg_color_"
+msgstr "Color de fons dels enllaços seleccionats"
+
+msgid "_A_hover_border_color_"
+msgstr "Color de la vora dels enllaços seleccionats"
+
+msgid "_A_hover_border_style_"
+msgstr "Estilo de la vora dels enllaços seleccionats"
+
+msgid "_A_hover_border_width_"
+msgstr "Amplada de la vora dels enllaços seleccionats"
+
+msgid "_A_hover_decoration_"
+msgstr "Decoració dels enllaços seleccionats"
+
+msgid "_A_link_bg_color_"
+msgstr "Color de fons dels enllaços"
+
+msgid "_A_link_border_color_"
+msgstr "Color de la vora dels enllaços"
+
+msgid "_A_link_border_style_"
+msgstr "Estilo de la vora dels enllaços"
+
+msgid "_A_link_border_width_"
+msgstr "Amplada de la vora"
+
+msgid "_A_link_decoration_"
+msgstr "Decoració dels enllaços"
+
+msgid "_A_visited_bg_color_"
+msgstr "Color de fons dels enllaços visitats"
+
+msgid "_A_visited_border_color_"
+msgstr "Color de la vora dels enllaços visitats"
+
+msgid "_A_visited_border_style_"
+msgstr "Estil de la vora dels enllaços visitats"
+
+msgid "_A_visited_border_width_"
+msgstr "Amplada de la vora dels enllaços visitats"
+
+msgid "_A_visited_decoration_"
+msgstr "Decoració dels enllaços visitats"
+
+msgid "_Action Box Templet_"
+msgstr "Caixa d'eines"
+
+msgid "_Action box_"
+msgstr "Caixa d'accions"
+
+msgid "_Action categories_"
+msgstr "Categories d'accions"
+
+msgid "_Add a column_"
+msgstr "Afegir una columna"
+
+msgid "_Add a theme_"
+msgstr "Afegir un nou theme"
+
+msgid "_Add an image_"
+msgstr "Afegir una imatge"
+
+msgid "_Add content_"
+msgstr "Afegir contingut"
+
+msgid "_Add_a_new_Templet_"
+msgstr "Afegir nova plantilla"
+
+msgid "_Add_a_new_palette_entry_"
+msgstr "Afegir nova paleta"
+
+msgid "_Add_a_new_style_"
+msgstr "Afegir nou estil"
+
+msgid "_Add_a_portlet_"
+msgstr "Afegir un portlet"
+
+msgid "_Align_"
+msgstr "Alinear"
+
+msgid "_Appearance_"
+msgstr "Aspecte"
+
+msgid "_April_"
+msgstr "Abril"
+
+msgid "_Area Color_"
+msgstr "Color de l'àrea"
+
+msgid "_Area Shape_"
+msgstr "Forma de l'àrea"
+
+msgid "_Area active background color_"
+msgstr "àrea d'activació del color de fons"
+
+msgid "_Area active border color_"
+msgstr "àrea d'activació del color de les vores"
+
+msgid "_Area background color_"
+msgstr "Color de fons"
+
+msgid "_Area background image_"
+msgstr "Imatge de fons"
+
+msgid "_Area background position_"
+msgstr "àrea de posició del fons"
+
+msgid "_Area background repeat_"
+msgstr "àrea de repetició del fons"
+
+msgid "_Area border color_"
+msgstr "Color de la vora"
+
+msgid "_Area border style_"
+msgstr "Estil de la vora"
+
+msgid "_Area border width_"
+msgstr "Gruix de la vora"
+
+msgid "_Area color_"
+msgstr "Color de l'àrea"
+
+msgid "_Area font color_"
+msgstr "Color del tipus de lletra"
+
+msgid "_Area padding_"
+msgstr "Espai d'emplenament"
+
+msgid "_Area shape_"
+msgstr "Forma de l'àrea"
+
+msgid "_Area text transform_"
+msgstr "Transformació de text"
+
+msgid "_August_"
+msgstr "Agost"
+
+msgid "_Author_"
+msgstr "Autor"
+
+msgid "_Background color_"
+msgstr "Color de fons"
+
+msgid "_Background image_"
+msgstr "Imatge de fons"
+
+msgid "_Background position_"
+msgstr "Posició de la imatge"
+
+msgid "_Background repeat_"
+msgstr "Repetir la imatge de fons"
+
+msgid "_Base path_"
+msgstr "Ruta base:"
+
+msgid "_Border style_"
+msgstr "Estil de la vora"
+
+msgid "_Bottom border color_"
+msgstr "Color de la vora inferior"
+
+msgid "_Bottom left image_"
+msgstr "Imatge inferior esquerra"
+
+msgid "_Bottom right image_"
+msgstr "Imatge inferior dreta"
+
+msgid "_Box Corners_"
+msgstr "Angles de la caixa"
+
+msgid "_Box color_"
+msgstr "Color de la caixa del portal"
+
+msgid "_Box corners_"
+msgstr "Angles de la caixa"
+
+msgid "_Box layout_"
+msgstr "Disposició de la caixa del portal"
+
+msgid "_Box orientation_"
+msgstr "Orientació de la caixa del portal"
+
+msgid "_Box shape_"
+msgstr "Forma de la caixa"
+
+msgid "_BoxBody background color_"
+msgstr "Color de fons del cos de la caixa"
+
+msgid "_BoxBody background image_"
+msgstr "Color de fons del cos de la caixa"
+
+msgid "_BoxBody border color_"
+msgstr "Color de la vora del cos de la caixa"
+
+msgid "_BoxBody border style_"
+msgstr "Estil de la vora del cos de la caixa"
+
+msgid "_BoxBody border width_"
+msgstr "Gruix de la vora del cos de la caixa"
+
+msgid "_BoxBody menuin border color_"
+msgstr "Color de la vora del menú seleccionat"
+
+msgid "_BoxBody menuin border style_"
+msgstr "Estilo de la vora del menú seleccionat"
+
+msgid "_BoxBody menuin border width_"
+msgstr "Gruix de la vora del menú seleccionat"
+
+msgid "_BoxBody menuin color_"
+msgstr "Color de fons del menú seleccionat"
+
+msgid "_BoxBody menuin icon_"
+msgstr "Icona del menú seleccionat"
+
+msgid "_BoxBody menuin margin_"
+msgstr "Marges del menú seleccionat"
+
+msgid "_BoxBody menuin padding_"
+msgstr "Espai d'emplenament del menú seleccionat"
+
+msgid "_BoxBody menuout border color_"
+msgstr "Color de la vora del menú"
+
+msgid "_BoxBody menuout border style_"
+msgstr "Estil de la vora del menú"
+
+msgid "_BoxBody menuout border width_"
+msgstr "Gruix de la vora del menú"
+
+msgid "_BoxBody menuout color_"
+msgstr "Color de fons del menú"
+
+msgid "_BoxBody menuout icon_"
+msgstr "Icona del menú"
+
+msgid "_BoxBody menuout margin_"
+msgstr "Marges del menú"
+
+msgid "_BoxBody menuout padding_"
+msgstr "Espai d'emplenament del menú"
+
+msgid "_BoxBody padding_"
+msgstr "Espai d'emplenament del cos de la caixa"
+
+msgid "_BoxBody text align_"
+msgstr "Alineació del text del cos de la caixa"
+
+msgid "_BoxTitle background color_"
+msgstr "Color de fons del títol de la caixa"
+
+msgid "_BoxTitle background image_"
+msgstr "Imatge de fons del títol de la caixa"
+
+msgid "_BoxTitle border color_"
+msgstr "Color de la vora del títol de la caixa "
+
+msgid "_BoxTitle border style_"
+msgstr "Estil de la vora del títol de la caixa"
+
+msgid "_BoxTitle border width_"
+msgstr "Gruix de la vora del títol de la caixa"
+
+msgid "_BoxTitle display_"
+msgstr "Criteris de visualització del títol de la caixa"
+
+msgid "_BoxTitle font color_"
+msgstr "Color de la lletra del títol de la caixa"
+
+msgid "_BoxTitle font_"
+msgstr "Tipus de lletra del títol de la caixa"
+
+msgid "_BoxTitle padding_"
+msgstr "Espai d'emplenament"
+
+msgid "_BoxTitle text align_"
+msgstr "Alineació del text"
+
+msgid "_Breadcrumbs Templet_"
+msgstr "Plantilla de menú de navegació"
+
+msgid "_Breadcrumbs_"
+msgstr "Menú de navegació"
+
+msgid "_Broken Templet!_"
+msgstr "Plantilla feta malbé!"
+
+msgid "_Buttons_"
+msgstr "Botons"
+
+msgid "_Cache effectivity_"
+msgstr "Efectivitat de la caché"
+
+msgid "_Cache lifetime_"
+msgstr "Temps de vida de la caché"
+
+msgid "_Cache manager_"
+msgstr "Gestor de la caché"
+
+msgid "_Cache parameters updated_"
+msgstr "Paràmetres de la caché actualitzats"
+
+msgid "_Cacheable in RAM_"
+msgstr "Cachejable a la RAM"
+
+msgid "_Cacheable?_"
+msgstr "Cachejable?"
+
+msgid "_Caching_"
+msgstr "Cachejant"
+
+msgid "_Calendar Style_"
+msgstr "Estil del calendari"
+
+msgid "_Calendar Templet_"
+msgstr "Plantilla de calendari"
+
+msgid "_Calendar_"
+msgstr "Calendari"
+
+msgid "_Cell Block_"
+msgstr "Bloquejador de cel·la"
+
+msgid "_Cell Hider_"
+msgstr "Ocultador de cel·la"
+
+msgid "_Cell Sizer_"
+msgstr "Redimensionador de cel·la"
+
+msgid "_Cell Styler_"
+msgstr "Estilitzador de cel·la"
+
+msgid "_Cell width_"
+msgstr "Amplada de la cel·la"
+
+msgid "_Cellblock margin_"
+msgstr "Marge"
+
+msgid "_Collapsible Menu Style_"
+msgstr "Estil de menú extensible"
+
+msgid "_Collapsible Menu Templet_"
+msgstr "Menú extensible"
+
+msgid "_Collapsible menu_"
+msgstr "Menú extensible"
+
+msgid "_Color_"
+msgstr "Color"
+
+msgid "_Columns_"
+msgstr "Columnes"
+
+msgid "_Content_"
+msgstr "Contingut"
+
+msgid "_Copy_"
+msgstr "Copiar"
+
+# He hecho traducción literal del francés.
+msgid "_Copyright_"
+msgstr "Copyright"
+
+msgid "_Create a copy_"
+msgstr "Crear una còpia"
+
+msgid "_Created by:_"
+msgstr "Creat per:"
+
+msgid "_Creator_"
+msgstr "Creador"
+
+msgid "_Custom action categories_"
+msgstr "Categories d'accions suplementàries"
+
+msgid "_Cut_"
+msgstr "Tallar"
+
+msgid "_Days background color_"
+msgstr "Color de fons dels dies"
+
+msgid "_Days font color_"
+msgstr "Color del text dels dies"
+
+msgid "_December_"
+msgstr "Desembre"
+
+msgid "_Default page_"
+msgstr "Pàgina per defecte"
+
+msgid "_Default theme_"
+msgstr "Tema per defecte"
+
+msgid "_Default_font_"
+msgstr "Tipus de lletra per defecte"
+
+msgid "_Delete Templet?_"
+msgstr "Esborrar plantilla?"
+
+msgid "_Delete style?_"
+msgstr "Esborrar estil?"
+
+msgid "_Delete theme?_"
+msgstr "Esborrar tema?"
+
+msgid "_Delete_"
+msgstr "Esborrar"
+
+msgid "_Deleting this image, are you sure?_"
+msgstr "S'esborrarà aquesta imatge, està segur?"
+
+msgid "_Deleting this palette entry, are you sure?_"
+msgstr "S'esborrarà aquesta entrada de paleta, està segur?"
+
+msgid "_Deleting this style, are you sure?_"
+msgstr "S'esborrarà aquest estil, està segur?"
+
+msgid "_Depth level_"
+msgstr "Nivell de profunditat relatiu"
+
+msgid "_Description_"
+msgstr "Descripció"
+
+msgid "_Destination_slot_"
+msgstr "Dispositiu de destí"
+
+msgid "_Display a contextual icon_"
+msgstr "Mostrar una icona contextual"
+
+msgid "_Display hidden folders_"
+msgstr "Mostrar carpetes ocultes"
+
+msgid "_Display title in text mode_"
+msgstr "Mostrar el títol en mode text"
+
+msgid "_Document Info Templet_"
+msgstr "Informació del document"
+
+msgid "_Document info_"
+msgstr "Informació del document"
+
+msgid "_ESI fragment_"
+msgstr "Fragment ESI (Edge Sides Includes)"
+
+msgid "_ESI_"
+msgstr "ESI"
+
+msgid "_Edit images_"
+msgstr "Editar les imatges"
+
+msgid "_Edit palettes_"
+msgstr "Editar les paletes"
+
+msgid "_Edit styles_"
+msgstr "Editar els estils"
+
+msgid "_Edit the current style_"
+msgstr "Editar l'estil actual"
+
+msgid "_Edit the page_"
+msgstr "Editar la pàgina"
+
+msgid "_Edit the theme_"
+msgstr "Editar el tema"
+
+msgid "_Edit this page block_"
+msgstr "Editar el bloc"
+
+# Mismo comentario de arriba en modificar
+msgid "_Edit_"
+msgstr "Editar"
+
+msgid "_Elements_"
+msgstr "Elements"
+
+msgid "_Enable ESI_"
+msgstr "Activar ESI (Edge Side Includes)"
+
+msgid "_End string_"
+msgstr "Marcador del final"
+
+msgid "_Event background color_"
+msgstr "Color de fons dels esdeveniments"
+
+msgid "_Event border color_"
+msgstr "Color de la vora dels esdeveniments"
+
+msgid "_Event font color_"
+msgstr "Color de la lletra dels esdeveniments"
+
+msgid "_Exit_"
+msgstr "Sortir"
+
+msgid "_February_"
+msgstr "Febrer"
+
+msgid "_Flash Box Templet_"
+msgstr "Plantilla de caixa Flash"
+
+msgid "_Flash box_"
+msgstr "Caixa d'animació Flash"
+
+msgid "_Flash caption_"
+msgstr "Peu d'animació Flash"
+
+msgid "_Flash movie height_"
+msgstr "Alçada de l'animació Flash"
+
+msgid "_Flash movie width_"
+msgstr "Amplada de l'animació Flash"
+
+msgid "_Font Color_"
+msgstr "Color de la lletra"
+
+msgid "_Font Shape_"
+msgstr "Forma del tipus de lletra"
+
+msgid "_Font color_"
+msgstr "Color de la lletra"
+
+msgid "_Font shape_"
+msgstr "Forma del tipus de lletra"
+
+msgid "_Forgot your password?_"
+msgstr "Ha oblidat la seva contrasenya?"
+
+msgid "_Form Style_"
+msgstr "Estil del formulari"
+
+msgid "_Form padding_"
+msgstr "Emplenament del formulari"
+
+msgid "_Form style_"
+msgstr "Estil del formulari"
+
+msgid "_Form_"
+msgstr "Formulari"
+
+msgid "_Fr_"
+msgstr "Vi"
+
+msgid "_Guest_"
+msgstr "Convidat"
+
+msgid "_H1_"
+msgstr "H1"
+
+msgid "_H1_bg_color_"
+msgstr "Color de fons H1"
+
+msgid "_H1_border_color_"
+msgstr "Color de la vora H1"
+
+msgid "_H1_border_style_"
+msgstr "Estilo de la vora H1"
+
+msgid "_H1_border_width_"
+msgstr "Gruix de la vora H1"
+
+msgid "_H1_font_"
+msgstr "Tipus de lletra H1"
+
+msgid "_H1_font_color_"
+msgstr "Color de la lletra (H1)"
+
+msgid "_H1_margin_"
+msgstr "Marge H1"
+
+msgid "_H1_padding_"
+msgstr "Espai d'emplenament H1"
+
+msgid "_H2_"
+msgstr "H2"
+
+msgid "_H2_bg_color_"
+msgstr "Color de fons H2"
+
+msgid "_H2_border_color_"
+msgstr "Color de la vora H2"
+
+msgid "_H2_border_style_"
+msgstr "Estil de la vora H2"
+
+msgid "_H2_border_width_"
+msgstr "Gruix de la vora H2"
+
+msgid "_H2_font_"
+msgstr "Tipus de lletra H2"
+
+msgid "_H2_font_color_"
+msgstr "Color de la lletra H2"
+
+msgid "_H2_margin_"
+msgstr "Marge H2"
+
+msgid "_H2_padding_"
+msgstr "Espai d'emplenament H2"
+
+msgid "_H3_"
+msgstr "H3"
+
+msgid "_H3_bg_color_"
+msgstr "Color de fons H3"
+
+msgid "_H3_border_color_"
+msgstr "Color de la vora H3"
+
+msgid "_H3_border_style_"
+msgstr "Estil de la vora H3"
+
+msgid "_H3_border_width_"
+msgstr "Gruix de la vora H3"
+
+msgid "_H3_font_"
+msgstr "Tipus de lletra H3"
+
+msgid "_H3_font_color_"
+msgstr "Color de la lletra H3"
+
+msgid "_H3_margin_"
+msgstr "Marge H3"
+
+msgid "_H3_padding_"
+msgstr "Espai d'emplenament H3"
+
+msgid "_H456_"
+msgstr "H4, H5, H6"
+
+msgid "_H456_bg_color_"
+msgstr "Color de fons H3, H4, H5"
+
+msgid "_H456_border_color_"
+msgstr "Color de la vora H4, H5, H6"
+
+msgid "_H456_border_style_"
+msgstr "Estilo de la vora H4, H5, H6"
+
+msgid "_H456_border_width_"
+msgstr "Gruix de la vora H4, H5, H6"
+
+msgid "_H456_font_"
+msgstr "Tipus de lletra H4, H5, H6"
+
+msgid "_H456_font_color_"
+msgstr "Color de la lletra H4, H5, H6"
+
+msgid "_H456_margin_"
+msgstr "Marge H4, H5, H6"
+
+msgid "_H456_padding_"
+msgstr "Espai d'emplenament H4, H5, H6"
+
+msgid "_Header background color_"
+msgstr "Color de fons de la capçalera"
+
+msgid "_Header font color_"
+msgstr "Color del text de la capçalera"
+
+msgid "_Height_"
+msgstr "Alçada"
+
+msgid "_Hidden in text mode_"
+msgstr "Ocult en mode text"
+
+msgid "_Hide current language_"
+msgstr "Ocultar l'idioma actual"
+
+msgid "_Hide this cell_"
+msgstr "Ocultar aquesta cel·la"
+
+msgid "_Hide title_"
+msgstr "Ocultar el títol"
+
+msgid "_Hide_overriden_portlets_"
+msgstr "Ocultar els portlets sobreescrits"
+
+msgid "_Hierarchy base_"
+msgstr "Base de la jerarquia"
+
+msgid "_Horizontal alignment_"
+msgstr "Alineació horitzontal"
+
+msgid "_Horizontal margin_"
+msgstr "Marge horitzontal"
+
+msgid "_Horizontal padding_"
+msgstr "Emplenament horitzontal"
+
+msgid "_Hover background color_"
+msgstr "Color de fond (seleccionat)"
+
+msgid "_Hover background image_"
+msgstr "Imatge de fons (seleccionada)"
+
+msgid "_Icon size_"
+msgstr "Mida de la icona"
+
+msgid "_Image Box Templet_"
+msgstr "Caixa d'imatge"
+
+msgid "_Image box_"
+msgstr "Caixa d'imatge"
+
+msgid "_Image caption_"
+msgstr "Peu de la imatge"
+
+msgid "_Images_"
+msgstr "Imatges"
+
+msgid "_Import a theme_"
+msgstr "Importar un tema"
+
+msgid "_Info text_"
+msgstr "Text d'informació"
+
+msgid "_Insert a Templet here_"
+msgstr "Inserir una plantilla aquí"
+
+msgid "_Insert a page block_"
+msgstr "Inserir un bloc de pàgina"
+
+msgid "_Internal link_"
+msgstr "Enllaç intern"
+
+msgid "_Invisible actions_"
+msgstr "Accions invisibles"
+
+msgid "_January_"
+msgstr "Gener"
+
+msgid "_July_"
+msgstr "Juliol"
+
+msgid "_June_"
+msgstr "Juny"
+
+msgid "_KB_"
+msgstr "KB"
+
+msgid "_Language Templet_"
+msgstr "Plantilla d'idioma"
+
+msgid "_Language selector_"
+msgstr "Selector d'idiomes"
+
+msgid "_Last modified:_"
+msgstr "Darrera modificació:"
+
+msgid "_Left-side image_"
+msgstr "Imatge a l'esquerra"
+
+msgid "_License_"
+msgstr "Llicència"
+
+msgid "_Link (http://, mailto: ...)_"
+msgstr "Enllaç (http://, mailto: ...)"
+
+msgid "_List orientation_"
+msgstr "Orientació de la llista"
+
+msgid "_Location_"
+msgstr "Ubicació"
+
+msgid "_Log in_"
+msgstr "Autenticació"
+
+msgid "_Macroless_"
+msgstr "Sense macros"
+
+msgid "_Main Content Templet_"
+msgstr "Plantilla de contingut principal"
+
+msgid "_Main content_"
+msgstr "Contingut principal"
+
+msgid "_Manage_"
+msgstr "Administrar"
+
+msgid "_March_"
+msgstr "Març"
+
+msgid "_Margin_"
+msgstr "Marge"
+
+msgid "_Maximum number of items_"
+msgstr "Número màxim d'elements"
+
+msgid "_May_"
+msgstr "Maig"
+
+msgid "_Memory usage_"
+msgstr "Ús de la memòria"
+
+msgid "_Menu entry_"
+msgstr "Entrada del menú"
+
+msgid "_Menu title_"
+msgstr "Títol del menú"
+
+msgid "_Merge this style?_"
+msgstr "¿Fondre aquest estil?"
+
+msgid "_Minimize / Maximize_"
+msgstr "Minimitzar / Maximitzar"
+
+msgid "_Mo_"
+msgstr "DL"
+
+msgid "_Month_"
+msgstr "Mes"
+
+msgid "_More ..._"
+msgstr "Més ..."
+
+msgid "_Move down_"
+msgstr "Moure avall"
+
+msgid "_Move left_"
+msgstr "Moure a l'esquerra"
+
+msgid "_Move right_"
+msgstr "Moure a la dreta"
+
+msgid "_Move this cell to the left_"
+msgstr "Moure aquesta cel·la a l'esquerra"
+
+msgid "_Move this cell to the right_"
+msgstr "Moure aquesta cel·la a la dreta"
+
+msgid "_Move up_"
+msgstr "Moure amunt"
+
+msgid "_No items published since your last log-in_"
+msgstr "Cap document publicat des de la darrera sessió"
+
+msgid "_No preview_"
+msgstr "Sense previsualització"
+
+msgid "_Not available in layout mode_"
+msgstr "No disponible en mode disseny"
+
+msgid "_November_"
+msgstr "Novembre"
+
+msgid "_Number of columns_"
+msgstr "Número de columnes"
+
+msgid "_October_"
+msgstr "Octubre"
+
+msgid "_Only select items that are supposed to get translated:_"
+msgstr "Seleccionar només les coses que s'han de traduir:"
+
+msgid "_Other categories_"
+msgstr "Altres categories"
+
+msgid "_Other images_"
+msgstr "Altres imatges"
+
+msgid "_Other palettes_"
+msgstr "Altres paletes"
+
+msgid "_Other portlets_"
+msgstr "Altres portlets"
+
+msgid "_Other styles_"
+msgstr "Altres estils"
+
+msgid "_Other themes_"
+msgstr "Altres temes"
+
+msgid "_P_font_"
+msgstr "Tipus de lletra de paràgraf"
+
+msgid "_P_padding_"
+msgstr "Espai d'emplenament del paràgraf"
+
+msgid "_Padding_"
+msgstr "Espai d'emplenament"
+
+msgid "_Page Block_"
+msgstr "Bloc de pàgina"
+
+msgid "_Page renderer_"
+msgstr "Visualitzador de pàgina"
+
+msgid "_Palette Border_"
+msgstr "Vores"
+
+msgid "_Palette Color_"
+msgstr "Colors"
+
+msgid "_Palettes_"
+msgstr "Paletes"
+
+msgid "_Password_"
+msgstr "Contrasenya"
+
+msgid "_Paste_"
+msgstr "Enganxar"
+
+msgid "_Please select a portlet type_"
+msgstr "Seleccioni un tipus de portlet"
+
+msgid "_Portal Box Color_"
+msgstr "Color de la caixa"
+
+msgid "_Portal Box Group Templet_"
+msgstr "Grup de caixes"
+
+msgid "_Portal Box Shape_"
+msgstr "Forma de la caixa"
+
+msgid "_Portal Box Templet_"
+msgstr "Caixa"
+
+msgid "_Portal Tab Style_"
+msgstr "Estil de pestanyes del portal"
+
+msgid "_Portal Tab Templet_"
+msgstr "Pestanyes del portal"
+
+msgid "_Portal Tab_"
+msgstr "Pestanyes del portal"
+
+msgid "_Portal Theme_"
+msgstr "Tema"
+
+# plural?
+msgid "_Portal box color_"
+msgstr "Color de la caixa"
+
+msgid "_Portal box content_"
+msgstr "Contingut de la caixa"
+
+msgid "_Portal box group_"
+msgstr "Grup de caixes"
+
+# plural?
+msgid "_Portal box shape_"
+msgstr "Forma de la caixa"
+
+msgid "_Portal box title source_"
+msgstr "Origen del títol de la caixa"
+
+msgid "_Portal box_"
+msgstr "Caixa"
+
+msgid "_Portlet Box Templet_"
+msgstr "Caixa de portlet"
+
+msgid "_Portlet editor_"
+msgstr "Editor de portlets"
+
+msgid "_Portlet type_"
+msgstr "Tipus de portlet"
+
+msgid "_Portlet_"
+msgstr "Portlet"
+
+msgid "_Preview background color_"
+msgstr "Previsualitzar el color de fons"
+
+msgid "_Preview border color_"
+msgstr "Previsualitzar color de la vora"
+
+msgid "_Preview font color_"
+msgstr "Previsualitzar color de la lletra"
+
+msgid "_Preview_"
+msgstr "Previsualització"
+
+msgid "_Read more_"
+msgstr "Llegir més &gt;&gt;"
+
+msgid "_Remove a column_"
+msgstr "Esborrar una columna"
+
+msgid "_Repeat string_"
+msgstr "Repetir la cadena"
+
+msgid "_Reveal_overriden_portlets_"
+msgstr "Mostrar portlets sobreescrits"
+
+msgid "_Right-side image_"
+msgstr "Imatge a la dreta"
+
+msgid "_SMALL_font_"
+msgstr "Lletra més petita"
+
+msgid "_STRONG_font_"
+msgstr "Lletra resaltada"
+
+msgid "_Sa_"
+msgstr "DS"
+
+msgid "_Search Box Templet_"
+msgstr "Plantilla de caixa de recerca"
+
+msgid "_Search box_"
+msgstr "Caixa de recerca"
+
+msgid "_See the error log_"
+msgstr "Veure el registre d'errors"
+
+msgid "_Select a style_"
+msgstr "Seleccionar un estil"
+
+msgid "_Select a theme to manage_"
+msgstr "Seleccionar un tema per a administrar"
+
+msgid "_Selectable themes_"
+msgstr "Temes seleccionables"
+
+msgid "_September_"
+msgstr "Setembre"
+
+msgid "_Set the size of this cell_"
+msgstr "Establir la mida de la cel·la"
+
+msgid "_Shape_"
+msgstr "Forma"
+
+msgid "_Shortcut icon_"
+msgstr "Icona de pàgina web"
+
+msgid "_Show action icons_"
+msgstr "Mostrar icones d'accions"
+
+msgid "_Show add items_"
+msgstr "Mostrar un botó per a afegir contingut"
+
+msgid "_Show all categories_"
+msgstr "Mostrar totes les categories"
+
+msgid "_Show documents in folders_"
+msgstr "Mostrar documents de les carpetes"
+
+msgid "_Show month_"
+msgstr "Mostrar mes"
+
+msgid "_Show preview_"
+msgstr "Mostrar previsualizació"
+
+msgid "_Show weekdays_"
+msgstr "Mostrar dies de la setmana"
+
+msgid "_Show year_"
+msgstr "Mostrar any"
+
+msgid "_Simulate this URL ..._"
+msgstr "Simular aquesta URL ..."
+
+msgid "_Slot name_"
+msgstr "Nom de slot"
+
+msgid "_Some items can be pasted here_"
+msgstr "Alguns objectes es poden enganxar aquí"
+
+msgid "_Start string_"
+msgstr "Cadena de començament"
+
+msgid "_Style_"
+msgstr "Estil"
+
+msgid "_Styles_"
+msgstr "Estils"
+
+msgid "_Stylize this cell_"
+msgstr "Estilitzar aquesta cel·la"
+
+msgid "_Su_"
+msgstr "DU"
+
+msgid "_Sub-menu background color_"
+msgstr "Color de fons"
+
+msgid "_Sub-menu border color_"
+msgstr "Color de la vora de submenú"
+
+msgid "_Sub-menu border style_"
+msgstr "Estil de la vora de submenú"
+
+msgid "_Sub-menu font color_"
+msgstr "Color de la lletra de submenú"
+
+msgid "_Sub-menu font_"
+msgstr "Tipus de lletra de submenú"
+
+msgid "_Sub-menu hover background color_"
+msgstr "Color de fons de submenú (seleccionats)"
+
+msgid "_Sub-menu hover font color_"
+msgstr "Color de lletra de submenú (seleccionats)"
+
+msgid "_Sub-menu items width_"
+msgstr "Amplada dels elements de submenú"
+
+msgid "_Tab style_"
+msgstr "Estil de pestanya"
+
+msgid "_Tab width_"
+msgstr "Amplada de pestanya"
+
+msgid "_Tableless_"
+msgstr "Formulari CSS"
+
+msgid "_Templet color_"
+msgstr "Color de la plantilla"
+
+msgid "_Templet height_"
+msgstr "Alçada de la plantilla"
+
+msgid "_Templet margin_"
+msgstr "Marge de la plantilla"
+
+msgid "_Templet padding_"
+msgstr "Espai d'emplenament de la plantilla"
+
+msgid "_Templet shape_"
+msgstr "Forma de la plantilla"
+
+msgid "_Templets_"
+msgstr "Plantilles"
+
+msgid "_Text Box Templet_"
+msgstr "Plantilla de caixa de text"
+
+msgid "_Text box_"
+msgstr "Caixa de text"
+
+msgid "_Text format_"
+msgstr "Format de text"
+
+msgid "_Th_"
+msgstr "DJ"
+
+msgid "_The benchmark timer is not installed_"
+msgstr "El monitor de rendiment no està instal·lat"
+
+msgid "_The languages in which it is visible_"
+msgstr "Idiomes amb què és visible:"
+
+msgid "_The visibility paths_"
+msgstr "Visible a les rutes:"
+
+msgid "_Theme Chooser Templet_"
+msgstr "Plantilla de selecció de tema"
+
+msgid "_Theme Page_"
+msgstr "Pàgina de temes"
+
+msgid "_Theme chooser_"
+msgstr "Selector de temes"
+
+msgid "_Theme editor_"
+msgstr "Editor de temes"
+
+msgid "_Theme export_"
+msgstr "Exportar tema"
+
+msgid "_Theme name_"
+msgstr "Nom del tema"
+
+msgid "_Theme optimizer_"
+msgstr "Optimitzador de tema"
+
+# Aquí en francés era "generador de temas".
+msgid "_Theme renderer_"
+msgstr "Visualitzador de temes"
+
+msgid "_Theme_"
+msgstr "Tema"
+
+msgid "_Theme_rebuilt_"
+msgstr "Reconstruir tema"
+
+msgid "_Themes manager_"
+msgstr "Gestor de temes"
+
+msgid "_These Templets are invisible and can be deleted:_"
+msgstr "Aquestes plantilles són invisibles i es poden esborrar:"
+
+msgid "_These Templets could be cached in memory for faster rendering:_"
+msgstr ""
+"Aquestes plantilles es poden cachejar en memòria per a accelerar-ne la "
+"visualització."
+
+msgid "_These styles are identical and can be merged together:_"
+msgstr "Aquests estils són idèntics i es poden refondre:"
+
+msgid "_These styles are not used and can be deleted:_"
+msgstr "Aquests estils no s'empren i es poden esborrar:"
+
+msgid "_This style is already used by_"
+msgstr "Aquest estil ja el fa servir "
+
+msgid "_This style will be used by default_"
+msgstr "Aquest estil es farà servir per defecte"
+
+msgid "_This theme is completely optimized_"
+msgstr "Aquest tema està optimizat"
+
+msgid "_Title_"
+msgstr "Títol"
+
+msgid "_Today border color_"
+msgstr "Color de la vora del dia d'avui"
+
+msgid "_Top left image_"
+msgstr "Imatge superior esquerra"
+
+msgid "_Top menu background color_"
+msgstr "Color de fons del menú principal"
+
+msgid "_Top menu border color_"
+msgstr "Color de la vora del menú principal"
+
+msgid "_Top menu border style_"
+msgstr "Estil de la vota del menú principal"
+
+msgid "_Top menu font color_"
+msgstr "Color de la lletra del menú principal"
+
+msgid "_Top menu font_"
+msgstr "Tipus de lletra del menú principal"
+
+msgid "_Top menu hover background color_"
+msgstr "Color de fons del menú principal (en ser seleccionat)"
+
+msgid "_Top menu hover font color_"
+msgstr "Color de lletra del menú principal (en ser seleccionat)"
+
+msgid "_Top menu items width_"
+msgstr "Amplada dels elements del menú principal"
+
+msgid "_Top right image_"
+msgstr "Imatge superior dreta"
+
+msgid "_Translate folder items_"
+msgstr "Traduir els objectes de la carpeta"
+
+msgid "_Translate the box title_"
+msgstr "Traduir el títol de la caixa"
+
+msgid "_Translate the breadcrumbs_"
+msgstr "Traduir els menús de navegació"
+
+msgid "_Translate the image_"
+msgstr "Traduir la imatge"
+
+msgid "_Translate the text_"
+msgstr "Traduir el text"
+
+msgid "_Translations_"
+msgstr "Traduccions"
+
+msgid "_Tu_"
+msgstr "DM"
+
+msgid "_Use internal link?_"
+msgstr "Emprar un enllaç intern?"
+
+msgid "_Use the cache?_"
+msgstr "Emprar la caché?"
+
+msgid "_Use this as the default style_"
+msgstr "Utilitzar com a estil per defecte"
+
+msgid "_Username_"
+msgstr "Nom d'usuari"
+
+msgid "_Value_"
+msgstr "Valor"
+
+msgid "_Vertical padding_"
+msgstr "Emplenament vertical"
+
+msgid "_Visibility criteria_"
+msgstr "Criteris de visibilitat"
+
+msgid "_We_"
+msgstr "DX"
+
+msgid "_Weekdays background color_"
+msgstr "Color de fons dels dies de la setmana"
+
+msgid "_Weekdays border color_"
+msgstr "Color de la vora dels dies de la setmana"
+
+msgid "_Weekdays font color_"
+msgstr "Color de lletra dels dies de la setmana"
+
+msgid "_Width_"
+msgstr "Amplada"
+
+msgid "_XML export_"
+msgstr "Exportar en format XML"
+
+msgid "_XML format_"
+msgstr "Format XML"
+
+msgid "_Year_"
+msgstr "Any"
+
+msgid "_You can drop a Portlet into this area_"
+msgstr "Pot deixar un Portlet dins aquesta àrea."
+
+msgid "_You can drop a Templet into this area_"
+msgstr "Pot deixar un Templet dins aquesta àrea."
+
+msgid "_Your text_"
+msgstr "El seu text"
+
+msgid "_ZMI_"
+msgstr "ZMI"
+
+msgid "_about_"
+msgstr "Quant a..."
+
+msgid "_actionbox_templet_description_"
+msgstr "una barra d'eines que conté botons d'accions amb icones"
+
+msgid "_actions_"
+msgstr "Accions"
+
+msgid "_areacolor_description_"
+msgstr ""
+"aquest estil defineix el color de fons, de les vores i del text d'una àrea."
+
+msgid "_areashape_description_"
+msgstr "aquest estil defineix l'estil i el gruix de la vora d'una àrea."
+
+msgid "_back_"
+msgstr "enrere"
+
+msgid "_backgrounds_"
+msgstr "Fons"
+
+msgid "_box body_"
+msgstr "Cos de la caixa"
+
+msgid "_box title_"
+msgstr "Títol de la caixa"
+
+msgid "_boxcolor_"
+msgstr "Color de la caixa del portal"
+
+msgid "_boxcolor_description_"
+msgstr "Aquest estil defineix els colors de les caixes del portal"
+
+msgid "_boxcorners_description_"
+msgstr "Aquest estil defineix l'aparença dels angles de la caixa"
+
+msgid "_boxshape_"
+msgstr "Forma de la caixa del portal"
+
+msgid "_boxshape_description_"
+msgstr "Aquest estil defineix les formes de les caixes del portal"
+
+msgid "_breadcrumbs_templet_description_"
+msgstr "Un menú de navegació des de la pàgina d'inici fins a l'actual"
+
+msgid "_button_cache_manager_"
+msgstr "Administrar caché"
+
+msgid "_button_clear_the_cache_"
+msgstr "Netejar la caché"
+
+msgid "_button_close_"
+msgstr "Tancar"
+
+msgid "_button_create_"
+msgstr "Crear"
+
+msgid "_button_delete_"
+msgstr "Esborrar"
+
+msgid "_button_export_theme_"
+msgstr "Exportar aquest tema"
+
+msgid "_button_fullscreen_"
+msgstr "Pantalla completa"
+
+msgid "_button_import_theme_"
+msgstr "Importar tema"
+
+msgid "_button_import_themes_"
+msgstr "Importar temes"
+
+msgid "_button_local_roles_"
+msgstr "Rols locals"
+
+msgid "_button_modify_"
+msgstr "Modificar"
+
+msgid "_button_normal_mode_"
+msgstr "Mode normal"
+
+msgid "_button_optimize_theme_"
+msgstr "Optimitzar aquest tema"
+
+msgid "_button_rebuild_theme_"
+msgstr "Reconstruir aquest tema"
+
+msgid "_button_set_theme_as_default_"
+msgstr "Establir com a tema per defecte"
+
+msgid "_button_upload_flashfile_"
+msgstr "Pujar animació Flash"
+
+msgid "_button_upload_image_"
+msgstr "Pujar imatge"
+
+msgid "_calendar_style_"
+msgstr "Estil del calendari"
+
+msgid "_calendar_templet_description_"
+msgstr "Un calendari amb esdeveniments mensuals"
+
+msgid "_calendarstyle_description_"
+msgstr "Aquest estil defineix l'aspecte visual del calendari."
+
+msgid "_cellblock_description_"
+msgstr ""
+"Un bloc de cel·la permet mostrar diverses plantilles horitzontalment dins un "
+"Bloc de Pàgina."
+
+msgid "_cellhider_description_"
+msgstr "Una goma d'esborrar controla la visibilitat d'una cel·la."
+
+msgid "_cellsizer_description_"
+msgstr "Un dimensionador permet fixar l'amplada d'una cel·la."
+
+msgid "_cellstyler_description_"
+msgstr "Un dissenyador modifica l'estil d'una cel·la."
+
+msgid "_clipboard_"
+msgstr "Porta-retalls"
+
+msgid "_collapsiblemenu_style_"
+msgstr "Estil del menú desplegable"
+
+msgid "_collapsiblemenu_templet_description_"
+msgstr "Un menú desplegable mostra elements de carpeta"
+
+msgid "_collapsiblemenustyle_description_"
+msgstr "Aquest estil defineix l'aspecte visual dels menús extensibles"
+
+msgid "_color_"
+msgstr "Color de l'àrea"
+
+msgid "_colors_"
+msgstr "Colors"
+
+msgid "_confirm delete_"
+msgstr "Segur que ho vol esborrar?"
+
+msgid "_days_"
+msgstr "dies"
+
+msgid "_default tab_"
+msgstr "Pestanya per defecte"
+
+msgid "_dimensions_"
+msgstr "Dimensions"
+
+msgid "_documentinfo_templet_description_"
+msgstr ""
+"Informació sobre el document actual: títol, data de la darrera modificació, "
+"nom de l'autor, etc."
+
+msgid "_edit online_"
+msgstr "Editar en línia"
+
+msgid "_enter_new_id_"
+msgstr "Entrar una nova ID"
+
+msgid "_flashbox_templet_description_"
+msgstr "Una caixa per a una animació Flash amb peu"
+
+msgid "_folders_"
+msgstr "Carpetes"
+
+msgid "_fontcolor_"
+msgstr "Color de la lletra"
+
+msgid "_fontcolor_description_"
+msgstr ""
+"Aquest estil defineix el color de la lletra, els enllaços i les decoracions."
+
+msgid "_fontshape_"
+msgstr "Forma del tipus de lletra"
+
+msgid "_fontshape_description_"
+msgstr "Aquest estil defineix mides de lletra, enllaços i estils de decoració."
+
+msgid "_formstyle_description_"
+msgstr "Aquest estil defineix l'aparença del formulari i dels seus elements."
+
+msgid "_general_"
+msgstr "General"
+
+msgid "_header_"
+msgstr "Capçalera"
+
+msgid "_icons_"
+msgstr "Icones"
+
+msgid "_imagebox_templet_description_"
+msgstr "Una imatge amb un enllaç i un peu de foto"
+
+msgid "_info_"
+msgstr "Info"
+
+msgid "_language_templet_description_"
+msgstr "Un selector d'idioma"
+
+msgid "_layout mode_"
+msgstr "Mode de disposició/distribució"
+
+msgid "_layout_"
+msgstr "Disposició/distribució"
+
+msgid "_link_"
+msgstr "Enllaç"
+
+msgid "_maincontent_templet_description_"
+msgstr "L'àrea de contingut principal on es mostren els documents"
+
+msgid "_menu item_"
+msgstr "Opció del menú"
+
+msgid "_menu_Align center_"
+msgstr "Centrat"
+
+msgid "_menu_Align justify_"
+msgstr "Justificat"
+
+msgid "_menu_Align left_"
+msgstr "Alineat a l'esquerra"
+
+msgid "_menu_Align right_"
+msgstr "Alineat a la dreta"
+
+msgid "_menu_Area Color_"
+msgstr "Color de l'àrea"
+
+msgid "_menu_Area Shape_"
+msgstr "Forma de l'àrea"
+
+msgid "_menu_Box Corners_"
+msgstr "Angle de la caixa"
+
+msgid "_menu_Calendar Style_"
+msgstr "Estil del calendari"
+
+msgid "_menu_Collapsible Menu Style_"
+msgstr "Estil de menú desplegable"
+
+msgid "_menu_Copy_"
+msgstr "Copiar"
+
+msgid "_menu_Delete_"
+msgstr "Esborrar"
+
+msgid "_menu_Duplicate_"
+msgstr "Duplicar"
+
+msgid "_menu_Edit styles_"
+msgstr "Editar els estils"
+
+# Siguiendo la traducción francesa, prefiero
+# modificar, un término predigital. El problema
+# es que a veces aparece "modify" en inglés, y hay
+# que saber si se refiere al mismo género de operación
+# Depende del programa. Ver.
+msgid "_menu_Edit_"
+msgstr "Modificar"
+
+msgid "_menu_Font Color_"
+msgstr "Color de la lletra"
+
+msgid "_menu_Font Shape_"
+msgstr "Forma de la tipografia"
+
+msgid "_menu_Form Style_"
+msgstr "Estil de la forma"
+
+msgid "_menu_Insert_"
+msgstr "Inserir"
+
+msgid "_menu_Manage_"
+msgstr "Administrar"
+
+msgid "_menu_Paste_"
+msgstr "Enganxar"
+
+msgid "_menu_Portal Box Color_"
+msgstr "Color de la caixa"
+
+msgid "_menu_Portal Box Shape_"
+msgstr "Forma de la caixa"
+
+msgid "_menu_Portal Tab Style_"
+msgstr "Estil de pestanyes"
+
+msgid "_menu_Set alignment_"
+msgstr "Establir alineació"
+
+msgid "_menu_Set layout_"
+msgstr "Establir disseny"
+
+msgid "_menu_Set styles_"
+msgstr "Establir estils"
+
+msgid "_menu_Set_as_default_"
+msgstr "Establir per defecte"
+
+msgid "_mixed mode_"
+msgstr "Mode mixt"
+
+msgid "_option_Folder title_"
+msgstr "Títol de la carpeta"
+
+msgid "_option_Templet title_"
+msgstr "Títol de la plantilla"
+
+msgid "_option_Username_"
+msgstr "Nom d'usuari"
+
+msgid "_option_Workflow state_"
+msgstr "Estat del flux de treball"
+
+msgid "_option_about_"
+msgstr "Quant a aquest objecte"
+
+msgid "_option_actions_"
+msgstr "Accions del portal"
+
+msgid "_option_always_"
+msgstr "Sempre"
+
+msgid "_option_automatic_"
+msgstr "Detecció automàtica"
+
+msgid "_option_bg_no-repeat_"
+msgstr "No repetir"
+
+msgid "_option_bg_repeat-x_"
+msgstr "Horitzontalment"
+
+msgid "_option_bg_repeat-y_"
+msgstr "Verticalment"
+
+msgid "_option_bg_repeat_"
+msgstr "Per a cobrir l'àrea"
+
+msgid "_option_block_"
+msgstr "Alçada de la caixa"
+
+msgid "_option_center_"
+msgstr "Centrar"
+
+msgid "_option_compatible_"
+msgstr "Compatible mode NS4"
+
+msgid "_option_debug_"
+msgstr "Mode de depuració"
+
+msgid "_option_default_"
+msgstr "Per defecte"
+
+msgid "_option_docinfo_created_by_"
+msgstr "Creat per..."
+
+msgid "_option_docinfo_last_modified_"
+msgstr "Data de la darrera modificació"
+
+msgid "_option_docinfo_title_"
+msgstr "Títol del document"
+
+msgid "_option_drawer_"
+msgstr "Calaix"
+
+msgid "_option_drawer_notitle_"
+msgstr "Calaix sense títol"
+
+msgid "_option_dropdown list_"
+msgstr "Llistat en cascada"
+
+msgid "_option_events_"
+msgstr "Pujant esdeveniments"
+
+msgid "_option_everywhere_except_in_"
+msgstr "A tots els llocs, excepte a ..."
+
+msgid "_option_flags_"
+msgstr "Banderes dels països"
+
+msgid "_option_folders_"
+msgstr "Carpetes del portal"
+
+msgid "_option_horizontal_"
+msgstr "Horitzontal"
+
+msgid "_option_horizontal_box_notitle_"
+msgstr "Caixa horitzontal sense títol"
+
+msgid "_option_horizontal_menu_"
+msgstr "Menú horitzontal"
+
+msgid "_option_html_"
+msgstr "HTML"
+
+msgid "_option_icons only_"
+msgstr "Només icones"
+
+msgid "_option_if_anonymous_"
+msgstr "Si anònim"
+
+msgid "_option_if_authenticated_"
+msgstr "Si autenticat"
+
+msgid "_option_if_secure_connection_"
+msgstr "Si connexió segura"
+
+msgid "_option_info_"
+msgstr "Caixa d'informació"
+
+msgid "_option_inline_"
+msgstr "Amplada del títol"
+
+msgid "_option_justify_"
+msgstr "Justificar"
+
+msgid "_option_language names_"
+msgstr "Noms dels idiomes"
+
+msgid "_option_language_"
+msgstr "Selector d'idiomes"
+
+msgid "_option_left_"
+msgstr "Esquerra"
+
+msgid "_option_lifetime_10_"
+msgstr "10 segons"
+
+msgid "_option_lifetime_1800_"
+msgstr "30 minuts"
+
+msgid "_option_lifetime_300_"
+msgstr "5 minuts"
+
+msgid "_option_lifetime_30_"
+msgstr "30 segons"
+
+msgid "_option_lifetime_3600_"
+msgstr "1 hora"
+
+msgid "_option_lifetime_600_"
+msgstr "10 minuts"
+
+msgid "_option_lifetime_60_"
+msgstr "1 minut"
+
+msgid "_option_lifetime_900_"
+msgstr "15 minuts"
+
+msgid "_option_login_"
+msgstr "Autenticació"
+
+msgid "_option_macroless_"
+msgstr "Sense macros"
+
+msgid "_option_min_max_"
+msgstr "Min/màx caixa"
+
+msgid "_option_min_max_close_"
+msgstr "Min/màx/tancar caixa"
+
+msgid "_option_min_max_edit_close_"
+msgstr "Min/màx/editar/tancar caixa"
+
+msgid "_option_no_frames_"
+msgstr "Sense marcs"
+
+msgid "_option_notitle_"
+msgstr "Marc de la caixa sense títol"
+
+msgid "_option_notitle_noframe_"
+msgstr "Sense marc ni títol"
+
+msgid "_option_one_frame_"
+msgstr "Marc de la caixa"
+
+msgid "_option_only_in_"
+msgstr "Només a..."
+
+msgid "_option_pending_"
+msgstr "Documents pendents"
+
+msgid "_option_plain text_"
+msgstr "Text senzill"
+
+msgid "_option_plain_"
+msgstr "Senzill"
+
+msgid "_option_profiler_"
+msgstr "Reactivador"
+
+msgid "_option_recent_"
+msgstr "Documents recents"
+
+msgid "_option_related_"
+msgstr "Documents relacionats"
+
+msgid "_option_right_"
+msgstr "Dreta"
+
+msgid "_option_rounded_box_"
+msgstr "Caixa arrodonida"
+
+msgid "_option_rounded_box_notitle_"
+msgstr "Caixa arrodonida sense títol"
+
+msgid "_option_searchbox_advanced_"
+msgstr "Avançat"
+
+msgid "_option_searchbox_compact_"
+msgstr "Compacte"
+
+msgid "_option_standard_"
+msgstr "Caixa estàndard"
+
+msgid "_option_starting_from_"
+msgstr "Començant des de..."
+
+msgid "_option_stx_"
+msgstr "Text estructurat"
+
+msgid "_option_tableless_"
+msgstr "Sense taules"
+
+msgid "_option_text and icons_"
+msgstr "Text i icones"
+
+msgid "_option_text only_"
+msgstr "Nomçes text"
+
+msgid "_option_text_transform_capitalize_"
+msgstr "Lletra Majúscula A Cada Paraula"
+
+msgid "_option_text_transform_lowercase_"
+msgstr "text en lletres minúscules"
+
+msgid "_option_text_transform_none_"
+msgstr "Sense transformació"
+
+msgid "_option_text_transform_uppercase_"
+msgstr "TEXT EN LETRES MAJÚSCULES"
+
+msgid "_option_textonly_"
+msgstr "Només text"
+
+msgid "_option_up_till_"
+msgstr "Pujar fins a..."
+
+msgid "_option_vertical_"
+msgstr "Vertical"
+
+msgid "_pageblock_description_"
+msgstr ""
+"Un bloc està composat de cel·les (columnes). L'aspecte visual d'una cel·la "
+"pot modificar-se utilitzant dissenyadors, dimensionadors i esborradors de "
+"cel·la."
+
+msgid "_paletteborder_description_"
+msgstr ""
+"Aquestes paletes defineixen la forma de les vores utilitzades als estils."
+
+msgid "_palettecolor_description_"
+msgstr "Aquestes paletes defineixen els colors utilitzats als estils."
+
+msgid "_portalbox_templet_description_"
+msgstr ""
+"Una caixa genèrica que mostra accions, carpetes, una caixa 'quant a', una "
+"caixa d'autenticació, una caixa d'info, etc."
+
+msgid "_portalboxgroup_templet_description_"
+msgstr "Un tauler d'anuncis que agrupa un conjunt de caixes o de portlets."
+
+msgid "_portaltab_templet_description_"
+msgstr "Pestanyes horitzontals que despleguen accions, comandes..."
+
+msgid "_portaltabstyle_"
+msgstr "Estil de pestanya del portal"
+
+msgid "_portaltabstyle_description_"
+msgstr "Aquest estil defineix l'aparença de les pestanyes del portal"
+
+msgid "_portaltheme_description_"
+msgstr ""
+"Un tema modifica l'aspecte i la disposició del portal. Està composat per "
+"blocs horitzontals."
+
+msgid "_portletbox_templet_description_"
+msgstr "Una caixa que conté un portlet."
+
+msgid "_preview_"
+msgstr "Previsualització"
+
+msgid "_searchbox_Advanced_search"
+msgstr "Recerca avançada"
+
+msgid "_searchbox_Search_"
+msgstr "Recerca"
+
+msgid "_searchbox_templet_description_"
+msgstr "Una caixa amb un camp d'entrada per a fer recerques"
+
+msgid "_select this slot_"
+msgstr "seleccionar aquest dispositiu"
+
+msgid "_selected menu item_"
+msgstr "Opció de menú seleccionada"
+
+msgid "_selected tab_"
+msgstr "Pestanya seleccionada"
+
+msgid "_set as default style_"
+msgstr "Establir com a estil per defecte"
+
+msgid "_shape_"
+msgstr "Forma de l'àrea"
+
+msgid "_size_"
+msgstr "Mida"
+
+msgid "_style_"
+msgstr "Estil"
+
+msgid "_submenu_"
+msgstr "Submenú"
+
+msgid "_submenus_"
+msgstr "Submenús"
+
+msgid "_textbox_templet_description_"
+msgstr "Una caixa que mostra text senzill o HTML"
+
+msgid "_themechooser_templet_description_"
+msgstr ""
+"Un selector de temes per als visitants (les galetes han d'estar activades)"
+
+msgid "_themepage_description_"
+msgstr ""
+"Una pàgina de temes està composta de blocs de pàgina col·locats un sobre "
+"l'altre."
+
+msgid "_thumbnails_"
+msgstr "Miniatures"
+
+msgid "_topmenu_"
+msgstr "menú superior"
+
+msgid "_visibility_"
+msgstr "Visibilitat"
+
+msgid "_wysiwyg mode_"
+msgstr "mode WYSIWYG"
+
+msgid "_zexp export_"
+msgstr "Exportar en format zexp"
+
+msgid "_zexp format_"
+msgstr "format zexp"
+
+msgid "description_confirm_delete_portlet"
+msgstr "S'esborrarà el portlet, està segur?"
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr "S'esborraran tots els portlets no utilitzats, està  segur?"
+
+msgid "description_delete_unused_portlets"
+msgstr "Esborrar portlets no utilitzats"
+
+msgid "description_portlets_visible_from"
+msgstr "Portlets visibles des de"
+
+msgid "description_unused_portlets"
+msgstr ""
+"Caixes que no són visibles, ja que que el seu slot no pertany a aquest tema"
+
+msgid "heading_portlet_browser_by_topic"
+msgstr "Per tema"
+
+msgid "heading_portlet_browser_by_type"
+msgstr "Per tipus"
+
+msgid "heading_portlet_manage_form"
+msgstr "Administració de Portlets"
+
+msgid "heading_unused_portlets"
+msgstr "Portlets no utilitzats"
+
+msgid "menu_insert_box"
+msgstr "Inserir una caixa..."
+
+msgid "menu_insert_portlet"
+msgstr "Inserir un portlet"
+
+msgid "portlet_browser_panel"
+msgstr "Navegador de portlets"
+
+msgid "portlet_slots_panel"
+msgstr "Slots de Portlet"
+
+msgid "psm_image_uploaded"
+msgstr "Imatge pujada"
+
+msgid "psm_portlet_deleted"
+msgstr "Portlet esborrat"
+
+msgid "site_structure_panel"
+msgstr "Estructura del lloc web"
+
+msgid "unused_portlets_panel"
+msgstr "Portlets no utilitzats"
+
+msgid "wysiwyg_panel"
+msgstr "WYSIWYG"
