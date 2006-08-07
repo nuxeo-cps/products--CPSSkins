@@ -8,7 +8,7 @@
  tal:condition="python:len(langs)>1">
     <tal:block condition="python: style == 'dropdown list'">
       <form style="margin:0;padding:0;" id="cpsskins_i18n" method="post"
-            tal:attributes="action string:${lc_url}/changeLanguage">
+            tal:attributes="action string:${lc_url}/cpsportlet_change_language">
         <p>
           <label for="cpsskins_i18n_chooser"
                  i18n:translate="_Change language_"
@@ -41,7 +41,7 @@
                   img_path python:'here/' + img_rpath;
                   img_exists python:exists(img_path) or nothing;
                   lang_selected lang/selected"
-       tal:attributes="href string:${lc_url}/changeLanguage?lang=${lang_id};
+       tal:attributes="href string:${lc_url}/cpsportlet_change_language?lang=${lang_id};
                        title switch_to_lang"
        tal:condition="python: not (hide_current_lang and lang_selected)">
         <img tal:condition="img_exists"
@@ -68,7 +68,7 @@
             tal:condition="python: selected and not hide_current_lang" />
            <a href="" tal:condition="not:selected"
               tal:content="lang_title"
-              tal:attributes="href string:${lc_url}/changeLanguage?lang=$lang_id;
+              tal:attributes="href string:${lc_url}/cpsportlet_change_language?lang=$lang_id;
                               title switch_to_lang" />
         </tal:block>
       </tal:block>
