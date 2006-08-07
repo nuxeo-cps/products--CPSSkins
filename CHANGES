@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Synchronized lang templet behavior with portlet's: flushes the session
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
