@@ -278,7 +278,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
         <tal:block repeat="content contents">
           <option
            tal:attributes="value string:${content/absolute_url}/portlet_manage_form"
-           tal:content="content/id" />
+           tal:content="python:content.getId()" />
         </tal:block>
       </select>
     </form>
