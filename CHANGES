@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Radio/checkbox buttons were not rendered correctly using IE.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Minor zpt change: avoid accessing id attribute of documents for security

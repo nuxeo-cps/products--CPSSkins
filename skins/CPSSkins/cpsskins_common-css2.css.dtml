@@ -13,7 +13,7 @@ html, body {
 
 input, textarea, select, button {
   background-color: white;
-  margin: 0;
+  margin: 4px 0px 0px 5px;
 }
 
 input {
@@ -25,7 +25,7 @@ input, button {
 }
 
 input[type="radio"], input[type="checkbox"] {
-  border: none;
+  border: 0px ! important;
 }
 
 .fileview {
