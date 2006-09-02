@@ -25,10 +25,12 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from OFS.Image import File as OFS_File # works better with GenericSetup
 from Products.CMFDefault.File import File
 
 from CPSSkinsPermissions import ManageThemes
 from BaseTemplet import BaseTemplet
+from ThemeFolder import ThemeFolder
 
 from swfHeaderData import analyseContent
 
@@ -47,7 +49,8 @@ factory_type_information = (
     },
 )
 
-class FlashBox(File, BaseTemplet):
+# BBB: File base class should go away at some point
+class FlashBox(ThemeFolder, File, BaseTemplet):
     """
     Flash Box Templet.
     """
@@ -80,7 +83,7 @@ class FlashBox(File, BaseTemplet):
         },
     )
 
-    def __init__(self, id, title,
+    def __init__(self, id, title='',
                        caption = '',
                        flash_width = 0,
                        flash_height = 0,
@@ -96,12 +99,9 @@ class FlashBox(File, BaseTemplet):
                        language='',
                        rights='',
                        **kw):
-        apply(File.__init__,
-                (self, id, title,
-                 file, content_type, precondition, subject, description,
-                 contributors, effective_date, expiration_date,
-                 format, language, rights))
-        apply(BaseTemplet.__init__, (self, id, title), kw)
+        File.__init__(self, id, title)
+        self.manage_upload(file=file, content_type=format)
+        BaseTemplet.__init__(self, id, title, **kw)
         self.caption = caption
         self.flash_width = flash_width
         self.flash_height = flash_height
@@ -120,16 +120,26 @@ class FlashBox(File, BaseTemplet):
 
     security.declarePublic('getCacheParams')
     def getCacheParams(self):
-        """Return a list of cache parameters"
+        """Return a list of cache parameters
         """
         return []
 
     security.declareProtected(ManageThemes, 'manage_upload')
     def manage_upload(self, file='', content_type=''):
 
-        data, size = self._read_data(file)
-        content_type = self._get_content_type(file, data, id, content_type)
-        self.update_data(data, content_type, size)
+        if not file or not file.filename:
+            return
+        flash_id = 'flash_file'
+        if self.hasObject(flash_id):
+            self.manage_delObjects(flash_id)
+        self._setObject(flash_id, OFS_File(flash_id, file.filename, file))
+        flash = self._getOb(flash_id)
+        
+        data, size = flash._read_data(file)
+        content_type = flash._get_content_type(file, data, id, content_type)
+        flash.update_data(data, content_type, size)
+        self.data = '' # BBB: clear old data
+
         file.seek(0)
         data = file.read()
         filesize = len(data)
@@ -150,6 +160,18 @@ class FlashBox(File, BaseTemplet):
             del kw[prop]
 
         self.manage_changeProperties(**kw)
+
+    def index_html(self, REQUEST, RESPONSE): 
+        """Download the image as binary with headers. 
+        """ 
+        if self.data != '': 
+            # BBB: flash content used to be stored in self
+            # (we inherit from File) 
+            return File.index_html(self, REQUEST, RESPONSE)
+        else: 
+            flash = self.flash_file
+            return OFS_File.index_html(flash, REQUEST, RESPONSE) 
+
 
 InitializeClass(FlashBox)
 

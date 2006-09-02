@@ -5,9 +5,11 @@ if __name__ == '__main__':
 import unittest
 import CPSSkinsTestCase
 
+from ZPublisher.HTTPRequest import FileUpload
 from Products.CMFCore.utils import getToolByName
 from Products.CPSSkins import tests
 TEST_IMG = os.path.join(tests.__path__[0], 'TestImage.jpg')
+TEST_FLASH = os.path.join(tests.__path__[0], 'TestFlash.swf')
 
 class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
 
@@ -203,6 +205,26 @@ class TestTemplets(CPSSkinsTestCase.CPSSkinsTestCase):
         self.assert_(templet.height, 70)
         self.assert_(templet.content_type, 'image/jpeg')
 
+    def test_FlashBox_Templet_upload(self):
+        pageblock = self.pageblock
+        templet = pageblock.addContent(type_name='Flash Box Templet')
+        templet.i18n = 0
+        imagefile = open(TEST_FLASH, 'rb')
+        class Storage:
+            headers = {}
+        storage = Storage()
+        storage.file = imagefile
+        storage.filename = 'the_flash.swf'
+        file_up = FileUpload(storage)
+        templet.manage_upload(file_up)
+        imagefile.close()
+
+        self.assert_(templet.content_type, 'application/x-shockwave-flash')
+        self.assert_(templet.flash_width, 520)
+        self.assert_(templet.flash_height, 460)
+        self.assertEquals(templet.objectIds(), ['flash_file'])
+        self.assertEquals(templet.flash_file.title, 'the_flash.swf')
+        self.assertEquals(templet.flash_file.size, 51482)
 
     def test_FlashBox_Templet(self):
         pageblock = self.pageblock
