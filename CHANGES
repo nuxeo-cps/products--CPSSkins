@@ -6,13 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Radio/checkbox buttons were not rendered correctly using IE.
-- Fixed GenericSetup export/import of Flash Box Templets and probably of 
-  Image Box Templets made in CPS < 3.4.0 (CPSSkins <= 2.7.0).
-  Upgrade the existing ones before any export.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Minor zpt change: avoid accessing id attribute of documents for security
-  issues.
-- Upgrade code for Flash and Image Box Templets. Can be registered as a CPS 
-  upgrade step.
+-
