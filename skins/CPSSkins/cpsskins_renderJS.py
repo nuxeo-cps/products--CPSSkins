@@ -10,7 +10,7 @@ js = ''
 # CPS Portlets
 ptltool = getattr(context, 'portal_cpsportlets', None)
 if ptltool is not None and page_container is not None:
-    portlets = ptltool.getPortlets(context)
+    portlets = ptltool.getPortlets(context=context, guard_check=0)
     slots = page_container.getSlots()
     done_types = []
     for portlet in portlets:

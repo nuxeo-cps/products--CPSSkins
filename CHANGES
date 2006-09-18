@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- #1746 the scripts required by a portlet were not always appearing in
+  '.../cpsskins_renderJS'.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
