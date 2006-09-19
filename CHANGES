@@ -8,6 +8,8 @@ Bug fixes:
 ~~~~~~~~~~
 - #1746 the scripts required by a portlet were not always appearing in
   '.../cpsskins_renderJS'.
+- Upgrade steps for Flash/Image Box Templates used to fail while upgrading 
+  from CPS 3.2 pure CPSBoxes instances
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

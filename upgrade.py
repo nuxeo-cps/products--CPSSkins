@@ -66,6 +66,10 @@ def treeCrawl(start, actions):
         treeCrawl(sub, actions)
 
 def upgrade_342_343_flash_image(portal):
-    thtool = portal.portal_themes
+    thtool = getattr(portal, 'portal_themes', None)
+    if thtool is None:
+        # happens while upgrading from pre-CPSSkins CPS instances
+        logger.info('No existing Themes Tool')
+        return
     treeCrawl(thtool, {'Flash Box Templet': update_flash,
                        'Image Box Templet': update_image})
