@@ -1,3 +1,26 @@
+===========================================================
+Package: CPSSkins 2.12.1
+===========================================================
+First release built by: ogrisel at: 2006-10-04T21:18:27
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.12.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@49317
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- #1746 the scripts required by a portlet were not always appearing in
+  '.../cpsskins_renderJS'.
+- Upgrade steps for Flash/Image Box Templates used to fail while upgrading 
+  from CPS 3.2 pure CPSBoxes instances
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
 *******************************************
 ** CPSSkins V2.12.0 [R1 build 2006/09/04-09:41 by gracinet]
 ** SVN URL: http://svn/pub/CPS3/products/CPSSkins/trunk Revision: 48695
