@@ -427,7 +427,8 @@ class PortalBox(BaseTemplet, SimpleBox):
 
     security.declarePublic('listBoxLayouts')
     def listBoxLayouts(self):
-        """ Returns a list of orientations for this Templet"""
+        """Return a list of layouts for this Templet.
+        """
 
         return self.cpsskins_listBoxLayouts('PortalBox')
 

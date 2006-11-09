@@ -82,18 +82,29 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
          'category': 'general',
          'i18n': 1,
         },
+       {'id': 'orientation',
+        'type': 'selection',
+        'mode': 'w',
+        'label': 'List orientation',
+        'select_variable': 'listOrientations',
+        'category': 'layout',
+        'i18n': 1,
+        'i18n_prefix': '_option_',
+       },
     )
 
     def __init__(self, id,
                  box_group = '0',
                  macroless = 0,
                  box_title_i18n = 0,
+                 orientation = 'vertical',
                  **kw):
         BaseTemplet.__init__(self, id, **kw)
         SimpleBox.__init__(self, **kw)
         self.box_group = box_group
         self.macroless = macroless
         self.box_title_i18n = box_title_i18n
+        self.orientation = orientation
 
     security.declarePublic('isRenderable')
     def isRenderable(self):
@@ -116,7 +127,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
     security.declarePublic('listBoxLayouts')
     def listBoxLayouts(self):
-        """Return a list of orientations for this Templet
+        """Return a list of layouts for this Templet.
         """
         layouts = self.cpsskins_listBoxLayouts('PortletBox')
         if self.hasPortlets():
@@ -125,6 +136,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                             'min_max_edit_close',
                            ])
         return layouts
+
+    security.declarePublic('listOrientations')
+    def listOrientations(self):
+        """ Returns a list of orientations for this Templet"""
+
+        list = ['horizontal', 'vertical']
+        return list
 
     security.declarePublic('hasPortlets')
     def hasPortlets(self):

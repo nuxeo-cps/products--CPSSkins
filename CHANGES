@@ -3,10 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- Added the orientation property to the Portal Box Group Templet.
 Bug fixes
 ~~~~~~~~~
-- [packaging] bundleman svn property
+- [packaging] bundleman svn property.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
