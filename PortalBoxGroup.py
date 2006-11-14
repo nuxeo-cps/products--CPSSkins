@@ -15,6 +15,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 #
+# $Id$
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
@@ -92,6 +93,11 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         'i18n_prefix': '_option_',
        },
     )
+
+    box_group = '0'
+    macroless = 0
+    box_title_i18n = 0
+    orientation = 'vertical'
 
     def __init__(self, id,
                  box_group = '0',
