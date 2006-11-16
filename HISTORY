@@ -1,4 +1,27 @@
 ===========================================================
+Package: CPSSkins 2.13.0
+===========================================================
+First release built by: gracinet at: 2006-11-16T18:18:00
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.13.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@50008
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- Added the orientation property to the Portal Box Group Templet.
+Bug fixes
+~~~~~~~~~
+- Made the render of the PortalBoxGroup more resilient when the charset is
+  unknown. It happens on some client configurations. No time to investigate
+  more.
+- [packaging] bundleman svn property.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.12.1
 ===========================================================
 First release built by: ogrisel at: 2006-10-04T21:18:27
