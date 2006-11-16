@@ -299,9 +299,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 if charset != 'unicode':
                     try:
                         title = title.encode(charset, 'ignore')
-                    except UnicodeDecodeError:
+                    except (UnicodeDecodeError, LookupError), ex:
                         LOG("PortalBoxGroup.render", DEBUG,
-                            "UnicodeDecodeError on %r"%(title,))
+                            "Error on %r = %s" % (title, str(ex)))
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
                 title=title,

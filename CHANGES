@@ -6,6 +6,9 @@ New features
 - Added the orientation property to the Portal Box Group Templet.
 Bug fixes
 ~~~~~~~~~
+- Made the render of the PortalBoxGroup more resilient when the charset is
+  unknown. It happens on some client configurations. No time to investigate
+  more.
 - [packaging] bundleman svn property.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
