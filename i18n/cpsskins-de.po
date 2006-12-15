@@ -31,61 +31,61 @@ msgid "_A visited_"
 msgstr "Farbe des besuchten Linkes"
 
 msgid "_A_active_bg_color_"
-msgstr ""
+msgstr "Active link background color"
 
 msgid "_A_active_border_color_"
-msgstr ""
+msgstr "Active link border color"
 
 msgid "_A_active_border_style_"
-msgstr ""
+msgstr "Active link border style"
 
 msgid "_A_active_border_width_"
-msgstr ""
+msgstr "Active link border width"
 
 msgid "_A_active_decoration_"
 msgstr "Verzierung des aktiven Linkes"
 
 msgid "_A_hover_bg_color_"
-msgstr ""
+msgstr "Hover link background color"
 
 msgid "_A_hover_border_color_"
-msgstr ""
+msgstr "Hover link border color"
 
 msgid "_A_hover_border_style_"
-msgstr ""
+msgstr "Hover link border style"
 
 msgid "_A_hover_border_width_"
-msgstr ""
+msgstr "Hover link border width"
 
 msgid "_A_hover_decoration_"
 msgstr "Verzierung des schwebenden Linkes"
 
 msgid "_A_link_bg_color_"
-msgstr ""
+msgstr "Link background color"
 
 msgid "_A_link_border_color_"
-msgstr ""
+msgstr "Link border color"
 
 msgid "_A_link_border_style_"
-msgstr ""
+msgstr "Link border style"
 
 msgid "_A_link_border_width_"
-msgstr ""
+msgstr "Link border width"
 
 msgid "_A_link_decoration_"
 msgstr "Verzierung eines Linkes"
 
 msgid "_A_visited_bg_color_"
-msgstr ""
+msgstr "Visited link background color"
 
 msgid "_A_visited_border_color_"
-msgstr ""
+msgstr "Visited link border color"
 
 msgid "_A_visited_border_style_"
-msgstr ""
+msgstr "Visited link border style"
 
 msgid "_A_visited_border_width_"
-msgstr ""
+msgstr "Visited link border width"
 
 msgid "_A_visited_decoration_"
 msgstr "Verzierung eines besuchten Linkes"
@@ -172,7 +172,7 @@ msgid "_Area font color_"
 msgstr "Schriftfarbe"
 
 msgid "_Area padding_"
-msgstr ""
+msgstr "Area padding"
 
 msgid "_Area shape_"
 msgstr "Form des Arbeitsbereiches"
@@ -187,16 +187,16 @@ msgid "_Author_"
 msgstr "Autor"
 
 msgid "_Background color_"
-msgstr ""
+msgstr "Background color"
 
 msgid "_Background image_"
 msgstr "Hintergrund Bild"
 
 msgid "_Background position_"
-msgstr ""
+msgstr "Background position"
 
 msgid "_Background repeat_"
-msgstr ""
+msgstr "Repeat the image"
 
 msgid "_Base path_"
 msgstr "Basispfad"
@@ -334,7 +334,7 @@ msgid "_Broken Templet!_"
 msgstr "Dieses Templet ist Defekt"
 
 msgid "_Buttons_"
-msgstr ""
+msgstr "Buttons"
 
 msgid "_Cache effectivity_"
 msgstr "Cache effizienz"
@@ -733,10 +733,10 @@ msgid "_Horizontal padding_"
 msgstr "Horizontale Füllung"
 
 msgid "_Hover background color_"
-msgstr ""
+msgstr "Hover background color"
 
 msgid "_Hover background image_"
-msgstr ""
+msgstr "Hover background image"
 
 msgid "_Icon size_"
 msgstr "Icon Größe"
@@ -922,7 +922,7 @@ msgid "_P_padding_"
 msgstr "Paragraph Padding"
 
 msgid "_Padding_"
-msgstr ""
+msgstr "Padding"
 
 msgid "_Page Block_"
 msgstr "Seitenblock"
@@ -994,7 +994,7 @@ msgid "_Portlet Box Templet_"
 msgstr "Portlet Box Templet"
 
 msgid "_Portlet editor_"
-msgstr ""
+msgstr "Portlet editor"
 
 msgid "_Portlet type_"
 msgstr "Portlet Art"
@@ -1030,7 +1030,7 @@ msgid "_Right-side image_"
 msgstr "Bild rechter Rand"
 
 msgid "_SMALL_font_"
-msgstr ""
+msgstr "Small font"
 
 msgid "_STRONG_font_"
 msgstr "Fettschrift"
@@ -1510,7 +1510,7 @@ msgid "_edit online_"
 msgstr "online bearbeiten"
 
 msgid "_enter_new_id_"
-msgstr ""
+msgstr "Enter a new id"
 
 msgid "_flashbox_templet_description_"
 msgstr "Templet mit einer Macromedia Flash(tm) Box mit Überschrift"
@@ -1558,7 +1558,7 @@ msgid "_layout_"
 msgstr "Layout"
 
 msgid "_link_"
-msgstr ""
+msgstr "Link"
 
 msgid "_maincontent_templet_description_"
 msgstr "Templet mit einem Hauptbereich, in dem Dokumente anzegeigt werden"
@@ -1738,7 +1738,7 @@ msgid "_option_horizontal_menu_"
 msgstr "Horizontal"
 
 msgid "_option_horizontal_box_notitle_"
-msgstr ""
+msgstr "Horizontal box without title"
 
 msgid "_option_html_"
 msgstr "HTML"
