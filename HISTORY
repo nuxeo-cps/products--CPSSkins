@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.13.1
+===========================================================
+First release built by: gracinet at: 2006-12-17T23:24:08
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.13.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@50623
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Added missing de translations.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.13.0
 ===========================================================
 First release built by: gracinet at: 2006-11-16T18:18:00
