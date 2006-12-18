@@ -249,18 +249,18 @@ class PortalBox(BaseTemplet, SimpleBox):
             # add the box frame
             boxstyle = self.getCSSBoxLayoutStyle()
             if boxstyle:
-                rendered_box.extend('<div style="%s">' % boxstyle)
-            rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
+                rendered_box.append('<div style="%s">' % boxstyle)
+            rendered_box.append('<div class="%s">' % self.getCSSBoxClass())
 
             # add the box decoration
-            rendered_box.extend(
+            rendered_box.append(
                 self.renderBoxLayout(
                     boxlayout=self.boxlayout,
                     title=self.render_title(**kw),
                     body=body, **kw))
-            rendered_box.extend('</div>')
+            rendered_box.append('</div>')
             if boxstyle:
-                rendered_box.extend('</div>')
+                rendered_box.append('</div>')
         return ''.join(rendered_box)
 
     security.declarePublic('render_title')

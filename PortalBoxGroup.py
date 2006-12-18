@@ -288,9 +288,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
             # open the box frame
             if boxstyle:
-                all_rendered.extend('<div style="%s">' % boxstyle)
+                all_rendered.append('<div style="%s">' % boxstyle)
             if boxclass:
-                all_rendered.extend('<div class="%s">' % boxclass)
+                all_rendered.append('<div class="%s">' % boxclass)
 
             # add the box decoration
             title = portlet.title
@@ -316,12 +316,12 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                     boxlayout='portlet_edit',
                     body=rendered,
                     **kw)
-            all_rendered.extend(rendered)
+            all_rendered.append(rendered)
             # close the box frame
             if boxstyle:
-                all_rendered.extend('</div>')
+                all_rendered.append('</div>')
             if boxclass:
-                all_rendered.extend('</div>')
+                all_rendered.append('</div>')
 
         rendered = ''.join(all_rendered)
         # wrap a box slot in edit mode
