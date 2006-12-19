@@ -6,8 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- In the rendering of boxes fixed wrong use of python extend : should use
-  append.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

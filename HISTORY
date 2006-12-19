@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSSkins 2.13.2
+===========================================================
+First release built by: div at: 2006-12-19T20:18:33
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.13.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@50655
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- In the rendering of boxes fixed wrong use of python extend : should use
+  append.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.13.1
 ===========================================================
 First release built by: gracinet at: 2006-12-17T23:24:08
