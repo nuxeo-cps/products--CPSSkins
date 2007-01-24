@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- fix: portlet box rendered even if empty
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
