@@ -6,9 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Fixed #1808 : Box rendered even if empty.
-- Disabled the testI18N tests until the CPSSkins .po files are fixed (many
-  translations are empty) so that the buildbot can useful.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
