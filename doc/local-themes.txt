@@ -75,17 +75,25 @@ Examples
     return '0-1:theme'
 
 
+
 Specifying the Page
 ===================
 
 To select the page of a theme, add '+page' to the theme name where
 'page' is the page's name.
 
-- Example::
+Examples::
 
     0-1:theme1+green
     2-4:theme2+red
     6-0:theme3+blue
+
+To apply a ``theme+page`` on a folder keeping the default ``theme`` in
+subfolders do the following: via the zmi add a ``lines`` property named
+``.cpsskins_theme`` to the folder and set his value to::
+
+    1-0:theme
+    theme+page
 
 
 .. Emacs
