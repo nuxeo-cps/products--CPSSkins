@@ -75,13 +75,13 @@
         tal:attributes="value order" />
         <input type="string" name="Title"
         tal:attributes="value ptype_id" />
-        <input type="submit" class="mainbutton"
-        i18n:attributes="value" 
-	tal:define="title string:_button_create_;
-	            error_msg string:Please select a portlet type;
-		    error_msgid string:_${error_msg}_"
-        tal:attributes="value python: mcat and mcat(title) or title; 
-			onClick python:test(ptype_id, '', 'return forbid_empty(this, \'%s\')' % (cps3mcat and cps3mcat(error_msgid) or mcat and mcat(error_msgid) or error_msg))" />
+        <button type="submit" class="standalone"
+        tal:define="title string:_button_create_;
+                    error_msg string:Please select a portlet type;
+                    error_msgid string:_${error_msg}_"
+        tal:content="python: mcat and mcat(title) or title"
+        i18n:translate=""
+        tal:attributes="onclick python:test(ptype_id, '', 'return forbid_empty(this, \'%s\')' % (cps3mcat and cps3mcat(error_msgid) or mcat and mcat(error_msgid) or error_msg))">Create</button>
       </form>
     </div>
   </body>
