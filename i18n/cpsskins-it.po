@@ -386,6 +386,9 @@ msgstr "Larghezza del contenitore"
 msgid "_Cellblock margin_"
 msgstr "Margine del blocco di cella"
 
+msgid "_Hidden if empty_"
+msgstr "Hidden if empty"
+
 msgid "_Collapsible Menu Style_"
 msgstr "Stili dei menù dinamici"
 

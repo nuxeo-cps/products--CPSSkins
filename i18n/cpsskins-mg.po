@@ -393,6 +393,9 @@ msgstr "Largeur de la cellule"
 msgid "_Cellblock margin_"
 msgstr ""
 
+msgid "_Hidden if empty_"
+msgstr "Hidden if empty"
+
 msgid "_Collapsible Menu Style_"
 msgstr "Style des menus extensibles"
 

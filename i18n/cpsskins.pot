@@ -1743,6 +1743,9 @@ msgstr ""
 msgid "_Cellblock margin_"
 msgstr ""
 
+msgid "_Hidden if empty_"
+msgstr ""
+
 msgid "_Add_a_portlet_"
 msgstr ""
 

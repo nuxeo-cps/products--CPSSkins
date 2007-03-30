@@ -384,6 +384,9 @@ msgstr "Cellbredd"
 msgid "_Cellblock margin_"
 msgstr "Marginal"
 
+msgid "_Hidden if empty_"
+msgstr "Hidden if empty"
+
 msgid "_Collapsible Menu Style_"
 msgstr "Dynamisk meny stil"
 

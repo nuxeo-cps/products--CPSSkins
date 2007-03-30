@@ -1,5 +1,8 @@
 # Copyright (c) 2003-2005 Chalmers University of Technology
-# Authors: Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+# (C) Copyright 2007 Nuxeo SAS <http://nuxeo.com>
+# Authors:
+# Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+# M.-A. Darche <madarche@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
