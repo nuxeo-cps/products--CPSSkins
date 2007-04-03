@@ -6,9 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Fixed #1824 : Designing a web site theme is difficult because of empty columns
-  taking space. A new "hidden_empty" property has been added to CellBlock. This
-  property is False by default to not break existing themes appearance.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

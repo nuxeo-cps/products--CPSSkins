@@ -1,4 +1,26 @@
 ===========================================================
+Package: CPSSkins 2.14.2
+===========================================================
+First release built by: div at: 2007-04-03T20:52:53
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51445
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed #1824 : Designing a web site theme is difficult because of empty columns
+  taking space. A new "hidden_empty" property has been added to CellBlock. This
+  property is False by default to not break existing themes appearance.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.14.1
 ===========================================================
 First release built by: div at: 2007-03-26T20:48:17
