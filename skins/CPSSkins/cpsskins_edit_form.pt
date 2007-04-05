@@ -102,7 +102,7 @@
 
     <form action="" class="formClose" i18n:domain="cpsskins">
       <input class="standalone" type="submit" 
-       onClick="window.opener.location.reload();window.close()"
+       onclick="window.opener.location.reload();window.close()"
        value="_button_close_" i18n:attributes="value" />
     </form>
   </div>

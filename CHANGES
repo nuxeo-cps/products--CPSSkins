@@ -8,6 +8,8 @@ Bug fixes
 ~~~~~~~~~
 - #1826 : "CPSSkins selector panels can't be closed if one doesn't want to
   select a proposed choice".
+- Fixed XHTML validity : "onClick" is not a valid attribute, one should use
+  "onclick".
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

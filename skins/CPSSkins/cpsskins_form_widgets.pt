@@ -142,12 +142,12 @@
 <metal:block define-macro="selectors">
   <tal:block condition="palette">
     <img class="colorSample" width="16" height="16" 
-     tal:attributes="onClick string:select('$palette', '$id');
+     tal:attributes="onclick string:select('$palette', '$id');
                      style string:background-color: $value;; ;
                      src string:${base_url}cpsskins_images/select_icon.png"
      tal:condition="python: palette == 'Palette Color'" />
     <img class="shapeSample" width="16" height="16"
-     tal:attributes="onClick string:select('$palette', '$id');
+     tal:attributes="onclick string:select('$palette', '$id');
                      style string:border-style: $value;; border-width: 2px;; border-color: black;; ;
                      src string:${base_url}cpsskins_images/select_icon.png"
      tal:condition="python: palette == 'Palette Border'" />
@@ -169,7 +169,7 @@
   <tal:block condition="slot"
    define="slot_cat string:slots">
     <img class="slotSample" width="16" height="16"
-     tal:attributes="onClick string:select('$slot_cat', '$id');
+     tal:attributes="onclick string:select('$slot_cat', '$id');
                      style string:background-color: $value;; ;
                      src string:${base_url}cpsskins_images/select_icon.png" />
     <div class="panelFrame"
@@ -188,7 +188,7 @@
 
    <tal:block condition="image">
     <img alt="select image" width="16" height="16"
-     tal:attributes="onClick string:select('$image', '$id');
+     tal:attributes="onclick string:select('$image', '$id');
                      src string:${base_url}cpsskins_images/select_icon.png" />
     <div class="panelFrame"
      tal:define="image_cat image"
@@ -208,7 +208,7 @@
   <tal:block condition="python: style in style_meta_types">
     <img i18n:attributes="title" alt="select" width="16" height="16"
      tal:define="title string:_Select a style_"
-     tal:attributes="onClick string:select('$style', '$id');
+     tal:attributes="onclick string:select('$style', '$id');
                      src string:${base_url}cpsskins_images/select_icon.png;
                      title python: mcat and mcat(title) or title" />
       <a i18n:attributes="title" i18n:domain="cpsskins"
