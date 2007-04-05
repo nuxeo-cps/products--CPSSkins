@@ -155,6 +155,11 @@
      tal:define="palette_cat palette"
      tal:condition="python: palette_cat not in select_panels"
      tal:attributes="id palette_cat">
+      <div class="closeButton">
+      <img alt="Close" width="16" height="16"
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png;
+                       onclick string:toggle('$palette');"/>
+      </div>
       <tal:block define="dummy python: select_panels.append(palette_cat)">
         <metal:block use-macro="here/cpsskins_select_lib/macros/palettes" />
       </tal:block>
@@ -170,6 +175,11 @@
     <div class="panelFrame"
      tal:condition="python: slot_cat not in select_panels"
      tal:attributes="id slot_cat">
+      <div class="closeButton">
+      <img alt="Close" width="16" height="16"
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png;
+                       onclick string:toggle('$slot_cat');"/>
+      </div>
       <tal:block define="dummy python: select_panels.append(slot_cat)">
         <metal:block use-macro="here/cpsskins_select_lib/macros/slots" />
       </tal:block>
@@ -184,6 +194,11 @@
      tal:define="image_cat image"
      tal:condition="python: image_cat not in select_panels"
      tal:attributes="id image_cat">
+      <div class="closeButton">
+      <img alt="Close" width="16" height="16"
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png;
+                       onclick string:toggle('$image');"/>
+      </div>
       <tal:block define="dummy python: select_panels.append(image_cat)">
         <metal:block use-macro="here/cpsskins_select_lib/macros/images" />
       </tal:block>
@@ -207,6 +222,11 @@
      tal:define="style_cat style"
      tal:condition="python: style_cat not in select_panels"
      tal:attributes="id style_cat">
+      <div class="closeButton">
+      <img alt="Close" width="16" height="16"
+       tal:attributes="src string:${base_url}cpsskins_images/button_close.png;
+                       onclick string:toggle('$style');"/>
+      </div>
       <tal:block define="dummy python: select_panels.append(style_cat)">
         <metal:block use-macro="here/cpsskins_select_lib/macros/styles" />
       </tal:block>

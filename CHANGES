@@ -6,7 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #1826 : "CPSSkins selector panels can't be closed if one doesn't want to
+  select a proposed choice".
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
