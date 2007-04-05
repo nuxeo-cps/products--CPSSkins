@@ -60,7 +60,7 @@
                 tal:content="value">content</textarea>
               </tal:block>
               <input tal:condition="python: ftype == 'text'"
-              type="type" name="name" value="value"
+              type="type" name="name" value="value" size="46"
               tal:attributes="type ftype; name id; value value" />
               <input tal:condition="python: ftype == 'checkbox'"
               type="type" name="name" checked="checked"
