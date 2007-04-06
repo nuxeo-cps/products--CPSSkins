@@ -1,4 +1,30 @@
 ===========================================================
+Package: CPSSkins 2.14.3
+===========================================================
+First release built by: madarche at: 2007-04-06T17:23:41
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.3
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51468
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #1826 : "CPSSkins selector panels can't be closed if one doesn't want to
+  select a proposed choice".
+- Setting the text inputs size to a bigger size than their actual display size
+  so that they are more usable especially when setting font definitions which
+  are very long.
+- Fixed XHTML validity : "onClick" is not a valid attribute, one should use
+  "onclick".
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.14.2
 ===========================================================
 First release built by: div at: 2007-04-03T20:52:53
