@@ -1,0 +1,2060 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CPSSkins 2.0\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2004-07-22 12:00+0100\n"
+"Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
+"Language-Team: Jean-Marc Orliaguet, Jean-François Romanowski <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: latin9 utf-8\n"
+"Domain: cpsskins\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch\n"
+
+msgid "_(default style)_"
+msgstr ""
+
+msgid "_A active_"
+msgstr ""
+
+msgid "_A hover_"
+msgstr ""
+
+msgid "_A link_"
+msgstr ""
+
+msgid "_A visited_"
+msgstr ""
+
+msgid "_A_active_bg_color_"
+msgstr ""
+
+msgid "_A_active_border_color_"
+msgstr ""
+
+msgid "_A_active_border_style_"
+msgstr ""
+
+msgid "_A_active_border_width_"
+msgstr ""
+
+msgid "_A_active_decoration_"
+msgstr ""
+
+msgid "_A_hover_bg_color_"
+msgstr ""
+
+msgid "_A_hover_border_color_"
+msgstr ""
+
+msgid "_A_hover_border_style_"
+msgstr ""
+
+msgid "_A_hover_border_width_"
+msgstr ""
+
+msgid "_A_hover_decoration_"
+msgstr ""
+
+msgid "_A_link_bg_color_"
+msgstr ""
+
+msgid "_A_link_border_color_"
+msgstr ""
+
+msgid "_A_link_border_style_"
+msgstr ""
+
+msgid "_A_link_border_width_"
+msgstr ""
+
+msgid "_A_link_decoration_"
+msgstr ""
+
+msgid "_A_visited_bg_color_"
+msgstr ""
+
+msgid "_A_visited_border_color_"
+msgstr ""
+
+msgid "_A_visited_border_style_"
+msgstr ""
+
+msgid "_A_visited_border_width_"
+msgstr ""
+
+msgid "_A_visited_decoration_"
+msgstr ""
+
+msgid "_Action Box Templet_"
+msgstr ""
+
+msgid "_Action box_"
+msgstr ""
+
+msgid "_Action categories_"
+msgstr ""
+
+msgid "_Add a column_"
+msgstr ""
+
+msgid "_Add a theme_"
+msgstr ""
+
+msgid "_Add an image_"
+msgstr ""
+
+msgid "_Add content_"
+msgstr ""
+
+msgid "_Add_a_new_Templet_"
+msgstr ""
+
+msgid "_Add_a_new_palette_entry_"
+msgstr ""
+
+msgid "_Add_a_new_style_"
+msgstr ""
+
+msgid "_Add_a_portlet_"
+msgstr ""
+
+msgid "_Align_"
+msgstr ""
+
+msgid "_Appearance_"
+msgstr ""
+
+msgid "_April_"
+msgstr ""
+
+msgid "_Area Color_"
+msgstr ""
+
+msgid "_Area Shape_"
+msgstr ""
+
+msgid "_Area active background color_"
+msgstr ""
+
+msgid "_Area active border color_"
+msgstr ""
+
+msgid "_Area background color_"
+msgstr ""
+
+msgid "_Area background image_"
+msgstr ""
+
+msgid "_Area background position_"
+msgstr ""
+
+msgid "_Area background repeat_"
+msgstr ""
+
+msgid "_Area border color_"
+msgstr ""
+
+msgid "_Area border style_"
+msgstr ""
+
+msgid "_Area border width_"
+msgstr ""
+
+msgid "_Area color_"
+msgstr ""
+
+msgid "_Area font color_"
+msgstr ""
+
+msgid "_Area padding_"
+msgstr ""
+
+msgid "_Area shape_"
+msgstr ""
+
+msgid "_Area text transform_"
+msgstr ""
+
+msgid "_August_"
+msgstr ""
+
+msgid "_Author_"
+msgstr ""
+
+msgid "_Background color_"
+msgstr ""
+
+msgid "_Background image_"
+msgstr ""
+
+msgid "_Background position_"
+msgstr ""
+
+msgid "_Background repeat_"
+msgstr ""
+
+msgid "_Base path_"
+msgstr ""
+
+msgid "_Border style_"
+msgstr ""
+
+msgid "_Bottom border color_"
+msgstr ""
+
+msgid "_Bottom left image_"
+msgstr ""
+
+msgid "_Bottom right image_"
+msgstr ""
+
+msgid "_Box Corners_"
+msgstr ""
+
+msgid "_Box color_"
+msgstr ""
+
+msgid "_Box corners_"
+msgstr ""
+
+msgid "_Box layout_"
+msgstr ""
+
+msgid "_Box orientation_"
+msgstr ""
+
+msgid "_Box shape_"
+msgstr ""
+
+msgid "_BoxBody background color_"
+msgstr ""
+
+msgid "_BoxBody background image_"
+msgstr ""
+
+msgid "_BoxBody border color_"
+msgstr ""
+
+msgid "_BoxBody border style_"
+msgstr ""
+
+msgid "_BoxBody border width_"
+msgstr ""
+
+msgid "_BoxBody menuin border color_"
+msgstr ""
+
+msgid "_BoxBody menuin border style_"
+msgstr ""
+
+msgid "_BoxBody menuin border width_"
+msgstr ""
+
+msgid "_BoxBody menuin color_"
+msgstr ""
+
+msgid "_BoxBody menuin icon_"
+msgstr ""
+
+msgid "_BoxBody menuin margin_"
+msgstr ""
+
+msgid "_BoxBody menuin padding_"
+msgstr ""
+
+msgid "_BoxBody menuout border color_"
+msgstr ""
+
+msgid "_BoxBody menuout border style_"
+msgstr ""
+
+msgid "_BoxBody menuout border width_"
+msgstr ""
+
+msgid "_BoxBody menuout color_"
+msgstr ""
+
+msgid "_BoxBody menuout icon_"
+msgstr ""
+
+msgid "_BoxBody menuout margin_"
+msgstr ""
+
+msgid "_BoxBody menuout padding_"
+msgstr ""
+
+msgid "_BoxBody padding_"
+msgstr ""
+
+msgid "_BoxBody text align_"
+msgstr ""
+
+msgid "_BoxTitle background color_"
+msgstr ""
+
+msgid "_BoxTitle background image_"
+msgstr ""
+
+msgid "_BoxTitle border color_"
+msgstr ""
+
+msgid "_BoxTitle border style_"
+msgstr ""
+
+msgid "_BoxTitle border width_"
+msgstr ""
+
+msgid "_BoxTitle display_"
+msgstr ""
+
+msgid "_BoxTitle font color_"
+msgstr ""
+
+msgid "_BoxTitle font_"
+msgstr ""
+
+msgid "_BoxTitle padding_"
+msgstr ""
+
+msgid "_BoxTitle text align_"
+msgstr ""
+
+msgid "_Breadcrumbs Templet_"
+msgstr ""
+
+msgid "_Breadcrumbs_"
+msgstr ""
+
+msgid "_Broken Templet!_"
+msgstr ""
+
+msgid "_Buttons_"
+msgstr ""
+
+msgid "_Cache effectivity_"
+msgstr ""
+
+msgid "_Cache lifetime_"
+msgstr ""
+
+msgid "_Cache manager_"
+msgstr ""
+
+msgid "_Cache parameters updated_"
+msgstr ""
+
+msgid "_Cacheable in RAM_"
+msgstr ""
+
+msgid "_Cacheable?_"
+msgstr ""
+
+msgid "_Caching_"
+msgstr ""
+
+msgid "_Calendar Style_"
+msgstr ""
+
+msgid "_Calendar Templet_"
+msgstr ""
+
+msgid "_Calendar_"
+msgstr ""
+
+msgid "_Cell Block_"
+msgstr ""
+
+msgid "_Cell Hider_"
+msgstr ""
+
+msgid "_Cell Sizer_"
+msgstr ""
+
+msgid "_Cell Styler_"
+msgstr ""
+
+msgid "_Cell width_"
+msgstr ""
+
+msgid "_Cellblock margin_"
+msgstr ""
+
+msgid "_Hidden if empty_"
+msgstr ""
+
+msgid "_Collapsible Menu Style_"
+msgstr ""
+
+msgid "_Collapsible Menu Templet_"
+msgstr ""
+
+msgid "_Collapsible menu_"
+msgstr ""
+
+msgid "_Color_"
+msgstr ""
+
+msgid "_Columns_"
+msgstr ""
+
+msgid "_Content_"
+msgstr ""
+
+msgid "_Copy_"
+msgstr ""
+
+msgid "_Copyright_"
+msgstr ""
+
+msgid "_Create a copy_"
+msgstr ""
+
+msgid "_Created by:_"
+msgstr ""
+
+msgid "_Creator_"
+msgstr ""
+
+msgid "_Custom action categories_"
+msgstr ""
+
+msgid "_Cut_"
+msgstr ""
+
+msgid "_Days background color_"
+msgstr ""
+
+msgid "_Days font color_"
+msgstr ""
+
+msgid "_December_"
+msgstr ""
+
+msgid "_Default page_"
+msgstr ""
+
+msgid "_Default theme_"
+msgstr ""
+
+msgid "_Default_font_"
+msgstr ""
+
+msgid "_Delete Templet?_"
+msgstr ""
+
+msgid "_Delete style?_"
+msgstr ""
+
+msgid "_Delete theme?_"
+msgstr ""
+
+msgid "_Delete_"
+msgstr ""
+
+msgid "_Deleting this image, are you sure?_"
+msgstr ""
+
+msgid "_Deleting this palette entry, are you sure?_"
+msgstr ""
+
+msgid "_Deleting this style, are you sure?_"
+msgstr ""
+
+msgid "_Depth level_"
+msgstr ""
+
+msgid "_Description_"
+msgstr ""
+
+msgid "_Destination_slot_"
+msgstr ""
+
+msgid "_Display a contextual icon_"
+msgstr ""
+
+msgid "_Display hidden folders_"
+msgstr ""
+
+msgid "_Display title in text mode_"
+msgstr ""
+
+msgid "_Document Info Templet_"
+msgstr ""
+
+msgid "_Document info_"
+msgstr ""
+
+msgid "_ESI fragment_"
+msgstr ""
+
+msgid "_ESI_"
+msgstr ""
+
+msgid "_Edit images_"
+msgstr ""
+
+msgid "_Edit palettes_"
+msgstr ""
+
+msgid "_Edit styles_"
+msgstr ""
+
+msgid "_Edit the current style_"
+msgstr ""
+
+msgid "_Edit the page_"
+msgstr ""
+
+msgid "_Edit the theme_"
+msgstr ""
+
+msgid "_Edit this page block_"
+msgstr ""
+
+msgid "_Edit_"
+msgstr ""
+
+msgid "_Elements_"
+msgstr ""
+
+msgid "_Enable ESI_"
+msgstr ""
+
+msgid "_End string_"
+msgstr ""
+
+msgid "_Event background color_"
+msgstr ""
+
+msgid "_Event border color_"
+msgstr ""
+
+msgid "_Event font color_"
+msgstr ""
+
+msgid "_Exit_"
+msgstr ""
+
+msgid "_February_"
+msgstr ""
+
+msgid "_Flash Box Templet_"
+msgstr ""
+
+msgid "_Flash box_"
+msgstr ""
+
+msgid "_Flash caption_"
+msgstr ""
+
+msgid "_Flash movie height_"
+msgstr ""
+
+msgid "_Flash movie width_"
+msgstr ""
+
+msgid "_Font Color_"
+msgstr ""
+
+msgid "_Font Shape_"
+msgstr ""
+
+msgid "_Font color_"
+msgstr ""
+
+msgid "_Font shape_"
+msgstr ""
+
+msgid "_Forgot your password?_"
+msgstr ""
+
+msgid "_Form Style_"
+msgstr ""
+
+msgid "_Form padding_"
+msgstr ""
+
+msgid "_Form style_"
+msgstr ""
+
+msgid "_Form_"
+msgstr ""
+
+msgid "_Fr_"
+msgstr ""
+
+msgid "_Guest_"
+msgstr ""
+
+msgid "_H1_"
+msgstr ""
+
+msgid "_H1_bg_color_"
+msgstr ""
+
+msgid "_H1_border_color_"
+msgstr ""
+
+msgid "_H1_border_style_"
+msgstr ""
+
+msgid "_H1_border_width_"
+msgstr ""
+
+msgid "_H1_font_"
+msgstr ""
+
+msgid "_H1_font_color_"
+msgstr ""
+
+msgid "_H1_margin_"
+msgstr ""
+
+msgid "_H1_padding_"
+msgstr ""
+
+msgid "_H2_"
+msgstr ""
+
+msgid "_H2_bg_color_"
+msgstr ""
+
+msgid "_H2_border_color_"
+msgstr ""
+
+msgid "_H2_border_style_"
+msgstr ""
+
+msgid "_H2_border_width_"
+msgstr ""
+
+msgid "_H2_font_"
+msgstr ""
+
+msgid "_H2_font_color_"
+msgstr ""
+
+msgid "_H2_margin_"
+msgstr ""
+
+msgid "_H2_padding_"
+msgstr ""
+
+msgid "_H3_"
+msgstr ""
+
+msgid "_H3_bg_color_"
+msgstr ""
+
+msgid "_H3_border_color_"
+msgstr ""
+
+msgid "_H3_border_style_"
+msgstr ""
+
+msgid "_H3_border_width_"
+msgstr ""
+
+msgid "_H3_font_"
+msgstr ""
+
+msgid "_H3_font_color_"
+msgstr ""
+
+msgid "_H3_margin_"
+msgstr ""
+
+msgid "_H3_padding_"
+msgstr ""
+
+msgid "_H456_"
+msgstr ""
+
+msgid "_H456_bg_color_"
+msgstr ""
+
+msgid "_H456_border_color_"
+msgstr ""
+
+msgid "_H456_border_style_"
+msgstr ""
+
+msgid "_H456_border_width_"
+msgstr ""
+
+msgid "_H456_font_"
+msgstr ""
+
+msgid "_H456_font_color_"
+msgstr ""
+
+msgid "_H456_margin_"
+msgstr ""
+
+msgid "_H456_padding_"
+msgstr ""
+
+msgid "_Header background color_"
+msgstr ""
+
+msgid "_Header font color_"
+msgstr ""
+
+msgid "_Height_"
+msgstr ""
+
+msgid "_Hidden in text mode_"
+msgstr ""
+
+msgid "_Hide current language_"
+msgstr ""
+
+msgid "_Hide this cell_"
+msgstr ""
+
+msgid "_Hide title_"
+msgstr ""
+
+msgid "_Hide_overriden_portlets_"
+msgstr ""
+
+msgid "_Hierarchy base_"
+msgstr ""
+
+msgid "_Horizontal alignment_"
+msgstr ""
+
+msgid "_Horizontal margin_"
+msgstr ""
+
+msgid "_Horizontal padding_"
+msgstr ""
+
+msgid "_Hover background color_"
+msgstr ""
+
+msgid "_Hover background image_"
+msgstr ""
+
+msgid "_Icon size_"
+msgstr ""
+
+msgid "_Image Box Templet_"
+msgstr ""
+
+msgid "_Image box_"
+msgstr ""
+
+msgid "_Image caption_"
+msgstr ""
+
+msgid "_Images_"
+msgstr ""
+
+msgid "_Import a theme_"
+msgstr ""
+
+msgid "_Info text_"
+msgstr ""
+
+msgid "_Insert a Templet here_"
+msgstr ""
+
+msgid "_Insert a page block_"
+msgstr ""
+
+msgid "_Internal link_"
+msgstr ""
+
+msgid "_Invisible actions_"
+msgstr ""
+
+msgid "_January_"
+msgstr ""
+
+msgid "_July_"
+msgstr ""
+
+msgid "_June_"
+msgstr ""
+
+msgid "_KB_"
+msgstr ""
+
+msgid "_Language Templet_"
+msgstr ""
+
+msgid "_Language selector_"
+msgstr ""
+
+msgid "_Last modified:_"
+msgstr ""
+
+msgid "_Left-side image_"
+msgstr ""
+
+msgid "_License_"
+msgstr ""
+
+msgid "_Link (http://, mailto: ...)_"
+msgstr ""
+
+msgid "_List orientation_"
+msgstr ""
+
+msgid "_Location_"
+msgstr ""
+
+msgid "_Log in_"
+msgstr ""
+
+msgid "_Macroless_"
+msgstr ""
+
+msgid "_Main Content Templet_"
+msgstr ""
+
+msgid "_Main content_"
+msgstr ""
+
+msgid "_Manage_"
+msgstr ""
+
+msgid "_March_"
+msgstr ""
+
+msgid "_Margin_"
+msgstr ""
+
+msgid "_Maximum number of items_"
+msgstr ""
+
+msgid "_May_"
+msgstr ""
+
+msgid "_Memory usage_"
+msgstr ""
+
+# keep it short
+msgid "_Menu entry_"
+msgstr ""
+
+# keep it short
+msgid "_Menu title_"
+msgstr ""
+
+msgid "_Merge this style?_"
+msgstr ""
+
+msgid "_Minimize / Maximize_"
+msgstr ""
+
+msgid "_Mo_"
+msgstr ""
+
+msgid "_Month_"
+msgstr ""
+
+msgid "_More ..._"
+msgstr ""
+
+msgid "_Move down_"
+msgstr ""
+
+msgid "_Move left_"
+msgstr ""
+
+msgid "_Move right_"
+msgstr ""
+
+msgid "_Move this cell to the left_"
+msgstr ""
+
+msgid "_Move this cell to the right_"
+msgstr ""
+
+msgid "_Move up_"
+msgstr ""
+
+msgid "_No items published since your last log-in_"
+msgstr ""
+
+msgid "_No preview_"
+msgstr ""
+
+msgid "_Not available in layout mode_"
+msgstr ""
+
+msgid "_November_"
+msgstr ""
+
+msgid "_Number of columns_"
+msgstr ""
+
+msgid "_October_"
+msgstr ""
+
+msgid "_Only select items that are supposed to get translated:_"
+msgstr ""
+
+msgid "_Other categories_"
+msgstr ""
+
+msgid "_Other images_"
+msgstr ""
+
+msgid "_Other palettes_"
+msgstr ""
+
+msgid "_Other portlets_"
+msgstr ""
+
+msgid "_Other styles_"
+msgstr ""
+
+msgid "_Other themes_"
+msgstr ""
+
+msgid "_P_font_"
+msgstr ""
+
+msgid "_P_padding_"
+msgstr ""
+
+msgid "_Padding_"
+msgstr ""
+
+msgid "_Page Block_"
+msgstr ""
+
+msgid "_Page renderer_"
+msgstr ""
+
+msgid "_Palette Border_"
+msgstr ""
+
+msgid "_Palette Color_"
+msgstr ""
+
+msgid "_Palettes_"
+msgstr ""
+
+msgid "_Password_"
+msgstr ""
+
+msgid "_Paste_"
+msgstr ""
+
+msgid "_Please select a portlet type_"
+msgstr ""
+
+msgid "_Portal Box Color_"
+msgstr ""
+
+msgid "_Portal Box Group Templet_"
+msgstr ""
+
+msgid "_Portal Box Shape_"
+msgstr ""
+
+msgid "_Portal Box Templet_"
+msgstr ""
+
+msgid "_Portal Tab Style_"
+msgstr ""
+
+msgid "_Portal Tab Templet_"
+msgstr ""
+
+msgid "_Portal Tab_"
+msgstr ""
+
+msgid "_Portal Theme_"
+msgstr ""
+
+msgid "_Portal box color_"
+msgstr ""
+
+msgid "_Portal box content_"
+msgstr ""
+
+msgid "_Portal box group_"
+msgstr ""
+
+msgid "_Portal box shape_"
+msgstr ""
+
+msgid "_Portal box title source_"
+msgstr ""
+
+msgid "_Portal box_"
+msgstr ""
+
+msgid "_Portlet Box Templet_"
+msgstr ""
+
+msgid "_Portlet editor_"
+msgstr ""
+
+msgid "_Portlet type_"
+msgstr ""
+
+msgid "_Portlet_"
+msgstr ""
+
+msgid "_Preview background color_"
+msgstr ""
+
+msgid "_Preview border color_"
+msgstr ""
+
+msgid "_Preview font color_"
+msgstr ""
+
+msgid "_Preview_"
+msgstr ""
+
+msgid "_Read more_"
+msgstr ""
+
+msgid "_Remove a column_"
+msgstr ""
+
+msgid "_Repeat string_"
+msgstr ""
+
+msgid "_Reveal_overriden_portlets_"
+msgstr ""
+
+msgid "_Right-side image_"
+msgstr ""
+
+msgid "_SMALL_font_"
+msgstr ""
+
+msgid "_STRONG_font_"
+msgstr ""
+
+msgid "_Sa_"
+msgstr ""
+
+msgid "_Search Box Templet_"
+msgstr ""
+
+msgid "_Search box_"
+msgstr ""
+
+msgid "_See the error log_"
+msgstr ""
+
+msgid "_Select a style_"
+msgstr ""
+
+msgid "_Select a theme to manage_"
+msgstr ""
+
+msgid "_Selectable themes_"
+msgstr ""
+
+msgid "_September_"
+msgstr ""
+
+msgid "_Set the size of this cell_"
+msgstr ""
+
+msgid "_Shape_"
+msgstr ""
+
+msgid "_Shortcut icon_"
+msgstr ""
+
+msgid "_Show action icons_"
+msgstr ""
+
+msgid "_Show add items_"
+msgstr ""
+
+msgid "_Show all categories_"
+msgstr ""
+
+msgid "_Show documents in folders_"
+msgstr ""
+
+msgid "_Show month_"
+msgstr ""
+
+msgid "_Show preview_"
+msgstr ""
+
+msgid "_Show weekdays_"
+msgstr ""
+
+msgid "_Show year_"
+msgstr ""
+
+msgid "_Simulate this URL ..._"
+msgstr ""
+
+msgid "_Slot name_"
+msgstr ""
+
+msgid "_Some items can be pasted here_"
+msgstr ""
+
+msgid "_Start string_"
+msgstr ""
+
+msgid "_Style_"
+msgstr ""
+
+msgid "_Styles_"
+msgstr ""
+
+msgid "_Stylize this cell_"
+msgstr ""
+
+msgid "_Su_"
+msgstr ""
+
+msgid "_Sub-menu background color_"
+msgstr ""
+
+msgid "_Sub-menu border color_"
+msgstr ""
+
+msgid "_Sub-menu border style_"
+msgstr ""
+
+msgid "_Sub-menu font color_"
+msgstr ""
+
+msgid "_Sub-menu font_"
+msgstr ""
+
+msgid "_Sub-menu hover background color_"
+msgstr ""
+
+msgid "_Sub-menu hover font color_"
+msgstr ""
+
+msgid "_Sub-menu items width_"
+msgstr ""
+
+msgid "_Tab style_"
+msgstr ""
+
+msgid "_Tab width_"
+msgstr ""
+
+msgid "_Tableless_"
+msgstr ""
+
+msgid "_Templet color_"
+msgstr ""
+
+msgid "_Templet height_"
+msgstr ""
+
+msgid "_Templet margin_"
+msgstr ""
+
+msgid "_Templet padding_"
+msgstr ""
+
+msgid "_Templet shape_"
+msgstr ""
+
+msgid "_Templets_"
+msgstr ""
+
+msgid "_Text Box Templet_"
+msgstr ""
+
+msgid "_Text box_"
+msgstr ""
+
+msgid "_Text format_"
+msgstr ""
+
+msgid "_Th_"
+msgstr ""
+
+msgid "_The benchmark timer is not installed_"
+msgstr ""
+
+msgid "_The languages in which it is visible_"
+msgstr ""
+
+msgid "_The visibility paths_"
+msgstr ""
+
+msgid "_Theme Chooser Templet_"
+msgstr ""
+
+msgid "_Theme Page_"
+msgstr ""
+
+msgid "_Theme chooser_"
+msgstr ""
+
+msgid "_Theme editor_"
+msgstr ""
+
+msgid "_Theme export_"
+msgstr ""
+
+msgid "_Theme name_"
+msgstr ""
+
+msgid "_Theme optimizer_"
+msgstr ""
+
+msgid "_Theme renderer_"
+msgstr ""
+
+msgid "_Theme_"
+msgstr ""
+
+msgid "_Theme_rebuilt_"
+msgstr ""
+
+msgid "_Themes manager_"
+msgstr ""
+
+msgid "_These Templets are invisible and can be deleted:_"
+msgstr ""
+
+msgid "_These Templets could be cached in memory for faster rendering:_"
+msgstr ""
+
+msgid "_These styles are identical and can be merged together:_"
+msgstr ""
+
+msgid "_These styles are not used and can be deleted:_"
+msgstr ""
+
+msgid "_This style is already used by_"
+msgstr ""
+
+msgid "_This style will be used by default_"
+msgstr ""
+
+msgid "_This theme is completely optimized_"
+msgstr ""
+
+msgid "_Title_"
+msgstr ""
+
+msgid "_Today border color_"
+msgstr ""
+
+msgid "_Top left image_"
+msgstr ""
+
+msgid "_Top menu background color_"
+msgstr ""
+
+msgid "_Top menu border color_"
+msgstr ""
+
+msgid "_Top menu border style_"
+msgstr ""
+
+msgid "_Top menu font color_"
+msgstr ""
+
+msgid "_Top menu font_"
+msgstr ""
+
+msgid "_Top menu hover background color_"
+msgstr ""
+
+msgid "_Top menu hover font color_"
+msgstr ""
+
+msgid "_Top menu items width_"
+msgstr ""
+
+msgid "_Top right image_"
+msgstr ""
+
+msgid "_Translate folder items_"
+msgstr ""
+
+msgid "_Translate the box title_"
+msgstr ""
+
+msgid "_Translate the breadcrumbs_"
+msgstr ""
+
+msgid "_Translate the image_"
+msgstr ""
+
+msgid "_Translate the text_"
+msgstr ""
+
+msgid "_Translations_"
+msgstr ""
+
+msgid "_Tu_"
+msgstr ""
+
+msgid "_Use internal link?_"
+msgstr ""
+
+msgid "_Use the cache?_"
+msgstr ""
+
+msgid "_Use this as the default style_"
+msgstr ""
+
+msgid "_Username_"
+msgstr ""
+
+msgid "_Value_"
+msgstr ""
+
+msgid "_Vertical padding_"
+msgstr ""
+
+msgid "_Visibility criteria_"
+msgstr ""
+
+msgid "_We_"
+msgstr ""
+
+msgid "_Weekdays background color_"
+msgstr ""
+
+msgid "_Weekdays border color_"
+msgstr ""
+
+msgid "_Weekdays font color_"
+msgstr ""
+
+msgid "_Width_"
+msgstr ""
+
+msgid "_XML export_"
+msgstr ""
+
+msgid "_XML format_"
+msgstr ""
+
+msgid "_Year_"
+msgstr ""
+
+msgid "_You can drop a Portlet into this area_"
+msgstr ""
+
+msgid "_You can drop a Templet into this area_"
+msgstr ""
+
+msgid "_Your text_"
+msgstr ""
+
+msgid "_ZMI_"
+msgstr ""
+
+msgid "_about_"
+msgstr ""
+
+msgid "_actionbox_templet_description_"
+msgstr ""
+
+msgid "_actions_"
+msgstr ""
+
+msgid "_areacolor_description_"
+msgstr ""
+
+msgid "_areashape_description_"
+msgstr ""
+
+msgid "_back_"
+msgstr ""
+
+msgid "_backgrounds_"
+msgstr ""
+
+msgid "_box body_"
+msgstr ""
+
+msgid "_box title_"
+msgstr ""
+
+msgid "_boxcolor_"
+msgstr ""
+
+msgid "_boxcolor_description_"
+msgstr ""
+
+msgid "_boxcorners_description_"
+msgstr ""
+
+msgid "_boxshape_"
+msgstr ""
+
+msgid "_boxshape_description_"
+msgstr ""
+
+msgid "_breadcrumbs_templet_description_"
+msgstr ""
+
+msgid "_button_cache_manager_"
+msgstr ""
+
+msgid "_button_clear_the_cache_"
+msgstr ""
+
+msgid "_button_close_"
+msgstr ""
+
+msgid "_button_create_"
+msgstr ""
+
+msgid "_button_delete_"
+msgstr ""
+
+msgid "_button_export_theme_"
+msgstr ""
+
+msgid "_button_fullscreen_"
+msgstr ""
+
+msgid "_button_import_theme_"
+msgstr ""
+
+msgid "_button_import_themes_"
+msgstr ""
+
+msgid "_button_local_roles_"
+msgstr ""
+
+msgid "_button_modify_"
+msgstr ""
+
+msgid "_button_normal_mode_"
+msgstr ""
+
+msgid "_button_optimize_theme_"
+msgstr ""
+
+msgid "_button_rebuild_theme_"
+msgstr ""
+
+msgid "_button_set_theme_as_default_"
+msgstr ""
+
+msgid "_button_upload_flashfile_"
+msgstr ""
+
+msgid "_button_upload_image_"
+msgstr ""
+
+msgid "_calendar_style_"
+msgstr ""
+
+msgid "_calendar_templet_description_"
+msgstr ""
+
+msgid "_calendarstyle_description_"
+msgstr ""
+
+msgid "_cellblock_description_"
+msgstr ""
+
+msgid "_cellhider_description_"
+msgstr ""
+
+msgid "_cellsizer_description_"
+msgstr ""
+
+msgid "_cellstyler_description_"
+msgstr ""
+
+msgid "_clipboard_"
+msgstr ""
+
+msgid "_collapsiblemenu_style_"
+msgstr ""
+
+msgid "_collapsiblemenu_templet_description_"
+msgstr ""
+
+msgid "_collapsiblemenustyle_description_"
+msgstr ""
+
+msgid "_color_"
+msgstr ""
+
+msgid "_colors_"
+msgstr ""
+
+msgid "_confirm delete_"
+msgstr ""
+
+msgid "_days_"
+msgstr ""
+
+msgid "_default tab_"
+msgstr ""
+
+msgid "_dimensions_"
+msgstr ""
+
+msgid "_documentinfo_templet_description_"
+msgstr ""
+
+msgid "_edit online_"
+msgstr ""
+
+msgid "_enter_new_id_"
+msgstr ""
+
+msgid "_flashbox_templet_description_"
+msgstr ""
+
+msgid "_folders_"
+msgstr ""
+
+msgid "_fontcolor_"
+msgstr ""
+
+msgid "_fontcolor_description_"
+msgstr ""
+
+msgid "_fontshape_"
+msgstr ""
+
+msgid "_fontshape_description_"
+msgstr ""
+
+msgid "_formstyle_description_"
+msgstr ""
+
+msgid "_general_"
+msgstr ""
+
+msgid "_header_"
+msgstr ""
+
+msgid "_icons_"
+msgstr ""
+
+msgid "_imagebox_templet_description_"
+msgstr ""
+
+msgid "_info_"
+msgstr ""
+
+msgid "_language_templet_description_"
+msgstr ""
+
+msgid "_layout mode_"
+msgstr ""
+
+msgid "_layout_"
+msgstr ""
+
+msgid "_link_"
+msgstr ""
+
+msgid "_maincontent_templet_description_"
+msgstr ""
+
+msgid "_menu item_"
+msgstr ""
+
+msgid "_menu_Align center_"
+msgstr ""
+
+msgid "_menu_Align justify_"
+msgstr ""
+
+msgid "_menu_Align left_"
+msgstr ""
+
+msgid "_menu_Align right_"
+msgstr ""
+
+msgid "_menu_Area Color_"
+msgstr ""
+
+msgid "_menu_Area Shape_"
+msgstr ""
+
+msgid "_menu_Box Corners_"
+msgstr ""
+
+msgid "_menu_Calendar Style_"
+msgstr ""
+
+msgid "_menu_Collapsible Menu Style_"
+msgstr ""
+
+msgid "_menu_Copy_"
+msgstr ""
+
+msgid "_menu_Delete_"
+msgstr ""
+
+msgid "_menu_Duplicate_"
+msgstr ""
+
+msgid "_menu_Edit styles_"
+msgstr ""
+
+msgid "_menu_Edit_"
+msgstr ""
+
+msgid "_menu_Font Color_"
+msgstr ""
+
+msgid "_menu_Font Shape_"
+msgstr ""
+
+msgid "_menu_Form Style_"
+msgstr ""
+
+msgid "_menu_Insert_"
+msgstr ""
+
+msgid "_menu_Manage_"
+msgstr ""
+
+msgid "_menu_Paste_"
+msgstr ""
+
+msgid "_menu_Portal Box Color_"
+msgstr ""
+
+msgid "_menu_Portal Box Shape_"
+msgstr ""
+
+msgid "_menu_Portal Tab Style_"
+msgstr ""
+
+msgid "_menu_Set alignment_"
+msgstr ""
+
+msgid "_menu_Set layout_"
+msgstr ""
+
+msgid "_menu_Set styles_"
+msgstr ""
+
+msgid "_menu_Set_as_default_"
+msgstr ""
+
+msgid "_mixed mode_"
+msgstr ""
+
+msgid "_option_Folder title_"
+msgstr ""
+
+msgid "_option_Templet title_"
+msgstr ""
+
+msgid "_option_Username_"
+msgstr ""
+
+msgid "_option_Workflow state_"
+msgstr ""
+
+msgid "_option_about_"
+msgstr ""
+
+msgid "_option_actions_"
+msgstr ""
+
+msgid "_option_always_"
+msgstr ""
+
+msgid "_option_automatic_"
+msgstr ""
+
+msgid "_option_bg_no-repeat_"
+msgstr ""
+
+msgid "_option_bg_repeat-x_"
+msgstr ""
+
+msgid "_option_bg_repeat-y_"
+msgstr ""
+
+msgid "_option_bg_repeat_"
+msgstr ""
+
+msgid "_option_block_"
+msgstr ""
+
+msgid "_option_center_"
+msgstr ""
+
+msgid "_option_compatible_"
+msgstr ""
+
+msgid "_option_debug_"
+msgstr ""
+
+msgid "_option_default_"
+msgstr ""
+
+msgid "_option_docinfo_created_by_"
+msgstr ""
+
+msgid "_option_docinfo_last_modified_"
+msgstr ""
+
+msgid "_option_docinfo_title_"
+msgstr ""
+
+msgid "_option_drawer_"
+msgstr ""
+
+msgid "_option_drawer_notitle_"
+msgstr ""
+
+msgid "_option_dropdown list_"
+msgstr ""
+
+msgid "_option_events_"
+msgstr ""
+
+msgid "_option_everywhere_except_in_"
+msgstr ""
+
+msgid "_option_flags_"
+msgstr ""
+
+msgid "_option_folders_"
+msgstr ""
+
+msgid "_option_horizontal_"
+msgstr ""
+
+msgid "_option_horizontal_menu_"
+msgstr ""
+
+msgid "_option_horizontal_box_notitle_"
+msgstr ""
+
+msgid "_option_html_"
+msgstr ""
+
+msgid "_option_icons only_"
+msgstr ""
+
+msgid "_option_if_anonymous_"
+msgstr ""
+
+msgid "_option_if_authenticated_"
+msgstr ""
+
+msgid "_option_if_secure_connection_"
+msgstr ""
+
+msgid "_option_info_"
+msgstr ""
+
+msgid "_option_inline_"
+msgstr ""
+
+msgid "_option_justify_"
+msgstr ""
+
+msgid "_option_language names_"
+msgstr ""
+
+msgid "_option_language_"
+msgstr ""
+
+msgid "_option_left_"
+msgstr ""
+
+msgid "_option_lifetime_10_"
+msgstr ""
+
+msgid "_option_lifetime_1800_"
+msgstr ""
+
+msgid "_option_lifetime_300_"
+msgstr ""
+
+msgid "_option_lifetime_30_"
+msgstr ""
+
+msgid "_option_lifetime_3600_"
+msgstr ""
+
+msgid "_option_lifetime_600_"
+msgstr ""
+
+msgid "_option_lifetime_60_"
+msgstr ""
+
+msgid "_option_lifetime_900_"
+msgstr ""
+
+msgid "_option_login_"
+msgstr ""
+
+msgid "_option_macroless_"
+msgstr ""
+
+msgid "_option_min_max_"
+msgstr ""
+
+msgid "_option_min_max_close_"
+msgstr ""
+
+msgid "_option_min_max_edit_close_"
+msgstr ""
+
+msgid "_option_no_frames_"
+msgstr ""
+
+msgid "_option_notitle_"
+msgstr ""
+
+msgid "_option_notitle_noframe_"
+msgstr ""
+
+msgid "_option_one_frame_"
+msgstr ""
+
+msgid "_option_only_in_"
+msgstr ""
+
+msgid "_option_pending_"
+msgstr ""
+
+msgid "_option_plain text_"
+msgstr ""
+
+msgid "_option_plain_"
+msgstr ""
+
+msgid "_option_profiler_"
+msgstr ""
+
+msgid "_option_recent_"
+msgstr ""
+
+msgid "_option_related_"
+msgstr ""
+
+msgid "_option_right_"
+msgstr ""
+
+msgid "_option_rounded_box_"
+msgstr ""
+
+msgid "_option_rounded_box_notitle_"
+msgstr ""
+
+msgid "_option_searchbox_advanced_"
+msgstr ""
+
+msgid "_option_searchbox_compact_"
+msgstr ""
+
+msgid "_option_standard_"
+msgstr ""
+
+msgid "_option_starting_from_"
+msgstr ""
+
+msgid "_option_stx_"
+msgstr ""
+
+msgid "_option_tableless_"
+msgstr ""
+
+msgid "_option_text and icons_"
+msgstr ""
+
+msgid "_option_text only_"
+msgstr ""
+
+msgid "_option_text_transform_capitalize_"
+msgstr ""
+
+msgid "_option_text_transform_lowercase_"
+msgstr ""
+
+msgid "_option_text_transform_none_"
+msgstr ""
+
+msgid "_option_text_transform_uppercase_"
+msgstr ""
+
+msgid "_option_textonly_"
+msgstr ""
+
+msgid "_option_up_till_"
+msgstr ""
+
+msgid "_option_vertical_"
+msgstr ""
+
+msgid "_pageblock_description_"
+msgstr ""
+
+msgid "_paletteborder_description_"
+msgstr ""
+
+msgid "_palettecolor_description_"
+msgstr ""
+
+msgid "_portalbox_templet_description_"
+msgstr ""
+
+msgid "_portalboxgroup_templet_description_"
+msgstr ""
+
+msgid "_portaltab_templet_description_"
+msgstr ""
+
+msgid "_portaltabstyle_"
+msgstr ""
+
+msgid "_portaltabstyle_description_"
+msgstr ""
+
+msgid "_portaltheme_description_"
+msgstr ""
+
+msgid "_portletbox_templet_description_"
+msgstr ""
+
+msgid "_preview_"
+msgstr ""
+
+msgid "_searchbox_Advanced_search"
+msgstr ""
+
+msgid "_searchbox_Search_"
+msgstr ""
+
+msgid "_searchbox_templet_description_"
+msgstr ""
+
+msgid "_select this slot_"
+msgstr ""
+
+msgid "_selected menu item_"
+msgstr ""
+
+msgid "_selected tab_"
+msgstr ""
+
+msgid "_set as default style_"
+msgstr ""
+
+msgid "_shape_"
+msgstr ""
+
+msgid "_size_"
+msgstr ""
+
+msgid "_style_"
+msgstr ""
+
+msgid "_submenu_"
+msgstr ""
+
+msgid "_submenus_"
+msgstr ""
+
+msgid "_textbox_templet_description_"
+msgstr ""
+
+msgid "_themechooser_templet_description_"
+msgstr ""
+
+msgid "_themepage_description_"
+msgstr ""
+
+msgid "_thumbnails_"
+msgstr ""
+
+msgid "_topmenu_"
+msgstr ""
+
+msgid "_visibility_"
+msgstr ""
+
+msgid "_wysiwyg mode_"
+msgstr ""
+
+msgid "_zexp export_"
+msgstr ""
+
+msgid "_zexp format_"
+msgstr ""
+
+msgid "description_confirm_delete_portlet"
+msgstr ""
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr ""
+
+msgid "description_delete_unused_portlets"
+msgstr ""
+
+msgid "description_portlets_visible_from"
+msgstr ""
+
+msgid "description_unused_portlets"
+msgstr ""
+
+msgid "heading_portlet_browser_by_topic"
+msgstr ""
+
+msgid "heading_portlet_browser_by_type"
+msgstr ""
+
+msgid "heading_portlet_manage_form"
+msgstr ""
+
+msgid "heading_unused_portlets"
+msgstr ""
+
+msgid "menu_insert_box"
+msgstr ""
+
+msgid "menu_insert_portlet"
+msgstr ""
+
+msgid "portlet_browser_panel"
+msgstr ""
+
+msgid "portlet_slots_panel"
+msgstr ""
+
+msgid "psm_image_uploaded"
+msgstr ""
+
+msgid "psm_portlet_deleted"
+msgstr ""
+
+msgid "site_structure_panel"
+msgstr ""
+
+msgid "unused_portlets_panel"
+msgstr ""
+
+msgid "wysiwyg_panel"
+msgstr ""
+
+msgid "switch_portal_to_lang ${lang_title}"
+msgstr ""
+
+
