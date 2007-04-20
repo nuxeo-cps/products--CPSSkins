@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.14.4
+===========================================================
+First release built by: div at: 2007-04-20T11:58:16
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.4
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51588
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Taking advantage of the newer CPSI18n/bin/update_pos.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.14.3
 ===========================================================
 First release built by: madarche at: 2007-04-06T17:23:41
