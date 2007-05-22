@@ -1,0 +1,2068 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CPSskins\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-05-16 13:19+0100\n"
+"Last-Translator: xosé francisco martínez reboiras <xosereboiras@lasalle.es>\n"
+"Language-Team: español <jesusmartin@lasalle.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: cpsskins\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: KBabel 1.0.2\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+
+msgid "_(default style)_"
+msgstr "(Estilo por defecto)"
+
+msgid "_A active_"
+msgstr "Cor dos enlaces activos"
+
+msgid "_A hover_"
+msgstr "Cor dos enlaces ao pasar por encima"
+
+msgid "_A link_"
+msgstr "Cor dos enlaces"
+
+msgid "_A visited_"
+msgstr "Cor dos enlaces visitados"
+
+msgid "_A_active_bg_color_"
+msgstr "Cor de fondo dos enlaces activos"
+
+msgid "_A_active_border_color_"
+msgstr "Cor do borde dos enlaces activos"
+
+msgid "_A_active_border_style_"
+msgstr "Estilo de borde dos enlaces activos"
+
+msgid "_A_active_border_width_"
+msgstr "Anchura do borde dos enlaces activos"
+
+msgid "_A_active_decoration_"
+msgstr "Decoración dos enlaces activos"
+
+msgid "_A_hover_bg_color_"
+msgstr "Cor de fondo dos enlaces seleccionados"
+
+msgid "_A_hover_border_color_"
+msgstr "Cor do borde dos enlaces seleccionados"
+
+msgid "_A_hover_border_style_"
+msgstr "Estilo de borde dos enlaces seleccionados"
+
+msgid "_A_hover_border_width_"
+msgstr "Anchura do borde dos enlaces seleccionados"
+
+msgid "_A_hover_decoration_"
+msgstr "Decoración dos enlaces seleccionados"
+
+msgid "_A_link_bg_color_"
+msgstr "Cor de fondo dos enlaces"
+
+msgid "_A_link_border_color_"
+msgstr "Cor do borde dos enlaces"
+
+msgid "_A_link_border_style_"
+msgstr "Estilo de borde dos enlaces"
+
+msgid "_A_link_border_width_"
+msgstr "Anchura de borde"
+
+msgid "_A_link_decoration_"
+msgstr "Decoración dos enlaces"
+
+msgid "_A_visited_bg_color_"
+msgstr "Cor de fondo dos enlaces visitados"
+
+msgid "_A_visited_border_color_"
+msgstr "Cor do borde dos enlaces visitados"
+
+msgid "_A_visited_border_style_"
+msgstr "Estilo de borde dos enlaces visitados"
+
+msgid "_A_visited_border_width_"
+msgstr "Anchura do borde dos enlaces visitados"
+
+msgid "_A_visited_decoration_"
+msgstr "Decoración dos enlaces visitados"
+
+msgid "_Action Box Templet_"
+msgstr "Caixa de ferramentas"
+
+msgid "_Action box_"
+msgstr "Caixa de accións"
+
+msgid "_Action categories_"
+msgstr "Categorías de accións"
+
+msgid "_Add a column_"
+msgstr "Engadir unha columna"
+
+msgid "_Add a theme_"
+msgstr "Engadir un novo theme"
+
+msgid "_Add an image_"
+msgstr "Engadir unha imaxe"
+
+msgid "_Add content_"
+msgstr "Engadir contido"
+
+msgid "_Add_a_new_Templet_"
+msgstr "Engadir novo patrón"
+
+msgid "_Add_a_new_palette_entry_"
+msgstr "Engadir unha nova paleta"
+
+msgid "_Add_a_new_style_"
+msgstr "Engadir un novo estilo"
+
+msgid "_Add_a_portlet_"
+msgstr "Engadir un portlet"
+
+msgid "_Align_"
+msgstr "Aliñar"
+
+msgid "_Appearance_"
+msgstr "Aspecto"
+
+msgid "_April_"
+msgstr "Abril"
+
+msgid "_Area Color_"
+msgstr "Cor da área"
+
+msgid "_Area padding_"
+msgstr "Espazo de recheo"
+
+msgid "_Area Shape_"
+msgstr "Forma da área"
+
+msgid "_Area active background color_"
+msgstr "área de activación da cor de fondo"
+
+msgid "_Area active border color_"
+msgstr "área de activación da cor dos bordes"
+
+msgid "_Area background color_"
+msgstr "Cor de fondo"
+
+msgid "_Area background image_"
+msgstr "Imaxe de fondo"
+
+msgid "_Area background position_"
+msgstr "área de posición do fondo"
+
+msgid "_Area background repeat_"
+msgstr "área de repetición de fondo"
+
+msgid "_Area border color_"
+msgstr "Cor do borde"
+
+msgid "_Area border style_"
+msgstr "Estilo de borde"
+
+msgid "_Area border width_"
+msgstr "Grosor do borde"
+
+msgid "_Area color_"
+msgstr "Cor da área"
+
+msgid "_Area font color_"
+msgstr "Cor do tipo de letra"
+
+msgid "_Area shape_"
+msgstr "Forma da área"
+
+msgid "_Area text transform_"
+msgstr "Transformación de texto"
+
+msgid "_August_"
+msgstr "Agosto"
+
+msgid "_Author_"
+msgstr "Autor"
+
+msgid "_Background color_"
+msgstr "Cor de fondo"
+
+msgid "_Background image_"
+msgstr "Imaxe de fondo"
+
+msgid "_Background position_"
+msgstr "Posición da imaxe"
+
+msgid "_Background repeat_"
+msgstr "Estender a imaxe"
+
+msgid "_Base path_"
+msgstr "Ruta base:"
+
+msgid "_Border style_"
+msgstr "Estilo de borde"
+
+msgid "_Bottom border color_"
+msgstr "Cor do borde inferior"
+
+msgid "_Bottom left image_"
+msgstr "Imaxe inferior esquerda"
+
+msgid "_Bottom right image_"
+msgstr "Imaxe inferior dereita"
+
+msgid "_Box Corners_"
+msgstr "Esquinas da caixa"
+
+msgid "_Box color_"
+msgstr "Cor da caixa do portal"
+
+msgid "_Box corners_"
+msgstr "Esquinas da caixa"
+
+msgid "_Box layout_"
+msgstr "Disposición da caixa do portal"
+
+msgid "_Box orientation_"
+msgstr "Orientación da caixa do portal"
+
+msgid "_Box shape_"
+msgstr "Forma da caixa"
+
+msgid "_BoxBody background color_"
+msgstr "Cor de fondo do corpo da caixa"
+
+msgid "_BoxBody background image_"
+msgstr "Cor de fondo do corpo da caixa"
+
+msgid "_BoxBody border color_"
+msgstr "Cor do borde do corpo da caixa"
+
+msgid "_BoxBody border style_"
+msgstr "Estilo de borde do corpo da caixa"
+
+msgid "_BoxBody border width_"
+msgstr "Grosor do borde do corpo da caixa"
+
+msgid "_BoxBody menuin border color_"
+msgstr "Cor do borde do menú seleccionado"
+
+msgid "_BoxBody menuin border style_"
+msgstr "Estilo de borde do menú seleccionado"
+
+msgid "_BoxBody menuin border width_"
+msgstr "Grosor de borde do menú seleccionado"
+
+msgid "_BoxBody menuin color_"
+msgstr "Cor de fondo do menú seleccionado"
+
+msgid "_BoxBody menuin icon_"
+msgstr "Icona do menú seleccionado"
+
+msgid "_BoxBody menuin margin_"
+msgstr "Marxes do menú seleccionado"
+
+msgid "_BoxBody menuin padding_"
+msgstr "Espazo de recheo do menú seleccionado"
+
+msgid "_BoxBody menuout border color_"
+msgstr "Cor do borde do menú"
+
+msgid "_BoxBody menuout border style_"
+msgstr "Estilo de borde do menú"
+
+msgid "_BoxBody menuout border width_"
+msgstr "Grosor de borde do menú"
+
+msgid "_BoxBody menuout color_"
+msgstr "Cor de fondo do menú"
+
+msgid "_BoxBody menuout icon_"
+msgstr "Icona do menú"
+
+msgid "_BoxBody menuout margin_"
+msgstr "Marxes do menú"
+
+msgid "_BoxBody menuout padding_"
+msgstr "Espazo de recheo do menú"
+
+msgid "_BoxBody padding_"
+msgstr "Espazo de recheo do corpo da caixa"
+
+msgid "_BoxBody text align_"
+msgstr "Aliñamento do texto do corpo da caixa"
+
+msgid "_BoxTitle background color_"
+msgstr "Cor de fondo do título da caixa"
+
+msgid "_BoxTitle background image_"
+msgstr "Imaxe de fondo do título da caixa"
+
+msgid "_BoxTitle border color_"
+msgstr "Cor do borde do título da caixa "
+
+msgid "_BoxTitle border style_"
+msgstr "Estilo de borde do título de caixa"
+
+msgid "_BoxTitle border width_"
+msgstr "Grosor do borde do título de caixa"
+
+msgid "_BoxTitle display_"
+msgstr "Criterios de visualización do título de caixa"
+
+msgid "_BoxTitle font color_"
+msgstr "Cor da fonte do título da caixa"
+
+msgid "_BoxTitle font_"
+msgstr "Tipografía do título da caixa"
+
+msgid "_BoxTitle padding_"
+msgstr "Espazo de recheo"
+
+msgid "_BoxTitle text align_"
+msgstr "Aliñamento do texto"
+
+msgid "_Breadcrumbs Templet_"
+msgstr "Patrón de menú de navegación"
+
+msgid "_Breadcrumbs_"
+msgstr "Menú de navegación"
+
+msgid "_Broken Templet!_"
+msgstr "¡Patrón roto!"
+
+msgid "_Buttons_"
+msgstr "Botóns"
+
+msgid "_Cache effectivity_"
+msgstr "Efectividade do caché"
+
+msgid "_Cache lifetime_"
+msgstr "Tempo de vida do caché"
+
+msgid "_Cache manager_"
+msgstr "Xestor do caché"
+
+msgid "_Cache parameters updated_"
+msgstr "Parámetros do caché actualizados"
+
+msgid "_Cacheable in RAM_"
+msgstr "Cacheable na RAM"
+
+msgid "_Cacheable?_"
+msgstr "¿Cacheable?"
+
+msgid "_Caching_"
+msgstr "Cacheando"
+
+msgid "_Calendar Style_"
+msgstr "Estilo do calendario"
+
+msgid "_Calendar Templet_"
+msgstr "Patrón de calendario"
+
+msgid "_Calendar_"
+msgstr "Calendario"
+
+msgid "_Cell Block_"
+msgstr "Bloque de celas"
+
+msgid "_Cell Hider_"
+msgstr "Ocultador de cella"
+
+msgid "_Cell Sizer_"
+msgstr "Redimensionador de cela"
+
+msgid "_Cell Styler_"
+msgstr "Estilizador de cela"
+
+msgid "_Cell width_"
+msgstr "Anchura da cela"
+
+msgid "_Cellblock margin_"
+msgstr "Marxe"
+
+msgid "_Collapsible Menu Style_"
+msgstr "Estilo de menú extensible"
+
+msgid "_Collapsible Menu Templet_"
+msgstr "Menú extensible"
+
+msgid "_Collapsible menu_"
+msgstr "Menú extensible"
+
+msgid "_Color_"
+msgstr "Cor"
+
+msgid "_Columns_"
+msgstr "Columnas"
+
+msgid "_Content_"
+msgstr "Contido"
+
+msgid "_Copy_"
+msgstr "Copiar"
+
+# He hecho traducción literal del francés.
+msgid "_Copyright_"
+msgstr "Dereitos de autor e outros"
+
+msgid "_Create a copy_"
+msgstr "Crear una copia"
+
+msgid "_Created by:_"
+msgstr "Creado por:"
+
+msgid "_Creator_"
+msgstr "Creador"
+
+msgid "_Custom action categories_"
+msgstr "Categorías de accións suplementarias"
+
+msgid "_Cut_"
+msgstr "Cortar"
+
+msgid "_Days background color_"
+msgstr "Cor de fondo dos días"
+
+msgid "_Days font color_"
+msgstr "Cor do texto dos días"
+
+msgid "_December_"
+msgstr "Decembro"
+
+msgid "_Default page_"
+msgstr "Páxina por defecto"
+
+msgid "_Default theme_"
+msgstr "Theme por defecto"
+
+msgid "_Default_font_"
+msgstr "Tipo de letra por defecto"
+
+msgid "_Delete Templet?_"
+msgstr "¿Borrar patrón?"
+
+msgid "_Delete style?_"
+msgstr "¿Borrar estilo?"
+
+msgid "_Delete theme?_"
+msgstr "¿Borrar este theme?"
+
+msgid "_Delete_"
+msgstr "Borrar"
+
+msgid "_Deleting this image, are you sure?_"
+msgstr "Borrarase esta imaxe, ¿está seguro?"
+
+msgid "_Deleting this palette entry, are you sure?_"
+msgstr "Borrarase esta entrada de paleta, ¿está seguro?"
+
+msgid "_Deleting this style, are you sure?_"
+msgstr "Borrarase este estilo, ¿está seguro?"
+
+msgid "_Depth level_"
+msgstr "Nivel de profundidade relativo"
+
+msgid "_Description_"
+msgstr "Descrición"
+
+msgid "_Destination_slot_"
+msgstr "Dispositivo de destino"
+
+msgid "_Display a contextual icon_"
+msgstr "Mostrar unha icona contextual"
+
+msgid "_Display hidden folders_"
+msgstr "Mostrar carpetas ocultas"
+
+msgid "_Display title in text mode_"
+msgstr "Mostrar o título en modo texto"
+
+msgid "_Document Info Templet_"
+msgstr "Información do documento"
+
+msgid "_Document info_"
+msgstr "Información do documento"
+
+msgid "_ESI fragment_"
+msgstr "Fragmento ESI (Edge Sides Includes)"
+
+msgid "_ESI_"
+msgstr "ESI"
+
+msgid "_Edit images_"
+msgstr "Editar as imaxes"
+
+msgid "_Edit palettes_"
+msgstr "Editar as paletas"
+
+msgid "_Edit styles_"
+msgstr "Editar os estilos"
+
+msgid "_Edit the current style_"
+msgstr "Editar o estilo actual"
+
+msgid "_Edit the page_"
+msgstr "Editar a páxina"
+
+msgid "_Edit the theme_"
+msgstr "Editar o theme"
+
+msgid "_Edit this page block_"
+msgstr "Editar o bloque"
+
+# Mismo comentario de arriba en modificar
+msgid "_Edit_"
+msgstr "Editar"
+
+msgid "_Elements_"
+msgstr "Elementos"
+
+msgid "_Enable ESI_"
+msgstr "Activar ESI (Edge Side Includes)"
+
+msgid "_End string_"
+msgstr "Marcador do final"
+
+msgid "_Event background color_"
+msgstr "Cor de fondo dos eventos"
+
+msgid "_Event border color_"
+msgstr "Cor do borde dos eventos"
+
+msgid "_Event font color_"
+msgstr "Cor do tipo de letra dos eventos"
+
+msgid "_Exit_"
+msgstr "Saír"
+
+msgid "_February_"
+msgstr "Febreiro"
+
+msgid "_Flash Box Templet_"
+msgstr "Patrón de caixa Flash"
+
+msgid "_Flash box_"
+msgstr "Caixa Flash"
+
+msgid "_Flash caption_"
+msgstr "Pé do Flash"
+
+msgid "_Flash movie height_"
+msgstr "Altura da animación Flash"
+
+msgid "_Flash movie width_"
+msgstr "Anchura da animación Flash"
+
+msgid "_Font Color_"
+msgstr "Cores do tipo de letra"
+
+msgid "_Font Shape_"
+msgstr "Forma do tipo de letra"
+
+msgid "_Font color_"
+msgstr "Cores do tipo de letra"
+
+msgid "_Font shape_"
+msgstr "Forma do tipo de letra"
+
+msgid "_Forgot your password?_"
+msgstr "¿Esqueceu o seu contrasinal?"
+
+msgid "_Form Style_"
+msgstr "Estilo do formulario"
+
+msgid "_Form padding_"
+msgstr "Recheo do formulario"
+
+msgid "_Form style_"
+msgstr "Estilo de formulario"
+
+msgid "_Form_"
+msgstr "Formulario"
+
+msgid "_Fr_"
+msgstr "Vi"
+
+msgid "_Guest_"
+msgstr "Invitado"
+
+msgid "_H1_"
+msgstr "H1"
+
+msgid "_H1_bg_color_"
+msgstr "Cor de fondo H1"
+
+msgid "_H1_border_color_"
+msgstr "Cor de borde H1"
+
+msgid "_H1_border_style_"
+msgstr "Estilo de borde H1"
+
+msgid "_H1_border_width_"
+msgstr "Grosor de borde H1"
+
+msgid "_H1_font_"
+msgstr "Tipo de letra H1"
+
+msgid "_H1_font_color_"
+msgstr "Color do tipo (H1)"
+
+msgid "_H1_margin_"
+msgstr "Marxe H1"
+
+msgid "_H1_padding_"
+msgstr "Espazo de recheo H1"
+
+msgid "_H2_"
+msgstr "H2"
+
+msgid "_H2_bg_color_"
+msgstr "Cor de fondo H2"
+
+msgid "_H2_border_color_"
+msgstr "Cor de borde H2"
+
+msgid "_H2_border_style_"
+msgstr "Estilo de borde H2"
+
+msgid "_H2_border_width_"
+msgstr "Grosor de borde H2"
+
+msgid "_H2_font_"
+msgstr "Tipo de letra H2"
+
+msgid "_H2_font_color_"
+msgstr "Cor do tipo (H2)"
+
+msgid "_H2_margin_"
+msgstr "Marxe H2"
+
+msgid "_H2_padding_"
+msgstr "Espazo de recheo H2"
+
+msgid "_H3_"
+msgstr "H3"
+
+msgid "_H3_bg_color_"
+msgstr "Cor de fondo H3"
+
+msgid "_H3_border_color_"
+msgstr "Cor de borde H3"
+
+msgid "_H3_border_style_"
+msgstr "Estilo de borde H3"
+
+msgid "_H3_border_width_"
+msgstr "Grosor de borde H3"
+
+msgid "_H3_font_"
+msgstr "Tipo de letra H3"
+
+msgid "_H3_font_color_"
+msgstr "Cor do tipo (H3)"
+
+msgid "_H3_margin_"
+msgstr "Marxe H3"
+
+msgid "_H3_padding_"
+msgstr "Espazo de recheo H3"
+
+msgid "_H456_"
+msgstr "H4, H5, H6"
+
+msgid "_H456_bg_color_"
+msgstr "Cor de fondo H3, H4, H5"
+
+msgid "_H456_border_color_"
+msgstr "Cor de borde H4, H5, H6"
+
+msgid "_H456_border_style_"
+msgstr "Estilo de borde H4, H5, H6"
+
+msgid "_H456_border_width_"
+msgstr "Grosor de borde H4, H5, H6"
+
+msgid "_H456_font_"
+msgstr "Tipo de letra H4, H5, H6"
+
+msgid "_H456_font_color_"
+msgstr "Cor do tipo (H4, H5, H6)"
+
+msgid "_H456_margin_"
+msgstr "Marxe H4, H5, H6"
+
+msgid "_H456_padding_"
+msgstr "Espazo de recheo H4, H5, H6"
+
+msgid "_Header background color_"
+msgstr "Cor de fondo da cabeceira"
+
+msgid "_Header font color_"
+msgstr "Cor do texto da cabeceira"
+
+msgid "_Height_"
+msgstr "Altura"
+
+msgid "_Hidden in text mode_"
+msgstr "Oculto en modo texto"
+
+msgid "_Hide current language_"
+msgstr "Ocultar o idioma actual"
+
+msgid "_Hide this cell_"
+msgstr "Ocultar esta cela"
+
+msgid "_Hide title_"
+msgstr "Ocultar o título"
+
+msgid "_Hide_overriden_portlets_"
+msgstr "Ocultar os portlets sobreescritos"
+
+msgid "_Hierarchy base_"
+msgstr "Base da xerarquía"
+
+msgid "_Horizontal alignment_"
+msgstr "Aliñamento horizontal"
+
+msgid "_Horizontal margin_"
+msgstr "Marxe horizontal"
+
+msgid "_Horizontal padding_"
+msgstr "Recheo horizontal"
+
+msgid "_Hover background color_"
+msgstr "Cor de fondo (seleccionado)"
+
+msgid "_Hover background image_"
+msgstr "Imaxe de fondo (seleccionado)"
+
+msgid "_Icon size_"
+msgstr "Tamaño da icona"
+
+msgid "_Image Box Templet_"
+msgstr "Caixa de imaxe"
+
+msgid "_Image box_"
+msgstr "Caixa de imaxe"
+
+msgid "_Image caption_"
+msgstr "Pé da imaxe"
+
+msgid "_Images_"
+msgstr "Imaxes"
+
+msgid "_Import a theme_"
+msgstr "Importar un theme"
+
+msgid "_Info text_"
+msgstr "Texto de información"
+
+msgid "_Insert a Templet here_"
+msgstr "Insertar un patrón aquí"
+
+msgid "_Insert a page block_"
+msgstr "Insertar un bloque de páxina"
+
+msgid "_Internal link_"
+msgstr "Enlace interno"
+
+msgid "_Invisible actions_"
+msgstr "Accións invisibles"
+
+msgid "_January_"
+msgstr "Xaneiro"
+
+msgid "_July_"
+msgstr "Xullo"
+
+msgid "_June_"
+msgstr "Xuño"
+
+msgid "_KB_"
+msgstr "KB"
+
+msgid "_Language Templet_"
+msgstr "Patrón de idioma"
+
+msgid "_Language selector_"
+msgstr "Selector de idiomas"
+
+msgid "_Last modified:_"
+msgstr "Última modificación:"
+
+msgid "_Left-side image_"
+msgstr "Imaxe á esquerda"
+
+msgid "_License_"
+msgstr "Licencia"
+
+msgid "_Link (http://, mailto: ...)_"
+msgstr "Enlace (http://, mailto: ...)"
+
+msgid "_List orientation_"
+msgstr "Orientación da lista"
+
+msgid "_Location_"
+msgstr "Ubicación"
+
+msgid "_Log in_"
+msgstr "Autentificación"
+
+msgid "_Macroless_"
+msgstr "Macroless"
+
+msgid "_Main Content Templet_"
+msgstr "Patrón de contido principal"
+
+msgid "_Main content_"
+msgstr "Contido principal"
+
+msgid "_Manage_"
+msgstr "Administrar"
+
+msgid "_March_"
+msgstr "Marzo"
+
+msgid "_Margin_"
+msgstr "Marxe"
+
+msgid "_Maximum number of items_"
+msgstr "Número máximo de elementos"
+
+msgid "_May_"
+msgstr "Maio"
+
+msgid "_Memory usage_"
+msgstr "Uso da memoria"
+
+msgid "_Menu entry_"
+msgstr "Entrada do menú"
+
+msgid "_Menu title_"
+msgstr "Título do menú"
+
+msgid "_Merge this style?_"
+msgstr "¿Fundir este estilo?"
+
+msgid "_Minimize / Maximize_"
+msgstr "Minimizar / Maximizar"
+
+msgid "_Mo_"
+msgstr "Lu"
+
+msgid "_Month_"
+msgstr "Mes"
+
+msgid "_More ..._"
+msgstr "Máis ..."
+
+msgid "_Move down_"
+msgstr "Mover cara a abaixo"
+
+msgid "_Move left_"
+msgstr "Mover á esquerda"
+
+msgid "_Move right_"
+msgstr "Mover á dereita"
+
+msgid "_Move this cell to the left_"
+msgstr "Mover esta cela á esquerda"
+
+msgid "_Move this cell to the right_"
+msgstr "Mover esta cela á dereita"
+
+msgid "_Move up_"
+msgstr "Mover cara a arriba"
+
+msgid "_No items published since your last log-in_"
+msgstr "Ningún documento publicado desde a súa última sesión"
+
+msgid "_No preview_"
+msgstr "Sen previsualización"
+
+msgid "_Not available in layout mode_"
+msgstr "Non está dispoñible en modo deseño"
+
+msgid "_November_"
+msgstr "Novembro"
+
+msgid "_Number of columns_"
+msgstr "Número de columnas"
+
+msgid "_October_"
+msgstr "Outubro"
+
+msgid "_Only select items that are supposed to get translated:_"
+msgstr "Só seleccione os ítem que deben ser transladados:"
+
+msgid "_Other categories_"
+msgstr "Outras categorías"
+
+msgid "_Other images_"
+msgstr "Outras imaxes"
+
+msgid "_Other palettes_"
+msgstr "Outras paletas"
+
+msgid "_Other portlets_"
+msgstr "Outros portlets"
+
+msgid "_Other styles_"
+msgstr "Outros estilos"
+
+msgid "_Other themes_"
+msgstr "Outros themes"
+
+msgid "_P_font_"
+msgstr "Tipo de letra de parágrafo"
+
+msgid "_P_padding_"
+msgstr "Espazo de recheo para o parágrafo"
+
+msgid "_Padding_"
+msgstr "Espazo de recheo"
+
+msgid "_Page Block_"
+msgstr "Bloque de páxina"
+
+msgid "_Page renderer_"
+msgstr "Visualizador de páxina"
+
+msgid "_Palette Border_"
+msgstr "Bordes"
+
+msgid "_Palette Color_"
+msgstr "Cores"
+
+msgid "_Palettes_"
+msgstr "Paletas"
+
+msgid "_Password_"
+msgstr "Contrasinal"
+
+msgid "_Paste_"
+msgstr "Pegar"
+
+msgid "_Please select a portlet type_"
+msgstr "Seleccione un tipo de portlet"
+
+msgid "_Portal Box Color_"
+msgstr "Cor das caixas"
+
+msgid "_Portal Box Group Templet_"
+msgstr "Grupo de caixas"
+
+msgid "_Portal Box Shape_"
+msgstr "Forma das caixas"
+
+msgid "_Portal Box Templet_"
+msgstr "Caixa"
+
+msgid "_Portal Tab Style_"
+msgstr "Estilo de pestanas do portal"
+
+msgid "_Portal Tab Templet_"
+msgstr "Pestanas do portal"
+
+msgid "_Portal Tab_"
+msgstr "Pestanas do portal"
+
+msgid "_Portal Theme_"
+msgstr "Theme"
+
+# plural?
+msgid "_Portal box color_"
+msgstr "Cor das caixas"
+
+msgid "_Portal box content_"
+msgstr "Contido da caixa"
+
+msgid "_Portal box group_"
+msgstr "Grupo de caixas"
+
+# plural?
+msgid "_Portal box shape_"
+msgstr "Contorno das caixas"
+
+msgid "_Portal box title source_"
+msgstr "Orixe do título da caixa"
+
+msgid "_Portal box_"
+msgstr "Caixa"
+
+msgid "_Portlet Box Templet_"
+msgstr "Caixa de portlet"
+
+msgid "_Portlet editor_"
+msgstr "Editor de Portlets"
+
+msgid "_Portlet type_"
+msgstr "Tipo de portlet"
+
+msgid "_Portlet_"
+msgstr "Portlet"
+
+msgid "_Preview background color_"
+msgstr "Previsualizar cor de fondo"
+
+msgid "_Preview border color_"
+msgstr "Previsualizar cor de borde"
+
+msgid "_Preview font color_"
+msgstr "Previsualizar cor da fonte"
+
+msgid "_Preview_"
+msgstr "Previsualización"
+
+msgid "_Read more_"
+msgstr "Ler máis &gt;&gt;"
+
+msgid "_Remove a column_"
+msgstr "Borrar unha columna"
+
+msgid "_Repeat string_"
+msgstr "Repetir a cadea"
+
+msgid "_Reveal_overriden_portlets_"
+msgstr "Mostrar portlets sobreescritos"
+
+msgid "_Right-side image_"
+msgstr "Imaxe á dereita"
+
+msgid "_SMALL_font_"
+msgstr "Tipografía máis pequena"
+
+msgid "_STRONG_font_"
+msgstr "Tipografía resaltada"
+
+msgid "_Sa_"
+msgstr "Sá"
+
+msgid "_Search Box Templet_"
+msgstr "Patrón de caixa de busca"
+
+msgid "_Search box_"
+msgstr "Caixa de busca"
+
+msgid "_See the error log_"
+msgstr "Ver o log de erros"
+
+msgid "_Select a style_"
+msgstr "Seleccionar un estilo"
+
+msgid "_Select a theme to manage_"
+msgstr "Seleccionar un theme para administrar"
+
+msgid "_Selectable themes_"
+msgstr "Themes seleccionables"
+
+msgid "_September_"
+msgstr "Setembro"
+
+msgid "_Set the size of this cell_"
+msgstr "Fixar o tamaño da cela"
+
+msgid "_Shape_"
+msgstr "Forma"
+
+msgid "_Shortcut icon_"
+msgstr "Icona de páxina web"
+
+msgid "_Show action icons_"
+msgstr "Mostrar iconas de accións"
+
+msgid "_Show add items_"
+msgstr "Mostrar un botón para engadir contido"
+
+msgid "_Show all categories_"
+msgstr "Mostrar todas as categorías"
+
+msgid "_Show documents in folders_"
+msgstr "Mostrar documentos nas carpetas"
+
+msgid "_Show month_"
+msgstr "Mostrar mes"
+
+msgid "_Show preview_"
+msgstr "Mostrar previsualización"
+
+msgid "_Show weekdays_"
+msgstr "Mostrar días da semana"
+
+msgid "_Show year_"
+msgstr "Mostrar ano"
+
+msgid "_Simulate this URL ..._"
+msgstr "Simular esta URL ..."
+
+msgid "_Slot name_"
+msgstr "Nome de slot"
+
+msgid "_Some items can be pasted here_"
+msgstr "Algúns ítem pódense pegar aquí"
+
+msgid "_Start string_"
+msgstr "Cadea de comezo"
+
+msgid "_Style_"
+msgstr "Estilo"
+
+msgid "_Styles_"
+msgstr "Estilos"
+
+msgid "_Stylize this cell_"
+msgstr "Estilizar esta cela"
+
+msgid "_Su_"
+msgstr "Do"
+
+msgid "_Sub-menu background color_"
+msgstr "Cor de fondo"
+
+msgid "_Sub-menu border color_"
+msgstr "Cor de borde de submenú"
+
+msgid "_Sub-menu border style_"
+msgstr "Estilo de borde de submenú"
+
+msgid "_Sub-menu font color_"
+msgstr "Cor da fonte de submenú"
+
+msgid "_Sub-menu font_"
+msgstr "Tipografía del submenú"
+
+msgid "_Sub-menu hover background color_"
+msgstr "Cor de fondo de submenú (seleccionados)"
+
+msgid "_Sub-menu hover font color_"
+msgstr "Cor da tipografia do submenú (seleccionados)"
+
+msgid "_Sub-menu items width_"
+msgstr "Anchura dos elementos de submenú"
+
+msgid "_Tab style_"
+msgstr "Estilo de pestana"
+
+msgid "_Tab width_"
+msgstr "Anchura de pestana"
+
+msgid "_Tableless_"
+msgstr "Sen táboas"
+
+msgid "_Templet color_"
+msgstr "Cor do patrón"
+
+msgid "_Templet height_"
+msgstr "Altura do patrón"
+
+msgid "_Templet margin_"
+msgstr "Marxe do patrón"
+
+msgid "_Templet padding_"
+msgstr "Espazo de recheo do patrón"
+
+msgid "_Templet shape_"
+msgstr "Forma do patrón"
+
+msgid "_Templets_"
+msgstr "Patróns"
+
+msgid "_Text Box Templet_"
+msgstr "Patrón de caixa de texto"
+
+msgid "_Text box_"
+msgstr "Caixa de texto"
+
+msgid "_Text format_"
+msgstr "Formato de texto"
+
+msgid "_Th_"
+msgstr "Xo"
+
+msgid "_The benchmark timer is not installed_"
+msgstr "O monitor de rendemento non está instalado"
+
+msgid "_The languages in which it is visible_"
+msgstr "Idiomas nos que é visible:"
+
+msgid "_The visibility paths_"
+msgstr "Visible nas rutas:"
+
+msgid "_Theme Chooser Templet_"
+msgstr "Patrón de selección de theme"
+
+msgid "_Theme Page_"
+msgstr "Páxina de themes"
+
+msgid "_Theme chooser_"
+msgstr "Selector de themes"
+
+msgid "_Theme editor_"
+msgstr "Editor de themes"
+
+msgid "_Theme export_"
+msgstr "Exportar theme"
+
+msgid "_Theme name_"
+msgstr "Nome do theme"
+
+msgid "_Theme optimizer_"
+msgstr "Optimizador de theme"
+
+# Aquí en francés era "generador de temas".
+msgid "_Theme renderer_"
+msgstr "Visualizador de themes"
+
+msgid "_Theme_"
+msgstr "Theme"
+
+msgid "_Theme_rebuilt_"
+msgstr "Reconstruír theme"
+
+msgid "_Themes manager_"
+msgstr "Xestor de themes"
+
+msgid "_These Templets are invisible and can be deleted:_"
+msgstr "Estes patróns son invisibles e poden borrarse:"
+
+msgid "_These Templets could be cached in memory for faster rendering:_"
+msgstr "Estes patróns pódense cachear na memoria para unha visualización máis veloz."
+
+msgid "_These styles are identical and can be merged together:_"
+msgstr "Estes estilos son idénticos e poden fundirse:"
+
+msgid "_These styles are not used and can be deleted:_"
+msgstr "Estes estilos non se usan e poden ser borrados:"
+
+msgid "_This style is already used by_"
+msgstr "Este estilo xa está sendo usado por"
+
+msgid "_This style will be used by default_"
+msgstr "Este estilo será usado por defecto"
+
+msgid "_This theme is completely optimized_"
+msgstr "Este theme foi optimizado"
+
+msgid "_Title_"
+msgstr "Título"
+
+msgid "_Today border color_"
+msgstr "Cor de borde do día de hoxe"
+
+msgid "_Top left image_"
+msgstr "Imaxe superior"
+
+msgid "_Top menu background color_"
+msgstr "Cor de fondo do menú principal"
+
+msgid "_Top menu border color_"
+msgstr "Cor do borde de menú principal"
+
+msgid "_Top menu border style_"
+msgstr "Estilo de borde de menú principal"
+
+msgid "_Top menu font color_"
+msgstr "Cor da tipografía do menú principal"
+
+msgid "_Top menu font_"
+msgstr "Tipografía do menú principal"
+
+msgid "_Top menu hover background color_"
+msgstr "Cor de fondo do menú principal (ao ser seleccionado)"
+
+msgid "_Top menu hover font color_"
+msgstr "Cor do texto do menú principal (ao ser seleccionado)"
+
+msgid "_Top menu items width_"
+msgstr "Anchura dos elementos do menú principal"
+
+msgid "_Top right image_"
+msgstr "Imaxe superior dereita"
+
+msgid "_Translate folder items_"
+msgstr "Traducir os ítem de carpeta"
+
+msgid "_Translate the box title_"
+msgstr "Traducir o título da caixa"
+
+msgid "_Translate the breadcrumbs_"
+msgstr "Traducir os menús de navegación"
+
+msgid "_Translate the image_"
+msgstr "Traducir a imaxe"
+
+msgid "_Translate the text_"
+msgstr "Traducir o texto"
+
+msgid "_Translations_"
+msgstr "Traducións"
+
+msgid "_Tu_"
+msgstr "Ma"
+
+msgid "_Use internal link?_"
+msgstr "¿Usar un enlace interno?"
+
+msgid "_Use the cache?_"
+msgstr "¿Usar a caché?"
+
+msgid "_Use this as the default style_"
+msgstr "Utilizar como estilo por defecto"
+
+msgid "_Username_"
+msgstr "Nome de usuario"
+
+msgid "_Value_"
+msgstr "Valor"
+
+msgid "_Vertical padding_"
+msgstr "Espazo de recheo vertical"
+
+msgid "_Visibility criteria_"
+msgstr "Criterios de visibilidade"
+
+msgid "_We_"
+msgstr "Me"
+
+msgid "_Weekdays background color_"
+msgstr "Cor de fondo dos días da semana"
+
+msgid "_Weekdays border color_"
+msgstr "Cor do borde dos días da semana"
+
+msgid "_Weekdays font color_"
+msgstr "Cor da fonte dos días da semana"
+
+msgid "_Width_"
+msgstr "Anchura"
+
+msgid "_XML export_"
+msgstr "Exportar en formato XML"
+
+msgid "_XML format_"
+msgstr "Formato XML"
+
+msgid "_Year_"
+msgstr "Ano"
+
+msgid "_You can drop a Portlet into this area_"
+msgstr "Pode soltar un Portlet dentro desta área."
+
+msgid "_You can drop a Templet into this area_"
+msgstr "Pode soltar un Portlet dentro desta área."
+
+msgid "_Your text_"
+msgstr "O seu texto"
+
+msgid "_ZMI_"
+msgstr "ZMI"
+
+msgid "_about_"
+msgstr "Verbo de"
+
+msgid "_actionbox_templet_description_"
+msgstr "unha barra de ferramentas que contén botóns de accións con iconas"
+
+msgid "_actions_"
+msgstr "Accións"
+
+msgid "_areacolor_description_"
+msgstr "este estilo define a cor de fondo, de borde e do texto dunha área."
+
+msgid "_areashape_description_"
+msgstr "este estilo define o estilo e grosor de borde dunha área."
+
+msgid "_back_"
+msgstr "atrás"
+
+msgid "_backgrounds_"
+msgstr "Fondos"
+
+msgid "_box body_"
+msgstr "Corpo da caixa"
+
+msgid "_box title_"
+msgstr "Título da caixa"
+
+msgid "_boxcolor_"
+msgstr "Cor da caixa do portal"
+
+msgid "_boxcolor_description_"
+msgstr "este estilo define as cores das caixas do portal"
+
+msgid "_boxcorners_description_"
+msgstr "este estilo define a aparencia das esquinas da caixa"
+
+msgid "_boxshape_"
+msgstr "Forma da caixa do portal"
+
+msgid "_boxshape_description_"
+msgstr "este estilo define as formas das caixas do portal"
+
+msgid "_breadcrumbs_templet_description_"
+msgstr "un menú de navegación desde a páxina de inicio ata a actual"
+
+msgid "_button_cache_manager_"
+msgstr "Administrar caché"
+
+msgid "_button_clear_the_cache_"
+msgstr "Limpar a caché"
+
+msgid "_button_close_"
+msgstr "Pechar"
+
+msgid "_button_create_"
+msgstr "Crear"
+
+msgid "_button_delete_"
+msgstr "Borrar"
+
+msgid "_button_export_theme_"
+msgstr "Exportar este theme"
+
+msgid "_button_fullscreen_"
+msgstr "Pantalla completa"
+
+msgid "_button_import_theme_"
+msgstr "Importar theme"
+
+msgid "_button_import_themes_"
+msgstr "Importar themes"
+
+msgid "_button_local_roles_"
+msgstr "Roles locais"
+
+msgid "_button_modify_"
+msgstr "Modificar"
+
+msgid "_button_normal_mode_"
+msgstr "Modo normal"
+
+msgid "_button_optimize_theme_"
+msgstr "Optimizar este theme"
+
+msgid "_button_rebuild_theme_"
+msgstr "Reconstruír este theme"
+
+msgid "_button_set_theme_as_default_"
+msgstr "Fixar como theme por defecto"
+
+msgid "_button_upload_flashfile_"
+msgstr "Subir animación Flash"
+
+msgid "_button_upload_image_"
+msgstr "Subir imaxe"
+
+msgid "_calendar_style_"
+msgstr "Estilo do calendario"
+
+msgid "_calendar_templet_description_"
+msgstr "un calendario con eventos mensuais"
+
+msgid "_calendarstyle_description_"
+msgstr "este estilo define o aspecto visual do calendario."
+
+msgid "_cellblock_description_"
+msgstr "un bloque de cela permite amosar varios patróns horizontalmente dentro dun Bloque de Páxina."
+
+msgid "_cellhider_description_"
+msgstr "un borrador controla a visibilidade dunha cela."
+
+msgid "_cellsizer_description_"
+msgstr "un dimensionador permite fixar a anchura dunha cela."
+
+msgid "_cellstyler_description_"
+msgstr "Un diseñador modifica o estilo dunha cela."
+
+msgid "_clipboard_"
+msgstr "Portapapeis"
+
+msgid "_collapsiblemenu_style_"
+msgstr "Estilo do menú despregable"
+
+msgid "_collapsiblemenu_templet_description_"
+msgstr "un menú despregable que amosa elementos de carpeta"
+
+msgid "_collapsiblemenustyle_description_"
+msgstr "este estilo define o aspecto visual dos menús extensibles"
+
+msgid "_color_"
+msgstr "Cor da área"
+
+msgid "_colors_"
+msgstr "Cores"
+
+msgid "_confirm delete_"
+msgstr "¿Está seguro de querer borralo?"
+
+msgid "_days_"
+msgstr "días"
+
+msgid "_default tab_"
+msgstr "Pestana por defecto"
+
+msgid "_dimensions_"
+msgstr "Dimensións"
+
+msgid "_documentinfo_templet_description_"
+msgstr "información verbo do documento actual: o seu título, data de última modificación, nome do autor, etc."
+
+msgid "_edit online_"
+msgstr "Editar en liña"
+
+msgid "_enter_new_id_"
+msgstr "introducir novo ID"
+
+msgid "_flashbox_templet_description_"
+msgstr "Unha caixa para Macromedia Flash(tm) con pé"
+
+msgid "_folders_"
+msgstr "Carpetas"
+
+msgid "_fontcolor_"
+msgstr "Cor da fonte"
+
+msgid "_fontcolor_description_"
+msgstr "este estilo define a cor da tipografía, os enlaces e as decoracións."
+
+msgid "_fontshape_"
+msgstr "Forma da fonte"
+
+msgid "_fontshape_description_"
+msgstr "este estilo define tamaños de fontes, enclaces e estilos de decoración."
+
+msgid "_formstyle_description_"
+msgstr "este estilo define a aparencia do formulario e dos elementos do mesmo."
+
+msgid "_general_"
+msgstr "Xeral"
+
+msgid "_header_"
+msgstr "Cabeceira"
+
+msgid "_icons_"
+msgstr "Iconas"
+
+msgid "_imagebox_templet_description_"
+msgstr "unha imaxe cun enlace e un pé de foto"
+
+msgid "_info_"
+msgstr "Info"
+
+msgid "_language_templet_description_"
+msgstr "un selector de idioma"
+
+msgid "_layout mode_"
+msgstr "Modo de disposición/distribución"
+
+msgid "_layout_"
+msgstr "Disposición/distribución"
+
+msgid "_link_"
+msgstr "Enlace"
+
+msgid "_maincontent_templet_description_"
+msgstr "a área de contido principal onde se amosan os documentos"
+
+msgid "_menu item_"
+msgstr "Ítem do menú"
+
+msgid "_menu_Align center_"
+msgstr "Centrado"
+
+msgid "_menu_Align justify_"
+msgstr "Xustificado"
+
+msgid "_menu_Align left_"
+msgstr "Aliñado á esquerda"
+
+msgid "_menu_Align right_"
+msgstr "Aliñado á dereita"
+
+msgid "_menu_Area Color_"
+msgstr "Cor da área"
+
+msgid "_menu_Area Shape_"
+msgstr "Forma da área"
+
+msgid "_menu_Box Corners_"
+msgstr "Esquina da caixa"
+
+msgid "_menu_Calendar Style_"
+msgstr "Estilo do calendario"
+
+msgid "_menu_Collapsible Menu Style_"
+msgstr "Estilo de menú despregable"
+
+msgid "_menu_Copy_"
+msgstr "Copiar"
+
+msgid "_menu_Delete_"
+msgstr "Borrar"
+
+msgid "_menu_Duplicate_"
+msgstr "Duplicar"
+
+msgid "_menu_Edit styles_"
+msgstr "Editar os estilos"
+
+# Siguiendo la traducción francesa, prefiero
+# modificar, un término predigital. El problema
+# es que a veces aparece "modify" en inglés, y hay
+# que saber si se refiere al mismo género de operación
+# Depende del programa. Ver.
+msgid "_menu_Edit_"
+msgstr "Modificar"
+
+msgid "_menu_Font Color_"
+msgstr "Cor do tipo de letra"
+
+msgid "_menu_Font Shape_"
+msgstr "Forma da tipografía"
+
+msgid "_menu_Form Style_"
+msgstr "Estilo da forma"
+
+msgid "_menu_Insert_"
+msgstr "Insertar"
+
+msgid "_menu_Manage_"
+msgstr "Administrar"
+
+msgid "_menu_Paste_"
+msgstr "Pegar"
+
+msgid "_menu_Portal Box Color_"
+msgstr "Cor da caixa"
+
+msgid "_menu_Portal Box Shape_"
+msgstr "Forma da caixa"
+
+msgid "_menu_Portal Tab Style_"
+msgstr "Estilo de pestanas"
+
+msgid "_menu_Set alignment_"
+msgstr "Establecer aliñación"
+
+msgid "_menu_Set layout_"
+msgstr "Establecer deseño"
+
+msgid "_menu_Set styles_"
+msgstr "Establecer estilos"
+
+msgid "_menu_Set_as_default_"
+msgstr "Establecer por defecto"
+
+msgid "_mixed mode_"
+msgstr "Modo mixto"
+
+msgid "_option_Folder title_"
+msgstr "Título da carpeta"
+
+msgid "_option_Templet title_"
+msgstr "Título do patróns"
+
+msgid "_option_Username_"
+msgstr "Nome de usuario"
+
+msgid "_option_Workflow state_"
+msgstr "Estado do fluxo de traballo"
+
+msgid "_option_about_"
+msgstr "Verbo deste obxecto"
+
+msgid "_option_actions_"
+msgstr "Accións do portal"
+
+msgid "_option_always_"
+msgstr "Sempre"
+
+msgid "_option_automatic_"
+msgstr "Detección automática"
+
+msgid "_option_bg_no-repeat_"
+msgstr "Non repetir"
+
+msgid "_option_bg_repeat-x_"
+msgstr "Horizontalmente"
+
+msgid "_option_bg_repeat-y_"
+msgstr "Verticalmente"
+
+msgid "_option_bg_repeat_"
+msgstr "Para cubrir a área"
+
+msgid "_option_block_"
+msgstr "Anchura da caixa"
+
+msgid "_option_center_"
+msgstr "Centrar"
+
+msgid "_option_compatible_"
+msgstr "Compatible modo NS4"
+
+msgid "_option_debug_"
+msgstr "Modo de depuración"
+
+msgid "_option_default_"
+msgstr "Por defecto"
+
+msgid "_option_docinfo_created_by_"
+msgstr "Creado por..."
+
+msgid "_option_docinfo_last_modified_"
+msgstr "Data da última modificación"
+
+msgid "_option_docinfo_title_"
+msgstr "Título do documento"
+
+msgid "_option_drawer_"
+msgstr "Caixón"
+
+msgid "_option_drawer_notitle_"
+msgstr "Caixón sen título"
+
+msgid "_option_dropdown list_"
+msgstr "Listado en caída"
+
+msgid "_option_events_"
+msgstr "Subindo eventos"
+
+msgid "_option_everywhere_except_in_"
+msgstr "En todos os sitios agás en ..."
+
+msgid "_option_flags_"
+msgstr "Bandeiras dos países"
+
+msgid "_option_folders_"
+msgstr "Carpetas do portal"
+
+msgid "_option_horizontal_"
+msgstr "Horizontal"
+
+msgid "_option_horizontal_menu_"
+msgstr "Menú horizontal"
+
+msgid "_option_horizontal_box_notitle_"
+msgstr "Caixa horizontal sen título"
+
+msgid "_option_html_"
+msgstr "HTML"
+
+msgid "_option_icons only_"
+msgstr "Só iconas"
+
+msgid "_option_if_anonymous_"
+msgstr "Se anónimo"
+
+msgid "_option_if_authenticated_"
+msgstr "Se autenticado"
+
+msgid "_option_if_secure_connection_"
+msgstr "Se conexión segura"
+
+msgid "_option_info_"
+msgstr "Caixa de información"
+
+msgid "_option_inline_"
+msgstr "Anchura do título"
+
+msgid "_option_justify_"
+msgstr "Xustificar"
+
+msgid "_option_language names_"
+msgstr "Nomes dos idiomas"
+
+msgid "_option_language_"
+msgstr "Selector de idiomas"
+
+msgid "_option_left_"
+msgstr "Esquerda"
+
+msgid "_option_lifetime_10_"
+msgstr "10 segundos"
+
+msgid "_option_lifetime_1800_"
+msgstr "30 minutos"
+
+msgid "_option_lifetime_300_"
+msgstr "5 minutos"
+
+msgid "_option_lifetime_30_"
+msgstr "30 segundos"
+
+msgid "_option_lifetime_3600_"
+msgstr "1 hora"
+
+msgid "_option_lifetime_600_"
+msgstr "10 minutos"
+
+msgid "_option_lifetime_60_"
+msgstr "1 minuto"
+
+msgid "_option_lifetime_900_"
+msgstr "15 minutos"
+
+msgid "_option_login_"
+msgstr "Autenticación"
+
+msgid "_option_macroless_"
+msgstr "Macroless"
+
+msgid "_option_min_max_"
+msgstr "Min/máx caixa"
+
+msgid "_option_min_max_close_"
+msgstr "Min/máx/cerrar caja"
+
+msgid "_option_min_max_edit_close_"
+msgstr "Min/máx/editar/pechar caixa"
+
+msgid "_option_no_frames_"
+msgstr "Sen marcos"
+
+msgid "_option_notitle_"
+msgstr "Marco da caixa sen título"
+
+msgid "_option_notitle_noframe_"
+msgstr "Sen marco nin título"
+
+msgid "_option_one_frame_"
+msgstr "Marco da caixa"
+
+msgid "_option_only_in_"
+msgstr "Só en..."
+
+msgid "_option_pending_"
+msgstr "Documentos pendentes"
+
+msgid "_option_plain text_"
+msgstr "Texto simple"
+
+msgid "_option_plain_"
+msgstr "Simple"
+
+msgid "_option_profiler_"
+msgstr "Reactivador"
+
+msgid "_option_recent_"
+msgstr "Documentos recentes"
+
+msgid "_option_related_"
+msgstr "Documentos relacionados"
+
+msgid "_option_right_"
+msgstr "Dereita"
+
+msgid "_option_rounded_box_"
+msgstr "Caixa redondeada"
+
+msgid "_option_rounded_box_notitle_"
+msgstr "Caixa redondeada sen título"
+
+msgid "_option_searchbox_advanced_"
+msgstr "Avanzado"
+
+msgid "_option_searchbox_compact_"
+msgstr "Compacto"
+
+msgid "_option_standard_"
+msgstr "Caixa estándar"
+
+msgid "_option_starting_from_"
+msgstr "Empezando desde..."
+
+msgid "_option_stx_"
+msgstr "Texto estruturado"
+
+msgid "_option_tableless_"
+msgstr "Sen táboas"
+
+msgid "_option_text and icons_"
+msgstr "Texto e iconas"
+
+msgid "_option_text only_"
+msgstr "Só texto"
+
+msgid "_option_text_transform_capitalize_"
+msgstr "Letra Maiúscula En Cada Palabra"
+
+msgid "_option_text_transform_lowercase_"
+msgstr "texto en letras minúsculas"
+
+msgid "_option_text_transform_none_"
+msgstr "Sen transformación"
+
+msgid "_option_text_transform_uppercase_"
+msgstr "TEXTO EN LETRAS MAIÚSCULAS"
+
+msgid "_option_textonly_"
+msgstr "Só texto"
+
+msgid "_option_up_till_"
+msgstr "Subir ata..."
+
+msgid "_option_vertical_"
+msgstr "Vertical"
+
+msgid "_pageblock_description_"
+msgstr "un bloque está composto de celas (columnas). O aspecto visual dunha cela pode ser modificado utilizando deseñadores de cela, dimensionadores de cela e borradores de cela."
+
+msgid "_paletteborder_description_"
+msgstr "estas paletas definen a forma dos bordes utilizados nos estilos."
+
+msgid "_palettecolor_description_"
+msgstr "estas paletas definen as cores utilizados nos estilos."
+
+msgid "_portalbox_templet_description_"
+msgstr "unha caixa xenérica que amosa accións, carpetas, unha caixa 'verbo de', unha caixa de autentificación, unha caixa de info, etc."
+
+msgid "_portalboxgroup_templet_description_"
+msgstr "un taboleiro de anuncios que reagrupa un conxunto de caixas ou de portlets."
+
+msgid "_portaltab_templet_description_"
+msgstr "pestans horizontais que despregan accións, comandos..."
+
+msgid "_portaltabstyle_"
+msgstr "Estilo de pestana do portal"
+
+msgid "_portaltabstyle_description_"
+msgstr "este estilo define a aparencia das pestanas do portal"
+
+msgid "_portaltheme_description_"
+msgstr "Un theme modifica o aspecto e a disposición do portal. Componse de bloques horizontais."
+
+msgid "_portletbox_templet_description_"
+msgstr "Unha caixa que contén un portlet."
+
+msgid "_preview_"
+msgstr "Previsualización"
+
+msgid "_searchbox_Advanced_search"
+msgstr "Busca avanzada"
+
+msgid "_searchbox_Search_"
+msgstr "Busca"
+
+msgid "_searchbox_templet_description_"
+msgstr "unha caixa cun campo de entrada para facer buscas"
+
+msgid "_select this slot_"
+msgstr "seleccionar este dispositivo"
+
+msgid "_selected menu item_"
+msgstr "Ítem de menú seleccionado"
+
+msgid "_selected tab_"
+msgstr "Pestana seleccionada"
+
+msgid "_set as default style_"
+msgstr "establecer como estilo por defecto"
+
+msgid "_shape_"
+msgstr "Forma da área"
+
+msgid "_size_"
+msgstr "Tamaño"
+
+msgid "_style_"
+msgstr "Estilo"
+
+msgid "_submenu_"
+msgstr "Submenú"
+
+msgid "_submenus_"
+msgstr "submenús"
+
+msgid "_textbox_templet_description_"
+msgstr "unha caixa que amosa texto plano ou HTML"
+
+msgid "_themechooser_templet_description_"
+msgstr "un selector de themes para os visitantes (as cookies deben estar activadas)"
+
+msgid "_themepage_description_"
+msgstr "Unha páxina de themes componse de Bloques de Páxina colocados un sobre outro."
+
+msgid "_thumbnails_"
+msgstr "Miniaturas"
+
+msgid "_topmenu_"
+msgstr "menú superior"
+
+msgid "_visibility_"
+msgstr "Visibilidade"
+
+msgid "_wysiwyg mode_"
+msgstr "modo WYSIWYG"
+
+msgid "_zexp export_"
+msgstr "Exportar en formato .zexp"
+
+msgid "_zexp format_"
+msgstr "formato zexp"
+
+msgid "description_confirm_delete_portlet"
+msgstr "Vaise borrar o portlet, ¿está seguro?"
+
+msgid "description_confirm_delete_unused_portlets"
+msgstr "Vanse borrar todos os portlets non utilizados, ¿está vostede seguro?"
+
+msgid "description_delete_unused_portlets"
+msgstr "Borrar portlets non utilizados"
+
+msgid "description_portlets_visible_from"
+msgstr "Portlets visibles desde"
+
+msgid "description_unused_portlets"
+msgstr "Caixas que non son visibles, dado que o seu slot non pertence a este theme"
+
+msgid "heading_portlet_browser_by_topic"
+msgstr "Por tema"
+
+msgid "heading_portlet_browser_by_type"
+msgstr "Por tipo"
+
+msgid "heading_portlet_manage_form"
+msgstr "Administración de Portlets"
+
+msgid "heading_unused_portlets"
+msgstr "Portlets non utilizados"
+
+msgid "menu_insert_box"
+msgstr "Insertar unha caixa..."
+
+msgid "menu_insert_portlet"
+msgstr "Insertar un portlet..."
+
+msgid "portlet_browser_panel"
+msgstr "Navegador de portlets"
+
+msgid "portlet_slots_panel"
+msgstr "Slots de Portlet"
+
+msgid "psm_image_uploaded"
+msgstr "Imaxe subida"
+
+msgid "psm_portlet_deleted"
+msgstr "Portlet borrado."
+
+msgid "site_structure_panel"
+msgstr "Estrutura do sitio"
+
+msgid "unused_portlets_panel"
+msgstr "Portlets non utilizados"
+
+msgid "wysiwyg_panel"
+msgstr "WYSIWYG"
+
+#, fuzzy
+msgid "switch_portal_to_lang ${lang_title}"
+msgstr "Switch the portal language to ${lang_title}"
+
