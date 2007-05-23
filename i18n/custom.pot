@@ -1,36 +1,34 @@
-# translation of cpsskins-pl.po to Polish
-# Marek Ciesielski <ciesiel@pld-linux.org>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: cpsskins-pl\n"
+"Project-Id-Version: CPSSkins 2.0\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2004-05-28 23:27+0200\n"
-"Last-Translator: Marek Ciesielski <ciesiel@pld-linux.org>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2004-07-22 12:00+0100\n"
+"Last-Translator: Jean-Marc Orliaguet <jmo@ita.chalmers.se>\n"
+"Language-Team: Jean-Marc Orliaguet, Jean-François Romanowski <>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: pl\n"
-"Language-Name: Polski\n"
-"Preferred-Encodings: latin2 utf-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: latin9 utf-8\n"
 "Domain: cpsskins\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch\n"
 
 msgid "_(default style)_"
-msgstr "Styl domy¶lny"
+msgstr ""
 
 msgid "_A active_"
-msgstr "Kolor aktywnego odno¶nika"
+msgstr ""
 
 msgid "_A hover_"
-msgstr "Kolor odno¶nika wskazanego"
+msgstr ""
 
 msgid "_A link_"
-msgstr "Kolor odno¶nika"
+msgstr ""
 
 msgid "_A visited_"
-msgstr "Kolor odwiedzonego odno¶nika"
+msgstr ""
 
 msgid "_A_active_bg_color_"
 msgstr ""
@@ -45,7 +43,7 @@ msgid "_A_active_border_width_"
 msgstr ""
 
 msgid "_A_active_decoration_"
-msgstr "Zaznaczony odno¶nik aktywny"
+msgstr ""
 
 msgid "_A_hover_bg_color_"
 msgstr ""
@@ -60,7 +58,7 @@ msgid "_A_hover_border_width_"
 msgstr ""
 
 msgid "_A_hover_decoration_"
-msgstr "Zaznaczony odno¶nik wskazany"
+msgstr ""
 
 msgid "_A_link_bg_color_"
 msgstr ""
@@ -75,7 +73,7 @@ msgid "_A_link_border_width_"
 msgstr ""
 
 msgid "_A_link_decoration_"
-msgstr "Zaznaczony odno¶nik"
+msgstr ""
 
 msgid "_A_visited_bg_color_"
 msgstr ""
@@ -90,109 +88,109 @@ msgid "_A_visited_border_width_"
 msgstr ""
 
 msgid "_A_visited_decoration_"
-msgstr "Zaznaczony odno¶nik odwiedzony"
+msgstr ""
 
 msgid "_Action Box Templet_"
-msgstr "Ramka wyboru szablonu"
+msgstr ""
 
 msgid "_Action box_"
-msgstr "Pole wyboru akcji"
+msgstr ""
 
 msgid "_Action categories_"
-msgstr "Kategorie do wyboru"
+msgstr ""
 
 msgid "_Add a column_"
-msgstr "Dodaj kolumnê"
+msgstr ""
 
 msgid "_Add a theme_"
 msgstr ""
 
 msgid "_Add an image_"
-msgstr "Dodaj obrazek"
+msgstr ""
 
 msgid "_Add content_"
-msgstr "Dodaj zawarto¶æ"
+msgstr ""
 
 msgid "_Add_a_new_Templet_"
-msgstr "Dodaj nowy Szablon"
+msgstr ""
 
 msgid "_Add_a_new_palette_entry_"
-msgstr "Dodaj now± paletê"
+msgstr ""
 
 msgid "_Add_a_new_style_"
-msgstr "Dodaj nowy styl"
+msgstr ""
 
 msgid "_Add_a_portlet_"
-msgstr "Dodaj nowy portlet"
+msgstr ""
 
 msgid "_Align_"
-msgstr "Wyrównanie"
+msgstr ""
 
 msgid "_Appearance_"
-msgstr "Wygl±d"
+msgstr ""
 
 msgid "_April_"
-msgstr "Kwiecieñ"
+msgstr ""
 
 msgid "_Area Color_"
-msgstr "Kolor obszaru"
+msgstr ""
 
 msgid "_Area Shape_"
-msgstr "Kszta³t obszaru"
+msgstr ""
 
 msgid "_Area active background color_"
-msgstr "Kolor aktywnego obszaru t³a"
+msgstr ""
 
 msgid "_Area active border color_"
-msgstr "Kolor aktywnego obszaru ramki"
+msgstr ""
 
 msgid "_Area background color_"
-msgstr "Kolor t³a"
+msgstr ""
 
 msgid "_Area background image_"
-msgstr "Obrazek t³a"
+msgstr ""
 
 msgid "_Area background position_"
-msgstr "Pozycja obszaru t³a"
+msgstr ""
 
 msgid "_Area background repeat_"
-msgstr "Powtórz obszar t³a"
+msgstr ""
 
 msgid "_Area border color_"
-msgstr "Kolor ramki"
+msgstr ""
 
 msgid "_Area border style_"
-msgstr "Styl ramki"
+msgstr ""
 
 msgid "_Area border width_"
-msgstr "Szerko¶æ ramki"
+msgstr ""
 
 msgid "_Area color_"
-msgstr "Obszar koloru"
+msgstr ""
 
 msgid "_Area font color_"
-msgstr "Kolor czcionki"
+msgstr ""
 
 msgid "_Area padding_"
 msgstr ""
 
 msgid "_Area shape_"
-msgstr "Obszar formy"
+msgstr ""
 
 msgid "_Area text transform_"
-msgstr "Przekszta³cenie obszaru tekstowego"
+msgstr ""
 
 msgid "_August_"
-msgstr "Kwiecieñ"
+msgstr ""
 
 msgid "_Author_"
-msgstr "Autor"
+msgstr ""
 
 msgid "_Background color_"
 msgstr ""
 
 msgid "_Background image_"
-msgstr "Obrazek t³a"
+msgstr ""
 
 msgid "_Background position_"
 msgstr ""
@@ -201,541 +199,541 @@ msgid "_Background repeat_"
 msgstr ""
 
 msgid "_Base path_"
-msgstr "¦cie¿ka podstawowa"
+msgstr ""
 
 msgid "_Border style_"
-msgstr "Styl ramki"
+msgstr ""
 
 msgid "_Bottom border color_"
-msgstr "Dolny kolor ramki"
+msgstr ""
 
 msgid "_Bottom left image_"
-msgstr "Lewy-Dolny obrazek"
+msgstr ""
 
 msgid "_Bottom right image_"
-msgstr "Prawy-Dolny obrazek"
+msgstr ""
 
 msgid "_Box Corners_"
-msgstr "Naro¿nik ramki"
+msgstr ""
 
 msgid "_Box color_"
-msgstr "Kolor ramki"
+msgstr ""
 
 msgid "_Box corners_"
-msgstr "Naro¿nik ramki"
+msgstr ""
 
 msgid "_Box layout_"
-msgstr "Styl ramki portalu"
+msgstr ""
 
 msgid "_Box orientation_"
-msgstr "Orientacja ramki portalu"
+msgstr ""
 
 msgid "_Box shape_"
-msgstr "Kszta³t ramki portalu"
+msgstr ""
 
 msgid "_BoxBody background color_"
-msgstr "Kolor t³a tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxBody background image_"
-msgstr "Obrazek w tle tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxBody border color_"
-msgstr "Kolor linii tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxBody border style_"
-msgstr "Styl linii tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxBody border width_"
-msgstr "Szeroko¶æ linii tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxBody menuin border color_"
-msgstr "Zaznaczony kolor linii menu"
+msgstr ""
 
 msgid "_BoxBody menuin border style_"
-msgstr "Zaznaczony styl linii menu"
+msgstr ""
 
 msgid "_BoxBody menuin border width_"
-msgstr "Zaznaczona szeroko¶æ linii menu"
+msgstr ""
 
 msgid "_BoxBody menuin color_"
-msgstr "Zaznaczony kolor menu"
+msgstr ""
 
 msgid "_BoxBody menuin icon_"
-msgstr "Zaznaczone menu ikon"
+msgstr ""
 
 msgid "_BoxBody menuin margin_"
-msgstr "Zaznaczony margines menu"
+msgstr ""
 
 msgid "_BoxBody menuin padding_"
-msgstr "Zaznaczone menu odstêpu"
+msgstr ""
 
 msgid "_BoxBody menuout border color_"
-msgstr "Kolor linii menu"
+msgstr ""
 
 msgid "_BoxBody menuout border style_"
-msgstr "Styl linii menu"
+msgstr ""
 
 msgid "_BoxBody menuout border width_"
-msgstr "Szeroko¶æ linii menu"
+msgstr ""
 
 msgid "_BoxBody menuout color_"
-msgstr "Kolor menu"
+msgstr ""
 
 msgid "_BoxBody menuout icon_"
-msgstr "Menu ikon"
+msgstr ""
 
 msgid "_BoxBody menuout margin_"
-msgstr "Margines menu"
+msgstr ""
 
 msgid "_BoxBody menuout padding_"
-msgstr "Menu odstêpu"
+msgstr ""
 
 msgid "_BoxBody padding_"
-msgstr "Odstêp od ramki tre¶ci"
+msgstr ""
 
 msgid "_BoxBody text align_"
-msgstr "Wyrównanie tre¶ci ramki"
+msgstr ""
 
 msgid "_BoxTitle background color_"
-msgstr "Kolor t³a tematu ramki"
+msgstr ""
 
 msgid "_BoxTitle background image_"
-msgstr "Obrazek w tle tematu ramki"
+msgstr ""
 
 msgid "_BoxTitle border color_"
-msgstr "Kolor tematu linii ramki"
+msgstr ""
 
 msgid "_BoxTitle border style_"
-msgstr "Styl linii tematu ramki"
+msgstr ""
 
 msgid "_BoxTitle border width_"
-msgstr "Szeroko¶æ linii ramki tematu"
+msgstr ""
 
 msgid "_BoxTitle display_"
-msgstr "Wy¶wietl temat ramki"
+msgstr ""
 
 msgid "_BoxTitle font color_"
-msgstr "Kolor czcionki tematu ramki"
+msgstr ""
 
 msgid "_BoxTitle font_"
-msgstr "Czcionka ramki tematu"
+msgstr ""
 
 msgid "_BoxTitle padding_"
-msgstr "Odstêp ramki tematu"
+msgstr ""
 
 msgid "_BoxTitle text align_"
-msgstr "Wyrównanie tekstu tematu ramki"
+msgstr ""
 
 msgid "_Breadcrumbs Templet_"
-msgstr "Szablon paska nawigacji"
+msgstr ""
 
 msgid "_Breadcrumbs_"
-msgstr "Pasek nawigacji"
+msgstr ""
 
 msgid "_Broken Templet!_"
-msgstr "B³êdny szablon!"
+msgstr ""
 
 msgid "_Buttons_"
 msgstr ""
 
 msgid "_Cache effectivity_"
-msgstr "Efektywno¶æ pamiêci podrêcznej"
+msgstr ""
 
 msgid "_Cache lifetime_"
-msgstr "D³ugo¶æ aktywno¶ci pamiêci podrêcznej"
+msgstr ""
 
 msgid "_Cache manager_"
-msgstr "Menad¿er pamiêci podrêcznej"
+msgstr ""
 
 msgid "_Cache parameters updated_"
-msgstr "Parametry pamiêci podrêcznej zaktualizowane"
+msgstr ""
 
 msgid "_Cacheable in RAM_"
-msgstr "Pamiêæ podrêczna w RAM"
+msgstr ""
 
 msgid "_Cacheable?_"
-msgstr "Buforowaæ?"
+msgstr ""
 
 msgid "_Caching_"
-msgstr "Buforowany"
+msgstr ""
 
 msgid "_Calendar Style_"
-msgstr "Motyw kalendarza"
+msgstr ""
 
 msgid "_Calendar Templet_"
-msgstr "Szablon kalendarza"
+msgstr ""
 
 msgid "_Calendar_"
-msgstr "Kalendarz"
+msgstr ""
 
 msgid "_Cell Block_"
-msgstr "Komórka zablokowana"
+msgstr ""
 
 msgid "_Cell Hider_"
-msgstr "Ukrywanie komórki"
+msgstr ""
 
 msgid "_Cell Sizer_"
-msgstr "Wielko¶æ komórki"
+msgstr ""
 
 msgid "_Cell Styler_"
-msgstr "Styler komórki"
+msgstr ""
 
 msgid "_Cell width_"
-msgstr "Szeroko¶æ komórki"
+msgstr ""
 
 msgid "_Cellblock margin_"
-msgstr "Margines zablokowanej komórki"
+msgstr ""
 
 msgid "_Hidden if empty_"
-msgstr "Hidden if empty"
+msgstr ""
 
 msgid "_Collapsible Menu Style_"
-msgstr "Styl menu rozwijalnego"
+msgstr ""
 
 msgid "_Collapsible Menu Templet_"
-msgstr "Szablon menu rozwijalnego"
+msgstr ""
 
 msgid "_Collapsible menu_"
-msgstr "Menu rozwijalne"
+msgstr ""
 
 msgid "_Color_"
-msgstr "Kolor"
+msgstr ""
 
 msgid "_Columns_"
-msgstr "Kolumny"
+msgstr ""
 
 msgid "_Content_"
-msgstr "Zawarto¶æ"
+msgstr ""
 
 msgid "_Copy_"
-msgstr "Kopia"
+msgstr ""
 
 msgid "_Copyright_"
-msgstr "Prawa"
+msgstr ""
 
 msgid "_Create a copy_"
-msgstr "Twórz kopie"
+msgstr ""
 
 msgid "_Created by:_"
-msgstr "Stworzone przez:"
+msgstr ""
 
 msgid "_Creator_"
-msgstr "Autor"
+msgstr ""
 
 msgid "_Custom action categories_"
-msgstr "Zaawansowane kategorie do wyboru"
+msgstr ""
 
 msgid "_Cut_"
-msgstr "Wytnij"
+msgstr ""
 
 msgid "_Days background color_"
-msgstr "Kolor t³a dni"
+msgstr ""
 
 msgid "_Days font color_"
-msgstr "Kolor czcionki dni"
+msgstr ""
 
 msgid "_December_"
-msgstr "Grudzieñ"
+msgstr ""
 
 msgid "_Default page_"
-msgstr "Strona domy¶lna"
+msgstr ""
 
 msgid "_Default theme_"
-msgstr "Domy¶lny motyw"
+msgstr ""
 
 msgid "_Default_font_"
-msgstr "Domy¶lna czcionka"
+msgstr ""
 
 msgid "_Delete Templet?_"
-msgstr "Skasowaæ szablon?"
+msgstr ""
 
 msgid "_Delete style?_"
-msgstr "Skasowaæ styl?"
+msgstr ""
 
 msgid "_Delete theme?_"
-msgstr "Skasowaæ motyw?"
+msgstr ""
 
 msgid "_Delete_"
-msgstr "Kasuj"
+msgstr ""
 
 msgid "_Deleting this image, are you sure?_"
-msgstr "Czy napewno chcesz skasowaæ obrazek?"
+msgstr ""
 
 msgid "_Deleting this palette entry, are you sure?_"
-msgstr "Czy napewno chcesz skasowaæ paletê?"
+msgstr ""
 
 msgid "_Deleting this style, are you sure?_"
-msgstr "Czy napewno chcesz skasowaæ styl"
+msgstr ""
 
 msgid "_Depth level_"
-msgstr "Wzglêdna g³êboko¶æ poziomu"
+msgstr ""
 
 msgid "_Description_"
-msgstr "Opis"
+msgstr ""
 
 msgid "_Destination_slot_"
 msgstr ""
 
 msgid "_Display a contextual icon_"
-msgstr "Wy¶wietl ikony kontekstowe"
+msgstr ""
 
 msgid "_Display hidden folders_"
-msgstr "Wy¶wietl ukryte katalogi"
+msgstr ""
 
 msgid "_Display title in text mode_"
-msgstr "Wy¶wietl temat w trybie tekstowym"
+msgstr ""
 
 msgid "_Document Info Templet_"
-msgstr "Szablon informacji o dokumencie"
+msgstr ""
 
 msgid "_Document info_"
-msgstr "Informacja o dokumencie"
+msgstr ""
 
 msgid "_ESI fragment_"
-msgstr "Fragment ESI"
+msgstr ""
 
 msgid "_ESI_"
-msgstr "ESI"
+msgstr ""
 
 msgid "_Edit images_"
-msgstr "Edytuj obrazki"
+msgstr ""
 
 msgid "_Edit palettes_"
-msgstr "Edycja palet"
+msgstr ""
 
 msgid "_Edit styles_"
-msgstr "Edycja stylów"
+msgstr ""
 
 msgid "_Edit the current style_"
-msgstr "Edycja obecnego styl"
+msgstr ""
 
 msgid "_Edit the page_"
-msgstr "Edycja strony"
+msgstr ""
 
 msgid "_Edit the theme_"
-msgstr "Edycja tematu"
+msgstr ""
 
 msgid "_Edit this page block_"
-msgstr "Edycja obszaru strony"
+msgstr ""
 
 msgid "_Edit_"
-msgstr "Edycja"
+msgstr ""
 
 msgid "_Elements_"
-msgstr "Elementy"
+msgstr ""
 
 msgid "_Enable ESI_"
-msgstr "W³±cz ESI"
+msgstr ""
 
 msgid "_End string_"
-msgstr "Ostatni znak"
+msgstr ""
 
 msgid "_Event background color_"
-msgstr "Kolor t³a zdarzenia"
+msgstr ""
 
 msgid "_Event border color_"
-msgstr "Kolor linii zdarzenia"
+msgstr ""
 
 msgid "_Event font color_"
-msgstr "Kolor czcionki zdarzenia"
+msgstr ""
 
 msgid "_Exit_"
-msgstr "Wyj¶cie"
+msgstr ""
 
 msgid "_February_"
-msgstr "Luty"
+msgstr ""
 
 msgid "_Flash Box Templet_"
-msgstr "Ramka Flash szablonu"
+msgstr ""
 
 msgid "_Flash box_"
-msgstr "Ramka dla Flash-a"
+msgstr ""
 
 msgid "_Flash caption_"
-msgstr "Podpis pod flash-em"
+msgstr ""
 
 msgid "_Flash movie height_"
-msgstr "Wysoko¶æ filmu Flash"
+msgstr ""
 
 msgid "_Flash movie width_"
-msgstr "Szeroko¶æ filmu Flash"
+msgstr ""
 
 msgid "_Font Color_"
-msgstr "Kolor czcionki"
+msgstr ""
 
 msgid "_Font Shape_"
-msgstr "Kszta³t czcionki"
+msgstr ""
 
 msgid "_Font color_"
-msgstr "Kolor czcionki"
+msgstr ""
 
 msgid "_Font shape_"
-msgstr "Kszta³t czcionki"
+msgstr ""
 
 msgid "_Forgot your password?_"
-msgstr "Zapomnia³e¶ has³a?"
+msgstr ""
 
 msgid "_Form Style_"
-msgstr "Styl kszta³tu"
+msgstr ""
 
 msgid "_Form padding_"
-msgstr "Kszta³t obszaru"
+msgstr ""
 
 msgid "_Form style_"
-msgstr "Styl obszaru"
+msgstr ""
 
 msgid "_Form_"
-msgstr "Kszta³t"
+msgstr ""
 
 msgid "_Fr_"
-msgstr "Fr"
+msgstr ""
 
 msgid "_Guest_"
-msgstr "Go¶æ"
+msgstr ""
 
 msgid "_H1_"
-msgstr "H1"
+msgstr ""
 
 msgid "_H1_bg_color_"
-msgstr "H1 kolor t³a"
+msgstr ""
 
 msgid "_H1_border_color_"
-msgstr "H1 kolor ramki"
+msgstr ""
 
 msgid "_H1_border_style_"
-msgstr "H1 styl ramki"
+msgstr ""
 
 msgid "_H1_border_width_"
-msgstr "H1 szeroko¶æ ramki"
+msgstr ""
 
 msgid "_H1_font_"
-msgstr "H1 czcionka"
+msgstr ""
 
 msgid "_H1_font_color_"
-msgstr "H1 kolor czcionki"
+msgstr ""
 
 msgid "_H1_margin_"
 msgstr ""
 
 msgid "_H1_padding_"
-msgstr "H1 odstêp"
+msgstr ""
 
 msgid "_H2_"
-msgstr "H2"
+msgstr ""
 
 msgid "_H2_bg_color_"
-msgstr "H2 kolor t³a"
+msgstr ""
 
 msgid "_H2_border_color_"
-msgstr "H2 kolor ramki"
+msgstr ""
 
 msgid "_H2_border_style_"
-msgstr "H2 styl ramki"
+msgstr ""
 
 msgid "_H2_border_width_"
-msgstr "H2 szeroko¶æ ramki"
+msgstr ""
 
 msgid "_H2_font_"
-msgstr "H2 czcionka"
+msgstr ""
 
 msgid "_H2_font_color_"
-msgstr "H2 kolor czcionki"
+msgstr ""
 
 msgid "_H2_margin_"
 msgstr ""
 
 msgid "_H2_padding_"
-msgstr "H2 odstêp"
+msgstr ""
 
 msgid "_H3_"
-msgstr "H3"
+msgstr ""
 
 msgid "_H3_bg_color_"
-msgstr "H3 kolor t³a"
+msgstr ""
 
 msgid "_H3_border_color_"
-msgstr "H3 kolor ramki"
+msgstr ""
 
 msgid "_H3_border_style_"
-msgstr "H3 styl ramki"
+msgstr ""
 
 msgid "_H3_border_width_"
-msgstr "H3 szeroko¶æ ramki"
+msgstr ""
 
 msgid "_H3_font_"
-msgstr "H3 czcionka"
+msgstr ""
 
 msgid "_H3_font_color_"
-msgstr "H3 kolor czcionki"
+msgstr ""
 
 msgid "_H3_margin_"
 msgstr ""
 
 msgid "_H3_padding_"
-msgstr "H3 odstêp"
+msgstr ""
 
 msgid "_H456_"
-msgstr "H4, H5, H6"
+msgstr ""
 
 msgid "_H456_bg_color_"
-msgstr "H4, H5, H6 kolor t³a"
+msgstr ""
 
 msgid "_H456_border_color_"
-msgstr "H4, H5, H6 kolor ramki"
+msgstr ""
 
 msgid "_H456_border_style_"
-msgstr "H4, H5, H6 styl ramki"
+msgstr ""
 
 msgid "_H456_border_width_"
-msgstr "H4, H5, H6 szeroko¶æ ramki"
+msgstr ""
 
 msgid "_H456_font_"
-msgstr "H4, H5, H6 czcionka"
+msgstr ""
 
 msgid "_H456_font_color_"
-msgstr "H4, H5, H6 kolor czcionki"
+msgstr ""
 
 msgid "_H456_margin_"
 msgstr ""
 
 msgid "_H456_padding_"
-msgstr "H4, H5, H6 odstêp"
+msgstr ""
 
 msgid "_Header background color_"
-msgstr "Kolor t³a nag³ówka"
+msgstr ""
 
 msgid "_Header font color_"
-msgstr "Kolor czcionki nag³ówka"
+msgstr ""
 
 msgid "_Height_"
-msgstr "Wysoko¶æ"
+msgstr ""
 
 msgid "_Hidden in text mode_"
-msgstr "Ukryty w trybie tekstowym"
+msgstr ""
 
 msgid "_Hide current language_"
-msgstr "Wy³±cz obecny jêzyk"
+msgstr ""
 
 msgid "_Hide this cell_"
-msgstr "Ukryj komórkê"
+msgstr ""
 
 msgid "_Hide title_"
-msgstr "Ukryj temat"
+msgstr ""
 
 msgid "_Hide_overriden_portlets_"
 msgstr ""
 
 msgid "_Hierarchy base_"
-msgstr "Baza hierarchii"
+msgstr ""
 
 msgid "_Horizontal alignment_"
-msgstr "Wyrównanie w poziomie"
+msgstr ""
 
 msgid "_Horizontal margin_"
-msgstr "Margines poziomy"
+msgstr ""
 
 msgid "_Horizontal padding_"
-msgstr "Odstêp poziomy"
+msgstr ""
 
 msgid "_Hover background color_"
 msgstr ""
@@ -744,1317 +742,1319 @@ msgid "_Hover background image_"
 msgstr ""
 
 msgid "_Icon size_"
-msgstr "Rozmiar ikon"
+msgstr ""
 
 msgid "_Image Box Templet_"
-msgstr "Obrazek ramki z obrazkiem"
+msgstr ""
 
 msgid "_Image box_"
-msgstr "Ramka dla obrazka"
+msgstr ""
 
 msgid "_Image caption_"
-msgstr "Opis obrazka"
+msgstr ""
 
 msgid "_Images_"
-msgstr "Obrazki"
+msgstr ""
 
 msgid "_Import a theme_"
 msgstr ""
 
 msgid "_Info text_"
-msgstr "Tekst informacji"
+msgstr ""
 
 msgid "_Insert a Templet here_"
-msgstr "Osad¼ Szablon tutaj"
+msgstr ""
 
 msgid "_Insert a page block_"
-msgstr "Osad¼ obszar strony"
+msgstr ""
 
 msgid "_Internal link_"
-msgstr "Wewnêtrzny odno¶nik"
+msgstr ""
 
 msgid "_Invisible actions_"
-msgstr "Niewidoczne dzia³ania"
+msgstr ""
 
 msgid "_January_"
-msgstr "Styczeñ"
+msgstr ""
 
 msgid "_July_"
-msgstr "Lipiec"
+msgstr ""
 
 msgid "_June_"
-msgstr "Czerwiec"
+msgstr ""
 
 msgid "_KB_"
-msgstr "KB"
+msgstr ""
 
 msgid "_Language Templet_"
-msgstr "Szablon jêzykowy"
+msgstr ""
 
 msgid "_Language selector_"
-msgstr "Wybór jêzyka"
+msgstr ""
 
 msgid "_Last modified:_"
-msgstr "Ostatnia modyfikacja:"
+msgstr ""
 
 msgid "_Left-side image_"
-msgstr "Lewa strona obrazka"
+msgstr ""
 
 msgid "_License_"
-msgstr "Licencja"
+msgstr ""
 
 msgid "_Link (http://, mailto: ...)_"
-msgstr "Link (http://, mailto: ...)"
+msgstr ""
 
 msgid "_List orientation_"
-msgstr "Kierunek listy"
+msgstr ""
 
 msgid "_Location_"
-msgstr "Lokacja"
+msgstr ""
 
 msgid "_Log in_"
-msgstr "Zaloguj siê"
+msgstr ""
 
 msgid "_Macroless_"
-msgstr "Mniejsze makro"
+msgstr ""
 
 msgid "_Main Content Templet_"
-msgstr "Zawarto¶æ g³ównego motywu"
+msgstr ""
 
 msgid "_Main content_"
-msgstr "G³ówna zawarto¶æ"
+msgstr ""
 
 msgid "_Manage_"
-msgstr "Zarz±dzaj"
+msgstr ""
 
 msgid "_March_"
-msgstr "Marzec"
+msgstr ""
 
 msgid "_Margin_"
-msgstr "Margines"
+msgstr ""
 
 msgid "_Maximum number of items_"
-msgstr "Maksymalna ilo¶æ pozycji"
+msgstr ""
 
 msgid "_May_"
-msgstr "Maj"
+msgstr ""
 
 msgid "_Memory usage_"
-msgstr "U¿ytej pamiêci"
+msgstr ""
 
+# keep it short
 msgid "_Menu entry_"
-msgstr "Menu"
+msgstr ""
 
+# keep it short
 msgid "_Menu title_"
-msgstr "Temat menu"
+msgstr ""
 
 msgid "_Merge this style?_"
-msgstr "Po³±czyæ ten styl?"
+msgstr ""
 
 msgid "_Minimize / Maximize_"
-msgstr "Minimalny / Maksymalny"
+msgstr ""
 
 msgid "_Mo_"
-msgstr "m-c"
+msgstr ""
 
 msgid "_Month_"
-msgstr "Miesi±c"
+msgstr ""
 
 msgid "_More ..._"
-msgstr "Wiêcej ..."
+msgstr ""
 
 msgid "_Move down_"
-msgstr "Przesuñ w dó³"
+msgstr ""
 
 msgid "_Move left_"
-msgstr "Przesuñ w lewo"
+msgstr ""
 
 msgid "_Move right_"
-msgstr "Przesuñ w prawo"
+msgstr ""
 
 msgid "_Move this cell to the left_"
-msgstr "Przesuñ komórkê w lewo"
+msgstr ""
 
 msgid "_Move this cell to the right_"
-msgstr "Przesuñ komórkê w prawo"
+msgstr ""
 
 msgid "_Move up_"
-msgstr "Przesuñ w górê"
+msgstr ""
 
 msgid "_No items published since your last log-in_"
-msgstr "Nic nie zosta³o opublikowane od ostatniego logowania"
+msgstr ""
 
 msgid "_No preview_"
-msgstr "Brak podgl±du"
+msgstr ""
 
 msgid "_Not available in layout mode_"
-msgstr "Tryb wy¶wietlania uk³adu niedostêpny"
+msgstr ""
 
 msgid "_November_"
-msgstr "Listopad"
+msgstr ""
 
 msgid "_Number of columns_"
-msgstr "Ilo¶æ kolumn"
+msgstr ""
 
 msgid "_October_"
-msgstr "Pa¼dziernik"
+msgstr ""
 
 msgid "_Only select items that are supposed to get translated:_"
-msgstr "Tylko zaznaczona pozycja mo¿e byæ przet³umaczona"
+msgstr ""
 
 msgid "_Other categories_"
-msgstr "Inne kategorie"
+msgstr ""
 
 msgid "_Other images_"
-msgstr "Inne obrazki"
+msgstr ""
 
 msgid "_Other palettes_"
-msgstr "Inne palety"
+msgstr ""
 
 msgid "_Other portlets_"
-msgstr "Inne portlety"
+msgstr ""
 
 msgid "_Other styles_"
-msgstr "Inne style"
+msgstr ""
 
 msgid "_Other themes_"
 msgstr ""
 
 msgid "_P_font_"
-msgstr "Czcionka paragrafu"
+msgstr ""
 
 msgid "_P_padding_"
-msgstr "Odstêp paragrafu"
+msgstr ""
 
 msgid "_Padding_"
 msgstr ""
 
 msgid "_Page Block_"
-msgstr "Blok strony"
+msgstr ""
 
 msgid "_Page renderer_"
-msgstr "Renderer strony"
+msgstr ""
 
 msgid "_Palette Border_"
-msgstr "Paleta linii"
+msgstr ""
 
 msgid "_Palette Color_"
-msgstr "Kolor palety"
+msgstr ""
 
 msgid "_Palettes_"
-msgstr "Palety"
+msgstr ""
 
 msgid "_Password_"
-msgstr "Has³o"
+msgstr ""
 
 msgid "_Paste_"
-msgstr "Wklej"
+msgstr ""
 
 msgid "_Please select a portlet type_"
 msgstr ""
 
 msgid "_Portal Box Color_"
-msgstr "Kolor ramki portalu"
+msgstr ""
 
 msgid "_Portal Box Group Templet_"
-msgstr "Ramka grupy szablonów portalowych"
+msgstr ""
 
 msgid "_Portal Box Shape_"
-msgstr "Kszta³t ramki portalu"
+msgstr ""
 
 msgid "_Portal Box Templet_"
-msgstr "Ramka szablonu portalowego"
+msgstr ""
 
 msgid "_Portal Tab Style_"
-msgstr "Styl nag³ówka portala"
+msgstr ""
 
 msgid "_Portal Tab Templet_"
-msgstr "Szablon nag³ówka portala"
+msgstr ""
 
 msgid "_Portal Tab_"
-msgstr "Nag³ówek portala"
+msgstr ""
 
 msgid "_Portal Theme_"
-msgstr "Motywy portala"
+msgstr ""
 
 msgid "_Portal box color_"
-msgstr "Kolor ramki w portalu"
+msgstr ""
 
 msgid "_Portal box content_"
-msgstr "Zawarto¶æ ramki portala"
+msgstr ""
 
 msgid "_Portal box group_"
-msgstr "Grupa ramek portala"
+msgstr ""
 
 msgid "_Portal box shape_"
-msgstr "Kszta³t ramki w portalu"
+msgstr ""
 
 msgid "_Portal box title source_"
-msgstr "¬ród³o ramki tematu portala"
+msgstr ""
 
 msgid "_Portal box_"
-msgstr "Ramka portala"
+msgstr ""
 
 msgid "_Portlet Box Templet_"
-msgstr "Ramka Szablonu portleta"
+msgstr ""
 
 msgid "_Portlet editor_"
 msgstr ""
 
 msgid "_Portlet type_"
-msgstr "Typ portleta"
+msgstr ""
 
 msgid "_Portlet_"
-msgstr "Portlet"
+msgstr ""
 
 msgid "_Preview background color_"
-msgstr "Podgl±d koloru t³a"
+msgstr ""
 
 msgid "_Preview border color_"
-msgstr "Podgl±d koloru ramki"
+msgstr ""
 
 msgid "_Preview font color_"
-msgstr "Podgl±d koloru czcionki"
+msgstr ""
 
 msgid "_Preview_"
-msgstr "Podgl±d"
+msgstr ""
 
 msgid "_Read more_"
-msgstr "Czytaj wiêcej"
+msgstr ""
 
 msgid "_Remove a column_"
-msgstr "Usuñ kolumnê"
+msgstr ""
 
 msgid "_Repeat string_"
-msgstr "Powtórzony ci±g znaków"
+msgstr ""
 
 msgid "_Reveal_overriden_portlets_"
 msgstr ""
 
 msgid "_Right-side image_"
-msgstr "Prawa strona obrazka"
+msgstr ""
 
 msgid "_SMALL_font_"
 msgstr ""
 
 msgid "_STRONG_font_"
-msgstr "Pogrubiona czcionka"
+msgstr ""
 
 msgid "_Sa_"
-msgstr "So"
+msgstr ""
 
 msgid "_Search Box Templet_"
-msgstr "Pole wyszukiwania w szablonie"
+msgstr ""
 
 msgid "_Search box_"
-msgstr "Pole szukania"
+msgstr ""
 
 msgid "_See the error log_"
-msgstr "Zobacz log b³êdu"
+msgstr ""
 
 msgid "_Select a style_"
-msgstr "Wybierz styl"
+msgstr ""
 
 msgid "_Select a theme to manage_"
 msgstr ""
 
 msgid "_Selectable themes_"
-msgstr "Wybór motywów"
+msgstr ""
 
 msgid "_September_"
-msgstr "Wrzesieñ"
+msgstr ""
 
 msgid "_Set the size of this cell_"
-msgstr "Ustaw rozmiar w tej komórce"
+msgstr ""
 
 msgid "_Shape_"
-msgstr "Kszta³t"
+msgstr ""
 
 msgid "_Shortcut icon_"
-msgstr "Odwo³anie do ikony"
+msgstr ""
 
 msgid "_Show action icons_"
-msgstr "Poka¿ dzia³ania ikon"
+msgstr ""
 
 msgid "_Show add items_"
-msgstr "Poka¿ dodane pozycje"
+msgstr ""
 
 msgid "_Show all categories_"
-msgstr "Poka¿ wszystkie kategorie"
+msgstr ""
 
 msgid "_Show documents in folders_"
-msgstr "Poka¿ dokumenty w katalogach"
+msgstr ""
 
 msgid "_Show month_"
-msgstr "Poka¿ miesi±c"
+msgstr ""
 
 msgid "_Show preview_"
-msgstr "Poka¿ podgl±d"
+msgstr ""
 
 msgid "_Show weekdays_"
-msgstr "Poka¿ dni tygodnia"
+msgstr ""
 
 msgid "_Show year_"
-msgstr "Poka¿ rok"
+msgstr ""
 
 msgid "_Simulate this URL ..._"
-msgstr "Symuluj ten URL ..."
+msgstr ""
 
 msgid "_Slot name_"
-msgstr "Nazwa slotu"
+msgstr ""
 
 msgid "_Some items can be pasted here_"
 msgstr ""
 
 msgid "_Start string_"
-msgstr "Pocz±tek znaków"
+msgstr ""
 
 msgid "_Style_"
-msgstr "Styl"
+msgstr ""
 
 msgid "_Styles_"
-msgstr "Styl"
+msgstr ""
 
 msgid "_Stylize this cell_"
-msgstr "Popraw wygl±d komórki"
+msgstr ""
 
 msgid "_Su_"
-msgstr "Ni"
+msgstr ""
 
 msgid "_Sub-menu background color_"
-msgstr "Kolor t³a pod-menu"
+msgstr ""
 
 msgid "_Sub-menu border color_"
-msgstr "Kolor ramki pod-menu"
+msgstr ""
 
 msgid "_Sub-menu border style_"
-msgstr "Styl ramki pod-menu"
+msgstr ""
 
 msgid "_Sub-menu font color_"
-msgstr "Kolor czcionki pod-menu"
+msgstr ""
 
 msgid "_Sub-menu font_"
-msgstr "Czcionka pod-menu"
+msgstr ""
 
 msgid "_Sub-menu hover background color_"
-msgstr "Kolor t³a wskazanego pod-menu"
+msgstr ""
 
 msgid "_Sub-menu hover font color_"
-msgstr "Kolor wskazanej czcionki pod-menu"
+msgstr ""
 
 msgid "_Sub-menu items width_"
-msgstr "Szeroko¶æ pod-menu"
+msgstr ""
 
 msgid "_Tab style_"
-msgstr "Styl nag³ówka"
+msgstr ""
 
 msgid "_Tab width_"
-msgstr "Szeroko¶æ nag³ówka"
+msgstr ""
 
 msgid "_Tableless_"
 msgstr ""
 
 msgid "_Templet color_"
-msgstr "Kolor szablonu"
+msgstr ""
 
 msgid "_Templet height_"
-msgstr "Wysoko¶æ szablonu"
+msgstr ""
 
 msgid "_Templet margin_"
-msgstr "Margines w szablonie"
+msgstr ""
 
 msgid "_Templet padding_"
-msgstr "Odstêp szablonu"
+msgstr ""
 
 msgid "_Templet shape_"
-msgstr "Kszta³t szablonu"
+msgstr ""
 
 msgid "_Templets_"
-msgstr "Szablony"
+msgstr ""
 
 msgid "_Text Box Templet_"
-msgstr "Tekst ramki szablonu"
+msgstr ""
 
 msgid "_Text box_"
-msgstr "Ramka tekstowa"
+msgstr ""
 
 msgid "_Text format_"
-msgstr "Format tekstu"
+msgstr ""
 
 msgid "_Th_"
-msgstr "Cz"
+msgstr ""
 
 msgid "_The benchmark timer is not installed_"
-msgstr "Test szybko¶ci timera nie zosta³ zainstalowany"
+msgstr ""
 
 msgid "_The languages in which it is visible_"
-msgstr "Widoczny jêzyk"
+msgstr ""
 
 msgid "_The visibility paths_"
-msgstr "Widoczna ¶cie¿ka"
+msgstr ""
 
 msgid "_Theme Chooser Templet_"
-msgstr "Szablon wyboru motywów"
+msgstr ""
 
 msgid "_Theme Page_"
-msgstr "Temat strony"
+msgstr ""
 
 msgid "_Theme chooser_"
-msgstr "Wybór motywów"
+msgstr ""
 
 msgid "_Theme editor_"
-msgstr "Edytor tematu"
+msgstr ""
 
 msgid "_Theme export_"
-msgstr "Eksport tematu"
+msgstr ""
 
 msgid "_Theme name_"
-msgstr "Nazwa tematu"
+msgstr ""
 
 msgid "_Theme optimizer_"
-msgstr "Optymalizer motywów"
+msgstr ""
 
 msgid "_Theme renderer_"
-msgstr "Przetwórz motyw"
+msgstr ""
 
 msgid "_Theme_"
-msgstr "Temat"
+msgstr ""
 
 msgid "_Theme_rebuilt_"
-msgstr "Przebudowa tematu"
+msgstr ""
 
 msgid "_Themes manager_"
-msgstr "Menad¿er motywów"
+msgstr ""
 
 msgid "_These Templets are invisible and can be deleted:_"
-msgstr "Te szablony s± niewidoczne i mog± zostaæ skasowane:"
+msgstr ""
 
 msgid "_These Templets could be cached in memory for faster rendering:_"
-msgstr "Te szablony mog± byæ buforowane w pamiêci, co przyspiesza ich wy¶wietlanie"
+msgstr ""
 
 msgid "_These styles are identical and can be merged together:_"
-msgstr "Te style s± identyczne i mo¿na je po³±czyæ:"
+msgstr ""
 
 msgid "_These styles are not used and can be deleted:_"
-msgstr "Te style nie s± u¿ywane i mo¿na je skasowaæ:"
+msgstr ""
 
 msgid "_This style is already used by_"
-msgstr "Ten styl jest w tej chwili uzywany przez "
+msgstr ""
 
 msgid "_This style will be used by default_"
-msgstr "Ten styl mo¿e byæ domy¶lny"
+msgstr ""
 
 msgid "_This theme is completely optimized_"
-msgstr "Ten motyw jest zoptymalizowany"
+msgstr ""
 
 msgid "_Title_"
-msgstr "Tytu³"
+msgstr ""
 
 msgid "_Today border color_"
-msgstr "Kolor ramki bie¿±cej"
+msgstr ""
 
 msgid "_Top left image_"
-msgstr "Górny lewy obrazek"
+msgstr ""
 
 msgid "_Top menu background color_"
-msgstr "Kolor t³a górnego menu"
+msgstr ""
 
 msgid "_Top menu border color_"
-msgstr "Kolor ramki górnego menu"
+msgstr ""
 
 msgid "_Top menu border style_"
-msgstr "Styl ramki górnego menu"
+msgstr ""
 
 msgid "_Top menu font color_"
-msgstr "Kolor czcionki górnego menu"
+msgstr ""
 
 msgid "_Top menu font_"
-msgstr "Czcionka górnego menu"
+msgstr ""
 
 msgid "_Top menu hover background color_"
-msgstr "Kolor t³a wskazanego górnego menu"
+msgstr ""
 
 msgid "_Top menu hover font color_"
-msgstr "Kolor wskazanej czcionki górnego menu"
+msgstr ""
 
 msgid "_Top menu items width_"
-msgstr "Szeroko¶æ górnego menu"
+msgstr ""
 
 msgid "_Top right image_"
-msgstr "Górny prawy obrazek"
+msgstr ""
 
 msgid "_Translate folder items_"
-msgstr "Pozycja przet³umaczonego katalogu"
+msgstr ""
 
 msgid "_Translate the box title_"
-msgstr "Przet³umaczony temat ramki"
+msgstr ""
 
 msgid "_Translate the breadcrumbs_"
-msgstr "T³umaczenie breadcrumbs"
+msgstr ""
 
 msgid "_Translate the image_"
-msgstr "T³umaczenie obrazka"
+msgstr ""
 
 msgid "_Translate the text_"
-msgstr "T³umaczenie tekstu"
+msgstr ""
 
 msgid "_Translations_"
-msgstr "T³umaczenie"
+msgstr ""
 
 msgid "_Tu_"
-msgstr "Wt"
+msgstr ""
 
 msgid "_Use internal link?_"
-msgstr "U¿yæ wewn. odno¶nika?"
+msgstr ""
 
 msgid "_Use the cache?_"
-msgstr "U¿ywaæ buforowania?"
+msgstr ""
 
 msgid "_Use this as the default style_"
-msgstr "Uzyj tego stylu jako domy¶lny"
+msgstr ""
 
 msgid "_Username_"
-msgstr "Nazwa u¿ytkownika"
+msgstr ""
 
 msgid "_Value_"
-msgstr "Warto¶æ"
+msgstr ""
 
 msgid "_Vertical padding_"
-msgstr "Pionowy odstêp "
+msgstr ""
 
 msgid "_Visibility criteria_"
-msgstr "Widoczne kryteria"
+msgstr ""
 
 msgid "_We_"
-msgstr "¦r"
+msgstr ""
 
 msgid "_Weekdays background color_"
-msgstr "Kolor ramki dni tygodnia"
+msgstr ""
 
 msgid "_Weekdays border color_"
-msgstr "Kolor linii dni tygodnia"
+msgstr ""
 
 msgid "_Weekdays font color_"
-msgstr "kolor czcionki dni tygodnia"
+msgstr ""
 
 msgid "_Width_"
-msgstr "Szeroko¶æ"
+msgstr ""
 
 msgid "_XML export_"
-msgstr "Eksport XML"
+msgstr ""
 
 msgid "_XML format_"
 msgstr ""
 
 msgid "_Year_"
-msgstr "Rok"
+msgstr ""
 
 msgid "_You can drop a Portlet into this area_"
-msgstr "Mo¿esz upu¶ciæ portlet w ten obszar"
+msgstr ""
 
 msgid "_You can drop a Templet into this area_"
-msgstr "Mo¿es upu¶ciæ szablon w ten obszar"
+msgstr ""
 
 msgid "_Your text_"
-msgstr "Twój tekst"
+msgstr ""
 
 msgid "_ZMI_"
-msgstr "ZMI"
+msgstr ""
 
 msgid "_about_"
-msgstr "O..."
+msgstr ""
 
 msgid "_actionbox_templet_description_"
-msgstr "pasek narzêdzi zawiera przyciski z ikonami"
+msgstr ""
 
 msgid "_actions_"
-msgstr "Operacje"
+msgstr ""
 
 msgid "_areacolor_description_"
-msgstr "ten styl definiuje t³o, linie i kolor tekstu w okre¶lonym obszarze"
+msgstr ""
 
 msgid "_areashape_description_"
-msgstr "ten styl definiuje typ linii (grubo¶æ) w okre¶lonym obszarze"
+msgstr ""
 
 msgid "_back_"
-msgstr "Do ty³u"
+msgstr ""
 
 msgid "_backgrounds_"
-msgstr "T³a"
+msgstr ""
 
 msgid "_box body_"
-msgstr "Zawarto¶æ ramki"
+msgstr ""
 
 msgid "_box title_"
-msgstr "Temat ramki"
+msgstr ""
 
 msgid "_boxcolor_"
-msgstr "Kolor ramki portala"
+msgstr ""
 
 msgid "_boxcolor_description_"
-msgstr "ten styl definiuje kolor ramek w portalu"
+msgstr ""
 
 msgid "_boxcorners_description_"
-msgstr "Opis naro¿nika ramki"
+msgstr ""
 
 msgid "_boxshape_"
-msgstr "Kszta³t ramki portala"
+msgstr ""
 
 msgid "_boxshape_description_"
-msgstr "ten styl definiuje kszta³t ramek w portalu"
+msgstr ""
 
 msgid "_breadcrumbs_templet_description_"
-msgstr "odwo³anie g³ównego poziomu strony do bie¿±cej strony"
+msgstr ""
 
 msgid "_button_cache_manager_"
-msgstr "Przycisk zarz±dzania buforowaniem"
+msgstr ""
 
 msgid "_button_clear_the_cache_"
-msgstr "Przycisk czyszczenia bufora"
+msgstr ""
 
 msgid "_button_close_"
-msgstr "Przycisk Zamknij"
+msgstr ""
 
 msgid "_button_create_"
-msgstr "Twórz"
+msgstr ""
 
 msgid "_button_delete_"
-msgstr "Kasuj"
+msgstr ""
 
 msgid "_button_export_theme_"
-msgstr "Eksportuj motyw"
+msgstr ""
 
 msgid "_button_fullscreen_"
-msgstr "Przycisk Pe³ny Ekran"
+msgstr ""
 
 msgid "_button_import_theme_"
-msgstr "Importuj motyw"
+msgstr ""
 
 msgid "_button_import_themes_"
-msgstr "Importuj motywy"
+msgstr ""
 
 msgid "_button_local_roles_"
-msgstr "Zasady lokalne"
+msgstr ""
 
 msgid "_button_modify_"
-msgstr "Zmieñ"
+msgstr ""
 
 msgid "_button_normal_mode_"
-msgstr "Przycisk Tryb Zwyk³y"
+msgstr ""
 
 msgid "_button_optimize_theme_"
-msgstr "Optymalizuj motyw"
+msgstr ""
 
 msgid "_button_rebuild_theme_"
-msgstr "Przebuduj motyw"
+msgstr ""
 
 msgid "_button_set_theme_as_default_"
-msgstr "Ustaw bie¿±cy motyw jako domy¶lny"
+msgstr ""
 
 msgid "_button_upload_flashfile_"
-msgstr "Wczytaj plik typu flash"
+msgstr ""
 
 msgid "_button_upload_image_"
-msgstr "Wczytaj obrazek"
+msgstr ""
 
 msgid "_calendar_style_"
-msgstr "Styl kalendarza"
+msgstr ""
 
 msgid "_calendar_templet_description_"
-msgstr "Kalendarz z miesiêcznymi wydarzeniami"
+msgstr ""
 
 msgid "_calendarstyle_description_"
-msgstr "ten styl definiuje wygl±d kalendarza"
+msgstr ""
 
 msgid "_cellblock_description_"
-msgstr "Opis zablokowanych komórek"
+msgstr ""
 
 msgid "_cellhider_description_"
-msgstr "Pole wyboru umo¿liwia okre¶lenie stanu widoczno¶ci komórki."
+msgstr ""
 
 msgid "_cellsizer_description_"
-msgstr "Pole zmiany wielko¶ci komórki pozwala zmieniaæ rozmiar."
+msgstr ""
 
 msgid "_cellstyler_description_"
-msgstr "Styler komórki umo¿liwia modyfikacje stylu komórki."
+msgstr ""
 
 msgid "_clipboard_"
-msgstr "schowek"
+msgstr ""
 
 msgid "_collapsiblemenu_style_"
-msgstr "Styl menu rozwijalnego"
+msgstr ""
 
 msgid "_collapsiblemenu_templet_description_"
-msgstr "menu rozwijalne, które pokazuje zawarto¶æ katalogu"
+msgstr ""
 
 msgid "_collapsiblemenustyle_description_"
-msgstr "ten styl definiuje wygl±d menu rozwijalnego"
+msgstr ""
 
 msgid "_color_"
-msgstr "Kolor obszaru"
+msgstr ""
 
 msgid "_colors_"
-msgstr "Kolory"
+msgstr ""
 
 msgid "_confirm delete_"
-msgstr "Potwierdzenie skasowania"
+msgstr ""
 
 msgid "_days_"
-msgstr "dni"
+msgstr ""
 
 msgid "_default tab_"
-msgstr "domy¶lny nag³ówek"
+msgstr ""
 
 msgid "_dimensions_"
-msgstr "wymiary"
+msgstr ""
 
 msgid "_documentinfo_templet_description_"
-msgstr "informacja o bie¿±cym dokumencie, temat, dzieñ ostatniej modyfikacji, kto zmieni³ itp."
+msgstr ""
 
 msgid "_edit online_"
-msgstr "Edycja online"
+msgstr ""
 
 msgid "_enter_new_id_"
 msgstr ""
 
 msgid "_flashbox_templet_description_"
-msgstr "Ramka Macromedia Flash(tm) z podpisem"
+msgstr ""
 
 msgid "_folders_"
-msgstr "Katalogi"
+msgstr ""
 
 msgid "_fontcolor_"
-msgstr "Kolor czcionki"
+msgstr ""
 
 msgid "_fontcolor_description_"
-msgstr "ten styl definiuje rodzaj czcionki, odno¶nika i sposób zaznaczenia"
+msgstr ""
 
 msgid "_fontshape_"
-msgstr "Kszta³t czcionki"
+msgstr ""
 
 msgid "_fontshape_description_"
-msgstr "ten styl definiuje wielko¶æ czcionki, odno¶niki i sposób zaznaczenia"
+msgstr ""
 
 msgid "_formstyle_description_"
-msgstr "Opis stylu"
+msgstr ""
 
 msgid "_general_"
-msgstr "Generalny"
+msgstr ""
 
 msgid "_header_"
-msgstr "nag³ówek"
+msgstr ""
 
 msgid "_icons_"
-msgstr "Ikony"
+msgstr ""
 
 msgid "_imagebox_templet_description_"
-msgstr "Obrazek z odno¶nikiem i podpisem"
+msgstr ""
 
 msgid "_info_"
-msgstr "Informacja"
+msgstr ""
 
 msgid "_language_templet_description_"
-msgstr "Wybór jêzyka"
+msgstr ""
 
 msgid "_layout mode_"
-msgstr "Tryb uk³adu"
+msgstr ""
 
 msgid "_layout_"
-msgstr "Uk³ad"
+msgstr ""
 
 msgid "_link_"
 msgstr ""
 
 msgid "_maincontent_templet_description_"
-msgstr "G³ówny obszar dokumentu w którym jest wy¶wietlona zawarto¶æ"
+msgstr ""
 
 msgid "_menu item_"
-msgstr "Pozycja menu"
+msgstr ""
 
 msgid "_menu_Align center_"
-msgstr "Centrowanie"
+msgstr ""
 
 msgid "_menu_Align justify_"
-msgstr "Wyrównanie menu"
+msgstr ""
 
 msgid "_menu_Align left_"
-msgstr "Wyrównanie do lewej"
+msgstr ""
 
 msgid "_menu_Align right_"
-msgstr "Wyrównanie do prawej"
+msgstr ""
 
 msgid "_menu_Area Color_"
-msgstr "Kolor obszaru"
+msgstr ""
 
 msgid "_menu_Area Shape_"
-msgstr "Kszta³t obszaru"
+msgstr ""
 
 msgid "_menu_Box Corners_"
-msgstr "Naro¿niki ramek menu"
+msgstr ""
 
 msgid "_menu_Calendar Style_"
-msgstr "Styl kalendarza"
+msgstr ""
 
 msgid "_menu_Collapsible Menu Style_"
-msgstr "Styl zwijania menu"
+msgstr ""
 
 msgid "_menu_Copy_"
-msgstr "Kopiuj"
+msgstr ""
 
 msgid "_menu_Delete_"
-msgstr "Kasuj"
+msgstr ""
 
 msgid "_menu_Duplicate_"
-msgstr "Kopiowanie"
+msgstr ""
 
 msgid "_menu_Edit styles_"
-msgstr "Edycja Stylów"
+msgstr ""
 
 msgid "_menu_Edit_"
-msgstr "Edycja"
+msgstr ""
 
 msgid "_menu_Font Color_"
-msgstr "Kolor czcionki"
+msgstr ""
 
 msgid "_menu_Font Shape_"
-msgstr "Kszta³t czcionki"
+msgstr ""
 
 msgid "_menu_Form Style_"
-msgstr "Kszta³t stylu"
+msgstr ""
 
 msgid "_menu_Insert_"
-msgstr "Wstaw"
+msgstr ""
 
 msgid "_menu_Manage_"
 msgstr ""
 
 msgid "_menu_Paste_"
-msgstr "Wklej"
+msgstr ""
 
 msgid "_menu_Portal Box Color_"
-msgstr "Kolor ramki"
+msgstr ""
 
 msgid "_menu_Portal Box Shape_"
-msgstr "Kszta³t ramki"
+msgstr ""
 
 msgid "_menu_Portal Tab Style_"
-msgstr "Nag³ówek stylu portala"
+msgstr ""
 
 msgid "_menu_Set alignment_"
-msgstr "Ustaw wyrównanie"
+msgstr ""
 
 msgid "_menu_Set layout_"
-msgstr "Ustaw uk³ad"
+msgstr ""
 
 msgid "_menu_Set styles_"
-msgstr "Ustaw style"
+msgstr ""
 
 msgid "_menu_Set_as_default_"
 msgstr ""
 
 msgid "_mixed mode_"
-msgstr "Tryb mieszany"
+msgstr ""
 
 msgid "_option_Folder title_"
-msgstr "Temat folderu opcje"
+msgstr ""
 
 msgid "_option_Templet title_"
-msgstr "Temat opcji szablon"
+msgstr ""
 
 msgid "_option_Username_"
-msgstr " u¿ytkownika"
+msgstr ""
 
 msgid "_option_Workflow state_"
-msgstr " obszaru roboczego"
+msgstr ""
 
 msgid "_option_about_"
-msgstr " o..."
+msgstr ""
 
 msgid "_option_actions_"
-msgstr " akcji"
+msgstr ""
 
 msgid "_option_always_"
-msgstr " zawsze"
+msgstr ""
 
 msgid "_option_automatic_"
-msgstr " automatyczne"
+msgstr ""
 
 msgid "_option_bg_no-repeat_"
-msgstr " nie powtarzaj w tle"
+msgstr ""
 
 msgid "_option_bg_repeat-x_"
-msgstr " powtórz w tle (w osi x)"
+msgstr ""
 
 msgid "_option_bg_repeat-y_"
-msgstr "powtórz w tle (w osi y)"
+msgstr ""
 
 msgid "_option_bg_repeat_"
-msgstr "powtórz w tle"
+msgstr ""
 
 msgid "_option_block_"
-msgstr "blok"
+msgstr ""
 
 msgid "_option_center_"
-msgstr "centruj"
+msgstr ""
 
 msgid "_option_compatible_"
-msgstr "kompatybilny"
+msgstr ""
 
 msgid "_option_debug_"
-msgstr "debugowania"
+msgstr ""
 
 msgid "_option_default_"
-msgstr "domy¶lne"
+msgstr ""
 
 msgid "_option_docinfo_created_by_"
-msgstr "stworzone przez"
+msgstr ""
 
 msgid "_option_docinfo_last_modified_"
-msgstr "ostatnio modyfikowane"
+msgstr ""
 
 msgid "_option_docinfo_title_"
-msgstr "temat informacji"
+msgstr ""
 
 msgid "_option_drawer_"
-msgstr "rysownik"
+msgstr ""
 
 msgid "_option_drawer_notitle_"
-msgstr "brak rysownika"
+msgstr ""
 
 msgid "_option_dropdown list_"
-msgstr "lista"
+msgstr ""
 
 msgid "_option_events_"
-msgstr "wydarzenia"
+msgstr ""
 
 msgid "_option_everywhere_except_in_"
-msgstr "wszyscy oprócz"
+msgstr ""
 
 msgid "_option_flags_"
-msgstr "flagi"
+msgstr ""
 
 msgid "_option_folders_"
-msgstr "katalogi"
+msgstr ""
 
 msgid "_option_horizontal_"
-msgstr "poziomo"
+msgstr ""
 
 msgid "_option_horizontal_menu_"
-msgstr "poziome menu"
+msgstr ""
 
 msgid "_option_horizontal_box_notitle_"
 msgstr ""
 
 msgid "_option_html_"
-msgstr "html"
+msgstr ""
 
 msgid "_option_icons only_"
-msgstr "tylko ikony"
+msgstr ""
 
 msgid "_option_if_anonymous_"
-msgstr "je¶li go¶æ"
+msgstr ""
 
 msgid "_option_if_authenticated_"
-msgstr "je¶li niezalogowany"
+msgstr ""
 
 msgid "_option_if_secure_connection_"
-msgstr "je¶li po³±czenie szyfrowane"
+msgstr ""
 
 msgid "_option_info_"
-msgstr "informacja"
+msgstr ""
 
 msgid "_option_inline_"
-msgstr "w ¶rodku linii"
+msgstr ""
 
 msgid "_option_justify_"
-msgstr "justowanie"
+msgstr ""
 
 msgid "_option_language names_"
-msgstr "jêzyki"
+msgstr ""
 
 msgid "_option_language_"
-msgstr "jêzyk"
+msgstr ""
 
 msgid "_option_left_"
-msgstr "lewo"
+msgstr ""
 
 msgid "_option_lifetime_10_"
-msgstr "d³ugo¶æ 10"
+msgstr ""
 
 msgid "_option_lifetime_1800_"
-msgstr "d³ugo¶æ 1800"
+msgstr ""
 
 msgid "_option_lifetime_300_"
-msgstr "d³ugo¶æ 300"
+msgstr ""
 
 msgid "_option_lifetime_30_"
-msgstr "d³ugo¶æ 30"
+msgstr ""
 
 msgid "_option_lifetime_3600_"
-msgstr "d³ugo¶æ 3600"
+msgstr ""
 
 msgid "_option_lifetime_600_"
-msgstr "d³ugo¶æ 600"
+msgstr ""
 
 msgid "_option_lifetime_60_"
-msgstr "d³ugo¶æ 60"
+msgstr ""
 
 msgid "_option_lifetime_900_"
-msgstr "d³ugo¶æ 900"
+msgstr ""
 
 msgid "_option_login_"
-msgstr "logowanie"
+msgstr ""
 
 msgid "_option_macroless_"
-msgstr "mniejsze makro"
+msgstr ""
 
 msgid "_option_min_max_"
-msgstr "min maks"
+msgstr ""
 
 msgid "_option_min_max_close_"
-msgstr "zamkn±æ"
+msgstr ""
 
 msgid "_option_min_max_edit_close_"
-msgstr "zamkniêcie edycji"
+msgstr ""
 
 msgid "_option_no_frames_"
-msgstr "bez ramek"
+msgstr ""
 
 msgid "_option_notitle_"
-msgstr "bez tematu"
+msgstr ""
 
 msgid "_option_notitle_noframe_"
-msgstr "bez tematu i ramek"
+msgstr ""
 
 msgid "_option_one_frame_"
-msgstr "jedna ramka"
+msgstr ""
 
 msgid "_option_only_in_"
-msgstr "tylko w"
+msgstr ""
 
 msgid "_option_pending_"
-msgstr "oczekiwanie"
+msgstr ""
 
 msgid "_option_plain text_"
-msgstr "zwyk³y tekst"
+msgstr ""
 
 msgid "_option_plain_"
-msgstr "zwyk³y"
+msgstr ""
 
 msgid "_option_profiler_"
-msgstr "profilowanie"
+msgstr ""
 
 msgid "_option_recent_"
-msgstr "niedawny"
+msgstr ""
 
 msgid "_option_related_"
-msgstr "zwi±zany"
+msgstr ""
 
 msgid "_option_right_"
-msgstr "prawo"
+msgstr ""
 
 msgid "_option_rounded_box_"
-msgstr "zaokr±glone ramki"
+msgstr ""
 
 msgid "_option_rounded_box_notitle_"
-msgstr "zaokr±glone ramki bez tematu"
+msgstr ""
 
 msgid "_option_searchbox_advanced_"
-msgstr "ramka szukania zaawansowanego"
+msgstr ""
 
 msgid "_option_searchbox_compact_"
-msgstr "ramka szukania"
+msgstr ""
 
 msgid "_option_standard_"
-msgstr "standard"
+msgstr ""
 
 msgid "_option_starting_from_"
-msgstr "zaczynaæ od"
+msgstr ""
 
 msgid "_option_stx_"
-msgstr "stx"
+msgstr ""
 
 msgid "_option_tableless_"
-msgstr "mniejsza tablica"
+msgstr ""
 
 msgid "_option_text and icons_"
-msgstr "tekst i ikony"
+msgstr ""
 
 msgid "_option_text only_"
-msgstr "tylko tekst"
+msgstr ""
 
 msgid "_option_text_transform_capitalize_"
-msgstr "przekszta³æ tekst na du¿e litery"
+msgstr ""
 
 msgid "_option_text_transform_lowercase_"
-msgstr "przekszta³æ tekst na ma³e litery"
+msgstr ""
 
 msgid "_option_text_transform_none_"
-msgstr "bez transformacji tekstu"
+msgstr ""
 
 msgid "_option_text_transform_uppercase_"
-msgstr "transformacja tekstu na wielkie litery"
+msgstr ""
 
 msgid "_option_textonly_"
-msgstr "tylko tekst"
+msgstr ""
 
 msgid "_option_up_till_"
-msgstr "przed"
+msgstr ""
 
 msgid "_option_vertical_"
-msgstr "pionowy"
+msgstr ""
 
 msgid "_pageblock_description_"
-msgstr "Strona posiada komórki (kolumny). Wygl±d komórki mo¿emy modyfikowaæ u¿ywaj±c Stylera komórki, zmieniaj±æ ich wielko¶æ lub ukrywaj±c je"
+msgstr ""
 
 msgid "_paletteborder_description_"
-msgstr "opis ramki palety"
+msgstr ""
 
 msgid "_palettecolor_description_"
-msgstr "opis palety"
+msgstr ""
 
 msgid "_portalbox_templet_description_"
-msgstr "wygenerowana ramka wy¶wietla akcje, katalogi, ramkê opisow±, ramkê logowania, ramkê informacyjn± itp."
+msgstr ""
 
 msgid "_portalboxgroup_templet_description_"
-msgstr "slot wy¶wietla oryginalne ramki portalowe"
+msgstr ""
 
 msgid "_portaltab_templet_description_"
-msgstr "opis szablonu nag³ówka portala"
+msgstr ""
 
 msgid "_portaltabstyle_"
-msgstr "Styl nag³ówka portala"
+msgstr ""
 
 msgid "_portaltabstyle_description_"
-msgstr "opis stylu nag³ówkka portala"
+msgstr ""
 
 msgid "_portaltheme_description_"
-msgstr "Motywy portala modyfikuj± wygl±d. Mo¿na je komponowaæ w pionowych blokach"
+msgstr ""
 
 msgid "_portletbox_templet_description_"
-msgstr "opis szablonu ramki portletu"
+msgstr ""
 
 msgid "_preview_"
-msgstr "podgl±d"
+msgstr ""
 
 msgid "_searchbox_Advanced_search"
-msgstr "Zaawansowane szukanie"
+msgstr ""
 
 msgid "_searchbox_Search_"
-msgstr "Szukaj"
+msgstr ""
 
 msgid "_searchbox_templet_description_"
-msgstr "ramka z polem do wpisywania i wyszukiwania"
+msgstr ""
 
 msgid "_select this slot_"
-msgstr "wybierz slot"
+msgstr ""
 
 msgid "_selected menu item_"
-msgstr "wybrana pozycja menu"
+msgstr ""
 
 msgid "_selected tab_"
-msgstr "wybrany nag³ówek"
+msgstr ""
 
 msgid "_set as default style_"
-msgstr "ustaw somy¶lny styl"
+msgstr ""
 
 msgid "_shape_"
-msgstr "Kszta³t obszaru"
+msgstr ""
 
 msgid "_size_"
-msgstr "rozmiar"
+msgstr ""
 
 msgid "_style_"
-msgstr "styl"
+msgstr ""
 
 msgid "_submenu_"
-msgstr "pod-menu"
+msgstr ""
 
 msgid "_submenus_"
-msgstr "pod-menu"
+msgstr ""
 
 msgid "_textbox_templet_description_"
-msgstr "ramka wy¶wietlaj±ca czysty tekst lub format HTML"
+msgstr ""
 
 msgid "_themechooser_templet_description_"
-msgstr "wybór motywu dla odwiedzaj±cych (musi byæ w³±czony mechanizm cookie)"
+msgstr ""
 
 msgid "_themepage_description_"
-msgstr "opis tematu strony"
+msgstr ""
 
 msgid "_thumbnails_"
-msgstr "galeria"
+msgstr ""
 
 msgid "_topmenu_"
-msgstr "Górne menu"
+msgstr ""
 
 msgid "_visibility_"
-msgstr "Widoczny"
+msgstr ""
 
 msgid "_wysiwyg mode_"
-msgstr "Tryb WYSIWYG"
+msgstr ""
 
 msgid "_zexp export_"
-msgstr "eksport zexp"
+msgstr ""
 
 msgid "_zexp format_"
 msgstr ""
 
 msgid "description_confirm_delete_portlet"
-msgstr "potwierdzenie skasowania portletu"
+msgstr ""
 
 msgid "description_confirm_delete_unused_portlets"
-msgstr "potwierdzenie skasowania nieu¿ywanych portletów"
+msgstr ""
 
 msgid "description_delete_unused_portlets"
-msgstr "skasuj nieu¿ywane portlety"
+msgstr ""
 
 msgid "description_portlets_visible_from"
-msgstr "widoczne portlety"
+msgstr ""
 
 msgid "description_unused_portlets"
-msgstr "nieu¿ywane portlety"
+msgstr ""
 
 msgid "heading_portlet_browser_by_topic"
-msgstr "wy¶wietl portlety (wg. tematu)"
+msgstr ""
 
 msgid "heading_portlet_browser_by_type"
-msgstr "wy¶wietl portlety (wg. typu)"
+msgstr ""
 
 msgid "heading_portlet_manage_form"
-msgstr "zarz±dzanie portletem"
+msgstr ""
 
 msgid "heading_unused_portlets"
-msgstr "nieu¿ywane portlety"
+msgstr ""
 
 msgid "menu_insert_box"
-msgstr "umie¶æ ramkê"
+msgstr ""
 
 msgid "menu_insert_portlet"
-msgstr "umie¶æ portlet"
+msgstr ""
 
 msgid "portlet_browser_panel"
-msgstr "wy¶wietl panel portlet"
+msgstr ""
 
 msgid "portlet_slots_panel"
-msgstr "panele slotu portlet"
+msgstr ""
 
 msgid "psm_image_uploaded"
-msgstr "obrazek wgrany"
+msgstr ""
 
 msgid "psm_portlet_deleted"
-msgstr "portlet skasowany"
+msgstr ""
 
 msgid "site_structure_panel"
-msgstr "struktura panela"
+msgstr ""
 
 msgid "unused_portlets_panel"
-msgstr "panel z portletami nieu¿ywanymi"
+msgstr ""
 
 msgid "wysiwyg_panel"
-msgstr "panel WYSIWYG"
+msgstr ""
 
-#, fuzzy
 msgid "switch_portal_to_lang ${lang_title}"
-msgstr "Switch the portal language to ${lang_title}"
+msgstr ""
+
 

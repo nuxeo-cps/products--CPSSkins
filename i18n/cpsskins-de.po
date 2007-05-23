@@ -384,6 +384,9 @@ msgstr "Zellenbreite"
 msgid "_Cellblock margin_"
 msgstr "Seitenblock Rand"
 
+msgid "_Hidden if empty_"
+msgstr "Hidden if empty"
+
 msgid "_Collapsible Menu Style_"
 msgstr "Zusammenklappbares Menü Stil"
 

@@ -586,7 +586,7 @@ tal:define="sections python: [ 'wysiwyg', 'portlet_slots', 'site_structure', 'po
             <a style="cursor: help" i18n:translate=""
              href="javascript:void(0)"
              tal:attributes="
-               onClick python: editable and onclick_string or None;
+               onclick python: editable and onclick_string or None;
                onmouseover string:toggle('$portlet_id');
                onmouseout string:toggle('$portlet_id')"
              tal:content="portlet_title" />

@@ -5,7 +5,7 @@ tal:define="
     <div onMouseover="this.style.backgroundColor='#fff'"
          onMouseout="this.style.background='#eee'">
       <a tal:define="value palette/value"
-       tal:attributes="onClick string:javascript:selectPalette('$value', '$id');; toggle('$palette_cat')">
+       tal:attributes="onclick string:javascript:selectPalette('$value', '$id');; toggle('$palette_cat')">
         <h1 tal:content="palette/title|nothing" />
         <p tal:content="value" />
         <tal:block content="structure python: palette.preview()" />
@@ -22,7 +22,7 @@ tal:condition="python: len(styles) &gt; 0">
          onMouseout="this.style.background='#eee'">
       <h1 tal:content="style/title|nothing" />
       <a tal:define="number repeat/style/number"
-       tal:attributes="onClick string:javascript:selectStyle('$number', '$id');; toggle('$style_cat')"
+       tal:attributes="onclick string:javascript:selectStyle('$number', '$id');; toggle('$style_cat')"
        tal:content="structure python: style.preview()" />
     </div>
   </div>

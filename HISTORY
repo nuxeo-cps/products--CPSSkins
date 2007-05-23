@@ -19,6 +19,136 @@ New internal features
 - 
 
 ===========================================================
+Package: CPSSkins 2.14.4
+===========================================================
+First release built by: div at: 2007-04-20T11:58:16
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.4
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51588
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Taking advantage of the newer CPSI18n/bin/update_pos.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSSkins 2.14.3
+===========================================================
+First release built by: madarche at: 2007-04-06T17:23:41
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.3
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51468
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #1826 : "CPSSkins selector panels can't be closed if one doesn't want to
+  select a proposed choice".
+- Setting the text inputs size to a bigger size than their actual display size
+  so that they are more usable especially when setting font definitions which
+  are very long.
+- Fixed XHTML validity : "onClick" is not a valid attribute, one should use
+  "onclick".
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSSkins 2.14.2
+===========================================================
+First release built by: div at: 2007-04-03T20:52:53
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51445
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed #1824 : Designing a web site theme is difficult because of empty columns
+  taking space. A new "hidden_empty" property has been added to CellBlock. This
+  property is False by default to not break existing themes appearance.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSSkins 2.14.1
+===========================================================
+First release built by: div at: 2007-03-26T20:48:17
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51414
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Better cpsskins_addportlet_form create button style and HTML.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSSkins 2.14.0
+===========================================================
+First release built by: div at: 2007-03-14T12:26:15
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.14.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@51329
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- update doc
+
+===========================================================
+Package: CPSSkins 2.13.3
+===========================================================
+First release built by: gracinet at: 2007-02-06T14:46:29
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.13.3
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@50983
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed #1808 : Box rendered even if empty.
+- Disabled the testI18N tests until the CPSSkins .po files are fixed (many
+  translations are empty) so that the buildbot can useful.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.13.2
 ===========================================================
 First release built by: div at: 2006-12-19T20:18:33

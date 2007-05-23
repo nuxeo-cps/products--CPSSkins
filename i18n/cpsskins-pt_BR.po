@@ -385,6 +385,9 @@ msgstr "Largura da célula"
 msgid "_Cellblock margin_"
 msgstr "Margem do bloco de células"
 
+msgid "_Hidden if empty_"
+msgstr "Hidden if empty"
+
 msgid "_Collapsible Menu Style_"
 msgstr "Estilo de Menu Contrátil"
 

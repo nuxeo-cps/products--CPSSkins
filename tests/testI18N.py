@@ -184,9 +184,9 @@ for potFile in ['cpsskins.pot', 'cpsskins-default.pot', 'cpsskins-plone.pot']:
 
 def test_suite():
     suite = unittest.TestSuite()
-    for test in tests:
-        suite.addTest(unittest.makeSuite(test))
-    return suite
+#    for test in tests:
+#        suite.addTest(unittest.makeSuite(test))
+#    return suite
 
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)

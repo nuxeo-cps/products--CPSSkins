@@ -765,6 +765,10 @@ vertical-align: middle;
   display: none;
 }
 
+div.closeButton {
+  text-align: right;
+}
+
 .panel { 
   font: 12px Arial, sans-serif; 
   background-color: #eee;

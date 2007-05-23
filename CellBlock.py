@@ -1,5 +1,8 @@
-# Copyright (c) 2003-2005 Chalmers University of Technology
-# Authors: Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+# (C) Copyright 2003-2005 Chalmers University of Technology
+# (C) Copyright 2007 Nuxeo SAS <http://nuxeo.com>
+# Authors:
+# Jean-Marc Orliaguet <jmo@ita.chalmers.se>
+# M.-A. Darche <madarche@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
@@ -15,6 +18,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 #
+# $Id$
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
@@ -124,6 +128,18 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
          'label': 'Number of columns',
          'category': 'layout'
         },
+        {'id': 'margin',
+         'type': 'string',
+         'mode': 'w',
+         'label': 'Cellblock margin',
+         'category': 'layout',
+        },
+        {'id': 'hidden_empty',
+         'type': 'boolean',
+         'mode': 'w',
+         'label': 'Hidden if empty',
+         'category': 'layout'
+        },
         {'id': 'shape',
          'type': 'selection',
          'mode': 'w',
@@ -140,13 +156,17 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
          'style': 'Area Color',
          'category' : 'style'
         },
-        {'id': 'margin',
-         'type': 'string',
-         'mode': 'w',
-         'label': 'Cellblock margin',
-         'category': 'layout',
-        },
       )
+
+    # This variable is to know if we should hide this cell block if all
+    # contained cells haven't any content. There is a choice here because
+    # sometimes it might be interesting to have empty cells when those
+    # empty cells are used to have a background image or for layout purpose.
+    #
+    # BBB will be changed in CPS 3.5.
+    # This is set to False as a default to not break existing themes rendering,
+    # but a saner default should be True. This will be changed in CPS 3.5.
+    hidden_empty = False
 
     def __init__(self, id,
                  title = '',
@@ -156,6 +176,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
                  color = '',
                  shape = '',
                  margin = '',
+                 hidden_empty = False,
                  **kw):
         self.id = id
         self.title = title
@@ -165,6 +186,7 @@ class CellBlock(ThemeFolder, PageBlockContent, StylableContent):
         self.color = color
         self.shape = shape
         self.margin = margin
+        self.hidden_empty = hidden_empty
 
     security.declarePublic('isCellBlock')
     def isCellBlock(self):

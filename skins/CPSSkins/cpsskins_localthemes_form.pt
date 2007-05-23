@@ -97,7 +97,7 @@
                 tal:content="theme/title_or_id">Theme</option>
               </select>
               <img width="16" height="16"
-               tal:attributes="onClick string:newWindow('cpsskins_select_theme?prop=$select_id');
+               tal:attributes="onclick string:newWindow('cpsskins_select_theme?prop=$select_id');
                                src string:${base_url}cpsskins_images/select_icon.png" />
             </td>
           </tr>

@@ -15,6 +15,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 #
+# $Id$
 
 __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
@@ -78,7 +79,7 @@ BOX_LAYOUTS = {
         'markup': """<div class="cpsskinsTabs body">%s</div>
                      <div style="clear:both"></div>""",
         },
-    
+
     'horizontal_box_notitle': {
         'markup': """<div class="cpsskinsHBox body">%s</div>
                      <div style="clear:both"></div>""",
@@ -184,7 +185,7 @@ class SimpleBox(ExtensionClass.Base):
             orientation = getattr(self, 'orientation', '')
             if orientation == 'horizontal':
                 boxclass.append('cpsskinsTab')
-            elif self.boxlayout not in ['horizontal_menu', 
+            elif self.boxlayout not in ['horizontal_menu',
                                         'horizontal_box_notitle']:
                 boxclass.append('cpsskinsBox')
 
