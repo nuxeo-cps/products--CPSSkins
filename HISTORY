@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.15.0-rel1271525924
+===========================================================
+First release built by: div at: 2007-06-14T14:32:21
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.15.0-rel1271525924
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/branches/rel1271525924@51831
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- Merged with the trunk
+
+===========================================================
 Package: CPSSkins 2.14.0-rel1271525924
 ===========================================================
 First release built by: ben at: 2007-02-21T16:47:01
