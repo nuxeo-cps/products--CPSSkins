@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.15.0
+===========================================================
+First release built by: madarche at: 2007-10-19T15:16:38
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.15.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@52088
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- Work on translations "Valencià-Català", "Galician" and "Portuguese".
+
+===========================================================
 Package: CPSSkins 2.14.4
 ===========================================================
 First release built by: div at: 2007-04-20T11:58:16
