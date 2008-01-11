@@ -2,15 +2,60 @@
 How to benchmark a theme
 ========================
 
+:Author: Jean-Marc Orliaguet
+
 :Revision: $Id$
 
 .. sectnum::    :depth: 4
 .. contents::   :depth: 4
 
 
-In the theme configuration menu choose the **profiler** theme renderer.
+CPSSkins ships a benchmark timer to spot the performance problems of a portal.
 
-Here is a typical output::
+To use the benchmark time, complete the following steps:
+
+1. Add the following External Method at the root of the portal::
+
+     Id: cpsskins_benchmarktimer
+     Title: CPSSkins benchmark timer'
+     Module Name: CPSSkins.benchmarktimer
+     Function Name: BenchmarkTimerInstance
+
+2. Go to the `Theme editor`_ and decide which page of which theme you want to
+   benchmark.
+
+3. On the selected theme page, click on the pen and go to the `Edit` menu item.
+
+4. Then set the `Page renderer` option to ``Profiler``.
+
+5. Once your benchmark tests are done you can safely set back to previous page
+   renderer by setting the `Page renderer` option to ``Default`` or whatever its
+   previous value was.
+
+
+Here are below typical outputs of a page once the `Page renderer` option
+is set to ``Profiler``.
+
+Example 1::
+
+ Profiling lvl:-1 cpsskins_main_template_profiler:
+ t       mark       delta t
+ 0.0000: Start      + 0.0000
+ 0.0000: --------- [Header] -------------------------------  + 0.0000
+ 0.0900:           header_container........................  + 0.0900
+ 0.1000: --------- [Main] ---------------------------------  + 0.0100
+ 0.1600:           treeview................................  + 0.0600
+ 0.1700:           Latest_doc..............................  + 0.0100
+ 0.4500:           Breadcrumb_lang_cells...................  + 0.2800
+ 0.5600:           doc_actions.............................  + 0.1100
+ 3.2600:           content well............................  + 2.7000
+ 3.2600:           Quicklinks..............................  + 0.0000
+ 3.2700: --------- [Footer] -------------------------------  + 0.0100
+ 3.2800:           legal...................................  + 0.0100
+ 3.2900:           conformance.............................  + 0.0100
+ 3.3000: Stop       + 0.0100
+
+Example 2::
 
  Profiling lvl:-1 cpsskins_main_template_profiler:
  t       mark       delta t
@@ -34,6 +79,9 @@ Here is a typical output::
  0.4100: --------- [bottom] -------------------------------  + 0.0000
  0.4200: CPSSkins: footer..................................  + 0.0100
  0.4200: Stop       + 0.0000
+
+
+.. _Theme editor: http://localhost:8080/cps/cpsskins_theme_manage_form
 
 
 .. Emacs
