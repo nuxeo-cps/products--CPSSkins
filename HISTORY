@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.15.1
+===========================================================
+First release built by: madarche at: 2008-01-15T12:30:19
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.15.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@52448
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Updated the doc/benchmarking.txt.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.15.0
 ===========================================================
 First release built by: madarche at: 2007-10-19T15:16:38
