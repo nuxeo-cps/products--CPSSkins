@@ -29,5 +29,5 @@ except ImportError:
     from Products.CMFCore.CMFCorePermissions import setDefaultRoles
 
 ManageThemes = 'Manage Themes'
-setDefaultRoles(ManageThemes, ('Manager', 'Owner', 'Theme Manager'))
+setDefaultRoles(ManageThemes, ('Manager', 'Owner', 'ThemeManager'))
 
