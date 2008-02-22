@@ -18,11 +18,6 @@ input, button {
   vertical-align: middle;
 }
 
-div p {
-  margin: 0;
-  padding: 0;
-}
-
 img {
   border-style: none;
   vertical-align: middle;
