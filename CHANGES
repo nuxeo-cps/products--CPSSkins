@@ -6,8 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Removed useless and too constraining CSS directive
-  "div p {margin: 0;  padding: 0;}".
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

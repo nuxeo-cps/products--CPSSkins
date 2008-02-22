@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSSkins 2.15.3
+===========================================================
+First release built by: madarche at: 2008-02-22T15:56:05
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.15.3
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@52586
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Removed useless and too constraining CSS directive
+  "div p {margin: 0;  padding: 0;}".
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.15.2
 ===========================================================
 First release built by: madarche at: 2008-01-18T21:37:11
