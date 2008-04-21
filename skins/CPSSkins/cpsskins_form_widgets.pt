@@ -55,12 +55,12 @@
             <metal:block fill-slot="content">
               <tal:block condition="python: ftype == 'areatext'">
                 <textarea name="text:text" rows="5" cols="50"
-                wrap="soft"
+                style="width: 100%"
                 tal:attributes="name string:${id}:text; rows field/rows|default; cols field/cols|default;"
                 tal:content="value">content</textarea>
               </tal:block>
               <input tal:condition="python: ftype == 'text'"
-              type="type" name="name" value="value" size="46"
+              type="type" name="name" value="value" style="width: 100%"
               tal:attributes="type ftype; name id; value value" />
               <input tal:condition="python: ftype == 'checkbox'"
               type="type" name="name" checked="checked"
@@ -93,7 +93,7 @@
               </select>
               <tal:block condition="python: ftype == 'lines'">
                 <textarea name="text:lines" rows="5" cols="50"
-                wrap="soft"
+                style="width: 100%"
                 tal:attributes="name string:${id}:lines; rows field/rows|default; cols field/cols|default;"
                           tal:content="value">content</textarea>
               </tal:block>
@@ -237,9 +237,9 @@
 
 <!-- form -->
 <metal:block define-macro="form">
-  <table cellpadding="4" cellspacing="4" border="0">
-    <colgroup width="30%" />
-    <colgroup width="70%" />
+  <table class="form">
+    <colgroup class="labels"/>
+    <colgroup/>
     <metal:block define-slot="content"></metal:block>
   </table>
 </metal:block>

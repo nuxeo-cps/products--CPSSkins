@@ -1107,6 +1107,15 @@ cursor: crosshair;
   font-size: small;
 }
 
+table.form {
+  width: 100%;
+  border: none;
+  padding-right: 1em;
+}
+colgroup.labels {
+  width: 16em;
+}
+
 .tableFrame {
   border: 1px solid #ccc;
   background-color: #f3f3f3;
