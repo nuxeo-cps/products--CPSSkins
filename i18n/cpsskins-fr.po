@@ -751,7 +751,7 @@ msgid "_Image box_"
 msgstr "Boîte image"
 
 msgid "_Image caption_"
-msgstr "Image de la légende"
+msgstr "Légende de l'image"
 
 msgid "_Images_"
 msgstr "Images"

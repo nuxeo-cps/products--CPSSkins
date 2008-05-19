@@ -7,6 +7,7 @@ New features
 Bug fixes
 ~~~~~~~~~
 - #1905: Not enough room in CPSSkins forms to write custom HTML.
+- Fixed French translation "Image de la legende" -> "Legende de l'image".
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

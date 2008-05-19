@@ -760,7 +760,7 @@ msgid "_Image box_"
 msgstr "Boaty sary"
 
 msgid "_Image caption_"
-msgstr "Image de la légende"
+msgstr "Légende de l'image"
 
 msgid "_Images_"
 msgstr "Sary"
