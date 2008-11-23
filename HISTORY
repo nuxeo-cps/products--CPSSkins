@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSSkins 2.15.4
+===========================================================
+First release built by: madarche at: 2008-11-23T22:17:58
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.15.4
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@53051
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #1905: Not enough room in CPSSkins forms to write custom HTML.
+- Fixed French translation "Image de la legende" -> "Legende de l'image".
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.15.3
 ===========================================================
 First release built by: madarche at: 2008-02-22T15:56:05
