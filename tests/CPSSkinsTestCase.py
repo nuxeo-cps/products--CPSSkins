@@ -50,7 +50,7 @@ except ImportError:
 else:
     localizer = 1
 
-target = os.environ.get('CPSSKINS_TARGET', 'CMF')
+target = os.environ.get('CPSSKINS_TARGET', 'CPS3')
 
 _TESTS_PATH = os.path.split(__file__)[0]
 
