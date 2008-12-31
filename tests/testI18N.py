@@ -186,7 +186,7 @@ def test_suite():
     suite = unittest.TestSuite()
 #    for test in tests:
 #        suite.addTest(unittest.makeSuite(test))
-#    return suite
+    return suite
 
 if __name__ == '__main__':
     framework(descriptions=1, verbosity=2)
