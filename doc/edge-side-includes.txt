@@ -1,0 +1,93 @@
+============================================================
+How to use the Edge Side Includes (ESI) features of CPSSkins
+============================================================
+
+:Author: Georges Racinet
+
+:Revision: $Id$
+
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
+
+
+
+CPSSkins has support to render theme elements (Templets) as ESI fragments.
+For general information about ESI, please check the W3C note at
+http://www.w3.org/TR/esi-lang
+
+Note that ESI is not intended for the user agent, but typically to be 
+interpreted by some reverse proxy.
+
+Starting to use ESI CPS-side
+============================
+
+1. Global enabling of ESI.
+--------------------------
+
+You must first globally enable ESI in your theme. For this, go in ZMI to
+the Theme object (under ```portal_theme```), and check the "Enable ESI"
+checkbox in the Properties tab.
+
+2. Have a Templet render as ESI.
+--------------------------------
+
+In the Themes web editor, just edit the templet and go to the ESI tab. 
+  
+Outcome & Intermediate agent support
+====================================
+
+Use these examples to infer if your reverse proxy can handle the ESI fragments
+produced by CPSSkins. See:
+    Varnish: http://varnish.projects.linpro.no/wiki/ESIfeatures    
+    Squid: Squid3 is supposed to have ESI support (maybe as a compilation
+    option) could not find much documentation about it.
+
+Here is the inner rendering of the Portal Box Group Templet with ESI:
+
+<esi:try>
+  <esi:attempt>
+    <esi:include src="http://localhost:8080/cps2/.cps_portlets/portlet_breadcrumbs/render?context_rurl=workspaces" onerror="continue" />
+  </esi:attempt>
+  <esi:except>
+    <!--esi
+     This spot is reserved
+    -->
+  </esi:except>
+</esi:try>
+
+Here, the non-ESI rendering would have been:
+
+<div id="portlet_breadcrumbs">
+  <img src="/cps2/cpsskins_images/UpFolder_icon.png" alt="Up Folder" /> 
+  <a href="http://localhost:8080/cps2" title="CPS Site">CPS Site</a> > 
+  <a href="http://localhost:8080/cps2/workspaces" title="Espaces de travail">
+     Espaces de travail</a>
+</div>
+
+This is precisely what the contained portlet would render.
+With two portlets, you'd get two <esi:try> elements, one for each portlet call
+surrounded by styling information from the Portal Box Group (box shape, etc.)
+
+
+Use Patterns
+============
+
+You could decide that esi fragments are small dynamical fragments
+and that the whole page structure is mostly static. In that case you'd have
+to take care that the fact that a templet, a portlet is displayed or not will
+not be dynamical anymore, but you'll save yourself a lot of CPSSkins and
+CPSPortlets overhead. 
+
+On the contrary you could decide that esi fragments have to be cached and that
+the whole page is dynamic. In that case beware that some intermediate agents
+refuse by default to cache GET requests that have a query part, like those
+issued by CPSSkins
+
+
+.. Emacs
+.. Local Variables:
+.. mode: rst
+.. End:
+.. Vim
+.. vim: set filetype=rst:
+
