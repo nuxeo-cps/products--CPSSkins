@@ -6,6 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- Started to write some doc on ESI
 - Reanabled the tests by having them run in the CPS3 environment, 
   instead of the simpler CMF. Both were provided, but the CMF fixture is broken.
 New internal features
