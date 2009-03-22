@@ -24,6 +24,7 @@ import logging
 
 # provides __traceback_info__
 from zExceptions.ExceptionFormatter import format_exception
+from Acquisition import aq_acquire
 from AccessControl import Unauthorized
 from ZODB.POSException import ConflictError
 
@@ -50,6 +51,16 @@ def shield_apply(obj, meth, *args, **kwargs):
     except (ConflictError, Unauthorized): # these must go through
         raise
     except:
+        ## Site Error Log
+        try:
+            error_log = aq_acquire(obj, '__error_log__')
+        except AttributeError:
+            error_log = None
+        if error_log is not None:
+            error_log.raising(sys.exc_info())
+
+        ## logging module
+
         # using just direct caller's traceback info
         # didn't found options in ExceptionFormatter to do this
         cframe = inspect.stack()[1][0]
