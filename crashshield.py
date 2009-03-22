@@ -67,9 +67,18 @@ def shield_apply(obj, meth, *args, **kwargs):
         tbi = cframe.f_locals.get('__traceback_info__')
         cformatted = traceback.format_list(traceback.extract_stack(cframe, 1))
 
+        # don't dump through logging if error_log is present
+        # because it will do it, according to user preference.
+        # note that our log line could be not close from the one provided
+        # by Site Error Log, which is bad, but acceptable (just 2 lines, and
+        # nothing we can't do about it)
+        if error_log is None:
+            tb = ''.join(format_exception(*sys.exc_info()))
+        else:
+            tb = ''
+
         logger.error(
             "exception catched; caller: \n%s    - __traceback_info__: %s\n%s",
-                     ''.join(cformatted), tbi,
-                     ''.join(format_exception(*sys.exc_info())))
+                     ''.join(cformatted), tbi, tb)
         raise CrashShieldException()
 
