@@ -25,6 +25,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from AccessControl import Unauthorized
 from OFS.PropertyManager import PropertyManager
 from ZODB.POSException import ConflictError
 from zLOG import LOG, DEBUG
@@ -157,7 +158,7 @@ class PortletBox(BaseTemplet, SimpleBox):
         if shield:
             try:
                 body = portlet.render_cache(**kw)
-            except ConflictError: # catch conflict errors
+            except (ConflictError, Unauthorized): # these go through
                 raise
             except:
                 LOG('CPSSkins.PortletBox:', DEBUG,

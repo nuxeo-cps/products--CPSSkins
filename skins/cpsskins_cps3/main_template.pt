@@ -2,7 +2,6 @@
   tal:define="showthirdcol showthirdcol|python:1;
               emptybody emptybody|request/emptybody|nothing;
               mtool here/portal_membership;
-              can_raise python:mtool.assertViewable(here);
               utool nocall:here/portal_url;
               atool here/portal_actions;
               ttool here/portal_trees;

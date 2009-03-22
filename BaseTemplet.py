@@ -27,6 +27,7 @@ import md5
 
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
+from AccessControl import Unauthorized
 from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
@@ -509,14 +510,14 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
                     # crash shield
                     try:
                         rendered = apply(meth, (), kw)
-                    except ConflictError: # catch conflict errors
+                    except (ConflictError, Unauthorized): # these go through
                         raise
                     except:
                         self.rebuild()
                         # try again to render it ...
                         try:
                             rendered = apply(meth, (), kw)
-                        except ConflictError: # catch conflict errors
+                        except (ConflictError, Unauthorized):
                             raise
                         # total failure
                         except:
