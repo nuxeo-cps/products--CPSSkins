@@ -25,13 +25,12 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
 from OFS.PropertyManager import PropertyManager
-from ZODB.POSException import ConflictError
-from zLOG import LOG, DEBUG
 
 from Products.CMFCore.utils import getToolByName
 
+from crashshield import shield_apply
+from crashshield import CrashShieldException
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes
@@ -155,19 +154,12 @@ class PortletBox(BaseTemplet, SimpleBox):
             return ''
 
         kw['portlet'] = portlet
+
+        __traceback_info__ = "portlet id: " + portlet.getId()
         if shield:
             try:
-                body = portlet.render_cache(**kw)
-            except (ConflictError, Unauthorized): # these go through
-                raise
-            except:
-                LOG('CPSSkins.PortletBox:', DEBUG,
-                """The portlet with id %s could not be rendered """
-                """because it contains errors. To obtain a """
-                """detailed error log please deactivate """
-                """CPSSkins' built-in crash shield in """
-                """portal_themes > Options > Deactivate """
-                """the crash shield.""" % portlet.getId())
+                shield_apply(portlet, 'render_cache', **kw)
+            except CrashShieldException:
                 body = '<blink>!!!</blink>'
         else:
             body = portlet.render_cache(**kw)

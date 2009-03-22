@@ -6,6 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- #1988: crash field should log errors
 - Started to write some doc on ESI
 - Reanabled the tests by having them run in the CPS3 environment, 
   instead of the simpler CMF. Both were provided, but the CMF fixture is broken.

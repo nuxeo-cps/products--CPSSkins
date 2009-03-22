@@ -27,12 +27,9 @@ import md5
 
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
 from Acquisition import aq_base
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
-from ZODB.POSException import ConflictError
-from zLOG import LOG, DEBUG
 from types import ListType, TupleType
 
 from Products.CMFCore.DynamicType import DynamicType
@@ -44,6 +41,8 @@ from cpsskins_utils import rebuild_properties, callAction, \
                            getObjectVisibility, canonizeId, \
                            getAvailableLangs, getDefaultLang, html_slimmer
 
+from crashshield import shield_apply
+from crashshield import CrashShieldException
 from PageBlockContent import PageBlockContent
 from StylableContent import StylableContent
 
@@ -492,51 +491,35 @@ class BaseTemplet(PageBlockContent, StylableContent, DynamicType, PropertyManage
 
         return self.render_skin(shield=shield, **kw)
 
+    def _render_skin(self, **kw):
+        """Render the templet's skin with no shield.
+
+        This can be called either directly or from wthin the crash shield
+        """
+        actionid = getattr(aq_base(self), 'render_method')
+        meth = getattr(self, actionid)
+        try:
+            return apply(meth, (), kw)
+        except ConflictError: # must go through
+            raise
+        except:
+            self.rebuild()
+            # try again to render it ...
+            return apply(meth, (), kw)
+
     security.declarePublic('render_skin')
     def render_skin(self, shield=0,  **kw):
         """Render the templet's skin."""
 
-        fail = 0
-        if getattr(aq_base(self), 'render_method', None) is not None:
-            actionid = self.render_method
+        __traceback_info__ = "templet id: " + self.getId()
+        if shield:
+            try:
+                rendered = shield_apply(self, '_render_skin', **kw)
+            except CrashShieldException:
+                rendered = '<blink>!!!</blink>'
         else:
-            fail = 1
+            rendered = self._render_skin(**kw)
 
-        rendered = ''
-        if not fail:
-            meth = getattr(self, actionid, None)
-            if meth is not None:
-                if shield:
-                    # crash shield
-                    try:
-                        rendered = apply(meth, (), kw)
-                    except (ConflictError, Unauthorized): # these go through
-                        raise
-                    except:
-                        self.rebuild()
-                        # try again to render it ...
-                        try:
-                            rendered = apply(meth, (), kw)
-                        except (ConflictError, Unauthorized):
-                            raise
-                        # total failure
-                        except:
-                            LOG('CPSSkins.BaseTemplet:', DEBUG,
-                            """The templet with id %s could not be rendered """
-                            """because it contains errors. To obtain a """
-                            """detailed error log please deactivate """
-                            """CPSSkins' built-in crash shield in """
-                            """portal_themes > Options > Deactivate """
-                            """the crash shield.""" % self.getId())
-                            fail = 1
-                # no crash shield
-                else:
-                    rendered = apply(meth, (), kw)
-            else:
-                fail = 1
-
-        if fail:
-            rendered = '<blink>!!!</blink>'
         return html_slimmer(rendered)
 
     security.declarePublic('render_cache')

@@ -27,16 +27,18 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
   a slot that displays the original portal boxes.
 """
 
+import logging
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
-from ZODB.POSException import ConflictError
-from zLOG import LOG, DEBUG
 
 from Products.CMFCore.utils import getToolByName
 
+from crashshield import shield_apply
+from crashshield import CrashShieldException
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
+
+logger = logging.getLogger('Products.CPSSkins.PortalBoxGroup')
 
 factory_type_information = (
     {'id': 'Portal Box Group Templet',
@@ -271,17 +273,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             else:
                 if shield:
                     try:
-                        rendered = portlet.render_cache(**kw)
-                    except (ConflictError, Unauthorized): # these go through
-                        raise
-                    except:
-                        LOG('CPSSkins.PortalBoxGroup:', DEBUG,
-                        """The portlet with id %s could not be rendered """
-                        """because it contains errors. To obtain a """
-                        """detailed error log please deactivate """
-                        """CPSSkins' built-in crash shield in """
-                        """portal_themes > Options > Deactivate """
-                        """the crash shield.""" % portlet.getId())
+                        __traceback_info__="portlet id: " + portlet.getId()
+                        rendered = shield_apply(portlet, 'render_cache', **kw)
+                    except CrashShieldException:
                         rendered = '<blink>!!!</blink>'
                 else:
                     rendered = portlet.render_cache(**kw)
@@ -303,9 +297,9 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 if charset != 'unicode':
                     try:
                         title = title.encode(charset, 'ignore')
-                    except (UnicodeDecodeError, LookupError), ex:
-                        LOG("PortalBoxGroup.render", DEBUG,
-                            "Error on %r = %s" % (title, str(ex)))
+                    except (UnicodeDecodeError, LookupError):
+                        logger.warn("problem with title=%r", repr(title),
+                                    exc_info=True)
             rendered = renderBoxLayout(
                 boxlayout=boxlayout,
                 title=title,
