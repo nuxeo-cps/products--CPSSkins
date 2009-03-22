@@ -158,7 +158,7 @@ class PortletBox(BaseTemplet, SimpleBox):
         __traceback_info__ = "portlet id: " + portlet.getId()
         if shield:
             try:
-                shield_apply(portlet, 'render_cache', **kw)
+                body = shield_apply(portlet, 'render_cache', **kw)
             except CrashShieldException:
                 body = '<blink>!!!</blink>'
         else:
