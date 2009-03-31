@@ -59,6 +59,7 @@ MAX_COOKIE_LENGTH = 4096
 # Theme negociation
 CPSSKINS_THEME_COOKIE_ID = 'cpsskins_theme'
 CPSSKINS_LOCAL_THEME_ID = '.cpsskins_theme'
+CPSSKINS_ERROR_RENDERING_MARKER = '_cpsskins_error_rendering'
 
 # External themes
 STATUS_NO_THEME_INFO = 0
@@ -238,6 +239,21 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             del view_params[k]
 
         self.setViewMode(view_params)
+
+    security.declarePublic('prepareErrorRendering')
+    def markAsErrorRendering(self):
+        """Mark this rendering as an exception rendering.
+
+        Might be useful for certain elements that should avoid needless
+        costly or unsafe operations"""
+        response = self.REQUEST.RESPONSE
+        setattr(response, CPSSKINS_ERROR_RENDERING_MARKER, True)
+
+    security.declarePublic('prepareErrorRendering')
+    def isErrorRendering(self):
+        """Is this an error rendering?"""
+        response = self.REQUEST.RESPONSE
+        return getattr(response, CPSSKINS_ERROR_RENDERING_MARKER, False)
 
     security.declarePublic('getPortalThemeRoot')
     def getPortalThemeRoot(self, object=None):

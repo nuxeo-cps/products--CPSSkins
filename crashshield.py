@@ -28,6 +28,8 @@ from Acquisition import aq_acquire
 from AccessControl import Unauthorized
 from ZODB.POSException import ConflictError
 
+from Products.CMFCore.utils import getToolByName
+
 logger = logging.getLogger('Products.CPSSkins.crashshield')
 
 """Crash shield and error handling for CPSSkins."""
@@ -45,11 +47,17 @@ def shield_apply(obj, meth, *args, **kwargs):
 
     The caller can use __traceback_info__ to provide details
     """
-
     try:
         return getattr(obj, meth)(*args, **kwargs)
-    except (ConflictError, Unauthorized): # these must go through
+    except ConflictError: # must go through
         raise
+    except Unauthorized: # must go through except while rendering an error
+        if getToolByName(obj, 'portal_themes').isErrorRendering():
+            logger.debug("Catched Unauthorized exception while rendering an "
+                         "error page")
+            raise CrashShieldException() # no logging
+        else:
+            raise
     except:
         ## Site Error Log
         try:
