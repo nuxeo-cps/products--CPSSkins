@@ -6,6 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- #2002: crash field doesn't catch (ImportError) for basic templets
 - #1987: get rid of "assertViewable" error logs
 - #1988: crash field should log errors
 - Started to write some doc on ESI

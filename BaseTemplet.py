@@ -28,6 +28,7 @@ import md5
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
+from ZODB.POSException import ConflictError
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 from types import ListType, TupleType
