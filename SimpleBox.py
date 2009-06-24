@@ -200,6 +200,11 @@ class SimpleBox(ExtensionClass.Base):
     def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
         """Render the box layout.
         """
+        if kw.get('dthm_export') and kw.get('is_portlet'):
+            # wrap in markers for CPSDesignerThemes
+            title = '<span cps:remove="True" cps:portlet="title">%s</span>' % (
+                title,)
+            body = '<div cps:remove="True" cps:portlet="body">%s</div>' % body
         if boxlayout == 'standard' or boxlayout == '':
             return BOX_LAYOUTS['standard']['markup'] % (title, body)
         if boxlayout == 'plain':

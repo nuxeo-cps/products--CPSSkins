@@ -1,0 +1,11 @@
+<metal:html tal:define="dummy here/cpsskins_designer_export_switch">
+
+  <metal:body use-macro="here/main_template/macros/master">
+    <metal:main fill-slot="main">
+      <div>
+        Here comes the main content of the page.
+      </div>
+    </metal:main>
+  </metal:body>
+
+</metal:html>

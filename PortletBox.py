@@ -34,6 +34,8 @@ from crashshield import CrashShieldException
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes
+from designerexport import DESIGNER_THEMES_EXPORT_PORTLET
+from designerexport import is_cps_designer_themes_export
 
 factory_type_information = (
     {'id': 'Portlet Box Templet',
@@ -150,6 +152,11 @@ class PortletBox(BaseTemplet, SimpleBox):
         portlet_id = self.getPortletId()
         portlet = ptltool.getPortletById(portlet_id)
 
+        dthm_export = is_cps_designer_themes_export(self)
+        if dthm_export:
+            portlet = DESIGNER_THEMES_EXPORT_PORTLET
+ 
+
         if portlet is None:
             return ''
 
@@ -175,12 +182,18 @@ class PortletBox(BaseTemplet, SimpleBox):
                 if charset != 'unicode':
                     title = title.encode(charset, 'ignore')
         rendered_box = []
+        if dthm_export:
+            rendered_box.append(
+                '<div cps:isolated-portlet="%s" cps:remove="t">' % portlet_id)
         if body:
             # add the box frame
             boxstyle = self.getCSSBoxLayoutStyle()
             if boxstyle:
                 rendered_box.extend('<div style="%s">' % boxstyle)
-            rendered_box.extend('<div class="%s">' % self.getCSSBoxClass())
+            attrs = ['class="%s"' % self.getCSSBoxClass()]
+            if dthm_export:
+                attrs.append('cps:portlet="frame"')
+            rendered_box.extend('<div %s>' % ' '.join(attrs))
             # add the box decoration
             rendered_box.extend(self.renderBoxLayout(
                 boxlayout=self.boxlayout,
@@ -191,6 +204,8 @@ class PortletBox(BaseTemplet, SimpleBox):
             rendered_box.extend('</div>')
             if boxstyle:
                 rendered_box.extend('</div>')
+        if dthm_export:
+            rendered_box.append('</div>')
         return ''.join(rendered_box)
 
     security.declarePublic('render_js')

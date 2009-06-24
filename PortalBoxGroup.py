@@ -37,6 +37,8 @@ from crashshield import shield_apply
 from crashshield import CrashShieldException
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
+from designerexport import DESIGNER_THEMES_EXPORT_PORTLET
+from designerexport import is_cps_designer_themes_export
 
 logger = logging.getLogger('Products.CPSSkins.PortalBoxGroup')
 
@@ -238,7 +240,6 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         mtool = getToolByName(self, 'portal_membership')
         utool = getToolByName(self, 'portal_url')
         checkPerm = mtool.checkPermission
-        portlets = ptltool.getPortlets(context, slot, **kw)
         charset = utool.getPortalObject().default_charset
 
         box_title_i18n = self.box_title_i18n
@@ -253,6 +254,14 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
 
         renderBoxLayout = self.renderBoxLayout
 
+        dthm_export = is_cps_designer_themes_export(self)
+        all_rendered = []
+        if dthm_export:
+            portlets = [DESIGNER_THEMES_EXPORT_PORTLET,]
+            all_rendered.append('<div cps:slot="%s">' % slot)
+        else:
+            portlets = ptltool.getPortlets(context, slot, **kw)
+
         # edge-side includes
         render_esi = 0
         if enable_esi:
@@ -264,7 +273,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
             kw['folder_editable'] = checkPerm('Manage Portlets', bmf)
             kw['folder_rurl'] = utool.getRelativeUrl(bmf)
 
-        all_rendered = []
+
         for portlet in portlets:
             kw['portlet'] = portlet
             # render the box body
@@ -285,9 +294,23 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 continue
 
             # open the box frame
-            if boxstyle:
-                all_rendered.append('<div style="%s">' % boxstyle)
-            if boxclass:
+            if boxstyle or boxclass:
+                has_frame = True
+                enclosing_attrs = []
+                if boxstyle:
+                    enclosing_attrs.append('style="%s"' % boxstyle)
+                elif boxclass:
+                    enclosing_attrs.append('class="%s"' % boxclass)
+            if dthm_export:
+                if not has_frame:
+                    has_frame = True
+                    enclosing_attrs = ['cps:remove="True"']
+                enclosing_attrs.append('cps:portlet="frame"')
+
+            if has_frame:
+                all_rendered.append('<div %s>' % ' '.join(enclosing_attrs))
+
+            if boxstyle and boxclass:
                 all_rendered.append('<div class="%s">' % boxclass)
 
             # add the box decoration
@@ -316,11 +339,13 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                     **kw)
             all_rendered.append(rendered)
             # close the box frame
-            if boxstyle:
+            if boxstyle and boxclass:
                 all_rendered.append('</div>')
-            if boxclass:
+            if has_frame:
                 all_rendered.append('</div>')
 
+        if dthm_export:
+                all_rendered.append('</div>')
         rendered = ''.join(all_rendered)
         # wrap a box slot in edit mode
         if boxedit:
