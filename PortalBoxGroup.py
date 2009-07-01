@@ -258,7 +258,10 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
         all_rendered = []
         if dthm_export:
             portlets = [DESIGNER_THEMES_EXPORT_PORTLET,]
-            all_rendered.append('<div cps:slot="%s">' % slot)
+            attrs = ['cps:slot="%s"' % slot]
+            if box_title_i18n:
+                attrs.append('cps:translate-titles="true"')
+            all_rendered.append('<div %s>' % ' '.join(attrs))
         else:
             portlets = ptltool.getPortlets(context, slot, **kw)
 
