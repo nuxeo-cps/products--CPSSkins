@@ -297,6 +297,7 @@ class PortalBoxGroup(BaseTemplet, SimpleBox):
                 continue
 
             # open the box frame
+            has_frame=False
             if boxstyle or boxclass:
                 has_frame = True
                 enclosing_attrs = []
