@@ -1,4 +1,29 @@
 ===========================================================
+Package: CPSSkins 2.16.0
+===========================================================
+First release built by: gracinet at: 2009-09-02T22:07:59
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.16.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@53821
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #2003: Basic support for CPSDesignerThemes export
+Bug fixes
+~~~~~~~~~
+- #2002: crash field doesn't catch (ImportError) for basic templets
+- #1987: get rid of "assertViewable" error logs
+- #1988: crash field should log errors
+- Started to write some doc on ESI
+- Reanabled the tests by having them run in the CPS3 environment, 
+  instead of the simpler CMF. Both were provided, but the CMF fixture is broken.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.15.4
 ===========================================================
 First release built by: madarche at: 2008-11-23T22:17:58
