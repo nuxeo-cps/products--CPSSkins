@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSSkins 2.16.1
+===========================================================
+First release built by: gracinet at: 2009-09-03T12:25:44
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.16.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@53833
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2026: make theme resolver reusable
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.16.0
 ===========================================================
 First release built by: gracinet at: 2009-09-02T22:07:59
