@@ -1500,8 +1500,6 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                     if page_container is None and page != '':
                         err = "WARNING: Page '%s' not found in the '%s' theme" \
                               % (page, theme)
-                        page = ''
-                        continue
                 theme_page = theme
                 if page:
                     theme_page += '+' + page
