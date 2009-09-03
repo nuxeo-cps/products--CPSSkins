@@ -721,9 +721,13 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
         return theme_id, page_id
 
     security.declarePublic('getRequestedThemeAndPageName')
-    def getRequestedThemeAndPageName(self, **kw):
+    def getRequestedThemeAndPageName(self, no_defaults=False, **kw):
         """Gets the name of the requested theme and page by checking a series
            of URL parameters, variables, folder attributes, cookies, ...
+
+           If no_defaults is True, don't lookup the default theme, return
+           None, None for further treatment instead (used by CPSDesignerThemes)
+           TODO: cleaner to extract this in a common module in CPSUtil
         """
 
         REQUEST = self.REQUEST
@@ -771,6 +775,8 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             return self._extractThemeAndPageName(theme, None)
 
         # default theme, page not specified
+        if no_defaults:
+            return None, None
         return self.getDefaultThemeName(), None
 
     security.declarePublic('getEffectiveThemeAndPageName')
@@ -1486,15 +1492,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 meth = form['method_%s' % index].strip()
                 theme = form['theme_%s' % index].strip()
                 theme_container = self.getThemeContainer(theme=theme)
-                if theme_container.getId() != theme:
-                    err = "WARNING: Theme '%s' not found" % theme
-                    continue
                 page = form['page_%s' % index].strip()
-                page_container = theme_container.getPageContainer(page=page)
-                if page_container is None and page != '':
-                    err = "WARNING: Page '%s' not found in the '%s' theme" \
-                          % (page, theme)
-                    page = ''
+                if theme_container.getId() != theme:
+                    err = "WARNING: '%s' not a CPSSkins theme!" % theme
+                else:
+                    page_container = theme_container.getPageContainer(page=page)
+                    if page_container is None and page != '':
+                        err = "WARNING: Page '%s' not found in the '%s' theme" \
+                              % (page, theme)
+                        page = ''
+                        continue
                 theme_page = theme
                 if page:
                     theme_page += '+' + page
