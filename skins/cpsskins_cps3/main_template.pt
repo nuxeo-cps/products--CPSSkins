@@ -1,8 +1,10 @@
 <metal:block define-macro="master"
-  tal:define="showthirdcol showthirdcol|python:1;
+	     tal:define="utool nocall:here/portal_url;
+			 void python:utool.getPortalObject().handleVoidResponses(here, request)">
+  <tal:block condition="not:void"
+	     define="showthirdcol showthirdcol|python:1;
               emptybody emptybody|request/emptybody|nothing;
               mtool here/portal_membership;
-              utool nocall:here/portal_url;
               atool here/portal_actions;
               ttool here/portal_trees;
               wtool here/portal_workflow;
@@ -65,4 +67,5 @@
         </metal:block>
     </body>
   </html>
+ </tal:block>
 </metal:block>

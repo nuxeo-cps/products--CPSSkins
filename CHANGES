@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- #2040: Shortcut for void body HTTP responses
 Bug fixes
 ~~~~~~~~~
 -
