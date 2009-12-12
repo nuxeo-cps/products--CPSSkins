@@ -40,7 +40,7 @@ else:
 if link:
     tag += '<a href="%s" title="%s">' % (escape(link), escape(title))
 
-tag += '<img src="%s/index_html" width="%s" height="%s" alt="%s" />' % \
+tag += '<img src="%s" width="%s" height="%s" alt="%s" />' % \
         (escape(img_url), width, height, escape(title))
 
 if link:

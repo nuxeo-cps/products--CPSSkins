@@ -6,6 +6,7 @@ New features
 - #2040: Shortcut for void body HTTP responses
 Bug fixes
 ~~~~~~~~~
+- #2079: Exported CPSSkins image box cause weird and hard to find Unauthorized exceptions
 - #2024: Portal status message now expected to be rendered in a portlet
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
