@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSSkins 2.17.0
+===========================================================
+First release built by: gracinet at: 2009-12-15T12:28:15
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/tags/2.17.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSSkins/trunk@54101
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #2040: Shortcut for void body HTTP responses
+Bug fixes
+~~~~~~~~~
+- #2079: Exported CPSSkins image box cause weird and hard to find Unauthorized exceptions
+- #2024: Portal status message now expected to be rendered in a portlet
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.16.1
 ===========================================================
 First release built by: gracinet at: 2009-09-03T12:25:44
