@@ -1168,13 +1168,17 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
     def renderAccessKeys(self, **kw):
         """Render all access keys
         """
-        rendered = ''
+        fragments = []
 
         # Retrieving the accesskeys for CPSDefault which are defined in a
         # vocabulary.
         vtool = getToolByName(self, 'portal_vocabularies', None)
         utool = getToolByName(self, 'portal_url')
         portal = utool.getPortalObject()
+        # One can't use the getTranslationService method because it returns None
+        # in the CPS3 context.
+        #transl_service = self.getTranslationService()
+        translation_service = getToolByName(self, 'translation_service', None)
         if vtool is not None:
             accesskeys_voc = getattr(vtool, 'accesskeys', {})
             for accesskey, path in accesskeys_voc.items():
@@ -1184,21 +1188,15 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
                 else:
                     # For example: "#content", "mailto:xxx"
                     url = path
-                rendered += ('<a href="%s" accesskey="%s"></a>'
-                             % (url, accesskey))
+                label = accesskeys_voc.getMsgid(accesskey)
+                if translation_service:
+                    label = translation_service.translateDefault(label)
+                fragments.append('<a href="%s" accesskey="%s">%s</a>'
+                                % (url, accesskey, label))
 
-        # Retrieving the accesskey for CPSSkins
-        rendered += self.renderAccessKey(**kw)
-
-        # Retrieving the accesskey for CPSPortlets
-        ptltool = getToolByName(self, 'portal_cpsportlets', None)
-        if ptltool is not None:
-            try:
-                rendered += ptltool.renderAccessKey(**kw)
-            except AttributeError:
-                pass
-        if rendered != '':
-            rendered = '<div>%s</div>' % rendered
+        rendered = ''
+        if fragments:
+            rendered = '<div class="accessnav">%s</div>' % ' | '.join(fragments)
         return rendered
 
     #

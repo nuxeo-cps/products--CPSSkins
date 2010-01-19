@@ -319,3 +319,34 @@ div.xmlExportButtons a {
 .cpsskinsHBox div.xmlExportButtons {
   display: none;
 }
+
+/**********************************************************************
+ * Styles for hiding the accessibility navigation panel
+ * Solution from http://www.projectseven.com/tutorials/accessibility/hideskip/index.htm
+ **********************************************************************/
+.accessnav {
+    position: absolute;
+    width: 80%;
+    top: -300px;
+    left: 0;
+}
+
+.accessnav a {
+    position: absolute;
+    top: 0;
+}
+
+.p7ie6Fix:active, .accessnav a:active, .accessnav a:focus {
+    top: 300px;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #333333;
+}
+
+
+/*
+Local Variables:
+mode: css
+End:
+vim: set filetype=css:
+*/
