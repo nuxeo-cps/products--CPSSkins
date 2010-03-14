@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSSkins 2.17.1
+===========================================================
+First release built by: gracinet at: 2010-03-14T16:31:56
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed CPSSkins accesskeys links break current accessibility guidelines
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.17.0
 ===========================================================
 First release built by: gracinet at: 2009-12-15T12:28:15
