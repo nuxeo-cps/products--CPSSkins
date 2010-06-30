@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSSkins 2.19.0
+===========================================================
+First release built by: gracinet at: 2010-06-30T02:36:28
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #2169: new profile to reenable CPSSkins on CPSDefault
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.18.0
 ===========================================================
 First release built by: gracinet at: 2010-06-30T02:35:21
