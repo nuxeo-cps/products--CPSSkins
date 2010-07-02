@@ -354,3 +354,11 @@ def initialize(registrar):
                     'CPSSkins',
                     EXTENSION,
                     for_=ICPSSite)
+            if 'CPSSkins:cpslegacy' not in profile_registry.listProfiles():
+                profile_registry.registerProfile(
+                    'cpslegacy',
+                    'CPSSkins legacy',
+                    "CPSSkins legacy compatibility profile for CPS 3.5.x",
+                    'profiles/cpslegacy',
+                    'CPSSkins',
+                    for_=ICPSSite)
