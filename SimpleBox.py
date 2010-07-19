@@ -26,6 +26,7 @@ __author__ = "Jean-Marc Orliaguet <jmo@ita.chalmers.se>"
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
+from Products.CPSUtil.text import get_final_encoding
 
 import ExtensionClass
 
@@ -200,6 +201,10 @@ class SimpleBox(ExtensionClass.Base):
     def renderBoxLayout(self, boxlayout='', title='', body='', **kw):
         """Render the box layout.
         """
+        if isinstance(title, unicode):
+            # at this stage, must be properly encoded (same as portlets output)
+            title = title.encode(get_final_encoding(self))
+
         if kw.get('dthm_export') and kw.get('is_portlet'):
             # wrap in markers for CPSDesignerThemes
             title = '<span cps:remove="True" cps:portlet="title">%s</span>' % (
