@@ -12,6 +12,9 @@ title = kw.get('title', ptype_id)
 
 dest_rurl = kw.get('dest_rurl')
 
+# typically in a hidden input, but must be an integer
+kw['order'] = int(kw.get('order', 0))
+
 portal_path = context.portal_url.getPortalPath()
 
 dest_folder = None

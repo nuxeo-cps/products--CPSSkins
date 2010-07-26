@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2178: (related) now need to make 'order' an integer for portlets
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
