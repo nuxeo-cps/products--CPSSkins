@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSSkins 2.19.1
+===========================================================
+First release built by: gracinet at: 2010-07-26T22:52:18
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2178: (related) now need to make 'order' an integer for portlets
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.19.0
 ===========================================================
 First release built by: gracinet at: 2010-06-30T02:36:28
