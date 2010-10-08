@@ -29,8 +29,8 @@ from OFS.PropertyManager import PropertyManager
 
 from Products.CMFCore.utils import getToolByName
 
-from crashshield import shield_apply
-from crashshield import CrashShieldException
+from Products.CPSUtil.crashshield import shield_apply
+from Products.CPSUtil.crashshield import CrashShieldException
 from BaseTemplet import BaseTemplet
 from SimpleBox import SimpleBox
 from CPSSkinsPermissions import ManageThemes

@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2091: crashshield factorized to CPSUtil
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

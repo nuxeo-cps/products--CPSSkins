@@ -42,8 +42,8 @@ from cpsskins_utils import rebuild_properties, callAction, \
                            getObjectVisibility, canonizeId, \
                            getAvailableLangs, getDefaultLang, html_slimmer
 
-from crashshield import shield_apply
-from crashshield import CrashShieldException
+from Products.CPSUtil.crashshield import shield_apply
+from Products.CPSUtil.crashshield import CrashShieldException
 from PageBlockContent import PageBlockContent
 from StylableContent import StylableContent
 
