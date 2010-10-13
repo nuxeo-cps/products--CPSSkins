@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSSkins 2.19.2
+===========================================================
+First release built by: gracinet at: 2010-10-13T11:36:12
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2091: crashshield factorized to CPSUtil
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.19.1
 ===========================================================
 First release built by: gracinet at: 2010-07-26T22:52:18
