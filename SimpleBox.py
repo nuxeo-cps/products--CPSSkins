@@ -204,6 +204,8 @@ class SimpleBox(ExtensionClass.Base):
         if isinstance(title, unicode):
             # at this stage, must be properly encoded (same as portlets output)
             title = title.encode(get_final_encoding(self))
+        if isinstance(body, unicode):
+            body = body.encode(get_final_encoding(self))
 
         if kw.get('dthm_export') and kw.get('is_portlet'):
             # wrap in markers for CPSDesignerThemes
