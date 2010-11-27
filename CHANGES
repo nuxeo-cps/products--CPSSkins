@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- Possible unicode error with portlet titles
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
