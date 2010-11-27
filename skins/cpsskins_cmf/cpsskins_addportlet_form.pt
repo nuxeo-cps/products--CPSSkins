@@ -47,7 +47,7 @@
       <h1 class="fancy" i18n:translate="" i18n:domain="cpsskins"
       tal:define="title string:_Add_a_portlet_"
       tal:content="python: mcat and mcat(title) or title" />
-      <form action="cpsskins_portlet_add" method="get">
+      <form action="cpsskins_portlet_add" method="get" accept-charset="utf-8">
         <div class="locationInfo">
           <strong tal:define="title string:_Location_" i18n:translate=""
            tal:content="python: mcat and mcat(title) or title" />:
@@ -73,7 +73,7 @@
         tal:attributes="value slot" />
         <input type="hidden" name="order"
         tal:attributes="value order" />
-        <input type="string" name="Title"
+        <input type="string" name="Title:utf8:ustring"
         tal:attributes="value ptype_id" />
         <button type="submit" class="standalone"
         tal:define="title string:_button_create_;
