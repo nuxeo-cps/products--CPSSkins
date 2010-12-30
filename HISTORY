@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSSkins 2.19.4
+===========================================================
+First release built by: gracinet at: 2010-12-30T12:10:58
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2292: fixed creation of portlets with non ascii titles
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSSkins 2.19.3
 ===========================================================
 First release built by: gracinet at: 2010-11-27T04:25:52
