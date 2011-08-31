@@ -320,6 +320,8 @@ class PortalTheme(ThemeFolder, StylableContent):
         if REQUEST is not None:
             kw.update(REQUEST.form)
 
+        kw.pop('-C', None) # ZPublisher pollution
+
         self.setCacheHeaders(content_type='text/javascript', **kw)
 
         cache = self.getJSCache()
