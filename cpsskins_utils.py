@@ -35,7 +35,7 @@ except ImportError:
     from Products.CMFCore.CMFCorePermissions \
     import View, AccessContentsInformation
 
-from Products.CMFCore.utils import getToolByName, _getViewFor
+from Products.CMFCore.utils import getToolByName#, _getViewFor
 
 from Products.CPSSkins import minjson as json
 from CPSSkinsPermissions import ManageThemes
