@@ -35,7 +35,7 @@ except ImportError:
     from Products.CMFCore.CMFCorePermissions \
     import View, AccessContentsInformation
 
-from Products.CMFCore.utils import getToolByName#, _getViewFor
+from Products.CMFCore.utils import getToolByName
 
 from Products.CPSSkins import minjson as json
 from CPSSkinsPermissions import ManageThemes
@@ -108,6 +108,9 @@ def callAction(self, actionid, **kw):
     Call the given action.
     """
 
+    raise NotImplementedError(
+        "callAction must be replaced by a proper method alias lookup.")
+    # old code to emulate
     action = _getViewFor(self, view=actionid)
     if action and callable(action):
         return apply(action, (), kw)
