@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="cmf_default">
+
+  <genericsetup:registerProfile
+      name="cps_3_4"
+      title="CPSSkins tool and CPS 3.4 theme"
+      description="Install the themes tool and load the classical CPS 3.4 default theme"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      />
+
+</configure>
