@@ -797,14 +797,16 @@ class PortalThemesTool(ThemeFolder, ActionProviderBase):
             theme = self.getDefaultThemeName()
         # page
         theme_container = self.getThemeContainer(theme)
-        if page not in theme_container.getPageNames():
-            page = theme_container.getDefaultPageName()
+        if theme_container is not None:
+            if page not in theme_container.getPageNames():
+                page = theme_container.getDefaultPageName()
 
         # the theme has no page - use the default theme
         if page is None:
             theme = self.getDefaultThemeName()
             theme_container = self.getThemeContainer(theme)
-            page = theme_container.getDefaultPageName()
+            if theme_container is not None:
+                page = theme_container.getDefaultPageName()
 
         # cache the information in the request
         REQUEST['cpsskins_effective_theme_page'] = theme, page
